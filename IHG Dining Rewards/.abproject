@@ -1,0 +1,40 @@
+{
+  "ProjectName": "IHG Dining Rewards",
+  "ProjectGuid": "37d24e92-f8a1-4d2a-a04b-ab545fe1b60e",
+  "projectVersion": 1,
+  "AppIdentifier": "com.telerik.IHGDiningRewards",
+  "DisplayName": "IHG Dining Rewards",
+  "Author": "",
+  "Description": "",
+  "BundleVersion": "1.0",
+  "AndroidVersionCode": "1",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
+  "FrameworkVersion": "3.5.0",
+  "AndroidPermissions": [],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "AndroidHardwareAcceleration": "false",
+  "iOSStatusBarStyle": "Default",
+  "Framework": "Cordova",
+  "WP8TileTitle": "",
+  "WP8Publisher": "",
+  "WP8Capabilities": [],
+  "WP8Requirements": [],
+  "WP8PublisherID": "{d846232d-0fc0-46e2-ac49-ca5208b1b464}",
+  "WP8ProductID": "{749dc6c8-e49b-43b5-bd98-dc0a939738f5}",
+  "WPSdk": "8.0",
+  "WP8PackageIdentityName": "1234Telerik.IHGDiningRewards",
+  "WP8WindowsPublisherName": "CN=Telerik",
+  "WP8SupportedResolutions": [
+    "ID_RESOLUTION_WVGA",
+    "ID_RESOLUTION_WXGA",
+    "ID_RESOLUTION_HD720P"
+  ]
+}
