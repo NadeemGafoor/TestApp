@@ -1,3 +1,32 @@
-<div data-role="view" data-title="Home" data-layout="main" data-model="APP.models.home">
-  <h1 data-bind="html: title"></h1>
-</div>
+<div data-role="view"  data-layout="main-layout" id="home-view" data-stretch="true" data-model="postProgram">
+    <div data-role="header">
+        <div data-role="navbar">
+            <a data-role="button" href="#appdrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
+            <a data-role="button" class="brand-icon" href="views/aboutus.html">
+            </a>
+            <a data-role="button" href="views/login.html" data-rel="view" data-align="right">Sign in&nbsp; |</a>
+            <a data-role="button" href="views/join.html" data-rel="view" data-align="right">Join</a>
+        </div>
+
+    </div>
+
+    <div class="tile-frame">
+        <div class="tile-frame-inner" click="click: showloginpage">
+            <div class="tile-frame-image-myprofile tile-image-pos"></div>
+            <div class="tile-frame-text">My Profile</div>
+        </div>
+        <div class="tile-frame-inner">
+            <div class="tile-frame-image-mymessages tile-image-pos"></div>
+            <div class="tile-frame-text">My Messages</div>
+        </div>
+        <div class="tile-frame-inner">
+            <div class="tile-frame-image-myoffer tile-image-pos"></div>
+            <div class="tile-frame-text">My Offers</div>
+        </div>
+        <div class="tile-frame-inner">
+            <div class="tile-frame-image-myrewards tile-image-pos"></div>
+            <div class="tile-frame-text">My Rewards</div>
+        </div>
+    </div>
+
+ 

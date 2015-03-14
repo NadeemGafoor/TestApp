@@ -12,10 +12,10 @@
     <preference name="KeyboardDisplayRequiresUserAction" value="true" />
     <preference name="KeyboardShrinksView" value="false" />
     <preference name="MediaPlaybackRequiresUserAction" value="false" />
-    <preference name="ShowSplashScreenSpinner" value="true" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="SuppressesIncrementalRendering" value="false" />
     <preference name="TopActivityIndicator" value="gray" />
-
+    <preference name="StatusBarBackgroundColor" value="#000000" />
     <!-- legacy preferences -->
     <!--
     <preference name="UIWebViewBounce" value="true" />

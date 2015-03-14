@@ -1,51 +1,170 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-    <meta charset="utf-8" />
-    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
-    <link href="styles/main.css" rel="stylesheet" />
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="styles/main.css" />
+                <link href="styles/fontello.css" rel="stylesheet" />
+        <link rel="stylesheet" href="styles/phone320x568.css"/>
+        <link rel="stylesheet" href="styles/phone320x568.css" media="only screen and (max-device-height: 533px)" />
+        <link rel="stylesheet" href="styles/phone320x568.css" media="only screen and (max-device-height: 640px)"/>
+        <link rel="stylesheet" href="styles/phone320x640.css" media="(max-device-height: 640px) and  ((-webkit-device-pixel-ratio: 2) or (-webkit-device-pixel-ratio: 3))"/>
+        <link rel="stylesheet" href="styles/phone414x736.css" media="only screen and (max-device-height: 736px)"/>
+        <link rel="stylesheet" href="styles/phone375x667.css" media="only screen and (max-device-height: 667px)"/>
+        <link rel="stylesheet" href="styles/phone320x568.css" media="only screen and (max-device-height: 568px)" />
+        <link rel="stylesheet" href="styles/phone320x480.css" media="only screen and (max-device-height: 480px)" />
+        <link rel="stylesheet" href="styles/phone320x568.css" media="only screen and (max-device-height: 592px)" />
 
-    <script src="cordova.js"></script>
-    <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="cordova.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="scripts/everlive.all.min.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controller.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
 
-    <script src="scripts/app.js"></script>
+    </head>
+    <body>
+        <div data-role="layout" data-id="list-layout">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                    <a data-role="backbutton" data-align="left" style="color:#fff"></a>
+                </div>
+                <div data-role="navbar" style="background-color:#575757;height:3em">
+                    <span class="home-navbar-search">
+                        <input type="text" placeholder="Search Text..." class="search-bar">
+                    </span>
+                    <span class="home-navbar-search-R">
+                        <a data-role="button" href="views/locationsetting.html" data-rel="view" data-icon="customsearch" style="border:0;display:inline;font-size:1.1em;line-height:1em"></a>
+                    </span>
+                </div>
+            </div>
+            <!-- application views will be rendered here -->
+            <footer data-role="footer">
+                <div data-role="navbar" style="background-color:#575757">
+                    <div class="home-navbar-text">
+                        <label class="home-navbar-text-label" style="font-size:9pt;line-height:3em">&nbsp;Explore with IHG Fine Dining ©</label>
+                    </div>
+                    <div class="footer-logo">
+                        <img src="images/ihg.png" />
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+        
+        
+        <div data-role="layout" data-id="back-layout">
 
-</head>
-<body>
- 
-  <div data-role="layout" data-id="main">
-    <div data-role="header">
-      <div data-role="navbar">
-        <span data-role="view-title"></span>
-        <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
-      </div>
-    </div>
+            <!-- application views will be rendered here -->
+              <footer data-role="footer">
+                <div data-role="navbar">
+                    <div class="home-navbar" >
+                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+                    </div>
+                    <div class="footer-logo">&nbsp;</div>
 
-    <!-- application views will be rendered here -->
-    
-  </div>
+                </div>
+            </footer>
+        </div>
+        <div data-role="layout" data-id="main-layout">
 
-  <!-- application drawer and contents -->
-  <div data-role="drawer" id="appDrawer" style="width: 270px" data-title="Navigation">
-    <div data-role="header">
-      <div data-role="navbar">
-        <span data-role="view-title"></span>
-      </div>
-    </div>
-    <ul data-role="listview">
-      <li>
-        <a href="views/home.html">Home</a>
-      </li>
-      <li>
-        <a href="views/settings.html">Settings</a>
-      </li>
-      <li>
-        <a href="views/contacts.html">Contacts</a>
-      </li>
-    </ul>
-  </div>       
+            <footer data-role="footer">
+                <div data-role="navbar">
+                    <div class="home-navbar" >
+                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+                    </div>
+                    <div class="footer-logo">&nbsp;</div>
 
-</body>
+                </div>
+            </footer>
+        </div>
+        <!-- application views will be rendered here -->
+        <!-- application drawer and contents -->
+        <div data-role="drawer" id="appdrawer" style="width: 70%;background-color:#fff" data-swipe-to-open-views='["home-view"]' data-views='["home-view"]' >
+            <ul data-role="listview" style="background-color:#fff">
+                <li style="background-color:#fff">
+                    <img src="images/brand_logo_color.png" style="height:auto;width:auto;margin:-5px auto auto -5px;"/>
+                </li>
+
+                <li style="background-color:#343434;color:#fff">
+                    My Messages
+                </li>
+
+                <li style="background-color:#343434;color:#fff">
+                    My Benefits
+                </li>
+
+                <li style="background-color:#d96931;color:#fff">
+                    Participating Restaurants
+                </li>
+                <li data-icon="customrestlist">
+                    <a href="views/outletlist.html">
+                        List of Restaurants & Bars
+                    </a>
+                </li>
+                <li style="background-color:#fff" data-icon="customrestnear">
+                    <a href="views/outletnearme.html">
+                        Restaurants & Bars Near Me
+                    </a>
+                </li>
+
+                <li style="background-color:#d96931;color:#fff"> 
+                    Offers
+                </li>
+                <li style="background-color:#fff;color:#343434" data-icon="customoffer">
+                    <a href="views/outletlist.html">
+                        All Offers
+                    </a>
+                </li>
+                <li style="background-color:#fff" data-icon="customoffernear">
+                    <a href="views/outletnearme.html">
+                        Offers Near Me
+                    </a>
+                </li>
+
+                <li style="background-color:#979898;color:#fff">
+                    Support
+                </li>
+                <li data-icon="custombookmark">
+                    <a href="views/tutorial.html">Tutorial</a>
+                </li>
+                <li data-icon="customsetting">
+                    <a href="views/settings.html">Settings</a>
+                </li>
+                 <li data-icon="customprofile">
+                    <a href="views/settings.html">Customer Service</a>
+                </li>
+                <li data-icon="customterms">
+                    <a href="views/termsofservice.html">Terms of Service</a>
+                </li>
+                <li data-icon="customlogout">
+                    <a href="views/aboutus.html">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </body>
 </html>
+
+<style scope>
+    #appdrawer li
+    {
+        font-size: 15px;
+        height: 47px;
+        margin-left: -5px;
+        margin-right: -5px;
+        line-height: 30px;
+        border-top: 1px solid #343434  !important;
+        border-bottom: 1px solid #343434  !important;
+    }
+    
+ .km-content
+{
+    background-color:#fff !important;
+}
+    
+</style>
