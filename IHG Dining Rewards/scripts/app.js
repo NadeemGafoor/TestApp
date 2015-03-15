@@ -5,20 +5,21 @@
     document.addEventListener('deviceready', function () {
         // hide the splash screen as soon as the app is ready. otherwise
         // Cordova will wait 5 very long seconds to do it for you.
-  //hideNav();      
-       navigator.splashscreen.hide();   
+        //hideNav();      
+        navigator.splashscreen.hide();   
         // Initialize the Backend Services SDK
-   
          
         app = new kendo.mobile.Application(document.body, {
                                                platform: 'ios7',
-                                               transition:'slide',
                                                layout:'main-layout',
-                                                initial: checkNetwork()?"views/home.html":"views/nonetwork.html",
+            transition:'slide',
+                                               initial: checkNetwork()?"views/home.html":"views/nonetwork.html",
                                                //initial: "views/home.html",
                                                useNativeScrolling: false,
             
                                            });
+        
+       
     }, false);
    
     function checkNetwork () {
@@ -39,7 +40,7 @@
         }
     }
     
-      function hideNav() {
+    function hideNav() {
         setTimeout(function() {
             navigator.splashscreen.hide();  
         }, 1000);  //hide Loading Popup

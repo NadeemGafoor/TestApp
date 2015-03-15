@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="styles/main.css" />
-                <link href="styles/fontello.css" rel="stylesheet" />
+        <link href="styles/fontello.css" rel="stylesheet" />
         <link rel="stylesheet" href="styles/phone320x568.css"/>
         <link rel="stylesheet" href="styles/phone320x568.css" media="only screen and (max-device-height: 533px)" />
         <link rel="stylesheet" href="styles/phone320x568.css" media="only screen and (max-device-height: 640px)"/>
@@ -21,8 +21,10 @@
         <script src="kendo/js/jquery.min.js"></script>
         <script src="kendo/js/kendo.mobile.min.js"></script>
         <script src="scripts/everlive.all.min.js"></script>
+        <script src="scripts/nativePageTransition.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controller.js"></script>
+
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
 
     </head>
@@ -44,23 +46,20 @@
             </div>
             <!-- application views will be rendered here -->
             <footer data-role="footer">
-                <div data-role="navbar" style="background-color:#575757">
-                    <div class="home-navbar-text">
-                        <label class="home-navbar-text-label" style="font-size:9pt;line-height:3em">&nbsp;Explore with IHG Fine Dining ©</label>
+                <div data-role="navbar">
+                    <div class="home-navbar" >
+                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
                     </div>
-                    <div class="footer-logo">
-                        <img src="images/ihg.png" />
-                    </div>
+                    <div class="footer-logo">&nbsp;</div>
+
                 </div>
             </footer>
         </div>
-        
-        
-        
+
         <div data-role="layout" data-id="back-layout">
 
             <!-- application views will be rendered here -->
-              <footer data-role="footer">
+            <footer data-role="footer">
                 <div data-role="navbar">
                     <div class="home-navbar" >
                         <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
@@ -71,7 +70,16 @@
             </footer>
         </div>
         <div data-role="layout" data-id="main-layout">
+ <div data-role="header">
+        <div data-role="navbar">
+            <a data-role="button" href="#appdrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
+            <a data-role="button" class="brand-icon" href="views/aboutus.html">
+            </a>
+            <a data-role="button" href="views/login.html" data-align="right">Sign in&nbsp; |</a>
+            <a data-role="button" href="views/join.html" data-align="right">Join</a>
+        </div>
 
+    </div>
             <footer data-role="footer">
                 <div data-role="navbar">
                     <div class="home-navbar" >
@@ -85,67 +93,71 @@
         <!-- application views will be rendered here -->
         <!-- application drawer and contents -->
         <div data-role="drawer" id="appdrawer" style="width: 70%;background-color:#fff" data-swipe-to-open-views='["home-view"]' data-views='["home-view"]' >
-            <ul data-role="listview" style="background-color:#fff">
-                <li style="background-color:#fff">
-                    <img src="images/brand_logo_color.png" style="height:auto;width:auto;margin:-5px auto auto -5px;"/>
-                </li>
+            <div style="width:auto;height:750px;background-color:#fff">
+                <ul data-role="listview" style="background-color:#fff">
+                    <li style="background-color:#fff">
+                        <img src="images/brand_logo_color.png" style="height:auto;width:auto;margin:-5px auto auto -5px;"/>
+                    </li>
 
-                <li style="background-color:#343434;color:#fff">
-                    My Messages
-                </li>
+                    <li style="background-color:#343434;color:#fff">
+                        <a href="views/mymessagelist.html">
+                            My Messages
+                        </a>
+                    </li>
 
-                <li style="background-color:#343434;color:#fff">
-                    My Benefits
-                </li>
+                    <li style="background-color:#343434;color:#fff">
+                        My Benefits
+                    </li>
 
-                <li style="background-color:#d96931;color:#fff">
-                    Participating Restaurants
-                </li>
-                <li data-icon="customrestlist">
-                    <a href="views/outletlist.html">
-                        List of Restaurants & Bars
-                    </a>
-                </li>
-                <li style="background-color:#fff" data-icon="customrestnear">
-                    <a href="views/outletnearme.html">
-                        Restaurants & Bars Near Me
-                    </a>
-                </li>
+                    <li style="background-color:#d96931;color:#fff">
+                        Participating Restaurants
+                    </li>
+                    <li data-icon="customrestlist">
+                        <a href="views/outletlist.html">
+                            List of Restaurants & Bars
+                        </a>
+                    </li>
+                    <li style="background-color:#fff" data-icon="customrestnear">
+                        <a href="views/outletlist.html">
+                            Restaurants & Bars Near Me
+                        </a>
+                    </li>
 
-                <li style="background-color:#d96931;color:#fff"> 
-                    Offers
-                </li>
-                <li style="background-color:#fff;color:#343434" data-icon="customoffer">
-                    <a href="views/outletlist.html">
-                        All Offers
-                    </a>
-                </li>
-                <li style="background-color:#fff" data-icon="customoffernear">
-                    <a href="views/outletnearme.html">
-                        Offers Near Me
-                    </a>
-                </li>
+                    <li style="background-color:#d96931;color:#fff">
+                        Offers
+                    </li>
+                    <li style="background-color:#fff;color:#343434" data-icon="customoffer">
+                        <a href="views/outletlist.html">
+                            All Offers
+                        </a>
+                    </li>
+                    <li style="background-color:#fff" data-icon="customoffernear">
+                        <a href="views/outletnearme.html">
+                            Offers Near Me
+                        </a>
+                    </li>
 
-                <li style="background-color:#979898;color:#fff">
-                    Support
-                </li>
-                <li data-icon="custombookmark">
-                    <a href="views/tutorial.html">Tutorial</a>
-                </li>
-                <li data-icon="customsetting">
-                    <a href="views/settings.html">Settings</a>
-                </li>
-                 <li data-icon="customprofile">
-                    <a href="views/settings.html">Customer Service</a>
-                </li>
-                <li data-icon="customterms">
-                    <a href="views/termsofservice.html">Terms of Service</a>
-                </li>
-                <li data-icon="customlogout">
-                    <a href="views/aboutus.html">Logout</a>
-                </li>
+                    <li style="background-color:#979898;color:#fff">
+                        Support
+                    </li>
+                    <li data-icon="custombookmark">
+                        <a href="views/tutorial.html">Tutorial</a>
+                    </li>
+                    <li data-icon="customsetting">
+                        <a href="views/settings.html">Settings</a>
+                    </li>
+                    <li data-icon="customprofile">
+                        <a href="views/settings.html">Customer Service</a>
+                    </li>
+                    <li data-icon="customterms">
+                        <a href="views/termsofservice.html">Terms of Service</a>
+                    </li>
+                    <li data-icon="customlogout">
+                        <a href="views/aboutus.html">Logout</a>
+                    </li>
 
-            </ul>
+                </ul>
+            </div>
         </div>
     </body>
 </html>
@@ -158,13 +170,7 @@
         margin-left: -5px;
         margin-right: -5px;
         line-height: 30px;
-        border-top: 1px solid #343434  !important;
+        border-top: 0px solid #343434  !important;
         border-bottom: 1px solid #343434  !important;
     }
-    
- .km-content
-{
-    background-color:#fff !important;
-}
-    
-</style>
+    </style>
