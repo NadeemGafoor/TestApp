@@ -455,7 +455,7 @@ img
     float: left;
     width: 64%;
     font-weight: bold;
-    color: #fff;
+    color: #343434;
 }
 .inner-frame-2
 {
@@ -467,7 +467,7 @@ img
     float: left;
     width: 64%;
     font-style: italic;
-    color: #fff;
+    color: #343434;
 }
 
 .inner-frame-3
@@ -479,7 +479,7 @@ img
     position: relative;
     float: left;
     width: 64%; 
-    color: #fff; 
+    color: #343434; 
 }
 
 .inner-frame-4
@@ -491,7 +491,7 @@ img
     position: relative;
     float: left;
     width: 100%;
-    color: #fff;
+    color: #343434;
 }
 
 .inner-frame-1-o
@@ -550,6 +550,7 @@ img
     position: relative;
     float: left;
     width: 70%;
+    color:#343434;
 }
 .inner-frame-4b
 {
@@ -558,13 +559,13 @@ img
     position: relative;
     float: right;
     width: 20%;
-    color: #fff;
+    color: #343434;
 }
 .inner-frame-4b .km-button
 {
     color: #fff;
     font-size: .8em;
-    background-color: #0e549a;
+    background-color: #e67e1d;
     height: 2em;
     line-height: 1em;
     display: inline-block;
@@ -721,7 +722,7 @@ img
     float: left;
     width: 65%;
     font-weight: bold;
-    color: #fff;
+    color: #343434;
 
 }
 .msg-inner-frame-1a

@@ -1,5 +1,21 @@
 <div data-role="view" data-title="Offers" data-layout="list-layout" id="offerlist-theme">
-	<ul data-role="listview">
+     <div data-role="header">
+        <div data-role="navbar">
+            <a data-role="backbutton" data-align="left"></a>
+            <a data-role="button" class="brand-icon" href="views/aboutus.html">
+                <span data-role="view-title" data-align="right" style="color:#fff"></span>
+            </a>
+        </div>
+        <div data-role="navbar" style="background-color:#343434;height:3em">
+            <span class="home-navbar-search">
+                <input type="text" placeholder="Search Text..." class="search-bar">
+            </span>
+            <span class="home-navbar-search-R">
+                <a data-role="button" data-rel="view" data-icon="customsearch" style="border:0;display:inline;font-size:1.1em;line-height:1em"></a>
+            </span>
+        </div>
+    </div>
+	<ul data-role="listview" style="background-color:#fff">
 		<li>
 			<div class="outer-frame">
 				<div class="image-frame-list"><img src="images/o1.png" />
