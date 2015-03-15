@@ -645,17 +645,19 @@ img
     text-align: center;
 }
 
-.button-group .km-button .km-text
-{
-    color: rgb(178, 178, 178);
+.button-group .km-button {
+	background-color: #343434;
+	border: 1px solid #fff;
+	font-size: 1.2em;
 }
-.button-group .km-button.km-state-active .km-text
-{
-    color: rgb(255, 255, 255);
+.button-group .km-button .km-text {
+	color: #fff;
 }
-.button-group .km-button.km-state-active
-{
-    background-color: #003566;
+.button-group .km-button.km-state-active .km-text {
+	color: rgb(255, 255, 255);
+}
+.button-group .km-button.km-state-active {
+	background-color: #e67e1d;
 }
 
 #modalview-offersocial img
@@ -841,6 +843,7 @@ img
     display: block;
 }
 
+#settings-theme .input-frame input,
 #join-theme .input-frame input,
 #token-theme .input-frame input,
 #login-theme .input-frame input,
@@ -1027,8 +1030,15 @@ img
 .nonetwork-pos
 {
     background: url(../images/nonetwork.png) no-repeat center center;
-    background-size: cover;
-    -webkit-background-size: cover;
+    background-size: auto;
+    -webkit-background-size: auto;
+}
+
+.construction-pos
+{
+    background: url(../images/underconstruction.jpg) no-repeat center center;
+    background-size: 25%;
+    -webkit-background-size: 25%;
 }
 
 .deviceblock-pos
