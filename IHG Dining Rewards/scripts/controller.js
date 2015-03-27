@@ -45,7 +45,7 @@
     var social_subject="IHG Dining Rewards";
     var share_image = "http://exclusiveu.dynns.com:8088/mobileportal/images/ihg_logo.png";
     var share_contact = "Phone: +971 427 66 186 \nEmail: inquiry@ihg.com";
-    var short_msg="Check out the IHG Dining Rewards at http://www.ihgdiningrewards.com";
+    var short_msg="Check out the IHG Dining Rewards at ";
     var pushSettings = {
         iOS: {
             badge: "1",
@@ -74,10 +74,10 @@
     
     
      window.sharingSocialView = kendo.observable({
-                                                    social_subject:social_subject,
+                                                    social_subject:"",
                                                     social_message:"",
                                                     social_image:share_image,
-                                                    social_header:social_subject,
+                                                    social_header:"",
                                                     social_shortmsg:short_msg,
                                                     offersocialDestroyView:function() {
                                                         $("#pl-modalview-offersocial").remove();  
@@ -91,7 +91,7 @@
                                                     socialsharingFacebook: function () {
                                                         showSpin();
                                                        
-                                                        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(sharingSocialView.social_header + "\n" + sharingSocialView.social_message + "\n" + share_contact , null, "http://www.alyamamahrewards.com", "Share with your friends if you like!", function () {
+                                                        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(sharingSocialView.social_header + "\n" + sharingSocialView.social_message + "\n" + share_contact , null, "http://www.ihgdiningrewards.com", "Share with your friends if you like!", function () {
                                                         }, function (errormsg) {
                                                             alert(errormsg)
                                                         })
@@ -101,14 +101,14 @@
                                                     socialsharingTwitter:  function () {
                                                         showSpin();
                                                           
-                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg, sharingSocialView.social_image, "http://www.alyamamahrewards.com")
+                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg, sharingSocialView.social_image, "http://www.ihgdiningrewards.com")
                                                         hideSpin();
                                                     },
 
                                                     socialsharingWhatsApp: function () {
                                                         showSpin();
                                                       
-                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg, null, "http://www.alyamamahrewards.com", function () {
+                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg, null, "http://www.ihgdiningrewards.com", function () {
                                                         }, function (errormsg) {
                                                             alert(errormsg)
                                                         })
@@ -118,7 +118,7 @@
                                                     socialsharingSMS: function () {
                                                         showSpin();
                                                          
-                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "http://www.alyamamahrewards.com", null, function (msg) {
+                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "http://www.ihgdiningrewards.com", null, function (msg) {
                                                         }, function (msg) {
                                                             alert('Error: ' + msg)
                                                         })
@@ -168,7 +168,9 @@
                                                                   if (getData.benefitlist.length > 0) {
                                                                       document.getElementById("benefit-title-1").innerHTML = getData.benefitlist[0].titlename;
                                                                       document.getElementById("benefit-text3").innerHTML = "<pre>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
-                                                                       sharingSocialView.set("social_message", "<pre>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>");
+                                                                       sharingSocialView.set("social_subject", getData.benefitlist[0].shortdes1);
+                                                                      sharingSocialView.set("social_message", getData.benefitlist[0].shortdes2);
+                                                                                                                                            sharingSocialView.set("social_header", getData.benefitlist[0].shortdes1+"\n");
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       navigator.notification.alert("No Benefits exists for the selected Program!")    
