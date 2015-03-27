@@ -1089,6 +1089,11 @@ pre
     text-decoration: underline;
 }
 
+.italics
+{
+    font-style: italic;
+}
+
 .mycard-detail-holder-label
 {
     margin-top: 0;

@@ -27,10 +27,7 @@
     var getgps = false;//First time to look for location, do not look when the page is reloaded
     var gpsfind = "1";//Auto location enabled
     var lat, lon;
-    var h1 = "P97021";
-    var h2 = "P97022";
-    var h3 = "P97023";
-    var h4 = "P97024";
+   
     var outletcode = "";
     var brandcode = "";
     var benefitcode = "";
@@ -1221,6 +1218,7 @@
         
         
                                               benefitdetail: function (e) {
+                                                  alert("Hello");
                                                   benefitcode = e.view.params.bd; //benefit code for detail retrieval
                                                   showSpin(); //show loading popup
                                                   $.ajax({ 
@@ -1239,10 +1237,7 @@
                                                                      //fill the outlet template
                                                                      if (getData.benefitlist.length > 0) {
                                                                          document.getElementById("benefit-title-1").innerHTML = getData.benefitlist[0].titlename;
-                                                                         document.getElementById("benefit-text1").innerHTML = getData.benefitlist[0].titlename;
-                                                                         document.getElementById("benefit-text2").innerHTML = "<pre>" + getData.benefitlist[0].shortdes1 + "</pre>";
                                                                          document.getElementById("benefit-text3").innerHTML = "<pre>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
-                                                                         document.getElementById("benefit-image").style.background = "url(" + getData.benefitlist[0].imageurll + ") no-repeat center center";
                                                                          hideSpin(); //hide loading popup
                                                                      }else {
                                                                          navigator.notification.alert("No Benefits exists for the selected Program!")    
