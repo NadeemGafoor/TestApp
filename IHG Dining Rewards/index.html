@@ -57,14 +57,22 @@
         </div>
 
         <div data-role="layout" data-id="back-layout">
+             <div data-role="header">
+                <div data-role="navbar">
+                <div class="brand-icon"></div>
+                    <span data-role="view-title"></span>
+                    <a data-role="backbutton" data-align="left" style="color:#fff"></a>
+                </div>
+            </div>
 
             <!-- application views will be rendered here -->
             <footer data-role="footer">
+              
                 <div data-role="navbar">
                     <div class="home-navbar" >
                         <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
                     </div>
-                    <div class="footer-logo">&nbsp;</div>
+                     <a href="views/brandpage.html" data-transition="flip:up"><div class="footer-logo">&nbsp;</div></a>
 
                 </div>
             </footer>
@@ -72,20 +80,22 @@
         <div data-role="layout" data-id="main-layout">
  <div data-role="header">
         <div data-role="navbar">
-            <a data-role="button" href="#appdrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
-            <a data-role="button" class="brand-icon" href="views/aboutus.html">
-            </a>
-            <a data-role="button" href="views/login.html" data-align="right">Sign in&nbsp; |</a>
-            <a data-role="button" href="views/join.html" data-align="right">Join</a>
+            <a data-role="button" href="#appdrawer" data-rel="drawer" data-align="left" data-icon="drawer-button" data-transition="slide"></a>
+                <div class="brand-icon"></div>
+            <a data-role="button" href="views/login.html" data-align="right" data-transition="flip:up">Sign in&nbsp; |</a>
+            <a data-role="button" href="views/join.html" data-align="right" data-transition="flip:up">Join</a>
         </div>
 
     </div>
             <footer data-role="footer">
+                    <div class="button-frame">
+                    <a data-role="button" href="views/login.html" style="width:100%;border-radius:0px;margin-left:0px;margin-bottom:0px" data-transition="flip:up">Sign In</a>
+                </div>
                 <div data-role="navbar">
                     <div class="home-navbar" >
                         <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
                     </div>
-                    <div class="footer-logo">&nbsp;</div>
+                    <a href="views/brandpage.html" data-transition="flip:up"><div class="footer-logo">&nbsp;</div></a>
 
                 </div>
             </footer>
@@ -93,7 +103,7 @@
         <!-- application views will be rendered here -->
         <!-- application drawer and contents -->
         <div data-role="drawer" id="appdrawer" style="width: 70%;background-color:#fff" data-swipe-to-open-views='["home-view"]' data-views='["home-view"]' >
-            <div style="width:auto;height:750px;background-color:#fff">
+            <div style="width:auto;height:1000px;background-color:#fff">
                 <ul data-role="listview" style="background-color:#fff">
                     <li style="background-color:#fff">
                         <img src="images/brand_logo_color.png" style="height:auto;width:auto;margin:-5px auto auto -5px;"/>
@@ -113,12 +123,12 @@
                         Participating Restaurants
                     </li>
                     <li data-icon="customrestlist">
-                        <a href="views/outletlist.html">
+                        <a href="views/outletl.html">
                             List of Restaurants & Bars
                         </a>
                     </li>
                     <li style="background-color:#fff" data-icon="customrestnear">
-                        <a href="views/outletlist.html">
+                        <a href="views/outletl.html">
                             Restaurants & Bars Near Me
                         </a>
                     </li>
@@ -140,9 +150,7 @@
                     <li style="background-color:#979898;color:#fff">
                         Support
                     </li>
-                    <li data-icon="custombookmark">
-                        <a href="views/underconstruction.html">Tutorial</a>
-                    </li>
+              
                     <li data-icon="customsetting">
                         <a href="views/settings.html">Settings</a>
                     </li>

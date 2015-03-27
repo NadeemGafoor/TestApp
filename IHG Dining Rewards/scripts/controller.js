@@ -6,7 +6,7 @@
     var mdevicestat = "";
     var ctr = 0;
     var gurl = "http://exclusiveu.dynns.com:8088/mobilePortal";
-    var merchant = "MEYDA02014";
+    var merchant = "INTER09705";
     var customer = "9999999999";
     var customername = "Guest";
     var password = "";
@@ -46,13 +46,13 @@
     var cn = "";
     var sr = "";
 
-    var share_image = "http://exclusiveu.dynns.com:8088/mobileportal/images/alyamamah_logo.png";
-    var share_contact = "Phone: +971 4 381 3300\nEmail: info@alyamamahrewards.com";
+    var share_image = "http://exclusiveu.dynns.com:8088/mobileportal/images/ihg_logo.png";
+    var share_contact = "Phone: +971 427 66 186 \nEmail: inquiry@ihg.com";
     
     var pushSettings = {
         iOS: {
-            badge: "false",
-            sound: "true",
+            badge: "1",
+            sound: "default",
             alert: "true",
             clearBadge: "true"
         },
@@ -69,13 +69,1239 @@
         notificationCallbackWP8: function(args) {
         },
         customParameters: {
-            Memberid: '999'
+            Memberid: customer,
+            Merchant:merchant,
+            Segment:segmentcode
         }
     };
+      
+    window.sharingView = kendo.observable({
+                                              destroySharingView: function() {
+                                                  $("#modalview-offershare").remove();
+                                              },
+                                                                                    
+                                              mysubmitShare: function () {
+                                                  if (ctr == 0) { 
+                                                      navigator.notification.alert("Please Rate 1 to 5");
+                                                      return;
+                                                  }
+                                                  if (!this.txtremarks) { 
+                                                      navigator.notification.alert("Please write a review");
+                                                      return;
+                                                  }
+                                                 
+                                                  if (this.txtremarks.length > 256) { 
+                                                      navigator.notification.alert("Remarks should be less than 256 characters");
+                                                      return;
+                                                  }
+                                                  //kendo.mobile.application.showLoading(); //show loading popup
+                                                  showSpin();
+
+                                                  $.ajax({
+                                                             type: "POST",
+                                                             url: gurl + "/addRating.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,customerid:shareCustomer,producttype:shareProductType,productcode:shareProductCode,notes:this.txtremarks,rating:ctr
+                                                                                  }),
+                                                             success: function (data) {
+                                                                 var getData = JSON.parse(data);
+                                                                 window.plugins.spinnerDialog.hide();
+                                                                 if (getData.statuscode == "000") {
+                                                                     navigator.notification.alert("Thank You very much for Rating the " + getData.producttype);
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Error, Cannot Publish Rating!" + getData.statusdesc)          
+                                                                 }
+                                                                 $("body").data().kendoMobilePane.navigate("#:back");
+                                                             },
+                                                             error: function (errormsg) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot Publish Rating!. Try after sometime")
+                                                                 // kendo.mobile.application.hideLoading(); //hide loading popup
+                                                                 window.plugins.spinnerDialog.hide();
+                                                             }
+                                                         });
+                                              },
+                                              starCounter: function(e) {                                    
+                                                  for (var i = 1;i <= 5;i++) {
+                                                      document.getElementById("d" + i).className = "detail-rate";
+                                                  }
+                                                  ctr = 0;
+                                                  var y = $(e.target).data('parameter');
+
+                                                  for (i = 1;i <= y;i++) {
+                                                      document.getElementById("d" + i).className = "detail-rate-tap";
+                                                  }
+                                                  ctr = y;
+                                              },
+                                              viewInit:    function(e) {
+                                                  document.getElementById("txtReview").value = "";
+                                                  ctr = 0;
+                                              }
+                                          });  
     
-   
-    
+    window.sharingSocialView = kendo.observable({
+                                                    social_subject:"",
+                                                    social_message:"",
+                                                    social_image:"",
+                                                    social_header:"",
+                                                    social_shortmsg:"",
+                                                    offersocialDestroyView:function() {
+                                                        $("#pl-modalview-offersocial").remove();  
+                                                    },
+        
+                                                    offersocialDestroyViewA:function() {
+                                                        $("#modalview-offersocial").remove();  
+                                                    },
        
+                                                 
+                                                    socialsharingFacebook: function () {
+                                                        showSpin();
+                                                       
+                                                        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(sharingSocialView.social_header + "\n" + sharingSocialView.social_message + "\n" + share_contact , null, "http://www.alyamamahrewards.com", "Share with your friends if you like!", function () {
+                                                        }, function (errormsg) {
+                                                            alert(errormsg)
+                                                        })
+                                                        hideSpin();
+                                                    },
+
+                                                    socialsharingTwitter:  function () {
+                                                        showSpin();
+                                                          
+                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg, sharingSocialView.social_image, "http://www.alyamamahrewards.com")
+                                                        hideSpin();
+                                                    },
+
+                                                    socialsharingWhatsApp: function () {
+                                                        showSpin();
+                                                      
+                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg, null, "http://www.alyamamahrewards.com", function () {
+                                                        }, function (errormsg) {
+                                                            alert(errormsg)
+                                                        })
+                                                        hideSpin();
+                                                    },
+
+                                                    socialsharingSMS: function () {
+                                                        showSpin();
+                                                         
+                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "http://www.alyamamahrewards.com", null, function (msg) {
+                                                        }, function (msg) {
+                                                            alert('Error: ' + msg)
+                                                        })
+                                                        hideSpin();
+                                                    },
+
+                                                    socialsharingEmail:  function () {
+                                                        showSpin();
+                                                        window.plugins.socialsharing.shareViaEmail(
+                                                            sharingSocialView.social_header + "\n\n" + sharingSocialView.social_message + "\n\n" + share_contact, // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
+                                                            sharingSocialView.social_shortmsg, null, null, null, // TO: must be null or an array
+                                                            [sharingSocialView.social_image], // FILES: can be null, a string, or an array
+                                                            function (msg) {
+                                                            }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
+                                                            function (msg) {
+                                                                alert('Error: ' + msg)
+                                                            } // called when sh*t hits the fan
+                                                            );
+                                                        hideSpin();
+                                                    }
+                                                });   
+    
+    window.sharingSocialViewA = kendo.observable({
+                                                     destroyplaboutustheme:function() {
+                                                         $("#pl-aboutus-theme").remove();  
+                                                     },
+        
+                                                     destroymysupporttheme:function() {
+                                                         $("#mysupport-theme").remove();  
+                                                     },
+                                                     destroyaboutustheme:function() {
+                                                         $("#aboutus-theme").remove();  
+                                                     },
+                                                  
+                                                     supportEmailA:  function () {
+                                                         window.plugins.socialsharing.shareViaEmail(
+                                                             '', 
+                                                             'Al Yamamah Reward Support', ['info@alyamamahrewards.com'], 
+                                                             null, 
+                                                             function (msg) {
+                                                             }, 
+                                                             function (msg) {
+                                                                 alert('Error: ' + msg)
+                                                             } 
+                                                             );
+                                                     },
+        
+                                                     callTel:  function () {
+                                                         window.open("tel:+97143813300");
+                                                     },
+                                                     faqOpen:  function () {
+                                                         $("body").data().kendoMobilePane.navigate("views/faq.html");  
+                                                     }
+                                                 });   
+    
+    window.networkController = kendo.observable({
+                                      
+                                                    checkConnectionBool: function () {
+                                                        var networkState = navigator.connection.type;
+                                                        var states = {};
+                                                        states[Connection.UNKNOWN] = 'Unknown connection';
+                                                        states[Connection.ETHERNET] = 'Ethernet connection';
+                                                        states[Connection.WIFI] = 'WiFi connection';
+                                                        states[Connection.CELL_2G] = 'Cell 2G connection';
+                                                        states[Connection.CELL_3G] = 'Cell 3G connection';
+                                                        states[Connection.CELL_4G] = 'Cell 4G connection';
+                                                        states[Connection.NONE] = 'No network connection';
+                                                        if (states[networkState] == "No network connection") {
+                                                            navigator.notification.alert(states[networkState]);                     
+                                                            kendo.mobile.application.hideLoading(); //show loading popup
+                                                            return false;
+                                                        } else {
+                                                            return true;
+                                                        }
+                                                    },
+
+                                                   
+                                                    checkConnection: function () {
+                                                        kendo.mobile.application.showLoading(); //show loading popup
+                                                        var networkState = navigator.connection.type;
+                                                        var states = {};
+                                                        states[Connection.UNKNOWN] = 'Unknown connection';
+                                                        states[Connection.ETHERNET] = 'Ethernet connection';
+                                                        states[Connection.WIFI] = 'WiFi connection';
+                                                        states[Connection.CELL_2G] = 'Cell 2G connection';
+                                                        states[Connection.CELL_3G] = 'Cell 3G connection';
+                                                        states[Connection.CELL_4G] = 'Cell 4G connection';
+                                                        states[Connection.NONE] = 'No network connection';
+                                                        if (states[networkState] != "No network connection") {
+                                                            $("body").data().kendoMobilePane.navigate("views/home.html");  
+                                                        } else {
+                                                            navigator.notification.alert(states[networkState]);                     
+                                                            kendo.mobile.application.hideLoading(); //show loading popup
+                                                            $("body").data().kendoMobilePane.navigate("views/nonetwork.html");     
+                                                        }
+                                                    },
+        
+                                                    fileLocation: function() {
+                                                    },
+        
+                                                    getLocation: function() {
+                                                        kendo.mobile.application.showLoading(); //show loading popup
+                                                        if (!getgps && gpsfind == "1") {   
+                                                            //check whether geolocation is enabled
+                                                            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                                                        }     
+                                                        getgps = true;
+                                                        kendo.mobile.application.hideLoading(); //hideloading popup
+                                                    }
+                                                }); 
+    
+    window.locationSetting = kendo.observable({
+                                      
+                                                  getCountry: function () {
+                                                      kendo.mobile.application.showLoading(); //show loading popup
+                                                      $.ajax({ 
+                                                                 type: "POST",
+                                                                 url: gurl + "/getCountry.aspx",
+                                                                 contentType: "application/json; charset=utf-8",
+                                                                 data: JSON.stringify({
+                                                                                          merchantcode :merchant
+                                                                                      }),
+                                                                 success: function (data) {                                                                 
+                                                                     var getData = JSON.parse(data);
+                                                                     if (getData.statuscode == "000") {
+                                                                         //fill the select dropdown for country
+                                                                         for (var i = 0;i < getData.countrylist.length;i++) {
+                                                                             var x = document.getElementById("selCountry");
+                                                                             var opt = document.createElement("option");
+                                                                             opt.value = getData.countrylist[i].code;    
+                                                                             opt.text = getData.countrylist[i].desc;
+                                                                             x.add(opt);
+                                                                         }
+                                                                     }else {
+                                                                         navigator.notification.alert("Unknown Network Error, Cannot get Country List!" + getData.statusdesc)          
+                                                                     }
+                                                                     kendo.mobile.application.hideLoading(); //hide loading popup
+                                                                 },
+                                                                 error: function (errormsg) {
+                                                                     navigator.notification.alert("Unknown Error, Cannot get Country List!. Try after sometime")
+                                                                     kendo.mobile.application.hideLoading(); //hide loading popup
+                                                                 }
+                                                             });
+                                                      document.getElementById("selCountry").value = "0";
+                                                      document.getElementById("selCity").value = "0";
+                                                  },
+
+                                                  getCity: function () {
+                                                      // kendo.mobile.application.showLoading(); //show loading popup
+                                                      var e = document.getElementById("selCountry");
+                                                      var str = e.options[e.selectedIndex].value;
+                                                      $.ajax({ 
+                                                                 type: "POST",
+                                                                 url: gurl + "/getCity.aspx",
+                                                                 contentType: "application/json; charset=utf-8",
+                                                                 data: JSON.stringify({
+                                                                                          merchantcode :merchant,country:str
+                                                                                      }),
+                                                                 success: function (data) {                                                                 
+                                                                     var getData = JSON.parse(data);
+                                                                     if (getData.statuscode == "000") {
+                                                                         //fill the select dropdown for country
+                                                                         for (var i = 0;i < getData.countrylist.length;i++) {
+                                                                             var x = document.getElementById("selCity");
+                                                                             var opt = document.createElement("option");
+                                                                             opt.value = getData.citylist[i].code;    
+                                                                             opt.text = getData.citylist[i].desc;
+                                                                             x.add(opt);
+                                                                         }
+                                                                     }else {
+                                                                         navigator.notification.alert("Unknown Error, Cannot get City List!" + getData.statusdesc)          
+                                                                     }
+                                                                     kendo.mobile.application.hideLoading(); //hide loading popup
+                                                                 },
+                                                                 error: function (errormsg) {
+                                                                     navigator.notification.alert("Unknown Error, Cannot get City List.  Try after sometime!")
+                                                                     kendo.mobile.application.hideLoading(); //hide loading popup
+                                                                 }
+                                                             });
+                                                      document.getElementById("selCountry").value = "0";
+                                                      document.getElementById("selCity").value = "0";
+                                                  },
+                                                  checkConnection: function () {
+                                                      kendo.mobile.application.showLoading(); //show loading popup
+                                                      var networkState = navigator.connection.type;
+                                                      var states = {};
+                                                      states[Connection.UNKNOWN] = 'Unknown connection';
+                                                      states[Connection.ETHERNET] = 'Ethernet connection';
+                                                      states[Connection.WIFI] = 'WiFi connection';
+                                                      states[Connection.CELL_2G] = 'Cell 2G connection';
+                                                      states[Connection.CELL_3G] = 'Cell 3G connection';
+                                                      states[Connection.CELL_4G] = 'Cell 4G connection';
+                                                      states[Connection.NONE] = 'No network connection';
+                                                      if (states[networkState] != "No network connection") {
+                                                          $("body").data().kendoMobilePane.navigate("views/home.html");  
+                                                      } else {
+                                                          navigator.notification.alert(states[networkState]);                     
+                                                          kendo.mobile.application.hideLoading(); //show loading popup
+                                                          $("body").data().kendoMobilePane.navigate("views/nonetwork.html");     
+                                                      }
+                                                  },
+        
+                                                  fileLocation: function() {
+                                                  },
+        
+                                     
+                                                  getLocationO: function() {
+                                                      /* var y = $(e.target).data('parameter');
+                                                      alert(y);
+                                                      if (y=="1"){
+                                                      var x = "map_canvas";
+                                                      } else{
+                                                      var x="map_canvas1";
+                                                      }*/
+                                                      //window.plugins.spinnerDialog.show(null, null, true);
+                                                      //  if (!getgps && gpsfind == "1") {   
+                                                      //check whether geolocation is enabled
+                                                      navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                          var latlng = new google.maps.LatLng(
+                                                              lat,
+                                                              lon);
+    
+                                                          var mapOptions = {
+                                                              sensor: true,
+                                                              center: latlng,
+                                                              panControl: false,
+                                                              zoomControl: true,
+                                                              zoom: 15,
+                                                              mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                              streetViewControl: false,
+                                                              mapTypeControl: true,
+    
+                                                          }; 
+    
+                                                          var map = new google.maps.Map(
+                                                              document.getElementById("map_canvas1"),
+                                                              mapOptions
+                                                              );
+    
+                                                          var marker = new google.maps.Marker({
+                                                                                                  position: latlng,
+                                                                                                  map: map
+                                                                                              });
+                                                          console.log(marker);
+                                                          console.log("map rendering");
+                                                      }
+                                                                                               , function onErrorShowMap(error) {
+                                                                                                   if (err.code == "1") {
+                                                                                                       navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                   } else if (err.code == "2") {
+                                                                                                       navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                   }
+                                                                                               }
+                                                          );
+                                                      // }     
+                                                      getgps = true;
+                                                      //window.plugins.spinnerDialog.hide();
+                                                  }
+                                              });   
+    
+    window.programData = kendo.observable({ 
+                                              outlettelephone:"",
+                                              outletemailid:"",
+        
+        
+                                                  
+                                              supportEmailA:  function () {
+                                                  window.plugins.socialsharing.shareViaEmail(
+                                                      '', 
+                                                      'Al Yamamah Reward Support', [programData.outletemailid], 
+                                                      null, 
+                                                      function (msg) {
+                                                      }, 
+                                                      function (msg) {
+                                                          alert('Error: ' + msg)
+                                                      } 
+                                                      );
+                                              },
+        
+                                              callTel:  function () {
+                                                  window.open("tel:" + programData.outlettelephone);
+                                              },
+                                              destroymyfaq:function() {
+                                                  $("#faq-theme").remove();  
+                                              },
+        
+                                             
+        
+                                              destroyBenefitDetail:function() {
+                                                  $("#benefit-detail").remove();  
+                                              },
+        
+                                              destroyBenefitList:function() {
+                                                  $("#benefit-list").remove();  
+                                              },
+        
+                                              destroyOfferListView:function() {
+                                                  $("#offerlist-view").remove();  
+                                              },
+                                              offerDetaildestroyView:function() {
+                                                  $("#offerdetail-theme").remove();  
+                                              },
+                                              outletlistthemedestroyView: function() {
+                                                  $("#outletlist-view").remove();
+                                              },
+                                              
+                                              varInit: function() {
+                                                  showSpin();
+                                                  if (firsttime == "") { //Register Access and device in the platform
+                                                      mdevice = device.model;
+                                                      muuid = device.uuid;
+                                                      mversion = device.version;
+                                                      mplatform = device.platform;
+                                                      mdevicestat = mdevice + "^" + muuid + "^" + mversion + "^" + mplatform;
+                                                      $.ajax({ 
+                                                                 type: "POST",
+                                                                 cache:false,
+                                                                 async:true,
+                                                                 timeout:20000,
+                                                                 url: gurl + "/initAccess.aspx",
+                                                                 contentType: "application/json; charset=utf-8",
+                                                                 data: JSON.stringify({
+                                                                                          merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat
+                                                                                      }),
+                                                                 success: function (data) { 
+                                                                     var getData = JSON.parse(data);
+                                                                     if (getData.statuscode == "000") {
+                                                                         firsttime = "1";  
+
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else if (getData.statuscode == "047") {
+                                                                         $("body").data().kendoMobilePane.navigate("views/deviceBlock.html");  
+                                                                     } else {
+                                                                         navigator.notification.alert("Platform Error, Services may not be available!" + getData.statusdesc)          
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 },
+                                                                 error: function (errormsg) {
+                                                                     navigator.notification.alert("Platform Error, Services may not be available!.  Try after sometime")
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             });
+                           
+                                                      if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
+                                                          customer = window.localStorage.getItem("customer");
+                                                          customername = window.localStorage.getItem("customername");
+                                                          segmentcode = window.localStorage.getItem("segmentcode");
+                                                          segmentname = window.localStorage.getItem("segmentname");
+                                                          currency = window.localStorage.getItem("currency");
+                                                          nationality = window.localStorage.getItem("nationality");
+                                                          pointvalue = window.localStorage.getItem("pointvalue");
+                                                          cuspict = window.localStorage.getItem("cuspict");
+                                                          cusqr = window.localStorage.getItem("cusqr");
+                                                          emailid = window.localStorage.getItem("emailid");
+                                                          mobilenumber = window.localStorage.getItem("mobilenumber");                                                                    
+                                                          memberexpiry = window.localStorage.getItem("memberexpiry"); 
+                                                          segmentimage = window.localStorage.getItem("segmentimage"); 
+                                                          pushoffer = window.localStorage.getItem("pushoffer");
+                                                          remindexpiry = window.localStorage.getItem("remindexpiry");
+                                                          showprofile = window.localStorage.getItem("showprofile");
+                                                          password = window.localStorage.getItem("password");
+                                                          mdevice = window.localStorage.getItem("mdevice");
+                                                          muuid = window.localStorage.getItem("muuid");
+                                                          mversion = window.localStorage.getItem("mversion");
+                                                          mplatform = window.localStorage.getItem("mplatform");
+                                                          $("body").data().kendoMobilePane.navigate("views/pl-home.html");  
+                                                      } else {
+                                                          outletcode = "";
+                                                          brandcode = "";
+                                                          offercode = "";
+                                                          benefitcode = "";
+                                                          offertype = "1";
+                                                          password = "";
+                                                          customer = "9999999999";
+                                                          customername = "Guest";
+                                                          segmentcode = "";
+                                                          segmentname = "";
+                                                          currency = "";
+                                                          nationality = "";
+                                                          pointvalue = "";
+                                                          cuspict = "";
+                                                          cusqr = "";
+                                                          emailid = "";
+                                                          mobilenumber = ""; 
+                                                          memberexpiry = "";
+                                                          segmentimage = "";
+                                                      }                  
+                                                  }
+                               
+                                                  if (window.localStorage.getItem("notification") == undefined || window.localStorage.getItem("notification") == '' || window.localStorage.getItem("notification") == 'null') {
+                                                      //Enable and Register
+                                                      currentDevice.enableNotifications(pushSettings, function (data) {
+                                                          currentDevice.register(pushSettings, function (data) {
+                                                          }, function (err) {
+                                                          }); 
+                                                          //Set notification to 1 so that its not registered again
+                                                          window.localStorage.setItem("notification", "1");
+                                                      }, function (err) {
+                                                      });
+                                                  }else {
+                                                      currentDevice.getRegistration(function() {
+                                                          var badgeNumber = 0;
+                                                          currentDevice.setBadgeNumber(badgeNumber,
+                                                                                       function onSuccess () {
+                                                                                       },
+                                                                                       function onError (error) {
+                                                                                       });
+                                                      }, function(err) {
+                                                      });
+                                                  }
+                     
+                                                  if (window.localStorage.getItem("loggedin") == "1" && firsttime == "1") {
+                                                      $.ajax({ 
+                                                                 type: "POST",
+                                                                 cache:false,
+                                                                 async:true,
+                                                                 timeout:20000,
+                                                                 url: gurl + "/logmeout.aspx",
+                                                                 contentType: "application/json; charset=utf-8",
+                                                                 data: JSON.stringify({
+                                                                                          merchantcode :merchant,customerid:customer,password:password,mdevice:mdevicestat
+                                                                                      }),
+                                                                 success: function (data) {
+                                                                     var getData = JSON.parse(data);
+                                                                     if (getData.statuscode == "000") {
+                                                                         //clear Local Storage on logout
+                                                                         window.localStorage.setItem("customer", "");
+                                                                         window.localStorage.setItem("customername", "");
+                                                                         window.localStorage.setItem("segmentcode", "");
+                                                                         window.localStorage.setItem("segmentname", "");
+                                                                         window.localStorage.setItem("currency", "");
+                                                                         window.localStorage.setItem("nationality", "");
+                                                                         window.localStorage.setItem("pointvalue", "");
+                                                                         window.localStorage.setItem("cuspict", "");
+                                                                         window.localStorage.setItem("cusqr", "");
+                                                                         window.localStorage.setItem("emailid", "");
+                                                                         window.localStorage.setItem("mobilenumber", "");                                                                    
+                                                                         window.localStorage.setItem("memberexpiry", ""); 
+                                                                         window.localStorage.setItem("segmentimage", ""); 
+                                                                         window.localStorage.setItem("pushoffer", "");
+                                                                         window.localStorage.setItem("remindexpiry", "");
+                                                                         window.localStorage.setItem("showprofile", "");
+                                                                         window.localStorage.setItem("password", "");
+                                                                         window.localStorage.setItem("mdevice", "");
+                                                                         window.localStorage.setItem("muuid", "");
+                                                                         window.localStorage.setItem("mversion", "");
+                                                                         window.localStorage.setItem("mplatform", "");
+                                                                         window.localStorage.setItem("loggedin", "");
+                                                                        
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else {
+                                                                         navigator.notification.alert("Cannot Logout! " + getData.statusdesc)          
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 },
+                                                                 error: function (errormsg) {
+                                                                     navigator.notification.alert("Unknown Error, Cannot Logout.  Try after sometime!")
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             });
+                                                  } 
+                                                
+                                                  hideSpin();
+                                                  return;
+                                              },               
+        
+        
+                                              outletdetailthemedestroyView: function() {
+                                                  $("#outletdetail-theme").remove();
+                                                  isMapInitialized = false;
+                                              },
+                                              
+                                              homeViewDestroy: function() {
+                                                  $("#home-view").remove();
+                                              },
+                                              
+                                         
+                                             
+                                              exploreDetailthemedestroyView: function() {
+                                                  $("#exploredetail-theme").remove();
+                                                  isMapInitialized = false;
+                                              },
+                                             
+        
+                                              showAllOutlet: function () {
+                                                  outletcode = "";
+                                                  brandcode="";
+                                                  showSpin();
+                                                
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/outletlist.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     if (getData.outletlist.length > 0) {
+                                                                         //fill the outlet template
+                                                                         $("#outletlist-all").kendoMobileListView({
+                                                                                                                      dataSource: kendo.data.DataSource.create({data: getData.outletlist, group: "hotelname" }),
+                                                                                                                      template: $("#outletListAllTemplate").html(),
+                                                                                                                      headerTemplate: "<h2>${value}</h2>",
+                                                                                                                      fixedHeaders:true
+                                                                                                                  });
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else {
+                                                                         navigator.notification.alert("No outlet exists for the selected property!")    
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get outlet List!" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (errormsg) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get Outlet List!.  Try after sometime")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              },
+
+
+        
+        
+                                              commentList: function () {
+                                                  showSpin();
+                                             
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/reviewCommentList.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,outletcode:outletcode,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     if (getData.ProductComment.length > 0) {
+                                                                         $("#outlet-review-1").kendoMobileListView({
+                                                                                                                       dataSource: kendo.data.DataSource.create({data: getData.ProductComment}),
+                                                                                                                       template: $("#outletreviewTemplate").html()
+                                                                                                                   });
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else {
+                                                                         navigator.notification.alert("No one has provided their review for the Outlet!")    
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get Review List!" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (errormsg) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get Review List!.   Try after sometime")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              },
+        
+        
+        
+                                              
+                                              showOutletAlbum: function () {
+                                                  showSpin();
+                                                  
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/outletphotolist.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,outletcode:outletcode,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     if (getData.outletphotoalbum.length > 0) {
+                                                                         //fill the outlet album
+                                                                         $("#outlet-album").kendoMobileListView({
+                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.outletphotoalbum}),
+                                                                                                                    template: $("#outletAlbumTemplate").html()
+                                                                                                                });
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else {
+                                                                         navigator.notification.alert("Album Empty for the selected outlet!") 
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get Outlet Album List!" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (errormsg) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get Outlet Album List!.   Try after sometime")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              },
+                                              
+                                              showExploreOutlet: function () {
+                                                  showSpin(); //show loading popup
+                                                  
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             
+                                                             url: gurl + "/outletlist.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     //fill the outlet template
+                                                                     if (getData.outletlist.length > 0) {
+                                                                         $("#outletlistExplore").kendoMobileListView({
+                                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                                         template: $("#outletListExploreTemplate").html()
+                                                                                                                     });
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else {
+                                                                         navigator.notification.alert("No outlet exists for the selected property!")    
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get outlet List!" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (error) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get Outlet List!.   Try after sometime")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              },
+        
+                                              showProperty: function (e) {
+                                                  showSpin();
+                                                  brandcode = e.view.params.x;
+                                                  brandimage = e.view.params.y;
+                                                  document.getElementById("brand-imagea").style.background = "url(images/" + brandimage + ".png) no-repeat center center";
+                                                  document.getElementById("brand-imagea").style.backgroundSize = "cover";
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/propertyitem.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     m = getData.geolocation.split(",");                                                                     
+                                                                     lat = m[0];
+                                                                     lon = m[1];
+                                                                     
+                                                                     document.getElementById("exploredetail-theme-title").innerHTML = getData.hotelname;
+                                                                     document.getElementById("exploredetail-theme-1").innerHTML = getData.shortdes;
+                                                                     document.getElementById("exploredetail-theme-2").innerHTML = "<pre>" + getData.longdes + "</pre>";
+                                                                     sharingSocialView.set("social_shortmsg", "Checkout good discounts on Food and Beverages at " + getData.title + "  \n");
+                                                                     sharingSocialView.set("social_header", getData.title);
+                                                                     sharingSocialView.set("social_subject", getData.shortdes);
+                                                                     sharingSocialView.set("social_message", getData.longdes);
+                                                                     sharingSocialView.set("social_image", share_image);                                                                     
+                                                                     hideSpin(); //hide loading popup
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get Property Details!" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (errormsg) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get Outlet List!.   Try after sometime")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              },
+        
+                                              showOutletItem: function (e) {
+                                                  showSpin();
+                                                  outletcode = e.view.params.od;
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,                                                      
+                                                             url: gurl + "/outletlist.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,brandcode:brandcode,outletcode:outletcode,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+   
+                                                                 if (getData.statuscode == "000") {
+                                                                     m = getData.outletlist[0].geolocation.split(",");  
+                                                       
+                                                                     lat = m[0];
+                                                                     lon = m[1];
+                                                                     document.getElementById("outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
+                                                                     document.getElementById("outlet-image-large").style.backgroundSize = "cover";
+                                                                     document.getElementById("ooutlet-theme-title").innerHTML = getData.outletlist[0].outletname;
+                                                                     document.getElementById("ooutlet-short").innerHTML = getData.outletlist[0].outletshort;
+                                                                     document.getElementById("ooutlet-long").innerHTML = "<pre>" + getData.outletlist[0].outletlong + "</pre>";
+                                                                     //      document.getElementById("ooutlet-review").innerHTML = getData.outletlist[0].reviewcount + " Review(s)";
+                                                                     //      document.getElementById("ooutlet-star").innerHTML = getData.outletlist[0].staraverage + " Star(s)";
+
+                                                                     sharingSocialView.set("social_shortmsg", "Checkout good discounts on Food and Beverages at " + getData.outletlist[0].outletname + "  \n");
+                                                                     sharingSocialView.set("social_header", getData.outletlist[0].outletname);
+                                                                     sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
+                                                                     sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
+                                                                     sharingSocialView.set("social_image", share_image); 
+                                                                     programData.set("outlettelephone", getData.outletlist[0].telephone);
+                                                                     programData.set("outletemailid", getData.outletlist[0].emailid);
+                                                                     shareCustomer = customer;
+                                                                     shareProductCode = getData.outletlist[0].outletcode;
+                                                                     shareProductType = "1"; //outlet review
+                                                                     hideSpin(); //hide loading popup
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get outlet List!" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (error) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get Outlet List! Try after sometime")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              },
+        
+        
+                                              getLocationE: function() {
+                                                  showSpin(); //show loading popup
+                                                  if (!isMapInitialized) {
+                                                      navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                          var latlng = new google.maps.LatLng(
+                                                              lat,
+                                                              lon);
+    
+                                                          var mapOptions = {
+                                                              sensor: true,
+                                                              center: latlng,
+                                                              panControl: false,
+                                                              zoomControl: true,
+                                                              zoom: 15,
+                                                              mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                              streetViewControl: false,
+                                                              mapTypeControl: true,
+    
+                                                          }; 
+    
+                                                          var map = new google.maps.Map(
+                                                              document.getElementById("map_canvas"),
+                                                              mapOptions
+                                                              );
+    
+                                                          var marker = new google.maps.Marker({
+                                                                                                  position: latlng,
+                                                                                                  map: map
+                                                                                              });
+                                                          console.log(marker);
+                                                          console.log("map rendering");
+                                                      }
+                                                                                               , function onErrorShowMap(error) {
+                                                                                                   if (err.code == "1") {
+                                                                                                       navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                   } else if (err.code == "2") {
+                                                                                                       navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                   }
+                                                                                               }
+                                                          );
+                                                      isMapInitialized = true;
+                                                  }
+                                                  hideSpin(); //hide loading popup
+                                              },
+                                          
+    
+                                              getLocationO: function() {
+                                                  showSpin(); //show loading popup
+                                                  if (!isMapInitialized) {
+                                                      navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                          var latlng = new google.maps.LatLng(
+                                                              lat,
+                                                              lon);
+    
+                                                          var mapOptions = {
+                                                              sensor: true,
+                                                              center: latlng,
+                                                              panControl: false,
+                                                              zoomControl: true,
+                                                              zoom: 15,
+                                                              mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                              streetViewControl: false,
+                                                              mapTypeControl: true,
+    
+                                                          }; 
+    
+                                                          var map = new google.maps.Map(
+                                                              document.getElementById("map_canvas1"),
+                                                              mapOptions
+                                                              );
+    
+                                                          var marker = new google.maps.Marker({
+                                                                                                  position: latlng,
+                                                                                                  map: map
+                                                                                              });
+                                                          console.log(marker);
+                                                          console.log("map rendering");
+                                                      }
+                                                                                               , function onErrorShowMap(error) {
+                                                                                                   if (err.code == "1") {
+                                                                                                       navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                   } else if (err.code == "2") {
+                                                                                                       navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                   }
+                                                                                               }
+                                                          );
+                                                      isMapInitialized = true;
+                                                  }
+                                                  hideSpin(); //hide loading popup
+                                              },
+        
+                                              checkConnection: function () {
+                                                  showSpin(); //show loading popup
+                                                  var networkState = navigator.connection.type;
+                                                  var states = {};
+                                                  states[Connection.UNKNOWN] = 'Unknown connection';
+                                                  states[Connection.ETHERNET] = 'Ethernet connection';
+                                                  states[Connection.WIFI] = 'WiFi connection';
+                                                  states[Connection.CELL_2G] = 'Cell 2G connection';
+                                                  states[Connection.CELL_3G] = 'Cell 3G connection';
+                                                  states[Connection.CELL_4G] = 'Cell 4G connection';
+                                                  states[Connection.NONE] = 'No network connection';
+                                                  if (states[networkState] != "No network connection") {
+                                                      $("body").data().kendoMobilePane.navigate("views/home.html");  
+                                                  } else {
+                                                      navigator.notification.alert(states[networkState]);                     
+                                                      kendo.mobile.application.hideLoading(); //show loading popup
+                                                      $("body").data().kendoMobilePane.navigate("views/nonetwork.html");     
+                                                  }
+                                                  hideSpin();
+                                              },
+                                         
+                                              
+        
+                                              offerlist: function () {
+                                                  offercode = "";
+                                                  offertype = "1";
+                                                  showSpin();
+                                                
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/offerList.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     if (getData.offerlist.length > 0) {
+                                                                         //fill the outlet template
+                                                                         $("#offer-list-view").kendoMobileListView({
+                                                                                                                       dataSource: kendo.data.DataSource.create({data: getData.offerlist, group: "category" }),
+                                                                                                                       template: $("#offerListTemplate").html(),
+                                                                                                                       headerTemplate: "<h2>${value}</h2>",
+                                                                                                                       fixedHeaders:true
+                                                                                                                   });
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else {
+                                                                         navigator.notification.alert("No Offers exists for the selected property!")    
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get Offer List List!" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (errormsg) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              },
+
+        
+        
+                                              offeritem: function (e) {
+                                                  offercode = e.view.params.of; //offer code for single offer inquiry
+                                                  offertype = "2"; //single offer inquiry
+                                                  showSpin();
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/offerList.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     document.getElementById("offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
+                                                                     document.getElementById("offer-image-large").style.backgroundSize = "cover";
+                                                                     
+                                                                     document.getElementById("ooffer-item-title").innerHTML = getData.offerlist[0].category;
+                                                                     document.getElementById("ooffer-shortname").innerHTML = getData.offerlist[0].itemname;
+                                                                     document.getElementById("ooffer-description").innerHTML = "<pre>" + getData.offerlist[0].itemdescription + "</pre>";
+                                                                     document.getElementById("ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
+                                                                     document.getElementById("ooffer-remark").innerHTML = "<pre>" + getData.offerlist[0].remark + "</pre>";
+                                                                     
+                                                                     sharingSocialView.set("social_shortmsg", "Checkout the offer at AlYamamah Rewards - " + getData.offerlist[0].itemname + "  \n");
+                                                                     sharingSocialView.set("social_header", getData.offerlist[0].category);
+                                                                     sharingSocialView.set("social_subject", getData.offerlist[0].itemname);
+                                                                     sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);
+                                                                     sharingSocialView.set("social_image", share_image); 
+                                                                     
+                                                                     hideSpin(); //hide loading popup
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get Offer List List!" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (errormsg) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              },
+        
+        
+        
+                                              oofferOutlet: function () {
+                                                  showSpin(); //show loading popup
+                                                  
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/offeroutletlist.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,offercode:offercode,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     //fill the outlet template
+                                                                     if (getData.offeroutletlist.length > 0) {
+                                                                         $("#offer-outlet-list-view").kendoMobileListView({
+                                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
+                                                                                                                              template: $("#offerOutletTemplate").html()
+                                                                                                                          });
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else {
+                                                                         navigator.notification.alert("No outlet exists for the selected offer!")    
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get Outlet List!" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (error) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get Outlet List!.   Try after sometime")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              },
+        
+        
+        
+                                              benefitlist: function () {
+                                                  benefitcode = "";//initialize benefit code
+                                                  showSpin(); //show loading popup
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/benefitlist.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,benefitcode:benefitcode,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     //fill the outlet template
+                                                                     if (getData.benefitlist.length > 0) {
+                                                                         $("#benefit-list-view").kendoMobileListView({
+                                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
+                                                                                                                         template: $("#benefitlistTemplate").html()
+                                                                                                                     });
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else {
+                                                                         navigator.notification.alert("No Benefits exists for the selected Program!")    
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get Benefit List!" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (error) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get Benefit List!.  Try after sometime")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              },
+        
+        
+        
+                                              benefitdetail: function (e) {
+                                                  benefitcode = e.view.params.bd; //benefit code for detail retrieval
+                                                  showSpin(); //show loading popup
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/benefitlist.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,benefitcode:benefitcode,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     //fill the outlet template
+                                                                     if (getData.benefitlist.length > 0) {
+                                                                         document.getElementById("benefit-title-1").innerHTML = getData.benefitlist[0].titlename;
+                                                                         document.getElementById("benefit-text1").innerHTML = getData.benefitlist[0].titlename;
+                                                                         document.getElementById("benefit-text2").innerHTML = "<pre>" + getData.benefitlist[0].shortdes1 + "</pre>";
+                                                                         document.getElementById("benefit-text3").innerHTML = "<pre>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
+                                                                         document.getElementById("benefit-image").style.background = "url(" + getData.benefitlist[0].imageurll + ") no-repeat center center";
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else {
+                                                                         navigator.notification.alert("No Benefits exists for the selected Program!")    
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get Benefit details!" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (error) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get Benefit details!.   Try after sometime")
+                                                                 hideSpin(); //hide loading popup                                          
+                                                             }
+                                                         });
+                                              },
+        
+        
+                                              getfaq: function () {
+                                                  showSpin(); //show loading popup
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/faqlist.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                                                                                
+                                                                 if (getData.statuscode == "000") {
+                                                                     //fill the outlet template
+                                                                     if (getData.faqlist.length > 0) {
+                                                                         $("#faqlist-all").kendoMobileListView({
+                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                   template: $("#faqTemplate").html()
+                                                                                                               });
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else {
+                                                                         navigator.notification.alert("No FAQ exists for the selected Program!")    
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get FAQ list!" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (error) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get FAQ list!.   Try after sometime")
+                                                                 hideSpin(); //hide loading popup                                          
+                                                             }
+                                                         });
+                                              }
+        
+                                          });
+    
     window.postProgram = kendo.observable({
                                               username:"",
                                               password:"",
@@ -86,13 +1312,27 @@
                                               mobilenumber:"",
                                               emailid:"",
                                               tokennum:"",
-        
-        
-                                             showloginpage
-                                              :function() {
-                                                  alert("Hello");
-                                                  $("body").data().kendoMobilePane.navigate("views/login.html"); 
+                                              outlettelephone:"",
+                                              outletemailid:"",
+                                                  
+                                              supportEmailA:  function () {
+                                                  window.plugins.socialsharing.shareViaEmail(
+                                                      '', 
+                                                      'Al Yamamah Reward Support', [postProgram.outletemailid], 
+                                                      null, 
+                                                      function (msg) {
+                                                      }, 
+                                                      function (msg) {
+                                                          alert('Error: ' + msg)
+                                                      } 
+                                                      );
                                               },
+        
+                                              callTel:  function () {
+                                                  window.open("tel:" + postProgram.outlettelephone);
+                                              },
+        
+        
                                         
                                               destroyTokenThemeView
                                               :function() {
@@ -347,12 +1587,54 @@
                                                                      window.localStorage.setItem("mversion", mversion);
                                                                      window.localStorage.setItem("mplatform", mplatform);
                                                                      window.localStorage.setItem("notification", "2")
+                                                                     
+                                                                     pushSettings = {
+                                                                         iOS: {
+                                                                             badge: "false",
+                                                                             sound: "true",
+                                                                             alert: "true",
+                                                                             clearBadge: "true"
+                                                                         },
+                                                                         android: {
+                                                                             senderID: googleApiProjectNumber
+                                                                         },
+                                                                         wp8: {
+                                                                             channelName: 'EverlivePushChannel'
+                                                                         },
+                                                                         notificationCallbackIOS: function(args) {
+                                                                         },
+                                                                         notificationCallbackAndroid: function(args) {
+                                                                         },
+                                                                         notificationCallbackWP8: function(args) {
+                                                                         },
+                                                                         customParameters: {
+                                                                             Memberid: customer,
+                                                                             Merchant:merchant,
+                                                                             Segment:segmentcode
+                                                                         }
+                                                                     };
+                                                                     
+                                                                     //Re-register the device with updates
+                                                                     currentDevice.getRegistration(function() {
+                                                                         currentDevice.unregister().then(function() {
+                                                                         }, function (err) {
+                                                                         });
+                                                                         currentDevice.enableNotifications(pushSettings, function (data) {
+                                                                             currentDevice.register(pushSettings, function (data) {
+                                                                             }, function (err) {
+                                                                             }); 
+                                                                         }, function (err) {
+                                                                         });
+                                                                     }, function(err) {
+                                                                     });
+                                                                     
                                                                      if ((getData.deviceinfo.length == 0)) {
                                                                          $("body").data().kendoMobilePane.navigate("views/tokenpage.html");      
                                                                      }else {
                                                                          password = getData.certificate;
                                                                          window.localStorage.setItem("password", password);
                                                                          window.localStorage.setItem("loggedin", "1");
+
                                                                          $("body").data().kendoMobilePane.navigate("views/pl-home.html");  
                                                                      }
                                                                      hideSpin(); //hide loading popup
@@ -520,6 +1802,9 @@
                                                              success: function (data) { 
                                                                  var getData = JSON.parse(data);
                                                                  if (getData.statuscode == "000") {
+                                                                     document.getElementById("pl-offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
+                                                                     document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
+                                                                     
                                                                      document.getElementById("offer-item-title").innerHTML = getData.offerlist[0].category;
                                                                      document.getElementById("offer-shortname").innerHTML = getData.offerlist[0].itemname;
                                                                      document.getElementById("offer-description").innerHTML = "<pre>" + getData.offerlist[0].itemdescription + "</pre>";
@@ -769,6 +2054,8 @@
                                                        
                                                                      lat = m[0];
                                                                      lon = m[1];
+                                                                     document.getElementById("pl-outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
+                                                                     document.getElementById("pl-outlet-image-large").style.backgroundSize = "cover";
                                                                      document.getElementById("outlet-theme-title").innerHTML = getData.outletlist[0].outletname;
                                                                      document.getElementById("outlet-short").innerHTML = getData.outletlist[0].outletshort;
                                                                      document.getElementById("outlet-long").innerHTML = "<pre>" + getData.outletlist[0].outletlong + "</pre>";
@@ -780,8 +2067,10 @@
                                                                                 
                                                                      sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
                                                                      sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
-                                                              
                                                                      sharingSocialView.set("social_image", share_image); 
+                                                                     
+                                                                     postProgram.set("outlettelephone", getData.outletlist[0].telephone);
+                                                                     postProgram.set("outletemailid", getData.outletlist[0].emailid);
                                                                      
                                                                      shareCustomer = customer;
                                                                      shareProductCode = getData.outletlist[0].outletcode;
@@ -847,6 +2136,7 @@
                                                   offercode = e.view.params.cco;
                                                   cn = e.view.params.cno;
                                                   sr = e.view.params.sro;
+                                                  ur = e.view.params.iurl
                                                   showSpin();
                                                   $.ajax({ 
                                                              type: "POST",
@@ -861,6 +2151,9 @@
                                                              success: function (data) { 
                                                                  var getData = JSON.parse(data);
                                                                  if (getData.statuscode == "000") {
+                                                                     document.getElementById("spend-image").style.background = "url(" + ur + ") no-repeat center center";
+                                                                     document.getElementById("spend-image").style.backgroundSize = "cover";
+               
                                                                      document.getElementById("reward-title-1").innerHTML = rn;
                                                                      document.getElementById("spend-coupon-1").innerHTML = cn;
                                                                      document.getElementById("spend-coupon-expiry-1").innerHTML = "Voucher Expiry : " + memberexpiry;
@@ -978,6 +2271,7 @@
                                                   offercode = e.view.params.cco;
                                                   cn = e.view.params.cno;
                                                   sr = e.view.params.sro;
+                                                  ur = e.view.params.iurl;
                                                   showSpin();
                                                   $.ajax({ 
                                                              type: "POST",
@@ -992,6 +2286,9 @@
                                                              success: function (data) { 
                                                                  var getData = JSON.parse(data);
                                                                  if (getData.statuscode == "000") {
+                                                                     document.getElementById("referral-image").style.background = "url(" + ur + ") no-repeat center center";
+                                                                     document.getElementById("referral-image").style.backgroundSize = "cover";
+                                                                     
                                                                      document.getElementById("reward-title-1").innerHTML = rn;
                                                                      document.getElementById("referral-coupon-1").innerHTML = cn;
                                                                      document.getElementById("referral-coupon-expiry-1").innerHTML = "Voucher Expiry : " + memberexpiry;
@@ -1140,6 +2437,9 @@
                                                                  var getData = JSON.parse(data);
                                                                  if (getData.statuscode == "000") {
                                                                      if (getData.myvoucherdetail.length > 0) {
+                                                                         document.getElementById("myvoucher-load").style.background = "url(" + getData.myvoucherdetail[0].imageurll + ") no-repeat center center";
+                                                                         document.getElementById("myvoucher-load").style.backgroundSize = "cover";
+                                                                                                                                         
                                                                          document.getElementById("voucher-number").innerHTML = getData.myvoucherdetail[0].itemcode;
                                                                          document.getElementById("voucher-name").innerHTML = getData.myvoucherdetail[0].itemname;
                                                                          document.getElementById("voucher-expiry").innerHTML = getData.myvoucherdetail[0].couponexpirydate;
@@ -1328,6 +2628,11 @@
                                                       navigator.notification.alert("Invalid EmailId or Empty");
                                                       return;
                                                   }
+                                                  
+                                                  if ((!document.getElementById("profile-pushoffer").checked) && (document.getElementById("profile-remindexpiry").checked)) {
+                                                      navigator.notification.alert("You need to enable Push Notification to enable reminders for expirying vouchers");
+                                                      return;
+                                                  }
                                                                                            
                                                   mobilenumber1 = this.mobilenumber;
                                                   emailid1 = this.emailid;  
@@ -1369,13 +2674,56 @@
                                                                      remindexpiry = remindexpiry1;
                                                                      showprofile = showprofile1;
                                                                      
+                                                                     pushSettings = {
+                                                                         iOS: {
+                                                                             badge: "false",
+                                                                             sound: "true",
+                                                                             alert: "true",
+                                                                             clearBadge: "true"
+                                                                         },
+                                                                         android: {
+                                                                             senderID: googleApiProjectNumber
+                                                                         },
+                                                                         wp8: {
+                                                                             channelName: 'EverlivePushChannel'
+                                                                         },
+                                                                         notificationCallbackIOS: function(args) {
+                                                                         },
+                                                                         notificationCallbackAndroid: function(args) {
+                                                                         },
+                                                                         notificationCallbackWP8: function(args) {
+                                                                         },
+                                                                         customParameters: {
+                                                                             Memberid: customer,
+                                                                             Merchant:merchant,
+                                                                             Segment:segmentcode
+                                                                         }
+                                                                     };
+                                                                                                                                       
                                                                      if (pushoffer == "1") {
-                                                                         //Enable and Register
-                                                                         currentDevice.enableNotifications(pushSettings, function (data) {
-                                                                             currentDevice.register(pushSettings, function (data) {
+                                                                         //If already registered than update registration
+                                                                         currentDevice.getRegistration(function() {
+                                                                             currentDevice.unregister().then(function() {
                                                                              }, function (err) {
-                                                                             }); 
-                                                                         }, function (err) {
+                                                                                 //alert('unregister 1 ' + err);
+                                                                             });
+                                                                             currentDevice.enableNotifications(pushSettings, function (data) {
+                                                                                 currentDevice.register(pushSettings, function (data) {
+                                                                                 }, function (err) {
+                                                                                     //alert('register  1 ' + err);
+                                                                                 }); 
+                                                                             }, function (err) {
+                                                                                 //alert('enable  1 ' + err);
+                                                                             });
+                                                                         }, function(err) { //If not registered then enable and register
+                                                                             currentDevice.enableNotifications(pushSettings, function (data) {
+                                                                                 currentDevice.register(pushSettings, function (data) {
+                                                                                 }, function (err) {
+                                                                                     //alert('register 2 '+err);
+                                                                                 }); 
+                                                                             }, function (err) {
+                                                                                 //alert('enable  2 ' + err);
+                                                                             });
                                                                          });
                                                                      }else {
                                                                          currentDevice.unregister()
@@ -1383,6 +2731,7 @@
                                                                                  function() {
                                                                                  },
                                                                                  function (err) {
+                                                                                     //alert('unregister 2 ' + err);
                                                                                  }
                                                                                  );
                                                                      }
@@ -1452,7 +2801,7 @@
     function hideSpin() {
         setTimeout(function() {
             window.plugins.spinnerDialog.hide();
-        }, 1000);  //hide Loading Popup
+        }, 2000);  //hide Loading Popup
     }
       
     function showSpin() {
@@ -1488,4 +2837,5 @@
             return true;
         }
     }
+    
 })(window);
