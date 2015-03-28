@@ -141,12 +141,17 @@
                                                 });   
     
     window.preLogin = kendo.observable({ 
+                                           outlettelephone:"",
+                                           outletdetailthemedestroyView: function() {
+                                               $("#outletdetail-theme").remove();
+                                               isMapInitialized = false;
+                                           },
         
-        outletlistnearmethemedestroyView: function() {
-                                               $("#outletlistnearme-view").remove();
+                                           outletlistnearmethemedestroyView: function() {
+                                               $("#outletlistnearme-theme").remove();
                                            },
                                            outletlistthemedestroyView: function() {
-                                               $("#outletlist-view").remove();
+                                               $("#outletlist-theme").remove();
                                            },
         
                                            destroyCustomerService:function() {
@@ -226,7 +231,6 @@
                                                             
                                                               if (getData.statuscode == "000") {
                                                                   if (getData.outletlist.length > 0) {
-                
                                                                       //fill the outlet template
                                                                       $("#outletlist-all").kendoMobileListView({
                                                                              
@@ -234,7 +238,7 @@
                                                                                                                    template: $("#outletListAllTemplate").html(),
                                                                           
                                                                                                                    filterable: {
-                                                                                                                       autoFilter: true,
+                                                                              autoFilter: true,
                                                                               placeholder:"Search By Restaurant Name",                                         
                                                                               field: "outletname",
                                                                               operator: "contains"
@@ -259,12 +263,168 @@
                                            },
 
         
+                                           showOutletItem
+                                           : function (e) {
+                                               showSpin();
+                                               outletcode = e.view.params.od;
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,                                                      
+                                                          url: gurl + "/outletlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,brandcode:brandcode,outletcode:outletcode,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+
+                                                              if (getData.statuscode == "000") {
+                                                                  m = getData.outletlist[0].geolocation.split(",");  
+                                                                                                                                                                                                                                   
+                                                                  lat = m[0];
+                                                                  lon = m[1];
+                                                                  document.getElementById("outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
+                                                                  document.getElementById("outlet-image-large").style.backgroundSize = "cover";
+                                                                  document.getElementById("outlet-theme-title").innerHTML = getData.outletlist[0].outletname;
+                                                                  document.getElementById("ooutlet-short").innerHTML = getData.outletlist[0].outletshort;
+                                                                  document.getElementById("ooutlet-long").innerHTML = "<pre>" + getData.outletlist[0].outletlong + "</pre>";
+                                                                  // document.getElementById("outlet-review").innerHTML = getData.outletlist[0].reviewcount + " Review(s)";
+                                                                  // document.getElementById("outlet-star").innerHTML = getData.outletlist[0].staraverage + " Star(s)";
+                                             
+                                                                  sharingSocialView.set("social_shortmsg", "Checkout the offer at IHG Dining Rewards - " + getData.outletlist[0].outletname + "  \n");
+                                                                  sharingSocialView.set("social_header", getData.outletlist[0].outletname);
+                                                                                
+                                                                  sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
+                                                                  sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
+                                                                  sharingSocialView.set("social_image", share_image); 
+                                                                     
+                                                                  preLogin.set("outlettelephone", getData.outletlist[0].telephone);
+                                                                     
+                                                                  shareCustomer = customer;
+                                                                  shareProductCode = getData.outletlist[0].outletcode;
+                                                                  shareProductType = "1"; //outlet review
+                                                                  hideSpin(); //hide loading popup
+                                                              }else {
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get outlet List!" + getData.statusdesc)          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Outlet List!.  Try after sometime")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
+        
+        
+                                           showOutletAlbum
+                                           : function () {
+                                               showSpin();
+                                                  
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/outletphotolist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,outletcode:outletcode,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+ 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") {
+                                                                  if (getData.outletphotoalbum.length > 0) {
+                                                                      //fill the outlet album
+                                                                      $("#pl-outlet-album").kendoMobileListView({
+                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.outletphotoalbum}),
+                                                                                                                    template: $("#pl-outletAlbumTemplate").html()
+                                                                                                                });
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("Album Empty for the selected outlet!")                  
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Outlet Album List!" + getData.statusdesc)          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Outlet Album List!. Try after sometime")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
+        
+        
+        
+                                           getLocationO: function() {
+                                               showSpin(); //show loading popup
+                                               if (!isMapInitialized) {
+                                                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                       var latlng = new google.maps.LatLng(
+                                                           lat,
+                                                           lon);
+    
+                                                       var mapOptions = {
+                                                           sensor: true,
+                                                           center: latlng,
+                                                           panControl: false,
+                                                           zoomControl: true,
+                                                           zoom: 15,
+                                                           mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                           streetViewControl: false,
+                                                           mapTypeControl: true,
+    
+                                                       }; 
+    
+                                                       var map = new google.maps.Map(
+                                                           document.getElementById("map_canvas1"),
+                                                           mapOptions
+                                                           );
+    
+                                                       var marker = new google.maps.Marker({
+                                                                                               position: latlng,
+                                                                                               map: map
+                                                                                           });
+                                                       console.log(marker);
+                                                       console.log("map rendering");
+                                                   }
+                                                                                            , function onErrorShowMap(error) {
+                                                                                                if (err.code == "1") {
+                                                                                                    navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                } else if (err.code == "2") {
+                                                                                                    navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                }
+                                                                                            }
+                                                       );
+                                                   isMapInitialized = true;
+                                               }
+                                               hideSpin(); //hide loading popup
+                                           },
+        
+        
+        
+        
                                            getTermsofService: function () {  
                                                window.open("http://www.ihg.com/hotels/gb/en/global/customer_care/member-tc#diningrewards", "_blank", "location=yes");
                                            },
         
                                            getCustomerService: function () {  
                                                window.open("https://www.ihg.com/hotels/gb/en/customer-care/", "_blank", "location=yes");
+                                           },
+                                           callTel:  function () {
+                                               window.open("tel:" + preLogin.outlettelephone);
+                                           },
+                                           shareOutlet:  function () {
+                                               alert("eee");
+                                               showSpin();
+                                               $("body").data().kendoMobilePane.navigate("views/socialshare.html");  
+                                               hideSpin();
                                            }
         
                                        });

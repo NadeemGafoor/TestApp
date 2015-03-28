@@ -1,4 +1,4 @@
-<div data-role="view" data-title="Restaurants Near Me" data-layout="list-layout" id="outletlistnearme-view"  data-model="preLogin" data-show="preLogin.showAllOutlet" data-hide="preLogin.outletlistnearmethemedestroyView">
+<div data-role="view" data-title="Restaurants Near Me" data-layout="list-layout" id="outletlistnearme-theme"  data-model="preLogin" data-show="preLogin.showAllOutlet" data-hide="preLogin.outletlistnearmethemedestroyView">
     <div data-role="header">
        <div data-role="navbar">
                <div class="brand-icon"></div>
@@ -24,7 +24,7 @@
             <div class="inner-frame-4a" style="text-align:right">
                </div>
             <div class="inner-frame-4b">
-                <a href="views/outletdetail.html?od=${outletcode}" data-role="button" >></a>
+                <a href="views/outletdetail.html?od=${outletcode}" data-role="button" data-transition="flip:left" >></a>
             </div>
         </div>
     </div>
@@ -32,13 +32,13 @@
 
 <style scoped>
 
-    #outletlist-theme li{
+    #outletlistnearme-theme li{
         border-top:1px solid #ccc !important;
         border-bottom:1px solid #ccc !important;
     }
     
        
-    #outletlist-theme .km-button .km-text{
+    #outletlistnearme-theme .km-button .km-text{
         font-size:1.4em;
         color:#fff;
         margin-bottom:1em;

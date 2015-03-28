@@ -1,0 +1,101 @@
+<div data-role="view" id="outletdetail-theme"  data-init="initButton" data-layout="back2-layout" data-model="preLogin" data-show="preLogin.showOutletItem" data-hide="preLogin.outletdetailthemedestroyView">
+   <header data-role="header">
+        <div data-role="navbar">
+                             <div class="brand-icon"></div>
+            <a data-role="backbutton" data-align="left">
+            </a>
+            <span data-role="view-title" id="outlet-theme-title"></span>
+        </div>
+    </header>
+    <ul data-role="buttongroup" data-index="0" style="margin-top:0px;" id="outletform" class="button-group">
+        <li>
+           Details
+        </li>
+        <li data-bind="click: getLocationO">
+            Map
+        </li>
+        <li data-bind="click: showOutletAlbum">
+            Offers
+        </li>
+      
+    </ul>
+
+    
+    <ul data-role="listview"  data-style="inset" style="background-color:#fff;margin-top:0px"  >
+
+        <div class="detail-image" id="outlet-image-large">
+
+        </div>
+
+        <li>
+            <div class="detail-subhead whitecolor" id="ooutlet-short"></div>
+        </li>
+        <li>
+            <div id="ooutlet-long" class="whitecolor textpad">
+            </div>
+        </li>
+    </ul>
+
+    <ul data-role="listview" style="background-color:#fff;margin-top:0px;display:none;" data-style="inset" >
+        <li>
+            <div id="map_canvas1" data-stretch="true" class="map-pos">
+            </div>
+        </li>
+    </ul>
+    
+    <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="outlet-album">
+     
+</ul>
+            <footer data-role="footer">
+                   <div class="button-frame-inline">
+                    <a data-role="button" data-transition="flip:up" data-bind="click: callTel">Call Now</a>
+                    <a data-role="button"  data-transition="flip:up" data-bind="click: shareOutlet">Share</a>   
+                </div>
+    
+                <div data-role="navbar">
+                    <div class="home-navbar" >
+                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+                    </div>
+                    <a href="views/brandpage.html" data-transition="flip:up"><div class="footer-logo">&nbsp;</div></a>
+
+                </div>
+            </footer>
+
+</div>
+
+
+
+<script type="text/x-kendo-template" id="outletAlbumTemplate">
+    <div class="photo" style="background-image: url(${imageurll});">
+    </div>
+</script>
+
+<script>
+
+    function initButton() {
+      
+        var listviews = this.element.find("ul.km-listview");
+    
+        $("#outletform").kendoMobileButtonGroup({
+                                                    select: function (e) {
+                                                        listviews.hide()
+                                                            .eq(e.index)
+                                                            .show();
+                                                    },
+                                                    index: 0
+                                                });
+    }
+    
+</script>
+
+<style scoped>
+    
+ 
+      
+   #outlet-album li
+    {
+        border-top: 1px solid #fff !important;
+        border-bottom: 1px solid #fff !important;
+    }  
+    </style>
+    

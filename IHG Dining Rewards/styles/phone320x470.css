@@ -106,11 +106,11 @@
         background-position: center center;
     }
     
-    .detail-image
+     .detail-image
     {
         height: 125px;
         width: 100%;
-        background-image: url(../styles/images/explorebrand1.png);
+ background-image: url(../images/largeihglogoimage.png);
         display: inline-block;
         -webkit-background-size: cover;
         background-size: cover;

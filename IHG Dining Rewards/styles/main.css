@@ -866,8 +866,31 @@ img
     line-height: 2.5em;
     width: 100%;
     text-align: center;
-    text-align: left;
 }
+
+.button-frame-inline
+{
+    height: auto;
+    line-height: 2.5em;
+    width: 100%;
+    text-align: center;
+}
+
+.button-frame-inline .km-button
+{
+    line-height: 1.8em;
+    width: 49%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #d86932;
+    color: #fff;
+    font-size: 1.2em;
+    margin:0px;
+    border-radius:0px;
+}
+
+
 .button-frame .km-button
 {
     line-height: 1.8em;
