@@ -1,0 +1,46 @@
+<div data-role="view" data-title="Restaurants Near Me" data-layout="list-layout" id="outletlistnearme-view"  data-model="preLogin" data-show="preLogin.showAllOutlet" data-hide="preLogin.outletlistnearmethemedestroyView">
+    <div data-role="header">
+       <div data-role="navbar">
+               <div class="brand-icon"></div>
+            <a data-role="backbutton" data-align="left"></a>
+                <span data-role="view-title" data-align="right" style="color:#fff"></span>
+        </div>    
+    </div>
+        
+    <ul style="background-color:#fff" id="outletlist-all">
+
+    </ul>
+</div>
+
+<script type="text/x-kendo-template" id="outletListAllTemplate">
+    <div class="outer-frame">
+        <div class="image-frame-list">
+            <img src="${imageurl}" style="height:100px;width:125px"/>
+        </div>
+        <div class="inner-frame-1">${outletname}</div>
+        <div class="inner-frame-2">${hotelname}</div>
+        <div class="inner-frame-3">Distance 1.5 KM</div>
+        <div class="inner-frame-4">
+            <div class="inner-frame-4a" style="text-align:right">
+               </div>
+            <div class="inner-frame-4b">
+                <a href="views/outletdetail.html?od=${outletcode}" data-role="button" >></a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<style scoped>
+
+    #outletlist-theme li{
+        border-top:1px solid #ccc !important;
+        border-bottom:1px solid #ccc !important;
+    }
+    
+       
+    #outletlist-theme .km-button .km-text{
+        font-size:1.4em;
+        color:#fff;
+        margin-bottom:1em;
+    }
+</style>
