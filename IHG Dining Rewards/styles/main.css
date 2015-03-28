@@ -441,8 +441,8 @@ img
     float: left;
     width: 35%;
     background: url(../images/smallihglogoimage.png) no-repeat center center;
-    background-size: 120px 80px; 
-    -webkit-background-size: 120px 80px; 
+    background-size: 120px 60px; 
+    -webkit-background-size: 120px 60px; 
 
 }
 
