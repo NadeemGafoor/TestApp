@@ -142,6 +142,9 @@
     
     window.preLogin = kendo.observable({ 
                                            outlettelephone:"",
+            destroyOfferListView:function() {
+                                                  $("#offerlist-view").remove();  
+                                              },
                                            outletdetailthemedestroyView: function() {
                                                $("#outletdetail-theme").remove();
                                                isMapInitialized = false;
@@ -407,7 +410,55 @@
                                                hideSpin(); //hide loading popup
                                            },
         
-        
+                offerlist: function () {
+                                                  offercode = "";
+                                                  offertype = "1";
+                                                  showSpin();
+                                                
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/offerList.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     if (getData.offerlist.length > 0) {
+                                                                         //fill the outlet template
+                                                                         $("#offer-list-view").kendoMobileListView({
+                                                                                                                          dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
+                                                                                                                   template: $("#offerListTemplate").html(),
+                                                                          
+                                                                                                                   filterable: {
+                                                                              autoFilter: true,
+                                                                              placeholder:"Search By Offer Name",                                         
+                                                                              field: "itemname",
+                                                                              operator: "contains"
+                                                                          }
+                                                                                                                    
+                                                                                                               });
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else {
+                                                                         navigator.notification.alert("No Offers exists for the selected Hotel!")    
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get Offer List!" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (errormsg) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              },
+
         
         
                                            getTermsofService: function () {  

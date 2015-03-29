@@ -505,7 +505,6 @@ img
     float: left;
     width: 64%;
     font-weight: bold;
-    color: #fff;
 }
 .inner-frame-2-o
 {
@@ -517,7 +516,6 @@ img
     float: left;
     width: 64%;
     font-style: italic;
-    color: #fff;
 }
 
 .inner-frame-3-o
@@ -529,7 +527,6 @@ img
     position: relative;
     float: left;
     width: 64%; 
-    color: #fff;
 }
 
 .inner-frame-4-o
@@ -541,7 +538,6 @@ img
     position: relative;
     float: left;
     width: 100%;
-    color: #fff;
 }
 
 .inner-frame-4a
@@ -551,7 +547,6 @@ img
     position: relative;
     float: left;
     width: 70%;
-    color:#343434;
 }
 .inner-frame-4b
 {
@@ -560,7 +555,6 @@ img
     position: relative;
     float: right;
     width: 20%;
-    color: #343434;
 }
 .inner-frame-4b .km-button
 {

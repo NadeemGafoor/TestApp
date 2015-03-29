@@ -1,132 +1,47 @@
-<div data-role="view" data-title="Offers" data-layout="list-layout" id="offerlist-theme">
-     <div data-role="header">
+<!--Offer List View-->
+<div id="offerlist-view"
+     data-role="view"
+     data-title="Offers Listing" data-layout="list-layout"  data-model="preLogin" data-show="preLogin.offerlist" data-hide="preLogin.destroyOfferListView">
+    <div data-role="header">
         <div data-role="navbar">
+            <div class="brand-icon"></div>
             <a data-role="backbutton" data-align="left"></a>
-            <a data-role="button" class="brand-icon" href="views/aboutus.html">
-                <span data-role="view-title" data-align="right" style="color:#fff"></span>
-            </a>
-        </div>
-        <div data-role="navbar" style="background-color:#343434;height:3em">
-            <span class="home-navbar-search">
-                <input type="text" placeholder="Search Text..." class="search-bar">
-            </span>
-            <span class="home-navbar-search-R">
-                <a data-role="button" data-rel="view" data-icon="customsearch" style="border:0;display:inline;font-size:1.1em;line-height:1em"></a>
-            </span>
+            <span data-role="view-title" data-align="right" style="color:#fff"></span>
         </div>
     </div>
-	<ul data-role="listview" style="background-color:#fff">
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/o1.png" />
-				</div>
-				<div class="inner-frame-1">Massage Treatment</div>
-				<div class="inner-frame-2">Booked:25</div>
-				<div class="inner-frame-3">Available:10</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a"></div>
-					<div class="inner-frame-4b">
-						<a href="views/offerdetail.html" data-role="button" data-icon="details"></a>
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/o2.png" />
-				</div>
-				<div class="inner-frame-1">Massage Treatment</div>
-				<div class="inner-frame-2">Booked:25</div>
-				<div class="inner-frame-3">Available:10</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a"></div>
-					<div class="inner-frame-4b">
-						<a href="views/offerdetail.html" data-role="button" data-icon="details"></a>
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/o3.png" />
-				</div>
-				<div class="inner-frame-1">Massage Treatment</div>
-				<div class="inner-frame-2">Booked:25</div>
-				<div class="inner-frame-3">Available:10</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a"></div>
-					<div class="inner-frame-4b">
-						<a href="views/offerdetail.html" data-role="button" data-icon="details"></a>
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/o4.png" />
-				</div>
-				<div class="inner-frame-1">Massage Treatment</div>
-				<div class="inner-frame-2">Booked:25</div>
-				<div class="inner-frame-3">Available:10</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a"></div>
-					<div class="inner-frame-4b">
-						<a href="views/offerdetail.html" data-role="button" data-icon="details"></a>
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/o1.png" />
-				</div>
-				<div class="inner-frame-1">Massage Treatment</div>
-				<div class="inner-frame-2">Booked:25</div>
-				<div class="inner-frame-3">Available:10</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a"></div>
-					<div class="inner-frame-4b">
-						<a href="views/offerdetail.html" data-role="button" data-icon="details"></a>
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/o2.png" />
-				</div>
-				<div class="inner-frame-1">Massage Treatment</div>
-				<div class="inner-frame-2">Booked:25</div>
-				<div class="inner-frame-3">Available:10</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a"></div>
-					<div class="inner-frame-4b">
-						<a href="views/offerdetail.html" data-role="button" data-icon="details"></a>
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/o3.png" />
-				</div>
-				<div class="inner-frame-1">Massage Treatment</div>
-				<div class="inner-frame-2">Booked:25</div>
-				<div class="inner-frame-3">Available:10</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a"></div>
-					<div class="inner-frame-4b">
-						<a href="views/offerdetail.html" data-role="button" data-icon="details"></a>
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/o4.png" />
-				</div>
-				<div class="inner-frame-1">Massage Treatment</div>
-				<div class="inner-frame-2">Booked:25</div>
-				<div class="inner-frame-3">Available:10</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a"></div>
-					<div class="inner-frame-4b">
-						<a href="views/offerdetail.html" data-role="button" data-icon="details"></a>
-					</div>
-				</div>      </div>
-		</li>
-	</ul>
-	</div>
+    <ul data-role="listview" style="background-color:#fff" id="offer-list-view">
+
+    </ul>
+</div>
+
+<script type="text/x-kendo-template" id="offerListTemplate">
+    <div class="outer-frame-o">
+        <div class="image-frame-list">
+            <img src="${imageurls}" style="height:100px;width:125px"/>
+        </div>
+        <div class="inner-frame-1-o">${itemname}</div>
+        <div class="inner-frame-2-o">${category}</div>
+        <div class="inner-frame-3-o">Expiry : ${couponexpirydate}</div>
+        <div class="inner-frame-4-o">
+            <div class="inner-frame-4a"></div>
+            <div class="inner-frame-4b">
+                <a href="views/offerdetail.html?of=${itemcode}" data-role="button">></a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<style scoped>
+
+    #offerlist-view li{
+        border-top:1px solid #ccc !important;
+        border-bottom:1px solid #ccc !important;
+    }
+    
+       
+    #offerlist-view .km-button .km-text{
+        font-size:1.4em;
+        color:#fff;
+        margin-bottom:1em;
+    }
+</style>
