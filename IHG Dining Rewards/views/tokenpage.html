@@ -1,0 +1,25 @@
+<div data-role="view" data-title="Token Validation" data-layout="back-layout" id="token-theme" data-model="preLogin"  data-hide="preLogin.destroyTokenThemeView" data-show="preLogin.initToken">
+    <header data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title"></span>
+        </div>
+    </header>
+     
+     <div class="reward-summary-1">
+                <pre style="padding-left:.3em;padding-right:.3em;text-align:justify">Please Enter the activation token number you have received on your Email address. We ensure that your account is secured. You are getting this screen because you are signing in on a different device.</pre>
+            </div>
+    <ul data-role="listview" dta-style="inset" style="background-color:rgba(154, 178, 204, 0.4);">
+        <li>
+            <div class="input-frame whitecolor">
+                <label for="password">Token: </label>
+                <input type="password" id="tokennum" data-bind="value: tokennum"/>
+            </div>
+        </li>
+        <li>
+            <div class="button-frame">
+                <a data-role="button" data-bind="click: validateToken">Validate</a>
+                <a  href="views/home.html" data-role="button">Cancel</a>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,276 +1,107 @@
-<div data-role="view" data-title="Offer Detail" data-layout="back-layout" id="offerdetail-theme" data-show="initButtonGroup">
-      <div data-role="header">
+<div data-role="view" data-layout="back2-layout" id="offerdetail-theme" data-init="initButtonGroup"  data-hide="preLogin.offerDetaildestroyView" data-show="preLogin.offeritem" data-model="preLogin">
+  <header data-role="header">
         <div data-role="navbar">
-            <a data-role="backbutton" data-align="left"></a>
-            <a data-role="button" class="brand-icon" href="views/aboutus.html">
-                <span data-role="view-title" data-align="right" style="color:#fff"></span>
+                             <div class="brand-icon"></div>
+            <a data-role="backbutton" data-align="left">
             </a>
+            <span data-role="view-title" id="ooffer-item-title"></span>
         </div>
-       
-    </div>
-	<ul data-role="buttongroup" data-index="0" style="margin-top:0px" id="offertab" class="button-group">
-		<li>
-			Details
-		</li>
-		<li>
-			Outlets
-		</li>
-		<li>
-			Review
-		</li>
-	</ul>
-	<ul data-role="listview" style="background-color:#fff">
-		<li>
-			<div class="detail-subhead">
-				Friday Brunch Free
-			</div>
-		</li>
-		<li>
-			<div class="detail-image">
-				<img src="images/2.png" />
-			</div>
-		</li>
-		<li>
-			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, tempor incididunt ut labore et dolore</div>
-		</li>
-		<li>
-			<div class="detail-subhead"> Offer Value: AED 100</div>
-		</li>
-		<li>
-			<div class="detail-subhead"> Offer Expiry: 31/01/2015</div>
-		</li>
-		<li>
-				<label>
-					<input type="checkbox" checked="checked" /> Agree Offer Terms & conditions
-				</label>
-		</li>
-		<li>
-			<div class="button-frame">
-				<a id="mobile-button9" data-role="button">Activate Offer</a>
-			</div>
-		</li>
-		<li></li>
-	</ul>
-	<ul data-role="listview" style="display:none;background-color:#fff">
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/l1.png" />
-				</div>
-				<div class="inner-frame-1">AL Forsan Restaurant</div>
-				<div class="inner-frame-2">Bab Al Shams, Dubai</div>
-				<div class="inner-frame-3">Distance 1.5 km</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a">  </div>
-					<div class="inner-frame-4b">
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/l2.png" />
-				</div>
-				<div class="inner-frame-1">AL Forsan Restaurant</div>
-				<div class="inner-frame-2">Bab Al Shams, Dubai</div>
-				<div class="inner-frame-3">Distance 1.5 km</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a">  </div>
-					<div class="inner-frame-4b">
+    </header>
+    <ul data-role="buttongroup" data-index="0" id="offertab" class="button-group" style="margin-top:0px">
+        <li>
+            Details
+        </li>
+        <li data-bind="click: oofferOutlet">
+            Outlets
+        </li>
 
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/l3.png" />
-				</div>
-				<div class="inner-frame-1">AL Forsan Restaurant</div>
-				<div class="inner-frame-2">Bab Al Shams, Dubai</div>
-				<div class="inner-frame-3">Distance 1.5 km</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a">  </div>
-					<div class="inner-frame-4b">
+    </ul>
+    <ul data-role="listview" data-style="inset" style="background-color:#fff;margin-top:0px">
 
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/l1.png" />
-				</div>
-				<div class="inner-frame-1">AL Forsan Restaurant</div>
-				<div class="inner-frame-2">Bab Al Shams, Dubai</div>
-				<div class="inner-frame-3">Distance 1.5 km</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a">  </div>
-					<div class="inner-frame-4b">
+        <div class="myoffer-image" id="offer-image-large">
+        </div>
 
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/l2.png" />
-				</div>
-				<div class="inner-frame-1">AL Forsan Restaurant</div>
-				<div class="inner-frame-2">Bab Al Shams, Dubai</div>
-				<div class="inner-frame-3">Distance 1.5 km</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a">  </div>
-					<div class="inner-frame-4b">
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/l3.png" />
-				</div>
-				<div class="inner-frame-1">AL Forsan Restaurant</div>
-				<div class="inner-frame-2">Bab Al Shams, Dubai</div>
-				<div class="inner-frame-3">Distance 1.5 km</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a">  </div>
-					<div class="inner-frame-4b">
+        <li>
+            <div class="detail-subhead whitecolor" id="ooffer-shortname"></div>
+        </li>
+        <li>
+            <div id="ooffer-description" class="whitecolor"></div>
+        </li>
+        <li>
+            <div class="detail-subhead whitecolor" id="ooffer-expiry"></div>
+        </li>
 
-					</div>      </div>
-				</div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/l1.png" />
-				</div>
-				<div class="inner-frame-1">AL Forsan Restaurant</div>
-				<div class="inner-frame-2">Bab Al Shams, Dubai</div>
-				<div class="inner-frame-3">Distance 1.5 km</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a">  </div>
-					<div class="inner-frame-4b">
+        <li>
+            <div id="ooffer-remark" class="whitecolor"></div>
+        </li>
 
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/l2.png" />
-				</div>
-				<div class="inner-frame-1">AL Forsan Restaurant</div>
-				<div class="inner-frame-2">Bab Al Shams, Dubai</div>
-				<div class="inner-frame-3">Distance 1.5 km</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a">  </div>
-					<div class="inner-frame-4b">
+        <li>
+            <div class="detail-subhead" style="color:#ffb606">This offer is only for IHF Dining Rewards Members. Please Login to grab this offer!</div>
+        </li>
 
-					</div>
-				</div>      </div>
-		</li>
-		<li>
-			<div class="outer-frame">
-				<div class="image-frame-list"><img src="images/l3.png" />
-				</div>
-				<div class="inner-frame-1">AL Forsan Restaurant</div>
-				<div class="inner-frame-2">Bab Al Shams, Dubai</div>
-				<div class="inner-frame-3">Distance 1.5 km</div>
-				<div class="inner-frame-4">
-					<div class="inner-frame-4a">  </div>
-					<div class="inner-frame-4b">
+    </ul>
+    <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="offer-outlet-list-view">
 
-					</div>
-				</div>      </div>
-		</li>
-	</ul>
-<ul data-role="listview" style="display:none;background-color:#fff">
-		<li>
-			<div class="msg-outer-frame">
-				<div class="msg-image-frame-list"><img src="images/m1.png" />
-				</div>
-				<div class="msg-inner-frame-1">
-					<div class="msg-inner-frame-1a">Coupon</div>
-					<div class="msg-inner-frame-1b">Datetime</div>
-				</div>
-				<div class="msg-inner-frame-2">
-				</div>
-				<div class="msg-inner-frame-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</div>
-			</div>
-		</li>
-		<li>
-			<div class="msg-outer-frame">
-				<div class="msg-image-frame-list"><img src="images/m1.png" />
-				</div>
-				<div class="msg-inner-frame-1">
-					<div class="msg-inner-frame-1a">Coupon</div>
-					<div class="msg-inner-frame-1b">Datetime</div>
-				</div>
-				<div class="msg-inner-frame-2">
-				</div>
-				<div class="msg-inner-frame-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</div>
-			</div>
-		</li>
-		<li>
-			<div class="msg-outer-frame">
-				<div class="msg-image-frame-list"><img src="images/m1.png" />
-				</div>
-				<div class="msg-inner-frame-1">
-					<div class="msg-inner-frame-1a">Coupon</div>
-					<div class="msg-inner-frame-1b">Datetime</div>
-				</div>
-				<div class="msg-inner-frame-2">
-				</div>
-				<div class="msg-inner-frame-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</div>
-			</div>
-		</li>
-		<li>
-			<div class="msg-outer-frame">
-				<div class="msg-image-frame-list"><img src="images/m1.png" />
-				</div>
-				<div class="msg-inner-frame-1">
-					<div class="msg-inner-frame-1a">Coupon</div>
-					<div class="msg-inner-frame-1b">Datetime</div>
-				</div>
-				<div class="msg-inner-frame-2">
-				</div>
-				<div class="msg-inner-frame-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</div>
-			</div>
-		</li>
-		<li>
-			<div class="msg-outer-frame">
-				<div class="msg-image-frame-list"><img src="images/m1.png" />
-				</div>
-				<div class="msg-inner-frame-1">
-					<div class="msg-inner-frame-1a">Coupon</div>
-					<div class="msg-inner-frame-1b">Datetime</div>
-				</div>
-				<div class="msg-inner-frame-2">
-				</div>
-				<div class="msg-inner-frame-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</div>
-			</div>
-		</li>
-		<li>
-			<div class="msg-outer-frame">
-				<div class="msg-image-frame-list"><img src="images/m1.png" />
-				</div>
-				<div class="msg-inner-frame-1">
-					<div class="msg-inner-frame-1a">Coupon</div>
-					<div class="msg-inner-frame-1b">Datetime</div>
-				</div>
-				<div class="msg-inner-frame-2">
-				</div>
-				<div class="msg-inner-frame-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</div>
-			</div>
-		</li>
-	</ul>
+    </ul>
+    
+      <footer data-role="footer">
+                   <div class="button-frame-inline">
+                    <a data-role="button" data-transition="flip:up" data-bind="click: callTel">Call Now</a>
+                    <a data-role="button"  data-transition="flip:up" data-bind="click: shareOutlet">Share</a>   
+                </div>
+    
+                <div data-role="navbar">
+                    <div class="home-navbar" >
+                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+                    </div>
+                    <a href="views/brandpage.html" data-transition="flip:up"><div class="footer-logo">&nbsp;</div></a>
+
+                </div>
+            </footer>
 </div>
 
-<script>
-	function initButtonGroup(){
-		var listviews = this.element.find("ul.km-listview");
+<script type="text/x-kendo-template" id="offerOutletTemplate">
+    <div class="outer-frame">
+           <div class="image-frame-list">
+            <img src="${imageurl}" style="height:100px;width:125px"/>
+        </div>
+        <div class="inner-frame-1">${outletname}</div>
+        <div class="inner-frame-2">${hotelname}</div>
+        <div class="inner-frame-3">${outletshort}</div>
+        <div class="inner-frame-4">
+            <div class="inner-frame-4a">
+            </div>
+            <div class="inner-frame-4b">
 
-		$("#offertab").kendoMobileButtonGroup({
-			select: function (e) {
-				listviews.hide()
-					.eq(e.index)
-					.show();
-			},
-			index: 0
-		});
-
-	}
+            </div>
+        </div>
+    </div>
 </script>
+
+<script>
+    function initButtonGroup() {
+        var listviews = this.element.find("ul.km-listview");
+
+        $("#offertab").kendoMobileButtonGroup({
+                                                  select: function (e) {
+                                                      listviews.hide()
+                                                          .eq(e.index)
+                                                          .show();
+                                                  },
+                                                  index: 0
+                                              });
+    }  
+</script>
+
+<style scoped>
+
+    .button-group
+    {
+        margin-top: 0px;
+        width: 60%;
+        margin-left: 20%;
+    }
+    
+   
+    </style>
+

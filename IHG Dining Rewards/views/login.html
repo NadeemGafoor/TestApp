@@ -1,49 +1,42 @@
-<div data-role="view" data-layout="back-layout" id="login-theme" >
-    <div data-role="header">
-        <div data-role="navbar">
-            <a data-role="backbutton" data-align="left"></a>
-            <a data-role="button" class="brand-icon" href="views/aboutus.html">
-            </a>
-        </div>
+<div data-role="view" data-layout="back-layout" id="login-theme" data-model="preLogin">
+  
+    <ul data-role="listview" style="background-color:#fff">
 
-    </div>
-        <ul data-role="listview" style="background-color:#fff">
-            
-             <li>
-                    <img src="images/brand_logo_login.png" style="height:auto;width:auto;margin:0px auto;"/>
-                </li>
-              <li style="background-color:#d96931;color:#fff;font-size:1.4em">
-                    Sign In
-                </li>
-            
-            <li>
-                <div class="input-frame whitecolor">
-                    <label for="username">Member ID: </label>
-                    <input type="number" id="username" data-bind="value: username" />
-                </div>
-            </li>
-            <li>
-                <div class="input-frame whitecolor">
-                    <label for="password">Password: </label>
-                    <input type="password" id="password" data-bind="value: password" />
-                </div>
-            </li>
-            <li>
-                <div class="switch-frame whitecolor" style="margin-left:1.5em">
-                    <label >
-                        Remember Me
-                        <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
-                    </label>
-                </div>
-            </li>
-            <li>
-                <div class="button-frame">
-                    <a id="mobile-button1" data-role="button" href="views/pl-myprofile.html">Login</a>
-                    <a id="mobile-button2" href="views/resetpassword.html" data-role="button" data-transition="flip:up">Reset Password</a>
-                       <a id="mobile-button3" href="views/join.html" data-role="button" data-transition="flip:up">Not a Member? Join Now</a>
-                </div>
-            </li>
-            <li></li>
-        </ul>
+        <li>
+            <img src="images/brand_logo_login.png" style="height:auto;width:auto;margin:0px auto;"/>
+        </li>
+        <li style="background-color:#d96931;color:#fff;font-size:1.4em">
+            Sign In
+        </li>
+
+        <li>
+            <div class="input-frame whitecolor">
+                <label for="username">Member ID: </label>
+                <input type="number" id="username" data-bind="value: username" />
+            </div>
+        </li>
+        <li>
+            <div class="input-frame whitecolor">
+                <label for="password">Password: </label>
+                <input type="password" id="password" data-bind="value: password" />
+            </div>
+        </li>
+        <li>
+            <div class="switch-frame whitecolor" style="margin-left:1.5em">
+                <label >
+                    Remember Me
+                    <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
+                </label>
+            </div>
+        </li>
+        <li>
+            <div class="button-frame">
+                <a id="mobile-button1" data-role="button" data-bind="click: validateUser" data-transition="flip:up">Login</a>
+                <a id="mobile-button2" href="views/resetpassword.html" data-role="button" data-transition="flip:up">Reset Password</a>
+                <a id="mobile-button3" href="views/join.html" data-role="button" data-transition="flip:up">Not a Member? Join Now</a>
+            </div>
+        </li>
+        <li></li>
+    </ul>
 </div>
 
