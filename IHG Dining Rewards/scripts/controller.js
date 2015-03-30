@@ -690,9 +690,7 @@
                                                        }, function(err) {
                                                        });
                                                    }
-                                                   
-                                                   }
-                                               
+                                               }
                      
                                                if (window.localStorage.getItem("loggedin") == "1" && firsttime == "1") {
                                                    $.ajax({ 
@@ -979,10 +977,8 @@
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
-                                           },
-        
-        
-                                           requestPasswordChangeURL:
+                                           },  
+        requestPasswordChangeURL:
                                            function () {
                                                if (!this.username) {
                                                    navigator.notification.alert("Invalid MemberId or Empty");
@@ -1026,46 +1022,46 @@
                                                           }
                                                       });
                                            }
+                                 
                                        });
-});
     
-function hideSpin() {
-    setTimeout(function() {
-        window.plugins.spinnerDialog.hide();
-    }, 2000);  //hide Loading Popup
-}
+    function hideSpin() {
+        setTimeout(function() {
+            window.plugins.spinnerDialog.hide();
+        }, 2000);  //hide Loading Popup
+    }
       
-function showSpin() {
-    if (!checkConnectionBool()) {
-        $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
-    } else {
-        window.plugins.spinnerDialog.show(null, null, true); //show loading popup
+    function showSpin() {
+        if (!checkConnectionBool()) {
+            $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
+        } else {
+            window.plugins.spinnerDialog.show(null, null, true); //show loading popup
+        }
     }
-}
     
-function writeSpin() {
-    if (!checkConnectionBool()) {
-        $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
-    } else {
-        window.plugins.spinnerDialog.show(null, null, true); //show loading popup
+    function writeSpin() {
+        if (!checkConnectionBool()) {
+            $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
+        } else {
+            window.plugins.spinnerDialog.show(null, null, true); //show loading popup
+        }
     }
-}
     
-function checkConnectionBool () {
-    var networkState = navigator.connection.type;
-    var states = {};
-    states[Connection.UNKNOWN] = 'Unknown connection';
-    states[Connection.ETHERNET] = 'Ethernet connection';
-    states[Connection.WIFI] = 'WiFi connection';
-    states[Connection.CELL_2G] = 'Cell 2G connection';
-    states[Connection.CELL_3G] = 'Cell 3G connection';
-    states[Connection.CELL_4G] = 'Cell 4G connection';
-    states[Connection.NONE] = 'No network connection';
-    if (states[networkState] == "No network connection") {
-        navigator.notification.alert(states[networkState]);                     
-        return false;
-    } else {
-        return true;
+    function checkConnectionBool () {
+        var networkState = navigator.connection.type;
+        var states = {};
+        states[Connection.UNKNOWN] = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI] = 'WiFi connection';
+        states[Connection.CELL_2G] = 'Cell 2G connection';
+        states[Connection.CELL_3G] = 'Cell 3G connection';
+        states[Connection.CELL_4G] = 'Cell 4G connection';
+        states[Connection.NONE] = 'No network connection';
+        if (states[networkState] == "No network connection") {
+            navigator.notification.alert(states[networkState]);                     
+            return false;
+        } else {
+            return true;
+        }
     }
-}
 })(window);
