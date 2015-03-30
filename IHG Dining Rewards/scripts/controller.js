@@ -145,9 +145,12 @@
                                            password:"",
                                            outlettelephone:"",
                                            tokennum:"",
+                                           destroypasswordchange:function() {
+                                               $("#resetpassword-theme").remove();
+                                           },
                                            destroyTokenThemeView
                                            :function() {
-                                               postProgram.set("tokennum", "");
+                                               preLogin.set("tokennum", "");
                                                $("#token-theme").remove();
                                            },
         
@@ -664,30 +667,32 @@
                                                        mobilenumber = ""; 
                                                        memberexpiry = "";
                                                        segmentimage = "";
-                                                   }                  
-                                               }
-                               
-                                               if (window.localStorage.getItem("notification") == undefined || window.localStorage.getItem("notification") == '' || window.localStorage.getItem("notification") == 'null') {
-                                                   //Enable and Register
-                                                   currentDevice.enableNotifications(pushSettings, function (data) {
-                                                       currentDevice.register(pushSettings, function (data) {
+                                                   }     
+                                            
+                                                   if (window.localStorage.getItem("notification") == undefined || window.localStorage.getItem("notification") == '' || window.localStorage.getItem("notification") == 'null') {
+                                                       //Enable and Register
+                                                       currentDevice.enableNotifications(pushSettings, function (data) {
+                                                           currentDevice.register(pushSettings, function (data) {
+                                                           }, function (err) {
+                                                           }); 
+                                                           //Set notification to 1 so that its not registered again
+                                                           window.localStorage.setItem("notification", "1");
                                                        }, function (err) {
-                                                       }); 
-                                                       //Set notification to 1 so that its not registered again
-                                                       window.localStorage.setItem("notification", "1");
-                                                   }, function (err) {
-                                                   });
-                                               }else {
-                                                   currentDevice.getRegistration(function() {
-                                                       var badgeNumber = 0;
-                                                       currentDevice.setBadgeNumber(badgeNumber,
-                                                                                    function onSuccess () {
-                                                                                    },
-                                                                                    function onError (error) {
-                                                                                    });
-                                                   }, function(err) {
-                                                   });
-                                               }
+                                                       });
+                                                   }else {
+                                                       currentDevice.getRegistration(function() {
+                                                           var badgeNumber = 0;
+                                                           currentDevice.setBadgeNumber(badgeNumber,
+                                                                                        function onSuccess () {
+                                                                                        },
+                                                                                        function onError (error) {
+                                                                                        });
+                                                       }, function(err) {
+                                                       });
+                                                   }
+                                                   
+                                                   }
+                                               
                      
                                                if (window.localStorage.getItem("loggedin") == "1" && firsttime == "1") {
                                                    $.ajax({ 
@@ -738,7 +743,27 @@
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           });
-                                               } 
+                                               } else {
+                                                   outletcode = "";
+                                                   brandcode = "";
+                                                   offercode = "";
+                                                   benefitcode = "";
+                                                   offertype = "1";
+                                                   password = "";
+                                                   customer = "9999999999";
+                                                   customername = "Guest";
+                                                   segmentcode = "";
+                                                   segmentname = "";
+                                                   currency = "";
+                                                   nationality = "";
+                                                   pointvalue = "";
+                                                   cuspict = "";
+                                                   cusqr = "";
+                                                   emailid = "";
+                                                   mobilenumber = ""; 
+                                                   memberexpiry = "";
+                                                   segmentimage = "";
+                                               }
                                                 
                                                hideSpin();
                                                return;
@@ -763,6 +788,7 @@
                                            initToken
                                            :function() {
                                                preLogin.set("tokennum", "");
+                                               alert("Came Here");
                                            },
         
         
@@ -805,7 +831,7 @@
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                               
+                                                        
                                                               if (getData.statuscode == "000") { //Login Successful
                                                                   customer = getData.customerid;
                                                                   customername = getData.customername;
@@ -846,7 +872,7 @@
                                                                   window.localStorage.setItem("mversion", mversion);
                                                                   window.localStorage.setItem("mplatform", mplatform);
                                                                   window.localStorage.setItem("notification", "2")
-                                                                     
+                                                                    
                                                                   pushSettings = {
                                                                       iOS: {
                                                                           badge: "false",
@@ -872,7 +898,7 @@
                                                                           Segment:segmentcode
                                                                       }
                                                                   };
-                                                                     
+                                                                          
                                                                   //Re-register the device with updates
                                                                   currentDevice.getRegistration(function() {
                                                                       currentDevice.unregister().then(function() {
@@ -886,15 +912,15 @@
                                                                       });
                                                                   }, function(err) {
                                                                   });
-                                                                     
+                                                
                                                                   if ((getData.deviceinfo.length == 0)) {
-                                                                      $("body").data().kendoMobilePane.navigate("views/tokenpage.html");      
+                                                                      $("body").data("kendoMobilePane").navigate("views/tokenpage.html");      
                                                                   }else {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password);
                                                                       window.localStorage.setItem("loggedin", "1");
 
-                                                                      $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
+                                                                      $("body").data("kendoMobilePane").navigate("views/pl-myprofile.html");  
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                               }else {
@@ -953,47 +979,93 @@
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
-                                           }
+                                           },
         
+        
+                                           requestPasswordChangeURL:
+                                           function () {
+                                               if (!this.username) {
+                                                   navigator.notification.alert("Invalid MemberId or Empty");
+                                                   return;
+                                               }
+                                               if (!this.emailid) {
+                                                   navigator.notification.alert("Invalid EmailID or Empty");
+                                                   return;
+                                               }
+                             
+                                               // window.localStorage.setItem("memberID", this.username);
+                                               // m = window.localStorage.getItem("memberID");
+                                               //  alert(m);
+                                               showSpin();
+                                               
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/passResetRequest.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,customerid:this.username,emailid:this.emailid,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") { //Login Successful
+                                                                  navigator.notification.alert("A URL has been sent to your registered Email ID with a link to set your new password!");   
+                                                                  preLogin.set("username", "");
+                                                                  preLogin.set("emailid", "");
+                                                                  hideSpin(); //hide loading popup
+                                                              }else {
+                                                                  navigator.notification.alert("Unable to send the password reset URL! " + getData.statusdesc)         
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Unable to send the password reset URL!")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           }
                                        });
+});
     
-    function hideSpin() {
-        setTimeout(function() {
-            window.plugins.spinnerDialog.hide();
-        }, 2000);  //hide Loading Popup
-    }
+function hideSpin() {
+    setTimeout(function() {
+        window.plugins.spinnerDialog.hide();
+    }, 2000);  //hide Loading Popup
+}
       
-    function showSpin() {
-        if (!checkConnectionBool()) {
-            $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
-        } else {
-            window.plugins.spinnerDialog.show(null, null, true); //show loading popup
-        }
+function showSpin() {
+    if (!checkConnectionBool()) {
+        $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
+    } else {
+        window.plugins.spinnerDialog.show(null, null, true); //show loading popup
     }
+}
     
-    function writeSpin() {
-        if (!checkConnectionBool()) {
-            $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
-        } else {
-            window.plugins.spinnerDialog.show(null, null, true); //show loading popup
-        }
+function writeSpin() {
+    if (!checkConnectionBool()) {
+        $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
+    } else {
+        window.plugins.spinnerDialog.show(null, null, true); //show loading popup
     }
+}
     
-    function checkConnectionBool () {
-        var networkState = navigator.connection.type;
-        var states = {};
-        states[Connection.UNKNOWN] = 'Unknown connection';
-        states[Connection.ETHERNET] = 'Ethernet connection';
-        states[Connection.WIFI] = 'WiFi connection';
-        states[Connection.CELL_2G] = 'Cell 2G connection';
-        states[Connection.CELL_3G] = 'Cell 3G connection';
-        states[Connection.CELL_4G] = 'Cell 4G connection';
-        states[Connection.NONE] = 'No network connection';
-        if (states[networkState] == "No network connection") {
-            navigator.notification.alert(states[networkState]);                     
-            return false;
-        } else {
-            return true;
-        }
+function checkConnectionBool () {
+    var networkState = navigator.connection.type;
+    var states = {};
+    states[Connection.UNKNOWN] = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI] = 'WiFi connection';
+    states[Connection.CELL_2G] = 'Cell 2G connection';
+    states[Connection.CELL_3G] = 'Cell 3G connection';
+    states[Connection.CELL_4G] = 'Cell 4G connection';
+    states[Connection.NONE] = 'No network connection';
+    if (states[networkState] == "No network connection") {
+        navigator.notification.alert(states[networkState]);                     
+        return false;
+    } else {
+        return true;
     }
+}
 })(window);
