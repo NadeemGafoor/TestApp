@@ -144,7 +144,7 @@
                                            username:"",
                                            password:"",
                                            outlettelephone:"",
-                                        tokennum:"",
+                                           tokennum:"",
                                            destroyTokenThemeView
                                            :function() {
                                                postProgram.set("tokennum", "");
@@ -643,7 +643,7 @@
                                                        muuid = window.localStorage.getItem("muuid");
                                                        mversion = window.localStorage.getItem("mversion");
                                                        mplatform = window.localStorage.getItem("mplatform");
-                                                       $("body").data().kendoMobilePane.navigate("views/pl-home.html");  
+                                                       $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
                                                    } else {
                                                        outletcode = "";
                                                        brandcode = "";
