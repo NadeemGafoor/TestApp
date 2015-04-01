@@ -786,7 +786,6 @@
                                            initToken
                                            :function() {
                                                preLogin.set("tokennum", "");
-                                               alert("Came Here");
                                            },
         
         
@@ -978,7 +977,7 @@
                                                           }
                                                       });
                                            },  
-        requestPasswordChangeURL:
+                                           requestPasswordChangeURL:
                                            function () {
                                                if (!this.username) {
                                                    navigator.notification.alert("Invalid MemberId or Empty");
@@ -1022,8 +1021,73 @@
                                                           }
                                                       });
                                            }
+        
+                                               
                                  
                                        });
+    
+    window.postLogin = kendo.observable({ 
+                                            pldestroyBrandPage:function() {
+                                                $("#pl-brandpage-theme").remove();
+                                            },
+                                            destroymymessages:function() {
+                                                $("#mymessagelist-theme").remove();
+                                            },
+          
+                                            mymessagelist
+                                            : function () {
+                                                t="";
+                                               // alert(merchant);
+                                               // alert(customer);
+                                               // alert(password);
+                                               // alert(mdevicestat);
+                                               // showSpin();
+                                             
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/archivehistory.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                           
+                                                               var getData = JSON.parse(data);
+                                        
+                                                               if (getData.statuscode == "000") {
+                                                                   if (getData.historylist.length > 0) {
+                                                                       $("#pl-history-list").kendoMobileListView({
+                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.historylist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                                                                                     template: $("#pl-historyListTemplate").html(),
+                                                                           
+                                                                                                                   filterable: {
+                                                                              autoFilter: true,
+                                                                              placeholder:"Search By Message",                                         
+                                                                              field: "narration",
+                                                                              operator: "contains"
+                                                                          }
+                                                                                                                     //endlessScroll: true
+                                                                                                                      
+                                                                                                                 });
+                                                                   }else {
+                                                                       navigator.notification.alert("No message history available for your membership!")    
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get message history!" + getData.statusdesc)          
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get message history!  Try after sometime")
+                                                           }
+                                                       });
+                                                hideSpin(); //hide loading popup
+                                            },
+                                               
+                                 
+                                        });
     
     function hideSpin() {
         setTimeout(function() {

@@ -1,0 +1,30 @@
+<div data-role="view" data-title="My Messages" data-layout="pl-back-layout" id="mymessagelist-theme" data-model="postLogin" data-hide="postLogin.destroymymessages" data-show="postLogin.mymessagelist">
+
+  
+    <ul data-role="listview" style="background-color:#fff;margin-top:0px" id="pl-history-list">
+
+    </ul>
+</div>
+
+<script type="text/x-kendo-template" id="pl-historyListTemplate">
+    <div class="msg-outer-frame" >
+        <div class="msg-date-frame-outer">
+            <div class="msg-date-frame-inner-1"></div>
+            <div class="msg-date-frame-inner-2"></div>
+        </div>
+        <div class="msg-narration-frame">${narration}</div>
+        <div class="msg-action-frame-outer">
+            <div class="msg-action-frame-inner-1"></div>
+            <div class="msg-action-frame-inner-2"></div>
+        </div>
+    </div>
+
+</script>
+
+<style scope>
+    #mymessagelist-theme li
+    {
+      
+        border-bottom: 1px solid #343434  !important;
+    }
+</style>
