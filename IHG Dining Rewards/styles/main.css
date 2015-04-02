@@ -685,9 +685,12 @@ img
     position: relative;
     float: left;
     width: 20%;
+    border-radius:10px;
+    -webkit-border-radius:10px;
     border-radius:10%;
     -webkit-border-radius:10%;
     overflow: hidden;
+  
     
 }
 
@@ -708,29 +711,61 @@ img
     position: relative;
     float: left;
     width: 10%;
-    background-color:#fff000;
 }
+
+.msg-action-frame-inner-1
+{
+    height: 3em;
+    position: relative;
+    float: none;
+    width: 10%;
+    padding:0;
+    margin-top:0px;
+    display:block;
+    margin:auto;
+}
+
+.msg-action-frame-inner-2
+{
+    height: 3em;
+    position: relative;
+    float: none;
+    width: 10%;
+    padding:0;
+    margin-bottom:0px;
+    display:block;
+    margin:auto;
+}
+
 
 .msg-date-frame-inner-1
 {
-    height: 3.5em;
+    height: 65%;
     position: relative;
     float: none;
     width: 100%;
-    padding:0;
-    margin-top:0px;
     background-color:#de5716;      
 }
 
 .msg-date-frame-inner-2
 {
-    height: 2.5em;
+    height: 35%;
     position: relative;
     float: none;
     width: 100%;
-    padding:0;
-    margin-bottom:0px;
-    background-color:#343434;   
+    background-color:#343434;
+}
+
+.msgfont{
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    color:#fff;
+}
+
+.center-pos{
+    display:block;
+    margin-top:.5em;
 }
 
 .msg-outer-frame-a
