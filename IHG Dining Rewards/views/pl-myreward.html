@@ -1,0 +1,41 @@
+<div data-role="view" data-title="My Rewards" data-layout="pl-back-layout" id="pl-mywallet-theme" data-hide="postLogin.walletviewdestroy" data-model="postLogin" data-show="postLogin.mywalletofferlist">
+   
+    <ul data-role="listview" data-style="inset" style="background-color:#fff" id="mywallet-voucher-list">
+     
+    </ul>
+</div>
+
+
+<script type="text/x-kendo-template" id="mywallet-voucherlist-Template">
+   <div class="outer-frame-o">
+                         <div class="image-frame-list">
+            <img src="${imageurls}" style="height:100%;width:100%"/>
+        </div>
+                        <div class="inner-frame-1-o">${itemname}</div>
+                        <div class="inner-frame-2-o">${category}</div>
+                        <div class="inner-frame-3-o">Expiry : ${couponexpirydate}</div>
+                        <div class="inner-frame-4-o">
+                            <div class="inner-frame-4a"></div>
+                            <div class="inner-frame-4b">
+                                <a href="views/pl-myvoucherdetail.html?itc=${itemcode}" data-role="button" data-transition="slide">></a>
+                            </div>
+                        </div>
+                    </div>
+</script>
+
+
+<style scoped>
+
+    #pl-mywallet-theme li{
+        border-top:1px solid #ccc !important;
+        border-bottom:1px solid #ccc !important;
+    }
+    
+       
+    #pl-mywallet-theme .km-button .km-text{
+        font-size:1.4em;
+        color:#fff;
+        margin-bottom:1em;
+    }
+</style>
+

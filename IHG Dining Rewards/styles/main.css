@@ -1523,6 +1523,9 @@ a:active
     display: inline;
     margin-left: 1%;
     margin-top: 2%;
+    overflow:hidden;
+    border-radius:10px;
+    border-radius:10%;
 }
 
 .tile-frame-image-restaurant

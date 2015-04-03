@@ -1,0 +1,41 @@
+<!--Offer List View-->
+<div id="pl-offerlistnearme-view"
+     data-role="view"
+     data-title="Offers Listing" data-layout="pl-back-layout"  data-model="postLogin" data-show="postLogin.plofferlistnearme" data-hide="postLogin.pldestroyOfferListViewnearme" >
+  
+    <ul data-role="listview" style="background-color:#fff" id="pl-offer-list-view-nearme">
+
+    </ul>
+</div>
+
+<script type="text/x-kendo-template" id="plofferListTemplatenearme">
+    <div class="outer-frame-o">
+        <div class="image-frame-list">
+            <img src="${imageurls}" style="height:100%;width:100%"/>
+        </div>
+        <div class="inner-frame-1-o">${itemname}</div>
+        <div class="inner-frame-2-o">${category}</div>
+        <div class="inner-frame-3-o">Expiry : ${couponexpirydate}</div>
+        <div class="inner-frame-4-o">
+            <div class="inner-frame-4a"></div>
+            <div class="inner-frame-4b">
+                <a href="views/pl-offerdetail.html?of=${itemcode}" data-role="button" data-transition="slide">></a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<style scoped>
+
+    #pl-offerlistnearme-view li{
+        border-top:1px solid #ccc !important;
+        border-bottom:1px solid #ccc !important;
+    }
+    
+       
+    #pl-offerlistnearme-view .km-button .km-text{
+        font-size:1.4em;
+        color:#fff;
+        margin-bottom:1em;
+    }
+</style>

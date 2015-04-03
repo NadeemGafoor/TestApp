@@ -1,0 +1,80 @@
+<div data-role="view" data-title="My Voucher" data-layout="pl-back2-layout" id="myvoucherdetail-theme" data-init="initButtonGroup"  data-hide="postLogin.destroymyvoucher" data-model="postLogin" data-show="postLogin.mywalletofferdetail">
+    
+    <ul data-role="buttongroup" data-index="0" id="myvouchertab" class="button-group" style="margin-top:0px" >
+        <li>
+            Details
+        </li>
+        <li data-bind="click: myofferOutlet">
+            Outlet
+        </li>
+
+    </ul>
+    <ul data-role="listview" data-style="inset" style="background-color:#fff;margin-top:0px">
+
+        <div class="myvoucherdetail-image" id="myvoucher-load"></div>
+        <li>
+            <div class="mycard-holder">
+                <div class="mycard-detail-holder-label whitecolor">Voucher #</div>
+                <div class="mycard-detail-holder-data  whitecolor" id="voucher-number"></div>
+                <div class="mycard-detail-holder-label  whitecolor">Voucher Name</div>
+                <div class="mycard-detail-holder-data  whitecolor" id="voucher-name" style="height:3em;line-height:1.5em"></div>
+                <div class="mycard-detail-holder-label  whitecolor">Expiry</div>
+                <div class="mycard-detail-holder-data  whitecolor" id="voucher-expiry"></div>
+            </div>
+        </li>
+
+        <div class="qr-image-sep">
+            <div class="qr-image" id="qr-image-3"></div>
+        </div>
+      
+    </ul>
+    <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="my-offer-outlet-list-view">
+
+    </ul>
+    
+        <footer data-role="footer">
+   
+                <div data-role="navbar">
+                    <div class="home-navbar" >
+                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+                    </div>
+                    <a href="views/brandpage.html" data-transition="slide"><div class="footer-logo">&nbsp;</div></a>
+
+                </div>
+            </footer>
+</div>
+
+<script type="text/x-kendo-template" id="my-offerOutletTemplate">
+    <div class="outer-frame">
+            <div class="image-frame-list">
+            <img src="${imageurl}" style="height:100%;width:100%"/>
+        </div>
+         <div class="inner-frame-1">${outletname}</div>
+        <div class="inner-frame-2">${hotelname}</div>
+        <div class="inner-frame-3">Distance 1.5 KM</div>
+        <div class="inner-frame-4">
+            <div class="inner-frame-4a">
+            </div>
+            <div class="inner-frame-4b">
+
+            </div>
+        </div>
+    </div>
+</script>
+
+<script>
+    function initButtonGroup() {
+        var listviews = this.element.find("ul.km-listview");
+
+        $("#myvouchertab").kendoMobileButtonGroup({
+                                                      select: function (e) {
+                                                          listviews.hide()
+                                                              .eq(e.index)
+                                                              .show();
+                                                      },
+                                                      index: 0
+                                                  });
+    }      
+</script>
+
+

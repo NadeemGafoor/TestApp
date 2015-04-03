@@ -46,6 +46,7 @@
     var share_image = "http://exclusiveu.dynns.com:8088/mobileportal/images/ihg_logo.png";
     var share_contact = "Phone: +971 427 66 186 \nEmail: inquiry@ihg.com";
     var short_msg = "Check out the IHG Dining Rewards at ";
+    var offertelephone = "0097142766186";
     var pushSettings = {
         iOS: {
             badge: "1",
@@ -145,6 +146,7 @@
                                            password:"",
                                            outlettelephone:"",
                                            tokennum:"",
+            
                                            destroypasswordchange:function() {
                                                $("#resetpassword-theme").remove();
                                            },
@@ -162,14 +164,15 @@
                                            destroyOfferListNearMeView:function() {
                                                $("#offerlistnearme-view").remove();  
                                            },
+                                           destroyOfferListView:function() {
+                                               $("#offerlist-view").remove();  
+                                           },
                 
                                            offerDetaildestroyView
                                            :function() {
                                                $("#offerdetail-theme").remove();  
                                            },
-                                           destroyOfferListView:function() {
-                                               $("#offerlist-view").remove();  
-                                           },
+                                          
                                            outletdetailthemedestroyView: function() {
                                                $("#outletdetail-theme").remove();
                                                isMapInitialized = false;
@@ -509,7 +512,7 @@
                                                                   document.getElementById("ooffer-description").innerHTML = "<pre>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                   document.getElementById("ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                   document.getElementById("ooffer-remark").innerHTML = "<pre>" + getData.offerlist[0].remark + "</pre>";
-                                                                     
+                                                                  preLogin.set("outlettelephone", offertelephone);   
                                                                   sharingSocialView.set("social_shortmsg", "Checkout the offer at IHG Dining Rewards - " + getData.offerlist[0].itemname + "  \n");
                                                                   sharingSocialView.set("social_header", getData.offerlist[0].category);
                                                                   sharingSocialView.set("social_subject", getData.offerlist[0].itemname);
@@ -518,12 +521,12 @@
                                                                      
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Offer List List!" + getData.statusdesc)          
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc)          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
+                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List. Try after sometime")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1027,6 +1030,38 @@
     
     window.postLogin = kendo.observable({ 
                                             outlettelephone:"",
+                                            transactionref:"",
+                                            couponcode:"",
+                                            couponname:"",
+                                            couponcategory:"",
+                                            destroymyvoucher
+                                            :function() {
+                                                $("#myvoucherdetail-theme").remove();
+                                            },
+                                            walletviewdestroy
+                                            :function() {
+                                                $("#pl-mywallet-theme").remove();
+                                            },
+                                            destroyreceipt
+                                            :function() {
+                                                $("#receipt-view").remove();  
+                                            },
+        
+        
+                                            plofferDetaildestroyView
+                                            :function() {
+                                                $("#pl-offerdetail-theme").remove();  
+                                            },
+                                            pldestroyOfferListViewnearme:function() {
+                                                $("#pl-offerlistnearme-view").remove();  
+                                            },
+                                            pldestroyOfferListView:function() {
+                                                $("#pl-offerlist-view").remove();  
+                                            },
+
+                                            ploutletlistthemenearmedestroyView: function() {
+                                                $("#pl-outletlistnearme-theme").remove();
+                                            },
                                             ploutletdetailthemedestroyView: function() {
                                                 $("#pl-outletdetail-theme").remove();
                                                 isMapInitialized = false;
@@ -1339,6 +1374,464 @@
                                                 $("body").data().kendoMobilePane.navigate("views/pl-socialshare.html");  
                                                 hideSpin();
                                             },
+        
+                                            plshowAllOutletNearMe: function () {
+                                                outletcode = "";
+                                                brandcode = "";
+                                                showSpin();
+                                                
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/outletlist.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                            
+                                                               if (getData.statuscode == "000") {
+                                                                   if (getData.outletlist.length > 0) {
+                                                                       //fill the outlet template
+                                                                       $("#pl-outletlistnearme-all").kendoMobileListView({
+                                                                             
+                                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                                             template: $("#pl-outletListNearMeTemplate").html(),
+                                                                          
+                                                                                                                             filterable: {
+                                                                               autoFilter: true,
+                                                                               placeholder:"Search By Restaurant Name",                                         
+                                                                               field: "outletname",
+                                                                               operator: "contains"
+                                                                           }
+                                                                                                                    
+                                                                                                                         });
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("No outlet exists for the selected property!")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get outlet List!" + getData.statusdesc)          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List!.  Try after sometime")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+                                            plofferlist: function () {
+                                                offercode = "";
+                                                offertype = "1";
+                                                showSpin();
+                                                
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/offerList.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   if (getData.offerlist.length > 0) {
+                                                                       //fill the outlet template
+                                                                       $("#pl-offer-list-view").kendoMobileListView({
+                                                                                                                        dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
+                                                                                                                        template: $("#plofferListTemplate").html(),
+                                                                          
+                                                                                                                        filterable: {
+                                                                               autoFilter: true,
+                                                                               placeholder:"Search By Offer Name",                                         
+                                                                               field: "itemname",
+                                                                               operator: "contains"
+                                                                           }
+                                                                                                                    
+                                                                                                                    });
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("No Offers exists for the selected Hotel!")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List!" + getData.statusdesc)          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+
+        
+                                            plofferlistnearme: function () {
+                                                offercode = "";
+                                                offertype = "1";
+                                                showSpin();
+                                                
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/offerList.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   if (getData.offerlist.length > 0) {
+                                                                       //fill the outlet template
+                                                                       $("#pl-offer-list-view-nearme").kendoMobileListView({
+                                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
+                                                                                                                               template: $("#plofferListTemplatenearme").html(),
+                                                                          
+                                                                                                                               filterable: {
+                                                                               autoFilter: true,
+                                                                               placeholder:"Search By Offer Name",                                         
+                                                                               field: "itemname",
+                                                                               operator: "contains"
+                                                                           }
+                                                                                                                    
+                                                                                                                           });
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("No Offers exists for the selected Hotel!")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List" + getData.statusdesc)          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List. Try after sometime")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+        
+                                            plofferitem: function (e) {
+                                                offercode = e.view.params.of; //offer code for single offer inquiry
+                                                offertype = "2"; //single offer inquiry
+                                                showSpin();
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/offerList.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   document.getElementById("pl-offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
+                                                                   document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
+                                                                     
+                                                                   document.getElementById("pl-title").innerHTML = getData.offerlist[0].category;
+                                                                   document.getElementById("pl-ooffer-shortname").innerHTML = getData.offerlist[0].itemname;
+                                                                   document.getElementById("pl-ooffer-description").innerHTML = "<pre>" + getData.offerlist[0].itemdescription + "</pre>";
+                                                                   document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
+                                                                   document.getElementById("pl-ooffer-remark").innerHTML = "<pre>" + getData.offerlist[0].remark + "</pre>";
+                                                                   postLogin.set("outlettelephone", offertelephone);
+                                                                   sharingSocialView.set("social_shortmsg", "Checkout the offer at IHG Dining Rewards - " + getData.offerlist[0].itemname + "  \n");
+                                                                   sharingSocialView.set("social_header", getData.offerlist[0].category);
+                                                                   sharingSocialView.set("social_subject", getData.offerlist[0].itemname);
+                                                                   sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);
+                                                                   sharingSocialView.set("social_image", share_image); 
+                                                                     
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List" + getData.statusdesc)          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List. Try after sometime")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+        
+        
+        
+                                            oofferOutlet: function () {
+                                                showSpin(); //show loading popup
+                                                  
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/offeroutletlist.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,offercode:offercode,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   //fill the outlet template
+                                                                   if (getData.offeroutletlist.length > 0) {
+                                                                       $("#pl-offer-outlet-list-view").kendoMobileListView({
+                                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
+                                                                                                                               template: $("#plofferOutletTemplate").html()
+                                                                                                                           });
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("No outlet exists for the selected offer!")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Outlet List!" + getData.statusdesc)          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (error) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List!.   Try after sometime")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+        
+                                            plofferlistnearme: function () {
+                                                offercode = "";
+                                                offertype = "1";
+                                                showSpin();
+                                                
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/offerList.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   if (getData.offerlist.length > 0) {
+                                                                       //fill the outlet template
+                                                                       $("#pl-offer-list-view-nearme").kendoMobileListView({
+                                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
+                                                                                                                               template: $("#plofferListTemplatenearme").html(),
+                                                                          
+                                                                                                                               filterable: {
+                                                                               autoFilter: true,
+                                                                               placeholder:"Search By Offer Name",                                         
+                                                                               field: "itemname",
+                                                                               operator: "contains"
+                                                                           }
+                                                                                                                    
+                                                                                                                           });
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("No Offers exists for the selected Hotel!")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List!" + getData.statusdesc)          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+        
+                                            activateoffer
+                                            : function (e) {
+                                                if (!document.getElementById("tandc-accept").checked) {
+                                                    navigator.notification.alert("Please Accept Terms & Conditions to Proceed");
+                                                    return;
+                                                }
+                                                writeSpin();
+
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/issuecoupon.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,offercode:offercode,customerid:customer,password:password,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   postLogin.set("transactionref", getData.transactionref);
+                                                                   postLogin.set("couponcode", getData.couponcode);
+                                                                   postLogin.set("couponname", getData.couponname);                
+                                                                   postLogin.set("couponcategory", getData.couponcategory);        
+                                                                   $("body").data().kendoMobilePane.navigate("views/pl-confirmpage.html");  
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc)          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List. Try after sometime")
+                                                               hideSpin(); //hide loading popup                                                                 
+                                                           }
+                                                       });
+                                            }, 
+        
+                                            confirmIssueResponse
+                                            :function() {
+                                                document.getElementById("offer-1").innerHTML = postLogin.transactionref;
+                                                document.getElementById("offer-2").innerHTML = postLogin.couponname;
+                                                document.getElementById("offer-3").innerHTML = postLogin.couponcategory;
+                                            },
+                                            mywalletofferlist
+                                            : function () {
+                                                showSpin();
+                                                
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/mywalletvouchers.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   if (getData.mywalletvouchers.length > 0) {
+                                                                       $("#mywallet-voucher-list").kendoMobileListView({
+                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                                                                                           template: $("#mywallet-voucherlist-Template").html()
+                                                                                                                           // endlessScroll:true
+                                                                                                                       });
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("No Vouchers available in Wallet!")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc)          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  Try after sometime!")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+        
+                mywalletofferdetail
+                                              : function (e) {
+                                                  couponnumber = e.view.params.itc;
+                                                  showSpin();
+                                                
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/mywalletvoucherdetail.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,customerid:customer,password:password,couponnumber:couponnumber,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     if (getData.myvoucherdetail.length > 0) {
+                                                                         document.getElementById("myvoucher-load").style.background = "url(" + getData.myvoucherdetail[0].imageurll + ") no-repeat center center";
+                                                                         document.getElementById("myvoucher-load").style.backgroundSize = "cover";
+                                                                                                                                         
+                                                                         document.getElementById("voucher-number").innerHTML = getData.myvoucherdetail[0].itemcode;
+                                                                         document.getElementById("voucher-name").innerHTML = getData.myvoucherdetail[0].itemname;
+                                                                         document.getElementById("voucher-expiry").innerHTML = getData.myvoucherdetail[0].couponexpirydate;
+                                                                         //document.getElementById("coupon-description-1").innerHTML = getData.myvoucherdetail[0].itemdescription;
+                                                                     
+                                                                         document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
+                                                    
+                                                                         offercode = getData.myvoucherdetail[0].couponcode;
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else {
+                                                                         navigator.notification.alert("No Vouchers available in Wallet!")    
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 }else {
+                                                                     navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (errormsg) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  Try after sometime!")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              },
+        
+                  myofferOutlet: function () {
+                                                showSpin(); //show loading popup
+                                                  
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/offeroutletlist.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,offercode:offercode,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   //fill the outlet template
+                                                                   if (getData.offeroutletlist.length > 0) {
+                                                                       $("#my-offer-outlet-list-view").kendoMobileListView({
+                                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
+                                                                                                                               template: $("#my-offerOutletTemplate").html()
+                                                                                                                           });
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("No outlet exists for the selected offer!")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Outlet List!" + getData.statusdesc)          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (error) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List!.   Try after sometime")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+        
+        
+        
         
                                  
                                         });

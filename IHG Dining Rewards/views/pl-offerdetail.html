@@ -1,0 +1,110 @@
+<div data-role="view" data-layout="pl-back2-layout" id="pl-offerdetail-theme" data-init="initButtonGroup"  data-hide="postLogin.plofferDetaildestroyView" data-show="postLogin.plofferitem" data-model="postLogin">
+
+    <ul data-role="buttongroup" data-index="0" id="ploffertab" class="button-group" style="margin-top:0px">
+        <li>
+            Details
+        </li>
+        <li data-bind="click: oofferOutlet">
+            Outlets
+        </li>
+
+    </ul>
+    <ul data-role="listview" data-style="inset" style="background-color:#fff;margin-top:0px">
+
+        <div class="myoffer-image" id="pl-offer-image-large">
+        </div>
+        
+           <li>
+              <div class="switch-frame">
+            <label class="whitecolor">
+                 Agree Offer Terms & conditions
+                    <input data-role="switch" name="tandc-accept" id="tandc-accept" type="checkbox"/>
+            </label>
+                  </div>
+        </li>
+        <li>
+            <div class="button-frame">
+                <a id="activate-offer-button" data-role="button" data-bind="click: activateoffer">Activate Offer</a>
+            </div>
+        </li>
+
+        <li>
+            <div class="detail-subhead whitecolor" id="pl-ooffer-shortname"></div>
+        </li>
+        <li>
+            <div id="pl-ooffer-description" class="whitecolor"></div>
+        </li>
+        <li>
+            <div class="detail-subhead whitecolor" id="pl-ooffer-expiry"></div>
+        </li>
+
+        <li>
+            <div id="pl-ooffer-remark" class="whitecolor"></div>
+        </li>
+  
+    </ul>
+    <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="pl-offer-outlet-list-view">
+
+    </ul>
+    
+      <footer data-role="footer">
+                   <div class="button-frame-inline">
+                    <a data-role="button" data-transition="slide" data-bind="click: callTel">Call Now</a>
+                    <a data-role="button"  data-transition="slide" data-bind="click: shareOutlet">Share</a>   
+                </div>
+    
+                <div data-role="navbar">
+                    <div class="home-navbar" >
+                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+                    </div>
+                    <a href="views/brandpage.html" data-transition="slide"><div class="footer-logo">&nbsp;</div></a>
+
+                </div>
+            </footer>
+</div>
+
+<script type="text/x-kendo-template" id="plofferOutletTemplate">
+    <div class="outer-frame">
+           <div class="image-frame-list">
+            <img src="${imageurl}" style="height:100%;width:100%"/>
+        </div>
+        <div class="inner-frame-1">${outletname}</div>
+        <div class="inner-frame-2">${hotelname}</div>
+        <div class="inner-frame-3">Distance 1.5 KM</div>
+        <div class="inner-frame-4">
+            <div class="inner-frame-4a">
+            </div>
+            <div class="inner-frame-4b">
+
+            </div>
+        </div>
+    </div>
+</script>
+
+<script>
+    function initButtonGroup() {
+        var listviews = this.element.find("ul.km-listview");
+
+        $("#ploffertab").kendoMobileButtonGroup({
+                                                  select: function (e) {
+                                                      listviews.hide()
+                                                          .eq(e.index)
+                                                          .show();
+                                                  },
+                                                  index: 0
+                                              });
+    }  
+</script>
+
+<style scoped>
+
+    .button-group
+    {
+        margin-top: 0px;
+        width: 60%;
+        margin-left: 20%;
+    }
+    
+   
+    </style>
+
