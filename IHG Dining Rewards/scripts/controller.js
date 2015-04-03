@@ -1,3 +1,8 @@
+
+
+
+
+
 (function (global) {
     var firsttime = "";
     var mdevice = "";
@@ -586,7 +591,7 @@
                                            },
                                            shareOutlet:  function () {
                                                showSpin();
-                                               $("body").data().kendoMobilePane.navigate("views/socialshare.html");  
+                                               $("body").data("kendoMobilePane").navigate("views/socialshare.html");  
                                                hideSpin();
                                            },
                                            varInit: function() {
@@ -614,7 +619,7 @@
 
                                                                       hideSpin(); //hide loading popup
                                                                   }else if (getData.statuscode == "047") {
-                                                                      $("body").data().kendoMobilePane.navigate("views/deviceBlock.html");  
+                                                                      $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
                                                                   } else {
                                                                       navigator.notification.alert("Platform Error, Services may not be available!" + getData.statusdesc)          
                                                                       hideSpin(); //hide loading popup
@@ -966,7 +971,7 @@
                                                                   password = getData.certificate;
                                                                   window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                   window.localStorage.setItem("loggedin", "1");
-                                                                  $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
+                                                                  $("body").data("kendoMobilePane").navigate("views/pl-myprofile.html");  
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Cannot Login! " + getData.statusdesc)         
@@ -1034,6 +1039,7 @@
                                             couponcode:"",
                                             couponname:"",
                                             couponcategory:"",
+                                            msgsequence:"",
                                             destroymyvoucher
                                             :function() {
                                                 $("#myvoucherdetail-theme").remove();
@@ -1155,16 +1161,14 @@
                                                                                     merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat
                                                                                 }),
                                                            success: function (data) { 
-                                                               alert(data);
                                                                var getData = JSON.parse(data);
-                                        
+                                  
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.messageitem.length > 0) {
-                                                                       $("#pl-messageitem-list").kendoMobileListView({
-                                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.messageitem }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                                                         template: $("#pl-messageitemtemplate").html()
-                                                                                                                      
-                                                                                                                     });
+                                                                       document.getElementById("msgnarration").innerHTML = getData.messageitem[0].narration;
+                                                                       document.getElementById("msgmonth").innerHTML = getData.messageitem[0].mmonth;
+                                                                       document.getElementById("msgday").innerHTML = getData.messageitem[0].mday;
+                                                                       postLogin.set("msgsequence", getData.messageitem[0].sequence);
                                                                    }else {
                                                                        navigator.notification.alert("No message item available for your membership!")    
                                                                    }
@@ -1371,7 +1375,7 @@
                                             },
                                             shareOutlet:  function () {
                                                 showSpin();
-                                                $("body").data().kendoMobilePane.navigate("views/pl-socialshare.html");  
+                                                $("body").data("kendoMobilePane").navigate("views/pl-socialshare.html");  
                                                 hideSpin();
                                             },
         
@@ -1684,7 +1688,7 @@
                                                                    postLogin.set("couponcode", getData.couponcode);
                                                                    postLogin.set("couponname", getData.couponname);                
                                                                    postLogin.set("couponcategory", getData.couponcategory);        
-                                                                   $("body").data().kendoMobilePane.navigate("views/pl-confirmpage.html");  
+                                                                   $("body").data("kendoMobilePane").navigate("views/pl-confirmpage.html");  
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc)          
@@ -1744,54 +1748,54 @@
                                                        });
                                             },
         
-                mywalletofferdetail
-                                              : function (e) {
-                                                  couponnumber = e.view.params.itc;
-                                                  showSpin();
+                                            mywalletofferdetail
+                                            : function (e) {
+                                                couponnumber = e.view.params.itc;
+                                                showSpin();
                                                 
-                                                  $.ajax({ 
-                                                             type: "POST",
-                                                             cache:false,
-                                                             async:true,
-                                                             timeout:20000,
-                                                             url: gurl + "/mywalletvoucherdetail.aspx",
-                                                             contentType: "application/json; charset=utf-8",
-                                                             data: JSON.stringify({
-                                                                                      merchantcode :merchant,customerid:customer,password:password,couponnumber:couponnumber,mdevice:mdevicestat
-                                                                                  }),
-                                                             success: function (data) { 
-                                                                 var getData = JSON.parse(data);
-                                                                 if (getData.statuscode == "000") {
-                                                                     if (getData.myvoucherdetail.length > 0) {
-                                                                         document.getElementById("myvoucher-load").style.background = "url(" + getData.myvoucherdetail[0].imageurll + ") no-repeat center center";
-                                                                         document.getElementById("myvoucher-load").style.backgroundSize = "cover";
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/mywalletvoucherdetail.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,couponnumber:couponnumber,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   if (getData.myvoucherdetail.length > 0) {
+                                                                       document.getElementById("myvoucher-load").style.background = "url(" + getData.myvoucherdetail[0].imageurll + ") no-repeat center center";
+                                                                       document.getElementById("myvoucher-load").style.backgroundSize = "cover";
                                                                                                                                          
-                                                                         document.getElementById("voucher-number").innerHTML = getData.myvoucherdetail[0].itemcode;
-                                                                         document.getElementById("voucher-name").innerHTML = getData.myvoucherdetail[0].itemname;
-                                                                         document.getElementById("voucher-expiry").innerHTML = getData.myvoucherdetail[0].couponexpirydate;
-                                                                         //document.getElementById("coupon-description-1").innerHTML = getData.myvoucherdetail[0].itemdescription;
+                                                                       document.getElementById("voucher-number").innerHTML = getData.myvoucherdetail[0].itemcode;
+                                                                       document.getElementById("voucher-name").innerHTML = getData.myvoucherdetail[0].itemname;
+                                                                       document.getElementById("voucher-expiry").innerHTML = getData.myvoucherdetail[0].couponexpirydate;
+                                                                       //document.getElementById("coupon-description-1").innerHTML = getData.myvoucherdetail[0].itemdescription;
                                                                      
-                                                                         document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
+                                                                       document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
                                                     
-                                                                         offercode = getData.myvoucherdetail[0].couponcode;
-                                                                         hideSpin(); //hide loading popup
-                                                                     }else {
-                                                                         navigator.notification.alert("No Vouchers available in Wallet!")    
-                                                                         hideSpin(); //hide loading popup
-                                                                     }
-                                                                 }else {
-                                                                     navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc)          
-                                                                     hideSpin(); //hide loading popup
-                                                                 }
-                                                             },
-                                                             error: function (errormsg) {
-                                                                 navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  Try after sometime!")
-                                                                 hideSpin(); //hide loading popup
-                                                             }
-                                                         });
-                                              },
+                                                                       offercode = getData.myvoucherdetail[0].couponcode;
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("No Vouchers available in Wallet!")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc)          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  Try after sometime!")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
         
-                  myofferOutlet: function () {
+                                            myofferOutlet: function () {
                                                 showSpin(); //show loading popup
                                                   
                                                 $.ajax({ 
@@ -1815,24 +1819,51 @@
                                                                                                                            });
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("No outlet exists for the selected offer!")    
+                                                                       navigator.notification.alert("No outlet exists for the selected offer.")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Outlet List!" + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Outlet List." + getData.statusdesc)          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List!.   Try after sometime")
+                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List. Try after sometime")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
                                             },
-        
-        
-        
-        
+                                            deleteMessage
+                                            : function () {
+                                                t = postLogin.msgsequence;
+         
+                                                showSpin(); 
+                                             
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/messagedelete.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+            
+                                                               if (getData.statuscode == "000") {
+                                                                   $("body").data("kendoMobilePane").navigate("views/pl-messageitem.html");  
+                                                               }else {
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot delete message." + getData.statusdesc)          
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot delete message. Try after sometime")
+                                                           }
+                                                       });
+                                                hideSpin(); //hide loading popup
+                                            }
                                  
                                         });
     
@@ -1844,7 +1875,7 @@
       
     function showSpin() {
         if (!checkConnectionBool()) {
-            $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
+            $("body").data("kendoMobilePane").navigate("views/nonetwork.html");  
         } else {
             window.plugins.spinnerDialog.show(null, null, true); //show loading popup
         }
@@ -1852,7 +1883,7 @@
     
     function writeSpin() {
         if (!checkConnectionBool()) {
-            $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
+            $("body").data("kendoMobilePane").navigate("views/nonetwork.html");  
         } else {
             window.plugins.spinnerDialog.show(null, null, true); //show loading popup
         }

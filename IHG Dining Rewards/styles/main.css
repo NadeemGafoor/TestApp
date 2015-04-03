@@ -321,6 +321,11 @@ h2
     color: #fff;
 }
 
+.km-button .km-state-active
+{
+    color: #ccc;
+}
+
 .km-ios7 .km-tabstrip .km-button
 {
     display: inline-block;
@@ -655,7 +660,7 @@ img
 }
 .button-group .km-button.km-state-active
 {
-    background-color: #e67e1d;
+    background-color: #ccc;
 }
 
 #modalview-offersocial img
@@ -684,7 +689,7 @@ img
 
 .msg-date-frame-outer
 {
-    height: 90%;
+    height: 6em;
     position: relative;
     float: left;
     width: 20%;
@@ -695,40 +700,13 @@ img
     overflow: hidden;
 }
 
-.msg-date-frame-outer-2
-{
-    height: 6em;
-    position: relative;
-    float: left;
-    width: 25%;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10%;
-    -webkit-border-radius: 10%;
-    overflow: hidden;
- 
-}
-
-.msg-date-frame-outer-3
-{
-    height: 80%;
-    position: relative;
-    float: none;
-    width: 80%;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10%;
-    -webkit-border-radius: 10%;
-    overflow: hidden;
-
-}
 
 .msg-narration-frame
 {
     height: 6em;
     position: relative;
     float: left;
-    width: 67%;
+    width: 65%;
     margin-left: .3em;
     margin-right: .3em;
     text-align: justify;
@@ -754,12 +732,12 @@ img
 
 .msg-action-frame-inner-2
 {
-    height: 3em;
+    height: 100%;
     position: relative;
     float: none;
     width: 100%;
-    display:inline-block;
-    margin:.5em auto auto .8em;
+    display:block;
+    margin:auto;
 }
 
 .msg-date-frame-inner-1
@@ -1490,7 +1468,7 @@ li
 
 a:active
 {
-    background-color: transparent !important;
+    background-color: #ccc !important;
 }
 .centre-pos
 {

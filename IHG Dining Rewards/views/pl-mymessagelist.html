@@ -15,7 +15,7 @@
         <div class="msg-narration-frame">${narration120}&nbsp;<a href="views/pl-messageitem.html?mi=${sequence}" data-role="button" class="a-class" data-transition="slide">More</a></div>
         <div class="msg-action-frame-outer">
             <div class="msg-action-frame-inner-1"><img src="${readicon}" style="height:auto;width:auto"/></div>
-            <div class="msg-action-frame-inner-2"><img src="${deleteicon}" style="height:auto;width:auto"/></div>
+            <a data-role="button" data-bind=" click: deleteMessage"><div class="msg-action-frame-inner-2"><img src="${deleteicon}" style="height:auto;width:auto"/></div></a>
         </div>
     </div>
 

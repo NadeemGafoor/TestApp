@@ -1,19 +1,27 @@
 <div data-role="view" data-title="Message Detail" data-layout="pl-back-layout" id="messageitem-theme" data-model="postLogin" data-hide="postLogin.destroymessageitem" data-show="postLogin.mymessageitem">
     <ul data-role="listview" style="background-color:#fff;margin-top:5px" id="pl-messageitem-list">
+        <li>
 
-    </ul>
-</div>
-<script type="text/x-kendo-template" id="pl-messageitemtemplate">
-    <div class="msg-outer-frame" style="height:15em;text-align:justify;padding-right:.5em;">
-        <div class="msg-date-frame-outer-2">
-            <div class="msg-date-frame-outer-3">
-                <div class="msg-date-frame-inner-1">
-                    <div class="center-pos  msgfont" style="margin-top:1em">${mday}</div>
+            <div class="msg-outer-frame" style="height:10em;text-align:justify" >
+                <div class="msg-date-frame-outer">
+                    <div class="msg-date-frame-inner-1">
+                        <div class="center-pos  msgfont" style="margin-top:1em"  id="msgday"></div>
+                    </div>
+                    <div class="msg-date-frame-inner-2 msgfont" id="msgmonth"></div>
                 </div>
-                <div class="msg-date-frame-inner-2 msgfont">${mmonth}</div>
+                <div class="msg-narration-frame" id="msgnarration"></div>
+                <div class="msg-action-frame-outer">
+                    <div class="msg-action-frame-inner-1"></div>
+                    <a data-role="button" data-bind=" click: deleteMessage" data-transition="slide">
+                        <div class="msg-action-frame-inner-2">
+                            <img src="images/deleteicon.png" style="height:125%;width:125%"/>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </div>
-        ${narration}
-    </div>
+        
+        </li>
+    </ul>
 
-</SCRIPT>
+</div>
+
