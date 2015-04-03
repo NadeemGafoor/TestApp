@@ -12,10 +12,10 @@
             <div class="msg-date-frame-inner-1"><div class="center-pos  msgfont" style="margin-top:1em">${mday}</div></div>
             <div class="msg-date-frame-inner-2 msgfont">${mmonth}</div>
         </div>
-        <div class="msg-narration-frame">${narration120}</div>
+        <div class="msg-narration-frame">${narration120}&nbsp;<a href="views/pl-messageitem.html?mi=${sequence}" data-role="button" class="a-class" data-transition="slide">More</a></div>
         <div class="msg-action-frame-outer">
-            <div class="msg-action-frame-inner-1" style="background:url(../images/bulletactive.png) no-repeat center center"></div>
-            <div class="msg-action-frame-inner-2" style="background:url(../images/deleteicon.png) no-repeat center center"></div>
+            <div class="msg-action-frame-inner-1"><img src="${readicon}" style="height:auto;width:auto"/></div>
+            <div class="msg-action-frame-inner-2"><img src="${deleteicon}" style="height:auto;width:auto"/></div>
         </div>
     </div>
 
@@ -27,4 +27,12 @@
       
         border-bottom: 1px solid #343434  !important;
     }
+
+    #mymessagelist-theme .a-class{
+        background-color:#e9763f !important;
+        height:2em;
+        line-height:1em;
+        color:#fff
+    }
+    
 </style>

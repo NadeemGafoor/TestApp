@@ -1,0 +1,75 @@
+<div data-role="view" id="pl-outletdetail-theme"  data-init="initButton" data-layout="pl-back2-layout" data-model="postLogin" data-show="postLogin.plshowOutletItem" data-hide="postLogin.ploutletdetailthemedestroyView">
+  
+    <ul data-role="buttongroup" data-index="0" style="margin-top:0px;" id="pl-outletform" class="button-group">
+        <li>
+            Details
+        </li>
+        <li data-bind="click: getLocationO">
+            Map
+        </li>
+        <li data-bind="click: showOutletAlbum">
+            Offers
+        </li>
+
+    </ul>
+
+    <ul data-role="listview"  data-style="inset" style="background-color:#fff;margin-top:0px"  >
+
+        <div class="detail-image" id="pl-outlet-image-large">
+
+        </div>
+
+        <li>
+            <div class="detail-subhead whitecolor" id="pl-ooutlet-short"></div>
+        </li>
+        <li>
+            <div id="pl-ooutlet-long" class="whitecolor textpad">
+            </div>
+        </li>
+    </ul>
+
+    <ul data-role="listview" style="background-color:#fff;margin-top:0px;display:none;" data-style="inset" >
+        <li>
+            <div id="map_canvas1" class="map-pos">
+            </div>
+        </li>
+    </ul>
+
+    <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="pl-outlet-album">
+
+    </ul>
+
+</div>
+
+<script type="text/x-kendo-template" id="pl-outletAlbumTemplate">
+    <div class="photo" style="background-image: url(${imageurll});">
+    </div>
+</script>
+
+<script>
+
+    function initButton() {
+        var listviews = this.element.find("ul.km-listview");
+    
+        $("#pl-outletform").kendoMobileButtonGroup({
+                                                    select: function (e) {
+                                                        listviews.hide()
+                                                            .eq(e.index)
+                                                            .show();
+                                                    },
+                                                    index: 0
+                                                });
+    }    
+</script>
+
+<style scoped>
+    
+
+      
+    #pl-outlet-album li
+    {
+        border-top: 1px solid #fff !important;
+        border-bottom: 1px solid #fff !important;
+    }  
+</style>
+    

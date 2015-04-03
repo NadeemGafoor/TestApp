@@ -1,24 +1,19 @@
-<div data-role="view" data-title="Message Detail" data-layout="back-layout" id="messageitem-theme">
-    <div data-role="header">
-        <div data-role="navbar">
-            <a data-role="backbutton" data-align="left"></a>
-            <a data-role="button" class="brand-icon" href="views/aboutus.html">
-            </a>
-        </div>
-</div>
-        <ul data-role="listview" style="background-color:#fff">
-      	<li>
-			<div class="msg-outer-frame">
-				<div class="msg-image-frame-list"><img src="images/m1.png" />
-				</div>
-				<div class="msg-inner-frame-1">
-					<div class="msg-inner-frame-1a">Coupon</div>
-					<div class="msg-inner-frame-1b">Datetime</div>
-				</div>
-				<div class="msg-inner-frame-2">
-								</div>
-				<div class="msg-inner-frame-3" style="height:15em">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
-			</div>
-		</li>
+<div data-role="view" data-title="Message Detail" data-layout="pl-back-layout" id="messageitem-theme" data-model="postLogin" data-hide="postLogin.destroymessageitem" data-show="postLogin.mymessageitem">
+    <ul data-role="listview" style="background-color:#fff;margin-top:5px" id="pl-messageitem-list">
+
     </ul>
+</div>
+<script type="text/x-kendo-template" id="pl-messageitemtemplate">
+    <div class="msg-outer-frame" style="height:15em;text-align:justify;padding-right:.5em;">
+        <div class="msg-date-frame-outer-2">
+            <div class="msg-date-frame-outer-3">
+                <div class="msg-date-frame-inner-1">
+                    <div class="center-pos  msgfont" style="margin-top:1em">${mday}</div>
+                </div>
+                <div class="msg-date-frame-inner-2 msgfont">${mmonth}</div>
+            </div>
+        </div>
+        ${narration}
     </div>
+
+</SCRIPT>
