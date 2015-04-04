@@ -1888,56 +1888,18 @@
         
         
         
-                                            listCity: function (e) {
-                                                t = e.view.params.cnt;
-                                                showSpin(); //show loading popup
-                                                  
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/listcityandlanguage.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,countrycode:t,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               alert(getData.citylist.length);
-                                                               if (getData.statuscode == "000") {
-                                                                   //fill the outlet template
-                                                                   for (var i = 0;i < getData.citylist.length;i++) {
-                                                                       var x = document.getElementById("selCity");
-                                                                       var opt = document.createElement("option");
-                                                                       opt.value = getData.citylist[i].citycode;    
-                                                                       opt.text = getData.citylist[i].cityname;
-                                                                       x.add(opt);
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get City list. " + getData.statusdesc)          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get City list. Try after sometime")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
-                                            },
-        
-        
-                                        
+                                           
         
         
                                             editsettingdata
                                             :function() {
                                                 listCountry();
-                                                alert("Push Offer" + pushoffer);
-                                                alert("Remind Expiry" + remindexpiry);
-                                                alert("Auto Location" + autolocation);
-                                                alert("City" + city);
-                                                alert("Country" + country);
+                                                listCity(country);
+                                                // alert("Push Offer" + pushoffer);
+                                                // alert("Remind Expiry" + remindexpiry);
+                                                // alert("Auto Location" + autolocation);
+                                                // alert("City" + city);
+                                                // alert("Country" + country);
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
                                                 }else {
@@ -1954,20 +1916,179 @@
                                                     $("#profile-autolocation").data("kendoMobileSwitch").check(true);
                                                 }else {
                                                     $("#profile-autolocation").data("kendoMobileSwitch").check(false);
+                                                    document.getElementById("selCountry").value = country;
+                                                    document.getElementById("selCity").value = city;
                                                 }
-                                                
-                                                document.getElementById("selCountry").value = country;
-                                                document.getElementById("selCity").value = city;
+                                            },
+                                            getCity:function() {
+                                                // kendo.mobile.application.showLoading(); //show loading popup
+                                                var e = document.getElementById("selCountry");
+                                                var str = e.options[e.selectedIndex].value;
+                                                listCity(str);
+                                            },
+        
+        
+                                            saveSetting:
+                                            function () {
+                                                if (!document.getElementById("profile-autolocation").checked) {
+                                                    if (document.getElementById("selCountry").value == "") {
+                                                        navigator.notification.alert("Select Country");
+                                                        return; 
+                                                    }
+                                                    if (document.getElementById("selCity").value == "") {
+                                                        navigator.notification.alert("Select City");
+                                                        return; 
+                                                    }
+                                                }      
+     
+                                                if (!this.mobilenumber) {
+                                                    navigator.notification.alert("Invalid Mobile or Empty");
+                                                    return;
+                                                }
+                                                if (!this.emailid) {
+                                                    navigator.notification.alert("Invalid EmailId or Empty");
+                                                    return;
+                                                }
+                                                  
+                                                if ((!document.getElementById("profile-pushoffer").checked) && (document.getElementById("profile-remindexpiry").checked)) {
+                                                    navigator.notification.alert("You need to enable Push Notification to enable reminders for expirying vouchers");
+                                                    return;
+                                                }
+                                                                                           
+                                                mobilenumber1 = this.mobilenumber;
+                                                emailid1 = this.emailid;  
+
+                                                if (document.getElementById("profile-pushoffer").checked) {
+                                                    pushoffer1 = "1";
+                                                }else {
+                                                    pushoffer1 = "";
+                                                }
+                                                  
+                                                if (document.getElementById("profile-remindexpiry").checked) {
+                                                    remindexpiry1 = "1";
+                                                }else {
+                                                    remindexpiry1 = "";
+                                                }
+                                                  
+                                                if (document.getElementById("profile-autolocation").checked) {
+                                                    autolocation1 = "1";
+                                                     country1 = country;
+                                                    city1 = country;
+                                                }else {
+                                                    autolocation1 = "";
+                                                    country1 = document.getElementById("selCountry").value;
+                                                    city1 = document.getElementById("selCity").value;
+                                                }      
+                                                showSpin();                                                  
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/updateprofile_ihg.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,mobile:mobilenumber1,emailid:emailid1,pushoffer:pushoffer1,remindexpiry:remindexpiry1,showprofile:showprofile1,image1:newimage,mdevice:mdevicestat,autolocation:autolocation,city:city,country:country
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   pushoffer = pushoffer1;
+                                                                   remindexpiry = remindexpiry1;
+                                                                   autolocation = autolocation1;
+                                                                   country=country1;
+                                                                   city=city1;
+                                                                     
+                                                                   pushSettings = {
+                                                                       iOS: {
+                                                                           badge: "false",
+                                                                           sound: "true",
+                                                                           alert: "true",
+                                                                           clearBadge: "true"
+                                                                       },
+                                                                       android: {
+                                                                           senderID: googleApiProjectNumber
+                                                                       },
+                                                                       wp8: {
+                                                                           channelName: 'EverlivePushChannel'
+                                                                       },
+                                                                       notificationCallbackIOS: function(args) {
+                                                                       },
+                                                                       notificationCallbackAndroid: function(args) {
+                                                                       },
+                                                                       notificationCallbackWP8: function(args) {
+                                                                       },
+                                                                       customParameters: {
+                                                                           Memberid: customer,
+                                                                           Merchant:merchant,
+                                                                           Segment:segmentcode
+                                                                       }
+                                                                   };
+                                                                                                                                       
+                                                                   if (pushoffer == "1") {
+                                                                       //If already registered than update registration
+                                                                       currentDevice.getRegistration(function() {
+                                                                           currentDevice.unregister().then(function() {
+                                                                           }, function (err) {
+                                                                               //alert('unregister 1 ' + err);
+                                                                           });
+                                                                           currentDevice.enableNotifications(pushSettings, function (data) {
+                                                                               currentDevice.register(pushSettings, function (data) {
+                                                                               }, function (err) {
+                                                                                   //alert('register  1 ' + err);
+                                                                               }); 
+                                                                           }, function (err) {
+                                                                               //alert('enable  1 ' + err);
+                                                                           });
+                                                                       }, function(err) { //If not registered then enable and register
+                                                                           currentDevice.enableNotifications(pushSettings, function (data) {
+                                                                               currentDevice.register(pushSettings, function (data) {
+                                                                               }, function (err) {
+                                                                                   //alert('register 2 '+err);
+                                                                               }); 
+                                                                           }, function (err) {
+                                                                               //alert('enable  2 ' + err);
+                                                                           });
+                                                                       });
+                                                                   }else {
+                                                                       currentDevice.unregister()
+                                                                           .then(
+                                                                               function() {
+                                                                               },
+                                                                               function (err) {
+                                                                                   //alert('unregister 2 ' + err);
+                                                                               }
+                                                                               );
+                                                                   }
+                                                                     
+                                                                   navigator.notification.alert("Profile changes successfully updated!")   
+                                                                   $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Could not update profile changes due to error! " + getData.statusdesc)          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (error) {
+                                                               navigator.notification.alert("Unknown Error, Could not update profile!.  Try after sometime")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                                hideSpin(); //hide loading popup
                                             }
+        
+        
+        
+        
                                         });
     
     function listCountry() {
         showSpin(); //show loading popup
-                                                  
+                                      
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:true,
+                   async:false,
                    timeout:20000,
                    url: gurl + "/listcountryandprice.aspx",
                    contentType: "application/json; charset=utf-8",
@@ -1981,13 +2102,13 @@
                            if (getData.statuscode == "000") {
                                //fill the select dropdown for country
                                for (var i = 0;i < getData.countrylist.length;i++) {
+                                   alert(getData.countrylist[i].countrycode);
                                    var x = document.getElementById("selCountry");
                                    var opt = document.createElement("option");
-                                   opt.value = getData.countrylist[i].countrycode;    
-                                   opt.text = getData.countrylist[i].countryname;
+                                   opt.value = getData.countrylist[i].countryname;    
+                                   opt.text = getData.countrylist[i].countrycode;
                                    x.add(opt);
                                }
-                               listCity(country);
                                hideSpin();
                            }else {
                                navigator.notification.alert("Unknown Network Error, Cannot get Country list. " + getData.statusdesc)          
@@ -1998,6 +2119,44 @@
                    error:
                    function (error) {
                        navigator.notification.alert("Unknown Error, Cannot get Country list. Try after sometime")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
+    
+    function listCity(e) {
+        t = e;
+        showSpin(); //show loading popup
+                                                  
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:false,
+                   timeout:20000,
+                   url: gurl + "/listcityandlanguage.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,customerid:customer,countrycode:t,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       alert(getData.citylist.length);
+                       if (getData.statuscode == "000") {
+                           //fill the outlet template
+                           for (var i = 0;i < getData.citylist.length;i++) {
+                               var x = document.getElementById("selCity");
+                               var opt = document.createElement("option");
+                               opt.value = getData.citylist[i].cityname;    
+                               opt.text = getData.citylist[i].citycode;
+                               x.add(opt);
+                           }
+                       }else {
+                           navigator.notification.alert("Unknown Network Error, Cannot get City list. " + getData.statusdesc)          
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (error) {
+                       navigator.notification.alert("Unknown Error, Cannot get City list. Try after sometime")
                        hideSpin(); //hide loading popup
                    }
                });
