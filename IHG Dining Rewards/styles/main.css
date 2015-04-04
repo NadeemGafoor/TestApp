@@ -1624,3 +1624,13 @@ a:active
         font-weight:bold;
         font-size:1em;
     }
+
+#pl-setting-theme .input-frame select {
+	display: block;
+	width: 85%;
+	height: 2.3em;
+	line-height: 1.5em;
+	border: 1px solid #ccc;
+	background-color: #fcd5b1;
+        left:8%;
+}

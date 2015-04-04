@@ -28,7 +28,9 @@
     var getgps = false;//First time to look for location, do not look when the page is reloaded
     var gpsfind = "1";//Auto location enabled
     var lat, lon;
-   
+    var city = "";
+    var country = "";
+    var autolocation = "";
     var outletcode = "";
     var brandcode = "";
     var benefitcode = "";
@@ -649,6 +651,9 @@
                                                        muuid = window.localStorage.getItem("muuid");
                                                        mversion = window.localStorage.getItem("mversion");
                                                        mplatform = window.localStorage.getItem("mplatform");
+                                                       autolocation = window.localStorage.getItem("autolocation");
+                                                       city = window.localStorage.getItem("city");
+                                                       country = window.localStorage.getItem("country");
                                                        $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
                                                    } else {
                                                        outletcode = "";
@@ -670,6 +675,9 @@
                                                        mobilenumber = ""; 
                                                        memberexpiry = "";
                                                        segmentimage = "";
+                                                       autolocation = "";
+                                                       city = "";
+                                                       country = "";
                                                    }     
                                             
                                                    if (window.localStorage.getItem("notification") == undefined || window.localStorage.getItem("notification") == '' || window.localStorage.getItem("notification") == 'null') {
@@ -732,6 +740,10 @@
                                                                       window.localStorage.setItem("mversion", "");
                                                                       window.localStorage.setItem("mplatform", "");
                                                                       window.localStorage.setItem("loggedin", "");
+                                                                      
+                                                                      window.localStorage.setItem("autolocation", "");
+                                                                      window.localStorage.setItem("city", "");
+                                                                      window.localStorage.setItem("country", "");
                                                                         
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
@@ -764,6 +776,9 @@
                                                    mobilenumber = ""; 
                                                    memberexpiry = "";
                                                    segmentimage = "";
+                                                   autolocation = "";
+                                                   city = "";
+                                                   country = "";
                                                }
                                                 
                                                hideSpin();
@@ -849,6 +864,9 @@
                                                                   pushoffer = getData.pushoffer;
                                                                   remindexpiry = getData.remindexpiry;
                                                                   showprofile = getData.showprofile;
+                                                                  autolocation = getData.autolocation;
+                                                                  city = getData.city;
+                                                                  country = getData.country;
                                                       
                                                                   //set Local Storage as cookies to retain login
                                                                   window.localStorage.setItem("customer", customer);
@@ -872,7 +890,10 @@
                                                                   window.localStorage.setItem("mversion", mversion);
                                                                   window.localStorage.setItem("mplatform", mplatform);
                                                                   window.localStorage.setItem("notification", "2")
-                                                                    
+                                                                  window.localStorage.setItem("autolocation", autolocation);
+                                                                  window.localStorage.setItem("city", city);
+                                                                  window.localStorage.setItem("country", country);
+                                                                  
                                                                   pushSettings = {
                                                                       iOS: {
                                                                           badge: "false",
@@ -1036,6 +1057,11 @@
                                             couponname:"",
                                             couponcategory:"",
                                             msgsequence:"",
+        
+                                            destroysettingview                  
+                                            :function() {
+                                                $("#pl-setting-theme").remove();
+                                            },
                                             destroymyvoucher
                                             :function() {
                                                 $("#myvoucherdetail-theme").remove();
@@ -1846,10 +1872,9 @@
                                                                                     merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat
                                                                                 }),
                                                            success: function (data) { 
-                                             
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
-                                                                   $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html","slide");  
+                                                                   $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html", "slide");  
                                                                }else {
                                                                    navigator.notification.alert("Unknown Network Error, Cannot delete message." + getData.statusdesc)          
                                                                }
@@ -1859,12 +1884,124 @@
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
-                                            }
+                                            },
         
-                                 
+        
+        
+                                            listCity: function (e) {
+                                                t = e.view.params.cnt;
+                                                showSpin(); //show loading popup
+                                                  
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/listcityandlanguage.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,countrycode:t,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               alert(getData.citylist.length);
+                                                               if (getData.statuscode == "000") {
+                                                                   //fill the outlet template
+                                                                   for (var i = 0;i < getData.citylist.length;i++) {
+                                                                       var x = document.getElementById("selCity");
+                                                                       var opt = document.createElement("option");
+                                                                       opt.value = getData.citylist[i].citycode;    
+                                                                       opt.text = getData.citylist[i].cityname;
+                                                                       x.add(opt);
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get City list. " + getData.statusdesc)          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (error) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get City list. Try after sometime")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+        
+        
+                                        
+        
+        
+                                            editsettingdata
+                                            :function() {
+                                                listCountry();
+                                                alert("Push Offer" + pushoffer);
+                                                alert("Remind Expiry" + remindexpiry);
+                                                alert("Auto Location" + autolocation);
+                                                alert("City" + city);
+                                                alert("Country" + country);
+                                                if (pushoffer == "1") {
+                                                    $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
+                                                }else {
+                                                    $("#profile-pushoffer").data("kendoMobileSwitch").check(false);
+                                                }
+                                                  
+                                                if (remindexpiry == "1") {
+                                                    $("#profile-remindexpiry").data("kendoMobileSwitch").check(true);
+                                                }else {
+                                                    $("#profile-remindexpiry").data("kendoMobileSwitch").check(false);
+                                                }
+                                                  
+                                                if (autolocation == "1") {
+                                                    $("#profile-autolocation").data("kendoMobileSwitch").check(true);
+                                                }else {
+                                                    $("#profile-autolocation").data("kendoMobileSwitch").check(false);
+                                                }
+                                                
+                                                document.getElementById("selCountry").value = country;
+                                                document.getElementById("selCity").value = city;
+                                            }
                                         });
     
-  
+    function listCountry() {
+        showSpin(); //show loading popup
+                                                  
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/listcountryandprice.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,customerid:customer,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode == "000") {
+                           //fill the outlet template
+                           if (getData.statuscode == "000") {
+                               //fill the select dropdown for country
+                               for (var i = 0;i < getData.countrylist.length;i++) {
+                                   var x = document.getElementById("selCountry");
+                                   var opt = document.createElement("option");
+                                   opt.value = getData.countrylist[i].countrycode;    
+                                   opt.text = getData.countrylist[i].countryname;
+                                   x.add(opt);
+                               }
+                               listCity(country);
+                               hideSpin();
+                           }else {
+                               navigator.notification.alert("Unknown Network Error, Cannot get Country list. " + getData.statusdesc)          
+                               hideSpin(); //hide loading popup
+                           }
+                       }
+                   },
+                   error:
+                   function (error) {
+                       navigator.notification.alert("Unknown Error, Cannot get Country list. Try after sometime")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
     
     function hideSpin() {
         setTimeout(function() {
