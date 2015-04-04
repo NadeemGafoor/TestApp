@@ -1,8 +1,4 @@
 
-
-
-
-
 (function (global) {
     var firsttime = "";
     var mdevice = "";
@@ -1850,10 +1846,10 @@
                                                                                     merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat
                                                                                 }),
                                                            success: function (data) { 
+                                             
                                                                var getData = JSON.parse(data);
-            
                                                                if (getData.statuscode == "000") {
-                                                                   $("body").data("kendoMobilePane").navigate("views/pl-messageitem.html");  
+                                                                   $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html","slide");  
                                                                }else {
                                                                    navigator.notification.alert("Unknown Network Error, Cannot delete message." + getData.statusdesc)          
                                                                }
@@ -1864,8 +1860,11 @@
                                                        });
                                                 hideSpin(); //hide loading popup
                                             }
+        
                                  
                                         });
+    
+  
     
     function hideSpin() {
         setTimeout(function() {

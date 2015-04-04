@@ -660,7 +660,7 @@ img
 }
 .button-group .km-button.km-state-active
 {
-    background-color: #ccc;
+    background-color: #e9763f;
 }
 
 #modalview-offersocial img
@@ -1614,3 +1614,13 @@ a:active
     color: #343434;
     margin-top: -10%;
 }
+
+.a-class
+    {
+        background-color: #e9763f !important;
+        height: 2em;
+        line-height: .75em;
+        color: #fff;
+        font-weight:bold;
+        font-size:1em;
+    }
