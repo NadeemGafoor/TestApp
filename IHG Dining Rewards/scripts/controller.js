@@ -2140,7 +2140,6 @@
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
-                       alert(getData.citylist.length);
                        if (getData.statuscode == "000") {
                            //fill the outlet template
                            for (var i = 0;i < getData.citylist.length;i++) {
