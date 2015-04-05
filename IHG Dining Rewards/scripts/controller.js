@@ -212,8 +212,7 @@
                                                                                     
                                       
                                            benefitdetail: function (e) { 
-                                               benefitcode = e.eview.params.bd; 
-                                               alert(benefitcode);
+                                               benefitcode = e.view.params.bd; 
                                                showSpin(); //show loading popup
                                                $.ajax({ 
                                                           type: "POST",

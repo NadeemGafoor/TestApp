@@ -9,10 +9,24 @@
 </div>
 
 <script type="text/x-kendo-template" id="benefitlistTemplate">
-    <a data-role="button" href="views/benefitdetail.html?bd=${titlecode}" style="border:none;a:active:transparent" data-transition="slide" >
+    <a data-role="button" href="views/benefitdetail.html?bd=${titlecode}" style="border:none" data-transition="slide" >
         <div class="photo" style="border:none;background: url(${imageurll}) no-repeat center center;">
         </div>
     </a>
 </script>
 
+<style scoped>
+
+    #benefit-list li ul{
+        border-top:0px solid #ccc !important;
+        border-bottom:0px solid #ccc !important;
+    }
+    
+       #benefit-list a:active{
+           background-color:transparent !important;
+           border:none;
+       }
+    
+  
+</style>
 
