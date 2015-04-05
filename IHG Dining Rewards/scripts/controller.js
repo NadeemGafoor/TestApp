@@ -1,4 +1,7 @@
- var firsttime = "";
+ 
+
+(function (global) {
+    var firsttime = "";
     var mdevice = "";
     var muuid = "";
     var mversion = "";
@@ -48,6 +51,7 @@
     var share_contact = "Phone: +971 427 66 186 \nEmail: inquiry@ihg.com";
     var short_msg = "Check out the IHG Dining Rewards at ";
     var offertelephone = "0097142766186";
+    var cardimage = "";
     var pushSettings = {
         iOS: {
             badge: "1",
@@ -73,9 +77,6 @@
             Segment:segmentcode
         }
     };
-
-(function (global) {
-   
     
     window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
@@ -656,8 +657,7 @@
                                                        city = window.localStorage.getItem("city");
                                                        country = window.localStorage.getItem("country");
                                                       
-                                                       $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html"); 
-                                                    
+                                                       $("body").data("kendoMobilePane").navigate("views/pl-myprofile.html"); 
                                                    } else {
                                                        outletcode = "";
                                                        brandcode = "";
@@ -678,10 +678,6 @@
                                                        mobilenumber = ""; 
                                                        memberexpiry = "";
                                                        segmentimage = "";
-                                                       autolocation = "";
-                                                       city = "";
-                                                       country = "";
-                                                                   
                                                    }     
                                             
                                                    if (window.localStorage.getItem("notification") == undefined || window.localStorage.getItem("notification") == '' || window.localStorage.getItem("notification") == 'null') {
@@ -706,64 +702,82 @@
                                                        });
                                                    }
                                                }
-                     
-                                               if (window.localStorage.getItem("loggedin") == "1" && firsttime == "1") {
-                                                   $.ajax({ 
-                                                              type: "POST",
-                                                              cache:false,
-                                                              async:true,
-                                                              timeout:20000,
-                                                              url: gurl + "/logmeout.aspx",
-                                                              contentType: "application/json; charset=utf-8",
-                                                              data: JSON.stringify({
-                                                                                       merchantcode :merchant,customerid:customer,password:password,mdevice:mdevicestat
-                                                                                   }),
-                                                              success: function (data) {
-                                                                  var getData = JSON.parse(data);
-                                                                  if (getData.statuscode == "000") {
-                                                                      //clear Local Storage on logout
-                                                                      window.localStorage.setItem("customer", "");
-                                                                      window.localStorage.setItem("customername", "");
-                                                                      window.localStorage.setItem("segmentcode", "");
-                                                                      window.localStorage.setItem("segmentname", "");
-                                                                      window.localStorage.setItem("currency", "");
-                                                                      window.localStorage.setItem("nationality", "");
-                                                                      window.localStorage.setItem("pointvalue", "");
-                                                                      window.localStorage.setItem("cuspict", "");
-                                                                      window.localStorage.setItem("cusqr", "");
-                                                                      window.localStorage.setItem("emailid", "");
-                                                                      window.localStorage.setItem("mobilenumber", "");                                                                    
-                                                                      window.localStorage.setItem("memberexpiry", ""); 
-                                                                      window.localStorage.setItem("segmentimage", ""); 
-                                                                      window.localStorage.setItem("pushoffer", "");
-                                                                      window.localStorage.setItem("remindexpiry", "");
-                                                                      window.localStorage.setItem("showprofile", "");
-                                                                      window.localStorage.setItem("password", "");
-                                                                      window.localStorage.setItem("mdevice", "");
-                                                                      window.localStorage.setItem("muuid", "");
-                                                                      window.localStorage.setItem("mversion", "");
-                                                                      window.localStorage.setItem("mplatform", "");
-                                                                      window.localStorage.setItem("loggedin", "");
-                                                                      
-                                                                      window.localStorage.setItem("autolocation", "");
-                                                                      window.localStorage.setItem("city", "");
-                                                                      window.localStorage.setItem("country", "");
-                                                                        
-                                                                      hideSpin(); //hide loading popup
-                                                                  }else {
-                                                                      navigator.notification.alert("Cannot Logout! " + getData.statusdesc)          
-                                                                      hideSpin(); //hide loading popup
-                                                                  }
-                                                              },
-                                                              error: function (errormsg) {
-                                                                  navigator.notification.alert("Unknown Error, Cannot Logout.  Try after sometime!")
-                                                                  hideSpin(); //hide loading popup
-                                                              }
-                                                          });
-                                               } 
                                                 
                                                hideSpin();
                                                return;
+                                           },
+        
+                                           logMeOut:function() {
+                                               // if (window.localStorage.getItem("loggedin") == "1" && firsttime == "1") {
+                                               showSpin();
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/logmeout.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,customerid:customer,password:password,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) {
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") {
+                                                                  //clear Local Storage on logout
+                                                                  window.localStorage.setItem("customer", "");
+                                                                  window.localStorage.setItem("customername", "");
+                                                                  window.localStorage.setItem("segmentcode", "");
+                                                                  window.localStorage.setItem("segmentname", "");
+                                                                  window.localStorage.setItem("currency", "");
+                                                                  window.localStorage.setItem("nationality", "");
+                                                                  window.localStorage.setItem("pointvalue", "");
+                                                                  window.localStorage.setItem("cuspict", "");
+                                                                  window.localStorage.setItem("cusqr", "");
+                                                                  window.localStorage.setItem("emailid", "");
+                                                                  window.localStorage.setItem("mobilenumber", "");                                                                    
+                                                                  window.localStorage.setItem("memberexpiry", ""); 
+                                                                  window.localStorage.setItem("segmentimage", ""); 
+                                                                  window.localStorage.setItem("pushoffer", "");
+                                                                  window.localStorage.setItem("remindexpiry", "");
+                                                                  window.localStorage.setItem("showprofile", "");
+                                                                  window.localStorage.setItem("password", "");
+                                                                  window.localStorage.setItem("mdevice", "");
+                                                                  window.localStorage.setItem("muuid", "");
+                                                                  window.localStorage.setItem("mversion", "");
+                                                                  window.localStorage.setItem("mplatform", "");
+                                                                  window.localStorage.setItem("loggedin", "");
+                                                                  outletcode = "";
+                                                                  brandcode = "";
+                                                                  offercode = "";
+                                                                  benefitcode = "";
+                                                                  offertype = "1";
+                                                                  password = "";
+                                                                  customer = "9999999999";
+                                                                  customername = "Guest";
+                                                                  segmentcode = "";
+                                                                  segmentname = "";
+                                                                  currency = "";
+                                                                  nationality = "";
+                                                                  pointvalue = "";
+                                                                  cuspict = "";
+                                                                  cusqr = "";
+                                                                  emailid = "";
+                                                                  mobilenumber = ""; 
+                                                                  memberexpiry = "";
+                                                                  segmentimage = "";
+                                                                  $("body").data("kendoMobilePane").navigate("views/home.html", "slide");   
+                                                                  hideSpin(); //hide loading popup
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot Logout! " + getData.statusdesc)          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Cannot Logout.  Try after sometime!")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                               // }   
                                            },
                                            loginInit
                                            :function() {
@@ -1090,13 +1104,29 @@
                                             destroymymessages:function() {
                                                 $("#mymessagelist-theme").remove();
                                             },
+                                            loginSuccess:function() {
+                                                //Show Card Image
+                                                if (segmentcode==="1000") {
+                                                    cardimage = "images/ihg_gold.png";
+                                                }else if (segmentcode==="1001") {
+                                                    cardimage = "images/ihg_platinum.png";
+                                                }else {
+                                                    cardimage = "images/ihg_platinum.png";
+                                                }
+                                              //  alert(cardimage);
+                                                document.getElementById("mycardimage").style.background = "url("+cardimage+") no-repeat center center";
+                                                 document.getElementById("mycardname").innerHTML=customername;
+                                                //document.getElementById("mycardsegment").innerHTML=segmentname;
+                                                document.getElementById("mycardexpiry").innerHTML=memberexpiry;
+                                              //  document.getElementById("mycardimage").style.backgroundSize = "cover";
+                                            },
           
                                             mymessagelist
                                             : function () {
                                                 t = "";
                                                 // alert(merchant);
-                                                 alert(customer);
-                                                 alert(password);
+                                                // alert(customer);
+                                                // alert(password);
                                                 // alert(mdevicestat);
                                                 showSpin();
                                              
@@ -1188,8 +1218,8 @@
                                             plshowAllOutlet: function () {
                                                 outletcode = "";
                                                 brandcode = "";
-                                                  alert(customer);
-                                                 alert(password);
+                                                // alert(customer);
+                                                //alert(password);
                                                 showSpin();
                                                 
                                                 $.ajax({ 
@@ -1388,8 +1418,8 @@
                                                 outletcode = "";
                                                 brandcode = "";
                                                 showSpin();
-                                                  alert(customer);
-                                                 alert(password);
+                                                //alert(customer);
+                                                //alert(password);
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -1438,8 +1468,8 @@
                                             plofferlist: function () {
                                                 offercode = "";
                                                 offertype = "1";
-                                                  alert(customer);
-                                                 alert(password);
+                                                //alert(customer);
+                                                //alert(password);
                                                 showSpin();
                                                 
                                                 $.ajax({ 
@@ -1872,11 +1902,6 @@
                                                 hideSpin(); //hide loading popup
                                             },
         
-        
-        
-                                           
-        
-        
                                             editsettingdata
                                             :function() {
                                                 listCountry();
@@ -1926,32 +1951,27 @@
                                                         return; 
                                                     }
                                                 }      
-                                              
                                                                                                 
                                                 if ((!document.getElementById("profile-pushoffer").checked) && (document.getElementById("profile-remindexpiry").checked)) {
                                                     navigator.notification.alert("You need to enable Push Notification to enable reminders for expirying vouchers");
                                                     return;
                                                 }
-                                                
-                                            
                                                                                            
                                                 if (document.getElementById("profile-pushoffer").checked) {
                                                     pushoffer1 = "1";
                                                 }else {
                                                     pushoffer1 = "";
                                                 }
-                                                 
                                            
                                                 if (document.getElementById("profile-remindexpiry").checked) {
                                                     remindexpiry1 = "1";
                                                 }else {
                                                     remindexpiry1 = "";
                                                 }
-                                                 
                                          
                                                 if (document.getElementById("profile-autolocation").checked) {
                                                     autolocation1 = "1";
-                                                     country1 = country;
+                                                    country1 = country;
                                                     city1 = city;
                                                 }else {
                                                     autolocation1 = "";
@@ -1976,9 +1996,11 @@
                                                                    pushoffer = pushoffer1;
                                                                    remindexpiry = remindexpiry1;
                                                                    autolocation = autolocation1;
-                                                                   country=country1;
-                                                                   city=city1;
-                                                                     
+                                                                   country = country1;
+                                                                   city = city1;
+                                                                   window.localStorage.setItem("autolocation", autolocation);
+                                                                   window.localStorage.setItem("city", city);
+                                                                   window.localStorage.setItem("country", country);  
                                                                    pushSettings = {
                                                                        iOS: {
                                                                            badge: "false",

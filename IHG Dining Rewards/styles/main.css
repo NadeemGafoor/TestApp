@@ -1456,15 +1456,6 @@ li
     background-color: rgba(216, 105, 50, .6);
 }
 
-.my-card
-{
-    background-image: url(../images/mycard.png);
-    display: block;
-    -webkit-background-size: 70%;
-    background-size: 70%;
-    background-repeat: no-repeat;
-    background-position: center center;
-} 
 
 a:active
 {

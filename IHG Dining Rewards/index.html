@@ -292,7 +292,7 @@
 
       
                                                   
-          <div data-role="drawer" id="appdrawer" style="width: 70%;background-color:#fff" data-swipe-to-open-views='["myprofile-view"]' data-views='["myprofile-view"]' >
+          <div data-role="drawer" id="appdrawer" style="width: 70%;background-color:#fff" data-swipe-to-open-views='["myprofile-view"]' data-views='["myprofile-view"]' data-model="preLogin" >
 	            <div style="width:auto;height:1000px;background-color:#fff">
 	                <ul data-role="listview" style="background-color:#fff">
 	                    <li style="background-color:#fff">
@@ -353,7 +353,7 @@
 	                        <a href="views/termsofservice.html" data-transition="slide">Terms of Service</a>
 	                    </li>
 	                    <li data-icon="customlogout">
-	                        <a href="views/home.html" data-transition="slide">Logout</a>
+	                        <a data-bind="click:logMeOut" data-transition="slide">Logout</a>
 	                    </li>
 	
 	                </ul>
