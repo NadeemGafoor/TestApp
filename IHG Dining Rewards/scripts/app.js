@@ -27,8 +27,8 @@ var currentDevice;
         } else if ((!googleApiProjectNumber || googleApiProjectNumber === 'GOOGLE_API_PROJECT_NUMBER') && device.platform.toLowerCase() == "android") {
             navigator.notification.alert("Unable to register for Notification Services, you may not be able to receive Notifications from Al Yamamah Rewards");
         }
-        // Initialize the Backend Services SDK
-         
+
+       
         app = new kendo.mobile.Application(document.body, {
                                                platform: 'ios7',
                                                layout:'main-layout',
@@ -37,6 +37,8 @@ var currentDevice;
                                                useNativeScrolling: false,
             
                                            });
+        
+         //kendo.UserEvents.defaultThreshold(20); 
         
         // Initialize the Backend Services SDK
      el = new Everlive({

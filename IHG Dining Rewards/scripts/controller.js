@@ -1,6 +1,4 @@
-
-(function (global) {
-    var firsttime = "";
+ var firsttime = "";
     var mdevice = "";
     var muuid = "";
     var mversion = "";
@@ -75,6 +73,9 @@
             Segment:segmentcode
         }
     };
+
+(function (global) {
+   
     
     window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
@@ -654,7 +655,9 @@
                                                        autolocation = window.localStorage.getItem("autolocation");
                                                        city = window.localStorage.getItem("city");
                                                        country = window.localStorage.getItem("country");
-                                                       $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
+                                                      
+                                                       $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html"); 
+                                                    
                                                    } else {
                                                        outletcode = "";
                                                        brandcode = "";
@@ -678,6 +681,7 @@
                                                        autolocation = "";
                                                        city = "";
                                                        country = "";
+                                                                   
                                                    }     
                                             
                                                    if (window.localStorage.getItem("notification") == undefined || window.localStorage.getItem("notification") == '' || window.localStorage.getItem("notification") == 'null') {
@@ -756,30 +760,7 @@
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           });
-                                               } else {
-                                                   outletcode = "";
-                                                   brandcode = "";
-                                                   offercode = "";
-                                                   benefitcode = "";
-                                                   offertype = "1";
-                                                   password = "";
-                                                   customer = "9999999999";
-                                                   customername = "Guest";
-                                                   segmentcode = "";
-                                                   segmentname = "";
-                                                   currency = "";
-                                                   nationality = "";
-                                                   pointvalue = "";
-                                                   cuspict = "";
-                                                   cusqr = "";
-                                                   emailid = "";
-                                                   mobilenumber = ""; 
-                                                   memberexpiry = "";
-                                                   segmentimage = "";
-                                                   autolocation = "";
-                                                   city = "";
-                                                   country = "";
-                                               }
+                                               } 
                                                 
                                                hideSpin();
                                                return;
@@ -1114,8 +1095,8 @@
                                             : function () {
                                                 t = "";
                                                 // alert(merchant);
-                                                // alert(customer);
-                                                // alert(password);
+                                                 alert(customer);
+                                                 alert(password);
                                                 // alert(mdevicestat);
                                                 showSpin();
                                              
@@ -1207,6 +1188,8 @@
                                             plshowAllOutlet: function () {
                                                 outletcode = "";
                                                 brandcode = "";
+                                                  alert(customer);
+                                                 alert(password);
                                                 showSpin();
                                                 
                                                 $.ajax({ 
@@ -1405,7 +1388,8 @@
                                                 outletcode = "";
                                                 brandcode = "";
                                                 showSpin();
-                                                
+                                                  alert(customer);
+                                                 alert(password);
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -1454,6 +1438,8 @@
                                             plofferlist: function () {
                                                 offercode = "";
                                                 offertype = "1";
+                                                  alert(customer);
+                                                 alert(password);
                                                 showSpin();
                                                 
                                                 $.ajax({ 
@@ -1940,46 +1926,40 @@
                                                         return; 
                                                     }
                                                 }      
-     
-                                                if (!this.mobilenumber) {
-                                                    navigator.notification.alert("Invalid Mobile or Empty");
-                                                    return;
-                                                }
-                                                if (!this.emailid) {
-                                                    navigator.notification.alert("Invalid EmailId or Empty");
-                                                    return;
-                                                }
-                                                  
+                                              
+                                                                                                
                                                 if ((!document.getElementById("profile-pushoffer").checked) && (document.getElementById("profile-remindexpiry").checked)) {
                                                     navigator.notification.alert("You need to enable Push Notification to enable reminders for expirying vouchers");
                                                     return;
                                                 }
+                                                
+                                            
                                                                                            
-                                                mobilenumber1 = this.mobilenumber;
-                                                emailid1 = this.emailid;  
-
                                                 if (document.getElementById("profile-pushoffer").checked) {
                                                     pushoffer1 = "1";
                                                 }else {
                                                     pushoffer1 = "";
                                                 }
-                                                  
+                                                 
+                                           
                                                 if (document.getElementById("profile-remindexpiry").checked) {
                                                     remindexpiry1 = "1";
                                                 }else {
                                                     remindexpiry1 = "";
                                                 }
-                                                  
+                                                 
+                                         
                                                 if (document.getElementById("profile-autolocation").checked) {
                                                     autolocation1 = "1";
                                                      country1 = country;
-                                                    city1 = country;
+                                                    city1 = city;
                                                 }else {
                                                     autolocation1 = "";
                                                     country1 = document.getElementById("selCountry").value;
                                                     city1 = document.getElementById("selCity").value;
                                                 }      
                                                 showSpin();                                                  
+                                   
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -1988,7 +1968,7 @@
                                                            url: gurl + "/updateprofile_ihg.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,mobile:mobilenumber1,emailid:emailid1,pushoffer:pushoffer1,remindexpiry:remindexpiry1,showprofile:showprofile1,image1:newimage,mdevice:mdevicestat,autolocation:autolocation,city:city,country:country
+                                                                                    merchantcode :merchant,customerid:customer,password:password,mobile:mobilenumber,emailid:emailid,pushoffer:pushoffer1,remindexpiry:remindexpiry1,showprofile:showprofile,image1:newimage,mdevice:mdevicestat,autolocation:autolocation1,city:city1,country:country1
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -2102,7 +2082,6 @@
                            if (getData.statuscode == "000") {
                                //fill the select dropdown for country
                                for (var i = 0;i < getData.countrylist.length;i++) {
-                                   alert(getData.countrylist[i].countrycode);
                                    var x = document.getElementById("selCountry");
                                    var opt = document.createElement("option");
                                    opt.value = getData.countrylist[i].countryname;    
