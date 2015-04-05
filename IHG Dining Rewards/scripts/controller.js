@@ -151,6 +151,10 @@
                                            password:"",
                                            outlettelephone:"",
                                            tokennum:"",
+          destroyBenefitList:function() {
+                                                  $("#benefit-list").remove();  
+                                              },
+        
             
                                            destroypasswordchange:function() {
                                                $("#resetpassword-theme").remove();
@@ -207,8 +211,9 @@
                                            },
                                                                                     
                                       
-                                           benefitdetail: function () { 
-                                               benefitcode = "1000"; //Gold Elite Segment
+                                           benefitdetail: function (e) { 
+                                               benefitcode = e.eview.params.bd; 
+                                               alert(benefitcode);
                                                showSpin(); //show loading popup
                                                $.ajax({ 
                                                           type: "POST",
@@ -225,7 +230,7 @@
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
                                                                   if (getData.benefitlist.length > 0) {
-                                                                      document.getElementById("benefit-title-1").innerHTML = getData.benefitlist[0].titlename;
+                                                                      document.getElementById("item-title").innerHTML = getData.benefitlist[0].titlename;
                                                                       document.getElementById("benefit-text3").innerHTML = "<pre>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                                                                       sharingSocialView.set("social_subject", getData.benefitlist[0].shortdes1);
                                                                       sharingSocialView.set("social_message", getData.benefitlist[0].shortdes2);
@@ -1039,7 +1044,48 @@
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
-                                           }
+                                           },
+        
+              benefitlist: function () {
+                                                  benefitcode = "";//initialize benefit code
+                                                  showSpin(); //show loading popup
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/benefitlist.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,benefitcode:benefitcode,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     //fill the outlet template
+                                                                     if (getData.benefitlist.length > 0) {
+                                                                         $("#benefit-list-view").kendoMobileListView({
+                                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
+                                                                                                                         template: $("#benefitlistTemplate").html()
+                                                                                                                     });
+                                                                         hideSpin(); //hide loading popup
+                                                                     }else {
+                                                                         navigator.notification.alert("No Benefits exists for the selected Program!")    
+                                                                         hideSpin(); //hide loading popup
+                                                                     }
+                                                                 }else {
+                                                                     navigator.notification.alert("Unknown Network Error, Cannot get Benefit List" + getData.statusdesc)          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (error) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot get Benefit List. Try after sometime")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              },
+        
+        
         
                                                
                                  

@@ -1,0 +1,18 @@
+<!--Program Benefits View-->
+<div id="benefit-list"
+     data-role="view"
+     data-title="Program Benefits" data-layout="back-layout" data-model="preLogin" data-show="preLogin.benefitlist" data-hide="preLogin.destroyBenefitList">
+         
+    <ul data-role="listview" data-style="inset" style="background-color:transparent" id="benefit-list-view">
+
+    </ul>
+</div>
+
+<script type="text/x-kendo-template" id="benefitlistTemplate">
+    <a data-role="button" href="views/benefitdetail.html?bd=${titlecode}" style="border:none;a:active:transparent" data-transition="slide" >
+        <div class="photo" style="border:none;background: url(${imageurll}) no-repeat center center;">
+        </div>
+    </a>
+</script>
+
+

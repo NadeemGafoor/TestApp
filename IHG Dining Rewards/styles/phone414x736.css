@@ -261,18 +261,7 @@
     width:200px;
 }
     
- .photo
-{
-    margin: 0;
-    height: 200px;
-    width: 100%;
-    display: inline-block;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    padding: .2em .2em;
-}
+
     #pl-home-view .text-bottom{
     text-align:center;
     margin-top:2.5em;

@@ -1625,3 +1625,13 @@ a:active
 	background-color: #fcd5b1;
         left:8%;
 }
+
+   .photo
+{
+    margin: 0;
+    height: 150px;
+    width: 100%;
+    display: inline-block;
+    -webkit-background-size: 80%;
+    background-size: 80%;
+}
