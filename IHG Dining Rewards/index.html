@@ -22,7 +22,7 @@
         <script src="kendo/js/jquery.min.js"></script>
         <script src="kendo/js/kendo.mobile.min.js"></script>
         <script src="scripts/everlive.all.min.js"></script>
-        <script src="scripts/nativePageTransition.js"></script>
+        <!--<script src="scripts/nativePageTransition.js"></script>-->
         <script src="scripts/app.js"></script>
         <script src="scripts/controller.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
@@ -57,7 +57,7 @@
         </div>
         <!-- application views will be rendered here -->
         <!-- application drawer and contents -->
-        <div data-role="drawer" id="appdrawerN" style="width: 70%;background-color:#fff" data-swipe-to-open-views='["home-view"]' data-views='["home-view"]' data-transition="none" >
+        <div data-role="drawer" id="appdrawerN" style="width: 70%;background-color:#fff" data-swipe-to-open-views='["home-view"]' data-views='["home-view"]'>
             <div style="width:auto;height:1000px;background-color:#fff">
                 <ul data-role="listview" style="background-color:#fff">
                     <li style="background-color:#fff">
@@ -65,7 +65,7 @@
                     </li>
 
                     <li style="background-color:#343434;color:#fff">
-                         <a data-transition="slide"   href="views/benefitlist.html"  >
+                         <a     href="views/benefitlist.html"  >
                             My Benefits
                         </a>
                     </li>
@@ -74,12 +74,12 @@
                         Participating Restaurants
                     </li>
                     <li data-icon="customrestlist">
-                         <a data-transition="slide"   href="views/outletlist.html"  >
+                         <a     href="views/outletlist.html"  >
                             List of Restaurants & Bars
                         </a>
                     </li>
                     <li style="background-color:#fff" data-icon="customrestnear">
-                         <a data-transition="slide"   href="views/outletlistnearme.html"  >
+                         <a     href="views/outletlistnearme.html"  >
                             Restaurants & Bars Near Me
                         </a>
                     </li>
@@ -88,12 +88,12 @@
                         Offers
                     </li>
                     <li style="background-color:#fff" data-icon="customoffer" >
-                         <a data-transition="slide"   href="views/offerlist.html"  >
+                         <a     href="views/offerlist.html"  >
                             All Offers
                         </a>
                     </li>
                     <li style="background-color:#fff" data-icon="customoffernear">
-                         <a data-transition="slide"   href="views/offerlistnearme.html"   >
+                         <a     href="views/offerlistnearme.html"   >
                             Offers Near Me
                         </a>
                     </li>
@@ -103,17 +103,17 @@
                     </li>
 
                     <li data-icon="customprofile">
-                         <a data-transition="slide"   href="views/customerservice.html"  >Customer Service</a>
+                         <a     href="views/customerservice.html"  >Customer Service</a>
                     </li>
                     <li data-icon="customterms">
-                         <a data-transition="slide"   href="views/termsofservice.html"  >Terms of Service</a>
+                         <a     href="views/termsofservice.html"  >Terms of Service</a>
                     </li>
 
                 </ul>
             </div>
         </div>
 
-        <div data-role="drawer" id="appdrawer" style="width: 70%;background-color:#fff" data-swipe-to-open-views='["myprofile-view"]' data-views='["myprofile-view"]' data-model="preLogin" data-transition="none">
+        <div data-role="drawer" id="appdrawer" style="width: 70%;background-color:#fff" data-swipe-to-open-views='["myprofile-view"]' data-views='["myprofile-view"]' data-model="preLogin">
             <div style="width:auto;height:1000px;background-color:#fff">
                 <ul data-role="listview" style="background-color:#fff">
                     <li style="background-color:#fff">
@@ -121,13 +121,13 @@
                     </li>
 
                     <li style="background-color:#343434;color:#fff">
-                         <a data-transition="slide"   href="views/pl-mymessagelist.html"  >
+                         <a     href="views/pl-mymessagelist.html"  >
                             My Messages
                         </a>
                     </li>
 
                     <li style="background-color:#343434;color:#fff">
-                         <a data-transition="slide"   href="views/benefitlist.html"  >
+                         <a     href="views/pl-benefitlist.html"  >
                             My Benefits
                         </a>
                     </li>
@@ -136,12 +136,12 @@
                         Participating Restaurants
                     </li>
                     <li data-icon="customrestlist">
-                         <a data-transition="slide"   href="views/pl-outletlist.html"  >
+                         <a     href="views/pl-outletlist.html"  >
                             List of Restaurants & Bars
                         </a>
                     </li>
                     <li style="background-color:#fff" data-icon="customrestnear">
-                         <a data-transition="slide"   href="views/pl-outletlistnearme.html"  >
+                         <a     href="views/pl-outletlistnearme.html"  >
                             Restaurants & Bars Near Me
                         </a>
                     </li>
@@ -150,12 +150,12 @@
                         Offers
                     </li>
                     <li style="background-color:#fff" data-icon="customoffer" >
-                         <a data-transition="slide"   href="views/pl-offerlist.html"  >
+                         <a     href="views/pl-offerlist.html"  >
                             All Offers
                         </a>
                     </li>
                     <li style="background-color:#fff" data-icon="customoffernear">
-                         <a data-transition="slide"   href="views/pl-offerlistnearme.html"   >
+                         <a     href="views/pl-offerlistnearme.html"   >
                             Offers Near Me
                         </a>
                     </li>
@@ -165,16 +165,16 @@
                     </li>
 
                     <li data-icon="customsetting">
-                         <a data-transition="slide"   href="views/pl-setting.html"   >Settings</a>
+                         <a     href="views/pl-setting.html"   >Settings</a>
                     </li>
                     <li data-icon="customprofile">
-                         <a data-transition="slide"   href="views/customerservice.html"  >Customer Service</a>
+                         <a     href="views/customerservice.html"  >Customer Service</a>
                     </li>
                     <li data-icon="customterms">
-                         <a data-transition="slide"   href="views/termsofservice.html"  >Terms of Service</a>
+                         <a     href="views/termsofservice.html"  >Terms of Service</a>
                     </li>
                     <li data-icon="customlogout">
-                         <a data-transition="slide"   data-bind="click:logMeOut"  >Logout</a>
+                         <a     data-bind="click:logMeOut"  >Logout</a>
                     </li>
 
                 </ul>

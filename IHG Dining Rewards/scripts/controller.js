@@ -151,6 +151,11 @@
                                            password:"",
                                            outlettelephone:"",
                                            tokennum:"",
+        
+         pldestroyBenefitList:function() {
+                                                  $("#pl-benefit-list").remove();  
+                                              },
+        
           destroyBenefitList:function() {
                                                   $("#benefit-list").remove();  
                                               },
@@ -220,7 +225,9 @@
                                            destroyBenefitDetail:function() {
                                                $("#benefit-detail").remove();  
                                            },
-                                                                                    
+                                              pldestroyBenefitDetail:function() {
+                                               $("#pl-benefit-detail").remove();  
+                                           },                                         
                                       
                                            benefitdetail: function (e) { 
                                                benefitcode = e.view.params.bd; 
@@ -780,7 +787,6 @@
                                                                   mobilenumber = ""; 
                                                                   memberexpiry = "";
                                                                   segmentimage = "";
-                                                                   app.application.pane.history = ["views/home.html"];
                                                                   $("body").data("kendoMobilePane").navigate("views/home.html", "slide");   
                                                                   hideSpin(); //hide loading popup
                                                               }else {
@@ -1174,6 +1180,10 @@
                                                 $("#mymessagelist-theme").remove();
                                             },
                                             loginSuccess:function() {
+                                                if(segmentcode===""){
+                                                    $("body").data("kendoMobilePane").navigate("views/home.html"); 
+                                                    return;
+                                                }
                                                 //Show Card Image
                                                 if (segmentcode==="1000") {
                                                     cardimage = "images/ihg_gold.png";

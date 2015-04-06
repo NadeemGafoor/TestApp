@@ -34,9 +34,7 @@ var currentDevice;
                                                layout:'main-layout',
                                                initial: checkNetwork()?"views/home.html":"views/nonetwork.html",
                                                //initial: "views/home.html",
-                                               useNativeScrolling: false,
-            transition:"slide"
-            
+                                               useNativeScrolling: false
                                            });
         
          //kendo.UserEvents.defaultThreshold(20); 

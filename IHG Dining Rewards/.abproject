@@ -67,6 +67,7 @@
     "org.apache.cordova.statusbar",
     "com.phonegap.plugins.PushPlugin@2.5.2",
     "org.apache.cordova.vibration",
-    "com.telerik.plugins.nativepagetransitions@0.2.13"
+    "com.telerik.plugins.nativepagetransitions@0.2.13",
+    "com.telerik.plugins.nativepagetransitions@0.2.14"
   ]
 }
