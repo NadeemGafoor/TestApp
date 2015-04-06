@@ -35,6 +35,7 @@ var currentDevice;
                                                initial: checkNetwork()?"views/home.html":"views/nonetwork.html",
                                                //initial: "views/home.html",
                                                useNativeScrolling: false,
+            transition:"slide"
             
                                            });
         

@@ -769,6 +769,7 @@
                                                                   mobilenumber = ""; 
                                                                   memberexpiry = "";
                                                                   segmentimage = "";
+                                                                   app.application.pane.history = ["views/home.html"];
                                                                   $("body").data("kendoMobilePane").navigate("views/home.html", "slide");   
                                                                   hideSpin(); //hide loading popup
                                                               }else {
