@@ -1,13 +1,13 @@
-<div data-role="view" data-layout="pl-back-layout" id="pl-offerdetail-theme" data-init="initButtonGroup"  data-hide="postLogin.plofferDetaildestroyView" data-show="postLogin.plofferitem" data-model="postLogin">
+<div data-role="view" data-layout="pl-back-layout" id="pl-offerdetailnearme-theme" data-init="initButtonGroup"  data-hide="postLogin.plofferDetaildestroyViewNearMe" data-show="postLogin.plofferitem" data-model="postLogin">
 <header data-role="header">
         <div data-role="navbar">
             <div class="brand-icon"></div>
-            <a data-transition="slide"   data-role="button" href="views/pl-offerlist.html" data-align="left"  data-icon="back">
+            <a data-transition="slide"   data-role="button" href="views/pl-offerlistnearme.html" data-align="left"  data-icon="back">
             </a>
             <span data-role="view-title" id="item-title"></span>
         </div>
     </header>
-    <ul data-role="buttongroup" data-index="0" id="ploffertab" class="button-group" style="margin-top:0px">
+    <ul data-role="buttongroup" data-index="0" id="ploffertabnearme" class="button-group" style="margin-top:0px">
         <li>
             Details
         </li>
@@ -92,7 +92,7 @@
     function initButtonGroup() {
         var listviews = this.element.find("ul.km-listview");
 
-        $("#ploffertab").kendoMobileButtonGroup({
+        $("#ploffertabnearme").kendoMobileButtonGroup({
                                                   select: function (e) {
                                                       listviews.hide()
                                                           .eq(e.index)

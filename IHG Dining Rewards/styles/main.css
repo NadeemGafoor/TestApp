@@ -178,9 +178,11 @@
 }
 .footer-logo
 {
+    width: 20%;
+    height:auto;
     background-color: #fff000;
     background: url(../images/footer_logo.png) no-repeat center center;
-    width: 20%;
+    background-size:cover;
     position: relative;
     float: right;
     margin: auto 0;

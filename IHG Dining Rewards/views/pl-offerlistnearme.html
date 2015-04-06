@@ -1,7 +1,7 @@
 <!--Offer List View-->
 <div id="pl-offerlistnearme-view"
      data-role="view"
-     data-title="Offers Near Me" data-layout="pl-back-layout"  data-model="postLogin" data-show="postLogin.plofferlistnearme" data-hide="postLogin.pldestroyOfferListViewnearme" >
+     data-title="Offers Near Me" data-layout="pl-back-layout"  data-model="postLogin" data-show="postLogin.plofferlist" data-hide="postLogin.pldestroyOfferListViewnearme" >
     
       <header data-role="header">
         <div data-role="navbar">
@@ -12,7 +12,7 @@
         </div>
     </header>
   
-    <ul data-role="listview" style="background-color:#fff" id="pl-offer-list-view-nearme">
+    <ul data-role="listview" style="background-color:#fff" id="pl-offer-list-view">
 
     </ul>
     
@@ -22,7 +22,7 @@
             <div class="home-navbar" >
                 <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
             </div>
-            <a data-transition="slide"   href="views/pl-brandpage.html"  >
+            <a data-transition="slide"   href="views/pl-brandpage.html"  data-role="button"  >
                 <div class="footer-logo">&nbsp;</div>
             </a>
 
@@ -30,7 +30,7 @@
     </footer>
 </div>
 
-<script type="text/x-kendo-template" id="plofferListTemplatenearme">
+<script type="text/x-kendo-template" id="plofferListTemplate">
     <div class="outer-frame-o">
         <div class="image-frame-list">
             <img src="${imageurls}" style="height:100%;width:100%"/>

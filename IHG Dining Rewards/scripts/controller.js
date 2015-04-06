@@ -2009,12 +2009,15 @@
                                                     document.getElementById("selCountry").value = country;
                                                     document.getElementById("selCity").value = city;
                                                 }
+                                                 hideSpin(); //hide loading popup
                                             },
                                             getCity:function() {
+                                                showSpin();
                                                 // kendo.mobile.application.showLoading(); //show loading popup
                                                 var e = document.getElementById("selCountry");
                                                 var str = e.options[e.selectedIndex].value;
                                                 listCity(str);
+                                                 hideSpin(); //hide loading popup
                                             },
         
         
