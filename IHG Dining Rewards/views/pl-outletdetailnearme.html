@@ -1,13 +1,13 @@
-<div data-role="view" id="pl-outletdetail-theme"  data-init="initButton" data-layout="pl-back2-layout" data-model="postLogin" data-show="postLogin.plshowOutletItem" data-hide="postLogin.ploutletdetailthemedestroyView">
+<div data-role="view" id="pl-outletdetailnearme-theme"  data-init="initButton" data-layout="pl-back2-layout" data-model="postLogin" data-show="postLogin.plshowOutletItem" data-hide="postLogin.ploutletdetailthemedestroyViewNearMe">
   <header data-role="header">
         <div data-role="navbar">
             <div class="brand-icon"></div>
-            <a data-transition="slide"   data-role="button" href="views/pl-outletlist.html" data-align="left"  data-icon="back">
+            <a data-transition="slide"   data-role="button" href="views/pl-outletlistnearme.html" data-align="left"  data-icon="back">
             </a>
             <span data-role="view-title" id="item-title"></span>
         </div>
     </header>
-    <ul data-role="buttongroup" data-index="0" style="margin-top:0px;" id="pl-outletform" class="button-group">
+    <ul data-role="buttongroup" data-index="0" style="margin-top:0px;" id="pl-outletformnearme" class="button-group">
         <li>
             Details
         </li>
@@ -42,7 +42,7 @@
         </li>
     </ul>
 
-    <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="pl-outlet-album">
+    <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="pl-outletnearme-album">
 
     </ul>
     <footer data-role="footer">
@@ -72,7 +72,7 @@
     function initButton() {
         var listviews = this.element.find("ul.km-listview");
     
-        $("#pl-outletform").kendoMobileButtonGroup({
+        $("#pl-outletformnearme").kendoMobileButtonGroup({
                                                     select: function (e) {
                                                         listviews.hide()
                                                             .eq(e.index)
@@ -87,7 +87,7 @@
     
 
       
-    #pl-outlet-album li
+    #pl-outletnearme-album li
     {
         border-top: 1px solid #fff !important;
         border-bottom: 1px solid #fff !important;

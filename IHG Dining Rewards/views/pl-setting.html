@@ -1,23 +1,16 @@
 <div data-role="view" data-title="My Settings" data-layout="pl-back-layout" id="pl-setting-theme" data-model="postLogin" data-hide="postLogin.destroysettingview" data-show="postLogin.editsettingdata" >
-    
-         <header data-role="header">
-        <div data-role="navbar">
-            <div class="brand-icon"></div>
-            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left"  data-icon="back">
-            </a>
-            <span data-role="view-title" id="item-title"></span>
-        </div>
-    </header>
+
+   
     <div data-role="header">
         <div data-role="navbar">
             <span data-role="view-title"></span>
-             <a data-transition="slide"   data-role="backbutton" data-align="left" style="color:#fff"></a>
-             <a data-transition="slide"   data-role="button" data-align="right" style="color:#fff" data-bind="click:saveSetting">Save</a>
+            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left"  data-icon="back"></a>
+                <a data-transition="slide"   data-role="button" data-align="right" style="color:#fff" data-bind="click:saveSetting">Save</a>
         </div>
     </div>
-     
+
     <ul data-role="listview" data-style="inset" style="background-color:#fff">
-       
+
         <li>
             <div class="switch-frame">
                 <label class="whitecolor" >
@@ -37,12 +30,12 @@
         <li>
             <div class="switch-frame">
                 <label  class="whitecolor">
-                   Auto Location
+                    Auto Location
                     <input data-role="switch" name="showprofile" id="profile-autolocation" type="checkbox" checked="false"/>
                 </label>
             </div>
         </li>
-            <li>
+        <li>
             <div class="input-frame">
                 <label>
                     Country:
@@ -62,11 +55,10 @@
                 </label>
             </div>
         </li>
-        
-        
+
     </ul>
-    
-       <footer data-role="footer">
+
+    <footer data-role="footer">
 
         <div data-role="navbar">
             <div class="home-navbar" >
@@ -80,17 +72,14 @@
     </footer>
 </div>
 
-
 <style scoped>
-input
-{
-    display: block;
-    width: 85%;
-    height: 2.3em;
-    line-height: 2em;
-    border: 1px solid #ccc;
-    background-color: #f7f3f1;
-
-}
-
-</style> 
+    input
+    {
+        display: block;
+        width: 85%;
+        height: 2.3em;
+        line-height: 2em;
+        border: 1px solid #ccc;
+        background-color: #f7f3f1;
+    }
+    </style> 

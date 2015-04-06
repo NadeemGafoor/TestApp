@@ -1,13 +1,13 @@
-<div data-role="view" data-layout="pl-back-layout" id="pl-offerdetailnearme-theme" data-init="initButtonGroup"  data-hide="postLogin.plofferDetaildestroyViewNearMe" data-show="postLogin.plofferitem" data-model="postLogin">
-<header data-role="header">
+<div data-role="view" data-layout="back-layout" id="offerdetailnearme-theme" data-init="initButtonGroup"  data-hide="preLogin.offerDetaildestroyViewNearMe" data-show="preLogin.offeritem" data-model="preLogin">
+  <header data-role="header">
         <div data-role="navbar">
-            <div class="brand-icon"></div>
-            <a data-transition="slide"   data-role="button" href="views/pl-offerlistnearme.html" data-align="left"  data-icon="back">
+                             <div class="brand-icon"></div>
+             <a data-transition="slide"   data-role="button" href="views/offerlistnearme.html" data-align="left"  data-icon="back">
             </a>
             <span data-role="view-title" id="item-title"></span>
         </div>
     </header>
-    <ul data-role="buttongroup" data-index="0" id="ploffertabnearme" class="button-group" style="margin-top:0px">
+    <ul data-role="buttongroup" data-index="0" id="offertabnearme" class="button-group" style="margin-top:0px">
         <li>
             Details
         </li>
@@ -18,39 +18,29 @@
     </ul>
     <ul data-role="listview" data-style="inset" style="background-color:#fff;margin-top:0px">
 
-        <div class="myoffer-image" id="pl-offer-image-large">
+        <div class="myoffer-image" id="offer-image-large">
         </div>
-        
-           <li>
-              <div class="switch-frame">
-            <label class="whitecolor">
-                 Agree Offer Terms & conditions
-                    <input data-role="switch" name="tandc-accept" id="tandc-accept" type="checkbox"/>
-            </label>
-                  </div>
+
+        <li>
+            <div class="detail-subhead whitecolor" id="ooffer-shortname"></div>
         </li>
         <li>
-            <div class="button-frame">
-                 <a data-transition="slide"   id="activate-offer-button" data-role="button" data-bind="click: activateoffer">Activate Offer</a>
-            </div>
+            <div id="ooffer-description" class="whitecolor"></div>
+        </li>
+        <li>
+            <div class="detail-subhead whitecolor" id="ooffer-expiry"></div>
         </li>
 
         <li>
-            <div class="detail-subhead whitecolor" id="pl-ooffer-shortname"></div>
-        </li>
-        <li>
-            <div id="pl-ooffer-description" class="whitecolor"></div>
-        </li>
-        <li>
-            <div class="detail-subhead whitecolor" id="pl-ooffer-expiry"></div>
+            <div id="ooffer-remark" class="whitecolor"></div>
         </li>
 
         <li>
-            <div id="pl-ooffer-remark" class="whitecolor"></div>
+            <div class="detail-subhead" style="color:#ffb606">This offer is only for IHF Dining Rewards Members. Please Login to grab this offer!</div>
         </li>
-  
+
     </ul>
-    <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="pl-offer-outlet-list-view">
+    <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="offer-outlet-list-view">
 
     </ul>
     
@@ -70,7 +60,7 @@
             </footer>
 </div>
 
-<script type="text/x-kendo-template" id="plofferOutletTemplate">
+<script type="text/x-kendo-template" id="offerOutletTemplate">
     <div class="outer-frame">
            <div class="image-frame-list">
             <img src="${imageurl}" style="height:100%;width:100%"/>
@@ -92,7 +82,7 @@
     function initButtonGroup() {
         var listviews = this.element.find("ul.km-listview");
 
-        $("#ploffertabnearme").kendoMobileButtonGroup({
+        $("#offertabnearme").kendoMobileButtonGroup({
                                                   select: function (e) {
                                                       listviews.hide()
                                                           .eq(e.index)

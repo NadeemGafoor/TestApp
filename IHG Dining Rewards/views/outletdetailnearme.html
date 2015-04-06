@@ -1,15 +1,15 @@
-<div data-role="view" id="pl-outletdetail-theme"  data-init="initButton" data-layout="pl-back2-layout" data-model="postLogin" data-show="postLogin.plshowOutletItem" data-hide="postLogin.ploutletdetailthemedestroyView">
-  <header data-role="header">
-        <div data-role="navbar">
-            <div class="brand-icon"></div>
-            <a data-transition="slide"   data-role="button" href="views/pl-outletlist.html" data-align="left"  data-icon="back">
-            </a>
-            <span data-role="view-title" id="item-title"></span>
-        </div>
-    </header>
-    <ul data-role="buttongroup" data-index="0" style="margin-top:0px;" id="pl-outletform" class="button-group">
+<div data-role="view" id="outletdetailnearme-theme"  data-init="initButton" data-layout="back-layout" data-model="preLogin" data-show="preLogin.showOutletItem" data-hide="preLogin.outletdetailthemedestroyViewNearMe">
+    <header data-role="header">
+                <div data-role="navbar">
+                    <div class="brand-icon"></div>
+                     <a data-transition="slide"   data-role="button" href="views/outletlistnearme.html" data-align="left"  data-icon="back">
+                    </a>
+                    <span data-role="view-title" id="item-title"></span>
+                </div>
+            </header>
+    <ul data-role="buttongroup" data-index="0" style="margin-top:0px;" id="outletformnearme" class="button-group">
         <li>
-            Details
+           Details
         </li>
         <li data-bind="click: getLocationO">
             Map
@@ -17,20 +17,21 @@
         <li data-bind="click: showOutletAlbum">
             Offers
         </li>
-
+      
     </ul>
 
+    
     <ul data-role="listview"  data-style="inset" style="background-color:#fff;margin-top:0px"  >
 
-        <div class="detail-image" id="pl-outlet-image-large">
+        <div class="detail-image" id="outlet-image-large">
 
         </div>
 
         <li>
-            <div class="detail-subhead whitecolor" id="pl-ooutlet-short"></div>
+            <div class="detail-subhead whitecolor" id="ooutlet-short"></div>
         </li>
         <li>
-            <div id="pl-ooutlet-long" class="whitecolor textpad">
+            <div id="ooutlet-long" class="whitecolor textpad">
             </div>
         </li>
     </ul>
@@ -41,11 +42,11 @@
             </div>
         </li>
     </ul>
-
-    <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="pl-outlet-album">
-
-    </ul>
-    <footer data-role="footer">
+    
+    <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="outletnearme-album">
+     
+</ul>
+            <footer data-role="footer">
                    <div class="button-frame-inline">
                      <a data-transition="slide"   data-role="button"   data-bind="click: callTel">Call Now</a>
                      <a data-transition="slide"   data-role="button"    data-bind="click: shareOutlet">Share</a>   
@@ -62,7 +63,9 @@
 
 </div>
 
-<script type="text/x-kendo-template" id="pl-outletAlbumTemplate">
+
+
+<script type="text/x-kendo-template" id="outletAlbumTemplate">
     <div class="photo" style="background-image: url(${imageurll});">
     </div>
 </script>
@@ -70,9 +73,10 @@
 <script>
 
     function initButton() {
+      
         var listviews = this.element.find("ul.km-listview");
     
-        $("#pl-outletform").kendoMobileButtonGroup({
+        $("#outletformnearme").kendoMobileButtonGroup({
                                                     select: function (e) {
                                                         listviews.hide()
                                                             .eq(e.index)
@@ -80,17 +84,18 @@
                                                     },
                                                     index: 0
                                                 });
-    }    
+    }
+    
 </script>
 
 <style scoped>
     
-
+ 
       
-    #pl-outlet-album li
+   #outletnearme-album li
     {
         border-top: 1px solid #fff !important;
         border-bottom: 1px solid #fff !important;
     }  
-</style>
+    </style>
     

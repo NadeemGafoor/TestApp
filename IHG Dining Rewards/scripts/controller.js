@@ -182,8 +182,19 @@
                                                $("#offerdetail-theme").remove();  
                                            },
                                           
+           offerDetaildestroyViewNearMe
+                                           :function() {
+                                               $("#offerdetailnearme-theme").remove();  
+                                           },
+                                          
+        
                                            outletdetailthemedestroyView: function() {
                                                $("#outletdetail-theme").remove();
+                                               isMapInitialized = false;
+                                           },
+        
+         outletdetailthemedestroyViewNearMe: function() {
+                                               $("#outletdetailnearme-theme").remove();
                                                isMapInitialized = false;
                                            },
         
@@ -1121,6 +1132,12 @@
                                             :function() {
                                                 $("#pl-offerdetail-theme").remove();  
                                             },
+        
+        
+              plofferDetaildestroyViewNearMe
+                                            :function() {
+                                                $("#pl-offerdetailnearme-theme").remove();  
+                                            },
                                             pldestroyOfferListViewnearme:function() {
                                                 $("#pl-offerlistnearme-view").remove();  
                                             },
@@ -1133,6 +1150,12 @@
                                             },
                                             ploutletdetailthemedestroyView: function() {
                                                 $("#pl-outletdetail-theme").remove();
+                                                isMapInitialized = false;
+                                            },
+        
+        
+          ploutletdetailthemedestroyViewNearMe: function() {
+                                                $("#pl-outletdetailnearme-theme").remove();
                                                 isMapInitialized = false;
                                             },
                                             ploutletlistthemedestroyView: function() {
