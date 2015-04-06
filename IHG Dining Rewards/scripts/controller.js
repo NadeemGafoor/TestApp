@@ -26,8 +26,8 @@
     var pushoffer = "";
     var remindexpiry = "";
     var showprofile = "";
-    var getgps = false;//First time to look for location, do not look when the page is reloaded
-    var gpsfind = "1";//Auto location enabled
+    var getgps = false; //First time to look for location, do not look when the page is reloaded
+    var gpsfind = "1"; //Auto location enabled
     var lat, lon;
     var city = "";
     var country = "";
@@ -787,7 +787,7 @@
                                                                   mobilenumber = ""; 
                                                                   memberexpiry = "";
                                                                   segmentimage = "";
-                                                                  $("body").data("kendoMobilePane").navigate("views/home.html", "slide");   
+                                                                  $("body").data("kendoMobilePane").navigate("views/home.html");   
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Cannot Logout! " + getData.statusdesc)          
@@ -1969,7 +1969,7 @@
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
-                                                                   $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html", "slide");  
+                                                                   $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");  
                                                                }else {
                                                                    navigator.notification.alert("Unknown Network Error, Cannot delete message." + getData.statusdesc)          
                                                                }
