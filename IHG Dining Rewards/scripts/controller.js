@@ -1102,7 +1102,9 @@
                                                          });
                                               },
         
-        
+                         showBrandPage: function () {
+                              $("body").data("kendoMobilePane").navigate("views/home.html","flip:up");  
+                         }
         
                                                
                                  

@@ -178,11 +178,8 @@
 }
 .footer-logo
 {
-    width: 20%;
-    height:auto;
-    background-color: #fff000;
     background: url(../images/footer_logo.png) no-repeat center center;
-    background-size:cover;
+    width: 20%;
     position: relative;
     float: right;
     margin: auto 0;
