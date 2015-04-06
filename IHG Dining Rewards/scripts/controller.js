@@ -152,13 +152,13 @@
                                            outlettelephone:"",
                                            tokennum:"",
         
-         pldestroyBenefitList:function() {
-                                                  $("#pl-benefit-list").remove();  
-                                              },
+                                           pldestroyBenefitList:function() {
+                                               $("#pl-benefit-list").remove();  
+                                           },
         
-          destroyBenefitList:function() {
-                                                  $("#benefit-list").remove();  
-                                              },
+                                           destroyBenefitList:function() {
+                                               $("#benefit-list").remove();  
+                                           },
         
             
                                            destroypasswordchange:function() {
@@ -187,7 +187,7 @@
                                                $("#offerdetail-theme").remove();  
                                            },
                                           
-           offerDetaildestroyViewNearMe
+                                           offerDetaildestroyViewNearMe
                                            :function() {
                                                $("#offerdetailnearme-theme").remove();  
                                            },
@@ -198,7 +198,7 @@
                                                isMapInitialized = false;
                                            },
         
-         outletdetailthemedestroyViewNearMe: function() {
+                                           outletdetailthemedestroyViewNearMe: function() {
                                                $("#outletdetailnearme-theme").remove();
                                                isMapInitialized = false;
                                            },
@@ -225,7 +225,7 @@
                                            destroyBenefitDetail:function() {
                                                $("#benefit-detail").remove();  
                                            },
-                                              pldestroyBenefitDetail:function() {
+                                           pldestroyBenefitDetail:function() {
                                                $("#pl-benefit-detail").remove();  
                                            },                                         
                                       
@@ -1063,48 +1063,49 @@
                                                       });
                                            },
         
-              benefitlist: function () {
-                                                  benefitcode = "";//initialize benefit code
-                                                  showSpin(); //show loading popup
-                                                  $.ajax({ 
-                                                             type: "POST",
-                                                             cache:false,
-                                                             async:true,
-                                                             timeout:20000,
-                                                             url: gurl + "/benefitlist.aspx",
-                                                             contentType: "application/json; charset=utf-8",
-                                                             data: JSON.stringify({
-                                                                                      merchantcode :merchant,benefitcode:benefitcode,mdevice:mdevicestat
-                                                                                  }),
-                                                             success: function (data) { 
-                                                                 var getData = JSON.parse(data);
-                                                                 if (getData.statuscode == "000") {
-                                                                     //fill the outlet template
-                                                                     if (getData.benefitlist.length > 0) {
-                                                                         $("#benefit-list-view").kendoMobileListView({
-                                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
-                                                                                                                         template: $("#benefitlistTemplate").html()
-                                                                                                                     });
-                                                                         hideSpin(); //hide loading popup
-                                                                     }else {
-                                                                         navigator.notification.alert("No Benefits exists for the selected Program!")    
-                                                                         hideSpin(); //hide loading popup
-                                                                     }
-                                                                 }else {
-                                                                     navigator.notification.alert("Unknown Network Error, Cannot get Benefit List" + getData.statusdesc)          
-                                                                     hideSpin(); //hide loading popup
-                                                                 }
-                                                             },
-                                                             error: function (error) {
-                                                                 navigator.notification.alert("Unknown Error, Cannot get Benefit List. Try after sometime")
-                                                                 hideSpin(); //hide loading popup
-                                                             }
-                                                         });
-                                              },
+                                           benefitlist: function () {
+                                               benefitcode = "";//initialize benefit code
+                                               showSpin(); //show loading popup
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/benefitlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,benefitcode:benefitcode,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") {
+                                                                  //fill the outlet template
+                                                                  if (getData.benefitlist.length > 0) {
+                                                                      $("#benefit-list-view").kendoMobileListView({
+                                                                                                                      dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
+                                                                                                                      template: $("#benefitlistTemplate").html()
+                                                                                                                  });
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("No Benefits exists for the selected Program!")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Benefit List" + getData.statusdesc)          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit List. Try after sometime")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
         
-                         showBrandPage: function () {
-                              $("body").data("kendoMobilePane").navigate("views/home.html","flip:up");  
-                         }
+                                           showBrandPage: function () {
+                                               // alert("Hello");
+                                               $("body").data("kendoMobilePane").navigate("views/brandpage.html");  
+                                           }
         
                                                
                                  
@@ -1142,7 +1143,7 @@
                                             },
         
         
-              plofferDetaildestroyViewNearMe
+                                            plofferDetaildestroyViewNearMe
                                             :function() {
                                                 $("#pl-offerdetailnearme-theme").remove();  
                                             },
@@ -1162,7 +1163,7 @@
                                             },
         
         
-          ploutletdetailthemedestroyViewNearMe: function() {
+                                            ploutletdetailthemedestroyViewNearMe: function() {
                                                 $("#pl-outletdetailnearme-theme").remove();
                                                 isMapInitialized = false;
                                             },
@@ -1182,7 +1183,7 @@
                                                 $("#mymessagelist-theme").remove();
                                             },
                                             loginSuccess:function() {
-                                                if(segmentcode===""){
+                                                if (segmentcode==="") {
                                                     $("body").data("kendoMobilePane").navigate("views/home.html"); 
                                                     return;
                                                 }
@@ -1194,12 +1195,12 @@
                                                 }else {
                                                     cardimage = "images/ihg_platinum.png";
                                                 }
-                                              //  alert(cardimage);
-                                                document.getElementById("mycardimage").style.background = "url("+cardimage+") no-repeat center center";
-                                                 document.getElementById("mycardname").innerHTML=customername;
+                                                //  alert(cardimage);
+                                                document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
+                                                document.getElementById("mycardname").innerHTML = customername;
                                                 //document.getElementById("mycardsegment").innerHTML=segmentname;
-                                                document.getElementById("mycardexpiry").innerHTML=memberexpiry;
-                                              //  document.getElementById("mycardimage").style.backgroundSize = "cover";
+                                                document.getElementById("mycardexpiry").innerHTML = memberexpiry;
+                                                //  document.getElementById("mycardimage").style.backgroundSize = "cover";
                                             },
           
                                             mymessagelist
@@ -2011,7 +2012,7 @@
                                                     document.getElementById("selCountry").value = country;
                                                     document.getElementById("selCity").value = city;
                                                 }
-                                                 hideSpin(); //hide loading popup
+                                                hideSpin(); //hide loading popup
                                             },
                                             getCity:function() {
                                                 showSpin();
@@ -2019,7 +2020,7 @@
                                                 var e = document.getElementById("selCountry");
                                                 var str = e.options[e.selectedIndex].value;
                                                 listCity(str);
-                                                 hideSpin(); //hide loading popup
+                                                hideSpin(); //hide loading popup
                                             },
         
         
@@ -2161,6 +2162,12 @@
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
+                                            },
+        
+        
+                                            showBrandPage: function () {
+                                                // alert("Hello");
+                                                $("body").data("kendoMobilePane").navigate("views/pl-brandpage.html");  
                                             }
         
         

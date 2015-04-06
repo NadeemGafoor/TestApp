@@ -180,6 +180,7 @@
 {
     background: url(../images/footer_logo.png) no-repeat center center;
     width: 20%;
+    background-size:80%;
     position: relative;
     float: right;
     margin: auto 0;
@@ -358,12 +359,11 @@ h2
     height: 32px;
 }
 
-.km-ios7 .km-content
+.km-ios7 .km-view  .km-content
 {
     background: url(../images/home_image.png) no-repeat center center;
     background-size: cover;
     -webkit-background-size: cover;
-    background-color: transparent !important;
 }
 
 .km-ios7 .km-navbar .km-button
@@ -956,12 +956,13 @@ img
     line-height: 2.5em;
     width: 100%;
     text-align: center;
+    background-color:#fff;
 }
 
 .button-frame-inline .km-button
 {
     line-height: 1.8em;
-    width: 49%;
+    width: 49.7%;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
@@ -1416,11 +1417,11 @@ li
 
 .brand-holder
 {
-    width: 100%;
-    height: 650px;
+    width:100%;
+    height:600px;
     background: url(../images/aboutusimage.png) no-repeat center center;
-    -webkit-background-size: auto;
-    background-size: auto;
+    -webkit-background-size: 90%;
+    background-size:90%;
 }
 
 .joinnow-holder

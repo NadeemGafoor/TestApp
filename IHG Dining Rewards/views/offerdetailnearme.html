@@ -43,7 +43,7 @@
     <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="offer-outlet-list-view">
 
     </ul>
-    
+  
       <footer data-role="footer">
                    <div class="button-frame-inline">
                      <a data-transition="slide"   data-role="button"   data-bind="click: callTel">Call Now</a>
@@ -54,7 +54,8 @@
                     <div class="home-navbar" >
                         <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
                     </div>
-                     <a data-transition="slide"   href="views/brandpage.html"  data-role="button"  ><div class="footer-logo">&nbsp;</div></a>
+                   <div class="footer-logo" data-bind="click:showBrandPage">&nbsp;</div>
+
 
                 </div>
             </footer>
@@ -102,6 +103,8 @@
         margin-left: 20%;
     }
     
-   
+    #offerdetailnearme-theme .km-view  .km-content{
+        background-color:#f4efed !important;
+    }
     </style>
 
