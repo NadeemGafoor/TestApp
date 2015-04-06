@@ -1,8 +1,29 @@
 <div data-role="view" data-title="My Messages" data-layout="pl-back-layout" id="mymessagelist-theme" data-model="postLogin" data-hide="postLogin.destroymymessages" data-show="postLogin.mymessagelist">
 
+    <header data-role="header">
+        <div data-role="navbar">
+            <div class="brand-icon"></div>
+            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left">
+            </a>
+            <span data-role="view-title" id="item-title"></span>
+        </div>
+    </header>
     <ul data-role="listview" style="background-color:#fff;margin-top:0px" id="pl-history-list">
 
     </ul>
+
+    <footer data-role="footer">
+
+        <div data-role="navbar">
+            <div class="home-navbar" >
+                <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+            </div>
+            <a data-transition="slide"   href="views/pl-brandpage.html"  >
+                <div class="footer-logo">&nbsp;</div>
+            </a>
+
+        </div>
+    </footer>
 </div>
 
 <script type="text/x-kendo-template" id="pl-historyListTemplate">
@@ -15,14 +36,14 @@
         </div>
         <div class="msg-narration-frame">
             ${narration120}&nbsp;
-            
+
         </div>
         <div class="msg-action-frame-outer">
             <div class="msg-action-frame-inner-1">
                 <img src="${readicon}" style="height:auto;width:auto"/>
             </div>
             <div class="msg-action-frame-inner-2">
-     <a data-transition="slide"   href="views/pl-messageitem.html?mi=${sequence}" data-role="button" class="a-class"  >></a>
+                <a data-transition="slide"   href="views/pl-messageitem.html?mi=${sequence}" data-role="button" class="a-class"  >></a>
             </div>
         </div>
     </div>
@@ -35,14 +56,13 @@
         border-bottom: 1px solid #343434  !important;
     }
 
-       #mymessagelist-theme .a-class
+    #mymessagelist-theme .a-class
     {
         background-color: #e9763f !important;
         height: 2em;
         line-height: .75em;
         color: #fff;
-        font-weight:bold;
-        font-size:1em;
+        font-weight: bold;
+        font-size: 1em;
     }
-
     </style>

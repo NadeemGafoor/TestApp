@@ -1,44 +1,63 @@
 <div data-role="view"  data-layout="pl-main-layout" id="myprofile-view" data-model="postLogin" data-hide="postLogin.destroymyprofileview" data-show="postLogin.loginSuccess">
-   
-<div class="tile-frame-2">
-   <div class="my-card" id="mycardimage">
-       <div class="mycard-name" id="mycardname"></div>
-        <div class="mycard-expiry" id="mycardexpiry"></div>
-       
-   </div>   
-</div>
+    <div data-role="header">
+        <div data-role="navbar">
+            <a data-transition="slide"   data-role="button" href="#appdrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
+            <div class="brand-icon"></div>
+
+        </div>
+    </div>
+    <div class="tile-frame-2">
+        <div class="my-card" id="mycardimage">
+            <div class="mycard-name" id="mycardname"></div>
+            <div class="mycard-expiry" id="mycardexpiry"></div>
+
+        </div>
+    </div>
     <div class="tile-frame" style="padding-top:1%">
         <div class="tile-frame-inner-1 ">
-         <a data-transition="slide"   data-role="button" href="views/pl-outletlist.html" class="center-pos"  >
-            <div class="tile-frame-image-restaurant tile-image-pos-1 image-size-100"></div>
-            <div class="tile-frame-text-1">My Restaurants</div>
+            <a data-transition="slide"   data-role="button" href="views/pl-outletlist.html" class="center-pos"  >
+                <div class="tile-frame-image-restaurant tile-image-pos-1 image-size-100"></div>
+                <div class="tile-frame-text-1">My Restaurants</div>
             </a>
         </div>
         <div class="tile-frame-inner-1">
-         <a data-transition="slide"   data-role="button" href="views/pl-mymessagelist.html" class="center-pos"  >            
-            <div class="tile-frame-image-mymessages tile-image-pos-1 image-size-100"></div>
-            <div class="tile-frame-text-1">My Messages</div>
+            <a data-transition="slide"   data-role="button" href="views/pl-mymessagelist.html" class="center-pos"  >
+                <div class="tile-frame-image-mymessages tile-image-pos-1 image-size-100"></div>
+                <div class="tile-frame-text-1">My Messages</div>
             </a>
         </div>
         <div class="tile-frame-inner-1">
-         <a data-transition="slide"   data-role="button" href="views/pl-offerlist.html" class="center-pos"  >                        
-            <div class="tile-frame-image-myoffer tile-image-pos-1 image-size-100"></div>
-            <div class="tile-frame-text-1">My Offers</div>
-         </a>   
+            <a data-transition="slide"   data-role="button" href="views/pl-offerlist.html" class="center-pos"  >
+                <div class="tile-frame-image-myoffer tile-image-pos-1 image-size-100"></div>
+                <div class="tile-frame-text-1">My Offers</div>
+            </a>
         </div>
         <div class="tile-frame-inner-1">
-         <a data-transition="slide"   data-role="button" href="views/pl-myreward.html" class="center-pos"  >                        
-            <div class="tile-frame-image-myrewards tile-image-pos-1 image-size-100"></div>
-            <div class="tile-frame-text-1">My Rewards</div>
-         </a>   
-        </div>
+            <a data-transition="slide"   data-role="button" href="views/pl-myreward.html" class="center-pos"  >
+                <div class="tile-frame-image-myrewards tile-image-pos-1 image-size-100"></div>
+                <div class="tile-frame-text-1">My Rewards</div>
+            </a>
         </div>
     </div>
 
+    <footer data-role="footer">
+        <div data-role="navbar">
+            <div class="home-navbar" >
+                <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+            </div>
+            <a data-transition="slide"   href="views/pl-brandpage.html"  >
+                <div class="footer-logo">&nbsp;</div>
+            </a>
+
+        </div>
+    </footer>
+    
+</div>
+
 <style scoped>
     
-    #myprofile-view a:active{
-        background:transparent !important;
+    #myprofile-view a:active
+    {
+        background: transparent !important;
     }
-    
-</style>
+    </style>

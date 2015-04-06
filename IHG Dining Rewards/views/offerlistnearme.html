@@ -1,17 +1,30 @@
 <!--Offer List View-->
 <div id="offerlistnearme-view"
      data-role="view"
-     data-title="Offers Listing" data-layout="list-layout"  data-model="preLogin" data-show="preLogin.offerlist" data-hide="preLogin.destroyOfferListNearMeView">
-    <div data-role="header">
-        <div data-role="navbar">
-            <div class="brand-icon"></div>
-             <a data-transition="slide"   data-role="backbutton" data-align="left"></a>
-            <span data-role="view-title" data-align="right" style="color:#fff"></span>
-        </div>
-    </div>
+     data-title="Offers Listing" data-layout="back-layout"  data-model="preLogin" data-show="preLogin.offerlist" data-hide="preLogin.destroyOfferListNearMeView">
+     <div data-role="header">
+                <div data-role="navbar">
+                    <div class="brand-icon"></div>
+                    <span data-role="view-title"></span>
+                     <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"></a>
+                </div>
+            </div>
     <ul data-role="listview" style="background-color:#fff" id="offer-list-view">
 
     </ul>
+    
+     <footer data-role="footer">
+
+                <div data-role="navbar">
+                    <div class="home-navbar" >
+                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+                    </div>
+                     <a data-transition="slide"   href="views/brandpage.html"  >
+                        <div class="footer-logo">&nbsp;</div>
+                    </a>
+
+                </div>
+            </footer>
 </div>
 
 <script type="text/x-kendo-template" id="offerListTemplate">

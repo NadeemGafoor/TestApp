@@ -327,7 +327,7 @@
                                                                   lon = m[1];
                                                                   document.getElementById("outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
                                                                   document.getElementById("outlet-image-large").style.backgroundSize = "cover";
-                                                                  document.getElementById("outlet-theme-title").innerHTML = getData.outletlist[0].outletname;
+                                                                  document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
                                                                   document.getElementById("ooutlet-short").innerHTML = getData.outletlist[0].outletshort;
                                                                   document.getElementById("ooutlet-long").innerHTML = "<pre>" + getData.outletlist[0].outletlong + "</pre>";
                                                                   // document.getElementById("outlet-review").innerHTML = getData.outletlist[0].reviewcount + " Review(s)";
@@ -516,7 +516,7 @@
                                                                   document.getElementById("offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
                                                                   document.getElementById("offer-image-large").style.backgroundSize = "cover";
                                                                      
-                                                                  document.getElementById("ooffer-item-title").innerHTML = getData.offerlist[0].category;
+                                                                  document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
                                                                   document.getElementById("ooffer-shortname").innerHTML = getData.offerlist[0].itemname;
                                                                   document.getElementById("ooffer-description").innerHTML = "<pre>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                   document.getElementById("ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
@@ -1339,7 +1339,7 @@
                                                                    lon = m[1];
                                                                    document.getElementById("pl-outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
                                                                    document.getElementById("pl-outlet-image-large").style.backgroundSize = "cover";
-                                                                   document.getElementById("pl-title").innerHTML = getData.outletlist[0].outletname;
+                                                                   document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
                                                                    document.getElementById("pl-ooutlet-short").innerHTML = getData.outletlist[0].outletshort;
                                                                    document.getElementById("pl-ooutlet-long").innerHTML = "<pre>" + getData.outletlist[0].outletlong + "</pre>";
                                              
@@ -1632,7 +1632,7 @@
                                                                    document.getElementById("pl-offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
                                                                    document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
                                                                      
-                                                                   document.getElementById("pl-title").innerHTML = getData.offerlist[0].category;
+                                                                   document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
                                                                    document.getElementById("pl-ooffer-shortname").innerHTML = getData.offerlist[0].itemname;
                                                                    document.getElementById("pl-ooffer-description").innerHTML = "<pre>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                    document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;

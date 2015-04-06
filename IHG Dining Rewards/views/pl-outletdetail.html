@@ -1,5 +1,12 @@
 <div data-role="view" id="pl-outletdetail-theme"  data-init="initButton" data-layout="pl-back2-layout" data-model="postLogin" data-show="postLogin.plshowOutletItem" data-hide="postLogin.ploutletdetailthemedestroyView">
-  
+  <header data-role="header">
+        <div data-role="navbar">
+            <div class="brand-icon"></div>
+            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left">
+            </a>
+            <span data-role="view-title" id="item-title"></span>
+        </div>
+    </header>
     <ul data-role="buttongroup" data-index="0" style="margin-top:0px;" id="pl-outletform" class="button-group">
         <li>
             Details

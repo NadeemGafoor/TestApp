@@ -1,4 +1,13 @@
-<div data-role="view" data-title="Message Detail" data-layout="pl-back3-layout" id="messageitem-theme" data-model="postLogin" data-hide="postLogin.destroymessageitem" data-show="postLogin.mymessageitem">
+<div data-role="view" data-title="Message Detail" data-layout="pl-back-layout" id="messageitem-theme" data-model="postLogin" data-hide="postLogin.destroymessageitem" data-show="postLogin.mymessageitem">
+
+    <div data-role="header">
+        <div data-role="navbar">
+            <div class="brand-icon"></div>
+            <span data-role="view-title"></span>
+            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left" style="color:#fff"></a>
+        </div>
+    </div>
+
     <ul data-role="listview" style="background-color:#fff;margin-top:10px" id="pl-messageitem-list">
         <li>
 
@@ -12,16 +21,27 @@
                 <div class="msg-narration-frame" id="msgnarration"></div>
                 <div class="msg-action-frame-outer">
                     <div class="msg-action-frame-inner-1"></div>
-                     <a data-transition="slide"   data-role="button" data-bind="click: deleteMessage">
+                    <a data-transition="slide"   data-role="button" data-bind="click: deleteMessage">
                         <div class="msg-action-frame-inner-2">
                             <img src="images/deleteicon.png" style="height:125%;width:125%"/>
                         </div>
                     </a>
                 </div>
             </div>
-        
+
         </li>
     </ul>
+    <footer data-role="footer">
 
+        <div data-role="navbar">
+            <div class="home-navbar" >
+                <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+            </div>
+            <a data-transition="slide"   href="views/pl-brandpage.html"  >
+                <div class="footer-logo">&nbsp;</div>
+            </a>
+
+        </div>
+    </footer>
 </div>
 

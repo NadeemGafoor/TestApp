@@ -2,10 +2,32 @@
 <div id="benefit-list"
      data-role="view"
      data-title="Program Benefits" data-layout="back-layout" data-model="preLogin" data-show="preLogin.benefitlist" data-hide="preLogin.destroyBenefitList">
+    
+     <div data-role="header">
+                <div data-role="navbar">
+                    <div class="brand-icon"></div>
+                    <span data-role="view-title"></span>
+                     <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"></a>
+                </div>
+            </div>
          
     <ul data-role="listview" data-style="inset" style="background-color:transparent" id="benefit-list-view">
 
     </ul>
+    
+    
+       <footer data-role="footer">
+
+                <div data-role="navbar">
+                    <div class="home-navbar" >
+                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+                    </div>
+                     <a data-transition="slide"   href="views/brandpage.html"  >
+                        <div class="footer-logo">&nbsp;</div>
+                    </a>
+
+                </div>
+            </footer>
 </div>
 
 <script type="text/x-kendo-template" id="benefitlistTemplate">

@@ -1,12 +1,26 @@
 <div data-role="view" data-title="Terms of Service" data-layout="back-layout" id="termsofservice-theme" data-model="preLogin" data-show="preLogin.getTermsofService" data-hide="preLogin.destroyTermsofService">
-     <div data-role="header">
+    <div data-role="header">
         <div data-role="navbar">
-          <div class="brand-icon"></div>
-             <a data-transition="slide"   data-role="backbutton" data-align="left"></a>
-                <span data-role="view-title" data-align="right" style="color:#fff"></span>
+            <div class="brand-icon"></div>
+            <span data-role="view-title"></span>
+            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"></a>
         </div>
     </div>
-	<ul data-role="listview" style="background-color:#fff">
-		<div id="urldata-terms"></div>
-	</ul>
+
+    <ul data-role="listview" style="background-color:#fff">
+        <div id="urldata-terms"></div>
+    </ul>
+
+    <footer data-role="footer">
+
+        <div data-role="navbar">
+            <div class="home-navbar" >
+                <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+            </div>
+            <a data-transition="slide"   href="views/brandpage.html"  >
+                <div class="footer-logo">&nbsp;</div>
+            </a>
+
+        </div>
+    </footer>
 </div> 

@@ -1,8 +1,15 @@
 <!--Program Benefits View-->
 <div id="benefit-detail"
      data-role="view"
-     data-layout="back2-layout"  data-model="preLogin" data-show="preLogin.benefitdetail" data-hide="preLogin.destroyBenefitDetail">
-   
+     data-layout="back-layout"  data-model="preLogin" data-show="preLogin.benefitdetail" data-hide="preLogin.destroyBenefitDetail">
+     <header data-role="header">
+                <div data-role="navbar">
+                    <div class="brand-icon"></div>
+                     <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left">
+                    </a>
+                    <span data-role="view-title" id="item-title"></span>
+                </div>
+            </header>
 
     <ul data-role="listview" data-style="inset" style="background-color:#fff" id="benefit-detail-view">
        
@@ -12,7 +19,18 @@
         </li>
 
     </ul>
+ <footer data-role="footer">
 
+                <div data-role="navbar">
+                    <div class="home-navbar" >
+                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+                    </div>
+                     <a data-transition="slide"   href="views/brandpage.html"  >
+                        <div class="footer-logo">&nbsp;</div>
+                    </a>
+
+                </div>
+            </footer>
 </div>
 
 

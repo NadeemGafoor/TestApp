@@ -1,5 +1,11 @@
 <div data-role="view" data-layout="back-layout" id="login-theme" data-model="preLogin" data-show="preLogin.loginInit" data-hide="preLogin.destroyLoginView">
-  
+   <div data-role="header">
+                <div data-role="navbar">
+                    <div class="brand-icon"></div>
+                    <span data-role="view-title"></span>
+                     <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"></a>
+                </div>
+            </div>
     <ul data-role="listview" style="background-color:#fff">
 
         <li>
@@ -38,5 +44,18 @@
         </li>
         <li></li>
     </ul>
+    
+      <footer data-role="footer">
+
+                <div data-role="navbar">
+                    <div class="home-navbar" >
+                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+                    </div>
+                     <a data-transition="slide"   href="views/brandpage.html"  >
+                        <div class="footer-logo">&nbsp;</div>
+                    </a>
+
+                </div>
+            </footer>
 </div>
 

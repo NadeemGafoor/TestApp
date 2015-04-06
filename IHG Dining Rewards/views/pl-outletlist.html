@@ -1,8 +1,29 @@
 <div data-role="view" data-title="My Restaurants" data-layout="pl-back-layout" id="pl-outletlist-theme"  data-model="postLogin" data-show="postLogin.plshowAllOutlet" data-hide="postLogin.ploutletlistthemedestroyView">
-   
+     <header data-role="header">
+        <div data-role="navbar">
+            <div class="brand-icon"></div>
+            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left">
+            </a>
+            <span data-role="view-title" id="item-title"></span>
+        </div>
+    </header>
     <ul style="background-color:#fff" id="pl-outletlist-all">
 
     </ul>
+    
+    
+     <footer data-role="footer">
+
+        <div data-role="navbar">
+            <div class="home-navbar" >
+                <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the Relationships that matter most</div>
+            </div>
+            <a data-transition="slide"   href="views/pl-brandpage.html"  >
+                <div class="footer-logo">&nbsp;</div>
+            </a>
+
+        </div>
+    </footer>
 </div>
 
 <script type="text/x-kendo-template" id="pl-outletListAllTemplate">
