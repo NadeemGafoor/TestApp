@@ -14,7 +14,7 @@
         <li data-bind="click: getLocationO">
             Map
         </li>
-        <li data-bind="click: showOutletAlbum">
+        <li data-bind="click: showOutletOffer">
             Offers
         </li>
 
@@ -42,7 +42,7 @@
         </li>
     </ul>
 
-    <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="pl-outlet-album">
+    <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="pl-outlet-offer">
 
     </ul>
     <footer data-role="footer">
@@ -62,8 +62,20 @@
 
 </div>
 
-<script type="text/x-kendo-template" id="pl-outletAlbumTemplate">
-    <div class="photo" style="background-image: url(${imageurll});">
+<script type="text/x-kendo-template" id="pl-outletOfferTemplate">
+    <div class="outer-frame-o">
+        <div class="image-frame-list">
+            <img src="${imageurls}" style="height:100%;width:100%"/>
+        </div>
+        <div class="inner-frame-1-o">${itemname}</div>
+        <div class="inner-frame-2-o">${category}</div>
+        <div class="inner-frame-3-o">Expiry : ${couponexpirydate}</div>
+        <div class="inner-frame-4-o">
+            <div class="inner-frame-4a"></div>
+            <div class="inner-frame-4b">
+                 <!--<a data-transition="slide"   href="views/pl-offerdetail.html?of=${itemcode}" data-role="button"   class="a-class">></a>-->
+            </div>
+        </div>
     </div>
 </script>
 
