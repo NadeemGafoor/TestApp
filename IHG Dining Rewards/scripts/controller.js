@@ -377,41 +377,52 @@
                                            },
         
         
-                                           showOutletAlbum
+                                           showOutletOffer
                                            : function () {
+                                               alert(outletcode);
+                                               offercode = "";
+                                               offertype = "1";
                                                showSpin();
-                                                  
+                                                
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
                                                           timeout:20000,
-                                                          url: gurl + "/outletphotolist.aspx",
+                                                          url: gurl + "/offerListOutlet.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,outletcode:outletcode,mdevice:mdevicestat
+                                                                                   merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat,outletcode:outletcode
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
-                                                                  if (getData.outletphotoalbum.length > 0) {
-                                                                      //fill the outlet album
-                                                                      $("#outlet-album").kendoMobileListView({
-                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletphotoalbum}),
-                                                                                                                 template: $("#outletAlbumTemplate").html()
-                                                                                                             });
+                                                                  if (getData.offerlist.length > 0) {
+                                                                      //fill the outlet template
+                                                                      $("#outlet-offer").kendoMobileListView({
+                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
+                                                                                                                    template: $("#outletOfferTemplate").html(),
+                                                                          
+                                                                                                                    filterable: {
+                                                                              autoFilter: true,
+                                                                              placeholder:"Search By Offer Name",                                         
+                                                                              field: "itemname",
+                                                                              operator: "contains"
+                                                                          }
+                                                                                                                    
+                                                                                                                });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("Album Empty for the selected outlet!")                  
+                                                                      navigator.notification.alert("No Offers exists for the selected Restaurant!")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Outlet Album List!" + getData.statusdesc)          
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Offer List!" + getData.statusdesc)          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Outlet Album List!. Try after sometime")
+                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });

@@ -180,7 +180,7 @@
 {
     background: url(../images/footer_logo.png) no-repeat center center;
     width: 20%;
-    background-size:80%;
+    background-size:70%;
     position: relative;
     float: right;
     margin: auto 0;
@@ -962,7 +962,7 @@ img
 .button-frame-inline .km-button
 {
     line-height: 1.8em;
-    width: 49.7%;
+    width: 49%;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
