@@ -468,53 +468,67 @@
                                            },
         
                                            offerlist: function () {
-                                               offercode = "";
-                                               offertype = "1";
+                                               y = e.view.params.geo;
+                                        
                                                showSpin();
-                                                
-                                               $.ajax({ 
-                                                          type: "POST",
-                                                          cache:false,
-                                                          async:true,
-                                                          timeout:20000,
-                                                          url: gurl + "/offerList.aspx",
-                                                          contentType: "application/json; charset=utf-8",
-                                                          data: JSON.stringify({
-                                                                                   merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
-                                                                               }),
-                                                          success: function (data) { 
-                                                              var getData = JSON.parse(data);
-                                                              if (getData.statuscode == "000") {
-                                                                  if (getData.offerlist.length > 0) {
-                                                                      //fill the outlet template
-                                                                      $("#offer-list-view").kendoMobileListView({
-                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
-                                                                                                                    template: $("#offerListTemplate").html(),
-                                                                          
-                                                                                                                    filterable: {
-                                                                              autoFilter: true,
-                                                                              placeholder:"Search By Offer Name",                                         
-                                                                              field: "itemname",
-                                                                              operator: "contains"
-                                                                          }
-                                                                                                                    
-                                                                                                                });
-                                                                      hideSpin(); //hide loading popup
-                                                                  }else {
-                                                                      navigator.notification.alert("No Offers exists for the selected Hotel!")    
-                                                                      hideSpin(); //hide loading popup
-                                                                  }
-                                                              }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Offer List!" + getData.statusdesc)          
-                                                                  hideSpin(); //hide loading popup
-                                                              }
-                                                          },
-                                                          error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
-                                                              hideSpin(); //hide loading popup
-                                                          }
-                                                      });
+        
+                                               navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                   lat = position.coords.latitude;                                  
+                                                   lon = position.coords.longitude
+                                                   var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
+          
+                                                   $.getJSON(geocodingAPI, function (json) {
+                                                       if (json.status === "OK") {
+                                                           //Check result 0
+                                                           var result = json.results[0];
+                                                           for (var i = 0, len = result.address_components.length; i < len; i++) {
+                                                               var ac = result.address_components[i];
+                                                               if (ac.types.indexOf("locality") >= 0) {
+                                                                   geocity = ac.long_name;
+                                                               }
+	                          
+                                                               if (ac.types.indexOf("country") >= 0) {
+                                                                   geocountry = ac.long_name;
+                                                               }
+                                                           }
+                                                           
+                                                           if (y==="1") {
+                                                               geocity = "";
+                                                           }
+                                                           listOffer();
+                                                       }
+                                                   });
+                                               }
+                                                                                        , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                            //  if (err.code == "1") {
+                                                                                            //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                            //  } else if (err.code == "2") {
+                                                                                            //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                            //  }
+                                                                                            geocity = city;
+                                                                                            geocountry = country;
+                                                                                            listOffer();
+                                                                                        });
                                            },
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                            
 
         
                                            offeritem: function (e) {
@@ -1140,12 +1154,10 @@
                                                 $("#receipt-view").remove();  
                                             },
         
-        
                                             plofferDetaildestroyView
                                             :function() {
                                                 $("#pl-offerdetail-theme").remove();  
                                             },
-        
         
                                             plofferDetaildestroyViewNearMe
                                             :function() {
@@ -1165,7 +1177,6 @@
                                                 $("#pl-outletdetail-theme").remove();
                                                 isMapInitialized = false;
                                             },
-        
         
                                             ploutletdetailthemedestroyViewNearMe: function() {
                                                 $("#pl-outletdetailnearme-theme").remove();
@@ -1257,7 +1268,6 @@
                                                        });
                                                 hideSpin(); //hide loading popup
                                             },
-                                              
         
                                             mymessageitem
                                             : function (e) {
@@ -1301,59 +1311,56 @@
                                                        });
                                                 hideSpin(); //hide loading popup
                                             },
-                                            plshowAllOutlet: function () {
+                                            plshowAllOutlet: function (e) {
+                                                y = e.view.params.geo;
                                                 outletcode = "";
                                                 brandcode = "";
-                                                // alert(customer);
-                                                //alert(password);
+                                          
                                                 showSpin();
-                                                
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/outletlist.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                            
-                                                               if (getData.statuscode == "000") {
-                                                                   if (getData.outletlist.length > 0) {
-                                                                       //fill the outlet template
-                                                                       $("#pl-outletlist-all").kendoMobileListView({
-                                                                             
-                                                                                                                       dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                                       template: $("#pl-outletListAllTemplate").html(),
-                                                                          
-                                                                                                                       filterable: {
-                                                                               autoFilter: true,
-                                                                               placeholder:"Search By Restaurant Name",                                         
-                                                                               field: "outletname",
-                                                                               operator: "contains"
-                                                                           }
-                                                                                                                    
-                                                                                                                   });
-                                                                       hideSpin(); //hide loading popup
-                                                                   }else {
-                                                                       navigator.notification.alert("No outlet exists for the selected property!")    
-                                                                       hideSpin(); //hide loading popup
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get outlet List!" + getData.statusdesc)          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List!.  Try after sometime")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
-                                            },
-        
+                                                if (autolocation==="1") { //Check whether auto location enabled
+                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                        lat = position.coords.latitude;                                  
+                                                        lon = position.coords.longitude
+                                                        var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
+          
+                                                        $.getJSON(geocodingAPI, function (json) {
+                                                            if (json.status === "OK") {
+                                                                //Check result 0
+                                                                var result = json.results[0];
+                                                                for (var i = 0, len = result.address_components.length; i < len; i++) {
+                                                                    var ac = result.address_components[i];
+                                                                    if (ac.types.indexOf("locality") >= 0) {
+                                                                        geocity = ac.long_name;
+                                                                    }
+	                          
+                                                                    if (ac.types.indexOf("country") >= 0) {
+                                                                        geocountry = ac.long_name;
+                                                                    }
+                                                                }
+                                                           
+                                                                if (y==="1") {
+                                                                    geocity = "";
+                                                                }
+                                                                pllistOutlet();
+                                                            }
+                                                        });
+                                                    }
+                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                                 //  if (err.code == "1") {
+                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                 //  } else if (err.code == "2") {
+                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                 //  }
+                                                                                                 geocity = city;
+                                                                                                 geocountry = country;
+                                                                                                 pllistOutlet();
+                                                                                             });
+                                                }else {
+                                                    geocity = city;
+                                                    geocountry = country;
+                                                    pllistOutlet();
+                                                }
+                                            } ,
         
                                             plshowOutletItem
                                             : function (e) {
@@ -1503,159 +1510,62 @@
                                                 hideSpin();
                                             },
         
-                                            plshowAllOutletNearMe: function () {
-                                                outletcode = "";
-                                                brandcode = "";
-                                                showSpin();
-                                                //alert(customer);
-                                                //alert(password);
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/outletlist.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                            
-                                                               if (getData.statuscode == "000") {
-                                                                   if (getData.outletlist.length > 0) {
-                                                                       //fill the outlet template
-                                                                       $("#pl-outletlistnearme-all").kendoMobileListView({
-                                                                             
-                                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                                             template: $("#pl-outletListNearMeTemplate").html(),
-                                                                          
-                                                                                                                             filterable: {
-                                                                               autoFilter: true,
-                                                                               placeholder:"Search By Restaurant Name",                                         
-                                                                               field: "outletname",
-                                                                               operator: "contains"
-                                                                           }
-                                                                                                                    
-                                                                                                                         });
-                                                                       hideSpin(); //hide loading popup
-                                                                   }else {
-                                                                       navigator.notification.alert("No outlet exists for the selected property!")    
-                                                                       hideSpin(); //hide loading popup
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get outlet List!" + getData.statusdesc)          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List!.  Try after sometime")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
-                                            },
+                                    
                                             plofferlist: function () {
-                                                offercode = "";
-                                                offertype = "1";
-                                                //alert(customer);
-                                                //alert(password);
+                                                y = e.view.params.geo;
+                                        
                                                 showSpin();
-                                                
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/offerList.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode == "000") {
-                                                                   if (getData.offerlist.length > 0) {
-                                                                       //fill the outlet template
-                                                                       $("#pl-offer-list-view").kendoMobileListView({
-                                                                                                                        dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
-                                                                                                                        template: $("#plofferListTemplate").html(),
-                                                                          
-                                                                                                                        filterable: {
-                                                                               autoFilter: true,
-                                                                               placeholder:"Search By Offer Name",                                         
-                                                                               field: "itemname",
-                                                                               operator: "contains"
-                                                                           }
-                                                                                                                    
-                                                                                                                    });
-                                                                       hideSpin(); //hide loading popup
-                                                                   }else {
-                                                                       navigator.notification.alert("No Offers exists for the selected Hotel!")    
-                                                                       hideSpin(); //hide loading popup
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List!" + getData.statusdesc)          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
+                                                if (autolocation==="1") {
+                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                        lat = position.coords.latitude;                                  
+                                                        lon = position.coords.longitude
+                                                        var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
+          
+                                                        $.getJSON(geocodingAPI, function (json) {
+                                                            if (json.status === "OK") {
+                                                                //Check result 0
+                                                                var result = json.results[0];
+                                                                for (var i = 0, len = result.address_components.length; i < len; i++) {
+                                                                    var ac = result.address_components[i];
+                                                                    if (ac.types.indexOf("locality") >= 0) {
+                                                                        geocity = ac.long_name;
+                                                                    }
+	                          
+                                                                    if (ac.types.indexOf("country") >= 0) {
+                                                                        geocountry = ac.long_name;
+                                                                    }
+                                                                }
+                                                           
+                                                                if (y==="1") {
+                                                                    geocity = "";
+                                                                }
+                                                                pllistOffer();
+                                                            }
+                                                        });
+                                                    }
+                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                                 //  if (err.code == "1") {
+                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                 //  } else if (err.code == "2") {
+                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                 //  }
+                                                                                                 geocity = city;
+                                                                                                 geocountry = country;
+                                                                                                 pllistOffer();
+                                                                                             });
+                                                }else {
+                                                    geocity = city;
+                                                    geocountry = country;
+                                                    pllistOffer();
+                                                }
                                             },
-
-        
-                                            plofferlistnearme: function () {
-                                                offercode = "";
-                                                offertype = "1";
-                                                showSpin();
                                                 
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/offerList.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode == "000") {
-                                                                   if (getData.offerlist.length > 0) {
-                                                                       //fill the outlet template
-                                                                       $("#pl-offer-list-view-nearme").kendoMobileListView({
-                                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
-                                                                                                                               template: $("#plofferListTemplatenearme").html(),
-                                                                          
-                                                                                                                               filterable: {
-                                                                               autoFilter: true,
-                                                                               placeholder:"Search By Offer Name",                                         
-                                                                               field: "itemname",
-                                                                               operator: "contains"
-                                                                           }
-                                                                                                                    
-                                                                                                                           });
-                                                                       hideSpin(); //hide loading popup
-                                                                   }else {
-                                                                       navigator.notification.alert("No Offers exists for the selected Hotel!")    
-                                                                       hideSpin(); //hide loading popup
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List" + getData.statusdesc)          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List. Try after sometime")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
-                                            },
+                                            
         
-                                            plofferitem: function (e) {
+                                        
+        
+                                            plofferitem
+                                            : function (e) {
                                                 offercode = e.view.params.of; //offer code for single offer inquiry
                                                 offertype = "2"; //single offer inquiry
                                                 showSpin();
@@ -1700,9 +1610,8 @@
                                                        });
                                             },
         
-        
-        
-                                            oofferOutlet: function () {
+                                            oofferOutlet
+                                            : function () {
                                                 showSpin(); //show loading popup
                                                   
                                                 $.ajax({ 
@@ -1741,54 +1650,6 @@
                                                        });
                                             },
         
-                                            plofferlistnearme: function () {
-                                                offercode = "";
-                                                offertype = "1";
-                                                showSpin();
-                                                
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/offerList.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode == "000") {
-                                                                   if (getData.offerlist.length > 0) {
-                                                                       //fill the outlet template
-                                                                       $("#pl-offer-list-view-nearme").kendoMobileListView({
-                                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
-                                                                                                                               template: $("#plofferListTemplatenearme").html(),
-                                                                          
-                                                                                                                               filterable: {
-                                                                               autoFilter: true,
-                                                                               placeholder:"Search By Offer Name",                                         
-                                                                               field: "itemname",
-                                                                               operator: "contains"
-                                                                           }
-                                                                                                                    
-                                                                                                                           });
-                                                                       hideSpin(); //hide loading popup
-                                                                   }else {
-                                                                       navigator.notification.alert("No Offers exists for the selected Hotel!")    
-                                                                       hideSpin(); //hide loading popup
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List!" + getData.statusdesc)          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
-                                            },
         
                                             activateoffer
                                             : function (e) {
@@ -1797,7 +1658,7 @@
                                                     return;
                                                 }
                                                 writeSpin();
-
+                                                
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -1922,7 +1783,8 @@
                                                        });
                                             },
         
-                                            myofferOutlet: function () {
+                                            myofferOutlet
+                                            : function () {
                                                 showSpin(); //show loading popup
                                                   
                                                 $.ajax({ 
@@ -2021,7 +1883,8 @@
                                                 }
                                                 hideSpin(); //hide loading popup
                                             },
-                                            getCity:function() {
+                                            getCity
+                                            :function() {
                                                 showSpin();
                                                 // kendo.mobile.application.showLoading(); //show loading popup
                                                 var e = document.getElementById("selCountry");
@@ -2029,7 +1892,6 @@
                                                 listCity(str);
                                                 hideSpin(); //hide loading popup
                                             },
-        
         
                                             saveSetting:
                                             function () {
@@ -2171,15 +2033,11 @@
                                                 hideSpin(); //hide loading popup
                                             },
         
-        
-                                            showBrandPage: function () {
+                                            showBrandPage
+                                            : function () {
                                                 // alert("Hello");
                                                 $("body").data("kendoMobilePane").navigate("views/pl-brandpage.html");  
-                                            }
-        
-        
-        
-        
+                                            }        
                                         });
     
     function listCountry() {
@@ -2300,9 +2158,6 @@
         }
     }
     
-    function getGeoPlacePreLogin() {
-    }    
-    
     function getGeoPlacePostLogin() {
         showSpin();
         
@@ -2359,18 +2214,165 @@
                                                                         });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("No outlet exists for the selected property!")    
+                               navigator.notification.alert("No Restaurant exists for the selected property!")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get outlet List!" + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List!" + getData.statusdesc)          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Outlet List!.  Try after sometime")
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List!.  Try after sometime")
                        hideSpin(); //hide loading popup
                    }
                });
     }
+    
+    function pllistOutlet() {
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/outletlistGeo.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat,city:geocity,country:geocountry,lat:lat,lon:lon
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                                                            
+                       if (getData.statuscode == "000") {
+                           if (getData.outletlist.length > 0) {
+                               //fill the outlet template
+                               $("#pl-outletlist-all").kendoMobileListView({
+                                                                             
+                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                               template: $("#pl-outletListAllTemplate").html(),
+                                                                          
+                                                                               filterable: {
+                                       autoFilter: true,
+                                       placeholder:"Search By Restaurant Name",                                         
+                                       field: "outletname",
+                                       operator: "contains"
+                                   }
+                                                                                                                    
+                                                                           });
+                               hideSpin(); //hide loading popup
+                           }else {
+                               navigator.notification.alert("No Restaurant exists for the selected property!")    
+                               hideSpin(); //hide loading popup
+                           }
+                       }else {
+                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List!" + getData.statusdesc)          
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List!.  Try after sometime")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
+    
+    function listOffer() {
+        offercode = "";
+        offertype = "1";
+                                               
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/offerListGeo.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat,city:geocity,country:geocountry,lat:lat,lon:lon
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode == "000") {
+                           if (getData.offerlist.length > 0) {
+                               //fill the outlet template
+                               $("#offer-list-view").kendoMobileListView({
+                                                                             dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
+                                                                             template: $("#offerListTemplate").html(),
+                                                                          
+                                                                             filterable: {
+                                       autoFilter: true,
+                                       placeholder:"Search By Offer Name",                                         
+                                       field: "itemname",
+                                       operator: "contains"
+                                   }
+                                                                                                                    
+                                                                         });
+                               hideSpin(); //hide loading popup
+                           }else {
+                               navigator.notification.alert("No Offers exists for the selected Hotel!")    
+                               hideSpin(); //hide loading popup
+                           }
+                       }else {
+                           navigator.notification.alert("Unknown Network Error, Cannot get Offer List!" + getData.statusdesc)          
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
+    
+    function pllistOffer() {
+        offercode = "";
+        offertype = "1";
+        //alert(customer);
+        //alert(password);
+        showSpin();
+                                                
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/offerListGeo.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat,city:geocity,country:geocountry,lat:lat,lon:lon
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode == "000") {
+                           if (getData.offerlist.length > 0) {
+                               //fill the outlet template
+                               $("#pl-offer-list-view").kendoMobileListView({
+                                                                                dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
+                                                                                template: $("#plofferListTemplate").html(),
+                                                                          
+                                                                                filterable: {
+                                       autoFilter: true,
+                                       placeholder:"Search By Offer Name",                                         
+                                       field: "itemname",
+                                       operator: "contains"
+                                   }
+                                                                                                                    
+                                                                            });
+                               hideSpin(); //hide loading popup
+                           }else {
+                               navigator.notification.alert("No Offers exists for the selected Hotel!")    
+                               hideSpin(); //hide loading popup
+                           }
+                       }else {
+                           navigator.notification.alert("Unknown Network Error, Cannot get Offer List!" + getData.statusdesc)          
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
+}
 })(window);
