@@ -27,7 +27,8 @@
     var pushoffer = "";
     var remindexpiry = "";
     var showprofile = "";
-    var lat, lon;
+    var lat = 24.442236;
+    var lon = 54.650063;
     var city = "";
     var country = "";
     var geocity = "";
@@ -304,6 +305,7 @@
                                                            if (y==="1") {
                                                                geocity = "";
                                                            }
+                                                         
                                                            listOutlet();
                                                        }
                                                    });
@@ -314,8 +316,14 @@
                                                                                             //  } else if (err.code == "2") {
                                                                                             //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                             //  }
-                                                                                            geocity = city;
+                                                                                            if (y==="1") {
+                                                                                                geocity = "";
+                                                                                            }else {
+                                                                                                geocity = city;
+                                                                                            }
                                                                                             geocountry = country;
+                                                                                         
+                                                                                           // locationErrorToast();
                                                                                             listOutlet();
                                                                                         });
                                            },
@@ -467,7 +475,7 @@
                                                hideSpin(); //hide loading popup
                                            },
         
-                                           offerlist: function () {
+                                           offerlist: function (e) {
                                                y = e.view.params.geo;
                                         
                                                showSpin();
@@ -505,8 +513,13 @@
                                                                                             //  } else if (err.code == "2") {
                                                                                             //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                             //  }
-                                                                                            geocity = city;
+                                                                                            if (y==="1") {
+                                                                                                geocity = "";
+                                                                                            }else {
+                                                                                                geocity = city;
+                                                                                            }
                                                                                             geocountry = country;
+                                                                                            //locationErrorToast();
                                                                                             listOffer();
                                                                                         });
                                            },
@@ -578,44 +591,37 @@
         
         
         
-                                           oofferOutlet: function () {
+                                           oofferOutlet: 
+                                               
+                                               
+                                               
+                                           function () {
                                                showSpin(); //show loading popup
-                                                  
-                                               $.ajax({ 
-                                                          type: "POST",
-                                                          cache:false,
-                                                          async:true,
-                                                          timeout:20000,
-                                                          url: gurl + "/offeroutletlist.aspx",
-                                                          contentType: "application/json; charset=utf-8",
-                                                          data: JSON.stringify({
-                                                                                   merchantcode :merchant,offercode:offercode,mdevice:mdevicestat
-                                                                               }),
-                                                          success: function (data) { 
-                                                              var getData = JSON.parse(data);
-                                                              if (getData.statuscode == "000") {
-                                                                  //fill the outlet template
-                                                                  if (getData.offeroutletlist.length > 0) {
-                                                                      $("#offer-outlet-list-view").kendoMobileListView({
-                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
-                                                                                                                           template: $("#offerOutletTemplate").html()
-                                                                                                                       });
-                                                                      hideSpin(); //hide loading popup
-                                                                  }else {
-                                                                      navigator.notification.alert("No outlet exists for the selected offer!")    
-                                                                      hideSpin(); //hide loading popup
-                                                                  }
-                                                              }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Outlet List!" + getData.statusdesc)          
-                                                                  hideSpin(); //hide loading popup
-                                                              }
-                                                          },
-                                                          error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Outlet List!.   Try after sometime")
-                                                              hideSpin(); //hide loading popup
-                                                          }
-                                                      });
+                                                           
+                                               if (autolocation==="1") {
+                                                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                       lat = position.coords.latitude;                                  
+                                                       lon = position.coords.longitude;
+                                                                                                          
+                                                       listOfferOutlet();
+                                                   }
+                                                                                            , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                                //  if (err.code == "1") {
+                                                                                                //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                //  } else if (err.code == "2") {
+                                                                                                //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                //  }
+                                                                                                //locationErrorToast();
+                                                                                                listOfferOutlet();
+                                                                                            });
+                                               }else {
+                                                   //locationErrorToast();
+                                                   listOfferOutlet();
+                                               }
                                            },
+                                               
+                                               
+                                                  
         
         
                                            getTermsofService: function () {  
@@ -656,6 +662,13 @@
                                                                   if (getData.statuscode === "000") {
                                                                       firsttime = "1";  
                                                                       googleapikey = getData.googleapikey;  
+                                                                      city=getData.citycode;
+                                                                      country=getData.countrycode;
+                                                                      positiono=getData.position.split(",");
+                                                                      lat=positiono(0);
+                                                                      lat=positiono(1);
+                                                                      alert(lat);
+                                                                      alert(lon);
                                                                       //alert(googleapikey);
                                                                       hideSpin(); //hide loading popup
                                                                   }else if (getData.statuscode === "047") {
@@ -670,6 +683,22 @@
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           });
+                                                   
+                                                   //Check whether GPS enabled
+                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                        lat = position.coords.latitude;                                  
+                                                        lon = position.coords.longitude;
+                                                    }
+                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                                 //  if (err.code == "1") {
+                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                 //  } else if (err.code == "2") {
+                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                 //  }
+                                                                                     
+                                                                                                 gpsError();
+                                                                                             });
+                                                   
                            
                                                    if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                                                        customer = window.localStorage.getItem("customer");
@@ -1202,6 +1231,11 @@
                                                     $("body").data("kendoMobilePane").navigate("views/home.html"); 
                                                     return;
                                                 }
+                                                
+                                                if(autolocation != "1"){
+                                     
+                                                    gpsErrorApp();
+                                                }
                                                 //Show Card Image
                                                 if (segmentcode==="1000") {
                                                     cardimage = "images/ihg_gold.png";
@@ -1341,6 +1375,7 @@
                                                                 if (y==="1") {
                                                                     geocity = "";
                                                                 }
+                                  
                                                                 pllistOutlet();
                                                             }
                                                         });
@@ -1351,13 +1386,19 @@
                                                                                                  //  } else if (err.code == "2") {
                                                                                                  //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                                  //  }
-                                                                                                 geocity = city;
+                                                                                                 if (y==="1") {
+                                                                                                     geocity = "";
+                                                                                                 }else {
+                                                                                                     geocity = city;
+                                                                                                 }
                                                                                                  geocountry = country;
+                                                                                                 //locationErrorToast();
                                                                                                  pllistOutlet();
                                                                                              });
                                                 }else {
                                                     geocity = city;
                                                     geocountry = country;
+                                                    //locationErrorToast();
                                                     pllistOutlet();
                                                 }
                                             } ,
@@ -1511,7 +1552,7 @@
                                             },
         
                                     
-                                            plofferlist: function () {
+                                            plofferlist: function (e) {
                                                 y = e.view.params.geo;
                                         
                                                 showSpin();
@@ -1520,7 +1561,7 @@
                                                         lat = position.coords.latitude;                                  
                                                         lon = position.coords.longitude
                                                         var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
-          
+                                                        
                                                         $.getJSON(geocodingAPI, function (json) {
                                                             if (json.status === "OK") {
                                                                 //Check result 0
@@ -1549,13 +1590,20 @@
                                                                                                  //  } else if (err.code == "2") {
                                                                                                  //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                                  //  }
-                                                                                                 geocity = city;
+                                                                                                 if (y==="1") {
+                                                                                                     geocity = "";
+                                                                                                 }else {
+                                                                                                     geocity = city;
+                                                                                                 }
                                                                                                  geocountry = country;
+                                                                                    
+                                                                                                 //locationErrorToast();
                                                                                                  pllistOffer();
                                                                                              });
                                                 }else {
                                                     geocity = city;
                                                     geocountry = country;
+                                                    //locationErrorToast();
                                                     pllistOffer();
                                                 }
                                             },
@@ -1613,44 +1661,29 @@
                                             oofferOutlet
                                             : function () {
                                                 showSpin(); //show loading popup
-                                                  
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/offeroutletlist.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,offercode:offercode,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode == "000") {
-                                                                   //fill the outlet template
-                                                                   if (getData.offeroutletlist.length > 0) {
-                                                                       $("#pl-offer-outlet-list-view").kendoMobileListView({
-                                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
-                                                                                                                               template: $("#plofferOutletTemplate").html()
-                                                                                                                           });
-                                                                       hideSpin(); //hide loading popup
-                                                                   }else {
-                                                                       navigator.notification.alert("No outlet exists for the selected offer!")    
-                                                                       hideSpin(); //hide loading popup
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Outlet List!" + getData.statusdesc)          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List!.   Try after sometime")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
+                                                
+                                                if (autolocation==="1") {
+                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                        lat = position.coords.latitude;                                  
+                                                        lon = position.coords.longitude;
+                                                   
+                                                        pllistOfferOutlet();
+                                                    }
+                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                                 //  if (err.code == "1") {
+                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                 //  } else if (err.code == "2") {
+                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                 //  }
+                                                                                                 //locationErrorToast();
+                                                                                                 pllistOfferOutlet();
+                                                                                             });
+                                                }else {
+                                                    //locationErrorToast();
+                                                    pllistOfferOutlet();
+                                                }
                                             },
-        
-        
+                                           
                                             activateoffer
                                             : function (e) {
                                                 if (!document.getElementById("tandc-accept").checked) {
@@ -1783,47 +1816,33 @@
                                                        });
                                             },
         
-                                            myofferOutlet
-                                            : function () {
+                                            myofferOutlet:
+                                            function () {
                                                 showSpin(); //show loading popup
-                                                  
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/offeroutletlist.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,offercode:offercode,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode == "000") {
-                                                                   //fill the outlet template
-                                                                   if (getData.offeroutletlist.length > 0) {
-                                                                       $("#my-offer-outlet-list-view").kendoMobileListView({
-                                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
-                                                                                                                               template: $("#my-offerOutletTemplate").html()
-                                                                                                                           });
-                                                                       hideSpin(); //hide loading popup
-                                                                   }else {
-                                                                       navigator.notification.alert("No outlet exists for the selected offer.")    
-                                                                       hideSpin(); //hide loading popup
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Outlet List." + getData.statusdesc)          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List. Try after sometime")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
+                                        
+                                                if (autolocation==="1") {
+                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                        lat = position.coords.latitude;                                  
+                                                        lon = position.coords.longitude;
+                                                        myOfferListOutlet();
+                                                    }
+                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                                 //  if (err.code == "1") {
+                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                 //  } else if (err.code == "2") {
+                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                 //  }
+                                                                                                 //locationErrorToast();
+                                                                                                 myOfferListOutlet();
+                                                                                             });
+                                                }else {
+                                                    //locationErrorToast();
+                                                    myOfferListOutlet();
+                                                }
                                             },
                                             deleteMessage
-                                            : function () {
+                                            :
+                                            function () {
                                                 t = postLogin.msgsequence;
          
                                                 showSpin(); 
@@ -2374,5 +2393,128 @@
                    }
                });
     }
-}
+    
+    function pllistOfferOutlet() {
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/offeroutletlist_Geo.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,offercode:offercode,mdevice:mdevicestat,lat:lat,lon:lon
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode == "000") {
+                           //fill the outlet template
+                           if (getData.offeroutletlist.length > 0) {
+                               $("#pl-offer-outlet-list-view").kendoMobileListView({
+                                                                                       dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
+                                                                                       template: $("#plofferOutletTemplate").html()
+                                                                                   });
+                               hideSpin(); //hide loading popup
+                           }else {
+                               navigator.notification.alert("No Restaurant exists for the selected offer!")    
+                               hideSpin(); //hide loading popup
+                           }
+                       }else {
+                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List!" + getData.statusdesc)          
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (error) {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List!.   Try after sometime")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
+    
+    function listOfferOutlet() {
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/offeroutletlist_Geo.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,offercode:offercode,mdevice:mdevicestat,lat:lat,lon:lon
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode == "000") {
+                           //fill the outlet template
+                           if (getData.offeroutletlist.length > 0) {
+                               $("#offer-outlet-list-view").kendoMobileListView({
+                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
+                                                                                    template: $("#offerOutletTemplate").html()
+                                                                                });
+                               hideSpin(); //hide loading popup
+                           }else {
+                               navigator.notification.alert("No Restaurant exists for the selected offer!")    
+                               hideSpin(); //hide loading popup
+                           }
+                       }else {
+                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List!" + getData.statusdesc)          
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (error) {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List!.   Try after sometime")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
+        
+    function myOfferListOutlet() {
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/offeroutletlist_Geo.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,offercode:offercode,mdevice:mdevicestat,lat:lat,lon:lon
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode == "000") {
+                           //fill the outlet template
+                           if (getData.offeroutletlist.length > 0) {
+                               $("#my-offer-outlet-list-view").kendoMobileListView({
+                                                                                       dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
+                                                                                       template: $("#my-offerOutletTemplate").html()
+                                                                                   });
+                               hideSpin(); //hide loading popup
+                           }else {
+                               navigator.notification.alert("No outlet exists for the selected offer.")    
+                               hideSpin(); //hide loading popup
+                           }
+                       }else {
+                           navigator.notification.alert("Unknown Network Error, Cannot get Outlet List." + getData.statusdesc)          
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (error) {
+                       navigator.notification.alert("Unknown Error, Cannot get Outlet List. Try after sometime")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
+    
+    function locationErrorToast() {
+        // window.plugins.showLongBottom('Location Settings are disabled, distance might not be correct',functiom(){},function(){});
+    }
+    
+    function gpsError() {
+        navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
+    }
+    
+        function gpsErrorApp() {
+        navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
+    }
+
 })(window);
