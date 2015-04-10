@@ -55,31 +55,6 @@
     var short_msg = "Check out the IHG Dining Rewards at ";
     var offertelephone = "0097142766186";
     var cardimage = "";
-    var pushSettings = {
-        iOS: {
-            badge: "1",
-            sound: "default",
-            alert: "true",
-            clearBadge: "true"
-        },
-        android: {
-            senderID: googleApiProjectNumber
-        },
-        wp8: {
-            channelName: 'EverlivePushChannel'
-        },
-        notificationCallbackIOS: function(args) {
-        },
-        notificationCallbackAndroid: function(args) {
-        },
-        notificationCallbackWP8: function(args) {
-        },
-        customParameters: {
-            Memberid: customer,
-            Merchant:merchant,
-            Segment:segmentcode
-        }
-    };
     
     window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
@@ -323,7 +298,7 @@
                                                                                             }
                                                                                             geocountry = country;
                                                                                          
-                                                                                           // locationErrorToast();
+                                                                                            // locationErrorToast();
                                                                                             listOutlet();
                                                                                         });
                                            },
@@ -647,6 +622,7 @@
                                                    mversion = device.version;
                                                    mplatform = device.platform;
                                                    mdevicestat = mdevice + "^" + muuid + "^" + mversion + "^" + mplatform;
+                                                  
                                                    $.ajax({ 
                                                               type: "POST",
                                                               cache:false,
@@ -662,11 +638,11 @@
                                                                   if (getData.statuscode === "000") {
                                                                       firsttime = "1";  
                                                                       googleapikey = getData.googleapikey;  
-                                                                      city=getData.citycode;
-                                                                      country=getData.countrycode;
-                                                                      positiono=getData.position.split(",");
-                                                                      lat=positiono(0);
-                                                                      lat=positiono(1);
+                                                                      city = getData.citycode;
+                                                                      country = getData.countrycode;
+                                                                      positiono = getData.position.split(",");
+                                                                      lat = positiono(0);
+                                                                      lat = positiono(1);
                                                                       alert(lat);
                                                                       alert(lon);
                                                                       //alert(googleapikey);
@@ -685,20 +661,52 @@
                                                           });
                                                    
                                                    //Check whether GPS enabled
-                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                        lat = position.coords.latitude;                                  
-                                                        lon = position.coords.longitude;
-                                                    }
-                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                                 //  if (err.code == "1") {
-                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                 //  } else if (err.code == "2") {
-                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                                 //  }
-                                                                                     
-                                                                                                 gpsError();
-                                                                                             });
+                                                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                       lat = position.coords.latitude;                                  
+                                                       lon = position.coords.longitude;
+                                                       
+                                                       //start watching position irrespective if the customer have set auto location to off or on
+                                                       var bgGeo = window.plugins.backgroundGeoLocation;
                                                    
+                                                       var yourAjaxCallback = function (response) {
+                                                           bgGeo.finish();
+                                                       };
+                                                   
+                                                       var callbackFn = function (location) {
+                                                           alert(location.latitude + ',' + location.longitude);
+                                                           // Do your HTTP request here to POST location to your server.
+                                                           //
+                                                           //
+                                                           yourAjaxCallback.call(this);
+                                                       };
+                                                   
+                                                       var failureFn = function (error) {
+                                                           //do nothing
+                                                       }
+                                                       
+                                                       // BackgroundGeoLocation is highly configurable.
+                                                       bgGeo.configure(callbackFn, failureFn, {
+                                                                         
+                                                                           desiredAccuracy: 10,
+                                                                           stationaryRadius: 20,
+                                                                           distanceFilter: 30,
+                                                                           activityType: 'AutomotiveNavigation',
+                                                                           debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
+                                                                           stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
+                                                                       });
+
+                                                       // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
+                                                       bgGeo.start();
+                                                       
+                                                   }
+                                                                                            , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                                //  if (err.code == "1") {
+                                                                                                //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                //  } else if (err.code == "2") {
+                                                                                                //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                //  }
+                                                                                                gpsError();
+                                                                                            });
                            
                                                    if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                                                        customer = window.localStorage.getItem("customer");
@@ -751,6 +759,33 @@
                                             
                                                    if (window.localStorage.getItem("notification") == undefined || window.localStorage.getItem("notification") == '' || window.localStorage.getItem("notification") == 'null') {
                                                        //Enable and Register
+                                                       var pushSettings = {
+                                                           iOS: {
+                                                               badge: "1",
+                                                               sound: "default",
+                                                               alert: "true",
+                                                               clearBadge: "true"
+                                                           },
+                                                           android: {
+                                                               senderID: googleApiProjectNumber
+                                                           },
+                                                           wp8: {
+                                                               channelName: 'EverlivePushChannel'
+                                                           },
+                                                           notificationCallbackIOS: function(args) {
+                                                           },
+                                                           notificationCallbackAndroid: function(args) {
+                                                           },
+                                                           notificationCallbackWP8: function(args) {
+                                                           },
+                                                           customParameters: {
+                                                               Memberid: customer,
+                                                               Merchant:merchant,
+                                                               Segment:segmentcode,
+                                                               devicecode:muuid
+                                                           }
+                                                       };
+                                                       
                                                        currentDevice.enableNotifications(pushSettings, function (data) {
                                                            currentDevice.register(pushSettings, function (data) {
                                                            }, function (err) {
@@ -980,7 +1015,8 @@
                                                                       customParameters: {
                                                                           Memberid: customer,
                                                                           Merchant:merchant,
-                                                                          Segment:segmentcode
+                                                                          Segment:segmentcode,
+                                                                          devicecode:muuid
                                                                       }
                                                                   };
                                                                           
@@ -1232,8 +1268,7 @@
                                                     return;
                                                 }
                                                 
-                                                if(autolocation != "1"){
-                                     
+                                                if (autolocation != "1") {
                                                     gpsErrorApp();
                                                 }
                                                 //Show Card Image
@@ -1996,7 +2031,8 @@
                                                                        customParameters: {
                                                                            Memberid: customer,
                                                                            Merchant:merchant,
-                                                                           Segment:segmentcode
+                                                                           Segment:segmentcode,
+                                                                           devicecode:muuid
                                                                        }
                                                                    };
                                                                                                                                        
@@ -2513,8 +2549,7 @@
         navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
     }
     
-        function gpsErrorApp() {
+    function gpsErrorApp() {
         navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
     }
-
 })(window);
