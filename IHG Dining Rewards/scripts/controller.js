@@ -131,8 +131,12 @@
                                            tokennum:"",
                                            geocity:"",
                                            geocountry:"",
-                                           lat:"",
+                                           merchantcode: "",    
+                                           mdevice:"",
+                                           lat:"", 
                                            lon:"",
+                                           customer:"",
+                                           segmentcode:"",
                                            pldestroyBenefitList:function() {
                                                $("#pl-benefit-list").remove();  
                                            },
@@ -622,7 +626,10 @@
                                                    mversion = device.version;
                                                    mplatform = device.platform;
                                                    mdevicestat = mdevice + "^" + muuid + "^" + mversion + "^" + mplatform;
-                                                  
+                                                   preLogin.set("mdevice", mdevicestat);
+                                                   preLogin.set("merchantcode", merchant);
+                                                   preLogin.set("customer", customer);
+                                                   preLogin.set("segmentcode", segmentcode);
                                                    $.ajax({ 
                                                               type: "POST",
                                                               cache:false,
@@ -641,10 +648,9 @@
                                                                       city = getData.citycode;
                                                                       country = getData.countrycode;
                                                                       positiono = getData.position.split(",");
-                                                                      lat = positiono(0);
-                                                                      lat = positiono(1);
-                                                                      alert(lat);
-                                                                      alert(lon);
+                                                                      lat = positiono[0];
+                                                                      lat = positiono[1];
+                                                                    
                                                                       //alert(googleapikey);
                                                                       hideSpin(); //hide loading popup
                                                                   }else if (getData.statuscode === "047") {
@@ -664,40 +670,75 @@
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
-                                                       
-                                                       //start watching position irrespective if the customer have set auto location to off or on
-                                                       var bgGeo = window.plugins.backgroundGeoLocation;
+                                                       // window.setInterval(meWatchPos(), 30000);
                                                    
+                                                       var bgGeo = window.plugins.backgroundGeoLocation;
+                                                       
                                                        var yourAjaxCallback = function (response) {
+                                                           ////
+                                                           // IMPORTANT:  You must execute the #finish method here to inform the native plugin that you're finished,
+                                                           //  and the background-task may be completed.  You must do this regardless if your HTTP request is successful or not.
+                                                           // IF YOU DON'T, ios will CRASH YOUR APP for spending too much time in the background.
+                                                           //
+                                                           //
                                                            bgGeo.finish();
                                                        };
-                                                   
+                                                       
                                                        var callbackFn = function (location) {
-                                                           alert(location.latitude + ',' + location.longitude);
+                                                           //  console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
                                                            // Do your HTTP request here to POST location to your server.
                                                            //
                                                            //
+                                                           lat = location.latitude;
+                                                           lon = location.longitude;
+                                                           preLogin.set("lat", lat);
+                                                           preLogin.set("lon", lon);
+                                                           $.ajax({ 
+                                                                      type: "POST",
+                                                                      cache:false,
+                                                                      async:true,
+                                                                      timeout:20000,
+                                                                      url: gurl + "/trackDevice.aspx",
+                                                                      contentType: "application/json; charset=utf-8",
+                                                                      data: JSON.stringify({
+                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:location.latitude,lon:location.longitude,customer:customer,segment:segmentcode
+                                                                                           }),
+                                                                      success: function (data) { 
+                                                                      },
+                                                                      error: function (error) {
+                                                                      }
+                                                                  });
+                                                           
                                                            yourAjaxCallback.call(this);
                                                        };
-                                                   
+
                                                        var failureFn = function (error) {
-                                                           //do nothing
+                                                           console.log('BackgroundGeoLocation error');
+                                                       }
+
+                                                       var androidOptions = {
+                                                           url: gurl + "/trackDeviceAndroid.aspx", 
+                                                         params:{
+                                                                     merchantcode: preLogin.merchantcode,    
+	                                                                   mdevice:preLogin.mdevice,
+	                                                                   lat:preLogin.lat, 
+	                                                                   lon:preLogin.lon,
+	                                                                   customer:preLogin.customer,
+                                                               segment:preLogin.segmentcode
+                                                         },
+                                                           desiredAccuracy: 30,
+                                                           stationaryRadius: 100,
+                                                           distanceFilter: 30,
+                                                           activityType: 'AutomotiveNavigation',
+                                                           debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
+                                                           stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
                                                        }
                                                        
                                                        // BackgroundGeoLocation is highly configurable.
-                                                       bgGeo.configure(callbackFn, failureFn, {
-                                                                         
-                                                                           desiredAccuracy: 10,
-                                                                           stationaryRadius: 20,
-                                                                           distanceFilter: 30,
-                                                                           activityType: 'AutomotiveNavigation',
-                                                                           debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
-                                                                           stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
-                                                                       });
+                                                       bgGeo.configure(callbackFn, failureFn, androidOptions);
 
                                                        // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
                                                        bgGeo.start();
-                                                       
                                                    }
                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
                                                                                                 //  if (err.code == "1") {
@@ -706,7 +747,7 @@
                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                                 //  }
                                                                                                 gpsError();
-                                                                                            });
+                                                                                            });   
                            
                                                    if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                                                        customer = window.localStorage.getItem("customer");
@@ -2551,5 +2592,36 @@
     
     function gpsErrorApp() {
         navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
+    }
+    
+    function meWatchPos() {
+        //Check whether GPS enabled
+        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+            lat = position.coords.latitude;                                  
+            lon = position.coords.longitude;
+            
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:segmentcode
+                                            }),
+                       success: function (data) { 
+                       },
+                       error: function (error) {
+                       }
+                   });
+        }
+                                                 , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                     //  if (err.code == "1") {
+                                                     //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                     //  } else if (err.code == "2") {
+                                                     //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                     //  }
+                                                 });   
     }
 })(window);

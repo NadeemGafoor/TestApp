@@ -18,7 +18,7 @@ var currentDevice;
         // hide the splash screen as soon as the app is ready. otherwise
         // Cordova will wait 5 very long seconds to do it for you.
         //hideNav();      
-      hideNav();      
+        hideNav();      
        
         // Initialize the Backend Services SDK
    
@@ -27,7 +27,6 @@ var currentDevice;
         } else if ((!googleApiProjectNumber || googleApiProjectNumber === 'GOOGLE_API_PROJECT_NUMBER') && device.platform.toLowerCase() == "android") {
             navigator.notification.alert("Unable to register for Notification Services, you may not be able to receive Notifications from Al Yamamah Rewards");
         }
-
        
         app = new kendo.mobile.Application(document.body, {
                                                platform: 'ios7',
@@ -37,19 +36,19 @@ var currentDevice;
                                                useNativeScrolling: false
                                            });
         
-         //kendo.UserEvents.defaultThreshold(20); 
+        //kendo.UserEvents.defaultThreshold(20); 
         
         // Initialize the Backend Services SDK
-     el = new Everlive({
+        el = new Everlive({
                               apiKey: bsApiKey,
                               scheme: bsScheme
                           });
     
-     currentDevice = el.push.currentDevice(false);
-        
-       
+        currentDevice = el.push.currentDevice(false);
     }, false);
+    
    
+    
     function checkNetwork () {
         var networkState = navigator.connection.type;
         var states = {};
@@ -73,4 +72,6 @@ var currentDevice;
             navigator.splashscreen.hide();  
         }, 2000);  //hide Loading Popup
     }
+    
+   
 }());
