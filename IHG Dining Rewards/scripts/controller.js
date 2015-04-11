@@ -680,15 +680,7 @@
                                                    
                                                        var bgGeo = window.plugins.backgroundGeoLocation;
                                                        
-                                                       var yourAjaxCallback = function (response) {
-                                                           ////
-                                                           // IMPORTANT:  You must execute the #finish method here to inform the native plugin that you're finished,
-                                                           //  and the background-task may be completed.  You must do this regardless if your HTTP request is successful or not.
-                                                           // IF YOU DON'T, ios will CRASH YOUR APP for spending too much time in the background.
-                                                           //
-                                                           //
-                                                           bgGeo.finish();
-                                                       };
+                                                    
                                                        
                                                        var callbackFn = function (location) {
                                                            //  console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
@@ -710,14 +702,14 @@
                                                                                                merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:segmentcode
                                                                                            }),
                                                                       success: function (data) { 
-                                                                          alert(data);
+                                                                        
                                                                       },
                                                                       error: function (error) {
-                                                                          alert(error);
+                                                                          
                                                                       }
                                                                   });
                                                            
-                                                           yourAjaxCallback.call(this);
+                                                           bgGeo.finish();
                                                        };
 
                                                        var failureFn = function (error) {

@@ -12,8 +12,8 @@
     "1"
   ],
   "iOSBackgroundMode": [
-    "location",
-    "bluetooth-peripheral"
+    "audio",
+    "location"
   ],
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
   "FrameworkVersion": "3.7.0",
@@ -59,6 +59,7 @@
     "org.apache.cordova.globalization",
     "org.apache.cordova.inappbrowser",
     "org.apache.cordova.media",
+    "com.telerik.plugins.nativepagetransitions@0.2.14",
     "org.apache.cordova.network-information",
     "org.apache.cordova.dialogs",
     "nl.x-services.plugins.socialsharing@4.3.13",
@@ -66,9 +67,7 @@
     "org.apache.cordova.splashscreen",
     "org.apache.cordova.statusbar",
     "com.phonegap.plugins.PushPlugin@2.5.2",
-    "org.apache.cordova.vibration",
-    "com.telerik.plugins.nativepagetransitions@0.2.13",
-    "com.telerik.plugins.nativepagetransitions@0.2.14",
-    "nl.x-services.plugins.toast@2.0.4"
+    "nl.x-services.plugins.toast@2.0.4",
+    "org.apache.cordova.vibration"
   ]
 }
