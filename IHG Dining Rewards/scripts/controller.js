@@ -56,6 +56,7 @@
     var offertelephone = "0097142766186";
     var cardimage = "";
     
+     
     window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
                                                     social_message:"",
@@ -680,17 +681,14 @@
                                                    
                                                        var bgGeo = window.plugins.backgroundGeoLocation;
                                                        
-                                                    
-                                                       
-                                                       var callbackFn = function (location) {
+                                                        var callbackFn = function (location) {
                                                            //  console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
                                                            // Do your HTTP request here to POST location to your server.
                                                            //
                                                            //
                                                            lat = location.latitude;
                                                            lon = location.longitude;
-                                                           preLogin.set("lat", lat);
-                                                           preLogin.set("lon", lon);
+                                                         
                                                            $.ajax({ 
                                                                       type: "POST",
                                                                       cache:false,
@@ -699,9 +697,10 @@
                                                                       url: gurl + "/trackDevice.aspx",
                                                                       contentType: "application/json; charset=utf-8",
                                                                       data: JSON.stringify({
-                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:segmentcode
+                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:"IOS",segment:segmentcode
                                                                                            }),
-                                                                      success: function (data) { 
+                                                                      success: function (data) {
+                                                                          alert(data);
                                                                         
                                                                       },
                                                                       error: function (error) {
@@ -721,20 +720,23 @@
                                                            params:{
                                                                merchantcode: preLogin.merchantcode,    
                                                                mdevice:preLogin.mdevice,
-                                                               lat:preLogin.lat, 
-                                                               lon:preLogin.lon,
+                                                               lat:lat, 
+                                                               lon:lon,
                                                                customer:preLogin.customer,
                                                                segment:preLogin.segmentcode
                                                            },
                                                            desiredAccuracy: 100,
-                                                           stationaryRadius: 20,
-                                                           distanceFilter: 20,
-                                                           locationTimeout:60,
+                                                           stationaryRadius: 10,
+                                                           distanceFilter: 30,
+                                                           locationTimeout:300,
                                                            notificationTitle:"IHG Dining Rewards Background Service",
-                                                           activityType: 'AutomotiveNavigation',
+                                                           activityType: 'Fitness',
                                                            debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
                                                            stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
                                                        }
+    
+                                                       
+                                                     
                                                        
                                                        // BackgroundGeoLocation is highly configurable.
                                                        bgGeo.configure(callbackFn, failureFn, androidOptions);
@@ -1325,7 +1327,7 @@
                                                 //  alert(cardimage);
                                                 document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
                                                 document.getElementById("mycardname").innerHTML = customername;
-                                                //document.getElementById("mycardsegment").innerHTML=segmentname;
+                                                document.getElementById("mycardid").innerHTML=customer;
                                                 document.getElementById("mycardexpiry").innerHTML = memberexpiry;
                                                 //  document.getElementById("mycardimage").style.backgroundSize = "cover";
                                             },
