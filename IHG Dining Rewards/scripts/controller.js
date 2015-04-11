@@ -671,6 +671,12 @@
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
                                                        // window.setInterval(meWatchPos(), 30000);
+                                                       
+                                                       //mywatch = navigator.geolocation.watchPosition(function(position) {
+                                                       //    meWatchPos(position.coords.latitude, position.coords.longitude);
+                                                       //});
+                                                       
+                                                       //nwatch = window.setInterval(meWatchPosTime(), 60000);
                                                    
                                                        var bgGeo = window.plugins.backgroundGeoLocation;
                                                        
@@ -701,11 +707,13 @@
                                                                       url: gurl + "/trackDevice.aspx",
                                                                       contentType: "application/json; charset=utf-8",
                                                                       data: JSON.stringify({
-                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:location.latitude,lon:location.longitude,customer:customer,segment:segmentcode
+                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:segmentcode
                                                                                            }),
                                                                       success: function (data) { 
+                                                                          alert(data);
                                                                       },
                                                                       error: function (error) {
+                                                                          alert(error);
                                                                       }
                                                                   });
                                                            
@@ -718,17 +726,19 @@
 
                                                        var androidOptions = {
                                                            url: gurl + "/trackDeviceAndroid.aspx", 
-                                                         params:{
-                                                                     merchantcode: preLogin.merchantcode,    
-	                                                                   mdevice:preLogin.mdevice,
-	                                                                   lat:preLogin.lat, 
-	                                                                   lon:preLogin.lon,
-	                                                                   customer:preLogin.customer,
+                                                           params:{
+                                                               merchantcode: preLogin.merchantcode,    
+                                                               mdevice:preLogin.mdevice,
+                                                               lat:preLogin.lat, 
+                                                               lon:preLogin.lon,
+                                                               customer:preLogin.customer,
                                                                segment:preLogin.segmentcode
-                                                         },
-                                                           desiredAccuracy: 30,
-                                                           stationaryRadius: 100,
-                                                           distanceFilter: 30,
+                                                           },
+                                                           desiredAccuracy: 100,
+                                                           stationaryRadius: 20,
+                                                           distanceFilter: 20,
+                                                           locationTimeout:60,
+                                                           notificationTitle:"IHG Dining Rewards Background Service",
                                                            activityType: 'AutomotiveNavigation',
                                                            debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
                                                            stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
@@ -2594,27 +2604,47 @@
         navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
     }
     
-    function meWatchPos() {
+    function meWatchPos(x, y) {
         //Check whether GPS enabled
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/trackDevice.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,lat:x,lon:y,customer:"WATCH",segment:"MYWATCH"
+                                        }),
+                   success: function (data) { 
+                   },
+                   error: function (error) {
+                   }
+               });
+    }
+    
+    //Check whether GPS enabled
+    function meWatchPosTime() {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-            lat = position.coords.latitude;                                  
-            lon = position.coords.longitude;
-            
-            $.ajax({ 
-                       type: "POST",
-                       cache:false,
-                       async:true,
-                       timeout:20000,
-                       url: gurl + "/trackDevice.aspx",
-                       contentType: "application/json; charset=utf-8",
-                       data: JSON.stringify({
-                                                merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:segmentcode
-                                            }),
-                       success: function (data) { 
-                       },
-                       error: function (error) {
-                       }
-                   });
+            x = position.coords.latitude;                                  
+            y = position.coords.longitude;
+            // window.setInterval(meWatchPos(), 30000);
+                                                       
+           $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/trackDevice.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,lat:x,lon:y,customer:"TIME",segment:"MYTIME"
+                                        }),
+                   success: function (data) { 
+                   },
+                   error: function (error) {
+                   }
+               });
         }
                                                  , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
                                                      //  if (err.code == "1") {
@@ -2622,6 +2652,8 @@
                                                      //  } else if (err.code == "2") {
                                                      //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                      //  }
+                                                     gpsError();
                                                  });   
     }
-})(window);
+}
+)(window);
