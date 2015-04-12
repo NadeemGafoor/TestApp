@@ -667,17 +667,21 @@
                                                               }
                                                           });
                                                    
+                                                  
                                                    //Check whether GPS enabled
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
                                                        // window.setInterval(meWatchPos(), 30000);
-                                                       
-                                                       //mywatch = navigator.geolocation.watchPosition(function(position) {
-                                                       //    meWatchPos(position.coords.latitude, position.coords.longitude);
-                                                       //});
+                                                   
+                                                      // var options = {frequency: 600000, enableHighAccuracy:false}
+                                                      // mywatch = navigator.geolocation.watchPosition(callbackFn,failureFn,options);
                                                        
                                                        //nwatch = window.setInterval(meWatchPosTime(), 60000);
+                                                
+                                                   
+                                                   
+                                                   
                                                    
                                                        var bgGeo = window.plugins.backgroundGeoLocation;
                                                        
@@ -688,7 +692,8 @@
                                                            //
                                                            lat = location.latitude;
                                                            lon = location.longitude;
-                                                         
+                                                           preLogin.set("lat",lat);
+                                                           preLogin.set("lon",lon); 
                                                            $.ajax({ 
                                                                       type: "POST",
                                                                       cache:false,
@@ -697,10 +702,10 @@
                                                                       url: gurl + "/trackDevice.aspx",
                                                                       contentType: "application/json; charset=utf-8",
                                                                       data: JSON.stringify({
-                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:"IOS",segment:segmentcode
+                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:segmentcode
                                                                                            }),
                                                                       success: function (data) {
-                                                                          alert(data);
+                                                         
                                                                         
                                                                       },
                                                                       error: function (error) {
@@ -720,17 +725,17 @@
                                                            params:{
                                                                merchantcode: preLogin.merchantcode,    
                                                                mdevice:preLogin.mdevice,
-                                                               lat:lat, 
-                                                               lon:lon,
+                                                               lat:preLogin.lat, 
+                                                               lon:preLogin.lon,
                                                                customer:preLogin.customer,
                                                                segment:preLogin.segmentcode
                                                            },
                                                            desiredAccuracy: 100,
-                                                           stationaryRadius: 10,
-                                                           distanceFilter: 30,
-                                                           locationTimeout:300,
+                                                           stationaryRadius: 0,
+                                                           distanceFilter: 10,
+                                                           locationTimeout:600,
                                                            notificationTitle:"IHG Dining Rewards Background Service",
-                                                           activityType: 'Fitness',
+                                                           activityType: 'OtherNavigation',
                                                            debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
                                                            stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
                                                        }
@@ -742,7 +747,7 @@
                                                        bgGeo.configure(callbackFn, failureFn, androidOptions);
 
                                                        // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
-                                                       bgGeo.start();
+                                                       bgGeo.start(callbackFn, failureFn, androidOptions);
                                                    }
                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
                                                                                                 //  if (err.code == "1") {
@@ -1327,7 +1332,7 @@
                                                 //  alert(cardimage);
                                                 document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
                                                 document.getElementById("mycardname").innerHTML = customername;
-                                                document.getElementById("mycardid").innerHTML=customer;
+                                                document.getElementById("mycardid").innerHTML="#"+customer+"#";
                                                 document.getElementById("mycardexpiry").innerHTML = memberexpiry;
                                                 //  document.getElementById("mycardimage").style.backgroundSize = "cover";
                                             },
