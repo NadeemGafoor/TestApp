@@ -1462,6 +1462,7 @@
                                                                 }
                                   
                                                                 pllistOutlet();
+                                                                hideSpin();
                                                             }
                                                         });
                                                     }
@@ -1479,12 +1480,14 @@
                                                                                                  geocountry = country;
                                                                                                  //locationErrorToast();
                                                                                                  pllistOutlet();
+                                                                                                 hideSpin();
                                                                                              });
                                                 }else {
                                                     geocity = city;
                                                     geocountry = country;
                                                     //locationErrorToast();
                                                     pllistOutlet();
+                                                    hideSpin();
                                                 }
                                             } ,
         
@@ -1666,6 +1669,7 @@
                                                                     geocity = "";
                                                                 }
                                                                 pllistOffer();
+                                                                hideSpin();
                                                             }
                                                         });
                                                     }
@@ -1684,12 +1688,14 @@
                                                                                     
                                                                                                  //locationErrorToast();
                                                                                                  pllistOffer();
+                                                                                                      hideSpin();
                                                                                              });
                                                 }else {
                                                     geocity = city;
                                                     geocountry = country;
                                                     //locationErrorToast();
                                                     pllistOffer();
+                                                    hideSpin();
                                                 }
                                             },
                                                 
