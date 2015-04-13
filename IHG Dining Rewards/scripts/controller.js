@@ -55,7 +55,6 @@
     var short_msg = "Check out the IHG Dining Rewards at ";
     var offertelephone = "0097142766186";
     var cardimage = "";
-    
      
     window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
@@ -666,7 +665,6 @@
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           });
-                                                   
                                                   
                                                    //Check whether GPS enabled
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
@@ -674,26 +672,22 @@
                                                        lon = position.coords.longitude;
                                                        // window.setInterval(meWatchPos(), 30000);
                                                    
-                                                      // var options = {frequency: 600000, enableHighAccuracy:false}
-                                                      // mywatch = navigator.geolocation.watchPosition(callbackFn,failureFn,options);
+                                                       // var options = {frequency: 600000, enableHighAccuracy:false}
+                                                       // mywatch = navigator.geolocation.watchPosition(callbackFn,failureFn,options);
                                                        
                                                        //nwatch = window.setInterval(meWatchPosTime(), 60000);
-                                                
-                                                   
-                                                   
-                                                   
                                                    
                                                        var bgGeo = window.plugins.backgroundGeoLocation;
                                                        
-                                                        var callbackFn = function (location) {
+                                                       var callbackFn = function (location) {
                                                            //  console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
                                                            // Do your HTTP request here to POST location to your server.
                                                            //
                                                            //
                                                            lat = location.latitude;
                                                            lon = location.longitude;
-                                                           preLogin.set("lat",lat);
-                                                           preLogin.set("lon",lon); 
+                                                           preLogin.set("lat", lat);
+                                                           preLogin.set("lon", lon); 
                                                            $.ajax({ 
                                                                       type: "POST",
                                                                       cache:false,
@@ -705,11 +699,8 @@
                                                                                                merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:segmentcode
                                                                                            }),
                                                                       success: function (data) {
-                                                         
-                                                                        
                                                                       },
                                                                       error: function (error) {
-                                                                          
                                                                       }
                                                                   });
                                                            
@@ -739,9 +730,6 @@
                                                            debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
                                                            stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
                                                        }
-    
-                                                       
-                                                     
                                                        
                                                        // BackgroundGeoLocation is highly configurable.
                                                        bgGeo.configure(callbackFn, failureFn, androidOptions);
@@ -1332,7 +1320,7 @@
                                                 //  alert(cardimage);
                                                 document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
                                                 document.getElementById("mycardname").innerHTML = customername;
-                                                document.getElementById("mycardid").innerHTML="#"+customer+"#";
+                                                document.getElementById("mycardid").innerHTML = "#" + customer + "#";
                                                 document.getElementById("mycardexpiry").innerHTML = memberexpiry;
                                                 //  document.getElementById("mycardimage").style.backgroundSize = "cover";
                                             },
@@ -1483,7 +1471,11 @@
                                                                                                  hideSpin();
                                                                                              });
                                                 }else {
-                                                    geocity = city;
+                                                    if (y==="1") {
+                                                        geocity = "";
+                                                    }else {
+                                                        geocity = city;
+                                                    }
                                                     geocountry = country;
                                                     //locationErrorToast();
                                                     pllistOutlet();
@@ -1688,10 +1680,14 @@
                                                                                     
                                                                                                  //locationErrorToast();
                                                                                                  pllistOffer();
-                                                                                                      hideSpin();
+                                                                                                 hideSpin();
                                                                                              });
                                                 }else {
-                                                    geocity = city;
+                                                    if (y==="1") {
+                                                        geocity = "";
+                                                    }else {
+                                                        geocity = city;
+                                                    }
                                                     geocountry = country;
                                                     //locationErrorToast();
                                                     pllistOffer();
@@ -2635,21 +2631,21 @@
             y = position.coords.longitude;
             // window.setInterval(meWatchPos(), 30000);
                                                        
-           $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/trackDevice.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,lat:x,lon:y,customer:"TIME",segment:"MYTIME"
-                                        }),
-                   success: function (data) { 
-                   },
-                   error: function (error) {
-                   }
-               });
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :merchant,mdevice:mdevicestat,lat:x,lon:y,customer:"TIME",segment:"MYTIME"
+                                            }),
+                       success: function (data) { 
+                       },
+                       error: function (error) {
+                       }
+                   });
         }
                                                  , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
                                                      //  if (err.code == "1") {
