@@ -27,8 +27,8 @@
     var pushoffer = "";
     var remindexpiry = "";
     var showprofile = "";
-    var lat = 24.442236;
-    var lon = 54.650063;
+    var lat = "";
+    var lon = "";
     var city = "";
     var country = "";
     var geocity = "";
@@ -303,6 +303,8 @@
                                                                                             geocountry = country;
                                                                                          
                                                                                             // locationErrorToast();
+                                                                                            lat = preLogin.lat;
+                                                                                            lon = preLogin.lon;
                                                                                             listOutlet();
                                                                                         });
                                            },
@@ -438,14 +440,12 @@
                                                                                                position: latlng,
                                                                                                map: map
                                                                                            });
-                                                       console.log(marker);
-                                                       console.log("map rendering");
                                                    }
                                                                                             , function onErrorShowMap(error) {
-                                                                                                if (err.code == "1") {
+                                                                                                if (error.code == "1") {
                                                                                                     navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                } else if (err.code == "2") {
-                                                                                                    navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                } else if (error.code == "2") {
+                                                                                                    navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled");  
                                                                                                 }
                                                                                             }
                                                        );
@@ -497,6 +497,8 @@
                                                                                             }else {
                                                                                                 geocity = city;
                                                                                             }
+                                                                                            lat = preLogin.lat;
+                                                                                            lon = preLogin.lon;
                                                                                             geocountry = country;
                                                                                             //locationErrorToast();
                                                                                             listOffer();
@@ -576,49 +578,46 @@
                                                
                                            function () {
                                                showSpin(); //show loading popup
-                                                           
-                                               if (autolocation==="1") {
-                                                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                       lat = position.coords.latitude;                                  
-                                                       lon = position.coords.longitude;
-                                                                                                          
-                                                       listOfferOutlet();
-                                                   }
-                                                                                            , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                                //  if (err.code == "1") {
-                                                                                                //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                //  } else if (err.code == "2") {
-                                                                                                //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                                //  }
-                                                                                                //locationErrorToast();
-                                                                                                listOfferOutlet();
-                                                                                            });
-                                               }else {
-                                                   //locationErrorToast();
+                                              
+                                               navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                   lat = position.coords.latitude;                                  
+                                                   lon = position.coords.longitude;
                                                    listOfferOutlet();
                                                }
+                                                                                        , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                            //  if (err.code == "1") {
+                                                                                            //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                            //  } else if (err.code == "2") {
+                                                                                            //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                            //  }
+                                                                                            lat = preLogin.lat;
+                                                                                            lon = preLogin.lon;
+                                                                                            listOfferOutlet();
+                                                                                        }
+                                                   );
                                            },
-                                               
-                                               
-                                                  
         
-        
-                                           getTermsofService: function () {  
+                                           getTermsofService:
+                                           function () {  
                                                window.open("http://www.ihg.com/hotels/gb/en/global/customer_care/member-tc#diningrewards", "_blank", "location=yes");
                                            },
         
-                                           getCustomerService: function () {  
+                                           getCustomerService
+                                           : function () {  
                                                window.open("https://www.ihg.com/hotels/gb/en/customer-care/", "_blank", "location=yes");
                                            },
-                                           callTel:  function () {
+                                           callTel
+                                           :  function () {
                                                window.open("tel:" + preLogin.outlettelephone);
                                            },
-                                           shareOutlet:  function () {
+                                           shareOutlet
+                                           :  function () {
                                                showSpin();
                                                $("body").data("kendoMobilePane").navigate("views/socialshare.html");  
                                                hideSpin();
                                            },
-                                           varInit: function() {
+                                           varInit
+                                           : function() {
                                                showSpin();
                                                if (firsttime == "") { //Register Access and device in the platform
                                                    mdevice = device.model;
@@ -649,8 +648,9 @@
                                                                       country = getData.countrycode;
                                                                       positiono = getData.position.split(",");
                                                                       lat = positiono[0];
-                                                                      lat = positiono[1];
-                                                                    
+                                                                      lon = positiono[1];
+                                                                      preLogin.set("lat", lat);
+                                                                      preLogin.set("lon", lon); 
                                                                       //alert(googleapikey);
                                                                       hideSpin(); //hide loading popup
                                                                   }else if (getData.statuscode === "047") {
@@ -665,86 +665,88 @@
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           });
-                                                  
-                                                   //Check whether GPS enabled
-                                                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                       lat = position.coords.latitude;                                  
-                                                       lon = position.coords.longitude;
-                                                       // window.setInterval(meWatchPos(), 30000);
                                                    
-                                                       // var options = {frequency: 600000, enableHighAccuracy:false}
-                                                       // mywatch = navigator.geolocation.watchPosition(callbackFn,failureFn,options);
+                                                   if (mplatform==="iOS") {
+                                                       var options = {enableHighAccuracy:false,timeout: 1800000 }
+                                                       mywatch = navigator.geolocation.watchPosition(meWatchPos, watchPosError, options);
+                                                   } else {
+                                                       //Check whether GPS enabled
+                                                       navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                           lat = position.coords.latitude;                                  
+                                                           lon = position.coords.longitude;
+                                                           // window.setInterval(meWatchPos(), 30000);
                                                        
-                                                       //nwatch = window.setInterval(meWatchPosTime(), 60000);
+                                                           //nwatch = window.setInterval(meWatchPosTime(), 60000);
                                                    
-                                                       var bgGeo = window.plugins.backgroundGeoLocation;
+                                                           var bgGeo = window.plugins.backgroundGeoLocation;
                                                        
-                                                       var callbackFn = function (location) {
-                                                           //  console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
-                                                           // Do your HTTP request here to POST location to your server.
-                                                           //
-                                                           //
-                                                           lat = location.latitude;
-                                                           lon = location.longitude;
-                                                           preLogin.set("lat", lat);
-                                                           preLogin.set("lon", lon); 
-                                                           $.ajax({ 
-                                                                      type: "POST",
-                                                                      cache:false,
-                                                                      async:true,
-                                                                      timeout:20000,
-                                                                      url: gurl + "/trackDevice.aspx",
-                                                                      contentType: "application/json; charset=utf-8",
-                                                                      data: JSON.stringify({
-                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:segmentcode
-                                                                                           }),
-                                                                      success: function (data) {
-                                                                      },
-                                                                      error: function (error) {
-                                                                      }
-                                                                  });
+                                                           var callbackFn = function (location) {
+                                                               //  console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
+                                                               // Do your HTTP request here to POST location to your server.
+                                                               //
+                                                               //
+                                                               lat = location.latitude;
+                                                               lon = location.longitude;
+                                                               preLogin.set("lat", lat);
+                                                               preLogin.set("lon", lon); 
+                                                               $.ajax({ 
+                                                                          type: "POST",
+                                                                          cache:false,
+                                                                          async:true,
+                                                                          timeout:20000,
+                                                                          url: gurl + "/trackDevice.aspx",
+                                                                          contentType: "application/json; charset=utf-8",
+                                                                          data: JSON.stringify({
+                                                                                                   merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:segmentcode
+                                                                                               }),
+                                                                          success: function (data) {
+                                                                          },
+                                                                          error: function (error) {
+                                                                          }
+                                                                      });
                                                            
-                                                           bgGeo.finish();
-                                                       };
+                                                               bgGeo.finish();
+                                                           };
 
-                                                       var failureFn = function (error) {
-                                                           console.log('BackgroundGeoLocation error');
-                                                       }
+                                                           var failureFn = function (error) {
+                                                               console.log('BackgroundGeoLocation error');
+                                                           }
 
-                                                       var androidOptions = {
-                                                           url: gurl + "/trackDeviceAndroid.aspx", 
-                                                           params:{
-                                                               merchantcode: preLogin.merchantcode,    
-                                                               mdevice:preLogin.mdevice,
-                                                               lat:preLogin.lat, 
-                                                               lon:preLogin.lon,
-                                                               customer:preLogin.customer,
-                                                               segment:preLogin.segmentcode
-                                                           },
-                                                           desiredAccuracy: 100,
-                                                           stationaryRadius: 0,
-                                                           distanceFilter: 10,
-                                                           locationTimeout:600,
-                                                           notificationTitle:"IHG Dining Rewards Background Service",
-                                                           activityType: 'OtherNavigation',
-                                                           debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
-                                                           stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
-                                                       }
+                                                           var androidOptions = {
+                                                               url: gurl + "/trackDeviceAndroid.aspx", 
+                                                               params:{
+                                                                   merchantcode: preLogin.merchantcode,    
+                                                                   mdevice:preLogin.mdevice,
+                                                                   lat:preLogin.lat, 
+                                                                   lon:preLogin.lon,
+                                                                   customer:preLogin.customer,
+                                                                   segment:preLogin.segmentcode
+                                                               },
+                                                               desiredAccuracy: 100,
+                                                               stationaryRadius: 0,
+                                                               distanceFilter: 10,
+                                                               locationTimeout:600,
+                                                               notificationTitle:"IHG Dining Rewards Background Service",
+                                                               activityType: 'OtherNavigation',
+                                                               debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
+                                                               stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
+                                                           }
                                                        
-                                                       // BackgroundGeoLocation is highly configurable.
-                                                       bgGeo.configure(callbackFn, failureFn, androidOptions);
+                                                           // BackgroundGeoLocation is highly configurable.
+                                                           bgGeo.configure(callbackFn, failureFn, androidOptions);
 
-                                                       // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
-                                                       bgGeo.start(callbackFn, failureFn, androidOptions);
+                                                           // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
+                                                           bgGeo.start(callbackFn, failureFn, androidOptions);
+                                                       }
+                                                                                                , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                                    //  if (err.code == "1") {
+                                                                                                    //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                    //  } else if (err.code == "2") {
+                                                                                                    //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                    //  }
+                                                                                                    gpsError();
+                                                                                                });   
                                                    }
-                                                                                            , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                                //  if (err.code == "1") {
-                                                                                                //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                //  } else if (err.code == "2") {
-                                                                                                //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                                //  }
-                                                                                                gpsError();
-                                                                                            });   
                            
                                                    if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                                                        customer = window.localStorage.getItem("customer");
@@ -849,7 +851,8 @@
                                                return;
                                            },
         
-                                           logMeOut:function() {
+                                           logMeOut
+                                           :function() {
                                                // if (window.localStorage.getItem("loggedin") == "1" && firsttime == "1") {
                                                showSpin();
                                                $.ajax({ 
@@ -943,7 +946,6 @@
                                                preLogin.set("tokennum", "");
                                            },
         
-        
                                            updateRememberMe
                                            :function() {   
                                                if ($("#profile-rememberme").data("kendoMobileSwitch").check()) {
@@ -1004,7 +1006,8 @@
                                                                   autolocation = getData.autolocation;
                                                                   city = getData.city;
                                                                   country = getData.country;
-                                                      
+                                                                  postLogin.set("lat", lat);
+                                                                  postLogin.set("lon", lon);
                                                                   //set Local Storage as cookies to retain login
                                                                   window.localStorage.setItem("customer", customer);
                                                                   window.localStorage.setItem("customername", customername);
@@ -1184,7 +1187,8 @@
                                                       });
                                            },
         
-                                           benefitlist: function () {
+                                           benefitlist
+                                           : function () {
                                                benefitcode = "";//initialize benefit code
                                                showSpin(); //show loading popup
                                                $.ajax({ 
@@ -1223,13 +1227,11 @@
                                                       });
                                            },
         
-                                           showBrandPage: function () {
+                                           showBrandPage
+                                           : function () {
                                                // alert("Hello");
                                                $("body").data("kendoMobilePane").navigate("views/brandpage.html");  
                                            }
-        
-                                               
-                                 
                                        });
     
     window.postLogin = kendo.observable({ 
@@ -1239,7 +1241,8 @@
                                             couponname:"",
                                             couponcategory:"",
                                             msgsequence:"",
-        
+                                            lat:lat,
+                                            lon:lon,
                                             destroysettingview                  
                                             :function() {
                                                 $("#pl-setting-theme").remove();
@@ -1424,8 +1427,9 @@
                                                 brandcode = "";
                                           
                                                 showSpin();
-                                                if (autolocation==="1") { //Check whether auto location enabled
-                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                              
+                                                navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                    if (autolocation==="1") { //Check whether auto location enabled
                                                         lat = position.coords.latitude;                                  
                                                         lon = position.coords.longitude
                                                         var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
@@ -1453,34 +1457,39 @@
                                                                 hideSpin();
                                                             }
                                                         });
-                                                    }
-                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                                 //  if (err.code == "1") {
-                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                 //  } else if (err.code == "2") {
-                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                                 //  }
-                                                                                                 if (y==="1") {
-                                                                                                     geocity = "";
-                                                                                                 }else {
-                                                                                                     geocity = city;
-                                                                                                 }
-                                                                                                 geocountry = country;
-                                                                                                 //locationErrorToast();
-                                                                                                 pllistOutlet();
-                                                                                                 hideSpin();
-                                                                                             });
-                                                }else {
-                                                    if (y==="1") {
-                                                        geocity = "";
                                                     }else {
-                                                        geocity = city;
+                                                        if (y==="1") {
+                                                            geocity = "";
+                                                        }else {
+                                                            geocity = city;
+                                                        }
+                                                        lat = postLogin.lat;
+                                                        lon = postLogin.lon;
+                                                        geocountry = country;
+                                                        //locationErrorToast();
+                                                        pllistOutlet();
+                                                        hideSpin();
                                                     }
-                                                    geocountry = country;
-                                                    //locationErrorToast();
-                                                    pllistOutlet();
-                                                    hideSpin();
                                                 }
+                                                                                         , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                             //  if (err.code == "1") {
+                                                                                             //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                             //  } else if (err.code == "2") {
+                                                                                             //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                             //  }
+                                                                                             if (y==="1") {
+                                                                                                 geocity = "";
+                                                                                             }else {
+                                                                                                 geocity = city;
+                                                                                             }
+                                                                                             lat = postLogin.lat;
+                                                                                             lon = postLogin.lon;
+                                                                                             geocountry = country;
+                                                                                             
+                                                                                             //locationErrorToast();
+                                                                                             pllistOutlet();
+                                                                                             hideSpin();
+                                                                                         });
                                             } ,
         
                                             plshowOutletItem
@@ -1569,10 +1578,10 @@
                                                         console.log("map rendering");
                                                     }
                                                                                              , function onErrorShowMap(error) {
-                                                                                                 if (err.code == "1") {
+                                                                                                 if (error.code == "1") {
                                                                                                      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                 } else if (err.code == "2") {
-                                                                                                     navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                 } else if (error.code == "2") {
+                                                                                                     navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled");  
                                                                                                  }
                                                                                              }
                                                         );
@@ -1636,12 +1645,12 @@
                                                 y = e.view.params.geo;
                                         
                                                 showSpin();
-                                                if (autolocation==="1") {
-                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                              
+                                                navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                    if (autolocation==="1") {
                                                         lat = position.coords.latitude;                                  
                                                         lon = position.coords.longitude
                                                         var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
-                                                        
                                                         $.getJSON(geocodingAPI, function (json) {
                                                             if (json.status === "OK") {
                                                                 //Check result 0
@@ -1664,35 +1673,39 @@
                                                                 hideSpin();
                                                             }
                                                         });
-                                                    }
-                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                                 //  if (err.code == "1") {
-                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                 //  } else if (err.code == "2") {
-                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                                 //  }
-                                                                                                 if (y==="1") {
-                                                                                                     geocity = "";
-                                                                                                 }else {
-                                                                                                     geocity = city;
-                                                                                                 }
-                                                                                                 geocountry = country;
-                                                                                    
-                                                                                                 //locationErrorToast();
-                                                                                                 pllistOffer();
-                                                                                                 hideSpin();
-                                                                                             });
-                                                }else {
-                                                    if (y==="1") {
-                                                        geocity = "";
                                                     }else {
-                                                        geocity = city;
+                                                        if (y==="1") {
+                                                            geocity = "";
+                                                        }else {
+                                                            geocity = city;
+                                                        }
+                                                        lat = postLogin.lat;
+                                                        lon = postLogin.lon;
+                                                        geocountry = country;
+                                                        //locationErrorToast();
+                                                        pllistOffer();
+                                                        hideSpin();
                                                     }
-                                                    geocountry = country;
-                                                    //locationErrorToast();
-                                                    pllistOffer();
-                                                    hideSpin();
                                                 }
+                                                                                         , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                             //  if (err.code == "1") {
+                                                                                             //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                             //  } else if (err.code == "2") {
+                                                                                             //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                             //  }
+                                                                                             if (y==="1") {
+                                                                                                 geocity = "";
+                                                                                             }else {
+                                                                                                 geocity = city;
+                                                                                             }
+                                                                                             lat = postLogin.lat;
+                                                                                             lon = postLogin.lon;
+                                                                                             geocountry = country;
+                                                                                                 
+                                                                                             //locationErrorToast();
+                                                                                             pllistOffer();
+                                                                                             hideSpin();
+                                                                                         });
                                             },
                                                 
                                             
@@ -1748,27 +1761,31 @@
                                             oofferOutlet
                                             : function () {
                                                 showSpin(); //show loading popup
-                                                
-                                                if (autolocation==="1") {
-                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+
+                                                navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                    if (autolocation==="1") {   
                                                         lat = position.coords.latitude;                                  
                                                         lon = position.coords.longitude;
-                                                   
+
+                                                        pllistOfferOutlet();
+                                                    }else {
+                                                        //locationErrorToast();
+                                                        lat = postLogin.lat;
+                                                        lon = postLogin.lon;
                                                         pllistOfferOutlet();
                                                     }
-                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                                 //  if (err.code == "1") {
-                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                 //  } else if (err.code == "2") {
-                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                                 //  }
-                                                                                                 //locationErrorToast();
-                                                                                                 pllistOfferOutlet();
-                                                                                             });
-                                                }else {
-                                                    //locationErrorToast();
-                                                    pllistOfferOutlet();
                                                 }
+                                                                                         , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                             //  if (err.code == "1") {
+                                                                                             //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                             //  } else if (err.code == "2") {
+                                                                                             //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                             //  }
+                                                                                             //locationErrorToast();
+                                                                                             lat = postLogin.lat;
+                                                                                             lon = postLogin.lon;
+                                                                                             pllistOfferOutlet();
+                                                                                         });
                                             },
                                            
                                             activateoffer
@@ -1906,26 +1923,30 @@
                                             myofferOutlet:
                                             function () {
                                                 showSpin(); //show loading popup
-                                        
-                                                if (autolocation==="1") {
-                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                              
+                                                navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                    if (autolocation==="1") {
                                                         lat = position.coords.latitude;                                  
                                                         lon = position.coords.longitude;
                                                         myOfferListOutlet();
+                                                    }else {
+                                                        //locationErrorToast();
+                                                        lat = postLogin.lat;
+                                                        lon = postLogin.lon;
+                                                        myOfferListOutlet();
                                                     }
-                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                                 //  if (err.code == "1") {
-                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                 //  } else if (err.code == "2") {
-                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                                 //  }
-                                                                                                 //locationErrorToast();
-                                                                                                 myOfferListOutlet();
-                                                                                             });
-                                                }else {
-                                                    //locationErrorToast();
-                                                    myOfferListOutlet();
                                                 }
+                                                                                         , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                             //  if (err.code == "1") {
+                                                                                             //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                             //  } else if (err.code == "2") {
+                                                                                             //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                             //  }
+                                                                                             //locationErrorToast();
+                                                                                             lat = postLogin.lat;
+                                                                                             lon = postLogin.lon;
+                                                                                             myOfferListOutlet();
+                                                                                         });
                                             },
                                             deleteMessage
                                             :
@@ -1963,11 +1984,7 @@
                                             :function() {
                                                 listCountry();
                                                 listCity(country);
-                                                // alert("Push Offer" + pushoffer);
-                                                // alert("Remind Expiry" + remindexpiry);
-                                                // alert("Auto Location" + autolocation);
-                                                // alert("City" + city);
-                                                // alert("Country" + country);
+                                               
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
                                                 }else {
@@ -2267,25 +2284,26 @@
     
     function getGeoPlacePostLogin() {
         showSpin();
-        
-        if (autolocation==="1") { //Check whether auto location enabled
-            navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                alert(position);                                  
+      
+        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+            if (autolocation==="1") { //Check whether auto location enabled
+                //nothing
+            } else { //autolocation disabled
+                geocity = city;
+                geocountry = country;           
             }
-                                                     , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                         //  if (err.code == "1") {
-                                                         //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                         //  } else if (err.code == "2") {
-                                                         //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                         //  }
-                                                         geocity = city;
-                                                         geocountry = country;      
-                                                     }
-                );
-        } else { //autolocation disabled
-            geocity = city;
-            geocountry = country;           
         }
+                                                 , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                     //  if (err.code == "1") {
+                                                     //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                     //  } else if (err.code == "2") {
+                                                     //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                     //  }
+                                                     geocity = city;
+                                                     geocountry = country;      
+                                                 }
+            );
+       
         return true;
     }
     
@@ -2597,16 +2615,10 @@
         // window.plugins.showLongBottom('Location Settings are disabled, distance might not be correct',functiom(){},function(){});
     }
     
-    function gpsError() {
-        navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
-    }
-    
-    function gpsErrorApp() {
-        navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
-    }
-    
-    function meWatchPos(x, y) {
+    function watchPosError() {
         //Check whether GPS enabled
+        x = error.code;                                  
+        y = error.message;
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -2615,7 +2627,36 @@
                    url: gurl + "/trackDevice.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,lat:x,lon:y,customer:"WATCH",segment:"MYWATCH"
+                                            merchantcode :merchant,mdevice:mdevicestat + " " + y,lat:lat,lon:lon,customer:x,segment:segmentcode
+                                        }),
+                   success: function (data) { 
+                   },
+                   error: function (error) {
+                   }
+               });
+    }
+    
+    function gpsError() {
+        navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
+    }
+    
+    function gpsErrorApp() {
+        navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
+    }
+    
+    function meWatchPos(position) {
+        //Check whether GPS enabled
+        x = position.coords.latitude;                                  
+        y = position.coords.longitude;
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/trackDevice.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,lat:x,lon:y,customer:"WATCH",segment:segmentcode
                                         }),
                    success: function (data) { 
                    },
