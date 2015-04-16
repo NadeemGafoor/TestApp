@@ -738,7 +738,7 @@
                                                            distanceFilter: 30,
                                                            locationTimeout:600,
                                                            notificationTitle:"IHG Dining Rewards Service",
-                                                           activityType: 'OtherNavigation',
+                                                           activityType: 'AutomativeNavigation',
                                                            debug: false, // <-- enable this hear sounds for background-geolocation life-cycle.
                                                            stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
                                                        }
