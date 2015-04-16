@@ -717,6 +717,7 @@
                                                        };
 
                                                        var failureFn = function (error) {
+                                                           //alert(error);
                                                            watchPosError(error);
                                                        }
                                                            
@@ -747,7 +748,7 @@
                                                        bgGeo.configure(callbackFn, failureFn, androidOptions);
 
                                                        // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
-                                                       bgGeo.start(callbackFn, failureFn, androidOptions);
+                                                       bgGeo.start();
                                                        //--------------End Background Tracking------------------
                                                    }
                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
