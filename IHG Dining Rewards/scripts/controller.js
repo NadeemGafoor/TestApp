@@ -87,7 +87,7 @@
                                                     socialsharingFacebook: function () {
                                                         showSpin();
                                                        
-                                                        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(sharingSocialView.social_header + "\n" + sharingSocialView.social_message + "\n" + share_contact , null, "http://www.ihgdiningrewards.com", "Share with your friends if you like!", function () {
+                                                        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(sharingSocialView.social_header + "\n" + sharingSocialView.social_message + "\n" + share_contact , null, "http://www.ihgdiningrewards.com", "Share with your friends if you like.", function () {
                                                         }, function (errormsg) {
                                                             alert(errormsg)
                                                         })
@@ -250,16 +250,16 @@
                                                                       sharingSocialView.set("social_header", getData.benefitlist[0].shortdes1 + "\n");
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("No Benefits exists for the selected Program!")    
+                                                                      navigator.notification.alert("There are no Benefits for the selected Program")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Benefit details!" + getData.statusdesc)          
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Benefit details. " + getData.statusdesc)          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit details!.   Try after sometime")
+                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "]")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
@@ -365,12 +365,12 @@
                                                                   shareProductType = "1"; //outlet review
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get outlet List!" + getData.statusdesc)          
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get outlet List " + getData.statusdesc)          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Outlet List!.  Try after sometime")
+                                                              navigator.notification.alert("Unknown Error, Cannot get Outlet List. [" + errormsg.statusText + "]")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -409,12 +409,12 @@
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Offer List!" + getData.statusdesc)          
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Offer List " + getData.statusdesc)          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
+                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "]")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -454,7 +454,7 @@
                                                    }
                                                                                             , function onErrorShowMap(error) {
                                                                                                 if (error.code == "1") {
-                                                                                                    navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                    navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location");  
                                                                                                 } else if (error.code == "2") {
                                                                                                     navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled");  
                                                                                                 }
@@ -575,7 +575,7 @@
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List. Try after sometime")
+                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List. [" + errormsg.statusText + "]")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -667,12 +667,12 @@
                                                                   }else if (getData.statuscode === "047") {
                                                                       $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
                                                                   } else {
-                                                                      navigator.notification.alert("Platform Error, Services may not be available!" + getData.statusdesc)          
+                                                                      navigator.notification.alert("Platform Error, Services may not be available. " + getData.statusdesc)          
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               },
                                                               error: function (errormsg) {
-                                                                  navigator.notification.alert("Platform Error, Services may not be available!.  Try after sometime")
+                                                                  navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]")
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           });
@@ -925,12 +925,12 @@
                                                                   $("body").data("kendoMobilePane").navigate("views/home.html");   
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Cannot Logout! " + getData.statusdesc)          
+                                                                  navigator.notification.alert("Cannot Logout. " + getData.statusdesc)          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot Logout.  Try after sometime!")
+                                                              navigator.notification.alert("Unknown Error, Cannot Logout. [" + errormsg.statusText + "]")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1098,12 +1098,12 @@
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Cannot Login! " + getData.statusdesc)         
+                                                                  navigator.notification.alert("Cannot Login. " + getData.statusdesc)         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot Login!.   Try after sometime")
+                                                              navigator.notification.alert("Unknown Error, Cannot Login.   [" + errormsg.statusText + "]")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1144,12 +1144,12 @@
                                                                   $("body").data("kendoMobilePane").navigate("views/pl-myprofile.html");  
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Cannot Login! " + getData.statusdesc)         
+                                                                  navigator.notification.alert("Cannot Login. " + getData.statusdesc)         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot Login!.   Try after sometime")
+                                                              navigator.notification.alert("Unknown Error, Cannot Login.  [" + errormsg.statusText + "]")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1183,17 +1183,17 @@
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") { //Login Successful
-                                                                  navigator.notification.alert("A URL has been sent to your registered Email ID with a link to set your new password!");   
+                                                                  navigator.notification.alert("A URL has been sent to your registered Email ID with a link to set your new password.");   
                                                                   preLogin.set("username", "");
                                                                   preLogin.set("emailid", "");
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Unable to send the password reset URL! " + getData.statusdesc)         
+                                                                  navigator.notification.alert("Unable to send the password reset URL. " + getData.statusdesc)         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Unable to send the password reset URL!")
+                                                              navigator.notification.alert("Unknown Error, Unable to send the password reset URL [" + errormsg.statusText + "]")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1224,25 +1224,19 @@
                                                                                                                   });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("No Benefits exists for the selected Program!")    
+                                                                      navigator.notification.alert("There are no Benefits for the selected Program!")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Benefit List" + getData.statusdesc)          
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Benefit List " + getData.statusdesc)          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit List. Try after sometime")
+                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit List. [" + errormsg.statusText + "]")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
-                                           },
-        
-                                           showBrandPage
-                                           : function () {
-                                               // alert("Hello");
-                                               $("body").data("kendoMobilePane").navigate("views/brandpage.html");  
                                            }
                                        });
     
@@ -1376,14 +1370,14 @@
                                                                                                                       
                                                                                                                  });
                                                                    }else {
-                                                                       navigator.notification.alert("No message history available for your membership!")    
+                                                                       navigator.notification.alert("No message history available for your Membership.")    
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get message history!" + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get message history. " + getData.statusdesc)          
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get message history!  Try after sometime")
+                                                               navigator.notification.alert("Unknown Error, Cannot get message history.  [" + errormsg.statusText + "]")
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
@@ -1419,14 +1413,14 @@
                                                                        document.getElementById("msgday").innerHTML = getData.messageitem[0].mday;
                                                                        postLogin.set("msgsequence", getData.messageitem[0].sequence);
                                                                    }else {
-                                                                       navigator.notification.alert("No message item available for your membership!")    
+                                                                       navigator.notification.alert("No message item available for your Membership.")    
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get message item!" + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get message item. " + getData.statusdesc)          
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get message item!  Try after sometime")
+                                                               navigator.notification.alert("Unknown Error, Cannot get message item.  [" + errormsg.statusText + "]")
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
@@ -1544,12 +1538,12 @@
                                                                    shareProductType = "1"; //outlet review
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get outlet List!" + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get outlet List. " + getData.statusdesc)          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List!.  Try after sometime")
+                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List.  [" + errormsg.statusText + "]")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -1589,9 +1583,9 @@
                                                     }
                                                                                              , function onErrorShowMap(error) {
                                                                                                  if (error.code == "1") {
-                                                                                                     navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                     navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location.");  
                                                                                                  } else if (error.code == "2") {
-                                                                                                     navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled");  
+                                                                                                     navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled.");  
                                                                                                  }
                                                                                              }
                                                         );
@@ -1627,16 +1621,16 @@
                                                                                                                  });
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("No Offers exists for the selected Restaurant!")    
+                                                                       navigator.notification.alert("There are no offers for the selected Restaurant.")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List!" + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc)          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -1757,12 +1751,12 @@
                                                                      
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List" + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc)          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List. Try after sometime")
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "]")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -1831,7 +1825,7 @@
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List. Try after sometime")
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List. [" + errormsg.statusText + "]")
                                                                hideSpin(); //hide loading popup                                                                 
                                                            }
                                                        });
@@ -1868,16 +1862,16 @@
                                                                                                                        });
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("No Vouchers available in Wallet!")    
+                                                                       navigator.notification.alert("No Vouchers available in Wallet.")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc)          
+                                                                   navigator.notification.alert("Cannot retrieve Wallet.  " + getData.statusdesc)          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  Try after sometime!")
+                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "]")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -1915,16 +1909,16 @@
                                                                        offercode = getData.myvoucherdetail[0].couponcode;
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("No Vouchers available in Wallet!")    
+                                                                       navigator.notification.alert("No Vouchers available in Wallet.")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc)          
+                                                                   navigator.notification.alert("Cannot retrieve Wallet. " + getData.statusdesc)          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  Try after sometime!")
+                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "]")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -1980,11 +1974,11 @@
                                                                if (getData.statuscode == "000") {
                                                                    $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");  
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot delete message." + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot delete message. " + getData.statusdesc)          
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot delete message. Try after sometime")
+                                                               navigator.notification.alert("Unknown Error, Cannot delete message. [" + errormsg.statusText + "]")
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
@@ -2151,16 +2145,16 @@
                                                                                );
                                                                    }
                                                                      
-                                                                   navigator.notification.alert("Profile changes successfully updated!")   
+                                                                   navigator.notification.alert("Profile changes successfully updated.")   
                                                                    $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Could not update profile changes due to error! " + getData.statusdesc)          
+                                                                   navigator.notification.alert("Could not update profile changes due to error. " + getData.statusdesc)          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Could not update profile!.  Try after sometime")
+                                                               navigator.notification.alert("Unknown Error, Could not update profile.  [" + errormsg.statusText + "]")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -2209,7 +2203,7 @@
                    },
                    error:
                    function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Country list. Try after sometime")
+                       navigator.notification.alert("Unknown Error, Cannot get Country list. [" + errormsg.statusText + "]")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2246,7 +2240,7 @@
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get City list. Try after sometime")
+                       navigator.notification.alert("Unknown Error, Cannot get City list. [" + errormsg.statusText + "]")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2255,21 +2249,23 @@
     function hideSpin() {
         setTimeout(function() {
             window.plugins.spinnerDialog.hide();
-        }, 1000);  //hide Loading Popup
+        }, 2000);  //hide Loading Popup
     }
-      
+         
     function showSpin() {
         if (!checkConnectionBool()) {
-            $("body").data("kendoMobilePane").navigate("views/nonetwork.html");  
-        } else {
+                   navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.");  
+            //        //$("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
+              } else {
             window.plugins.spinnerDialog.show(null, null, true); //show loading popup
         }
     }
     
     function writeSpin() {
         if (!checkConnectionBool()) {
-            $("body").data("kendoMobilePane").navigate("views/nonetwork.html");  
-        } else {
+           navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.");              
+            //        $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
+      } else {
             window.plugins.spinnerDialog.show(null, null, true); //show loading popup
         }
     }
@@ -2334,16 +2330,16 @@
                                                                         });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("No Restaurant exists for the selected property!")    
+                               navigator.notification.alert("No Restaurant exists for the selected property")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List!" + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List." + getData.statusdesc)          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List!.  Try after sometime")
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2381,16 +2377,16 @@
                                                                            });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("No Restaurant exists for the selected property!")    
+                               navigator.notification.alert("There are no Restaurant for the selected Hotel")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List!" + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List. " + getData.statusdesc)          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List!.  Try after sometime")
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2429,16 +2425,16 @@
                                                                          });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("No Offers exists for the selected Hotel!")    
+                               navigator.notification.alert("There are no offers for the selected Hotel.")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Offer List!" + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Offer List." + getData.statusdesc)          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
+                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2480,16 +2476,16 @@
                                                                             });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("No Offers exists for the selected Hotel!")    
+                               navigator.notification.alert("There are no offers exists for the selected Hotel.")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Offer List!" + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Offer List." + getData.statusdesc)          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Offer List!.   Try after sometime")
+                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2517,16 +2513,16 @@
                                                                                    });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("No Restaurant exists for the selected offer!")    
+                               navigator.notification.alert("There are no Restaurant for the selected offer.")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List!" + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List. " + getData.statusdesc)          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List!.   Try after sometime")
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.   [" + errormsg.statusText + "]")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2554,16 +2550,16 @@
                                                                                 });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("No Restaurant exists for the selected offer!")    
+                               navigator.notification.alert("There are no Restaurant for the selected offer.")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List!" + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List. " + getData.statusdesc)          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List!.   Try after sometime")
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2591,7 +2587,7 @@
                                                                                    });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("No outlet exists for the selected offer.")    
+                               navigator.notification.alert("There are no Restaurants for the selected offer.")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
@@ -2600,7 +2596,7 @@
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Outlet List. Try after sometime")
+                       navigator.notification.alert("Unknown Error, Cannot get Outlet List. [" + errormsg.statusText + "]")
                        hideSpin(); //hide loading popup
                    }
                });
