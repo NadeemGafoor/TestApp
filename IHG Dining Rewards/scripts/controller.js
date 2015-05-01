@@ -737,9 +737,8 @@
                                                            desiredAccuracy: 0,
                                                            stationaryRadius: 10,
                                                            distanceFilter: 30,
-                                                           locationTimeout:600,
                                                            notificationTitle:"IHG Dining Rewards Service",
-                                                           activityType: 'AutomativeNavigation',
+                                                           activityType: 'AutomotiveNavigation',
                                                            debug: false, // <-- enable this hear sounds for background-geolocation life-cycle.
                                                            stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
                                                        }
@@ -748,7 +747,7 @@
                                                        bgGeo.configure(callbackFn, failureFn, androidOptions);
 
                                                        // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
-                                                       bgGeo.start();
+                                                       bgGeo.start(callbackFn, failureFn, androidOptions);
                                                        //--------------End Background Tracking------------------
                                                    }
                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
