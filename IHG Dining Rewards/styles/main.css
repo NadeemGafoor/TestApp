@@ -1,55 +1,62 @@
+.km-ios7 .km-navbar .km-view-title
+{
+   color: #fff;
+}
 ul a:active
 {
-    background-color: #002d67 !important;
+    background-color: #ccc !important;
+    color: #545454;
+}
+
+a:active
+{
+    background-color: #ccc !important;
+    color: #545454;
+}
+
+.km-ios7 .km-navbar
+{
+    background-color: #343434;
+    border: none;
+    height: 3em;
+}
+
+.km-ios7 .km-navbar .km-icon
+{
+    color:#fff;
+ }
+    
+
+.km-ios7 .km-navbar .brand-icon  
+{
+    background: url(../images/brand_logo.png) no-repeat center center;
+    background-size: auto;
+    margin-top: 5px;
+    margin-left: 40px;
+    width: 125px;
+    float: left;
+    height: 32px;
+}
+
+.km-ios7 .km-view  .km-content
+{
+    background: url(../images/home_image.png) no-repeat center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+.km-ios7 .km-navbar .km-button
+{
+    line-height: 1em;
+    font-size: 1.2em;
     color: #fff;
 }
 
 .km-ios7 .km-navbar .km-view-title
 {
     color: #fff;
+    font-size: 1.2em;
 }
-
-.km-ios7 .km-navbar .km-icon
-{
-        color: #c2d2e2;
-}
-
-.km-ios7 .km-navbar
-{
-    background-color: #002d67;
-    border: none;
-}
-
-.km-ios7 .km-view .km-tabstrip .km-icon
-{
-    color: #c2d2e2;
-}
-
-.km-ios7 .km-view .km-tabstrip .km-text
-{
-    color: #c2d2e2;
-}
-
-.km-ios7 .km-view .km-tabstrip
-{
-    font-family: HelveNueThin, HelveticaNeue, sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    line-height: normal;
-    border: none;
-}
-
-.km-ios7 .km-view .km-tabstrip .km-button
-{
-    background-color: #014a97;
-    color: #c2d2e2;
-}
-.km-ios7 .km-view .km-tabstrip .km-state-active
-{
-    background-color: #014a97;
-    color: #c2d2e2;
-}
-
 .fa .km-icon:after,
 .fa .km-icon:before
 {
@@ -64,6 +71,7 @@ ul a:active
     font-weight: normal;
     font-style: normal;
     line-height: normal;
+    color:#343434;
 }
 
 ul
@@ -87,53 +95,6 @@ h2
     color: #000;
 }
 
-.km-customsearch:before,
-.km-customsearch:after
-{
-    content: "\f002";
-}
-
-.km-customoutlet:before,
-.km-customoutlet:after
-{
-    content: "\f0f5";
-}
-
-.km-customoffer:before,
-.km-customoffer:after
-{
-    content: "\f02c";
-}
-
-.km-custombenefit:before,
-.km-custombenefit:after
-{
-    content: "\f091";
-}
-
-.km-customhome:before,
-.km-customhome:after
-{
-    content: "\f015";
-}
-
-.km-customlogout:before,
-.km-customlogout:after
-{
-    content: "\f08b";
-}
-
-.km-customback:before,
-.km-customback:after
-{
-    content: "\f053";
-}
-
-.km-customshare:before,
-.km-customshare:after
-{
-    content: "\f1e0";
-}
 
 .km-ios7 .km-content
 {
@@ -144,7 +105,7 @@ h2
 
 .whitecolor
 {
-    color: #fff;
+    color: #575757;
 }
 
 .km-ios7 .km-view ul
@@ -180,10 +141,10 @@ img
     position: relative;
     float: left;
     width: 35%;
-    background: url(../images/smallmeydanlogoimage.png) no-repeat center center;
-    background-size: cover; 
-    -webkit-background-size: cover; 
+    background: url(../images/smallihglogoimage.png) no-repeat center center;
     border:0px solid #fff !important;
+    background-size:65% 50%;
+    -webkit-background-size:65% 50%;
 }
 
 .inner-frame-1
@@ -196,8 +157,8 @@ img
     float: left;
     width: 64%;
     font-weight: bold;
-    color: #fff;
     text-align: left;
+    color:#575757;
 }
 .inner-frame-2
 {
@@ -209,8 +170,8 @@ img
     float: left;
     width: 64%;
     font-style: italic;
-    color: #fff;
     text-align: left;
+    color:#575757;    
 }
 
 .inner-frame-3
@@ -222,8 +183,8 @@ img
     position: relative;
     float: left;
     width: 64%; 
-    color: #fff;
     text-align: left;
+    color:#575757;    
 }
 
 .inner-frame-4
@@ -232,7 +193,6 @@ img
     position: relative;
     float: left;
     width: 100%;
-    color: #fff;
     text-align: left;
 }
 
@@ -346,7 +306,7 @@ img
 }
 .button-group .km-button.km-state-active
 {
-    background-color: #003566;
+    background-color: #575757;
 }
 
 #modalview-offersocial img
@@ -1165,4 +1125,37 @@ li
     background-size: 90%;
 }
 
+.home-navbar
+{
+    background: url(../images/strip.png) repeat-x center bottom;
+    width: 78%;
+    position: relative;
+    float: left;
+    background: transparent;
+    height:3em;
+  
+}
+
+.home-navbar-text
+{
+    text-align: left;
+    color: #fff;
+    font-size: .8em;
+    font-style: italic;
+    line-height:3em;
+        width: 100%;
+}
+
+.footer-logo
+{
+    height:5em;
+    background: url(../images/footer_logo.png) no-repeat center top;
+    width: 20%;
+    background-size:65%;
+    position: relative;
+    float: left;
+    margin-top:2px;
+    margin-bottom:-5px;
+ 
+}
 

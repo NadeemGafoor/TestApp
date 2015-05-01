@@ -32,7 +32,7 @@
         height: 250px;
         width: 100%;
         display: inline-block;
-         background-image: url(../images/largemeydanlogoimage.png);
+         background-image: url(../images/largeihglogoimage.png);
         -webkit-background-size: cover;
         background-size: cover;
         background-repeat: no-repeat;
@@ -125,7 +125,7 @@
 
 .button-group .km-button
 {
-    background-color: rgb(0, 74, 151);
+    background-color: #e15f26;
     border: 1px solid #fff;
     font-size: 1.2em;
     width:200px;
