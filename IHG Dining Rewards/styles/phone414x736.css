@@ -132,14 +132,42 @@
 }
 
 
+#mycardimage .mycard-name{
+    padding-top:34%;
+    padding-left:22%;
+}
+
+
+
+#mycardimage .mycard-id{
+    padding-top:5%;
+    padding-left:22%;  
+    
+}
+
+#mycardimage .mycard-expiry{
+     padding-top:5%;
+    padding-left:12%;  
+    
+}
 
 
 
 
 
+  .brand-holder
+{
+    width:100%;
+    height:625px;
+    background: url(../images/aboutusimage.png) no-repeat center center;
+    -webkit-background-size: 95%;
+    background-size:95%;
+}
 
 
 
+
+}
 
 
 

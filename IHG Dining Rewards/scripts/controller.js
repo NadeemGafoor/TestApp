@@ -228,6 +228,11 @@
                                            pldestroyBenefitDetail:function() {
                                                $("#pl-benefit-detail").remove();  
                                            },                                         
+            showBrandPage
+                                            : function () {
+                                                // alert("Hello");
+                                                $("body").data("kendoMobilePane").navigate("views/brandpage.html");  
+                                            } ,       
                                       
                                            benefitdetail: function (e) { 
                                                benefitcode = e.view.params.bd; 
@@ -2181,7 +2186,7 @@
                                                 hideSpin(); //hide loading popup
                                             },
         
-                                            showBrandPage
+                                            plshowBrandPage
                                             : function () {
                                                 // alert("Hello");
                                                 $("body").data("kendoMobilePane").navigate("views/pl-brandpage.html");  
@@ -2319,8 +2324,6 @@
     }
     
     function listOutlet() {
-        alert(lat);
-        alert(lon);
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -2361,7 +2364,7 @@
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.responseText + "]")
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]")
                        hideSpin(); //hide loading popup
                    }
                });
