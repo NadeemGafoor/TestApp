@@ -5,13 +5,13 @@
 ul a:active
 {
     background-color: #ccc !important;
-    color: #545454;
+    color: #343434;
 }
 
 a:active
 {
     background-color: #ccc !important;
-    color: #545454;
+    color: #343434;
 }
 
 .km-ios7 .km-navbar
@@ -236,7 +236,7 @@ img
     font-weight: bold;
     line-height: 1.3em;
     height: auto; 
-    color: #fff;
+        color:#575757;
 }
 
 .add-head

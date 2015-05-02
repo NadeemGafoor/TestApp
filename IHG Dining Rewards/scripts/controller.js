@@ -343,6 +343,7 @@
                                                                                                                                                                                                                                    
                                                                   lat = m[0];
                                                                   lon = m[1];
+                                                                  alert(getData.outletlist[0].outletshort);
                                                                    document.getElementById("outlet-detail-div").style.display = "block";
                                                                   document.getElementById("outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
                                                                   document.getElementById("outlet-image-large").style.backgroundSize = "cover";
