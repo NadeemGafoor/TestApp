@@ -244,7 +244,7 @@
                                                                   //fill the outlet template
                                                                   if (getData.benefitlist.length > 0) {
                                                                       document.getElementById("item-title").innerHTML = getData.benefitlist[0].titlename;
-                                                                      document.getElementById("benefit-text3").innerHTML = "<pre>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
+                                                                      document.getElementById("benefit-text3").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                                                                       sharingSocialView.set("social_subject", getData.benefitlist[0].shortdes1);
                                                                       sharingSocialView.set("social_message", getData.benefitlist[0].shortdes2);
                                                                       sharingSocialView.set("social_header", getData.benefitlist[0].shortdes1 + "\n");
@@ -343,13 +343,13 @@
                                                                                                                                                                                                                                    
                                                                   lat = m[0];
                                                                   lon = m[1];
-                                                                  alert(getData.outletlist[0].outletshort);
-                                                                   document.getElementById("outlet-detail-div").style.display = "block";
-                                                                  document.getElementById("outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
+                                                                  
+                                                                  document.getElementById("outlet-detail-div").style.display = "block";
+                                                                  document.getElementById("outlet-image-large").style.background = "url(" + getData.outletlist[0].outletshort + ") no-repeat center center";
                                                                   document.getElementById("outlet-image-large").style.backgroundSize = "cover";
                                                                   document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
-                                                                  document.getElementById("ooutlet-short").innerHTML = getData.outletlist[0].outletshort;
-                                                                  document.getElementById("ooutlet-long").innerHTML = "<pre>" + getData.outletlist[0].outletlong + "</pre>";
+                                                                  document.getElementById("ooutlet-short").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
+                                                                  document.getElementById("ooutlet-long").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
                                                                   // document.getElementById("outlet-review").innerHTML = getData.outletlist[0].reviewcount + " Review(s)";
                                                                   // document.getElementById("outlet-star").innerHTML = getData.outletlist[0].staraverage + " Star(s)";
                                              
@@ -559,10 +559,10 @@
                                                                   document.getElementById("offer-image-large").style.backgroundSize = "cover";
                                                                      
                                                                   document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
-                                                                  document.getElementById("ooffer-shortname").innerHTML = getData.offerlist[0].itemname;
-                                                                  document.getElementById("ooffer-description").innerHTML = "<pre>" + getData.offerlist[0].itemdescription + "</pre>";
+                                                                  document.getElementById("ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
+                                                                  document.getElementById("ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                   document.getElementById("ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
-                                                                  document.getElementById("ooffer-remark").innerHTML = "<pre>" + getData.offerlist[0].remark + "</pre>";
+                                                                  document.getElementById("ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
                                                                   preLogin.set("outlettelephone", offertelephone);   
                                                                   sharingSocialView.set("social_shortmsg", "Checkout the offer at IHG Dining Rewards - " + getData.offerlist[0].itemname + "  \n");
                                                                   sharingSocialView.set("social_header", getData.offerlist[0].category);
@@ -1523,8 +1523,8 @@
                                                                    document.getElementById("pl-outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
                                                                    document.getElementById("pl-outlet-image-large").style.backgroundSize = "cover";
                                                                    document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
-                                                                   document.getElementById("pl-ooutlet-short").innerHTML = getData.outletlist[0].outletshort;
-                                                                   document.getElementById("pl-ooutlet-long").innerHTML = "<pre>" + getData.outletlist[0].outletlong + "</pre>";
+                                                                   document.getElementById("pl-ooutlet-short").innerHTML = "<pre class='fulljustifybold'>" +  getData.outletlist[0].outletshort + "</pre>";
+                                                                   document.getElementById("pl-ooutlet-long").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
                                              
                                                                    sharingSocialView.set("social_shortmsg", "Checkout the offer at IHG Dining Rewards - " + getData.outletlist[0].outletname + "  \n");
                                                                    sharingSocialView.set("social_header", getData.outletlist[0].outletname);
@@ -1740,10 +1740,10 @@
                                                                    document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
                                                                      
                                                                    document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
-                                                                   document.getElementById("pl-ooffer-shortname").innerHTML = getData.offerlist[0].itemname;
-                                                                   document.getElementById("pl-ooffer-description").innerHTML = "<pre>" + getData.offerlist[0].itemdescription + "</pre>";
+                                                                   document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
+                                                                   document.getElementById("pl-ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                    document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
-                                                                   document.getElementById("pl-ooffer-remark").innerHTML = "<pre>" + getData.offerlist[0].remark + "</pre>";
+                                                                   document.getElementById("pl-ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
                                                                    postLogin.set("outlettelephone", offertelephone);
                                                                    sharingSocialView.set("social_shortmsg", "Checkout the offer at IHG Dining Rewards - " + getData.offerlist[0].itemname + "  \n");
                                                                    sharingSocialView.set("social_header", getData.offerlist[0].category);

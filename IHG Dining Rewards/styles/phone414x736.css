@@ -11,7 +11,7 @@
 
 .home-pos 
     {
-        height: 550px;
+        height: 525px;
         width: 100%;
         display:block;
         margin:auto;
@@ -33,11 +33,11 @@
         width: 100%;
         display: inline-block;
          background-image: url(../images/largeihglogoimage.png);
-        -webkit-background-size: cover;
-        background-size: cover;
+        -webkit-background-size: auto;
+        background-size: auto;
         background-repeat: no-repeat;
         background-position: center center;
-        overflow:hidden;
+        overflow:hidden;        
     }
 
   .dashboard-image
