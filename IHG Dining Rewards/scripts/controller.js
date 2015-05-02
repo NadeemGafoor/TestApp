@@ -54,6 +54,8 @@
     var share_contact = "Phone: +971 427 66 186 \nEmail: inquiry@ihg.com";
     var short_msg = "Check out the IHG Dining Rewards at ";
     var offertelephone = "0097142766186";
+    var enrollmenttelephone="0097142766213";
+    var customercaretelephone="0097142766186";
     var cardimage = "";
     
     //// function onSuccess(acceleration) {
@@ -148,6 +150,8 @@
                                            mdevice:"",
                                            customer:"",
                                            segmentcode:"",
+        enrollmenttelephone:enrollmenttelephone,
+        customercaretelephone:customercaretelephone,
                                            pldestroyBenefitList:function() {
                                                $("#pl-benefit-list").remove();  
                                            },
@@ -560,7 +564,7 @@
                                                                   document.getElementById("offer-image-large").style.backgroundSize = "cover";
                                                                      
                                                                   document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
-                                                                  document.getElementById("ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
+                                                                  document.getElementById("ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + " </pre>";
                                                                   document.getElementById("ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                   document.getElementById("ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                   document.getElementById("ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
@@ -624,6 +628,15 @@
                                            :  function () {
                                                window.open("tel:" + preLogin.outlettelephone);
                                            },
+          callTelc
+                                           :  function () {
+                                               window.open("tel:" + preLogin.enrollmenttelephone);
+                                           },
+          customerCare
+                                           :  function () {
+                                               window.open("tel:" + preLogin.customercaretelephone);
+                                           },
+        
                                            shareOutlet
                                            :  function () {
                                                showSpin();
@@ -1743,7 +1756,7 @@
                                                                    document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
                                                                      
                                                                    document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
-                                                                   document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
+                                                                   document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + " </pre>";
                                                                    document.getElementById("pl-ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                    document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                    document.getElementById("pl-ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
@@ -2306,6 +2319,8 @@
     }
     
     function listOutlet() {
+        alert(lat);
+        alert(lon);
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -2346,7 +2361,7 @@
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]")
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.responseText + "]")
                        hideSpin(); //hide loading popup
                    }
                });

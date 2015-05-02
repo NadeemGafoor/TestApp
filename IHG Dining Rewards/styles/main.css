@@ -133,8 +133,8 @@ img
     width: 35%;
     background: url(../images/smallihglogoimage.png) no-repeat center center;
     border:0px solid #fff !important;
-    background-size:65% 50%;
-    -webkit-background-size:65% 50%;
+    background-size:auto;
+    -webkit-background-size:auto;
 }
 
 .inner-frame-1
@@ -166,10 +166,11 @@ img
 
 .inner-frame-3
 {
+    padding-top:.5em;
     padding-left: .4em;
     padding-right: 0em;
     height: 4em;
-    line-height: 1.2em;
+    line-height: 1.4em;
     position: relative;
     float: left;
     width: 64%; 
@@ -1299,7 +1300,7 @@ tile-frame-inner
     height: 6em;
     position: relative;
     float: left;
-    width: 65%;
+    width: 70%;
     margin-left: .3em;
     margin-right: .3em;
     text-align: justify;
@@ -1310,7 +1311,7 @@ tile-frame-inner
     height: 6em;
     position: relative;
     float: left;
-    width: 10%;
+    width: 5%;
 }
 
 .msg-action-frame-inner-1
@@ -1320,7 +1321,6 @@ tile-frame-inner
     float: none;
     width: 100%;
     display:inline-block;
-    margin:.5em auto auto .8em;
 }
 
 .msg-action-frame-inner-2
@@ -1350,7 +1350,17 @@ tile-frame-inner
     float: none;
     width: 100%;
     background-color: #343434;
-        padding:.3em;
+   
+}
+
+.msg-date-frame-inner-2a
+{
+    height: 100%;
+    position: relative;
+    float: none;
+    width: 100%;
+    background-color: #343434;
+    padding:.2em;   
 }
 
 .msg-outer-frame-a
@@ -1450,4 +1460,8 @@ tile-frame-inner
     width: 100%;
     padding-top: .2em;
     color: #343434;
+}
+
+.dotcolor{
+    ;color:#de5716;
 }

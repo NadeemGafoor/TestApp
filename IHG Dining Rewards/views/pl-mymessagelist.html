@@ -31,15 +31,15 @@
                 <div class="msg-date-frame-inner-1 msgfont">
                     ${mday}
                 </div>
-                <div class="msg-date-frame-inner-2 msgfont">${mmonth}</div>
+                <div class="msg-date-frame-inner-2"> <div class="msg-date-frame-inner-2a msgfont">${mmonth}</div></div>
             </div>
-            <div class="msg-narration-frame">
+            <div class="msg-narration-frame" style="margin-top:.2em">
                 ${narration120}&nbsp;
 
             </div>
             <div class="msg-action-frame-outer">
-                <div class="msg-action-frame-inner-1">
-                    <img src="${readicon}" style="height:auto;width:auto"/>
+                <div class="msg-action-frame-inner-1" style="display:${readicon}">
+                    <i class="fa fa-circle fa-lg dotcolor"></i>
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
     
     #mymessagelist-theme a:active
     {
-        background-color: transparent !important;
-        color: #343434;
+        background-color: inherit !important;
+        color:#343434 !important;
     }    
     </style>
