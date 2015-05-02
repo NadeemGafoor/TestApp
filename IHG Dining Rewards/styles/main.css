@@ -1250,10 +1250,8 @@ tile-frame-inner
 .center-pos
 {
     display: block;
-    margin-top: .5em;
+    margin: auto;
 }
-
-
 
 
 .msgfont
@@ -1262,6 +1260,7 @@ tile-frame-inner
     font-size: 18px;
     font-weight: bold;
     color: #fff;
+
 }
 
 .msg-inner-frame-2 .km-button
@@ -1336,20 +1335,22 @@ tile-frame-inner
 
 .msg-date-frame-inner-1
 {
-    height: 50%;
+    height: 60%;
     position: relative;
     float: none;
     width: 100%;
     background-color: #de5716; 
+    padding:.6em;
 }
 
 .msg-date-frame-inner-2
 {
-    height: 50%;
+    height: 40%;
     position: relative;
     float: none;
     width: 100%;
     background-color: #343434;
+        padding:.3em;
 }
 
 .msg-outer-frame-a
