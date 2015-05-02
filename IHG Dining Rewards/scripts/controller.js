@@ -345,7 +345,7 @@
                                                                   lon = m[1];
                                                                   
                                                                   document.getElementById("outlet-detail-div").style.display = "block";
-                                                                  document.getElementById("outlet-image-large").style.background = "url(" + getData.outletlist[0].outletshort + ") no-repeat center center";
+                                                                  document.getElementById("outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
                                                                   document.getElementById("outlet-image-large").style.backgroundSize = "cover";
                                                                   document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
                                                                   document.getElementById("ooutlet-short").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
@@ -555,6 +555,7 @@
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
+                                                                  document.getElementById("offer-detail-div").style.display="block";
                                                                   document.getElementById("offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
                                                                   document.getElementById("offer-image-large").style.backgroundSize = "cover";
                                                                      
@@ -1520,6 +1521,7 @@
                                                                                                                                                                                                                                    
                                                                    lat = m[0];
                                                                    lon = m[1];
+                                                                   document.getElementById("pl-outletdetail-div").style.display="block";
                                                                    document.getElementById("pl-outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
                                                                    document.getElementById("pl-outlet-image-large").style.backgroundSize = "cover";
                                                                    document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
@@ -1736,6 +1738,7 @@
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
+                                                                   document.getElementById("pl-offerdetail-div").style.display="block";
                                                                    document.getElementById("pl-offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
                                                                    document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
                                                                      
@@ -1898,6 +1901,8 @@
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.myvoucherdetail.length > 0) {
+                                                                       
+                                                                       document.getElementById("wallet-div").style.display="block";
                                                                        document.getElementById("myvoucher-load").style.background = "url(" + getData.myvoucherdetail[0].imageurll + ") no-repeat center center";
                                                                        document.getElementById("myvoucher-load").style.backgroundSize = "cover";
                                                                                                                                          

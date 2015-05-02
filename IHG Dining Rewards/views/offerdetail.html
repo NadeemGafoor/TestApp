@@ -5,6 +5,7 @@
              <a data-transition="slide"   data-role="button" href="views/offerlist.html" data-align="left"  data-icon="back">
             </a>
             <span data-role="view-title" id="item-title"></span>
+            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="right" ><i class="fa fa-home fa-lg" style="color:#fff"></i></a>
         </div>
     </header>
     <ul data-role="buttongroup" data-index="0" id="offertab" class="button-group" style="margin-top:0px">
@@ -16,9 +17,9 @@
         </li>
 
     </ul>
-    <ul data-role="listview" data-style="inset" style="background-color:#fff;margin-top:0px">
+    <ul data-role="listview" data-style="inset" style="background-color:#fff;margin-top:0px;display:none" id="offer-detail-div">
 
-        <div class="myoffer-image" id="offer-image-large">
+        <div class="hero-image" id="offer-image-large">
         </div>
 
         <li>
@@ -36,7 +37,7 @@
         </li>
 
         <li>
-            <div class="detail-subhead" style="color:#ffb606">This offer is only for IHG Dining Rewards Members. Please Login to grab this offer!</div>
+            <div class="detail-subhead" style="color:#ffb606">This offer is only for IHG Dining Rewards Members. Please Login to grab this offer.</div>
         </li>
 
     </ul>
@@ -54,7 +55,7 @@
                     <div class="home-navbar" >
                         <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
                     </div>
-  <div class="footer-logo" data-bind="click:showBrandPage">&nbsp;</div>
+             <div class="footer-logo" href="views/brandpage.html" data-transition="slide:up">&nbsp;</div>
 
 
                 </div>
@@ -107,5 +108,8 @@
         background-color:#f4efed !important;
     }
    
+    
+     
+    
     </style>
 

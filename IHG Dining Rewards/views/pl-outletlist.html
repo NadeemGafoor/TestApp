@@ -18,7 +18,7 @@
             <div class="home-navbar" >
                 <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
             </div>
-             <div class="footer-logo" data-bind="click:showBrandPage">&nbsp;</div>
+             <div class="footer-logo" href="views/pl-brandpage.html" data-transition="slide:up">&nbsp;</div>
 
 
         </div>
@@ -26,21 +26,16 @@
 </div>
 
 <script type="text/x-kendo-template" id="pl-outletListAllTemplate">
+    <a data-transition="slide"   href="views/pl-outletdetail.html?od=${outletcode}" data-role="button"   class="a-class">
     <div class="outer-frame">
-        <div class="image-frame-list">
+        <div class="image-frame-list small-image-height">
             <img src="${imageurl}" style="height:100%;width:100%"/>
         </div>
         <div class="inner-frame-1">${outletname}</div>
         <div class="inner-frame-2">${hotelname}</div>
-        <div class="inner-frame-3">Distance ${distance} Km</div>
-        <div class="inner-frame-4">
-            <div class="inner-frame-4a" style="text-align:right">
-               </div>
-            <div class="inner-frame-4b">
-                 <a data-transition="slide"   href="views/pl-outletdetail.html?od=${outletcode}" data-role="button"   class="a-class">></a>
-            </div>
-        </div>
+        <div class="inner-frame-3">Distance ${distance} Km</div>    
     </div>
+</a>    
 </script>
 
 <style scoped>
@@ -50,6 +45,10 @@
         border-bottom:1px solid #ccc !important;
     }
     
-       
+       #pl-outletlist-theme a:active
+    {
+        background-color: transparent !important;
+        color: #343434;
+    }   
    
 </style>

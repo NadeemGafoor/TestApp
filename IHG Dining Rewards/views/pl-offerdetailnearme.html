@@ -5,6 +5,7 @@
             <a data-transition="slide"   data-role="button" href="views/pl-offerlistnearme.html" data-align="left"  data-icon="back">
             </a>
             <span data-role="view-title" id="item-title"></span>
+                        <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" ><i class="fa fa-home fa-lg" style="color:#fff"></i></a>
         </div>
     </header>
     <ul data-role="buttongroup" data-index="0" id="ploffertabnearme" class="button-group" style="margin-top:0px">
@@ -16,9 +17,9 @@
         </li>
 
     </ul>
-    <ul data-role="listview" data-style="inset" style="background-color:#fff;margin-top:0px">
+    <ul data-role="listview" data-style="inset" style="background-color:#fff;margin-top:0px;display:none" id="pl-offerdetail-div">
 
-        <div class="myoffer-image" id="pl-offer-image-large">
+        <div class="hero-image" id="pl-offer-image-large">
         </div>
         
            <li>
@@ -64,7 +65,7 @@
                     <div class="home-navbar" >
                         <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
                     </div>
-                      <div class="footer-logo" data-bind="click:showBrandPage">&nbsp;</div>
+                  <div class="footer-logo" href="views/pl-brandpage.html" data-transition="slide:up">&nbsp;</div>
 
 
                 </div>
@@ -73,19 +74,13 @@
 
 <script type="text/x-kendo-template" id="plofferOutletTemplate">
     <div class="outer-frame">
-           <div class="image-frame-list">
+           <div class="image-frame-list small-image-height">
             <img src="${imageurl}" style="height:100%;width:100%"/>
         </div>
         <div class="inner-frame-1">${outletname}</div>
         <div class="inner-frame-2">${hotelname}</div>
         <div class="inner-frame-3">Distance ${distance} Km</div>
-        <div class="inner-frame-4">
-            <div class="inner-frame-4a">
-            </div>
-            <div class="inner-frame-4b">
-
-            </div>
-        </div>
+       
     </div>
 </script>
 

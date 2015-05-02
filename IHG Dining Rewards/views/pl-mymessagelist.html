@@ -18,34 +18,32 @@
             <div class="home-navbar" >
                 <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
             </div>
-            <div class="footer-logo" data-bind="click:showBrandPage">&nbsp;</div>
-
+            <div class="footer-logo" href="views/pl-brandpage.html" data-transition="slide:up">&nbsp;</div>
 
         </div>
     </footer>
 </div>
 
 <script type="text/x-kendo-template" id="pl-historyListTemplate">
-    <div class="msg-outer-frame" >
-        <div class="msg-date-frame-outer">
-            <div class="msg-date-frame-inner-1">
-                <div class="center-pos  msgfont" style="margin-top:1em">${mday}</div>
+    <a data-transition="slide"   href="views/pl-messageitem.html?mi=${sequence}" data-role="button" >
+        <div class="msg-outer-frame" >
+            <div class="msg-date-frame-outer">
+                <div class="msg-date-frame-inner-1 center-pos msgfont">
+                    ${mday}
+                </div>
+                <div class="msg-date-frame-inner-2 msgfont">${mmonth}</div>
             </div>
-            <div class="msg-date-frame-inner-2 msgfont">${mmonth}</div>
-        </div>
-        <div class="msg-narration-frame">
-            ${narration120}&nbsp;
+            <div class="msg-narration-frame">
+                ${narration120}&nbsp;
 
-        </div>
-        <div class="msg-action-frame-outer">
-            <div class="msg-action-frame-inner-1">
-                <img src="${readicon}" style="height:auto;width:auto"/>
             </div>
-            <div class="msg-action-frame-inner-2">
-                <a data-transition="slide"   href="views/pl-messageitem.html?mi=${sequence}" data-role="button" class="a-class"  >></a>
+            <div class="msg-action-frame-outer">
+                <div class="msg-action-frame-inner-1">
+                    <img src="${readicon}" style="height:auto;width:auto"/>
+                </div>
             </div>
         </div>
-    </div>
+    </a>
 </script>
 
 <style scope>
@@ -54,14 +52,10 @@
     
         border-bottom: 1px solid #343434  !important;
     }
-
-    #mymessagelist-theme .a-class
+    
+    #mymessagelist-theme a:active
     {
-        background-color: #e9763f !important;
-        height: 2em;
-        line-height: .75em;
-        color: #fff;
-        font-weight: bold;
-        font-size: 1em;
-    }
+        background-color: transparent !important;
+        color: #343434;
+    }    
     </style>

@@ -2,54 +2,53 @@
 <div id="offerlistnearme-view"
      data-role="view"
      data-title="Offers Near Me" data-layout="back-layout"  data-model="preLogin" data-show="preLogin.offerlist" data-hide="preLogin.destroyOfferListNearMeView">
-     <div data-role="header">
-                <div data-role="navbar">
-                    <div class="brand-icon"></div>
-                    <span data-role="view-title"></span>
-                     <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
-                </div>
-            </div>
+    <div data-role="header">
+        <div data-role="navbar">
+            <div class="brand-icon"></div>
+            <span data-role="view-title"></span>
+            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
+        </div>
+    </div>
     <ul data-role="listview" style="background-color:#fff" id="offer-list-view">
 
     </ul>
-    
-     <footer data-role="footer">
 
-                <div data-role="navbar">
-                    <div class="home-navbar" >
-                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
-                    </div>
-                      <div class="footer-logo" data-bind="click:showBrandPage">&nbsp;</div>
+    <footer data-role="footer">
 
+        <div data-role="navbar">
+            <div class="home-navbar" >
+                <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
+            </div>
+            <div class="footer-logo" href="views/brandpage.html" data-transition="slide:up">&nbsp;</div>
 
-                </div>
-            </footer>
+        </div>
+    </footer>
 </div>
 
 <script type="text/x-kendo-template" id="offerListTemplate">
-    <div class="outer-frame-o">
-        <div class="image-frame-list">
-            <img src="${imageurls}" style="height:100%;width:100%"/>
-        </div>
-        <div class="inner-frame-1-o">${itemname}</div>
-        <div class="inner-frame-2-o">${category}</div>
-        <div class="inner-frame-3-o">Expiry : ${couponexpirydate}</div>
-        <div class="inner-frame-4-o">
-            <div class="inner-frame-4a"></div>
-            <div class="inner-frame-4b">
-                 <a data-transition="slide"   href="views/offerdetailnearme.html?of=${itemcode}" data-role="button"   class="a-class">></a>
+    <a data-transition="slide"   href="views/offerdetailnearme.html?of=${itemcode}" data-role="button"   class="a-class">
+        <div class="outer-frame">
+            <div class="image-frame-list small-image-height">
+                <img src="${imageurls}" style="height:100%;width:100%"/>
             </div>
+            <div class="inner-frame-1">${itemname}</div>
+            <div class="inner-frame-2">${category}</div>
+            <div class="inner-frame-3">Expiry : ${couponexpirydate}</div>
         </div>
-    </div>
+    </a>
 </script>
 
 <style scoped>
 
-    #offerlistnearme-view li{
-        border-top:1px solid #ccc !important;
-        border-bottom:1px solid #ccc !important;
+    #offerlistnearme-view li
+    {
+        border-top: 1px solid #ccc !important;
+        border-bottom: 1px solid #ccc !important;
     }
     
-       
-   
-</style>
+    #offerlistnearme-view a:active
+    {
+        background-color: transparent !important;
+        color: #343434;
+    }            
+    </style>

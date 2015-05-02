@@ -6,27 +6,28 @@
             <span data-role="view-title"></span>
             <a data-transition="slide"   data-role="button" href="views/pl-mymessagelist.html" data-align="left" style="color:#fff"  data-icon="back"></a>
         </div>
+        <div data-role="navbar" style="background-color:#5d5b5a">
+            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left" >
+                <i class="fa fa-home fa-lg" style="color:#fff"></i>
+            </a>
+            <a data-transition="slide"   data-role="button"  data-bind="click: deleteMessage" data-align="right" >
+                <i class="fa fa-trash fa-lg" style="color:#fff"></i>
+            </a>
+        </div>
     </div>
 
     <ul data-role="listview" style="background-color:#fff;margin-top:10px" id="pl-messageitem-list">
         <li>
 
-            <div class="msg-outer-frame" style="height:10em;text-align:justify" >
+            <div class="msg-outer-frame" style="height:10em" >
                 <div class="msg-date-frame-outer">
                     <div class="msg-date-frame-inner-1">
                         <div class="center-pos  msgfont" style="margin-top:1em"  id="msgday"></div>
                     </div>
                     <div class="msg-date-frame-inner-2 msgfont" id="msgmonth"></div>
                 </div>
-                <div class="msg-narration-frame" id="msgnarration"></div>
-                <div class="msg-action-frame-outer">
-                    <div class="msg-action-frame-inner-1"></div>
-                    <a data-transition="slide"   data-role="button" data-bind="click: deleteMessage">
-                        <div class="msg-action-frame-inner-2">
-                            <img src="images/deleteicon.png" style="height:auto;width:auto"/>
-                        </div>
-                    </a>
-                </div>
+                <div class="fulljustify" id="msgnarration"></div>
+         
             </div>
 
         </li>
@@ -37,8 +38,7 @@
             <div class="home-navbar" >
                 <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
             </div>
-             <div class="footer-logo" data-bind="click:showBrandPage">&nbsp;</div>
-
+            <div class="footer-logo" href="views/pl-brandpage.html" data-transition="slide:up">&nbsp;</div>
 
         </div>
     </footer>
