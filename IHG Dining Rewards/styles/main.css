@@ -64,6 +64,8 @@ a:active
     color:#343434;
 }
 
+
+
 ul
 {
     border-top: 0  !important;
@@ -975,13 +977,15 @@ li
     height: 50px;
     line-height: 50px;
     position: relative;
-    float: none;
-    color: #e96228;
-    font-size: 1.2em;
-    font-weight: bold;
+    float: none;  
     text-align: center;
     display: block;
     margin: auto;
+    font-family:'Georgia';
+    font-size:1.1em;
+    font-style:italic;
+    font-weight:bold;
+    color:#000;
 }
 
 .prelogin-frame-image-1
