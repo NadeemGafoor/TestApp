@@ -1,7 +1,13 @@
-.km-ios7 .km-navbar .km-view-title
+.km-navbar a:active{
+    background-color:transparent !important;
+}
+
+.km-navbar span,
+.km-navbar .km-view-title span
 {
    color: #fff;
 }
+
 ul a:active
 {
     background-color: #e67e1d !important;
@@ -359,7 +365,7 @@ img
     display: block;
 }
 
-#settings-theme .input-frame input,
+#pl-settings-theme .input-frame input,
 #join-theme .input-frame input,
 #token-theme .input-frame input,
 #login-theme .input-frame input,
@@ -533,7 +539,7 @@ img
     height: auto;
 }
 
-#history-theme .input-frame select
+#pl-setting-theme .input-frame select
 {
     display: block;
     width: 96%;

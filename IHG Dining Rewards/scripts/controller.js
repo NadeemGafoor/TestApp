@@ -252,6 +252,7 @@
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
                                                                   if (getData.benefitlist.length > 0) {
+                                                                      document.getElementById("benefit-detail-view").style.display="block";
                                                                       document.getElementById("item-title").innerHTML = getData.benefitlist[0].titlename;
                                                                       document.getElementById("benefit-text3").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                                                                       sharingSocialView.set("social_subject", getData.benefitlist[0].shortdes1);
@@ -1429,6 +1430,7 @@
                                   
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.messageitem.length > 0) {
+                                                                       document.getElementById("pl-messageitem-list").style.display="block";
                                                                        document.getElementById("msgnarration").innerHTML = getData.messageitem[0].narration;
                                                                        document.getElementById("msgmonth").innerHTML = getData.messageitem[0].mmonth;
                                                                        document.getElementById("msgday").innerHTML = getData.messageitem[0].mday;
