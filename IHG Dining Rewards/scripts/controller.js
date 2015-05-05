@@ -1,6 +1,8 @@
  
 
 (function (global) {
+    var flagurl="";
+            var mcountry = "";
     var googleapikey = "";
     var firsttime = "";
     var mdevice = "";
@@ -32,8 +34,8 @@
     var city = "";
     var country = "";
     var geocity = "";
-    var geocountry = "";
-   
+    var mcountry = "";
+    var countryflag = "";
     var autolocation = "";
     var outletcode = "";
     var brandcode = "";
@@ -51,11 +53,12 @@
     var sr = "";
     var social_subject = "IHG Dining Rewards";
     var share_image = "http://exclusiveu.dynns.com:8088/mobileportal/images/ihg_logo.png";
+    var flag_image = "http://exclusiveu.dynns.com:8088/mobileportal/flagimages/";
     var share_contact = "Phone: +971 427 66 186 \nEmail: inquiry@ihg.com";
     var short_msg = "Check out the IHG Dining Rewards at ";
     var offertelephone = "0097142766186";
-    var enrollmenttelephone="0097142766213";
-    var customercaretelephone="0097142766186";
+    var enrollmenttelephone = "0097142766213";
+    var customercaretelephone = "0097142766186";
     var cardimage = "";
     
     //// function onSuccess(acceleration) {
@@ -99,7 +102,7 @@
                                                     socialsharingTwitter:  function () {
                                                         showSpin();
                                                           
-                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg, sharingSocialView.social_image, "http://www.ihgdiningrewards.com")
+                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg, null, "http://www.ihgdiningrewards.com")
                                                         hideSpin();
                                                     },
 
@@ -128,7 +131,7 @@
                                                         window.plugins.socialsharing.shareViaEmail(
                                                             sharingSocialView.social_header + "\n\n" + sharingSocialView.social_message + "\n\n" + share_contact, // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
                                                             sharingSocialView.social_shortmsg, null, null, null, // TO: must be null or an array
-                                                            [sharingSocialView.social_image], // FILES: can be null, a string, or an array
+                                                            null, // FILES: can be null, a string, or an array
                                                             function (msg) {
                                                             }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
                                                             function (msg) {
@@ -150,8 +153,8 @@
                                            mdevice:"",
                                            customer:"",
                                            segmentcode:"",
-        enrollmenttelephone:enrollmenttelephone,
-        customercaretelephone:customercaretelephone,
+                                           enrollmenttelephone:enrollmenttelephone,
+                                           customercaretelephone:customercaretelephone,
                                            pldestroyBenefitList:function() {
                                                $("#pl-benefit-list").remove();  
                                            },
@@ -228,11 +231,11 @@
                                            pldestroyBenefitDetail:function() {
                                                $("#pl-benefit-detail").remove();  
                                            },                                         
-            showBrandPage
-                                            : function () {
-                                                // alert("Hello");
-                                                $("body").data("kendoMobilePane").navigate("views/brandpage.html");  
-                                            } ,       
+                                           showBrandPage
+                                           : function () {
+                                               // alert("Hello");
+                                               $("body").data("kendoMobilePane").navigate("views/brandpage.html");  
+                                           } ,       
                                       
                                            benefitdetail: function (e) { 
                                                benefitcode = e.view.params.bd; 
@@ -252,7 +255,7 @@
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
                                                                   if (getData.benefitlist.length > 0) {
-                                                                      document.getElementById("benefit-detail-view").style.display="block";
+                                                                      document.getElementById("benefit-detail-view").style.display = "block";
                                                                       document.getElementById("item-title").innerHTML = getData.benefitlist[0].titlename;
                                                                       document.getElementById("benefit-text3").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                                                                       sharingSocialView.set("social_subject", getData.benefitlist[0].shortdes1);
@@ -357,7 +360,7 @@
                                                                   document.getElementById("outlet-detail-div").style.display = "block";
                                                                   document.getElementById("outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
                                                                   document.getElementById("outlet-image-large").style.backgroundSize = "cover";
-                                                                  document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
+                                                                  //document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
                                                                   document.getElementById("ooutlet-short").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
                                                                   document.getElementById("ooutlet-long").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
                                                                   // document.getElementById("outlet-review").innerHTML = getData.outletlist[0].reviewcount + " Review(s)";
@@ -565,11 +568,11 @@
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
-                                                                  document.getElementById("offer-detail-div").style.display="block";
+                                                                  document.getElementById("offer-detail-div").style.display = "block";
                                                                   document.getElementById("offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
                                                                   document.getElementById("offer-image-large").style.backgroundSize = "cover";
                                                                      
-                                                                  document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
+                                                                  //document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
                                                                   document.getElementById("ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + " </pre>";
                                                                   document.getElementById("ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                   document.getElementById("ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
@@ -634,11 +637,11 @@
                                            :  function () {
                                                window.open("tel:" + preLogin.outlettelephone);
                                            },
-          callTelc
+                                           callTelc
                                            :  function () {
                                                window.open("tel:" + preLogin.enrollmenttelephone);
                                            },
-          customerCare
+                                           customerCare
                                            :  function () {
                                                window.open("tel:" + preLogin.customercaretelephone);
                                            },
@@ -652,6 +655,7 @@
                                            varInit
                                            : function() {
                                                showSpin();
+                                               document.getElementById("flagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center"; 
                                                if (firsttime == "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
@@ -685,6 +689,7 @@
                                                                       window.localStorage.setItem("lat", lat);
                                                                       window.localStorage.setItem("lon", lon);
                                                                       //alert(googleapikey);
+                                                                      getCountry(); //Get Flag
                                                                       hideSpin(); //hide loading popup
                                                                   }else if (getData.statuscode === "047") {
                                                                       $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
@@ -698,7 +703,7 @@
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           });
-                                                   
+                                      
                                                    //var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
                                                    // if (mplatform==="iOS") {
                                                    //     var options = {enableHighAccuracy:false,timeout: 30000,frequency:600000 }
@@ -807,7 +812,6 @@
                                                        autolocation = window.localStorage.getItem("autolocation");
                                                        city = window.localStorage.getItem("city");
                                                        country = window.localStorage.getItem("country");
-                                                      
                                                        $("body").data("kendoMobilePane").navigate("views/pl-myprofile.html"); 
                                                    } else {
                                                        outletcode = "";
@@ -857,7 +861,7 @@
                                                                Merchant:merchant,
                                                                Segment:segmentcode,
                                                                devicecode:muuid
-                                                           }
+                                                           } 
                                                        };
                                                        
                                                        currentDevice.enableNotifications(pushSettings, function (data) {
@@ -879,8 +883,12 @@
                                                        }, function(err) {
                                                        });
                                                    }
+                                               //flag display
+
                                                }
-                                                
+                   
+
+                                   
                                                hideSpin();
                                                return;
                                            },
@@ -1066,7 +1074,6 @@
                                                                   window.localStorage.setItem("autolocation", autolocation);
                                                                   window.localStorage.setItem("city", city);
                                                                   window.localStorage.setItem("country", country);
-                                                                  
                                                                  
                                                                   pushSettings = {
                                                                       iOS: {
@@ -1338,6 +1345,10 @@
                                                 if (autolocation != "1") {
                                                     gpsErrorApp();
                                                 }
+                                                //get flag
+                                                   document.getElementById("plflagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center";
+
+
                                                 //Show Card Image
                                                 if (segmentcode==="1000") {
                                                     cardimage = "images/ihg_gold.png";
@@ -1430,7 +1441,7 @@
                                   
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.messageitem.length > 0) {
-                                                                       document.getElementById("pl-messageitem-list").style.display="block";
+                                                                       document.getElementById("pl-messageitem-list").style.display = "block";
                                                                        document.getElementById("msgnarration").innerHTML = getData.messageitem[0].narration;
                                                                        document.getElementById("msgmonth").innerHTML = getData.messageitem[0].mmonth;
                                                                        document.getElementById("msgday").innerHTML = getData.messageitem[0].mday;
@@ -1541,11 +1552,11 @@
                                                                                                                                                                                                                                    
                                                                    lat = m[0];
                                                                    lon = m[1];
-                                                                   document.getElementById("pl-outletdetail-div").style.display="block";
+                                                                   document.getElementById("pl-outletdetail-div").style.display = "block";
                                                                    document.getElementById("pl-outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
                                                                    document.getElementById("pl-outlet-image-large").style.backgroundSize = "cover";
-                                                                   document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
-                                                                   document.getElementById("pl-ooutlet-short").innerHTML = "<pre class='fulljustifybold'>" +  getData.outletlist[0].outletshort + "</pre>";
+                                                                   //document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
+                                                                   document.getElementById("pl-ooutlet-short").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
                                                                    document.getElementById("pl-ooutlet-long").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
                                              
                                                                    sharingSocialView.set("social_shortmsg", "Checkout the offer at IHG Dining Rewards - " + getData.outletlist[0].outletname + "  \n");
@@ -1758,11 +1769,11 @@
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
-                                                                   document.getElementById("pl-offerdetail-div").style.display="block";
+                                                                   document.getElementById("pl-offerdetail-div").style.display = "block";
                                                                    document.getElementById("pl-offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
                                                                    document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
                                                                      
-                                                                   document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
+                                                                   //document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
                                                                    document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + " </pre>";
                                                                    document.getElementById("pl-ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                    document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
@@ -1921,8 +1932,7 @@
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.myvoucherdetail.length > 0) {
-                                                                       
-                                                                       document.getElementById("wallet-div").style.display="block";
+                                                                       document.getElementById("wallet-div").style.display = "block";
                                                                        document.getElementById("myvoucher-load").style.background = "url(" + getData.myvoucherdetail[0].imageurll + ") no-repeat center center";
                                                                        document.getElementById("myvoucher-load").style.backgroundSize = "cover";
                                                                                                                                          
@@ -2281,18 +2291,18 @@
          
     function showSpin() {
         if (!checkConnectionBool()) {
-                   navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.");  
+            navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.");  
             //        //$("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
-              } else {
+        } else {
             window.plugins.spinnerDialog.show(null, null, true); //show loading popup
         }
     }
     
     function writeSpin() {
         if (!checkConnectionBool()) {
-           navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.");              
+            navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.");              
             //        $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
-      } else {
+        } else {
             window.plugins.spinnerDialog.show(null, null, true); //show loading popup
         }
     }
@@ -2714,6 +2724,75 @@
                                                      //  }
                                                      gpsError();
                                                  });   
+    }
+    
+    //Get Country
+    function getCountry() {
+
+        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+            lat = position.coords.latitude;                                  
+            lon = position.coords.longitude
+            var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
+          
+            $.getJSON(geocodingAPI, function (json) {
+                if (json.status === "OK") {
+                    //Check result 0
+                    var result = json.results[0];
+                    for (var i = 0, len = result.address_components.length; i < len; i++) {
+                        var ac = result.address_components[i];
+                        if (ac.types.indexOf("locality") >= 0) {
+                            geocity = ac.long_name;
+                        }
+	                          
+                        if (ac.types.indexOf("country") >= 0) {
+                            mcountry = ac.long_name;
+                        }
+                    }
+                    getFlag();                                              
+                }else {
+                    mcountry = country;
+                    getFlag();
+                    
+                }
+            });
+        }
+                                                 , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                     //  if (err.code == "1") {
+                                                     //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                     //  } else if (err.code == "2") {
+                                                     //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                     //  }
+                                                     lat = window.localStorage.getItem("lat");
+                                                     lon = window.localStorage.getItem("lon");
+                                                     mcountry = country;
+                                                     getFlag();
+                                                 });
+    }
+    function getFlag() {
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/getCountryflag.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat,city:geocity,country:mcountry,lat:lat,lon:lon
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                                                            
+                       if (getData.statuscode == "000") { 
+                           countryflag = getData.countryflag;
+                            window.localStorage.setItem("flagurl",  flag_image + countryflag + ".png");
+                           document.getElementById("flagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center";
+                            hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (errormsg) {
+                       hideSpin(); //hide loading popup
+                   }
+               });
     }
 }
 )(window);
