@@ -1,8 +1,11 @@
  
 
 (function (global) {
-    var flagurl="";
-            var mcountry = "";
+    var gpsErrorShow = "";
+    var gpsErrorShowApp="";
+    var magicnumber = "";
+    var flagurl = "";
+    var mcountry = "";
     var googleapikey = "";
     var firsttime = "";
     var mdevice = "";
@@ -308,7 +311,7 @@
                                                            if (y==="1") {
                                                                geocity = "";
                                                            }
-                                                         
+                                                            
                                                            listOutlet();
                                                        }
                                                    });
@@ -325,7 +328,7 @@
                                                                                                 geocity = city;
                                                                                             }
                                                                                             geocountry = country;
-                                                                                         
+                                                                                          
                                                                                             // locationErrorToast();
                                                                                             lat = window.localStorage.getItem("lat");
                                                                                             lon = window.localStorage.getItem("lon");
@@ -466,6 +469,7 @@
                                                                                                position: latlng,
                                                                                                map: map
                                                                                            });
+                                                        
                                                    }
                                                                                             , function onErrorShowMap(error) {
                                                                                                 if (error.code == "1") {
@@ -473,6 +477,7 @@
                                                                                                 } else if (error.code == "2") {
                                                                                                     navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled");  
                                                                                                 }
+                                                                                                 
                                                                                             }
                                                        );
                                                    isMapInitialized = true;
@@ -489,7 +494,7 @@
                                                    lat = position.coords.latitude;                                  
                                                    lon = position.coords.longitude
                                                    var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
-          
+           
                                                    $.getJSON(geocodingAPI, function (json) {
                                                        if (json.status === "OK") {
                                                            //Check result 0
@@ -526,6 +531,7 @@
                                                                                             lat = window.localStorage.getItem("lat");
                                                                                             lon = window.localStorage.getItem("lon");
                                                                                             geocountry = country;
+                                                                                             
                                                                                             //locationErrorToast();
                                                                                             listOffer();
                                                                                         });
@@ -609,6 +615,7 @@
                                                navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                    lat = position.coords.latitude;                                  
                                                    lon = position.coords.longitude;
+                                                    
                                                    listOfferOutlet();
                                                }
                                                                                         , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
@@ -619,6 +626,7 @@
                                                                                             //  }
                                                                                             lat = window.localStorage.getItem("lat");
                                                                                             lon = window.localStorage.getItem("lon");
+                                                                                             
                                                                                             listOfferOutlet();
                                                                                         }
                                                    );
@@ -713,9 +721,8 @@
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
-                                                       // window.setInterval(meWatchPos(), 30000);
-                                                       
-                                                       //nwatch = window.setInterval(meWatchPosTime(), 60000);
+                                                       document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
+                                                       locationactive = "#fff000";
                                                        
                                                        var callbackFn = function (location) {
                                                            //  console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
@@ -883,11 +890,8 @@
                                                        }, function(err) {
                                                        });
                                                    }
-                                               //flag display
-
+                                                   //flag display
                                                }
-                   
-
                                    
                                                hideSpin();
                                                return;
@@ -1023,12 +1027,13 @@
                                                           url: gurl + "/validateUser.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,customer:customer,password:password,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification")
+                                                                                   merchantcode :merchant,customer:customer,password:password,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification"),mmagicnumber:"M"
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                         
                                                               if (getData.statuscode == "000") { //Login Successful
+                                                                  alert(getData.magicnumber);
                                                                   customer = getData.customerid;
                                                                   customername = getData.customername;
                                                                   segmentcode = getData.segmentcode;
@@ -1048,6 +1053,7 @@
                                                                   autolocation = getData.autolocation;
                                                                   city = getData.city;
                                                                   country = getData.country;
+                                                                  magicnumber = getData.magicnumber;
 
                                                                   //set Local Storage as cookies to retain login
                                                                   window.localStorage.setItem("customer", customer);
@@ -1346,8 +1352,7 @@
                                                     gpsErrorApp();
                                                 }
                                                 //get flag
-                                                   document.getElementById("plflagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center";
-
+                                                document.getElementById("plflagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center";
 
                                                 //Show Card Image
                                                 if (segmentcode==="1000") {
@@ -1360,7 +1365,7 @@
                                                 //  alert(cardimage);
                                                 document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
                                                 document.getElementById("mycardname").innerHTML = customername;
-                                                document.getElementById("mycardid").innerHTML = "#" + customer + "#";
+                                                document.getElementById("mycardid").innerHTML = magicnumber.substring(0, 3) + " " + magicnumber.substring(3, 6) + " " + magicnumber.substring(6, 9);
                                                 document.getElementById("mycardexpiry").innerHTML = memberexpiry;
                                                 //  document.getElementById("mycardimage").style.backgroundSize = "cover";
                                             },
@@ -1490,7 +1495,7 @@
                                                                 if (y==="1") {
                                                                     geocity = "";
                                                                 }
-                                  
+                                   
                                                                 pllistOutlet();
                                                                 hideSpin();
                                                             }
@@ -1510,7 +1515,7 @@
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                  geocountry = country;
-                                                                                             
+                                                                                              
                                                                                                  //locationErrorToast();
                                                                                                  pllistOutlet();
                                                                                                  hideSpin();
@@ -1524,6 +1529,7 @@
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
                                                     geocountry = country;
+                                                     
                                                     //locationErrorToast();
                                                     pllistOutlet();
                                                     hideSpin();
@@ -1690,6 +1696,7 @@
                                                         lat = position.coords.latitude;                                  
                                                         lon = position.coords.longitude
                                                         var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
+                                                         
                                                         $.getJSON(geocodingAPI, function (json) {
                                                             if (json.status === "OK") {
                                                                 //Check result 0
@@ -1727,12 +1734,13 @@
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                  geocountry = country;
-                                                                                                 
+                                                                                                  
                                                                                                  //locationErrorToast();
                                                                                                  pllistOffer();
                                                                                                  hideSpin();
                                                                                              });
                                                 }else {
+                                                     
                                                     if (y==="1") {
                                                         geocity = "";
                                                     }else {
@@ -1806,7 +1814,7 @@
                                                     navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                         lat = position.coords.latitude;                                  
                                                         lon = position.coords.longitude;
-
+ 
                                                         pllistOfferOutlet();
                                                     }
                                                                                              , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
@@ -1818,9 +1826,11 @@
                                                                                                  //locationErrorToast();
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
+                                                                                                  
                                                                                                  pllistOfferOutlet();
                                                                                              });
                                                 }else {
+                                                     
                                                     //locationErrorToast();
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
@@ -1969,6 +1979,7 @@
                                                     navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                         lat = position.coords.latitude;                                  
                                                         lon = position.coords.longitude;
+                                                         
                                                         myOfferListOutlet();
                                                     }
                                                                                              , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
@@ -1980,9 +1991,11 @@
                                                                                                  //locationErrorToast();
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
+                                                                                                  
                                                                                                  myOfferListOutlet();
                                                                                              });
                                                 }else {
+                                                     
                                                     //locationErrorToast();
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
@@ -2665,11 +2678,19 @@
     }
     
     function gpsError() {
-        navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
+        if (gpsErrorShow==="") {
+            navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
+            gpsErrorShow = "1";
+        }
+         
     }
     
     function gpsErrorApp() {
-        navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
+        if (gpsErrorShowApp==="") {    
+            navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
+            gpsErrorShowApp = "1";
+        }
+      
     }
     
     function meWatchPos(position) {
@@ -2728,7 +2749,6 @@
     
     //Get Country
     function getCountry() {
-
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
             lat = position.coords.latitude;                                  
             lon = position.coords.longitude
@@ -2752,7 +2772,6 @@
                 }else {
                     mcountry = country;
                     getFlag();
-                    
                 }
             });
         }
@@ -2784,9 +2803,9 @@
                                                             
                        if (getData.statuscode == "000") { 
                            countryflag = getData.countryflag;
-                            window.localStorage.setItem("flagurl",  flag_image + countryflag + ".png");
+                           window.localStorage.setItem("flagurl", flag_image + countryflag + ".png");
                            document.getElementById("flagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center";
-                            hideSpin(); //hide loading popup
+                           hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {

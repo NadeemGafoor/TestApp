@@ -1474,3 +1474,8 @@ tile-frame-inner
 .dotcolor{
     ;color:#de5716;
 }
+
+.locationarrow{
+    margin-right:1em;
+    color:#fff000;
+}
