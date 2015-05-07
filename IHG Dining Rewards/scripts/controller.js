@@ -5,7 +5,6 @@
     var gpsErrorShowApp="";
     var magicnumber = "";
     var flagurl = "";
-    var mcountry = "";
     var googleapikey = "";
     var firsttime = "";
     var mdevice = "";
@@ -819,6 +818,7 @@
                                                        autolocation = window.localStorage.getItem("autolocation");
                                                        city = window.localStorage.getItem("city");
                                                        country = window.localStorage.getItem("country");
+                                                       magicnumber = window.localStorage.getItem("magicnumber");
                                                        $("body").data("kendoMobilePane").navigate("views/pl-myprofile.html"); 
                                                    } else {
                                                        outletcode = "";
@@ -1080,6 +1080,7 @@
                                                                   window.localStorage.setItem("autolocation", autolocation);
                                                                   window.localStorage.setItem("city", city);
                                                                   window.localStorage.setItem("country", country);
+                                                                  window.localStorage.setItem("magicnumber", magicnumber);
                                                                  
                                                                   pushSettings = {
                                                                       iOS: {
