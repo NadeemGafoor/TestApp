@@ -174,11 +174,10 @@ img
 
 .inner-frame-3
 {
-    padding-top:.5em;
     padding-left: .4em;
     padding-right: 0em;
-    height: 4em;
-    line-height: 1.4em;
+    height: 1.5em;
+    line-height: 1.5em;
     position: relative;
     float: left;
     width: 64%; 
@@ -1291,17 +1290,6 @@ tile-frame-inner
     width: 100%;
 }
 
-.msg-date-frame-outer
-{
-    height: 6em;
-    position: relative;
-    float: left;
-    width: 20%;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    overflow: hidden;
-    background-color: #de5716; 
-}
 
 
 .msg-narration-frame
@@ -1323,6 +1311,8 @@ tile-frame-inner
     width: 5%;
 }
 
+
+
 .msg-action-frame-inner-1
 {
     height: 3em;
@@ -1342,34 +1332,45 @@ tile-frame-inner
     margin:auto;
 }
 
+.msg-date-frame-outer
+{
+    height: 6em;
+    position: relative;
+    float: left;
+    width: 20%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: #de5716; 
+}
+
+
 .msg-date-frame-inner-1
 {
-    height: 60%;
+    height: 50%;
     position: relative;
     float: none;
     width: 100%;
     background-color: #de5716; 
-    padding:.6em;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    overflow: hidden !important;
 }
 
 .msg-date-frame-inner-2
 {
-    height: 40%;
+    height: 50%;
     position: relative;
     float: none;
     width: 100%;
     background-color: #343434;
-   
+        border-radius: 5px;
+    -webkit-border-radius: 5px;
+    overflow: hidden !important;    
 }
 
-.msg-date-frame-inner-2a
-{
-    height: 100%;
-    position: relative;
-    float: none;
-    width: 100%;
-    background-color: #343434;
-    padding:.2em;   
+.msg-date-text{
+    display:block;
+    margin:.5em auto;
 }
 
 .msg-outer-frame-a

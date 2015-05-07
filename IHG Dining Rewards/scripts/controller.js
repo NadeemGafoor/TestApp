@@ -265,16 +265,16 @@
                                                                       sharingSocialView.set("social_header", getData.benefitlist[0].shortdes1 + "\n");
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("There are no Benefits for the selected Program")    
+                                                                      navigator.notification.alert("There are no Benefits for the selected Program",function(){},"IHG Dining Rewards","Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Benefit details. " + getData.statusdesc)          
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Benefit details. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "]")
+                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
@@ -382,12 +382,12 @@
                                                                   shareProductType = "1"; //outlet review
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get outlet List " + getData.statusdesc)          
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get outlet List " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Outlet List. [" + errormsg.statusText + "]")
+                                                              navigator.notification.alert("Unknown Error, Cannot get Outlet List. [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -422,16 +422,16 @@
                                                                                                              });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("No Offers exists for the selected Restaurant!")    
+                                                                      navigator.notification.alert("No Offers exists for the selected Restaurant!",function(){},"IHG Dining Rewards","Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Offer List " + getData.statusdesc)          
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Offer List " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "]")
+                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -472,9 +472,9 @@
                                                    }
                                                                                             , function onErrorShowMap(error) {
                                                                                                 if (error.code == "1") {
-                                                                                                    navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location");  
+                                                                                                    navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location",function(){},"IHG Dining Rewards","Dismiss");  
                                                                                                 } else if (error.code == "2") {
-                                                                                                    navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled");  
+                                                                                                    navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled",function(){},"IHG Dining Rewards","Dismiss");  
                                                                                                 }
                                                                                                  
                                                                                             }
@@ -591,12 +591,12 @@
                                                                      
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc)          
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List. [" + errormsg.statusText + "]")
+                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List. [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -701,12 +701,12 @@
                                                                   }else if (getData.statuscode === "047") {
                                                                       $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
                                                                   } else {
-                                                                      navigator.notification.alert("Platform Error, Services may not be available. " + getData.statusdesc)          
+                                                                      navigator.notification.alert("Platform Error, Services may not be available. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               },
                                                               error: function (errormsg) {
-                                                                  navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]")
+                                                                  navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           });
@@ -959,12 +959,12 @@
                                                                   $("body").data("kendoMobilePane").navigate("views/home.html");   
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Cannot Logout. " + getData.statusdesc)          
+                                                                  navigator.notification.alert("Cannot Logout. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot Logout. [" + errormsg.statusText + "]")
+                                                              navigator.notification.alert("Unknown Error, Cannot Logout. [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1006,11 +1006,11 @@
                                            validateUser
                                            : function () {
                                                if (!this.username) {
-                                                   navigator.notification.alert("Invalid MemberId or Empty");
+                                                   navigator.notification.alert("Invalid MemberId or Empty",function(){},"IHG Dining Rewards","Dismiss");
                                                    return;
                                                }
                                                if (!this.password) {
-                                                   navigator.notification.alert("Invalid Password or Empty");
+                                                   navigator.notification.alert("Invalid Password or Empty",function(){},"IHG Dining Rewards","Dismiss");
                                                    return;
                                                }
                                                customer = this.username;
@@ -1033,7 +1033,7 @@
                                                               var getData = JSON.parse(data);
                                                         
                                                               if (getData.statuscode == "000") { //Login Successful
-                                                                  alert(getData.magicnumber);
+                                                                 
                                                                   customer = getData.customerid;
                                                                   customername = getData.customername;
                                                                   segmentcode = getData.segmentcode;
@@ -1134,12 +1134,12 @@
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Cannot Login. " + getData.statusdesc)         
+                                                                  navigator.notification.alert("Cannot Login. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot Login.   [" + errormsg.statusText + "]")
+                                                              navigator.notification.alert("Unknown Error, Cannot Login.   [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1148,7 +1148,7 @@
                                            validateToken
                                            : function () {
                                                if (!this.tokennum) {
-                                                   navigator.notification.alert("Invalid Token or Empty");
+                                                   navigator.notification.alert("Invalid Token or Empty",function(){},"IHG Dining Rewards","Dismiss");
                                                    return;
                                                }
                             
@@ -1180,12 +1180,12 @@
                                                                   $("body").data("kendoMobilePane").navigate("views/pl-myprofile.html");  
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Cannot Login. " + getData.statusdesc)         
+                                                                  navigator.notification.alert("Cannot Login. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot Login.  [" + errormsg.statusText + "]")
+                                                              navigator.notification.alert("Unknown Error, Cannot Login.  [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1193,11 +1193,11 @@
                                            requestPasswordChangeURL:
                                            function () {
                                                if (!this.username) {
-                                                   navigator.notification.alert("Invalid MemberId or Empty");
+                                                   navigator.notification.alert("Invalid MemberId or Empty",function(){},"IHG Dining Rewards","Dismiss");
                                                    return;
                                                }
                                                if (!this.emailid) {
-                                                   navigator.notification.alert("Invalid EmailID or Empty");
+                                                   navigator.notification.alert("Invalid EmailID or Empty",function(){},"IHG Dining Rewards","Dismiss");
                                                    return;
                                                }
                              
@@ -1219,17 +1219,17 @@
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") { //Login Successful
-                                                                  navigator.notification.alert("A URL has been sent to your registered Email ID with a link to set your new password.");   
+                                                                  navigator.notification.alert("A URL has been sent to your registered Email ID with a link to set your new password.",function(){},"IHG Dining Rewards","Dismiss");   
                                                                   preLogin.set("username", "");
                                                                   preLogin.set("emailid", "");
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Unable to send the password reset URL. " + getData.statusdesc)         
+                                                                  navigator.notification.alert("Unable to send the password reset URL. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Unable to send the password reset URL [" + errormsg.statusText + "]")
+                                                              navigator.notification.alert("Unknown Error, Unable to send the password reset URL [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1260,16 +1260,16 @@
                                                                                                                   });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("There are no Benefits for the selected Program!")    
+                                                                      navigator.notification.alert("There are no Benefits for the selected Program!",function(){},"IHG Dining Rewards","Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Benefit List " + getData.statusdesc)          
+                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Benefit List " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit List. [" + errormsg.statusText + "]")
+                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit List. [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1409,14 +1409,14 @@
                                                                                                                       
                                                                                                                  });
                                                                    }else {
-                                                                       navigator.notification.alert("No message history available for your Membership.")    
+                                                                       navigator.notification.alert("No message history available for your Membership.",function(){},"IHG Dining Rewards","Dismiss")    
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get message history. " + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get message history. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get message history.  [" + errormsg.statusText + "]")
+                                                               navigator.notification.alert("Unknown Error, Cannot get message history.  [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
@@ -1453,14 +1453,14 @@
                                                                        document.getElementById("msgday").innerHTML = getData.messageitem[0].mday;
                                                                        postLogin.set("msgsequence", getData.messageitem[0].sequence);
                                                                    }else {
-                                                                       navigator.notification.alert("No message item available for your Membership.")    
+                                                                       navigator.notification.alert("No message item available for your Membership.",function(){},"IHG Dining Rewards","Dismiss")    
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get message item. " + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get message item. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get message item.  [" + errormsg.statusText + "]")
+                                                               navigator.notification.alert("Unknown Error, Cannot get message item.  [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
@@ -1580,12 +1580,12 @@
                                                                    shareProductType = "1"; //outlet review
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get outlet List. " + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get outlet List. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List.  [" + errormsg.statusText + "]")
+                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List.  [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -1625,9 +1625,9 @@
                                                     }
                                                                                              , function onErrorShowMap(error) {
                                                                                                  if (error.code == "1") {
-                                                                                                     navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location.");  
+                                                                                                     navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location.",function(){},"IHG Dining Rewards","Dismiss");  
                                                                                                  } else if (error.code == "2") {
-                                                                                                     navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled.");  
+                                                                                                     navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled.",function(){},"IHG Dining Rewards","Dismiss");  
                                                                                                  }
                                                                                              }
                                                         );
@@ -1663,16 +1663,16 @@
                                                                                                                  });
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("There are no offers for the selected Restaurant.")    
+                                                                       navigator.notification.alert("There are no offers for the selected Restaurant.",function(){},"IHG Dining Rewards","Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]")
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -1796,12 +1796,12 @@
                                                                      
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "]")
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -1842,7 +1842,7 @@
                                             activateoffer
                                             : function (e) {
                                                 if (!document.getElementById("tandc-accept").checked) {
-                                                    navigator.notification.alert("Please Accept Terms & Conditions to Proceed");
+                                                    navigator.notification.alert("Please Accept Terms & Conditions to Proceed",function(){},"IHG Dining Rewards","Dismiss");
                                                     return;
                                                 }
                                                 writeSpin();
@@ -1867,12 +1867,12 @@
                                                                    $("body").data("kendoMobilePane").navigate("views/pl-confirmpage.html");  
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List. [" + errormsg.statusText + "]")
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List. [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                                hideSpin(); //hide loading popup                                                                 
                                                            }
                                                        });
@@ -1909,16 +1909,16 @@
                                                                                                                        });
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("No Vouchers available in Wallet.")    
+                                                                       navigator.notification.alert("No Vouchers available in Wallet.",function(){},"IHG Dining Rewards","Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot retrieve Wallet.  " + getData.statusdesc)          
+                                                                   navigator.notification.alert("Cannot retrieve Wallet.  " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "]")
+                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -1957,16 +1957,16 @@
                                                                        offercode = getData.myvoucherdetail[0].couponcode;
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("No Vouchers available in Wallet.")    
+                                                                       navigator.notification.alert("No Vouchers available in Wallet.",function(){},"IHG Dining Rewards","Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot retrieve Wallet. " + getData.statusdesc)          
+                                                                   navigator.notification.alert("Cannot retrieve Wallet. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "]")
+                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -2025,11 +2025,11 @@
                                                                if (getData.statuscode == "000") {
                                                                    $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");  
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot delete message. " + getData.statusdesc)          
+                                                                   navigator.notification.alert("Unknown Network Error, Cannot delete message. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot delete message. [" + errormsg.statusText + "]")
+                                                               navigator.notification.alert("Unknown Error, Cannot delete message. [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
@@ -2075,17 +2075,17 @@
                                             function () {
                                                 if (!document.getElementById("profile-autolocation").checked) {
                                                     if (document.getElementById("selCountry").value == "") {
-                                                        navigator.notification.alert("Select Country");
+                                                        navigator.notification.alert("Select Country",function(){},"IHG Dining Rewards","Dismiss");
                                                         return; 
                                                     }
                                                     if (document.getElementById("selCity").value == "") {
-                                                        navigator.notification.alert("Select City");
+                                                        navigator.notification.alert("Select City",function(){},"IHG Dining Rewards","Dismiss");
                                                         return; 
                                                     }
                                                 }      
                                                                                                 
                                                 if ((!document.getElementById("profile-pushoffer").checked) && (document.getElementById("profile-remindexpiry").checked)) {
-                                                    navigator.notification.alert("You need to enable Push Notification to enable reminders for expirying vouchers");
+                                                    navigator.notification.alert("You need to enable Push Notification to enable reminders for expirying vouchers",function(){},"IHG Dining Rewards","Dismiss");
                                                     return;
                                                 }
                                                                                            
@@ -2196,16 +2196,16 @@
                                                                                );
                                                                    }
                                                                      
-                                                                   navigator.notification.alert("Profile changes successfully updated.")   
+                                                                   navigator.notification.alert("Profile changes successfully updated.",function(){},"IHG Dining Rewards","Dismiss")   
                                                                    $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Could not update profile changes due to error. " + getData.statusdesc)          
+                                                                   navigator.notification.alert("Could not update profile changes due to error. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Could not update profile.  [" + errormsg.statusText + "]")
+                                                               navigator.notification.alert("Unknown Error, Could not update profile.  [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -2247,14 +2247,14 @@
                                }
                                hideSpin();
                            }else {
-                               navigator.notification.alert("Unknown Network Error, Cannot get Country list. " + getData.statusdesc)          
+                               navigator.notification.alert("Unknown Network Error, Cannot get Country list. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                                hideSpin(); //hide loading popup
                            }
                        }
                    },
                    error:
                    function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Country list. [" + errormsg.statusText + "]")
+                       navigator.notification.alert("Unknown Error, Cannot get Country list. [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2286,12 +2286,12 @@
                                x.add(opt);
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get City list. " + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get City list. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get City list. [" + errormsg.statusText + "]")
+                       navigator.notification.alert("Unknown Error, Cannot get City list. [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2305,7 +2305,7 @@
          
     function showSpin() {
         if (!checkConnectionBool()) {
-            navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.");  
+            navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.",function(){},"IHG Dining Rewards","Dismiss");  
             //        //$("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
         } else {
             window.plugins.spinnerDialog.show(null, null, true); //show loading popup
@@ -2314,7 +2314,7 @@
     
     function writeSpin() {
         if (!checkConnectionBool()) {
-            navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.");              
+            navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.",function(){},"IHG Dining Rewards","Dismiss");              
             //        $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
         } else {
             window.plugins.spinnerDialog.show(null, null, true); //show loading popup
@@ -2332,7 +2332,7 @@
         states[Connection.CELL_4G] = 'Cell 4G connection';
         states[Connection.NONE] = 'No network connection';
         if (states[networkState] == "No network connection") {
-            navigator.notification.alert(states[networkState]);                     
+            navigator.notification.alert(states[networkState],function(){},"IHG Dining Rewards","Dismiss");                     
             return false;
         } else {
             return true;
@@ -2381,16 +2381,16 @@
                                                                         });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("No Restaurant exists for the selected property")    
+                               navigator.notification.alert("No Restaurant exists for the selected property",function(){},"IHG Dining Rewards","Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List." + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List." + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]")
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2428,16 +2428,16 @@
                                                                            });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("There are no Restaurant for the selected Hotel")    
+                               navigator.notification.alert("There are no Restaurant for the selected Hotel",function(){},"IHG Dining Rewards","Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List. " + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]")
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2476,16 +2476,16 @@
                                                                          });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("There are no offers for the selected Hotel.")    
+                               navigator.notification.alert("There are no offers for the selected Hotel.",function(){},"IHG Dining Rewards","Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Offer List." + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Offer List." + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]")
+                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2527,16 +2527,16 @@
                                                                             });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("There are no offers exists for the selected Hotel.")    
+                               navigator.notification.alert("There are no offers exists for the selected Hotel.",function(){},"IHG Dining Rewards","Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Offer List." + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Offer List." + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]")
+                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2564,16 +2564,16 @@
                                                                                    });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("There are no Restaurant for the selected offer.")    
+                               navigator.notification.alert("There are no Restaurant for the selected offer.",function(){},"IHG Dining Rewards","Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List. " + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.   [" + errormsg.statusText + "]")
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.   [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2601,16 +2601,16 @@
                                                                                 });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("There are no Restaurant for the selected offer.")    
+                               navigator.notification.alert("There are no Restaurant for the selected offer.",function(){},"IHG Dining Rewards","Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List. " + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List. " + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]")
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2638,16 +2638,16 @@
                                                                                    });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("There are no Restaurants for the selected offer.")    
+                               navigator.notification.alert("There are no Restaurants for the selected offer.",function(){},"IHG Dining Rewards","Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Outlet List." + getData.statusdesc)          
+                           navigator.notification.alert("Unknown Network Error, Cannot get Outlet List." + getData.statusdesc,function(){},"IHG Dining Rewards","Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Outlet List. [" + errormsg.statusText + "]")
+                       navigator.notification.alert("Unknown Error, Cannot get Outlet List. [" + errormsg.statusText + "]",function(){},"IHG Dining Rewards","Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2680,7 +2680,7 @@
     
     function gpsError() {
         if (gpsErrorShow==="") {
-            navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
+            navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.",function(){},"IHG Dining Rewards","Dismiss");
             gpsErrorShow = "1";
         }
          
@@ -2688,7 +2688,7 @@
     
     function gpsErrorApp() {
         if (gpsErrorShowApp==="") {    
-            navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
+            navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.",function(){},"IHG Dining Rewards","Dismiss");
             gpsErrorShowApp = "1";
         }
       
