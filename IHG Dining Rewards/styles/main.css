@@ -1,3 +1,7 @@
+a{
+    background-color:transparent !important;
+}
+
 .km-navbar a:active{
     background-color:transparent !important;
 }
@@ -1241,6 +1245,7 @@ tile-frame-inner
     height: 400px;
     position: relative;
     float: none;
+    margin-top:0px;
 }
 
 .tile-frame-2
