@@ -1,0 +1,51 @@
+<div data-role="view" data-title="Customer Service" data-layout="pl-back-layout" id="pl-customerservice-theme" data-model="preLogin" data-hide="preLogin.destroyplCustomerService">
+    <div data-role="header">
+                <div data-role="navbar">
+                    <div class="brand-icon"></div> 
+                    <span data-role="view-title"></span>
+                     <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left" style="color:#fff"  data-icon="back"></a>
+                </div>
+            </div>
+    
+       <ul data-role="listview" data-style="inset" style="background-color:#fff" class="home-pos">
+         <li style="height:75px"></li> 
+            <div style="font-family:HelveticaNeue;font-size:1.3em;font-weight:bold;color:#d86932;height:100px;text-align:center">
+                IHG® Dining Rewards Customer Care
+            </div>
+            
+            <div style="font-family:HelveticaNeue;font-size:1.2em;font-weight:bold;color:#000;height:100px;text-align:center">
+                Enrollment Telephone Number<br>+971 427 66 213
+            </div>
+
+             <div style="font-family:HelveticaNeue;font-size:1.2em;font-weight:bold;color:#000;height:100px;text-align:center">
+                Customer Care Telephone Number<br>+971 427 66 186
+            </div>
+           
+           </ul>
+    
+     <footer data-role="footer">
+           <div class="button-frame-inline">
+                     <a data-transition="slide"   data-role="button"   data-bind="click: callTelc">Enrollment</a>
+                     <a data-transition="slide"   data-role="button"    data-bind="click: customerCare">Customer Care</a>   
+                </div>
+
+                <div data-role="navbar">
+                    <div class="home-navbar" >
+                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
+                    </div>
+               <div class="footer-logo" data-bind="click:plshowBrandPage">&nbsp;</div>
+
+
+                </div>
+            </footer>
+</div> 
+
+<style scoped>
+    
+     #customerservice-theme li
+    {
+        border-top: 0px solid #ccc !important;
+        border-bottom: 0px solid #ccc !important;
+    }
+    
+</style>

@@ -218,8 +218,15 @@
                                            destroyCustomerService:function() {
                                                $("#customerservice-theme").remove();  
                                            },
+        
+          destroyplCustomerService:function() {
+                                               $("#pl-customerservice-theme").remove();  
+                                           },
                                            destroyTermsofService:function() {
                                                $("#termsofservice-theme").remove();  
+                                           },
+        destroyplTermsofService:function() {
+                                               $("#pl-termsofservice-theme").remove();  
                                            },
                                            destroyJoin:function() {
                                                $("#join-theme").remove();  
@@ -720,9 +727,8 @@
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
-                                                       document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
-                                                       locationactive = "#fff000";
-                                                       
+                                                       //document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
+                                                     
                                                        var callbackFn = function (location) {
                                                            //  console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
                                                            // Do your HTTP request here to POST location to your server.

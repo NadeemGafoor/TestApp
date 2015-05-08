@@ -33,7 +33,7 @@
         height: 600px;
         width: 100%;
         display: inline-block;
-         background-image: url(../images/largemeydanlogoimage.png);
+         background-image: url(../images/largeihglogoimage.png);
         -webkit-background-size: cover;
         background-size: cover;
         background-repeat: no-repeat;
@@ -201,6 +201,6 @@
     float: left;
     color:#343434;
     padding-top:3%;
-    padding-left:9%;  
+    padding-left:12%;  
     
 }
