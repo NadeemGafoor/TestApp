@@ -160,7 +160,7 @@
 .prelogin-frame-image-1
 {
     width: 100%;
-    height: 500px;
+    height: 400px;
     background: url(../images/preloginimage.png) no-repeat center center;
     -webkit-background-size: cover;
     background-size: cover;
@@ -182,8 +182,8 @@
 }
 
 #mycardimage .mycard-name{
-    padding-top:18%;
-    padding-left:36%;
+    padding-top:23%;
+    padding-left:31%;
 }
 
 #mycardimage .mycard-id{
@@ -191,8 +191,8 @@
     position: relative;
     float: left;
     color:#343434;
-    padding-top:3%;
-    padding-left:36%;  
+    padding-top:4%;
+    padding-left:31%;  
     
 }
 
@@ -201,8 +201,8 @@
     position: relative;
     float: left;
     color:#343434;
-    padding-top:3%;
-    padding-left:12%;  
+    padding-top:4%;
+    padding-left:10%;  
     
 }
 
