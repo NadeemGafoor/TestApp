@@ -55,7 +55,7 @@
         <!-- required background modes:  App registers for location updates -->
         
         <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
-            <string>This app requires background location tracking</string>
+            <string>Your location is used to send you ongoing offers and promotions at the nearest IHG Hotels and Restaurants</string>
         </config-file>
 
         <config-file target="*-Info.plist" parent="UIBackgroundModes">
