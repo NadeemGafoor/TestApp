@@ -695,33 +695,6 @@
                                                    window.geofence.initialize(function() {
                                                    }, function(error) {
                                                    });
-                                                   
-                                                   window.geofence.addOrUpdate({
-                                                                                   id:             "69ca1b88-6fbe-4e80-a4d4-ff4d3748acdb",
-                                                                                   latitude:       25.109057,
-                                                                                   longitude:      55.1963354,
-                                                                                   radius:         200,
-                                                                                   transitionType: TransitionType.ENTER,
-                                                                                   notification: {
-                                                           id:             1,
-                                                           title:          "Welcome in Gliwice",
-                                                           text:           "You just arrived to Gliwice city center.",
-                                                                                       smalIcon:notification_image,
-                                                                                       icon:notification_image,
-                                                           openAppOnClick: true
-                                                       }
-                                                                               }).then(function () {
-                                                                                  
-                                                                               }, function (reason) {
-                                                                                   
-                                                                               })
-                                                   
-                                                   window.geofence.onTransitionReceived = function (geofences) {
-                                                       geofences.forEach(function (geo) {
-                                                           alert('Geofence transition detected', geo);
-                                                       });
-                                                   };
-                                                   
                                                                                                     
                                                    $.ajax({ 
                                                               type: "POST",
@@ -747,6 +720,7 @@
                                                                       window.localStorage.setItem("lon", lon);
                                                                       //alert(googleapikey);
                                                                       getCountry(); //Get Flag
+                                                                      
                                                                       hideSpin(); //hide loading popup
                                                                   }else if (getData.statuscode === "047") {
                                                                       $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
@@ -762,25 +736,79 @@
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           });
-                                      
+                                                 
                                                    //var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
                                                    // if (mplatform==="iOS") {
                                                    //     var options = {enableHighAccuracy:false,timeout: 30000,frequency:600000 }
                                                    //    mywatch = navigator.geolocation.watchPosition(meWatchPos, watchPosError, options);
                                                    // } else {
                                                    //Check whether GPS enabled
-                                                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                       lat = position.coords.latitude;                                  
-                                                       lon = position.coords.longitude;
-                                                       //document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
-                                                     
-                                                       var callbackFn = function (location) {
-                                                           //  console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
-                                                           // Do your HTTP request here to POST location to your server.
-                                                           //
-                                                           //
-                                                           lat = location.latitude;
-                                                           lon = location.longitude;
+                                      
+                                                   // }
+                                                   
+                                                   //remove previous geofences
+                                                   window.geofence.removeAll()
+                                                       .then(function () {
+                                                       }
+                                                             , function (reason) {
+                                                             });
+                                                   
+                                                   $.ajax({ 
+                                                              type: "POST",
+                                                              cache:false,
+                                                              async:true,
+                                                              timeout:20000,
+                                                              url: gurl + "/propertyList.aspx",
+                                                              contentType: "application/json; charset=utf-8",
+                                                              data: JSON.stringify({
+                                                                                       merchantcode :merchant,mdevice:mdevicestat
+                                                                                   }),
+                                                              success: function (data) {
+                                                                  var getData = JSON.parse(data);
+                                                                  var i = 0;
+                                                                  if (getData.statuscode === "000") {
+                                                                      if (getData.propertylist.length > 0) {
+                                                                          while (i <= getData.propertylist.length - 1) {
+                                                                              window.geofence.addOrUpdate({
+                                                                                                              id:             getData.propertylist[i].brandcode,
+                                                                                                              latitude:       getData.propertylist[i].lat,
+                                                                                                              longitude:      getData.propertylist[i].lon,
+                                                                                                              radius:         1000,
+                                                                                                              transitionType: TransitionType.ENTER,
+                                                                                                              notification: {
+                                                                                      id:             i,
+                                                                                      title:         getData.propertylist[i].msgtitle,
+                                                                                      text:           getData.propertylist[i].message,
+                                                                                      openAppOnClick: true
+                                                                                  }
+                                                                                 
+                                                                                                          }).then(function () {
+                                                                                                          }, function (reason) {
+                                                                                                          })
+                                                                                                 
+                                                                              i++;   
+                                                                          }
+                                                                                             
+                                                                          hideSpin(); //hide loading popup
+                                                                      }else {
+                                                                          navigator.notification.alert("There are no Property for the selected Program!", function() {
+                                                                          }, "IHG Dining Rewards", "Dismiss")    
+                                                                          hideSpin(); //hide loading popup
+                                                                      }
+                                                                  }else {
+                                                                      navigator.notification.alert("Unknown Network Error, Cannot get Property List " + getData.statusdesc, function() {
+                                                                      }, "IHG Dining Rewards", "Dismiss")          
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              },
+                                                              error: function (error) {
+                                                                  navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]", function() {
+                                                                  }, "IHG Dining Rewards", "Dismiss")
+                                                              }
+                                                          });
+                                                   
+                                                   window.geofence.onTransitionReceived = function (geofences) {
+                                                       geofences.forEach(function (geo) {
                                                            $.ajax({ 
                                                                       type: "POST",
                                                                       cache:false,
@@ -789,60 +817,15 @@
                                                                       url: gurl + "/trackDevice.aspx",
                                                                       contentType: "application/json; charset=utf-8",
                                                                       data: JSON.stringify({
-                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:segmentcode
+                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:geo.id
                                                                                            }),
                                                                       success: function (data) {
                                                                       },
                                                                       error: function (error) {
                                                                       }
                                                                   });
-                                                           
-                                                           bgGeo.finish();
-                                                       };
-
-                                                       var failureFn = function (error) {
-                                                           //alert(error);
-                                                           watchPosError(error);
-                                                       }
-                                                           
-                                                       //--------------Background Tracking------------------
-                                                       var bgGeo = window.plugins.backgroundGeoLocation;
-
-                                                       var androidOptions = {
-                                                           url: gurl + "/trackDeviceAndroid.aspx", 
-                                                           params:{
-                                                               merchantcode: preLogin.merchantcode,    
-                                                               mdevice:preLogin.mdevice,
-                                                               lat:window.localStorage.getItem("lat"), 
-                                                               lon:window.localStorage.getItem("lon"),
-                                                               customer:preLogin.customer,
-                                                               segment:preLogin.segmentcode
-                                                           },
-                                                           desiredAccuracy: 0,
-                                                           stationaryRadius: 10,
-                                                           distanceFilter: 30,
-                                                           notificationTitle:"IHG Dining Rewards Service",
-                                                           activityType: 'AutomotiveNavigation',
-                                                           debug: false, // <-- enable this hear sounds for background-geolocation life-cycle.
-                                                           stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
-                                                       }
-                                                                                                                 
-                                                       // BackgroundGeoLocation is highly configurable.
-                                                       bgGeo.configure(callbackFn, failureFn, androidOptions);
-
-                                                       // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
-                                                       bgGeo.start(callbackFn, failureFn, androidOptions);
-                                                       //--------------End Background Tracking------------------
-                                                   }
-                                                                                            , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                                //  if (err.code == "1") {
-                                                                                                //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                //  } else if (err.code == "2") {
-                                                                                                //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                                //  }
-                                                                                                gpsError();
-                                                                                            });   
-                                                   // }
+                                                       });
+                                                   };
                            
                                                    if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                                                        customer = window.localStorage.getItem("customer");
@@ -2891,24 +2874,22 @@
 	                          
                         if (ac.types.indexOf("country") >= 0) {
                             mcountry = ac.long_name;
+                            window.localStorage.setItem("country", mcountry);
                         }
                     }
                     getFlag();                                              
                 }else {
                     mcountry = country;
+                    window.localStorage.setItem("country", mcountry);
                     getFlag();
                 }
             });
         }
                                                  , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                     //  if (err.code == "1") {
-                                                     //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                     //  } else if (err.code == "2") {
-                                                     //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                     //  }
                                                      lat = window.localStorage.getItem("lat");
                                                      lon = window.localStorage.getItem("lon");
                                                      mcountry = country;
+                                                     window.localStorage.setItem("country", mcountry);
                                                      getFlag();
                                                  });
     }
