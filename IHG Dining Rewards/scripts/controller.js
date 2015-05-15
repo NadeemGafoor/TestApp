@@ -741,7 +741,80 @@
                                                    //    mywatch = navigator.geolocation.watchPosition(meWatchPos, watchPosError, options);
                                                    // } else {
                                                    //Check whether GPS enabled
-                                             
+                                              navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                       lat = position.coords.latitude;                                  
+                                                       lon = position.coords.longitude;
+                                                       //document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
+                                                     
+                                                       var callbackFn = function (location) {
+                                                           //  console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
+                                                           // Do your HTTP request here to POST location to your server.
+                                                           //
+                                                           //
+                                                           lat = location.latitude;
+                                                           lon = location.longitude;
+                                                           $.ajax({ 
+                                                                      type: "POST",
+                                                                      cache:false,
+                                                                      async:true,
+                                                                      timeout:20000,
+                                                                      url: gurl + "/trackDevice.aspx",
+                                                                      contentType: "application/json; charset=utf-8",
+                                                                      data: JSON.stringify({
+                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:segmentcode
+                                                                                           }),
+                                                                      success: function (data) {
+                                                                      },
+                                                                      error: function (error) {
+                                                                      }
+                                                                  });
+                                                           
+                                                           bgGeo.finish();
+                                                       };
+
+                                                       var failureFn = function (error) {
+                                                           //alert(error);
+                                                           watchPosError(error);
+                                                       }
+                                                           
+                                                       //--------------Background Tracking------------------
+                                                       var bgGeo = window.plugins.backgroundGeoLocation;
+
+                                                       var androidOptions = {
+                                                           url: gurl + "/trackDeviceAndroid.aspx", 
+                                                           params:{
+                                                               merchantcode: preLogin.merchantcode,    
+                                                               mdevice:preLogin.mdevice,
+                                                               lat:window.localStorage.getItem("lat"), 
+                                                               lon:window.localStorage.getItem("lon"),
+                                                               customer:preLogin.customer,
+                                                               segment:preLogin.segmentcode
+                                                           },
+                                                           desiredAccuracy: 0,
+                                                           stationaryRadius: 10,
+                                                           distanceFilter: 30,
+                                                           notificationTitle:"IHG Dining Rewards Service",
+                                                           activityType: 'AutomotiveNavigation',
+                                                           debug: false, // <-- enable this hear sounds for background-geolocation life-cycle.
+                                                           stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
+                                                       }
+                                                                                                                 
+                                                       // BackgroundGeoLocation is highly configurable.
+                                                       bgGeo.configure(callbackFn, failureFn, androidOptions);
+
+                                                       // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
+                                                       bgGeo.start(callbackFn, failureFn, androidOptions);
+                                                       //--------------End Background Tracking------------------
+                                                   }
+                                                                                            , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                                //  if (err.code == "1") {
+                                                                                                //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                                                                //  } else if (err.code == "2") {
+                                                                                                //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                                                                //  }
+                                                                                                gpsError();
+                                                                                            });   
+                                                   // }
                            
                                                    if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                                                        customer = window.localStorage.getItem("customer");
