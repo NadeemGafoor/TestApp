@@ -779,6 +779,8 @@
                                                                                       id:             i,
                                                                                       title:         getData.propertylist[i].msgtitle,
                                                                                       text:           getData.propertylist[i].message,
+                                                                                      smallIcon:notification_image,
+                                                                                      icon:notification_image,                            
                                                                                       openAppOnClick: true
                                                                                   }
                                                                                  
@@ -809,6 +811,7 @@
                                                    
                                                    window.geofence.onTransitionReceived = function (geofences) {
                                                        geofences.forEach(function (geo) {
+                                                     
                                                            $.ajax({ 
                                                                       type: "POST",
                                                                       cache:false,
@@ -817,7 +820,7 @@
                                                                       url: gurl + "/trackDevice.aspx",
                                                                       contentType: "application/json; charset=utf-8",
                                                                       data: JSON.stringify({
-                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:geo.id
+                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:geo.latitude,lon: geo.longitude,customer:customer,segment:geo.id
                                                                                            }),
                                                                       success: function (data) {
                                                                       },
