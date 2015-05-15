@@ -696,9 +696,9 @@
                                                    
                                                    window.geofence.addOrUpdate({
                                                                                    id:             "69ca1b88-6fbe-4e80-a4d4-ff4d3748acdb",
-                                                                                   latitude:       50.2980049,
-                                                                                   longitude:      18.6593152,
-                                                                                   radius:         10,
+                                                                                   latitude:       25.109298,
+                                                                                   longitude:      55.196428,
+                                                                                   radius:         300,
                                                                                    transitionType: TransitionType.BOTH,
                                                                                    notification: {
                                                            id:             1,
