@@ -1220,7 +1220,7 @@
                                                           url: gurl + "/passResetRequest.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,customerid:this.username,emailid:this.emailid,mdevice:mdevicestat
+                                                                                   merchantcode :merchant,customerid:this.username,emailid:this.emailid,mdevice:mdevicestat,mmagicnumber:"M"
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
