@@ -783,7 +783,7 @@
                                                                                       text:           getData.propertylist[i].message,
                                                                                       smallIcon:notification_image,
                                                                                       icon:notification_image,                            
-                                                                                      openAppOnClick: true
+                                                                                      openAppOnClick: false
                                                                                   }
                                                                                  
                                                                                                           }).then(function () {
@@ -810,7 +810,35 @@
                                                                   }, "IHG Dining Rewards", "Dismiss")
                                                               }
                                                           });
-                           
+                                                   
+                                                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                       lat = position.coords.latitude;                                  
+                                                       lon = position.coords.longitude;
+                                                   }
+                                                                                            , function onErrorShowMap(error) { 
+                                                                                                gpsError();
+                                                                                            });   
+                                               
+                                                   window.geofence.onTransitionReceived = function (geofences) {
+                                                       geofences.forEach(function (geo) {
+                                                           $.ajax({ 
+                                                                      type: "POST",
+                                                                      cache:false,
+                                                                      async:true,
+                                                                      timeout:20000,
+                                                                      url: gurl + "/trackDevice.aspx",
+                                                                      contentType: "application/json; charset=utf-8",
+                                                                      data: JSON.stringify({
+                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:geo.latitude,lon: geo.longitude,customer:customer,segment:geo.id
+                                                                                           }),
+                                                                      success: function (data) {
+                                                                      },
+                                                                      error: function (error) {
+                                                                      }
+                                                                  });
+                                                       });
+                                                   };
+                                                   
                                                    if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                                                        customer = window.localStorage.getItem("customer");
                                                        customername = window.localStorage.getItem("customername");
@@ -910,35 +938,7 @@
                                                    }
                                                    //flag display
                                                }
-                                               
-                                               navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                   lat = position.coords.latitude;                                  
-                                                   lon = position.coords.longitude;
-                                               }
-                                                                                        , function onErrorShowMap(error) { 
-                                                                                            gpsError();
-                                                                                        });   
-                                               
-                                               window.geofence.onTransitionReceived = function (geofences) {
-                                                   geofences.forEach(function (geo) {
-                                                       $.ajax({ 
-                                                                  type: "POST",
-                                                                  cache:false,
-                                                                  async:true,
-                                                                  timeout:20000,
-                                                                  url: gurl + "/trackDevice.aspx",
-                                                                  contentType: "application/json; charset=utf-8",
-                                                                  data: JSON.stringify({
-                                                                                           merchantcode :merchant,mdevice:mdevicestat,lat:geo.latitude,lon: geo.longitude,customer:customer,segment:geo.id
-                                                                                       }),
-                                                                  success: function (data) {
-                                                                  },
-                                                                  error: function (error) {
-                                                                  }
-                                                              });
-                                                   });
-                                               };
-                                   
+                                                                         
                                                hideSpin();
                                                return;
                                            },
