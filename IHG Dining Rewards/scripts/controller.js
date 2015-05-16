@@ -675,7 +675,8 @@
                                                    muuid = device.uuid;
                                                    mversion = device.version;
                                                    mplatform = device.platform;
-                                                   mdevicestat = mdevice + "^" + muuid + "^" + mversion + "^" + mplatform;
+                                                   mdevicestat = "Device:" + mdevice + "^UUID:" + muuid + "^Version:" + mversion + "^Platform:" + mplatform;
+                                                   mdevicemeasure = "^Pixel:" + window.devicePixelRatio + "^Height:" + window.innerHeight + "^Width:" + window.innerWidth;
                                                    preLogin.set("mdevice", mdevicestat);
                                                    preLogin.set("merchantcode", merchant);
                                                    preLogin.set("customer", customer);
@@ -688,7 +689,7 @@
                                                               url: gurl + "/initAccess.aspx",
                                                               contentType: "application/json; charset=utf-8",
                                                               data: JSON.stringify({
-                                                                                       merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat
+                                                                                       merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat+mdevicemeasure
                                                                                    }),
                                                               success: function (data) { 
                                                                   var getData = JSON.parse(data);
