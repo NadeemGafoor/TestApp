@@ -62,7 +62,6 @@
     var enrollmenttelephone = "0097142766213";
     var customercaretelephone = "0097142766186";
     var cardimage = "";
-    
     //// function onSuccess(acceleration) {
     // alert('Acceleration X: ' + acceleration.x + '\n' +
     //     'Acceleration Y: ' + acceleration.y + '\n' +
@@ -675,7 +674,7 @@
                                                    muuid = device.uuid;
                                                    mversion = device.version;
                                                    mplatform = device.platform;
-                                                   mdevicestat = mdevice + "^" + muuid + "^" + mversion + "^" + mplatform;
+                                                   mdevicestat = mdevice + "^" + muuid + "^" + mversion + "^" + mplatform + "^" + window.devicePixelRatio + "^" + window.innerHeight + "^" + window.innerWidth;
                                                    preLogin.set("mdevice", mdevicestat);
                                                    preLogin.set("merchantcode", merchant);
                                                    preLogin.set("customer", customer);
@@ -692,6 +691,7 @@
                                                                                    }),
                                                               success: function (data) { 
                                                                   var getData = JSON.parse(data);
+                                                               
                                                                   if (getData.statuscode === "000") {
                                                                       firsttime = "1";  
                                                                       googleapikey = getData.googleapikey;  
