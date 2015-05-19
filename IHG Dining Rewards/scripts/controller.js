@@ -691,7 +691,6 @@
                                                    preLogin.set("segmentcode", segmentcode);
                                                    
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
-                                                       console.log("init error");
                                                    });
                                                    
                                                    $.ajax({ 
@@ -745,12 +744,40 @@
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
                                                        //document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
-                                                       
-                                                       var params = ["123", 25.109242, 55.196530, 1000];
+                                                       var params = ["1", "25.10926747231324", "55.19576327880441", 1000];
                                                        DGGeofencing.startMonitoringRegion(params, function(result) {
                                                        }, function(error) {
-                                                           alert("failed to add region");
                                                        });
+                                                       
+                                                         params = ["2", "25.047828", "55.123016", 1000];
+                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                       }, function(error) {
+                                                       });
+                                                       
+                                                         params = ["3", "25.249027", "55.387077", 1000];
+                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                       }, function(error) {
+                                                       });
+                                                       
+                                                         params = ["4", "25.224900", "55.279503", 1000];
+                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                       }, function(error) {
+                                                       });
+                                                       
+                                                          params = ["5", "25.257868", "55.328861", 1000];
+                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                       }, function(error) {
+                                                       });
+                                                       
+                                                       
+                                                       DGGeofencing.startMonitoringSignificantLocationChanges(
+                                                           function(result) { 
+                                                                    
+                                                           },
+                                                           function(error) {  
+                                                           
+                                                           }
+                                                           );
                                                      
                                                        var callbackFn = function (location) {
                                                            //  console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
@@ -2919,8 +2946,9 @@
     
     function processRegionMonitorCallback (result) {
         var callbacktype = result.callbacktype;
+        alert(callbacktype);
+        if (callbacktype === "initmonitor") {
 
-        if (callbacktype == "initmonitor") {
         } else if (callbacktype == "locationupdate") {
             var fid = result.regionId;
 
@@ -2945,11 +2973,37 @@
         } else if (callbacktype == "monitorfail") {
         } else if (callbacktype == "monitorstart") {
         } else if (callbacktype == "enter") {
-            alert(result.callbacktype);
-            alert(result.regionId);
-            alert(result.message);
-            alert(result.timestamp);
+            $.ajax({ 
+                                                                      type: "POST",
+                                                                      cache:false,
+                                                                      async:true,
+                                                                      timeout:20000,
+                                                                      url: gurl + "/trackDevice.aspx",
+                                                                      contentType: "application/json; charset=utf-8",
+                                                                      data: JSON.stringify({
+                                                                                               merchantcode :result.regionId,mdevice:callbacktype,lat:result.new_latitude,lon:result.new_longitude,customer:"NEWGEOFENCEENTER",segment:segmentcode
+                                                                                           }),
+                                                                      success: function (data) {
+                                                                      },
+                                                                      error: function (error) {
+                                                                      }
+                                                                  });
         } else if (callbacktype == "exit") {
+            $.ajax({ 
+                                                                      type: "POST",
+                                                                      cache:false,
+                                                                      async:true,
+                                                                      timeout:20000,
+                                                                      url: gurl + "/trackDevice.aspx",
+                                                                      contentType: "application/json; charset=utf-8",
+                                                                      data: JSON.stringify({
+                                                                                             merchantcode :result.regionId,mdevice:callbacktype,lat:result.new_latitude,lon:result.new_longitude,customer:"NEWGEOFENCEEXIT",segment:segmentcode
+                                                                                           }),
+                                                                      success: function (data) {
+                                                                      },
+                                                                      error: function (error) {
+                                                                      }
+                                                                  });
             //result.callbacktype
             //result.regionId
             //result.message
