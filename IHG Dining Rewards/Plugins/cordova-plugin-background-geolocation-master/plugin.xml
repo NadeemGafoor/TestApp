@@ -13,8 +13,8 @@
         <engine name="cordova" version=">=3.0.0" />
     </engines>
 
-    <dependency id="org.apache.cordova.geolocation" />
-    <dependency id="org.apache.cordova.dialogs" />
+    <dependency id="cordova-plugin-geolocation" />
+    <dependency id="cordova-plugin-dialogs" />
 
     <js-module src="www/BackgroundGeoLocation.js" name="BackgroundGeoLocation">
         <clobbers target="plugins.backgroundGeoLocation" />
@@ -54,8 +54,8 @@
      <platform name="ios">
         <!-- required background modes:  App registers for location updates -->
         
-       <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
-            <string>Your location is used to send you ongoing offers and promotions at the nearest IHG Hotels and Restaurants</string>
+        <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+            <string>This app requires background location tracking</string>
         </config-file>
 
         <config-file target="*-Info.plist" parent="UIBackgroundModes">

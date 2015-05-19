@@ -1,3 +1,5 @@
+!/usr/bin/env node
+
 var platformDir = {
   ios: {
         icon: "{$projectName}/Resources/icons",
