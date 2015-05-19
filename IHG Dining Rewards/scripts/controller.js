@@ -740,6 +740,9 @@
                                                    //    mywatch = navigator.geolocation.watchPosition(meWatchPos, watchPosError, options);
                                                    // } else {
                                                    //Check whether GPS enabled
+                                                   
+                                                     
+                                                   
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
@@ -778,6 +781,7 @@
                                                            
                                                            }
                                                            );
+                                                   
                                                      
                                                        var callbackFn = function (location) {
                                                            //  console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
