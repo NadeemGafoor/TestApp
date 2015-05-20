@@ -749,31 +749,31 @@
                                                        //document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
                                                        var params = ["1", "25.10926747231324", "55.19576327880441", 1000];
                                                        DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                              alert("1");
+                                                            
                                                        }, function(error) {
                                                        });
                                                        
                                                          params = ["2", "25.047828", "55.123016", 1000];
                                                        DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                           alert("2");
+                                                         
                                                        }, function(error) {
                                                        });
                                                        
                                                          params = ["3", "25.249027", "55.387077", 1000];
                                                        DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                              alert("3");
+                                                          
                                                        }, function(error) {
                                                        });
                                                        
                                                          params = ["4", "25.224900", "55.279503", 1000];
                                                        DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                              alert("4");
+                                                       
                                                        }, function(error) {
                                                        });
                                                        
                                                           params = ["5", "25.257868", "55.328861", 1000];
                                                        DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                              alert("5");
+                                                             
                                                        }, function(error) {
                                                        });
                                                        
@@ -2946,6 +2946,7 @@
     
     function processRegionMonitorCallback (result) {
         var callbacktype = result.callbacktype;
+
         if (callbacktype === "initmonitor") {
 
         } else if (callbacktype == "locationupdate") {
