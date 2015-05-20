@@ -747,56 +747,41 @@
                                                        //document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
                                                        //var params = ["1a", lat, lon, "10","3"];
                                                        var params = ["1a", "25.10926747231324", "55.19576327880441", "500","3"];
-                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
-                                     
-                                                           writeregion(result);     
+                                                       window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                               
                                                        }, function(error) {
-                                                          
                                                        });
-                                                       
                                                        params = ["2a", "25.047828", "55.123016", "500","3"];
-                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                           writeregion(result);
-                                                       }, function(error) {
+                                                       window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                                            
+                                                       }, function(error) {
                                                        });
-											                                                           
+                                            
                                                        params = ["3a", "25.249027", "55.387077", "500","3"];
-                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                           writeregion(result);   
+                                                       window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                             
                                                        }, function(error) {
-                                                          
                                                        });
-											                                                           
+                                              
                                                        params = ["4a", "25.224900", "55.279503", "500","3"];
-                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                           writeregion(result);
-                                                       }, function(error) {
+                                                       window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                                           
+                                                       }, function(error) {
                                                        });
 											                                                           
                                                        params = ["5a", "25.257868", "55.328861", "500","3"];
-                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                           writeregion(result);      
+                                                       window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                               
                                                        }, function(error) {
-                                                          
                                                        });
 											                                                            
                                                        params = ["6a", "25.049561", "55.129335", "500","3"];
-                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                           writeregion(result);     
+                                                       window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                            
                                                        }, function(error) {
-                                                          
                                                        });
                                                        
-                                                       DGGeofencing.startMonitoringSignificantLocationChanges(
-                                                           function(result) { 
-                                                                 writeregion(result);                 
-                                                           },
-                                                           function(error) {  
-                                                               
-                                                           }
-                                                           );
+                                                      
                                                    }
                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
                                                                                                 //  if (err.code == "1") {
@@ -2906,7 +2891,7 @@
     
     function processRegionMonitorCallback (result) {
         var callbacktype = result.callbacktype;
-        var mid = result.fid + " " + result.callbacktype + " " + result.new_latitude + " " + result.new_longitude + " " + result.regionId;
+        var mid =result.callbacktype + " " + result.new_latitude + " " + result.new_longitude + " " + result.regionId;
         
         if (callbacktype === "initmonitor") {
             $.ajax({ 
@@ -2917,7 +2902,7 @@
                        url: gurl + "/trackDevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"initmonitor",segment:segmentcode
+                                                merchantcode :result.regionId,mdevice:mid,lat:result.new_latitude,lon:result.new_longitude,customer:"initmonitor",segment:segmentcode
                                             }),
                        success: function (data) {
                        },
@@ -2953,7 +2938,7 @@
                        url: gurl + "/trackDevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"locationupdate",segment:segmentcode
+                                                merchantcode :result.regionId,mdevice:mid,lat:result.new_latitude,lon:result.new_longitude,customer:"locationupdate",segment:segmentcode
                                             }),
                        success: function (data) {
                        },
@@ -2969,7 +2954,7 @@
                        url: gurl + "/trackDevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"monitorremoved",segment:segmentcode
+                                                merchantcode :result.regionId,mdevice:mid,lat:result.new_latitude,lon:result.new_longitude,customer:"monitorremoved",segment:segmentcode
                                             }),
                        success: function (data) {
                        },
@@ -2985,7 +2970,7 @@
                        url: gurl + "/trackDevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"monitorfail",segment:segmentcode
+                                                merchantcode :result.regionId,mdevice:mid,lat:result.new_latitude,lon:result.new_longitude,customer:"monitorfail",segment:segmentcode
                                             }),
                        success: function (data) {
                        },
@@ -3001,7 +2986,7 @@
                        url: gurl + "/trackDevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"monitorstart",segment:segmentcode
+                                                merchantcode :result.regionId,mdevice:mid,lat:result.new_latitude,lon:result.new_longitude,customer:"monitorstart",segment:segmentcode
                                             }),
                        success: function (data) {
                        },
@@ -3017,7 +3002,7 @@
                        url: gurl + "/trackDevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"enter",segment:segmentcode
+                                                merchantcode :result.regionId,mdevice:mid,lat:result.new_latitude,lon:result.new_longitude,customer:"enter",segment:segmentcode
                                             }),
                        success: function (data) {
                        },
@@ -3033,7 +3018,7 @@
                        url: gurl + "/trackDevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"exit",segment:segmentcode
+                                                merchantcode :result.regionId,mdevice:mid,lat:result.new_latitude,lon:result.new_longitude,customer:"exit",segment:segmentcode
                                             }),
                        success: function (data) {
                        },
@@ -3047,23 +3032,5 @@
         }
     }  
     
-    function writeregion(result) {
-        var mid = result.fid + " " + result.callbacktype + " " + result.latitude + " " + result.longitude + " " + result.regionId; 
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/trackDevice.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"enterregion",segment:segmentcode
-                                        }),
-                   success: function (data) {
-                   },
-                   error: function (error) {
-                   }
-               });
     }
-}
 )(window);
