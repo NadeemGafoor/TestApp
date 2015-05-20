@@ -690,8 +690,7 @@
                                                    preLogin.set("customer", customer);
                                                    preLogin.set("segmentcode", segmentcode);
                                                    
-                                                   window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
-                                                   });
+                                                 
                                                    
                                                    $.ajax({ 
                                                               type: "POST",
@@ -741,45 +740,23 @@
                                                    // } else {
                                                    //Check whether GPS enabled
                                                    
+                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
+                                                   });
+                                                   
+                                                   
+                                                       
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
                                                        //document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
-                                                       var params = ["1a", "25.10926747231324", "55.19576327880441", 1000];
+                                                       //var params = ["1a", lat, lon, "10","3"];
+                                                       var params = ["1a", "25.10926747231324", "55.19576327880441", "10","3"];
                                                        DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                           alert("ddd");
                                                            writeregion(result);     
-                                                       }, function(error) {
+                                                       }, function(error) {alert("failed to add region"+error);
                                                        });
-                                                       
-                                                       params = ["2a", "25.047828", "55.123016", 1000];
-                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                           writeregion(result);
-                                                       }, function(error) {
-                                                       });
-                                                       
-                                                       params = ["3a", "25.249027", "55.387077", 1000];
-                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                           writeregion(result);   
-                                                       }, function(error) {
-                                                       });
-                                                       
-                                                       params = ["4a", "25.224900", "55.279503", 1000];
-                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                           writeregion(result);
-                                                       }, function(error) {
-                                                       });
-                                                       
-                                                       params = ["5a", "25.257868", "55.328861", 1000];
-                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                           writeregion(result);      
-                                                       }, function(error) {
-                                                       });
-                                                        
-                                                       params = ["6a", "25.049561", "55.129335", 1000];
-                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                           writeregion(result);     
-                                                       }, function(error) {
-                                                       });
+                                                      
                                                    }
                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
                                                                                                 //  if (err.code == "1") {
@@ -790,6 +767,7 @@
                                                                                                 gpsError();
                                                                                             });   
                                                   
+                                   
                                                    // }
                            
                                                    if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
