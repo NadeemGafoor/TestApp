@@ -741,103 +741,45 @@
                                                    // } else {
                                                    //Check whether GPS enabled
                                                    
-                                                     
-                                                   
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
                                                        //document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
-                                                       var params = ["1", "25.10926747231324", "55.19576327880441", 1000];
+                                                       var params = ["1a", "25.10926747231324", "55.19576327880441", 1000];
                                                        DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                            
+                                                           writeregion(result);     
                                                        }, function(error) {
                                                        });
                                                        
-                                                         params = ["2", "25.047828", "55.123016", 1000];
+                                                       params = ["2a", "25.047828", "55.123016", 1000];
                                                        DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                         
+                                                           writeregion(result);
                                                        }, function(error) {
                                                        });
                                                        
-                                                         params = ["3", "25.249027", "55.387077", 1000];
+                                                       params = ["3a", "25.249027", "55.387077", 1000];
                                                        DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                          
+                                                           writeregion(result);   
                                                        }, function(error) {
                                                        });
                                                        
-                                                         params = ["4", "25.224900", "55.279503", 1000];
+                                                       params = ["4a", "25.224900", "55.279503", 1000];
                                                        DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                       
+                                                           writeregion(result);
                                                        }, function(error) {
                                                        });
                                                        
-                                                          params = ["5", "25.257868", "55.328861", 1000];
+                                                       params = ["5a", "25.257868", "55.328861", 1000];
                                                        DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                             
+                                                           writeregion(result);      
                                                        }, function(error) {
                                                        });
-                                                       
-                                                       
-                                                                                                           
-                                                       var callbackFn = function (location) {
-                                                           //  console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
-                                                           // Do your HTTP request here to POST location to your server.
-                                                           //
-                                                           //
-                                                           lat = location.latitude;
-                                                           lon = location.longitude;
-                                                           $.ajax({ 
-                                                                      type: "POST",
-                                                                      cache:false,
-                                                                      async:true,
-                                                                      timeout:20000,
-                                                                      url: gurl + "/trackDevice.aspx",
-                                                                      contentType: "application/json; charset=utf-8",
-                                                                      data: JSON.stringify({
-                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:lat,lon:lon,customer:customer,segment:segmentcode
-                                                                                           }),
-                                                                      success: function (data) {
-                                                                      },
-                                                                      error: function (error) {
-                                                                      }
-                                                                  });
-                                                           
-                                                           bgGeo.finish();
-                                                       };
-
-                                                       var failureFn = function (error) {
-                                                           //alert(error);
-                                                           watchPosError(error);
-                                                       }
-                                                           
-                                                       //--------------Background Tracking------------------
-                                                       var bgGeo = window.plugins.backgroundGeoLocation;
-
-                                                       var androidOptions = {
-                                                           url: gurl + "/trackDeviceAndroid.aspx", 
-                                                           params:{
-                                                               merchantcode: preLogin.merchantcode,    
-                                                               mdevice:preLogin.mdevice,
-                                                               lat:window.localStorage.getItem("lat"), 
-                                                               lon:window.localStorage.getItem("lon"),
-                                                               customer:preLogin.customer,
-                                                               segment:preLogin.segmentcode
-                                                           },
-                                                           desiredAccuracy: 0,
-                                                           stationaryRadius: 10,
-                                                           distanceFilter: 30,
-                                                           notificationTitle:"IHG Dining Rewards Service",
-                                                           activityType: 'AutomotiveNavigation',
-                                                           debug: false, // <-- enable this hear sounds for background-geolocation life-cycle.
-                                                           stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
-                                                       }
-                                                                                                                 
-                                                       // BackgroundGeoLocation is highly configurable.
-                                                       bgGeo.configure(callbackFn, failureFn, androidOptions);
-
-                                                       // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
-                                                       bgGeo.start(callbackFn, failureFn, androidOptions);
-                                                       //--------------End Background Tracking------------------
+                                                        
+                                                       params = ["6a", "25.049561", "55.129335", 1000];
+                                                       DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                           writeregion(result);     
+                                                       }, function(error) {
+                                                       });
                                                    }
                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
                                                                                                 //  if (err.code == "1") {
@@ -847,6 +789,7 @@
                                                                                                 //  }
                                                                                                 gpsError();
                                                                                             });   
+                                                  
                                                    // }
                            
                                                    if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
@@ -2946,9 +2889,24 @@
     
     function processRegionMonitorCallback (result) {
         var callbacktype = result.callbacktype;
-            var mid = result.fid + " " + result.callbacktype + " " + result.latitude + " " + result.longitude + " " + result.regionId;
+        var mid = result.fid + " " + result.callbacktype + " " + result.new_latitude + " " + result.new_longitude + " " + result.regionId;
+        
         if (callbacktype === "initmonitor") {
-
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"initmonitor",segment:segmentcode
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });
         } else if (callbacktype == "locationupdate") {
             var fid = result.regionId;
 
@@ -2970,108 +2928,125 @@
             var old_latitude = result.old_latitude;
             var old_longitude = result.old_longitude;
             
-              $.ajax({ 
-                                                                      type: "POST",
-                                                                      cache:false,
-                                                                      async:true,
-                                                                      timeout:20000,
-                                                                      url: gurl + "/trackDevice.aspx",
-                                                                      contentType: "application/json; charset=utf-8",
-                                                                      data: JSON.stringify({
-                                                                                               merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"locationupdate",segment:segmentcode
-                                                                                           }),
-                                                                      success: function (data) {
-                                                                      },
-                                                                      error: function (error) {
-                                                                      }
-                                                                  });
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"locationupdate",segment:segmentcode
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });
         } else if (callbacktype == "monitorremoved") {
-                 $.ajax({ 
-                                                                      type: "POST",
-                                                                      cache:false,
-                                                                      async:true,
-                                                                      timeout:20000,
-                                                                      url: gurl + "/trackDevice.aspx",
-                                                                      contentType: "application/json; charset=utf-8",
-                                                                      data: JSON.stringify({
-                                                                                               merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"monitorremoved",segment:segmentcode
-                                                                                           }),
-                                                                      success: function (data) {
-                                                                      },
-                                                                      error: function (error) {
-                                                                      }
-                                                                  });
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"monitorremoved",segment:segmentcode
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });
         } else if (callbacktype == "monitorfail") {
-             $.ajax({ 
-                                                                      type: "POST",
-                                                                      cache:false,
-                                                                      async:true,
-                                                                      timeout:20000,
-                                                                      url: gurl + "/trackDevice.aspx",
-                                                                      contentType: "application/json; charset=utf-8",
-                                                                      data: JSON.stringify({
-                                                                                               merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"monitorfail",segment:segmentcode
-                                                                                           }),
-                                                                      success: function (data) {
-                                                                      },
-                                                                      error: function (error) {
-                                                                      }
-                                                                  });
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"monitorfail",segment:segmentcode
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });
         } else if (callbacktype == "monitorstart") {
-                $.ajax({ 
-                                                                      type: "POST",
-                                                                      cache:false,
-                                                                      async:true,
-                                                                      timeout:20000,
-                                                                      url: gurl + "/trackDevice.aspx",
-                                                                      contentType: "application/json; charset=utf-8",
-                                                                      data: JSON.stringify({
-                                                                                               merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"monitorstart",segment:segmentcode
-                                                                                           }),
-                                                                      success: function (data) {
-                                                                      },
-                                                                      error: function (error) {
-                                                                      }
-                                                                  });
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"monitorstart",segment:segmentcode
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });
         } else if (callbacktype == "enter") {
-
             $.ajax({ 
-                                                                      type: "POST",
-                                                                      cache:false,
-                                                                      async:true,
-                                                                      timeout:20000,
-                                                                      url: gurl + "/trackDevice.aspx",
-                                                                      contentType: "application/json; charset=utf-8",
-                                                                      data: JSON.stringify({
-                                                                                               merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"enter",segment:segmentcode
-                                                                                           }),
-                                                                      success: function (data) {
-                                                                      },
-                                                                      error: function (error) {
-                                                                      }
-                                                                  });
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"enter",segment:segmentcode
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });
         } else if (callbacktype == "exit") {
-
             $.ajax({ 
-                                                                      type: "POST",
-                                                                      cache:false,
-                                                                      async:true,
-                                                                      timeout:20000,
-                                                                      url: gurl + "/trackDevice.aspx",
-                                                                      contentType: "application/json; charset=utf-8",
-                                                                      data: JSON.stringify({
-                                                                                               merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"exit",segment:segmentcode
-                                                                                           }),
-                                                                      success: function (data) {
-                                                                      },
-                                                                      error: function (error) {
-                                                                      }
-                                                                  });
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"exit",segment:segmentcode
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });
             //result.callbacktype
             //result.regionId
             //result.message
             //result.timestamp
         }
-    }    
+    }  
+    
+    function writeregion(result){
+       var mid = result.fid + " " + result.callbacktype + " " + result.latitude + " " + result.longitude + " " + result.regionId; 
+         $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"enterregion",segment:segmentcode
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });
+    }
 }
 )(window);
