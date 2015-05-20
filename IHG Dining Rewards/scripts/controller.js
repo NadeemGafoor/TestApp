@@ -2950,7 +2950,6 @@
     
     function processRegionMonitorCallback (result) {
         var callbacktype = result.callbacktype;
-        alert(callbacktype);
         if (callbacktype === "initmonitor") {
 
         } else if (callbacktype == "locationupdate") {
@@ -2977,6 +2976,7 @@
         } else if (callbacktype == "monitorfail") {
         } else if (callbacktype == "monitorstart") {
         } else if (callbacktype == "enter") {
+            var mid = result.fid + " " + result.callbacktype + " " + result.latitude + " " + result.longitude + " " + result.regionId;
             $.ajax({ 
                                                                       type: "POST",
                                                                       cache:false,
@@ -2985,7 +2985,7 @@
                                                                       url: gurl + "/trackDevice.aspx",
                                                                       contentType: "application/json; charset=utf-8",
                                                                       data: JSON.stringify({
-                                                                                               merchantcode :result.regionId,mdevice:callbacktype,lat:result.new_latitude,lon:result.new_longitude,customer:"NEWGEOFENCEENTER",segment:segmentcode
+                                                                                               merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"NEWGEOFENCEENTER",segment:segmentcode
                                                                                            }),
                                                                       success: function (data) {
                                                                       },
@@ -2993,6 +2993,7 @@
                                                                       }
                                                                   });
         } else if (callbacktype == "exit") {
+            mid = result.fid + " " + result.callbacktype + " " + result.latitude + " " + result.longitude + " " + result.regionId;
             $.ajax({ 
                                                                       type: "POST",
                                                                       cache:false,
@@ -3001,7 +3002,7 @@
                                                                       url: gurl + "/trackDevice.aspx",
                                                                       contentType: "application/json; charset=utf-8",
                                                                       data: JSON.stringify({
-                                                                                             merchantcode :result.regionId,mdevice:callbacktype,lat:result.new_latitude,lon:result.new_longitude,customer:"NEWGEOFENCEEXIT",segment:segmentcode
+                                                                                               merchantcode :result.fid,mdevice:mid,lat:result.latitude,lon:result.longitude,customer:"NEWGEOFENCEENTER",segment:segmentcode
                                                                                            }),
                                                                       success: function (data) {
                                                                       },
