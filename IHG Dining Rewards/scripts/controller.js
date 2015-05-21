@@ -833,6 +833,7 @@
                                                        offertype = "1";
                                                        password = "";
                                                        customer = "9999999999";
+                                                       window.localStorage.setItem("customer",customer);
                                                        customername = "Guest";
                                                        segmentcode = "";
                                                        segmentname = "";
@@ -926,8 +927,8 @@
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
                                                                   //clear Local Storage on logout
-                                                                  window.localStorage.setItem("customer", "");
-                                                                  window.localStorage.setItem("customername", "");
+                                                                  window.localStorage.setItem("customer", "9999999999");
+                                                                  window.localStorage.setItem("customername", "Guest");
                                                                   window.localStorage.setItem("segmentcode", "");
                                                                   window.localStorage.setItem("segmentname", "");
                                                                   window.localStorage.setItem("currency", "");
@@ -2932,7 +2933,7 @@
                        url: gurl + "/trackDevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat"),lat:lat,lon:lon,customer:mresult.callbacktype,segment:mresult.regionId
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat")+"^"+mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
                                             }),
                        success: function (data) {
                        },
