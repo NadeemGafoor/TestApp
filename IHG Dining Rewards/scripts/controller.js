@@ -746,7 +746,7 @@
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
-                                                       
+                                            
                                                        $.ajax({
                                                                   type: "POST",
                                                                   cache: false,
@@ -763,8 +763,9 @@
                                                                       if (getData.statuscode === "000") {
                                                                           if (getData.propertylist.length > 0) {
                                                                               while (i <= getData.propertylist.length - 1) {
-                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius];
+                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
+
                                                                                   }, function(error) {
                                                                                   });
                                                                                   i++;
@@ -896,9 +897,10 @@
                                                    }
                                                    //flag display
                                                } else {
-                                                   alert(window.localStorage.getItem("isfenceset"));
+                                                   
                                                    if (window.localStorage.getItem("isfenceset")==="0") {
                                                        startMonitor();
+                                                       window.localStorage.setItem("isfenceset", "1");
                                                    }
                                                }
                                                
