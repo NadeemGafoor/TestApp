@@ -679,7 +679,7 @@
                                            : function() {
                                                showSpin();
                                                document.getElementById("flagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center"; 
-                                               if (firsttime == "") { //Register Access and device in the platform
+                                               if (firsttime === "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
                                                    mversion = device.version;
@@ -746,7 +746,7 @@
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
                                                        
-                                                   
+                                                     startMonitor();
                                                    }
                                                                                             , function onErrorShowMap(error) {
                                                                                                 gpsError();
@@ -2717,7 +2717,7 @@
             navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.", function() {
             }, "IHG Dining Rewards", "Dismiss");
             
-               $.ajax({ 
+            $.ajax({ 
                        type: "POST",
                        cache:false,
                        async:true,
@@ -2867,12 +2867,7 @@
     }
     
     function processRegionMonitorCallback (result) {
-        var callbacktype = result.callbacktype;        
-        if (callbacktype==="locationupdate" || callbacktype==="initmonitor") {
-            startMonitor(result);          
-        } else {
             trackDevice(result);
-        }
     }
     
     function trackDevice(mresult) {
@@ -2919,19 +2914,19 @@
                            if (getData.statuscode === "000") {
                                if (getData.propertylist.length > 0) {
                                    while (i <= getData.propertylist.length - 1) {
-                                       params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
+                                       params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius];
                                        window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                        }, function(error) {
                                        });
                                        i++;
                                    }
                                    
-                                       DGGeofencing.startMonitoringSignificantLocationChanges(
-                                                           function(result) { 
-                                                           },
-                                                           function(error) {  
-                                                           }
-                                                           );  
+                                   DGGeofencing.startMonitoringSignificantLocationChanges(
+                                       function(result) { 
+                                       },
+                                       function(error) {  
+                                       }
+                                       );  
                                    
                                    hideSpin(); //hide loading popup
                                } else {
