@@ -765,12 +765,10 @@
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
-
                                                                                   }, function(error) {
                                                                                   });
                                                                                   i++;
                                                                               }
-                                   
                                                                       
                                                                               window.localStorage.setItem("isfenceset", "1");
                                    
@@ -833,7 +831,7 @@
                                                        offertype = "1";
                                                        password = "";
                                                        customer = "9999999999";
-                                                       window.localStorage.setItem("customer",customer);
+                                                       window.localStorage.setItem("customer", customer);
                                                        customername = "Guest";
                                                        segmentcode = "";
                                                        segmentname = "";
@@ -898,7 +896,6 @@
                                                    }
                                                    //flag display
                                                } else {
-                                                   
                                                    if (window.localStorage.getItem("isfenceset")==="0") {
                                                        startMonitor();
                                                        window.localStorage.setItem("isfenceset", "1");
@@ -2185,6 +2182,8 @@
                                                                    country = country1;
                                                                    city = city1;
                                                                    window.localStorage.setItem("autolocation", autolocation);
+                                                                   window.localStorage.setItem("pushoffer", pushoffer);
+                                                                   window.localStorage.setItem("remindexpiry", remindexpiry);
                                                                    window.localStorage.setItem("city", city);
                                                                    window.localStorage.setItem("country", country);  
                                                                    pushSettings = {
@@ -2933,7 +2932,7 @@
                        url: gurl + "/trackDevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat")+"^"+mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
                                             }),
                        success: function (data) {
                        },
@@ -2999,7 +2998,7 @@
         }
                                                  , function onErrorShowMap(error) {
                                                  });
-         hideSpin(); 
+        hideSpin(); 
     }
 }
 )(window);
