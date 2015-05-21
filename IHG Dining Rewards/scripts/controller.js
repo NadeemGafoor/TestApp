@@ -714,6 +714,7 @@
                                                                       lon = positiono[1];
                                                                       window.localStorage.setItem("lat", lat);
                                                                       window.localStorage.setItem("lon", lon);
+                                                                      window.localStorage.setItem("isfenceset", "0");
                                                                       //alert(googleapikey);
                                                                       getCountry(); //Get Flag
                                                                       hideSpin(); //hide loading popup
@@ -747,52 +748,48 @@
                                                        lon = position.coords.longitude;
                                                        
                                                        $.ajax({
-                       type: "POST",
-                       cache: false,
-                       async: true,
-                       timeout: 20000,
-                       url: gurl + "/propertyList.aspx",
-                       contentType: "application/json; charset=utf-8",
-                       data: JSON.stringify({
-                                                merchantcode: merchant, mdevice: mdevicestat
-                                            }),
-                       success: function (data) {
-                           var getData = JSON.parse(data);
-                           var i = 0;
-                           if (getData.statuscode === "000") {
-                               if (getData.propertylist.length > 0) {
-                                   while (i <= getData.propertylist.length - 1) {
-                                       params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius];
-                                       window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
-                                       }, function(error) {
-                                       });
-                                       i++;
-                                   }
+                                                                  type: "POST",
+                                                                  cache: false,
+                                                                  async: true,
+                                                                  timeout: 20000,
+                                                                  url: gurl + "/propertyList.aspx",
+                                                                  contentType: "application/json; charset=utf-8",
+                                                                  data: JSON.stringify({
+                                                                                           merchantcode: merchant, mdevice: mdevicestat
+                                                                                       }),
+                                                                  success: function (data) {
+                                                                      var getData = JSON.parse(data);
+                                                                      var i = 0;
+                                                                      if (getData.statuscode === "000") {
+                                                                          if (getData.propertylist.length > 0) {
+                                                                              while (i <= getData.propertylist.length - 1) {
+                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius];
+                                                                                  window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                                                  }, function(error) {
+                                                                                  });
+                                                                                  i++;
+                                                                              }
                                    
-                                   DGGeofencing.startMonitoringSignificantLocationChanges(
-                                       function(result) { 
-                                       },
-                                       function(error) {  
-                                       }
-                                       );  
+                                                                      
+                                                                              window.localStorage.setItem("isfenceset", "1");
                                    
-                                   hideSpin(); //hide loading popup
-                               } else {
-                                   navigator.notification.alert("There are no Property for the selected Program!", function () {
-                                   }, "IHG Dining Rewards", "Dismiss")
-                                   hideSpin(); //hide loading popup
-                               }
-                           } else {
-                               navigator.notification.alert("Unknown Network Error, Cannot get Property List " + getData.statusdesc, function () {
-                               }, "IHG Dining Rewards", "Dismiss")
-                               hideSpin(); //hide loading popup
-                           }
-                       },
-                       error: function (error) {
-                           navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]", function () {
-                           }, "IHG Dining Rewards", "Dismiss")
-                       }
-                   });
+                                                                              hideSpin(); //hide loading popup
+                                                                          } else {
+                                                                              navigator.notification.alert("There are no Property for the selected Program!", function () {
+                                                                              }, "IHG Dining Rewards", "Dismiss")
+                                                                              hideSpin(); //hide loading popup
+                                                                          }
+                                                                      } else {
+                                                                          navigator.notification.alert("Unknown Network Error, Cannot get Property List " + getData.statusdesc, function () {
+                                                                          }, "IHG Dining Rewards", "Dismiss")
+                                                                          hideSpin(); //hide loading popup
+                                                                      }
+                                                                  },
+                                                                  error: function (error) {
+                                                                      navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]", function () {
+                                                                      }, "IHG Dining Rewards", "Dismiss")
+                                                                  }
+                                                              });
                                                    }
                                                                                             , function onErrorShowMap(error) {
                                                                                                 gpsError();
@@ -898,10 +895,13 @@
                                                        });
                                                    }
                                                    //flag display
-                                               } else{
-                                                   startMonitor();
+                                               } else {
+                                                   alert(window.localStorage.getItem("isfenceset"));
+                                                   if (window.localStorage.getItem("isfenceset")==="0") {
+                                                       startMonitor();
+                                                   }
                                                }
-                                   
+                                               
                                                hideSpin();
                                                return;
                                            },
@@ -2915,7 +2915,7 @@
     }
     
     function processRegionMonitorCallback (result) {
-            trackDevice(result);
+        trackDevice(result);
     }
     
     function trackDevice(mresult) {
@@ -2996,6 +2996,7 @@
         }
                                                  , function onErrorShowMap(error) {
                                                  });
+         hideSpin(); 
     }
 }
 )(window);
