@@ -777,16 +777,7 @@
                                                                                                               latitude:       getData.propertylist[i].lat,
                                                                                                               longitude:      getData.propertylist[i].lon,
                                                                                                               radius:         1000,
-                                                                                                              transitionType: TransitionType.ENTER,
-                                                                                                              notification: {
-                                                                                      id:             i,
-                                                                                      title:         getData.propertylist[i].msgtitle,
-                                                                                      text:           getData.propertylist[i].message,
-                                                                                      smallIcon:notification_image,
-                                                                                      icon:notification_image,                            
-                                                                                      openAppOnClick: false
-                                                                                  }
-                                                                                 
+                                                                                                              transitionType: TransitionType.ENTER
                                                                                                           }).then(function () {
                                                                                                           }, function (reason) {
                                                                                                           })
