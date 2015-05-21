@@ -821,7 +821,7 @@
                                                                       url: gurl + "/trackDevice.aspx",
                                                                       contentType: "application/json; charset=utf-8",
                                                                       data: JSON.stringify({
-                                                                                               merchantcode :merchant,mdevice:mdevicestat,lat:geo.latitude,lon: geo.longitude,customer:customer,segment:geo.id
+                                                                                               merchantcode :merchant,mdevice:mdevicestat+"^enter",lat:geo.latitude,lon: geo.longitude,customer:customer,segment:geo.id
                                                                                            }),
                                                                       success: function (data) {
                                                                       },
