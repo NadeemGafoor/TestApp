@@ -2211,6 +2211,8 @@
                                                                    country = country1;
                                                                    city = city1;
                                                                    window.localStorage.setItem("autolocation", autolocation);
+                                                                   window.localStorage.setItem("pushoffer", pushoffer);
+                                                                   window.localStorage.setItem("remindexpiry", remindexpiry);
                                                                    window.localStorage.setItem("city", city);
                                                                    window.localStorage.setItem("country", country);  
                                                                    pushSettings = {
