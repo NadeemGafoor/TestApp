@@ -762,10 +762,12 @@
                                                                       var i = 0;
                                                                       if (getData.statuscode === "000") {
                                                                           if (getData.propertylist.length > 0) {
+                                                                         
+                                                                              
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   
                                                                                   //Stop Monitor
-                                   var params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
+                                    params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
                                    window.plugins.DGGeofencing.stopMonitoringRegion(params, 
                                                                      function(result) {
                                                                          // not used.
