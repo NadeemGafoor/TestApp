@@ -763,6 +763,17 @@
                                                                       if (getData.statuscode === "000") {
                                                                           if (getData.propertylist.length > 0) {
                                                                               while (i <= getData.propertylist.length - 1) {
+                                                                                  
+                                                                                  //Stop Monitor
+                                   var params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
+                                   window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                                                     function(result) {
+                                                                         // not used.
+                                                                     }, function(error) {
+                                                                         // not used
+                                                                     });
+                                   
+                                                                                  
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
@@ -2913,14 +2924,6 @@
     
     function processRegionMonitorCallback (result) {
         trackDevice(result);
-        if (result.callbhacktype==="enter"){
-            alert("Enter")
-        }
-        
-        if (result.callbacktype==="exit"){
-            alert("Exit")
-        }
-
     }
     
     function trackDevice(mresult) {
@@ -2966,20 +2969,27 @@
                            var i = 0;
                            if (getData.statuscode === "000") {
                                if (getData.propertylist.length > 0) {
+                                 
+                                   
+                                   //Start Monitor
                                    while (i <= getData.propertylist.length - 1) {
-                                       params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius];
+                                       
+                                   //Stop Monitor
+                                   var params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
+                                   window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                                                     function(result) {
+                                                                         // not used.
+                                                                     }, function(error) {
+                                                                         // not used
+                                                                     });
+                                       
+                                       
+                                       params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                        window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                        }, function(error) {
                                        });
                                        i++;
                                    }
-                                   
-                                   DGGeofencing.startMonitoringSignificantLocationChanges(
-                                       function(result) { 
-                                       },
-                                       function(error) {  
-                                       }
-                                       );  
                                    
                                    hideSpin(); //hide loading popup
                                } else {
