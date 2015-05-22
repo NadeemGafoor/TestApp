@@ -2918,6 +2918,14 @@
     
     function processRegionMonitorCallback (result) {
         trackDevice(result);
+        if (result.callbhacktype==="enter"){
+            alert("Enter")
+        }
+        
+        if (result.callbacktype==="exit"){
+            alert("Exit")
+        }
+
     }
     
     function trackDevice(mresult) {
