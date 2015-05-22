@@ -2839,12 +2839,7 @@
                        }
                    });
         }
-                                                 , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                     //  if (err.code == "1") {
-                                                     //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                     //  } else if (err.code == "2") {
-                                                     //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                     //  }
+                                                 , function onErrorShowMap(error) { 
                                                      gpsError();
                                                  });   
     }
