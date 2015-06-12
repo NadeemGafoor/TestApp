@@ -156,7 +156,9 @@
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
-                                       
+                                       offerMessage:function() {
+                                               alert("hello");  
+                                           },
                                 
                                            pldestroyBenefitList:function() {
                                                $("#pl-benefit-list").remove();  
@@ -387,6 +389,7 @@
                                                                   sharingSocialView.set("social_image", share_image); 
                                                                      
                                                                   preLogin.set("outlettelephone", getData.outletlist[0].telephone);
+                                                                  preLogin.set("outletemailid", getData.outletlist[0].emailid);
                                                                      
                                                                   shareCustomer = customer;
                                                                   shareProductCode = getData.outletlist[0].outletcode;
@@ -1630,7 +1633,9 @@
                                                                    sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
                                                                    sharingSocialView.set("social_image", share_image); 
                                                                      
-                                                                   postLogin.set("outlettelephone", getData.outletlist[0].telephone);
+                                                                                                                                     postLogin.set("outlettelephone", getData.outletlist[0].telephone);
+                                                                  postLogin.set("outletemailid", getData.outletlist[0].emailid);
+
                                                                      
                                                                    shareCustomer = customer;
                                                                    shareProductCode = getData.outletlist[0].outletcode;

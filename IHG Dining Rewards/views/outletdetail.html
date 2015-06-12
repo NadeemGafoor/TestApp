@@ -68,7 +68,7 @@
 
 
 <script type="text/x-kendo-template" id="outletOfferTemplate">
-      <div class="outer-frame">
+      <div class="outer-frame" data-bind="click: offerMessage">
         <div class="image-frame-list small-image-height">
             <img src="${imageurls}" style="height:100%;width:100%"/>
         </div>
@@ -94,6 +94,7 @@
                                                 });
     }
     
+
 </script>
 
 <style scoped>
