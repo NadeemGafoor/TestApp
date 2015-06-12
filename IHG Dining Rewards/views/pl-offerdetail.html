@@ -73,6 +73,7 @@
 </div>
 
 <script type="text/x-kendo-template" id="plofferOutletTemplate">
+        <a data-transition="slide"   data-role="button"   data-click="outletMessage">
     <div class="outer-frame">
            <div class="image-frame-list small-image-height">
             <img src="${imageurl}" style="height:100%;width:100%"/>
@@ -80,8 +81,8 @@
         <div class="inner-frame-1">${outletname}</div>
         <div class="inner-frame-2">${hotelname}</div>
         <div class="inner-frame-3">Distance ${distance} Km</div>
-      
     </div>
+    </a>
 </script>
 
 <script>

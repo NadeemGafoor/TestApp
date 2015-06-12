@@ -1,4 +1,13 @@
- 
+  function offerMessage(){
+         navigator.notification.alert("To view offer details please select All Offers from the menu", function() {
+                                                                      }, "IHG Dining Rewards", "Dismiss")    
+    }
+
+  function outletMessage(){
+         navigator.notification.alert("To view Restaurant details please select Restaurants List from the menu", function() {
+                                                                      }, "IHG Dining Rewards", "Dismiss")    
+    }
+
 
 (function (global) {
     var gpsErrorShow = "";
