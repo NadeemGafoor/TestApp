@@ -1,12 +1,12 @@
-  function offerMessage(){
-         navigator.notification.alert("To view offer details please select All Offers from the menu", function() {
-                                                                      }, "IHG Dining Rewards", "Dismiss")    
-    }
+function offerMessage() {
+    navigator.notification.alert("To view offer details please select All Offers from the menu", function() {
+    }, "IHG Dining Rewards", "Dismiss")    
+}
 
-  function outletMessage(){
-         navigator.notification.alert("To view Restaurant details please select Restaurants List from the menu", function() {
-                                                                      }, "IHG Dining Rewards", "Dismiss")    
-    } 
+function outletMessage() {
+    navigator.notification.alert("To view Restaurant details please select Restaurants List from the menu", function() {
+    }, "IHG Dining Rewards", "Dismiss")    
+} 
 
 (function (global) {
     var gpsErrorShow = "";
@@ -71,7 +71,7 @@
     var enrollmenttelephone = "0097142766213";
     var customercaretelephone = "0097142766186";
     var cardimage = "";
-    var mdevicemeasure="";
+    var mdevicemeasure = "";
     
     //// function onSuccess(acceleration) {
     // alert('Acceleration X: ' + acceleration.x + '\n' +
@@ -829,7 +829,7 @@
                                                                       url: gurl + "/trackDevice.aspx",
                                                                       contentType: "application/json; charset=utf-8",
                                                                       data: JSON.stringify({
-                                                                                               merchantcode :merchant,mdevice:mdevicestat+"^enter",lat:geo.latitude,lon: geo.longitude,customer:customer,segment:geo.id
+                                                                                               merchantcode :merchant,mdevice:mdevicestat + "^enter",lat:geo.latitude,lon: geo.longitude,customer:customer,segment:geo.id
                                                                                            }),
                                                                       success: function (data) {
                                                                       },
@@ -1345,7 +1345,7 @@
                                             couponname:"",
                                             couponcategory:"",
                                             msgsequence:"",
-          toggleDD:function() {
+                                            toggleDD:function() {
                                                 if (document.getElementById("profile-autolocation").checked) {
                                                     document.getElementById("selCountry").disabled = true;
                                                     document.getElementById("selCity").disabled = true;
@@ -2043,16 +2043,16 @@
                                                                        document.getElementById("myvoucher-load").style.background = "url(" + getData.myvoucherdetail[0].imageurll + ") no-repeat center center";
                                                                        document.getElementById("myvoucher-load").style.backgroundSize = "cover";
                                                                                                                                          
-                                                                          //document.getElementById("voucher-number").innerHTML = getData.myvoucherdetail[0].itemcode;
+                                                                       //document.getElementById("voucher-number").innerHTML = getData.myvoucherdetail[0].itemcode;
                                                                        //document.getElementById("voucher-name").innerHTML = getData.myvoucherdetail[0].itemname;
                                                                        //document.getElementById("voucher-expiry").innerHTML = getData.myvoucherdetail[0].couponexpirydate;
                                                                        //document.getElementById("coupon-description-1").innerHTML = getData.myvoucherdetail[0].itemdescription;
                                                                      
                                                                        //document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
-                                                                   document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.myvoucherdetail[0].itemname + " </pre>";
-                                                                   document.getElementById("pl-ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].itemdescription + "</pre>";
-                                                                   document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.myvoucherdetail[0].couponexpirydate;
-                                                                   document.getElementById("pl-ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].remark + "</pre>";
+                                                                       document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.myvoucherdetail[0].itemname + " </pre>";
+                                                                       document.getElementById("pl-ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].itemdescription + "</pre>";
+                                                                       document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.myvoucherdetail[0].couponexpirydate;
+                                                                       document.getElementById("pl-ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].remark + "</pre>";
                                                             
                                                                        offercode = getData.myvoucherdetail[0].couponcode;
                                                                        hideSpin(); //hide loading popup
@@ -2143,8 +2143,7 @@
                                             :function() {
                                                 listCountry();
                                                 listCity(country);
-                                                  document.getElementById("selCountry").style.color = "#575757";
-                                                    document.getElementById("selCity").style.color = "#575757";
+                                               
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
                                                 }else {
@@ -2159,10 +2158,14 @@
                                                   
                                                 if (autolocation == "1") {
                                                     $("#profile-autolocation").data("kendoMobileSwitch").check(true);
+                                                    document.getElementById("selCountry").style.color = "#ccc";
+                                                    document.getElementById("selCity").style.color = "#ccc";
                                                 }else {
                                                     $("#profile-autolocation").data("kendoMobileSwitch").check(false);
                                                     document.getElementById("selCountry").value = country;
                                                     document.getElementById("selCity").value = city;
+                                                    document.getElementById("selCountry").style.color = "#575757";
+                                                    document.getElementById("selCity").style.color = "#575757";
                                                 }
                                                 hideSpin(); //hide loading popup
                                             },
@@ -2954,4 +2957,4 @@
                });
     }
 }
-)(window);
+    )(window);
