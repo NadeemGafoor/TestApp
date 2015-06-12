@@ -286,7 +286,7 @@
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "]", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "IHG Dining Rewards", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
@@ -402,7 +402,7 @@
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Outlet List. [" + errormsg.statusText + "]", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Outlet List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "IHG Dining Rewards", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -449,7 +449,7 @@
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "]", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "IHG Dining Rewards", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -616,7 +616,7 @@
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List. [" + errormsg.statusText + "]", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "IHG Dining Rewards", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -732,7 +732,7 @@
                                                                   }
                                                               },
                                                               error: function (errormsg) {
-                                                                  navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]", function() {
+                                                                  navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                   }, "IHG Dining Rewards", "Dismiss")
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -799,7 +799,7 @@
                                                                       }
                                                                   },
                                                                   error: function (error) {
-                                                                      navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]", function () {
+                                                                      navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function () {
                                                                       }, "IHG Dining Rewards", "Dismiss")
                                                                   }
                                                               });
@@ -988,7 +988,7 @@
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot Logout. [" + errormsg.statusText + "]", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot Logout. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "IHG Dining Rewards", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -1166,7 +1166,7 @@
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot Login.   [" + errormsg.statusText + "]", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot Login.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "IHG Dining Rewards", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -1215,7 +1215,7 @@
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot Login.  [" + errormsg.statusText + "]", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot Login.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "IHG Dining Rewards", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -1264,7 +1264,7 @@
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Unable to send the password reset URL [" + errormsg.statusText + "]", function() {
+                                                              navigator.notification.alert("Unknown Error, Unable to send the password reset URL [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "IHG Dining Rewards", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -1307,7 +1307,7 @@
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit List. [" + errormsg.statusText + "]", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "IHG Dining Rewards", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -1472,7 +1472,7 @@
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get message history.  [" + errormsg.statusText + "]", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get message history.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG Dining Rewards", "Dismiss")
                                                            }
                                                        });
@@ -1519,7 +1519,7 @@
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get message item.  [" + errormsg.statusText + "]", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get message item.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG Dining Rewards", "Dismiss")
                                                            }
                                                        });
@@ -1648,7 +1648,7 @@
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List.  [" + errormsg.statusText + "]", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG Dining Rewards", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -1740,7 +1740,7 @@
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG Dining Rewards", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -1870,7 +1870,7 @@
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "]", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG Dining Rewards", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -1943,7 +1943,7 @@
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List. [" + errormsg.statusText + "]", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG Dining Rewards", "Dismiss")
                                                                hideSpin(); //hide loading popup                                                                 
                                                            }
@@ -1992,7 +1992,7 @@
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "]", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG Dining Rewards", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -2047,7 +2047,7 @@
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "]", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG Dining Rewards", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -2111,7 +2111,7 @@
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot delete message. [" + errormsg.statusText + "]", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot delete message. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG Dining Rewards", "Dismiss")
                                                            }
                                                        });
@@ -2296,7 +2296,7 @@
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Could not update profile.  [" + errormsg.statusText + "]", function() {
+                                                               navigator.notification.alert("Unknown Error, Could not update profile.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG Dining Rewards", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -2347,7 +2347,7 @@
                    },
                    error:
                    function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Country list. [" + errormsg.statusText + "]", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Country list. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "IHG Dining Rewards", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -2386,7 +2386,7 @@
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get City list. [" + errormsg.statusText + "]", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get City list. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "IHG Dining Rewards", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -2491,7 +2491,7 @@
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "IHG Dining Rewards", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -2541,7 +2541,7 @@
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "IHG Dining Rewards", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -2592,7 +2592,7 @@
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "IHG Dining Rewards", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -2646,7 +2646,7 @@
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "IHG Dining Rewards", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -2686,7 +2686,7 @@
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.   [" + errormsg.statusText + "]", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "IHG Dining Rewards", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -2726,7 +2726,7 @@
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "IHG Dining Rewards", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -2766,7 +2766,7 @@
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Outlet List. [" + errormsg.statusText + "]", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Outlet List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "IHG Dining Rewards", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -3025,7 +3025,7 @@
                            }
                        },
                        error: function (error) {
-                           navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]", function () {
+                           navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function () {
                            }, "IHG Dining Rewards", "Dismiss")
                        }
                    });
