@@ -156,6 +156,8 @@
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
+                                       
+                                
                                            pldestroyBenefitList:function() {
                                                $("#pl-benefit-list").remove();  
                                            },
@@ -762,19 +764,15 @@
                                                                       var i = 0;
                                                                       if (getData.statuscode === "000") {
                                                                           if (getData.propertylist.length > 0) {
-                                                                         
-                                                                              
                                                                               while (i <= getData.propertylist.length - 1) {
-                                                                                  
                                                                                   //Stop Monitor
-                                    params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
-                                   window.plugins.DGGeofencing.stopMonitoringRegion(params, 
-                                                                     function(result) {
-                                                                         // not used.
-                                                                     }, function(error) {
-                                                                         // not used
-                                                                     });
-                                   
+                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
+                                                                                  window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                                                                                                                   function(result) {
+                                                                                                                                       // not used.
+                                                                                                                                   }, function(error) {
+                                                                                                                                       // not used
+                                                                                                                                   });
                                                                                   
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
@@ -1321,6 +1319,21 @@
                                             couponname:"",
                                             couponcategory:"",
                                             msgsequence:"",
+                                            toggleDD:function() {
+                                                if (document.getElementById("profile-autolocation").checked) {
+                                                    document.getElementById("selCountry").disabled = true;
+                                                    document.getElementById("selCity").disabled = true;
+                                                    document.getElementById("selCountry").value = "";
+                                                    document.getElementById("selCity").value = "";
+                                                    document.getElementById("selCountry").style.color = "#ccc";
+                                                    document.getElementById("selCity").style.color = "#ccc";
+                                                } else {
+                                                    document.getElementById("selCountry").disabled = false;
+                                                    document.getElementById("selCity").disabled = false;
+                                                    document.getElementById("selCountry").style.color = "#575757";
+                                                    document.getElementById("selCity").style.color = "#575757";
+                                                }
+                                            },
                                             destroysettingview                  
                                             :function() {
                                                 $("#pl-setting-theme").remove();
@@ -2100,7 +2113,8 @@
                                             :function() {
                                                 listCountry();
                                                 listCity(country);
-                                               
+                                                document.getElementById("selCountry").style.color = "#575757";
+                                                document.getElementById("selCity").style.color = "#575757";
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
                                                 }else {
@@ -2971,20 +2985,16 @@
                            var i = 0;
                            if (getData.statuscode === "000") {
                                if (getData.propertylist.length > 0) {
-                                 
-                                   
                                    //Start Monitor
                                    while (i <= getData.propertylist.length - 1) {
-                                       
-                                   //Stop Monitor
-                                   var params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
-                                   window.plugins.DGGeofencing.stopMonitoringRegion(params, 
-                                                                     function(result) {
-                                                                         // not used.
-                                                                     }, function(error) {
-                                                                         // not used
-                                                                     });
-                                       
+                                       //Stop Monitor
+                                       var params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
+                                       window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                                                                        function(result) {
+                                                                                            // not used.
+                                                                                        }, function(error) {
+                                                                                            // not used
+                                                                                        });
                                        
                                        params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                        window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {

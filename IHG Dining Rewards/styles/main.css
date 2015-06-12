@@ -359,9 +359,9 @@ img
 {
     height: 1.2em;
     line-height: 1.2em;
-    width: 80%;
+    width: 100%;
     text-align: left;
-    display: block;
+    margin-left:-6%;
 }
 
 #pl-settings-theme .input-frame input,
@@ -547,6 +547,7 @@ img
     border: 1px solid #ccc;
     background-color: #f0f2f3;
     left: 2%;
+    color:#575757;
 }
 
 .image-position
