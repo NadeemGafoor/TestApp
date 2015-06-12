@@ -1337,6 +1337,21 @@
                                             couponname:"",
                                             couponcategory:"",
                                             msgsequence:"",
+          toggleDD:function() {
+                                                if (document.getElementById("profile-autolocation").checked) {
+                                                    document.getElementById("selCountry").disabled = true;
+                                                    document.getElementById("selCity").disabled = true;
+                                                    document.getElementById("selCountry").value = "";
+                                                    document.getElementById("selCity").value = "";
+                                                    document.getElementById("selCountry").style.color = "#ccc";
+                                                    document.getElementById("selCity").style.color = "#ccc";
+                                                } else {
+                                                    document.getElementById("selCountry").disabled = false;
+                                                    document.getElementById("selCity").disabled = false;
+                                                    document.getElementById("selCountry").style.color = "#575757";
+                                                    document.getElementById("selCity").style.color = "#575757";
+                                                }
+                                            },
                                             destroysettingview                  
                                             :function() {
                                                 $("#pl-setting-theme").remove();
@@ -2116,7 +2131,8 @@
                                             :function() {
                                                 listCountry();
                                                 listCity(country);
-                                               
+                                                  document.getElementById("selCountry").style.color = "#575757";
+                                                    document.getElementById("selCity").style.color = "#575757";
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
                                                 }else {
