@@ -1,4 +1,12 @@
- 
+  function offerMessage(){
+         navigator.notification.alert("To view offer details please select All Offers from the menu", function() {
+                                                                      }, "IHG Dining Rewards", "Dismiss")    
+    }
+
+  function outletMessage(){
+         navigator.notification.alert("To view Restaurant details please select Restaurants List from the menu", function() {
+                                                                      }, "IHG Dining Rewards", "Dismiss")    
+    } 
 
 (function (global) {
     var gpsErrorShow = "";
@@ -279,7 +287,7 @@
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Benefit details. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Cannot get Benefit details. " + getData.statusdesc, function() {
                                                                   }, "IHG Dining Rewards", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -394,13 +402,13 @@
                                                                   shareProductType = "1"; //outlet review
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get outlet List " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Cannot get Restaurant List " + getData.statusdesc, function() {
                                                                   }, "IHG Dining Rewards", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Outlet List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Restaurant List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "IHG Dining Rewards", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -441,7 +449,7 @@
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Offer List " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Cannot get Offer List " + getData.statusdesc, function() {
                                                                   }, "IHG Dining Rewards", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -608,7 +616,7 @@
                                                                      
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
                                                                   }, "IHG Dining Rewards", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -792,7 +800,7 @@
                                                                           hideSpin(); //hide loading popup
                                                                       }
                                                                   }else {
-                                                                      navigator.notification.alert("Unknown Network Error, Cannot get Property List " + getData.statusdesc, function() {
+                                                                      navigator.notification.alert("Cannot get Property List " + getData.statusdesc, function() {
                                                                       }, "IHG Dining Rewards", "Dismiss")          
                                                                       hideSpin(); //hide loading popup
                                                                   }
@@ -1316,7 +1324,7 @@
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Unknown Network Error, Cannot get Benefit List " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Cannot get Benefit List " + getData.statusdesc, function() {
                                                                   }, "IHG Dining Rewards", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -1482,7 +1490,7 @@
                                                                        }, "IHG Dining Rewards", "Dismiss")    
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get message history. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Cannot get message history. " + getData.statusdesc, function() {
                                                                    }, "IHG Dining Rewards", "Dismiss")          
                                                                }
                                                            },
@@ -1529,7 +1537,7 @@
                                                                        }, "IHG Dining Rewards", "Dismiss")    
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get message item. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Cannot get message item. " + getData.statusdesc, function() {
                                                                    }, "IHG Dining Rewards", "Dismiss")          
                                                                }
                                                            },
@@ -1655,13 +1663,13 @@
                                                                    shareProductType = "1"; //outlet review
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get outlet List. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Cannot get Restaurant List. " + getData.statusdesc, function() {
                                                                    }, "IHG Dining Rewards", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Outlet List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG Dining Rewards", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -1747,7 +1755,7 @@
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
                                                                    }, "IHG Dining Rewards", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
@@ -1877,7 +1885,7 @@
                                                                      
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
                                                                    }, "IHG Dining Rewards", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
@@ -1950,7 +1958,7 @@
                                                                    $("body").data("kendoMobilePane").navigate("views/pl-confirmpage.html");  
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot get Offer List. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
                                                                    }, "IHG Dining Rewards", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
@@ -2119,7 +2127,7 @@
                                                                if (getData.statuscode == "000") {
                                                                    $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");  
                                                                }else {
-                                                                   navigator.notification.alert("Unknown Network Error, Cannot delete message. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Cannot delete message. " + getData.statusdesc, function() {
                                                                    }, "IHG Dining Rewards", "Dismiss")          
                                                                }
                                                            },
@@ -2352,7 +2360,7 @@
                                }
                                hideSpin();
                            }else {
-                               navigator.notification.alert("Unknown Network Error, Cannot get Country list. " + getData.statusdesc, function() {
+                               navigator.notification.alert("Cannot get Country list. " + getData.statusdesc, function() {
                                }, "IHG Dining Rewards", "Dismiss")          
                                hideSpin(); //hide loading popup
                            }
@@ -2393,7 +2401,7 @@
                                x.add(opt);
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get City list. " + getData.statusdesc, function() {
+                           navigator.notification.alert("Cannot get City list. " + getData.statusdesc, function() {
                            }, "IHG Dining Rewards", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
@@ -2498,7 +2506,7 @@
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List." + getData.statusdesc, function() {
+                           navigator.notification.alert("Cannot get Restaurant List." + getData.statusdesc, function() {
                            }, "IHG Dining Rewards", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
@@ -2548,7 +2556,7 @@
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List. " + getData.statusdesc, function() {
+                           navigator.notification.alert("Cannot get Restaurant List. " + getData.statusdesc, function() {
                            }, "IHG Dining Rewards", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
@@ -2599,7 +2607,7 @@
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Offer List." + getData.statusdesc, function() {
+                           navigator.notification.alert("Cannot get Offer List." + getData.statusdesc, function() {
                            }, "IHG Dining Rewards", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
@@ -2653,7 +2661,7 @@
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Offer List." + getData.statusdesc, function() {
+                           navigator.notification.alert("Cannot get Offer List." + getData.statusdesc, function() {
                            }, "IHG Dining Rewards", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
@@ -2693,7 +2701,7 @@
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List. " + getData.statusdesc, function() {
+                           navigator.notification.alert("Cannot get Restaurant List. " + getData.statusdesc, function() {
                            }, "IHG Dining Rewards", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
@@ -2733,7 +2741,7 @@
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Restaurant List. " + getData.statusdesc, function() {
+                           navigator.notification.alert("Cannot get Restaurant List. " + getData.statusdesc, function() {
                            }, "IHG Dining Rewards", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
@@ -2773,13 +2781,13 @@
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Unknown Network Error, Cannot get Outlet List." + getData.statusdesc, function() {
+                           navigator.notification.alert("Cannot get Restaurant List." + getData.statusdesc, function() {
                            }, "IHG Dining Rewards", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Outlet List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "IHG Dining Rewards", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
