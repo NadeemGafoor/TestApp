@@ -1,11 +1,13 @@
 <div data-role="view"   data-layout="back-layout" id="offerdetailnearme-theme" data-init="initButtonGroup"  data-hide="preLogin.offerDetaildestroyViewNearMe" data-show="preLogin.offeritem" data-model="preLogin">
-  <header data-role="header">
+    <header data-role="header">
         <div data-role="navbar">
-                             <div class="brand-icon"></div> 
-             <a data-transition="slide"   data-role="button" href="views/offerlistnearme.html" data-align="left"  data-icon="back">
+            <div class="brand-icon"></div>
+            <a data-transition="slide"   data-role="button" href="views/offerlistnearme.html" data-align="left"  data-icon="back">
             </a>
             <span data-role="view-title" id="item-title"></span>
-                        <a data-transition="slide"   data-role="button" href="views/home.html" data-align="right" ><i class="fa fa-home fa-lg" style="color:#fff"></i></a>
+            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="right" >
+                <i class="fa fa-home fa-lg" style="color:#fff"></i>
+            </a>
         </div>
     </header>
     <ul data-role="buttongroup" data-index="0" id="offertabnearme" class="button-group" style="margin-top:0px">
@@ -44,34 +46,35 @@
     <ul data-role="listview" data-style="inset" style="display:none;background-color:#fff;margin-top:0px" id="offer-outlet-list-view">
 
     </ul>
-  
-      <footer data-role="footer">
-                   <div class="button-frame-inline">
-                     <a data-transition="slide"   data-role="button"   data-bind="click: callTel">Call Now</a>
-                     <a data-transition="slide"   data-role="button"    data-bind="click: shareOutlet">Share</a>   
-                </div>
-    
-                <div data-role="navbar">
-                    <div class="home-navbar" >
-                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
-                    </div>
-                   <div class="footer-logo" data-bind="click:showBrandPage">&nbsp;</div>
 
+    <footer data-role="footer">
+        <div class="button-frame-inline">
+            <a data-transition="slide"   data-role="button"   data-bind="click: callTel">Call Now</a>
+            <a data-transition="slide"   data-role="button"    data-bind="click: shareOutlet">Share</a>
+        </div>
 
-                </div>
-            </footer>
+        <div data-role="navbar">
+            <div class="home-navbar" >
+                <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
+            </div>
+            <div class="footer-logo" data-bind="click:showBrandPage">&nbsp;</div>
+
+        </div>
+    </footer>
 </div>
 
 <script type="text/x-kendo-template" id="offerOutletTemplate">
+        <a data-transition="slide"   data-role="button"   data-click="outletMessage">
     <div class="outer-frame">
-           <div class="image-frame-list small-image-height">
+        <div class="image-frame-list small-image-height">
             <img src="${imageurl}" style="height:100%;width:100%"/>
         </div>
         <div class="inner-frame-1">${outletname}</div>
         <div class="inner-frame-2">${hotelname}</div>
         <div class="inner-frame-3">Distance ${distance} Km</div>
-    
+
     </div>
+    </a>
 </script>
 
 <script>
@@ -79,13 +82,13 @@
         var listviews = this.element.find("ul.km-listview");
 
         $("#offertabnearme").kendoMobileButtonGroup({
-                                                  select: function (e) {
-                                                      listviews.hide()
-                                                          .eq(e.index)
-                                                          .show();
-                                                  },
-                                                  index: 0
-                                              });
+                                                        select: function (e) {
+                                                            listviews.hide()
+                                                                .eq(e.index)
+                                                                .show();
+                                                        },
+                                                        index: 0
+                                                    });
     }  
 </script>
 
@@ -98,19 +101,20 @@
         margin-left: 20%;
     }
     
-    #offerdetailnearme-theme .km-view  .km-content{
-        background-color:#f4efed !important;
+    #offerdetailnearme-theme .km-view  .km-content
+    {
+        background-color: #f4efed !important;
     }
     
-        #offer-outlet-list-view li
+    #offer-outlet-list-view li
     {
         border-top: 1px solid #ccc !important;
         border-bottom: 1px solid #ccc !important;
     }  
     
-        #offer-outlet-list-view a{
-           background-color:transparent !important;
-       }
-    
+    #offer-outlet-list-view a
+    {
+        background-color: transparent !important;
+    }
     </style>
 

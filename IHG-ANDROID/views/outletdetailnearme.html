@@ -67,14 +67,16 @@
 
 
 <script type="text/x-kendo-template" id="outletOfferTemplate">
+<a data-transition="slide"   data-role="button"   data-click="offerMessage">    
       <div class="outer-frame">
         <div class="image-frame-list small-image-height">
             <img src="${imageurls}" style="height:100%;width:100%"/>
         </div>
         <div class="inner-frame-1">${itemname} </div>
-        <div class="inner-frame-3">Expiry : ${couponexpirydate}</div>
+        <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
        
     </div>
+</a>    
 </script>
 
 <script>
@@ -93,6 +95,7 @@
                                                 });
     }
     
+       
 </script>
 
 <style scoped>

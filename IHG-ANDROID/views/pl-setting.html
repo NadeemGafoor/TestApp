@@ -1,11 +1,10 @@
 <div data-role="view" data-title="My Settings" data-layout="pl-back-layout" id="pl-setting-theme" data-model="postLogin" data-hide="postLogin.destroysettingview" data-show="postLogin.editsettingdata" >
 
-   
     <div data-role="header">
         <div data-role="navbar">
             <span data-role="view-title"></span>
             <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left"  data-icon="back"></a>
-                <a data-transition="slide"   data-role="button" data-align="right" style="color:#fff" data-bind="click:saveSetting">Save</a>
+            <a data-transition="slide"   data-role="button" data-align="right" style="color:#fff" data-bind="click:saveSetting">Save</a>
         </div>
     </div>
 
@@ -22,7 +21,7 @@
         <li>
             <div class="switch-frame">
                 <label  class="whitecolor">
-                    Remind Expirying Vouchers
+                    Expiring Vouchers Reminder
                     <input data-role="switch" name="remindexpiry" id="profile-remindexpiry" type="checkbox" checked="false"/>
                 </label>
             </div>
@@ -31,14 +30,14 @@
             <div class="switch-frame">
                 <label  class="whitecolor">
                     Auto Location
-                    <input data-role="switch" name="showprofile" id="profile-autolocation" type="checkbox" checked="false"/>
+                    <input data-role="switch" name="showprofile" id="profile-autolocation" type="checkbox" checked="false" data-bind="checked:toggleDD"/>
                 </label>
             </div>
         </li>
         <li>
             <div class="input-frame">
-                <label>
-                    Country:
+                <label class="whitecolor">
+                    Country
                     <select id="selCountry" >
                         <option value="" selected="true">&nbsp;Select Country</option>
                     </select>
@@ -47,8 +46,8 @@
         </li>
         <li>
             <div class="input-frame">
-                <label>
-                    City:
+                <label class="whitecolor">
+                    City
                     <select id="selCity">
                         <option value="" selected="true" data-bind="click: getCity">&nbsp;Select City</option>
                     </select>
@@ -64,8 +63,7 @@
             <div class="home-navbar" >
                 <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
             </div>
-             <div class="footer-logo" data-bind="click:plshowBrandPage">&nbsp;</div>
-
+            <div class="footer-logo" data-bind="click:plshowBrandPage">&nbsp;</div>
 
         </div>
     </footer>
@@ -81,4 +79,4 @@
         border: 1px solid #ccc;
         background-color: #f7f3f1;
     }
-    </style> 
+</style> 
