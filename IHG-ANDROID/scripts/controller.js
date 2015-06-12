@@ -2035,13 +2035,17 @@
                                                                        document.getElementById("myvoucher-load").style.background = "url(" + getData.myvoucherdetail[0].imageurll + ") no-repeat center center";
                                                                        document.getElementById("myvoucher-load").style.backgroundSize = "cover";
                                                                                                                                          
-                                                                       document.getElementById("voucher-number").innerHTML = getData.myvoucherdetail[0].itemcode;
-                                                                       document.getElementById("voucher-name").innerHTML = getData.myvoucherdetail[0].itemname;
-                                                                       document.getElementById("voucher-expiry").innerHTML = getData.myvoucherdetail[0].couponexpirydate;
+                                                                          //document.getElementById("voucher-number").innerHTML = getData.myvoucherdetail[0].itemcode;
+                                                                       //document.getElementById("voucher-name").innerHTML = getData.myvoucherdetail[0].itemname;
+                                                                       //document.getElementById("voucher-expiry").innerHTML = getData.myvoucherdetail[0].couponexpirydate;
                                                                        //document.getElementById("coupon-description-1").innerHTML = getData.myvoucherdetail[0].itemdescription;
                                                                      
-                                                                       document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
-                                                    
+                                                                       //document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
+                                                                   document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.myvoucherdetail[0].itemname + " </pre>";
+                                                                   document.getElementById("pl-ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].itemdescription + "</pre>";
+                                                                   document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.myvoucherdetail[0].couponexpirydate;
+                                                                   document.getElementById("pl-ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].remark + "</pre>";
+                                                            
                                                                        offercode = getData.myvoucherdetail[0].couponcode;
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
