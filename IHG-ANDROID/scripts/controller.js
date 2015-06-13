@@ -2498,7 +2498,10 @@ function outletMessage() {
                                        autoFilter: true,
                                        placeholder:"Search By Restaurant Name",                                         
                                        field: "outletname",
-                                       operator: "contains"
+                                       operator: "contains",
+                                                                                 serverPaging: true,
+            serverSorting: true,
+            pageSize: 10
                                    }
                                                                                                                     
                                                                         });
@@ -2548,7 +2551,10 @@ function outletMessage() {
                                        autoFilter: true,
                                        placeholder:"Search By Restaurant Name",                                         
                                        field: "outletname",
-                                       operator: "contains"
+                                       operator: "contains",
+                                                                                       serverPaging: true,
+            serverSorting: true,
+            pageSize: 10
                                    }
                                                                                                                     
                                                                            });
@@ -2599,7 +2605,10 @@ function outletMessage() {
                                        autoFilter: true,
                                        placeholder:"Search By Offer Name",                                         
                                        field: "itemname",
-                                       operator: "contains"
+                                       operator: "contains",
+                                                                                     serverPaging: true,
+            serverSorting: true,
+            pageSize: 10
                                    }
                                                                                                                     
                                                                          });
@@ -2653,7 +2662,10 @@ function outletMessage() {
                                        autoFilter: true,
                                        placeholder:"Search By Offer Name",                                         
                                        field: "itemname",
-                                       operator: "contains"
+                                       operator: "contains",
+                                                                                        serverPaging: true,
+            serverSorting: true,
+            pageSize: 10
                                    }
                                                                                                                     
                                                                             });
