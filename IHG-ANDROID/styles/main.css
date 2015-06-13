@@ -1,3 +1,5 @@
+@font-face {font-family: 'Georgia';src: url('../styles/fonts/Georgia.ttf')  format('truetype');} /* Safari, Android, iOS */
+
 .km-navbar a:active{
     background-color:transparent !important;
 }
