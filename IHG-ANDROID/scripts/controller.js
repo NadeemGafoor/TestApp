@@ -275,7 +275,7 @@ function outletMessage() {
                                                                   //fill the outlet template
                                                                   if (getData.benefitlist.length > 0) {
                                                                       document.getElementById("benefit-detail-view").style.display = "block";
-                                                                      document.getElementById("item-title").innerHTML = getData.benefitlist[0].titlename;
+                                                                      document.getElementById("item-title").innerHTML = "";//getData.benefitlist[0].titlename;
                                                                       document.getElementById("benefit-text3").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                                                                       sharingSocialView.set("social_subject", getData.benefitlist[0].shortdes1);
                                                                       sharingSocialView.set("social_message", getData.benefitlist[0].shortdes2);
