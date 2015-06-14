@@ -253,7 +253,7 @@ function outletMessage() {
                                            showBrandPage
                                            : function () {
                                                // alert("Hello");
-                                               $("body").data("kendoMobilePane").navigate("views/brandpage.html");  
+                                               $("body").data("kendoMobilePane").navigate("views/brandpage.html","slide:up");  
                                            } ,       
                                       
                                            benefitdetail: function (e) { 
