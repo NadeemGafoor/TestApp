@@ -1958,13 +1958,13 @@ function outletMessage() {
                                                                    $("body").data("kendoMobilePane").navigate("views/pl-confirmpage.html");  
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Cannot activate offer. " + getData.statusdesc, function() {
                                                                    }, "IHG Dining Rewards", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot activate offer. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG Dining Rewards", "Dismiss")
                                                                hideSpin(); //hide loading popup                                                                 
                                                            }
