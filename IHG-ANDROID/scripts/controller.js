@@ -2838,7 +2838,7 @@ function outletMessage() {
         if (gpsErrorShow==="") {
             navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.", function() {
             }, "IHG Dining Rewards", "Dismiss");
-            gpsErrorShow = "1";
+            //gpsErrorShow = "1"; remove the comment if error message is required to be shown only once
         }
     }
     
@@ -2846,7 +2846,7 @@ function outletMessage() {
         if (gpsErrorShowApp==="") {    
             navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.", function() {
             }, "IHG Dining Rewards", "Dismiss");
-            gpsErrorShowApp = "1";
+            //gpsErrorShowApp = "1"; remove the comment if error message is required to be shown only once
         }
     }
     
