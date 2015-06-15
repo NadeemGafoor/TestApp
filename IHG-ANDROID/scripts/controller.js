@@ -9,7 +9,7 @@ function outletMessage() {
 } 
 
 (function (global) {
-    var positionOption = { timeout: 10000, enableHighAccuracy: false };
+    var positionOption = { timeout: 30000, enableHighAccuracy: false };
     var gpsErrorShow = "";
     var gpsErrorShowApp = "";
     var magicnumber = "";
@@ -342,6 +342,7 @@ function outletMessage() {
                                                                                             //  } else if (err.code == "2") {
                                                                                             //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                             //  }
+                                                                                            gpsError();
                                                                                             if (y==="1") {
                                                                                                 geocity = "";
                                                                                             }else {
@@ -548,6 +549,7 @@ function outletMessage() {
                                                                                             //  } else if (err.code == "2") {
                                                                                             //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                             //  }
+                                                                                            gpsError();
                                                                                             if (y==="1") {
                                                                                                 geocity = "";
                                                                                             }else {
@@ -692,7 +694,7 @@ function outletMessage() {
                                            : function() {
                                                showSpin();
                                                //document.getElementById("flagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center"; 
-                                                 checklocation();
+                                                
                                                if (firsttime == "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
@@ -705,7 +707,7 @@ function outletMessage() {
                                                    preLogin.set("segmentcode", segmentcode);
                                                    
                                                    //Check whether GPS enabled
-                                                   
+                                                   checklocation();
                                                    window.geofence.initialize(function() {
                                                    }, function(error) {
                                                    });
@@ -1589,6 +1591,7 @@ function outletMessage() {
                                                                                                  //  } else if (err.code == "2") {
                                                                                                  //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                                  //  }
+                                                                                                 gpsError();
                                                                                                  if (y==="1") {
                                                                                                      geocity = "";
                                                                                                  }else {
@@ -1816,6 +1819,7 @@ function outletMessage() {
                                                                                                  //  } else if (err.code == "2") {
                                                                                                  //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                                  //  }
+                                                                                                 gpsError();
                                                                                                  if (y==="1") {
                                                                                                      geocity = "";
                                                                                                  }else {
@@ -1916,6 +1920,7 @@ function outletMessage() {
                                                                                                  //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                                  //  }
                                                                                                  //locationErrorToast();
+                                                                                                 gpsError();
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                   
