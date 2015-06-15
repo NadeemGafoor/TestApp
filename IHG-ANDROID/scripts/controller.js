@@ -2841,16 +2841,18 @@ function outletMessage() {
     
     function gpsError() {
         if (gpsErrorShow==="") {
-            navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.", function() {
-            }, "IHG Dining Rewards", "Dismiss");
+            showTop("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
+        //    navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.", function() {
+        //    }, "IHG Dining Rewards", "Dismiss");
             //gpsErrorShow = "1"; remove the comment if error message is required to be shown only once
         }
     }
     
     function gpsErrorApp() {
         if (gpsErrorShowApp==="") {    
-            navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.", function() {
-            }, "IHG Dining Rewards", "Dismiss");
+            showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
+           // navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.", function() {
+           // }, "IHG Dining Rewards", "Dismiss");
             //gpsErrorShowApp = "1"; remove the comment if error message is required to be shown only once
         }
     }
@@ -2947,6 +2949,20 @@ function outletMessage() {
                                                      getFlag();
                                                  });
     }
+    
+        function showTop(e) {
+  window.plugins.toast.showWithOptions(
+    {
+      message: e,
+      duration: "short",
+      position: "bottom",
+      addPixelsY: -40  // added a negative value to move it up a bit (default 0)
+    },
+    function(){}, // optional
+    function(){}    // optional
+  );
+}
+    
     function getFlag() {
         $.ajax({ 
                    type: "POST",
