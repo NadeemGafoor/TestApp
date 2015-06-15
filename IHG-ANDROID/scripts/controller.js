@@ -9,6 +9,7 @@ function outletMessage() {
 } 
 
 (function (global) {
+    var positionOption = { timeout: 10000, enableHighAccuracy: false };
     var gpsErrorShow = "";
     var gpsErrorShowApp = "";
     var magicnumber = "";
@@ -347,12 +348,11 @@ function outletMessage() {
                                                                                                 geocity = city;
                                                                                             }
                                                                                             geocountry = country;
-                                                                                          
                                                                                             // locationErrorToast();
                                                                                             lat = window.localStorage.getItem("lat");
                                                                                             lon = window.localStorage.getItem("lon");
                                                                                             listOutlet();
-                                                                                        });
+                                                                                        },positionOption);
                                            },
 
         
@@ -503,7 +503,7 @@ function outletMessage() {
                                                                                                     navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled", function() {
                                                                                                     }, "IHG Dining Rewards", "Dismiss");  
                                                                                                 }
-                                                                                            }
+                                                                                            },positionOption
                                                        );
                                                    isMapInitialized = true;
                                                }
@@ -559,7 +559,7 @@ function outletMessage() {
                                                                                              
                                                                                             //locationErrorToast();
                                                                                             listOffer();
-                                                                                        });
+                                                                                        },positionOption);
                                            },
                                                
                                                
@@ -656,7 +656,7 @@ function outletMessage() {
                                                                                             lon = window.localStorage.getItem("lon");
                                                                                              
                                                                                             listOfferOutlet();
-                                                                                        }
+                                                                                        },positionOption
                                                    );
                                            },
         
@@ -1601,7 +1601,7 @@ function outletMessage() {
                                                                                                  //locationErrorToast();
                                                                                                  pllistOutlet();
                                                                                                  hideSpin();
-                                                                                             });
+                                                                                             },positionOption);
                                                 }else {
                                                     if (y==="1") {
                                                         geocity = "";
@@ -1715,7 +1715,7 @@ function outletMessage() {
                                                                                                      navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled.", function() {
                                                                                                      }, "IHG Dining Rewards", "Dismiss");  
                                                                                                  }
-                                                                                             }
+                                                                                             },positionOption
                                                         );
                                                     isMapInitialized = true;
                                                 }
@@ -1828,7 +1828,7 @@ function outletMessage() {
                                                                                                  //locationErrorToast();
                                                                                                  pllistOffer();
                                                                                                  hideSpin();
-                                                                                             });
+                                                                                             },positionOption);
                                                 }else {
                                                     if (y==="1") {
                                                         geocity = "";
@@ -1920,7 +1920,7 @@ function outletMessage() {
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                   
                                                                                                  pllistOfferOutlet();
-                                                                                             });
+                                                                                             },positionOption);
                                                 }else {
                                                     //locationErrorToast();
                                                     lat = window.localStorage.getItem("lat");
@@ -2097,7 +2097,7 @@ function outletMessage() {
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                   
                                                                                                  myOfferListOutlet();
-                                                                                             });
+                                                                                             },positionOption);
                                                 }else {
                                                     //locationErrorToast();
                                                     lat = window.localStorage.getItem("lat");
@@ -2903,7 +2903,7 @@ function outletMessage() {
                                                      //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                      //  }
                                                      gpsError();
-                                                 });   
+                                                 },positionOption);   
     }
     
     //Get Country
@@ -2942,7 +2942,7 @@ function outletMessage() {
                                                      mcountry = country;
                                                      window.localStorage.setItem("country", mcountry);
                                                      getFlag();
-                                                 });
+                                                 },positionOption);
     }
     
         function showTop(e) {
@@ -2992,7 +2992,7 @@ function outletMessage() {
                                                    }
                                                                                             , function onErrorShowMap(error) { 
                                                                                                 gpsError();
-                                                                                            });   
+                                                                                            },positionOption);   
         
     }
 }
