@@ -9,7 +9,7 @@ function outletMessage() {
 } 
 
 (function (global) {
-    var positionOption = { timeout: 30000, enableHighAccuracy: false };
+    var positionOption = { maximumAge:3000,timeout: 5000, enableHighAccuracy: false };
     var gpsErrorShow = "";
     var gpsErrorShowApp = "";
     var magicnumber = "";
@@ -1920,7 +1920,7 @@ function outletMessage() {
                                                                                                  //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                                  //  }
                                                                                                  //locationErrorToast();
-                                                                                                 gpsError();
+                                                   
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                   
@@ -2098,6 +2098,7 @@ function outletMessage() {
                                                                                                  //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                                  //  }
                                                                                                  //locationErrorToast();
+                                                                                                 gpsError();
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                   
