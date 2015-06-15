@@ -692,13 +692,7 @@ function outletMessage() {
                                            : function() {
                                                showSpin();
                                                //document.getElementById("flagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center"; 
-                                                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                       lat = position.coords.latitude;                                  
-                                                       lon = position.coords.longitude;
-                                                   }
-                                                                                            , function onErrorShowMap(error) { 
-                                                                                                gpsError();
-                                                                                            });   
+                                                 checklocation();
                                                if (firsttime == "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
@@ -1428,6 +1422,7 @@ function outletMessage() {
                                                     $("body").data("kendoMobilePane").navigate("views/home.html"); 
                                                     return;
                                                 }
+                                                checklocation();
                                                 
                                                 if (autolocation != "1") {
                                                     gpsErrorApp();
@@ -2988,6 +2983,17 @@ function outletMessage() {
                        hideSpin(); //hide loading popup
                    }
                });
+    }
+    
+    function checklocation(){
+        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                       lat = position.coords.latitude;                                  
+                                                       lon = position.coords.longitude;
+                                                   }
+                                                                                            , function onErrorShowMap(error) { 
+                                                                                                gpsError();
+                                                                                            });   
+        
     }
 }
     )(window);
