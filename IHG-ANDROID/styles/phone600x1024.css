@@ -27,6 +27,12 @@
         background-position: center center;
     }
 
+.img-hero{
+        height: 400px;
+        width: 100%;
+
+}
+
   .hero-image
     {
         height: 400px;

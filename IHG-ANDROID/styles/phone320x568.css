@@ -28,6 +28,11 @@
              -webkit-background-size: 55%;
         background-size: 55%;
     }
+.img-hero{
+        height: 175px;
+        width: 100%;
+
+}
 
   .hero-image
     {

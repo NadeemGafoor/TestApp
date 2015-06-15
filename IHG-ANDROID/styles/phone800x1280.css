@@ -28,6 +28,12 @@
         background-position: center center;
     }
 
+.img-hero{
+        height: 600px;
+        width: 100%;
+
+}
+
   .hero-image
     {
         height: 600px;

@@ -380,9 +380,10 @@ function outletMessage() {
                                                                   lon = m[1];
                                                                   
                                                                   document.getElementById("outlet-detail-div").style.display = "block";
-                                                                  document.getElementById("outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
-                                                                  document.getElementById("outlet-image-large").style.backgroundSize = "cover";
+                                                                  //document.getElementById("outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
+                                                                  //document.getElementById("outlet-image-large").style.backgroundSize = "cover";
                                                                   //document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
+                                                                  document.getElementById("outletimage").src = getData.outletlist[0].imageurll;
                                                                   document.getElementById("ooutlet-short").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
                                                                   document.getElementById("ooutlet-long").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
                                                                   // document.getElementById("outlet-review").innerHTML = getData.outletlist[0].reviewcount + " Review(s)";
@@ -599,10 +600,11 @@ function outletMessage() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
                                                                   document.getElementById("offer-detail-div").style.display = "block";
-                                                                  document.getElementById("offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
-                                                                  document.getElementById("offer-image-large").style.backgroundSize = "cover";
+                                                                  //document.getElementById("offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
+                                                                  //document.getElementById("offer-image-large").style.backgroundSize = "cover";
                                                                      
                                                                   //document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
+                                                                  document.getElementById("offerimage").src = getData.offerlist[0].imageurll;
                                                                   document.getElementById("ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + " </pre>";
                                                                   document.getElementById("ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                   document.getElementById("ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
@@ -690,6 +692,13 @@ function outletMessage() {
                                            : function() {
                                                showSpin();
                                                //document.getElementById("flagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center"; 
+                                                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                       lat = position.coords.latitude;                                  
+                                                       lon = position.coords.longitude;
+                                                   }
+                                                                                            , function onErrorShowMap(error) { 
+                                                                                                gpsError();
+                                                                                            });   
                                                if (firsttime == "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
@@ -811,13 +820,7 @@ function outletMessage() {
                                                               }
                                                           });
                                                    
-                                                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                       lat = position.coords.latitude;                                  
-                                                       lon = position.coords.longitude;
-                                                   }
-                                                                                            , function onErrorShowMap(error) { 
-                                                                                                gpsError();
-                                                                                            });   
+                                               
                                                
                                                    window.geofence.onTransitionReceived = function (geofences) {
                                                        geofences.forEach(function (geo) {
@@ -1643,9 +1646,10 @@ function outletMessage() {
                                                                    lat = m[0];
                                                                    lon = m[1];
                                                                    document.getElementById("pl-outletdetail-div").style.display = "block";
-                                                                   document.getElementById("pl-outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
-                                                                   document.getElementById("pl-outlet-image-large").style.backgroundSize = "cover";
+                                                                   //document.getElementById("pl-outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
+                                                                   //document.getElementById("pl-outlet-image-large").style.backgroundSize = "cover";
                                                                    //document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
+                                                                    document.getElementById("ploutletimage").src = getData.outletlist[0].imageurll;
                                                                    document.getElementById("pl-ooutlet-short").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
                                                                    document.getElementById("pl-ooutlet-long").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
                                              
@@ -1868,10 +1872,11 @@ function outletMessage() {
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
                                                                    document.getElementById("pl-offerdetail-div").style.display = "block";
-                                                                   document.getElementById("pl-offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
-                                                                   document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
+                                                                  // document.getElementById("pl-offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
+                                                                  // document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
                                                                      
                                                                    //document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
+                                                                   document.getElementById("plofferimage").src = getData.offerlist[0].imageurll;                                                                   
                                                                    document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + " </pre>";
                                                                    document.getElementById("pl-ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                    document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
@@ -2040,9 +2045,9 @@ function outletMessage() {
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.myvoucherdetail.length > 0) {
                                                                        document.getElementById("wallet-div").style.display = "block";
-                                                                       document.getElementById("myvoucher-load").style.background = "url(" + getData.myvoucherdetail[0].imageurll + ") no-repeat center center";
-                                                                       document.getElementById("myvoucher-load").style.backgroundSize = "cover";
-                                                                                                                                         
+                                                                       //document.getElementById("myvoucher-load").style.background = "url(" + getData.myvoucherdetail[0].imageurll + ") no-repeat center center";
+                                                                       //document.getElementById("myvoucher-load").style.backgroundSize = "cover";
+                                                                       document.getElementById("myvoucherimage").src = getData.myvoucherdetail[0].imageurll;                                                                   
                                                                        //document.getElementById("voucher-number").innerHTML = getData.myvoucherdetail[0].itemcode;
                                                                        //document.getElementById("voucher-name").innerHTML = getData.myvoucherdetail[0].itemname;
                                                                        //document.getElementById("voucher-expiry").innerHTML = getData.myvoucherdetail[0].couponexpirydate;
