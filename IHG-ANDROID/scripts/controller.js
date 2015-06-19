@@ -73,6 +73,9 @@ function outletMessage() {
     var customercaretelephone = "0097142766186";
     var cardimage = "";
     var mdevicemeasure = "";
+    var share_tel="0097142766186";
+    var share_email="inquiry@ihg.com";
+    
     
     //// function onSuccess(acceleration) {
     // alert('Acceleration X: ' + acceleration.x + '\n' +
@@ -93,6 +96,8 @@ function outletMessage() {
                                                     social_image:share_image,
                                                     social_header:"",
                                                     social_shortmsg:short_msg,
+                                                    social_telephone:"",
+                                                    social_email:"",
                                                     offersocialDestroyView:function() {
                                                         $("#pl-modalview-offersocial").remove();  
                                                     },
@@ -105,7 +110,7 @@ function outletMessage() {
                                                     socialsharingFacebook: function () {
                                                         showSpin();
                                                        
-                                                        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(sharingSocialView.social_header + "\n" + sharingSocialView.social_message + "\n" + share_contact , null, "http://www.ihgdiningrewards.com", "Share with your friends if you like.", function () {
+                                                        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(sharingSocialView.social_header + "\n" + sharingSocialView.social_message + "\n" + share_contact + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "http://www.ihgdiningrewards.com", "Share with your friends if you like.", function () {
                                                         }, function (errormsg) {
                                                             alert(errormsg)
                                                         })
@@ -115,14 +120,14 @@ function outletMessage() {
                                                     socialsharingTwitter:  function () {
                                                         showSpin();
                                                           
-                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg, null, "http://www.ihgdiningrewards.com")
+                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "http://www.ihgdiningrewards.com")
                                                         hideSpin();
                                                     },
 
                                                     socialsharingWhatsApp: function () {
                                                         showSpin();
                                                       
-                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg, null, "http://www.ihgdiningrewards.com", function () {
+                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg+ "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "http://www.ihgdiningrewards.com", function () {
                                                         }, function (errormsg) {
                                                             alert(errormsg)
                                                         })
@@ -132,7 +137,7 @@ function outletMessage() {
                                                     socialsharingSMS: function () {
                                                         showSpin();
                                                          
-                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "http://www.ihgdiningrewards.com", null, function (msg) {
+                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "http://www.ihgdiningrewards.com" + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, function (msg) {
                                                         }, function (msg) {
                                                             alert('Error: ' + msg)
                                                         })
@@ -142,7 +147,7 @@ function outletMessage() {
                                                     socialsharingEmail:  function () {
                                                         showSpin();
                                                         window.plugins.socialsharing.shareViaEmail(
-                                                            sharingSocialView.social_header + "\n\n" + sharingSocialView.social_message + "\n\n" + share_contact, // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
+                                                            sharingSocialView.social_header + "\n\n" + sharingSocialView.social_message + "\n\n" + + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
                                                             sharingSocialView.social_shortmsg, null, null, null, // TO: must be null or an array
                                                             null, // FILES: can be null, a string, or an array
                                                             function (msg) {
@@ -352,7 +357,7 @@ function outletMessage() {
                                                                                             lat = window.localStorage.getItem("lat");
                                                                                             lon = window.localStorage.getItem("lon");
                                                                                             listOutlet();
-                                                                                        },positionOption);
+                                                                                        }, positionOption);
                                            },
 
         
@@ -395,7 +400,8 @@ function outletMessage() {
                                                                   sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
                                                                   sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
                                                                   sharingSocialView.set("social_image", share_image); 
-                                                                     
+                                                                   sharingSocialView.set("social_telephone", getData.outletlist[0].telephone);    
+                                                                   sharingSocialView.set("social_email", getData.outletlist[0].emailid);   
                                                                   preLogin.set("outlettelephone", getData.outletlist[0].telephone);
                                                                      
                                                                   shareCustomer = customer;
@@ -468,43 +474,37 @@ function outletMessage() {
                                            getLocationO: function() {
                                                showSpin(); //show loading popup
                                                if (!isMapInitialized) {
-                                                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                       var latlng = new google.maps.LatLng(
-                                                           lat,
-                                                           lon);
+                                                   var latlng = new google.maps.LatLng(
+                                                       lat,
+                                                       lon);
     
-                                                       var mapOptions = {
-                                                           sensor: true,
-                                                           center: latlng,
-                                                           panControl: false,
-                                                           zoomControl: true,
-                                                           zoom: 15,
-                                                           mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                                           streetViewControl: false,
-                                                           mapTypeControl: true,
+                                                   var mapOptions = {
+                                                       sensor: true,
+                                                       center: latlng,
+                                                       panControl: false,
+                                                       zoomControl: true,
+                                                       zoom: 15,
+                                                       mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                       streetViewControl: false,
+                                                       mapTypeControl: true,
     
-                                                       }; 
+                                                   }; 
     
-                                                       var map = new google.maps.Map(
-                                                           document.getElementById("map_canvas1"),
-                                                           mapOptions
-                                                           );
-    
-                                                       var marker = new google.maps.Marker({
-                                                                                               position: latlng,
-                                                                                               map: map
-                                                                                           });
-                                                   }
-                                                                                            , function onErrorShowMap(error) {
-                                                                                                if (error.code == "1") {
-                                                                                                    navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location", function() {
-                                                                                                    }, "IHG Dining Rewards", "Dismiss");  
-                                                                                                } else if (error.code == "2") {
-                                                                                                    navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled", function() {
-                                                                                                    }, "IHG Dining Rewards", "Dismiss");  
-                                                                                                }
-                                                                                            },positionOption
+                                                   var map = new google.maps.Map(
+                                                       document.getElementById("map_canvas1"),
+                                                       mapOptions
                                                        );
+    
+                                                   var marker = new google.maps.Marker({
+                                                                                           position: latlng,
+                                                                                           map: map
+                                                                                       });
+                                                   marker.setVisible(true);
+                                                   marker.setMap(map); 
+                                                   map.setCenter(marker.position);  
+                                                   google.maps.event.trigger(map, 'resize');
+                                                   hideSpin(); //hide loading popup
+                           
                                                    isMapInitialized = true;
                                                }
                                                hideSpin(); //hide loading popup
@@ -558,7 +558,7 @@ function outletMessage() {
                                                                                             lon = window.localStorage.getItem("lon");
                                                                                             geocountry = country;                                                                                        
                                                                                             listOffer();
-                                                                                        },positionOption);
+                                                                                        }, positionOption);
                                            },
                                                
                                                
@@ -612,8 +612,10 @@ function outletMessage() {
                                                                   sharingSocialView.set("social_shortmsg", "Checkout the offer at IHG Dining Rewards - " + getData.offerlist[0].itemname + "  \n");
                                                                   sharingSocialView.set("social_header", getData.offerlist[0].category);
                                                                   sharingSocialView.set("social_subject", getData.offerlist[0].itemname);
-                                                                  sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);
+                                                                  sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);                                                                
                                                                   sharingSocialView.set("social_image", share_image); 
+                                                                  sharingSocialView.set("social_telephone", share_tel); 
+                                                                  sharingSocialView.set("social_email", share_email); 
                                                                      
                                                                   hideSpin(); //hide loading popup
                                                               }else {
@@ -655,7 +657,7 @@ function outletMessage() {
                                                                                             lon = window.localStorage.getItem("lon");
                                                                                              
                                                                                             listOfferOutlet();
-                                                                                        },positionOption
+                                                                                        }, positionOption
                                                    );
                                            },
         
@@ -702,7 +704,8 @@ function outletMessage() {
                                                    preLogin.set("merchantcode", merchant);
                                                    preLogin.set("customer", customer);
                                                    preLogin.set("segmentcode", segmentcode);
-                                                   
+                                                   window.localStorage.setItem("mdevicestat", mdevicestat);
+                                                   window.localStorage.setItem("merchant", merchant);
                                                    //Check whether GPS enabled
                                                    checklocation();
                                                    window.geofence.initialize(function() {
@@ -764,6 +767,7 @@ function outletMessage() {
                                                        .then(function () {
                                                        }
                                                              , function (reason) {
+                                                                  showTop("Unable to remove locations");     
                                                              });
                                                    
                                                    $.ajax({ 
@@ -812,8 +816,6 @@ function outletMessage() {
                                                                   }, "IHG Dining Rewards", "Dismiss")
                                                               }
                                                           });
-                                                   
-                                               
                                                
                                                    window.geofence.onTransitionReceived = function (geofences) {
                                                        geofences.forEach(function (geo) {
@@ -1597,11 +1599,10 @@ function outletMessage() {
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                  geocountry = country;
-                                                                                              
                                                                     
                                                                                                  pllistOutlet();
                                                                                                  hideSpin();
-                                                                                             },positionOption);
+                                                                                             }, positionOption);
                                                 }else {
                                                     if (y==="1") {
                                                         geocity = "";
@@ -1611,7 +1612,6 @@ function outletMessage() {
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
                                                     geocountry = country;
-                                                     
                        
                                                     pllistOutlet();
                                                     hideSpin();
@@ -1644,7 +1644,7 @@ function outletMessage() {
                                                                    //document.getElementById("pl-outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
                                                                    //document.getElementById("pl-outlet-image-large").style.backgroundSize = "cover";
                                                                    //document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
-                                                                    document.getElementById("ploutletimage").src = getData.outletlist[0].imageurll;
+                                                                   document.getElementById("ploutletimage").src = getData.outletlist[0].imageurll;
                                                                    document.getElementById("pl-ooutlet-short").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
                                                                    document.getElementById("pl-ooutlet-long").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
                                              
@@ -1654,7 +1654,8 @@ function outletMessage() {
                                                                    sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
                                                                    sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
                                                                    sharingSocialView.set("social_image", share_image); 
-                                                                     
+                                                                       sharingSocialView.set("social_telephone", getData.outletlist[0].telephone);    
+                                                                   sharingSocialView.set("social_email", getData.outletlist[0].emailid);     
                                                                    postLogin.set("outlettelephone", getData.outletlist[0].telephone);
                                                                      
                                                                    shareCustomer = customer;
@@ -1678,45 +1679,37 @@ function outletMessage() {
                                             getLocationO: function() {
                                                 showSpin(); //show loading popup
                                                 if (!isMapInitialized) {
-                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                        var latlng = new google.maps.LatLng(
-                                                            lat,
-                                                            lon);
+                                                    var latlng = new google.maps.LatLng(
+                                                        lat,
+                                                        lon);
     
-                                                        var mapOptions = {
-                                                            sensor: true,
-                                                            center: latlng,
-                                                            panControl: false,
-                                                            zoomControl: true,
-                                                            zoom: 15,
-                                                            mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                                            streetViewControl: false,
-                                                            mapTypeControl: true,
+                                                    var mapOptions = {
+                                                        sensor: true,
+                                                        center: latlng,
+                                                        panControl: false,
+                                                        zoomControl: true,
+                                                        zoom: 15,
+                                                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                        streetViewControl: false,
+                                                        mapTypeControl: true,
     
-                                                        }; 
+                                                    }; 
     
-                                                        var map = new google.maps.Map(
-                                                            document.getElementById("map_canvas1"),
-                                                            mapOptions
-                                                            );
-    
-                                                        var marker = new google.maps.Marker({
-                                                                                                position: latlng,
-                                                                                                map: map
-                                                                                            });
-                                                        console.log(marker);
-                                                        console.log("map rendering");
-                                                    }
-                                                                                             , function onErrorShowMap(error) {
-                                                                                                 if (error.code == "1") {
-                                                                                                     navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location.", function() {
-                                                                                                     }, "IHG Dining Rewards", "Dismiss");  
-                                                                                                 } else if (error.code == "2") {
-                                                                                                     navigator.notification.alert("Device is unable to get the GPS position. Location services seems disabled.", function() {
-                                                                                                     }, "IHG Dining Rewards", "Dismiss");  
-                                                                                                 }
-                                                                                             },positionOption
+                                                    var map = new google.maps.Map(
+                                                        document.getElementById("map_canvas1"),
+                                                        mapOptions
                                                         );
+    
+                                                    var marker = new google.maps.Marker({
+                                                                                            position: latlng,
+                                                                                            map: map
+                                                                                        });
+                                                    marker.setVisible(true);
+                                                    marker.setMap(map); 
+                                                    map.setCenter(marker.position);  
+                                                    google.maps.event.trigger(map, 'resize');
+                                                    hideSpin(); //hide loading popup
+                           
                                                     isMapInitialized = true;
                                                 }
                                                 hideSpin(); //hide loading popup
@@ -1825,11 +1818,10 @@ function outletMessage() {
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                  geocountry = country;
-                                                                                                  
                                                             
                                                                                                  pllistOffer();
                                                                                                  hideSpin();
-                                                                                             },positionOption);
+                                                                                             }, positionOption);
                                                 }else {
                                                     if (y==="1") {
                                                         geocity = "";
@@ -1868,8 +1860,8 @@ function outletMessage() {
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
                                                                    document.getElementById("pl-offerdetail-div").style.display = "block";
-                                                                  // document.getElementById("pl-offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
-                                                                  // document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
+                                                                   // document.getElementById("pl-offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
+                                                                   // document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
                                                                      
                                                                    //document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
                                                                    document.getElementById("plofferimage").src = getData.offerlist[0].imageurll;                                                                   
@@ -1883,7 +1875,8 @@ function outletMessage() {
                                                                    sharingSocialView.set("social_subject", getData.offerlist[0].itemname);
                                                                    sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);
                                                                    sharingSocialView.set("social_image", share_image); 
-                                                                     
+                                                                      sharingSocialView.set("social_telephone", share_tel); 
+                                                                  sharingSocialView.set("social_email", share_email); 
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
@@ -1916,15 +1909,12 @@ function outletMessage() {
                                                                                                  //  } else if (err.code == "2") {
                                                                                                  //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                                  //  }
-                                                                          
-                                                   
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                   
                                                                                                  pllistOfferOutlet();
-                                                                                             },positionOption);
+                                                                                             }, positionOption);
                                                 }else {
-                       
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
                                                     pllistOfferOutlet();
@@ -2094,15 +2084,13 @@ function outletMessage() {
                                                                                                  //  } else if (err.code == "2") {
                                                                                                  //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                                  //  }
-                                                                               
                                                                                                  gpsError();
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                   
                                                                                                  myOfferListOutlet();
-                                                                                             },positionOption);
+                                                                                             }, positionOption);
                                                 }else {
-                                 
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
                                                     myOfferListOutlet();
@@ -2502,9 +2490,9 @@ function outletMessage() {
                                        placeholder:"Search By Restaurant Name",                                         
                                        field: "outletname",
                                        operator: "contains",
-                                                                                 serverPaging: true,
-            serverSorting: true,
-            pageSize: 10
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 10
                                    }
                                                                                                                     
                                                                         });
@@ -2555,9 +2543,9 @@ function outletMessage() {
                                        placeholder:"Search By Restaurant Name",                                         
                                        field: "outletname",
                                        operator: "contains",
-                                                                                       serverPaging: true,
-            serverSorting: true,
-            pageSize: 10
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 10
                                    }
                                                                                                                     
                                                                            });
@@ -2609,9 +2597,9 @@ function outletMessage() {
                                        placeholder:"Search By Offer Name",                                         
                                        field: "itemname",
                                        operator: "contains",
-                                                                                     serverPaging: true,
-            serverSorting: true,
-            pageSize: 10
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 10
                                    }
                                                                                                                     
                                                                          });
@@ -2666,9 +2654,9 @@ function outletMessage() {
                                        placeholder:"Search By Offer Name",                                         
                                        field: "itemname",
                                        operator: "contains",
-                                                                                        serverPaging: true,
-            serverSorting: true,
-            pageSize: 10
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 10
                                    }
                                                                                                                     
                                                                             });
@@ -2812,7 +2800,6 @@ function outletMessage() {
                });
     }
     
-    
     function watchPosError(error) {
         //Check whether GPS enabled
         x = error.code;                                  
@@ -2834,46 +2821,41 @@ function outletMessage() {
                });
     }
     
-    function gpsError() {
+   function gpsError() {
         if (gpsErrorShow==="") {
             showTop("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
-        //    navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.", function() {
-        //    }, "IHG Dining Rewards", "Dismiss");
-            //gpsErrorShow = "1"; remove the comment if error message is required to be shown only once
+            // navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.", function() {
+            // }, "IHG Dining Rewards", "Dismiss");
+            
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat"),lat:lat,lon:lon,customer:window.localStorage.getItem("customer").callbacktype,segment:"GPSOFF"
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });        
+            //gpsErrorShow = "1";// remove the comment if error message is required to be shown only once
         }
     }
     
     function gpsErrorApp() {
         if (gpsErrorShowApp==="") {    
             showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
-           // navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.", function() {
-           // }, "IHG Dining Rewards", "Dismiss");
-            //gpsErrorShowApp = "1"; remove the comment if error message is required to be shown only once
+            // navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.", function() {
+            // }, "IHG Dining Rewards", "Dismiss");
+            //gpsErrorShowApp = "1"; //remove the comment if error message is required to be shown only once
         }
     }
     
-    function meWatchPos(position) {
-        //Check whether GPS enabled
-        x = position.coords.latitude;                                  
-        y = position.coords.longitude;
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/trackDevice.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,lat:x,lon:y,customer:"WATCH",segment:segmentcode
-                                        }),
-                   success: function (data) { 
-                   },
-                   error: function (error) {
-                   }
-               });
-    }
-    
-      
+       
     //Get Country
     function getCountry() {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
@@ -2910,21 +2892,22 @@ function outletMessage() {
                                                      mcountry = country;
                                                      window.localStorage.setItem("country", mcountry);
                                                      getFlag();
-                                                 },positionOption);
+                                                 }, positionOption);
     }
     
-        function showTop(e) {
-  window.plugins.toast.showWithOptions(
-    {
-      message: e,
-      duration: "short",
-      position: "bottom",
-      addPixelsY: -40  // added a negative value to move it up a bit (default 0)
-    },
-    function(){}, // optional
-    function(){}    // optional
-  );
-}
+    function showTop(e) {
+        window.plugins.toast.showWithOptions({
+                                                 message: e,
+                                                 duration: "short",
+                                                 position: "bottom",
+                                                 addPixelsY: -40  // added a negative value to move it up a bit (default 0)
+                                             },
+                                             function() {
+                                             }, // optional
+                                             function() {
+                                             }    // optional
+            );
+    }
     
     function getFlag() {
         $.ajax({ 
@@ -2953,15 +2936,14 @@ function outletMessage() {
                });
     }
     
-    function checklocation(){
+    function checklocation() {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                       lat = position.coords.latitude;                                  
-                                                       lon = position.coords.longitude;
-                                                   }
-                                                                                            , function onErrorShowMap(error) { 
-                                                                                                gpsError();
-                                                                                            },positionOption);   
-        
+            lat = position.coords.latitude;                                  
+            lon = position.coords.longitude;
+        }
+                                                 , function onErrorShowMap(error) { 
+                                                     gpsError();
+                                                 }, positionOption);   
     }
 }
     )(window);
