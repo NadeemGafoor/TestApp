@@ -349,7 +349,6 @@ function outletMessage() {
                                                                                                 geocity = city;
                                                                                             }
                                                                                             geocountry = country;
-                                                                                            // locationErrorToast();
                                                                                             lat = window.localStorage.getItem("lat");
                                                                                             lon = window.localStorage.getItem("lon");
                                                                                             listOutlet();
@@ -557,9 +556,7 @@ function outletMessage() {
                                                                                             }
                                                                                             lat = window.localStorage.getItem("lat");
                                                                                             lon = window.localStorage.getItem("lon");
-                                                                                            geocountry = country;
-                                                                                             
-                                                                                            //locationErrorToast();
+                                                                                            geocountry = country;                                                                                        
                                                                                             listOffer();
                                                                                         },positionOption);
                                            },
@@ -1601,7 +1598,7 @@ function outletMessage() {
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                  geocountry = country;
                                                                                               
-                                                                                                 //locationErrorToast();
+                                                                    
                                                                                                  pllistOutlet();
                                                                                                  hideSpin();
                                                                                              },positionOption);
@@ -1615,7 +1612,7 @@ function outletMessage() {
                                                     lon = window.localStorage.getItem("lon");
                                                     geocountry = country;
                                                      
-                                                    //locationErrorToast();
+                       
                                                     pllistOutlet();
                                                     hideSpin();
                                                 }
@@ -1829,7 +1826,7 @@ function outletMessage() {
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                  geocountry = country;
                                                                                                   
-                                                                                                 //locationErrorToast();
+                                                            
                                                                                                  pllistOffer();
                                                                                                  hideSpin();
                                                                                              },positionOption);
@@ -1842,7 +1839,7 @@ function outletMessage() {
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
                                                     geocountry = country;
-                                                    //locationErrorToast();
+                    
                                                     pllistOffer();
                                                     hideSpin();
                                                 }
@@ -1919,7 +1916,7 @@ function outletMessage() {
                                                                                                  //  } else if (err.code == "2") {
                                                                                                  //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                                  //  }
-                                                                                                 //locationErrorToast();
+                                                                          
                                                    
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
@@ -1927,7 +1924,7 @@ function outletMessage() {
                                                                                                  pllistOfferOutlet();
                                                                                              },positionOption);
                                                 }else {
-                                                    //locationErrorToast();
+                       
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
                                                     pllistOfferOutlet();
@@ -2097,7 +2094,7 @@ function outletMessage() {
                                                                                                  //  } else if (err.code == "2") {
                                                                                                  //      navigator.notification.alert("Device is unable to get the GPS position");  
                                                                                                  //  }
-                                                                                                 //locationErrorToast();
+                                                                               
                                                                                                  gpsError();
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
@@ -2105,7 +2102,7 @@ function outletMessage() {
                                                                                                  myOfferListOutlet();
                                                                                              },positionOption);
                                                 }else {
-                                                    //locationErrorToast();
+                                 
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
                                                     myOfferListOutlet();
@@ -2815,9 +2812,6 @@ function outletMessage() {
                });
     }
     
-    function locationErrorToast() {
-        // window.plugins.showLongBottom('Location Settings are disabled, distance might not be correct',functiom(){},function(){});
-    }
     
     function watchPosError(error) {
         //Check whether GPS enabled
@@ -2879,39 +2873,7 @@ function outletMessage() {
                });
     }
     
-    //Check whether GPS enabled
-    function meWatchPosTime() {
-        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-            x = position.coords.latitude;                                  
-            y = position.coords.longitude;
-            // window.setInterval(meWatchPos(), 30000);
-                                                       
-            $.ajax({ 
-                       type: "POST",
-                       cache:false,
-                       async:true,
-                       timeout:20000,
-                       url: gurl + "/trackDevice.aspx",
-                       contentType: "application/json; charset=utf-8",
-                       data: JSON.stringify({
-                                                merchantcode :merchant,mdevice:mdevicestat,lat:x,lon:y,customer:"TIME",segment:"MYTIME"
-                                            }),
-                       success: function (data) { 
-                       },
-                       error: function (error) {
-                       }
-                   });
-        }
-                                                 , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                     //  if (err.code == "1") {
-                                                     //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                     //  } else if (err.code == "2") {
-                                                     //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                     //  }
-                                                     gpsError();
-                                                 },positionOption);   
-    }
-    
+      
     //Get Country
     function getCountry() {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
