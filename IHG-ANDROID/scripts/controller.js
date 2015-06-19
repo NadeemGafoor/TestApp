@@ -1443,7 +1443,7 @@ function outletMessage() {
                                                 document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
                                                 document.getElementById("mycardname").innerHTML = customername;
                                                 document.getElementById("mycardid").innerHTML = magicnumber.substring(0, 3) + " " + magicnumber.substring(3, 6) + " " + magicnumber.substring(6, 9);
-                                                document.getElementById("mycardexpiry").innerHTML = memberexpiry;
+                                                document.getElementById("mycardexpiry").innerHTML = "EXP. " + memberexpiry;
                                                 //  document.getElementById("mycardimage").style.backgroundSize = "cover";
                                             },
           
@@ -2041,6 +2041,7 @@ function outletMessage() {
                                                                        //document.getElementById("coupon-description-1").innerHTML = getData.myvoucherdetail[0].itemdescription;
                                                                      
                                                                        //document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
+                                                                       document.getElementById("pl-ooffer-voucher").innerHTML = "Voucher : " + getData.myvoucherdetail[0].itemcode;
                                                                        document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.myvoucherdetail[0].itemname + " </pre>";
                                                                        document.getElementById("pl-ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].itemdescription + "</pre>";
                                                                        document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.myvoucherdetail[0].couponexpirydate;
@@ -2800,26 +2801,6 @@ function outletMessage() {
                });
     }
     
-    function watchPosError(error) {
-        //Check whether GPS enabled
-        x = error.code;                                  
-        y = error.message;
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/trackDevice.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat + " " + y,lat:lat,lon:lon,customer:x,segment:segmentcode
-                                        }),
-                   success: function (data) { 
-                   },
-                   error: function (error) {
-                   }
-               });
-    }
     
    function gpsError() {
         if (gpsErrorShow==="") {
