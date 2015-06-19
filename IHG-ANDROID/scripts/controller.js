@@ -735,7 +735,7 @@ function outletMessage() {
                                                                       window.localStorage.setItem("lat", lat);
                                                                       window.localStorage.setItem("lon", lon);
                                                                       //alert(googleapikey);
-                                                                      getCountry(); //Get Flag
+                                                                      getFlag(country); //Get Flag
                                                                       
                                                                       hideSpin(); //hide loading popup
                                                                   }else if (getData.statuscode === "047") {
@@ -2890,7 +2890,7 @@ function outletMessage() {
             );
     }
     
-    function getFlag() {
+    function getFlag(e) {
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -2899,7 +2899,7 @@ function outletMessage() {
                    url: gurl + "/getCountryflag.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat,city:geocity,country:mcountry,lat:lat,lon:lon
+                                            merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat,city:geocity,country:e,lat:lat,lon:lon
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
