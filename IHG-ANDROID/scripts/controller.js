@@ -9,7 +9,7 @@ function outletMessage() {
 } 
 
 (function (global) {
-    var positionOption = { maximumAge:60000,timeout: 5000, enableHighAccuracy: false};
+    var positionOption = { maximumAge:60000,timeout: 7000, enableHighAccuracy: false};
     var gpsErrorShow = "";
     var gpsErrorShowApp = "";
     var magicnumber = "";
