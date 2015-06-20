@@ -9,7 +9,7 @@ function outletMessage() {
 } 
 
 (function (global) {
-    var positionOption = { maximumAge:3000,timeout: 5000, enableHighAccuracy: false };
+    var positionOption = { maximumAge:60000,timeout: 5000, enableHighAccuracy: false};
     var gpsErrorShow = "";
     var gpsErrorShowApp = "";
     var magicnumber = "";
@@ -73,9 +73,8 @@ function outletMessage() {
     var customercaretelephone = "0097142766186";
     var cardimage = "";
     var mdevicemeasure = "";
-    var share_tel="0097142766186";
-    var share_email="inquiry@ihg.com";
-    
+    var share_tel = "0097142766186";
+    var share_email = "inquiry@ihg.com";
     
     //// function onSuccess(acceleration) {
     // alert('Acceleration X: ' + acceleration.x + '\n' +
@@ -127,7 +126,7 @@ function outletMessage() {
                                                     socialsharingWhatsApp: function () {
                                                         showSpin();
                                                       
-                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg+ "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "http://www.ihgdiningrewards.com", function () {
+                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "http://www.ihgdiningrewards.com", function () {
                                                         }, function (errormsg) {
                                                             alert(errormsg)
                                                         })
@@ -400,8 +399,8 @@ function outletMessage() {
                                                                   sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
                                                                   sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
                                                                   sharingSocialView.set("social_image", share_image); 
-                                                                   sharingSocialView.set("social_telephone", getData.outletlist[0].telephone);    
-                                                                   sharingSocialView.set("social_email", getData.outletlist[0].emailid);   
+                                                                  sharingSocialView.set("social_telephone", getData.outletlist[0].telephone);    
+                                                                  sharingSocialView.set("social_email", getData.outletlist[0].emailid);   
                                                                   preLogin.set("outlettelephone", getData.outletlist[0].telephone);
                                                                      
                                                                   shareCustomer = customer;
@@ -767,7 +766,7 @@ function outletMessage() {
                                                        .then(function () {
                                                        }
                                                              , function (reason) {
-                                                                  showTop("Unable to remove locations");     
+                                                                 showTop("Unable to remove locations");     
                                                              });
                                                    
                                                    $.ajax({ 
@@ -1654,7 +1653,7 @@ function outletMessage() {
                                                                    sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
                                                                    sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
                                                                    sharingSocialView.set("social_image", share_image); 
-                                                                       sharingSocialView.set("social_telephone", getData.outletlist[0].telephone);    
+                                                                   sharingSocialView.set("social_telephone", getData.outletlist[0].telephone);    
                                                                    sharingSocialView.set("social_email", getData.outletlist[0].emailid);     
                                                                    postLogin.set("outlettelephone", getData.outletlist[0].telephone);
                                                                      
@@ -1875,8 +1874,8 @@ function outletMessage() {
                                                                    sharingSocialView.set("social_subject", getData.offerlist[0].itemname);
                                                                    sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);
                                                                    sharingSocialView.set("social_image", share_image); 
-                                                                      sharingSocialView.set("social_telephone", share_tel); 
-                                                                  sharingSocialView.set("social_email", share_email); 
+                                                                   sharingSocialView.set("social_telephone", share_tel); 
+                                                                   sharingSocialView.set("social_email", share_email); 
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
@@ -2801,28 +2800,11 @@ function outletMessage() {
                });
     }
     
-    
-   function gpsError() {
+    function gpsError() {
         if (gpsErrorShow==="") {
             showTop("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
             // navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.", function() {
             // }, "IHG Dining Rewards", "Dismiss");
-            
-            $.ajax({ 
-                       type: "POST",
-                       cache:false,
-                       async:true,
-                       timeout:20000,
-                       url: gurl + "/trackDevice.aspx",
-                       contentType: "application/json; charset=utf-8",
-                       data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat"),lat:lat,lon:lon,customer:window.localStorage.getItem("customer").callbacktype,segment:"GPSOFF"
-                                            }),
-                       success: function (data) {
-                       },
-                       error: function (error) {
-                       }
-                   });        
             //gpsErrorShow = "1";// remove the comment if error message is required to be shown only once
         }
     }
@@ -2835,7 +2817,6 @@ function outletMessage() {
             //gpsErrorShowApp = "1"; //remove the comment if error message is required to be shown only once
         }
     }
-    
        
     //Get Country
     function getCountry() {
@@ -2924,6 +2905,22 @@ function outletMessage() {
         }
                                                  , function onErrorShowMap(error) { 
                                                      gpsError();
+                                                     $.ajax({ 
+                                                                type: "POST",
+                                                                cache:false,
+                                                                async:true,
+                                                                timeout:20000,
+                                                                url: gurl + "/trackDevice.aspx",
+                                                                contentType: "application/json; charset=utf-8",
+                                                                data: JSON.stringify({
+                                                                                         merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat"),lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"GPSOFF"
+                                                                                     }),
+                                                                success: function (data) {
+                                                                },
+                                                                error: function (error) {
+                                                                }
+                                                            });        
+                                                     
                                                  }, positionOption);   
     }
 }
