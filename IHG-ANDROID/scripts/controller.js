@@ -737,7 +737,7 @@ function outletMessage() {
                                                                       window.localStorage.setItem("lat", lat);
                                                                       window.localStorage.setItem("lon", lon);
                                                                       
-                                                                      appad_location = getData.appad_location; 
+                                                                      appad_location = getData.appad_location_android; 
                                                                       appad_location_short = getData.appad_location_short; 
                                                                       window.localStorage.setItem("appad_location", appad_location);
                                                                       window.localStorage.setItem("appad_location_short", appad_location_short);
