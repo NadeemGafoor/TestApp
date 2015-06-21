@@ -706,6 +706,8 @@ function outletMessage() {
                                                    preLogin.set("segmentcode", segmentcode);
                                                    window.localStorage.setItem("mdevicestat", mdevicestat);
                                                    window.localStorage.setItem("merchant", merchant);
+                                                   window.localStorage.setItem("appad_location",appad_location);
+                                                   window.localStorage.setItem("appad_location_short",appad_location_short);
                                                    //Check whether GPS enabled
                                                    checklocation();
                                                    window.geofence.initialize(function() {
@@ -737,8 +739,8 @@ function outletMessage() {
                                                                       
                                                                       appad_location = getData.appad_location; 
                                                                       appad_location_short = getData.appad_location_short; 
-                                                                      window.localstorage.setItem("appad_location", appad_location);
-                                                                      window.localstorage.setItem("appad_location_short", appad_location_short);
+                                                                      window.localStorage.setItem("appad_location", appad_location);
+                                                                      window.localStorage.setItem("appad_location_short", appad_location_short);
                                                                       
                                                                       //alert(googleapikey);
                                                                       getFlag(country); //Get Flag
