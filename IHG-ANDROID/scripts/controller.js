@@ -62,6 +62,10 @@ function outletMessage() {
     var rn = "";
     var cn = "";
     var sr = "";
+    
+    var appad_location = "http://www.ihgdiningrewards.com";
+    var appad_location_short = "http://www.ihgdiningrewards.com";    
+    
     var social_subject = "IHG Dining Rewards";
     var notification_image = "http://exclusiveu.dynns.com:8088/mobileportal/images/36x36_icon.png";    
     var share_image = "http://exclusiveu.dynns.com:8088/mobileportal/images/ihg_logo.png";
@@ -97,6 +101,7 @@ function outletMessage() {
                                                     social_shortmsg:short_msg,
                                                     social_telephone:"",
                                                     social_email:"",
+                                                    appad_location:"",
                                                     offersocialDestroyView:function() {
                                                         $("#pl-modalview-offersocial").remove();  
                                                     },
@@ -109,9 +114,8 @@ function outletMessage() {
                                                     socialsharingFacebook: function () {
                                                         showSpin();
                                                        
-                                                        window.plugins.socialsharing.shareViaFacebook(sharingSocialView.social_header + "\n" + sharingSocialView.social_message + "\n" + share_contact + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App", null, "http://is.gd/wFNPeJ", "Share with your friends if you like.", function () {
+                                                        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(sharingSocialView.social_header + "\n" + sharingSocialView.social_message + "\n" + share_contact + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App", null, window.localStorage.getItem("appad_location"), "Share with your friends if you like.", function () {
                                                         }, function (errormsg) {
-                                                            alert(errormsg)
                                                         })
                                                         hideSpin();
                                                     },
@@ -119,16 +123,15 @@ function outletMessage() {
                                                     socialsharingTwitter:  function () {
                                                         showSpin();
                                                           
-                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "Download IHG® Dining Rewards Mobile App at http://is.gd/wFNPeJ")
+                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "Download IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location_short"))
                                                         hideSpin();
                                                     },
 
                                                     socialsharingWhatsApp: function () {
                                                         showSpin();
                                                       
-                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "Download IHG® Dining Rewards Mobile App at http://is.gd/wFNPeJ", function () {
+                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "Download IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location_short"), function () {
                                                         }, function (errormsg) {
-                                                            alert(errormsg)
                                                         })
                                                         hideSpin();
                                                     },
@@ -136,9 +139,8 @@ function outletMessage() {
                                                     socialsharingSMS: function () {
                                                         showSpin();
                                                          
-                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "http://is.gd/wFNPeJ" + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n" + "Download IHG® Dining Rewards Mobile App Mobile App at http://is.gd/wFNPeJ", null, function (msg) {
+                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "http://is.gd/wFNPeJ" + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location_short"), null, function (msg) {
                                                         }, function (msg) {
-                                                            alert('Error: ' + msg)
                                                         })
                                                         hideSpin();
                                                     },
@@ -146,13 +148,12 @@ function outletMessage() {
                                                     socialsharingEmail:  function () {
                                                         showSpin();
                                                         window.plugins.socialsharing.shareViaEmail(
-                                                            sharingSocialView.social_header + "\n\n" + sharingSocialView.social_message + "\n\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n" + "Download IHG® Dining Rewards Mobile App Mobile App at http://is.gd/wFNPeJ", // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
+                                                            sharingSocialView.social_header + "\n\n" + sharingSocialView.social_message + "\n\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location_short"), // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
                                                             sharingSocialView.social_shortmsg, null, null, null, // TO: must be null or an array
                                                             null, // FILES: can be null, a string, or an array
                                                             function (msg) {
                                                             }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
                                                             function (msg) {
-                                                                alert('Error: ' + msg)
                                                             } // called when sh*t hits the fan
                                                             );
                                                         hideSpin();
@@ -733,6 +734,12 @@ function outletMessage() {
                                                                       lon = positiono[1];
                                                                       window.localStorage.setItem("lat", lat);
                                                                       window.localStorage.setItem("lon", lon);
+                                                                      
+                                                                      appad_location = getData.appad_location; 
+                                                                      appad_location_short = getData.appad_location_short; 
+                                                                      window.localstorage.setItem("appad_location", appad_location);
+                                                                      window.localstorage.setItem("appad_location_short", appad_location_short);
+                                                                      
                                                                       //alert(googleapikey);
                                                                       getFlag(country); //Get Flag
                                                                       
@@ -2920,7 +2927,6 @@ function outletMessage() {
                                                                 error: function (error) {
                                                                 }
                                                             });        
-                                                     
                                                  }, positionOption);   
     }
 }
