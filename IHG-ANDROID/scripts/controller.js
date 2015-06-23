@@ -93,7 +93,7 @@ function outletMessage() {
 
     //var options = { frequency: 1000 };  // Update every 3 seconds
      
-    window.sharingSocialView = kendo.observable({
+      window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
                                                     social_message:"",
                                                     social_image:share_image,
@@ -101,7 +101,6 @@ function outletMessage() {
                                                     social_shortmsg:short_msg,
                                                     social_telephone:"",
                                                     social_email:"",
-                                                    appad_location:"",
                                                     offersocialDestroyView:function() {
                                                         $("#pl-modalview-offersocial").remove();  
                                                     },
@@ -113,7 +112,6 @@ function outletMessage() {
                                                  
                                                     socialsharingFacebook: function () {
                                                         showSpin();
-                                                       
                                                         window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(sharingSocialView.social_header + "\n" + sharingSocialView.social_message + "\n" + share_contact + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App", null, window.localStorage.getItem("appad_location"), "Share with your friends if you like.", function () {
                                                         }, function (errormsg) {
                                                         })
@@ -139,7 +137,7 @@ function outletMessage() {
                                                     socialsharingSMS: function () {
                                                         showSpin();
                                                          
-                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "http://is.gd/wFNPeJ" + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location_short"), null, function (msg) {
+                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location_short"), null, function (msg) {
                                                         }, function (msg) {
                                                         })
                                                         hideSpin();
@@ -148,7 +146,7 @@ function outletMessage() {
                                                     socialsharingEmail:  function () {
                                                         showSpin();
                                                         window.plugins.socialsharing.shareViaEmail(
-                                                            sharingSocialView.social_header + "\n\n" + sharingSocialView.social_message + "\n\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location_short"), // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
+                                                            sharingSocialView.social_message + "\n\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location_short"), // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
                                                             sharingSocialView.social_shortmsg, null, null, null, // TO: must be null or an array
                                                             null, // FILES: can be null, a string, or an array
                                                             function (msg) {
@@ -737,7 +735,7 @@ function outletMessage() {
                                                                       window.localStorage.setItem("lat", lat);
                                                                       window.localStorage.setItem("lon", lon);
                                                                       
-                                                                      appad_location = getData.appad_location_android; 
+                                                                      appad_location = getData.appad_location; 
                                                                       appad_location_short = getData.appad_location_short; 
                                                                       window.localStorage.setItem("appad_location", appad_location);
                                                                       window.localStorage.setItem("appad_location_short", appad_location_short);
