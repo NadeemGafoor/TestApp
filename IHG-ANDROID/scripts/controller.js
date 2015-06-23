@@ -112,7 +112,7 @@ function outletMessage() {
                                                  
                                                     socialsharingFacebook: function () {
                                                         showSpin();
-                                                        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(sharingSocialView.social_header + "\n" + sharingSocialView.social_message + "\n" + share_contact + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App", null, "http://www.ihgdiningrewards.com", "Share with your friends", function () {
+                                                        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(sharingSocialView.social_header + "\n" + sharingSocialView.social_message + "\n" + share_contact + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App", null, window.localStorage.getItem("appad_location"), "Share with your friends", function () {
                                                         }, function (errormsg) {
                                                         })
                                                         hideSpin();
