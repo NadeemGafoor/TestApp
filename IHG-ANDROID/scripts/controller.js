@@ -93,7 +93,7 @@ function outletMessage() {
 
     //var options = { frequency: 1000 };  // Update every 3 seconds
      
-      window.sharingSocialView = kendo.observable({
+    window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
                                                     social_message:"",
                                                     social_image:share_image,
@@ -704,8 +704,8 @@ function outletMessage() {
                                                    preLogin.set("segmentcode", segmentcode);
                                                    window.localStorage.setItem("mdevicestat", mdevicestat);
                                                    window.localStorage.setItem("merchant", merchant);
-                                                   window.localStorage.setItem("appad_location",appad_location);
-                                                   window.localStorage.setItem("appad_location_short",appad_location_short);
+                                                   window.localStorage.setItem("appad_location", appad_location);
+                                                   window.localStorage.setItem("appad_location_short", appad_location_short);
                                                    //Check whether GPS enabled
                                                    checklocation();
                                                    window.geofence.initialize(function() {
@@ -878,6 +878,7 @@ function outletMessage() {
                                                        offertype = "1";
                                                        password = "";
                                                        customer = "9999999999";
+                                                       window.localStorage.setItem("customer", customer);
                                                        customername = "Guest";
                                                        segmentcode = "";
                                                        segmentname = "";
@@ -928,16 +929,6 @@ function outletMessage() {
                                                            //Set notification to 1 so that its not registered again
                                                            window.localStorage.setItem("notification", "1");
                                                        }, function (err) {
-                                                       });
-                                                   }else {
-                                                       currentDevice.getRegistration(function() {
-                                                           var badgeNumber = 0;
-                                                           currentDevice.setBadgeNumber(badgeNumber,
-                                                                                        function onSuccess () {
-                                                                                        },
-                                                                                        function onError (error) {
-                                                                                        });
-                                                       }, function(err) {
                                                        });
                                                    }
                                                    //flag display
@@ -1129,7 +1120,6 @@ function outletMessage() {
                                                                   window.localStorage.setItem("muuid", muuid);
                                                                   window.localStorage.setItem("mversion", mversion);
                                                                   window.localStorage.setItem("mplatform", mplatform);
-                                                                  window.localStorage.setItem("notification", "2")
                                                                   window.localStorage.setItem("autolocation", autolocation);
                                                                   window.localStorage.setItem("city", city);
                                                                   window.localStorage.setItem("country", country);
@@ -1161,20 +1151,22 @@ function outletMessage() {
                                                                           devicecode:muuid
                                                                       }
                                                                   };
-                                                                          
-                                                                  //Re-register the device with updates
-                                                                  currentDevice.getRegistration(function() {
-                                                                      currentDevice.unregister().then(function() {
-                                                                      }, function (err) {
-                                                                      });
-                                                                      currentDevice.enableNotifications(pushSettings, function (data) {
-                                                                          currentDevice.register(pushSettings, function (data) {
+                                                                  if (window.localStorage.getItem("notification")==="1") {        
+                                                                      //Re-register the device with updates
+                                                                      currentDevice.getRegistration(function() {
+                                                                          currentDevice.unregister().then(function() {
                                                                           }, function (err) {
-                                                                          }); 
-                                                                      }, function (err) {
+                                                                          });
+                                                                          currentDevice.enableNotifications(pushSettings, function (data) {
+                                                                              currentDevice.register(pushSettings, function (data) {
+                                                                              }, function (err) {
+                                                                              }); 
+                                                                          }, function (err) {
+                                                                          });
+                                                                      }, function(err) {
                                                                       });
-                                                                  }, function(err) {
-                                                                  });
+                                                                      window.localStorage.setItem("notification", "1"); 
+                                                                  }
                                                 
                                                                   if ((getData.deviceinfo.length == 0)) {
                                                                       $("body").data("kendoMobilePane").navigate("views/tokenpage.html");      
