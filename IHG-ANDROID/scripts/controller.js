@@ -1655,7 +1655,7 @@ function outletMessage() {
                                                                    sharingSocialView.set("social_telephone", getData.outletlist[0].telephone);    
                                                                    sharingSocialView.set("social_email", getData.outletlist[0].emailid);     
                                                                    postLogin.set("outlettelephone", getData.outletlist[0].telephone);
-                                                                     
+                                                                    postLogin.set("outletemailid", getData.outletlist[0].emailid);  
                                                                    shareCustomer = customer;
                                                                    shareProductCode = getData.outletlist[0].outletcode;
                                                                    shareProductType = "1"; //outlet review
@@ -2288,6 +2288,7 @@ function outletMessage() {
                                                                                //alert('enable  2 ' + err);
                                                                            });
                                                                        });
+                                                                        window.localStorage.setItem("notification", "1");
                                                                    }else {
                                                                        currentDevice.unregister()
                                                                            .then(
@@ -2297,6 +2298,7 @@ function outletMessage() {
                                                                                    //alert('unregister 2 ' + err);
                                                                                }
                                                                                );
+                                                                        window.localStorage.setItem("notification", "2");
                                                                    }
                                                                      
                                                                    navigator.notification.alert("Profile changes successfully updated.", function() {
