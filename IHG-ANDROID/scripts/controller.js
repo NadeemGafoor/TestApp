@@ -113,7 +113,7 @@ function outletMessage() {
                                                     socialsharingFacebook: function () {
                                                         showSpin();
                                                         alert(window.localStorage.getItem("appad_location"));
-                                                        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(null, null, window.localStorage.getItem("appad_location"), "Share with your friends", function () {
+                                                        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(null, "images/banner_phone.jpg", window.localStorage.getItem("appad_location"), "Share with your friends", function () {
                                                         }, function (errormsg) {
                                                         })
                                                         hideSpin();
