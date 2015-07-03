@@ -112,6 +112,7 @@ function outletMessage() {
                                                  
                                                     socialsharingFacebook: function () {
                                                         showSpin();
+                                                        alert(window.localStorage.getItem("appad_location"));
                                                         window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(sharingSocialView.social_header + "\n" + sharingSocialView.social_message + "\n" + share_contact + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App", null, window.localStorage.getItem("appad_location"), "Share with your friends", function () {
                                                         }, function (errormsg) {
                                                         })
@@ -121,7 +122,7 @@ function outletMessage() {
                                                     socialsharingTwitter:  function () {
                                                         showSpin();
                                                           
-                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "Download IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location_short"))
+                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "Download Mobile App at " + window.localStorage.getItem("appad_location_short"))
                                                         hideSpin();
                                                     },
 
@@ -401,7 +402,7 @@ function outletMessage() {
                                                                   // document.getElementById("outlet-review").innerHTML = getData.outletlist[0].reviewcount + " Review(s)";
                                                                   // document.getElementById("outlet-star").innerHTML = getData.outletlist[0].staraverage + " Star(s)";
                                              
-                                                                  sharingSocialView.set("social_shortmsg", "Checkout the offer at IHG Dining Rewards - " + getData.outletlist[0].outletname + "  \n");
+                                                                  sharingSocialView.set("social_shortmsg", "Checkout " + getData.outletlist[0].outletname + "  \n");
                                                                   sharingSocialView.set("social_header", getData.outletlist[0].outletname);
                                                                                 
                                                                   sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
@@ -616,7 +617,7 @@ function outletMessage() {
                                                                   document.getElementById("ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                   document.getElementById("ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
                                                                   preLogin.set("outlettelephone", offertelephone);   
-                                                                  sharingSocialView.set("social_shortmsg", "Checkout the offer at IHG Dining Rewards - " + getData.offerlist[0].itemname + "  \n");
+                                                                  sharingSocialView.set("social_shortmsg", "Checkout  " + getData.offerlist[0].itemname + "  \n");
                                                                   sharingSocialView.set("social_header", getData.offerlist[0].category);
                                                                   sharingSocialView.set("social_subject", getData.offerlist[0].itemname);
                                                                   sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);                                                                
@@ -1655,7 +1656,7 @@ function outletMessage() {
                                                                    document.getElementById("pl-ooutlet-short").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
                                                                    document.getElementById("pl-ooutlet-long").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
                                              
-                                                                   sharingSocialView.set("social_shortmsg", "Checkout the offer at IHG Dining Rewards - " + getData.outletlist[0].outletname + "  \n");
+                                                                   sharingSocialView.set("social_shortmsg", "Checkout " + getData.outletlist[0].outletname + "  \n");
                                                                    sharingSocialView.set("social_header", getData.outletlist[0].outletname);
                                                                                 
                                                                    sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
@@ -1877,7 +1878,7 @@ function outletMessage() {
                                                                    document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                    document.getElementById("pl-ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
                                                                    postLogin.set("outlettelephone", offertelephone);
-                                                                   sharingSocialView.set("social_shortmsg", "Checkout the offer at IHG Dining Rewards - " + getData.offerlist[0].itemname + "  \n");
+                                                                   sharingSocialView.set("social_shortmsg", "Checkout " + getData.offerlist[0].itemname + "  \n");
                                                                    sharingSocialView.set("social_header", getData.offerlist[0].category);
                                                                    sharingSocialView.set("social_subject", getData.offerlist[0].itemname);
                                                                    sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);
