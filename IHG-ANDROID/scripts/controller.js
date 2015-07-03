@@ -21,8 +21,8 @@ function outletMessage() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-    var gurl = "http://hdrewards.ddns.net:8088/mobilePortal";
-    var merchant = "INTER09705";
+    var gurl = "https://appapi.exclusiveu.in/mobilePortal";
+    var merchant = "IHGDI09999";
     var customer = "9999999999";
     var customername = "Guest";
     var password = "";
@@ -66,12 +66,12 @@ function outletMessage() {
     var appad_location = "http://www.ihgdiningrewards.com";
     var appad_location_short = "http://www.ihgdiningrewards.com";    
     
-    var social_subject = "IHG Dining Rewards";
-    var notification_image = "http://hdrewards.ddns.net:8088/mobileportal/images/36x36_icon.png";    
-    var share_image = "http://hdrewards.ddns.net:8088/mobileportal/images/ihg_logo.png";
-    var flag_image = "http://hdrewards.ddns.net:8088/mobileportal/flagimages/";
+    var social_subject = "IHG® Dining Rewards";
+    var notification_image = "https://appapi.exclusiveu.in/mobileportal/images/36x36_icon.png";    
+    var share_image = "https://appapi.exclusiveu.in/mobileportal/images/ihg_logo.png";
+    var flag_image = "https://appapi.exclusiveu.in/mobileportal/flagimages/";
     var share_contact = "Phone: +971 427 66 186 \nEmail: inquiry@ihg.com";
-    var short_msg = "Check out the IHG Dining Rewards at ";
+    var short_msg = "Check out the IHG® Dining Rewards at ";
     var offertelephone = "0097142766186";
     var enrollmenttelephone = "0097142766213";
     var customercaretelephone = "0097142766186";
@@ -171,6 +171,15 @@ function outletMessage() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
+                                           getfaq
+                                           : function () {
+                                               httpFAQ();
+                                           },
+                                           destroymyfaq
+                                           :function() {
+                                               $("#faq-theme").remove();  
+                                           },
+        
                                            pldestroyBenefitList:function() {
                                                $("#pl-benefit-list").remove();  
                                            },
@@ -1655,7 +1664,7 @@ function outletMessage() {
                                                                    sharingSocialView.set("social_telephone", getData.outletlist[0].telephone);    
                                                                    sharingSocialView.set("social_email", getData.outletlist[0].emailid);     
                                                                    postLogin.set("outlettelephone", getData.outletlist[0].telephone);
-                                                                    postLogin.set("outletemailid", getData.outletlist[0].emailid);  
+                                                                   postLogin.set("outletemailid", getData.outletlist[0].emailid);  
                                                                    shareCustomer = customer;
                                                                    shareProductCode = getData.outletlist[0].outletcode;
                                                                    shareProductType = "1"; //outlet review
@@ -2288,7 +2297,7 @@ function outletMessage() {
                                                                                //alert('enable  2 ' + err);
                                                                            });
                                                                        });
-                                                                        window.localStorage.setItem("notification", "1");
+                                                                       window.localStorage.setItem("notification", "1");
                                                                    }else {
                                                                        currentDevice.unregister()
                                                                            .then(
@@ -2298,7 +2307,7 @@ function outletMessage() {
                                                                                    //alert('unregister 2 ' + err);
                                                                                }
                                                                                );
-                                                                        window.localStorage.setItem("notification", "2");
+                                                                       window.localStorage.setItem("notification", "2");
                                                                    }
                                                                      
                                                                    navigator.notification.alert("Profile changes successfully updated.", function() {
@@ -2922,6 +2931,48 @@ function outletMessage() {
                                                                 }
                                                             });        
                                                  }, positionOption);   
+    }
+    
+    function httpFAQ() {
+        showSpin(); //show loading popup
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/faqlist.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                                                                                                                                
+                       if (getData.statuscode == "000") {
+                           //fill the outlet template
+                           if (getData.faqlist.length > 0) {
+                               $("#faqlist-all").kendoMobileListView({
+                                                                         dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                         template: $("#faqTemplate").html()
+                                                                     });
+                               hideSpin(); //hide loading popup
+                           }else {
+                               navigator.notification.alert("No FAQ exists for the selected Program", function() {
+                               }, "Al Yamamah Rewards", "Dismiss")    
+                               hideSpin(); //hide loading popup
+                           }
+                       }else {
+                           navigator.notification.alert("Cannot get FAQ list " + getData.statusdesc, function() {
+                           }, "Al Yamamah Rewards", "Dismiss")          
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (error) {
+                       navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "Al Yamamah Rewards", "Dismiss")
+                       hideSpin(); //hide loading popup                                          
+                   }
+               });
     }
 }
     )(window);
