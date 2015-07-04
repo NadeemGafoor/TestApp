@@ -750,15 +750,14 @@ function outletMessage() {
                                                                       lon = positiono[1];
                                                                       window.localStorage.setItem("lat", lat);
                                                                       window.localStorage.setItem("lon", lon);
-                                                                      
                                                                       appad_location = getData.appad_location; 
                                                                       appad_location_short = getData.appad_location_short; 
                                                                       window.localStorage.setItem("appad_location", appad_location);
                                                                       window.localStorage.setItem("appad_location_short", appad_location_short);
                                                                       
                                                                       //alert(googleapikey);
-                                                                      getFlag(country); //Get Flag
-                                                                      
+                                                                      //getFlag(country); //Get Flag
+                                                                      getCountry();
                                                                       hideSpin(); //hide loading popup
                                                                   }else if (getData.statuscode === "047") {
                                                                       $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
@@ -2857,11 +2856,11 @@ function outletMessage() {
                             window.localStorage.setItem("country", mcountry);
                         }
                     }
-                    getFlag();                                              
+                    getFlag(mcountry);                                              
                 }else {
                     mcountry = country;
                     window.localStorage.setItem("country", mcountry);
-                    getFlag();
+                    getFlag(mcountry);
                 }
             });
         }
@@ -2870,7 +2869,7 @@ function outletMessage() {
                                                      lon = window.localStorage.getItem("lon");
                                                      mcountry = country;
                                                      window.localStorage.setItem("country", mcountry);
-                                                     getFlag();
+                                                     getFlag(mcountry);
                                                  }, positionOption);
     }
     
