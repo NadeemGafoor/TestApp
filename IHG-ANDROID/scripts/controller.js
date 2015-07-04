@@ -175,6 +175,13 @@ function outletMessage() {
                                            : function () {
                                                httpFAQ();
                                            },
+        destroymypolicy
+                                              :function() {
+                                                  $("#device-theme").remove();  
+                                              },
+        
+        
+        
                                            destroymyfaq
                                            :function() {
                                                $("#faq-theme").remove();  
