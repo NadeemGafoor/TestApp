@@ -1980,7 +1980,7 @@ function outletMessage() {
                                             :function() {
                                                 document.getElementById("offer-1").innerHTML = postLogin.transactionref;
                                                 document.getElementById("offer-2").innerHTML = postLogin.couponname;
-                                                document.getElementById("offer-3").innerHTML = postLogin.couponcategory;
+
                                             },
                                             mywalletofferlist
                                             : function () {
@@ -2348,7 +2348,7 @@ function outletMessage() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:false,
+                   async:true,
                    timeout:20000,
                    url: gurl + "/listcountryandprice.aspx",
                    contentType: "application/json; charset=utf-8",
@@ -2392,7 +2392,7 @@ function outletMessage() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:false,
+                   async:true,
                    timeout:20000,
                    url: gurl + "/listcityandlanguage.aspx",
                    contentType: "application/json; charset=utf-8",
