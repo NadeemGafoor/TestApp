@@ -2055,9 +2055,9 @@ function outletMessage() {
                                                                      
                                                                        //document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
                                                                        document.getElementById("pl-ooffer-voucher").innerHTML = "Voucher : " + getData.myvoucherdetail[0].itemcode;
-                                                                       document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.myvoucherdetail[0].itemname + " </pre>";
+                                                                       document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>Offer Name : " + getData.myvoucherdetail[0].itemname + " </pre>";
                                                                        document.getElementById("pl-ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].itemdescription + "</pre>";
-                                                                       document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.myvoucherdetail[0].couponexpirydate;
+                                                                       document.getElementById("pl-ooffer-expiry").innerHTML = "Expiry Date : " + getData.myvoucherdetail[0].couponexpirydate;
                                                                        document.getElementById("pl-ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].remark + "</pre>";
                                                             
                                                                        offercode = getData.myvoucherdetail[0].couponcode;
