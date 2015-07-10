@@ -1,5 +1,5 @@
 var exec = require('cordova/exec'),
-    Promise = require('es6-promise-plugin.Promise'),
+    Promise = require('com.vladstirbu.cordova.promise.Promise'),
     channel = require('cordova/channel'),
     geofence,
     Geofence = function () {

@@ -4,14 +4,17 @@ var child_process = require('child_process'),
 
 module.exports = function(context) {
     var IOS_DEPLOYMENT_TARGET = '7.0',
-        COMMENT_KEY = /_comment$/;
+        COMMENT_KEY = /_comment$/,
+        projectRoot = process.argv[2];
 
-    run();
+    //if run for plugin projectRoot initialy is platform
+    projectRoot = path.resolve(path.join(projectRoot,'..'));
 
-    function run() {
+    run(projectRoot);
+
+    function run(projectRoot) {
         var cordova_util = context.requireCordovaModule('cordova-lib/src/cordova/util'),
             ConfigParser = context.requireCordovaModule('cordova-lib/src/configparser/ConfigParser'),
-            projectRoot = cordova_util.isCordova(),
             platform_ios,
             xml = cordova_util.projectConfig(projectRoot),
             cfg = new ConfigParser(xml),
