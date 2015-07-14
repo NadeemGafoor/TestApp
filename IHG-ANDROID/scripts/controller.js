@@ -110,9 +110,11 @@ function outletMessage() {
                                                     },
        
                                                  
+                                                   
                                                     socialsharingFacebook: function () {
                                                         showSpin();
-                                                        window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(null,null, window.localStorage.getItem("appad_location"), "Share with your friends", function () {
+                                                        
+                                                        window.plugins.socialsharing.shareViaFacebook(null, "images/banner_phone.jpg", window.localStorage.getItem("appad_location"),  function () {
                                                         }, function (errormsg) {
                                                         })
                                                         hideSpin();
