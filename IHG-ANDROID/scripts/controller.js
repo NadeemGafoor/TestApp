@@ -110,11 +110,10 @@ function outletMessage() {
                                                     },
        
                                                  
-                                                   
                                                     socialsharingFacebook: function () {
                                                         showSpin();
                                                         
-                                                        window.plugins.socialsharing.shareViaFacebook(null, "images/banner_phone.jpg", window.localStorage.getItem("appad_location"),  function () {
+                                                        window.plugins.socialsharing.shareViaFacebook(null, window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"),  function () {
                                                         }, function (errormsg) {
                                                         })
                                                         hideSpin();
@@ -123,14 +122,14 @@ function outletMessage() {
                                                     socialsharingTwitter:  function () {
                                                         showSpin();
                                                           
-                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "Download Mobile App at " + window.localStorage.getItem("appad_location_short"))
+                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "Download the Mobile App at " + window.localStorage.getItem("appad_location"))
                                                         hideSpin();
                                                     },
 
                                                     socialsharingWhatsApp: function () {
                                                         showSpin();
                                                       
-                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "Download IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location_short"), function () {
+                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), function () {
                                                         }, function (errormsg) {
                                                         })
                                                         hideSpin();
@@ -139,7 +138,7 @@ function outletMessage() {
                                                     socialsharingSMS: function () {
                                                         showSpin();
                                                          
-                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location_short"), null, function (msg) {
+                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), null, function (msg) {
                                                         }, function (msg) {
                                                         })
                                                         hideSpin();
@@ -148,7 +147,7 @@ function outletMessage() {
                                                     socialsharingEmail:  function () {
                                                         showSpin();
                                                         window.plugins.socialsharing.shareViaEmail(
-                                                            sharingSocialView.social_message + "\n\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location_short"), // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
+                                                            sharingSocialView.social_message + "\n\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
                                                             sharingSocialView.social_shortmsg, null, null, null, // TO: must be null or an array
                                                             null, // FILES: can be null, a string, or an array
                                                             function (msg) {
@@ -158,7 +157,7 @@ function outletMessage() {
                                                             );
                                                         hideSpin();
                                                     }
-                                                });   
+                                                })   
     
     window.preLogin = kendo.observable({ 
                                            username:"",
