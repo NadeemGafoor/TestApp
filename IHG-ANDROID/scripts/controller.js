@@ -465,7 +465,7 @@ function outletMessage() {
                                                                                                              });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("No Offers exists for the selected Restaurant!", function() {
+                                                                      navigator.notification.alert("No Offers currently exist for the selected Restaurant", function() {
                                                                       }, "IHG® Dining Rewards", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
@@ -1064,7 +1064,7 @@ function outletMessage() {
                                            validateUser
                                            : function () {
                                                if (!this.username) {
-                                                   navigator.notification.alert("Invalid MemberId or Empty", function() {
+                                                   navigator.notification.alert("Invalid Membership # or Empty", function() {
                                                    }, "IHG® Dining Rewards", "Dismiss");
                                                    return;
                                                }
@@ -1258,12 +1258,12 @@ function outletMessage() {
                                            requestPasswordChangeURL:
                                            function () {
                                                if (!this.username) {
-                                                   navigator.notification.alert("Invalid MemberId or Empty", function() {
+                                                   navigator.notification.alert("Invalid Membership # or Empty", function() {
                                                    }, "IHG® Dining Rewards", "Dismiss");
                                                    return;
                                                }
                                                if (!this.emailid) {
-                                                   navigator.notification.alert("Invalid EmailID or Empty", function() {
+                                                   navigator.notification.alert("Invalid email or Empty", function() {
                                                    }, "IHG® Dining Rewards", "Dismiss");
                                                    return;
                                                }
@@ -1286,7 +1286,7 @@ function outletMessage() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") { //Login Successful
-                                                                  navigator.notification.alert("A URL has been sent to your registered Email ID with a link to set your new password.", function() {
+                                                                  navigator.notification.alert("A URL has been sent to your registered email with a link to set your new password", function() {
                                                                   }, "IHG® Dining Rewards", "Dismiss");   
                                                                   preLogin.set("username", "");
                                                                   preLogin.set("emailid", "");
@@ -1498,7 +1498,7 @@ function outletMessage() {
                                                                                                                       
                                                                                                                  });
                                                                    }else {
-                                                                       navigator.notification.alert("No message history available for your Membership.", function() {
+                                                                       navigator.notification.alert("No message history for your Membership", function() {
                                                                        }, "IHG® Dining Rewards", "Dismiss")    
                                                                    }
                                                                }else {
@@ -1545,7 +1545,7 @@ function outletMessage() {
                                                                        document.getElementById("msgday").innerHTML = getData.messageitem[0].mday;
                                                                        postLogin.set("msgsequence", getData.messageitem[0].sequence);
                                                                    }else {
-                                                                       navigator.notification.alert("No message item available for your Membership.", function() {
+                                                                       navigator.notification.alert("No message available for your Membership", function() {
                                                                        }, "IHG® Dining Rewards", "Dismiss")    
                                                                    }
                                                                }else {
@@ -1755,7 +1755,7 @@ function outletMessage() {
                                                                                                                  });
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("There are no offers for the selected Restaurant.", function() {
+                                                                       navigator.notification.alert("No Offers currently exist for the selected Restaurant", function() {
                                                                        }, "IHG® Dining Rewards", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
@@ -1937,7 +1937,7 @@ function outletMessage() {
                                             activateoffer
                                             : function (e) {
                                                 if (!document.getElementById("tandc-accept").checked) {
-                                                    navigator.notification.alert("Please Accept Terms & Conditions to Proceed", function() {
+                                                    navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
                                                     }, "IHG® Dining Rewards", "Dismiss");
                                                     return;
                                                 }
@@ -2200,7 +2200,7 @@ function outletMessage() {
                                                 }      
                                                                                                 
                                                 if ((!document.getElementById("profile-pushoffer").checked) && (document.getElementById("profile-remindexpiry").checked)) {
-                                                    navigator.notification.alert("You need to enable Push Notification to enable reminders for expirying vouchers", function() {
+                                                    navigator.notification.alert("Please enable Push Notification to receive reminders for expirying vouchers", function() {
                                                     }, "IHG® Dining Rewards", "Dismiss");
                                                     return;
                                                 }
@@ -2621,7 +2621,7 @@ function outletMessage() {
                                                                          });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("There are no offers for the selected Hotel.", function() {
+                               navigator.notification.alert("No Offers currently exist", function() {
                                }, "IHG® Dining Rewards", "Dismiss")    
                                hideSpin(); //hide loading popup
                            }
@@ -2678,7 +2678,7 @@ function outletMessage() {
                                                                             });
                                hideSpin(); //hide loading popup
                            }else {
-                               navigator.notification.alert("There are no offers exists for the selected Hotel.", function() {
+                               navigator.notification.alert("No Offers currently exist", function() {
                                }, "IHG® Dining Rewards", "Dismiss")    
                                hideSpin(); //hide loading popup
                            }
