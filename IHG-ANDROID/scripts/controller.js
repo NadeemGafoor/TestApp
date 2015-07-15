@@ -70,15 +70,12 @@ function outletMessage() {
     var notification_image = "https://appapi.exclusiveu.in/mobileportal/images/36x36_icon.png";    
     var share_image = "https://appapi.exclusiveu.in/mobileportal/images/ihg_logo.png";
     var flag_image = "https://appapi.exclusiveu.in/mobileportal/flagimages/";
-    var share_contact = "Phone: +971 427 66 186 \nEmail: inquiry@ihg.com";
     var short_msg = "Check out the IHG® Dining Rewards at ";
     var offertelephone = "0097142766186";
     var enrollmenttelephone = "0097142766213";
     var customercaretelephone = "0097142766186";
     var cardimage = "";
-    var mdevicemeasure = "";
-    var share_tel = "Telephone : 0097142766186";
-    var share_email = "inquiry@ihg.com";
+   
     
     //// function onSuccess(acceleration) {
     // alert('Acceleration X: ' + acceleration.x + '\n' +
