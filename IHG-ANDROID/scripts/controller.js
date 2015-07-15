@@ -77,7 +77,7 @@ function outletMessage() {
     var customercaretelephone = "0097142766186";
     var cardimage = "";
     var mdevicemeasure = "";
-    var share_tel = "0097142766186";
+    var share_tel = "Telephone : 0097142766186";
     var share_email = "inquiry@ihg.com";
     
     //// function onSuccess(acceleration) {
@@ -122,14 +122,14 @@ function outletMessage() {
                                                     socialsharingTwitter:  function () {
                                                         showSpin();
                                                           
-                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "Download the Mobile App at " + window.localStorage.getItem("appad_location"))
+                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg + "\n" +  sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email, null, "Download the Mobile App at " + window.localStorage.getItem("appad_location"))
                                                         hideSpin();
                                                     },
 
                                                     socialsharingWhatsApp: function () {
                                                         showSpin();
                                                       
-                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email, null, "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), function () {
+                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg + "\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email, null, "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), function () {
                                                         }, function (errormsg) {
                                                         })
                                                         hideSpin();
@@ -138,7 +138,7 @@ function outletMessage() {
                                                     socialsharingSMS: function () {
                                                         showSpin();
                                                          
-                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), null, function (msg) {
+                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "\n" +  sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email + "\n\n" + "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), null, function (msg) {
                                                         }, function (msg) {
                                                         })
                                                         hideSpin();
@@ -147,7 +147,7 @@ function outletMessage() {
                                                     socialsharingEmail:  function () {
                                                         showSpin();
                                                         window.plugins.socialsharing.shareViaEmail(
-                                                            sharingSocialView.social_message + "\n\n" + "Telephone :" + sharingSocialView.social_telephone + "\n" + "Email :" + sharingSocialView.social_email + "\n\n" + "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
+                                                            sharingSocialView.social_message + "\n\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email + "\n\n" + "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
                                                             sharingSocialView.social_shortmsg, null, null, null, // TO: must be null or an array
                                                             null, // FILES: can be null, a string, or an array
                                                             function (msg) {
@@ -415,8 +415,8 @@ function outletMessage() {
                                                                   sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
                                                                   sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
                                                                   sharingSocialView.set("social_image", share_image); 
-                                                                  sharingSocialView.set("social_telephone", getData.outletlist[0].telephone);    
-                                                                  sharingSocialView.set("social_email", getData.outletlist[0].emailid);   
+                                                                  sharingSocialView.set("social_telephone", "Telephone : " + getData.outletlist[0].telephone);    
+                                                                  sharingSocialView.set("social_email", "Email : " + getData.outletlist[0].emailid);   
                                                                   preLogin.set("outlettelephone", getData.outletlist[0].telephone);
                                                                      
                                                                   shareCustomer = customer;
@@ -629,8 +629,8 @@ function outletMessage() {
                                                                   sharingSocialView.set("social_subject", getData.offerlist[0].itemname);
                                                                   sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);                                                                
                                                                   sharingSocialView.set("social_image", share_image); 
-                                                                  sharingSocialView.set("social_telephone", share_tel); 
-                                                                  sharingSocialView.set("social_email", share_email); 
+                                                                  sharingSocialView.set("social_telephone", ""); 
+                                                                  sharingSocialView.set("social_email", ""); 
                                                                      
                                                                   hideSpin(); //hide loading popup
                                                               }else {
@@ -1668,8 +1668,8 @@ function outletMessage() {
                                                                    sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
                                                                    sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
                                                                    sharingSocialView.set("social_image", share_image); 
-                                                                   sharingSocialView.set("social_telephone", getData.outletlist[0].telephone);    
-                                                                   sharingSocialView.set("social_email", getData.outletlist[0].emailid);     
+                                                                     sharingSocialView.set("social_telephone", "Telephone : " + getData.outletlist[0].telephone);    
+                                                                  sharingSocialView.set("social_email", "Email : " + getData.outletlist[0].emailid);   
                                                                    postLogin.set("outlettelephone", getData.outletlist[0].telephone);
                                                                    postLogin.set("outletemailid", getData.outletlist[0].emailid);  
                                                                    shareCustomer = customer;
@@ -1889,8 +1889,8 @@ function outletMessage() {
                                                                    sharingSocialView.set("social_subject", getData.offerlist[0].itemname);
                                                                    sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);
                                                                    sharingSocialView.set("social_image", share_image); 
-                                                                   sharingSocialView.set("social_telephone", share_tel); 
-                                                                   sharingSocialView.set("social_email", share_email); 
+                                                                   sharingSocialView.set("social_telephone", ""); 
+                                                                   sharingSocialView.set("social_email", ""); 
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
