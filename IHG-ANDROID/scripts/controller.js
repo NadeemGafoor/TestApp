@@ -154,7 +154,7 @@ function outletMessage() {
                                                             );
                                                         hideSpin();
                                                     }
-                                                })   
+                                                });   
     
     window.preLogin = kendo.observable({ 
                                            username:"",
