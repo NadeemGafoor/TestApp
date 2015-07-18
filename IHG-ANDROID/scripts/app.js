@@ -45,13 +45,16 @@ var currentDevice;
                           });
     
         currentDevice = el.push.currentDevice(false);
-        //initialize Geofence
-        //window.geofence.initialize();
     }, false);
+    
+   
+    
         
     function hideNav() {
         setTimeout(function() {
             navigator.splashscreen.hide();  
         }, 2000);  //hide Loading Popup
     }
+    
+   
 }());

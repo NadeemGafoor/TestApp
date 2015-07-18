@@ -6,10 +6,9 @@ function offerMessage() {
 function outletMessage() {
     navigator.notification.alert("To view Restaurant details please select Restaurants List from the menu", function() {
     }, "IHG® Dining Rewards", "Dismiss")    
-} 
+}
 
 (function (global) {
-    var positionOption = { maximumAge:60000,timeout: 7000, enableHighAccuracy: false};
     var gpsErrorShow = "";
     var gpsErrorShowApp = "";
     var magicnumber = "";
@@ -62,12 +61,9 @@ function outletMessage() {
     var rn = "";
     var cn = "";
     var sr = "";
-    
     var appad_location = "http://www.ihgdiningrewards.com";
     var appad_location_short = "http://www.ihgdiningrewards.com";    
-    
     var social_subject = "IHG® Dining Rewards";
-    var notification_image = "https://appapi.exclusiveu.in/mobileportal/images/36x36_icon.png";    
     var share_image = "https://appapi.exclusiveu.in/mobileportal/images/ihg_logo.png";
     var flag_image = "https://appapi.exclusiveu.in/mobileportal/flagimages/";
     var short_msg = "Check out the IHG® Dining Rewards at ";
@@ -75,8 +71,7 @@ function outletMessage() {
     var enrollmenttelephone = "0097142766213";
     var customercaretelephone = "0097142766186";
     var cardimage = "";
-   
-    
+
     //// function onSuccess(acceleration) {
     // alert('Acceleration X: ' + acceleration.x + '\n' +
     //     'Acceleration Y: ' + acceleration.y + '\n' +
@@ -110,7 +105,7 @@ function outletMessage() {
                                                     socialsharingFacebook: function () {
                                                         showSpin();
                                                         
-                                                        window.plugins.socialsharing.shareViaFacebook(null, window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"),  function () {
+                                                        window.plugins.socialsharing.shareViaFacebook(null, window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"), function () {
                                                         }, function (errormsg) {
                                                         })
                                                         hideSpin();
@@ -119,7 +114,7 @@ function outletMessage() {
                                                     socialsharingTwitter:  function () {
                                                         showSpin();
                                                           
-                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg + "\n" +  sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email, null, "Download the Mobile App at " + window.localStorage.getItem("appad_location"))
+                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg + "\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email, null, "Download the Mobile App at " + window.localStorage.getItem("appad_location"))
                                                         hideSpin();
                                                     },
 
@@ -135,7 +130,7 @@ function outletMessage() {
                                                     socialsharingSMS: function () {
                                                         showSpin();
                                                          
-                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "\n" +  sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email + "\n\n" + "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), null, function (msg) {
+                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email + "\n\n" + "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), null, function (msg) {
                                                         }, function (msg) {
                                                         })
                                                         hideSpin();
@@ -169,22 +164,15 @@ function outletMessage() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
-                                           getfaq
-                                           : function () {
-                                               httpFAQ();
+                                           destroymypolicy
+                                           :function() {
+                                               $("#device-theme").remove();  
                                            },
-        destroymypolicy
-                                              :function() {
-                                                  $("#device-theme").remove();  
-                                              },
-        
-        
-        
                                            destroymyfaq
                                            :function() {
                                                $("#faq-theme").remove();  
                                            },
-        
+                                
                                            pldestroyBenefitList:function() {
                                                $("#pl-benefit-list").remove();  
                                            },
@@ -327,7 +315,7 @@ function outletMessage() {
         
                                                navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                    lat = position.coords.latitude;                                  
-                                                   lon = position.coords.longitude
+                                                   lon = position.coords.longitude;
                                                    var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
           
                                                    $.getJSON(geocodingAPI, function (json) {
@@ -366,10 +354,11 @@ function outletMessage() {
                                                                                                 geocity = city;
                                                                                             }
                                                                                             geocountry = country;
+                                                                                          
                                                                                             lat = window.localStorage.getItem("lat");
                                                                                             lon = window.localStorage.getItem("lon");
                                                                                             listOutlet();
-                                                                                        }, positionOption);
+                                                                                        });
                                            },
 
         
@@ -413,8 +402,9 @@ function outletMessage() {
                                                                   sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
                                                                   sharingSocialView.set("social_image", share_image); 
                                                                   sharingSocialView.set("social_telephone", "Telephone : " + getData.outletlist[0].telephone);    
-                                                                  sharingSocialView.set("social_email", "Email : " + getData.outletlist[0].emailid);   
+                                                                  sharingSocialView.set("social_email", "Email : " + getData.outletlist[0].emailid);      
                                                                   preLogin.set("outlettelephone", getData.outletlist[0].telephone);
+                                                                  preLogin.set("outletemailid", getData.outletlist[0].emailid);
                                                                      
                                                                   shareCustomer = customer;
                                                                   shareProductCode = getData.outletlist[0].outletcode;
@@ -568,9 +558,10 @@ function outletMessage() {
                                                                                             }
                                                                                             lat = window.localStorage.getItem("lat");
                                                                                             lon = window.localStorage.getItem("lon");
-                                                                                            geocountry = country;                                                                                        
+                                                                                            geocountry = country;
+                                                                                          
                                                                                             listOffer();
-                                                                                        }, positionOption);
+                                                                                        });
                                            },
                                                
                                                
@@ -613,22 +604,21 @@ function outletMessage() {
                                                                   document.getElementById("offer-detail-div").style.display = "block";
                                                                   //document.getElementById("offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
                                                                   //document.getElementById("offer-image-large").style.backgroundSize = "cover";
-                                                                     
                                                                   //document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
+                                                                  
                                                                   document.getElementById("offerimage").src = getData.offerlist[0].imageurll;
                                                                   document.getElementById("ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + " </pre>";
                                                                   document.getElementById("ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                   document.getElementById("ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                   document.getElementById("ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
                                                                   preLogin.set("outlettelephone", offertelephone);   
-                                                                  sharingSocialView.set("social_shortmsg", "Checkout  " + getData.offerlist[0].itemname + "  \n");
+                                                                  sharingSocialView.set("social_shortmsg", "Checkout " + getData.offerlist[0].itemname + "  \n");
                                                                   sharingSocialView.set("social_header", getData.offerlist[0].category);
                                                                   sharingSocialView.set("social_subject", getData.offerlist[0].itemname);
-                                                                  sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);                                                                
+                                                                  sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);
                                                                   sharingSocialView.set("social_image", share_image); 
                                                                   sharingSocialView.set("social_telephone", ""); 
-                                                                  sharingSocialView.set("social_email", ""); 
-                                                                     
+                                                                  sharingSocialView.set("social_email", "");    
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
@@ -669,7 +659,7 @@ function outletMessage() {
                                                                                             lon = window.localStorage.getItem("lon");
                                                                                              
                                                                                             listOfferOutlet();
-                                                                                        }, positionOption
+                                                                                        }
                                                    );
                                            },
         
@@ -705,8 +695,8 @@ function outletMessage() {
                                            : function() {
                                                showSpin();
                                                //document.getElementById("flagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center"; 
-                                                
-                                               if (firsttime == "") { //Register Access and device in the platform
+                                               //checklocation();
+                                               if (firsttime === "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
                                                    mversion = device.version;
@@ -718,14 +708,9 @@ function outletMessage() {
                                                    preLogin.set("segmentcode", segmentcode);
                                                    window.localStorage.setItem("mdevicestat", mdevicestat);
                                                    window.localStorage.setItem("merchant", merchant);
+                                             
                                                    window.localStorage.setItem("appad_location", appad_location);
                                                    window.localStorage.setItem("appad_location_short", appad_location_short);
-                                                   //Check whether GPS enabled
-                                                   checklocation();
-                                                   window.geofence.initialize(function() {
-                                                   }, function(error) {
-                                                   });
-                                                                                                    
                                                    $.ajax({ 
                                                               type: "POST",
                                                               cache:false,
@@ -734,10 +719,11 @@ function outletMessage() {
                                                               url: gurl + "/initAccess.aspx",
                                                               contentType: "application/json; charset=utf-8",
                                                               data: JSON.stringify({
-                                                                                       merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat 
+                                                                                       merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat
                                                                                    }),
                                                               success: function (data) { 
                                                                   var getData = JSON.parse(data);
+                                                               
                                                                   if (getData.statuscode === "000") {
                                                                       firsttime = "1";  
                                                                       googleapikey = getData.googleapikey;  
@@ -748,11 +734,11 @@ function outletMessage() {
                                                                       lon = positiono[1];
                                                                       window.localStorage.setItem("lat", lat);
                                                                       window.localStorage.setItem("lon", lon);
+                                                                      window.localStorage.setItem("isfenceset", "0");
                                                                       appad_location = getData.appad_location; 
                                                                       appad_location_short = getData.appad_location_short; 
                                                                       window.localStorage.setItem("appad_location", appad_location);
                                                                       window.localStorage.setItem("appad_location_short", appad_location_short);
-                                                                      
                                                                       //alert(googleapikey);
                                                                       //getFlag(country); //Get Flag
                                                                       getCountry();
@@ -771,91 +757,79 @@ function outletMessage() {
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           });
-                                                 
+                                      
                                                    //var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
                                                    // if (mplatform==="iOS") {
                                                    //     var options = {enableHighAccuracy:false,timeout: 30000,frequency:600000 }
                                                    //    mywatch = navigator.geolocation.watchPosition(meWatchPos, watchPosError, options);
                                                    // } else {
                                                    //Check whether GPS enabled
-                                      
-                                                   // }
                                                    
-                                                   //remove previous geofences
-                                                   window.geofence.removeAll()
-                                                       .then(function () {
-                                                       }
-                                                             , function (reason) {
-                                                                 showTop("Unable to remove locations");     
-                                                             });
-                                                   
-                                                   $.ajax({ 
-                                                              type: "POST",
-                                                              cache:false,
-                                                              async:true,
-                                                              timeout:20000,
-                                                              url: gurl + "/propertyList.aspx",
-                                                              contentType: "application/json; charset=utf-8",
-                                                              data: JSON.stringify({
-                                                                                       merchantcode :merchant,mdevice:mdevicestat
-                                                                                   }),
-                                                              success: function (data) {
-                                                                  var getData = JSON.parse(data);
-                                                                  var i = 0;
-                                                                  if (getData.statuscode === "000") {
-                                                                      if (getData.propertylist.length > 0) {
-                                                                          while (i <= getData.propertylist.length - 1) {
-                                                                              window.geofence.addOrUpdate({
-                                                                                                              id:             getData.propertylist[i].brandcode,
-                                                                                                              latitude:       getData.propertylist[i].lat,
-                                                                                                              longitude:      getData.propertylist[i].lon,
-                                                                                                              radius:         1000,
-                                                                                                              transitionType: TransitionType.ENTER
-                                                                                                          }).then(function () {
-                                                                                                          }, function (reason) {
-                                                                                                          })
-                                                                                                 
-                                                                              i++;   
+                                                   window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
+                                                   });
+                                                       
+                                                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                       lat = position.coords.latitude;                                  
+                                                       lon = position.coords.longitude;
+                                            
+                                                       $.ajax({
+                                                                  type: "POST",
+                                                                  cache: false,
+                                                                  async: true,
+                                                                  timeout: 20000,
+                                                                  url: gurl + "/propertyList.aspx",
+                                                                  contentType: "application/json; charset=utf-8",
+                                                                  data: JSON.stringify({
+                                                                                           merchantcode: merchant, mdevice: mdevicestat
+                                                                                       }),
+                                                                  success: function (data) {
+                                                                      var getData = JSON.parse(data);
+                                                                      var i = 0;
+                                                                      if (getData.statuscode === "000") {
+                                                                          if (getData.propertylist.length > 0) {
+                                                                              while (i <= getData.propertylist.length - 1) {
+                                                                                  //Stop Monitor
+                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
+                                                                                  window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                                                                                                                   function(result) {
+                                                                                                                                   }, function(error) {
+                                                                                                                                       showTop("Unable to reset locations"); 
+                                                                                                                                   });
+                                                                                  
+                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
+                                                                                  window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                                                  }, function(error) {
+                                                                                      showTop("Unable to reset locations");     
+                                                                                  });
+                                                                                  i++;
+                                                                              }
+                                                                      
+                                                                              window.localStorage.setItem("isfenceset", "1");
+                                   
+                                                                              hideSpin(); //hide loading popup
+                                                                          } else {
+                                                                              navigator.notification.alert("There are no Property for the selected Program!", function () {
+                                                                              }, "IHG® Dining Rewards", "Dismiss")
+                                                                              hideSpin(); //hide loading popup
                                                                           }
-                                                                                             
-                                                                          hideSpin(); //hide loading popup
-                                                                      }else {
-                                                                          navigator.notification.alert("There are no Property for the selected Program!", function() {
-                                                                          }, "IHG® Dining Rewards", "Dismiss")    
+                                                                      } else {
+                                                                          navigator.notification.alert("Cannot get Property List " + getData.statusdesc, function () {
+                                                                          }, "IHG® Dining Rewards", "Dismiss")
                                                                           hideSpin(); //hide loading popup
                                                                       }
-                                                                  }else {
-                                                                      navigator.notification.alert("Cannot get Property List " + getData.statusdesc, function() {
-                                                                      }, "IHG® Dining Rewards", "Dismiss")          
-                                                                      hideSpin(); //hide loading popup
+                                                                  },
+                                                                  error: function (error) {
+                                                                      navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function () {
+                                                                      }, "IHG® Dining Rewards", "Dismiss")
                                                                   }
-                                                              },
-                                                              error: function (error) {
-                                                                  navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                                  }, "IHG® Dining Rewards", "Dismiss")
-                                                              }
-                                                          });
-                                               
-                                                   window.geofence.onTransitionReceived = function (geofences) {
-                                                       geofences.forEach(function (geo) {
-                                                           $.ajax({ 
-                                                                      type: "POST",
-                                                                      cache:false,
-                                                                      async:true,
-                                                                      timeout:20000,
-                                                                      url: gurl + "/trackDevice.aspx",
-                                                                      contentType: "application/json; charset=utf-8",
-                                                                      data: JSON.stringify({
-                                                                                               merchantcode :merchant,mdevice:mdevicestat + "^enter",lat:geo.latitude,lon: geo.longitude,customer:customer,segment:geo.id
-                                                                                           }),
-                                                                      success: function (data) {
-                                                                      },
-                                                                      error: function (error) {
-                                                                      }
-                                                                  });
-                                                       });
-                                                   };
-                                                   
+                                                              });
+                                                   }
+                                                                                            , function onErrorShowMap(error) {
+                                                                                                gpsError();
+                                                                                            }); 
+                                   
+                                                   // }
+                           
                                                    if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                                                        customer = window.localStorage.getItem("customer");
                                                        customername = window.localStorage.getItem("customername");
@@ -905,7 +879,6 @@ function outletMessage() {
                                                        memberexpiry = "";
                                                        segmentimage = "";
                                                    }     
-                                            
                                                    var pushSettings = {
                                                        iOS: {
                                                            badge: "1",
@@ -962,9 +935,13 @@ function outletMessage() {
                                                            });
                                                        }
                                                    }
-                                                   //flag display
+                                               } else {
+                                                   if (window.localStorage.getItem("isfenceset")==="0") {
+                                                       startMonitor();
+                                                       window.localStorage.setItem("isfenceset", "1");
+                                                   }
                                                }
-                                                                         
+                                               
                                                hideSpin();
                                                return;
                                            },
@@ -987,8 +964,8 @@ function outletMessage() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
                                                                   //clear Local Storage on logout
-                                                                  window.localStorage.setItem("customer", "");
-                                                                  window.localStorage.setItem("customername", "");
+                                                                  window.localStorage.setItem("customer", "9999999999");
+                                                                  window.localStorage.setItem("customername", "Guest");
                                                                   window.localStorage.setItem("segmentcode", "");
                                                                   window.localStorage.setItem("segmentname", "");
                                                                   window.localStorage.setItem("currency", "");
@@ -1091,7 +1068,7 @@ function outletMessage() {
                                                }
                                                customer = this.username;
                                                password = this.password;
-                                               // window.localStorage.setItem("memberID", this.username);
+                                               // window.localStorage.setItem("memberID", this.username);"1000","3"
                                                // m = window.localStorage.getItem("memberID");
                                                //  alert(m);
                                                showSpin();
@@ -1171,7 +1148,7 @@ function outletMessage() {
                                                                       },
                                                                       notificationCallbackIOS: onPushNotificationReceived,
                                                                       notificationCallbackAndroid:onPushNotificationReceived,
-                                                                      notificationCallbackWP8:onPushNotificationReceived,
+                                                                      notificationCallbackWP8: onPushNotificationReceived,
                                                                       customParameters: {
                                                                           Memberid: customer,
                                                                           Merchant:merchant,
@@ -1179,7 +1156,8 @@ function outletMessage() {
                                                                           devicecode:muuid
                                                                       }
                                                                   };
-                                                                  if (window.localStorage.getItem("notification")==="1") {        
+                                                                  
+                                                                  if (window.localStorage.getItem("notification")==="1") {
                                                                       //Re-register the device with updates
                                                                       currentDevice.getRegistration(function() {
                                                                           currentDevice.unregister().then(function() {
@@ -1193,7 +1171,7 @@ function outletMessage() {
                                                                           });
                                                                       }, function(err) {
                                                                       });
-                                                                      window.localStorage.setItem("notification", "1"); 
+                                                                      window.localStorage.setItem("notification", "1");
                                                                   }
                                                 
                                                                   if ((getData.deviceinfo.length == 0)) {
@@ -1359,6 +1337,10 @@ function outletMessage() {
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
+                                           },
+                                           getfaq
+                                           : function () {
+                                               httpFAQ();
                                            }
                                        });
     
@@ -1449,7 +1431,8 @@ function outletMessage() {
                                                     $("body").data("kendoMobilePane").navigate("views/home.html"); 
                                                     return;
                                                 }
-                                                checklocation();
+                                                
+                                                checklocation(); 
                                                 
                                                 if (autolocation != "1") {
                                                     gpsErrorApp();
@@ -1625,10 +1608,10 @@ function outletMessage() {
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                  geocountry = country;
-                                                                    
+                                                                                               
                                                                                                  pllistOutlet();
                                                                                                  hideSpin();
-                                                                                             }, positionOption);
+                                                                                             });
                                                 }else {
                                                     if (y==="1") {
                                                         geocity = "";
@@ -1638,7 +1621,7 @@ function outletMessage() {
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
                                                     geocountry = country;
-                       
+                                                
                                                     pllistOutlet();
                                                     hideSpin();
                                                 }
@@ -1680,10 +1663,12 @@ function outletMessage() {
                                                                    sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
                                                                    sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
                                                                    sharingSocialView.set("social_image", share_image); 
-                                                                     sharingSocialView.set("social_telephone", "Telephone : " + getData.outletlist[0].telephone);    
-                                                                  sharingSocialView.set("social_email", "Email : " + getData.outletlist[0].emailid);   
+                                                                   sharingSocialView.set("social_telephone", "Telephone : " + getData.outletlist[0].telephone);    
+                                                                   sharingSocialView.set("social_email", "Email : " + getData.outletlist[0].emailid);      
+                                                                   
                                                                    postLogin.set("outlettelephone", getData.outletlist[0].telephone);
-                                                                   postLogin.set("outletemailid", getData.outletlist[0].emailid);  
+                                                                   postLogin.set("outletemailid", getData.outletlist[0].emailid);
+                                                                     
                                                                    shareCustomer = customer;
                                                                    shareProductCode = getData.outletlist[0].outletcode;
                                                                    shareProductType = "1"; //outlet review
@@ -1844,10 +1829,10 @@ function outletMessage() {
                                                                                                  lat = window.localStorage.getItem("lat");
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                  geocountry = country;
-                                                            
+                                                                               
                                                                                                  pllistOffer();
                                                                                                  hideSpin();
-                                                                                             }, positionOption);
+                                                                                             });
                                                 }else {
                                                     if (y==="1") {
                                                         geocity = "";
@@ -1857,7 +1842,7 @@ function outletMessage() {
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
                                                     geocountry = country;
-                    
+                           
                                                     pllistOffer();
                                                     hideSpin();
                                                 }
@@ -1886,11 +1871,11 @@ function outletMessage() {
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
                                                                    document.getElementById("pl-offerdetail-div").style.display = "block";
-                                                                   // document.getElementById("pl-offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
-                                                                   // document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
-                                                                     
+                                                                   //document.getElementById("pl-offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
+                                                                   //document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
                                                                    //document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
-                                                                   document.getElementById("plofferimage").src = getData.offerlist[0].imageurll;                                                                   
+                                                                   document.getElementById("plofferimage").src = getData.offerlist[0].imageurll;  
+
                                                                    document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + " </pre>";
                                                                    document.getElementById("pl-ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                    document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
@@ -1902,16 +1887,16 @@ function outletMessage() {
                                                                    sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);
                                                                    sharingSocialView.set("social_image", share_image); 
                                                                    sharingSocialView.set("social_telephone", ""); 
-                                                                   sharingSocialView.set("social_email", ""); 
+                                                                   sharingSocialView.set("social_email", "");   
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Cannot get Offer item. " + getData.statusdesc, function() {
                                                                    }, "IHG® Dining Rewards", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer item.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG® Dining Rewards", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -1939,7 +1924,7 @@ function outletMessage() {
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                   
                                                                                                  pllistOfferOutlet();
-                                                                                             }, positionOption);
+                                                                                             });
                                                 }else {
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
@@ -1982,7 +1967,7 @@ function outletMessage() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot activate offer. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error Cannot activate offer. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "IHG® Dining Rewards", "Dismiss")
                                                                hideSpin(); //hide loading popup                                                                 
                                                            }
@@ -1993,7 +1978,7 @@ function outletMessage() {
                                             :function() {
                                                 document.getElementById("offer-1").innerHTML = postLogin.transactionref;
                                                 document.getElementById("offer-2").innerHTML = postLogin.couponname;
-
+                                                //document.getElementById("offer-3").innerHTML = postLogin.couponcategory;
                                             },
                                             mywalletofferlist
                                             : function () {
@@ -2060,19 +2045,19 @@ function outletMessage() {
                                                                        document.getElementById("wallet-div").style.display = "block";
                                                                        //document.getElementById("myvoucher-load").style.background = "url(" + getData.myvoucherdetail[0].imageurll + ") no-repeat center center";
                                                                        //document.getElementById("myvoucher-load").style.backgroundSize = "cover";
-                                                                       document.getElementById("myvoucherimage").src = getData.myvoucherdetail[0].imageurll;                                                                   
+                                                                                                                                         
                                                                        //document.getElementById("voucher-number").innerHTML = getData.myvoucherdetail[0].itemcode;
                                                                        //document.getElementById("voucher-name").innerHTML = getData.myvoucherdetail[0].itemname;
                                                                        //document.getElementById("voucher-expiry").innerHTML = getData.myvoucherdetail[0].couponexpirydate;
                                                                        //document.getElementById("coupon-description-1").innerHTML = getData.myvoucherdetail[0].itemdescription;
-                                                                     
-                                                                       //document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
+                                                                       document.getElementById("myvoucherimage").src = getData.myvoucherdetail[0].imageurll;
                                                                        document.getElementById("pl-ooffer-voucher").innerHTML = "Voucher : " + getData.myvoucherdetail[0].itemcode;
+                                                                       //document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
                                                                        document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>Offer Name : " + getData.myvoucherdetail[0].itemname + " </pre>";
                                                                        document.getElementById("pl-ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].itemdescription + "</pre>";
                                                                        document.getElementById("pl-ooffer-expiry").innerHTML = "Expiry Date : " + getData.myvoucherdetail[0].couponexpirydate;
                                                                        document.getElementById("pl-ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].remark + "</pre>";
-                                                            
+                                                               
                                                                        offercode = getData.myvoucherdetail[0].couponcode;
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
@@ -2116,7 +2101,7 @@ function outletMessage() {
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                   
                                                                                                  myOfferListOutlet();
-                                                                                             }, positionOption);
+                                                                                             });
                                                 }else {
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
@@ -2159,9 +2144,10 @@ function outletMessage() {
         
                                             editsettingdata
                                             :function() {
+                                                showSpin(); 
                                                 listCountry();
-                                                listCity(country);
-                                               
+                                                listCity(country);  
+                                                document.getElementById("setting-view").style.display = "block";
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
                                                 }else {
@@ -2185,7 +2171,7 @@ function outletMessage() {
                                                     document.getElementById("selCountry").style.color = "#575757";
                                                     document.getElementById("selCity").style.color = "#575757";
                                                 }
-                                                hideSpin(); //hide loading popup
+                                                hideSpin();
                                             },
                                             getCity
                                             :function() {
@@ -2277,7 +2263,7 @@ function outletMessage() {
                                                                        wp8: {
                                                                            channelName: 'EverlivePushChannel'
                                                                        },
-                                                                       notificationCallbackIOS: onPushNotificationReceived,
+                                                                       notificationCallbackIOS:onPushNotificationReceived,
                                                                        notificationCallbackAndroid: onPushNotificationReceived,
                                                                        notificationCallbackWP8: onPushNotificationReceived,
                                                                        customParameters: {
@@ -2813,13 +2799,13 @@ function outletMessage() {
                                hideSpin(); //hide loading popup
                            }
                        }else {
-                           navigator.notification.alert("Cannot get Restaurant List." + getData.statusdesc, function() {
+                           navigator.notification.alert("Cannot get Restaurants List." + getData.statusdesc, function() {
                            }, "IHG® Dining Rewards", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurants List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "IHG® Dining Rewards", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -2831,19 +2817,56 @@ function outletMessage() {
             showTop("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
             // navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.", function() {
             // }, "IHG® Dining Rewards", "Dismiss");
-            //gpsErrorShow = "1";// remove the comment if error message is required to be shown only once
+            
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat"),lat:lat,lon:lon,customer:window.localStorage.getItem("customer").callbacktype,segment:"GPSOFF"
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });        
+            //gpsErrorShow = "1"; remove the comment if error message is required to be shown only once
         }
     }
     
     function gpsErrorApp() {
         if (gpsErrorShowApp==="") {    
             showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
-            // navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.", function() {
-            // }, "IHG® Dining Rewards", "Dismiss");
-            //gpsErrorShowApp = "1"; //remove the comment if error message is required to be shown only once
+            //navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.", function() {
+            //}, "IHG® Dining Rewards", "Dismiss");
+            //gpsErrorShowApp = "1"; remove the comment if error message is required to be shown only once
         }
     }
-       
+    
+    function meWatchPos(position) {
+        //Check whether GPS enabled
+        x = position.coords.latitude;                                  
+        y = position.coords.longitude;
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/trackDevice.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,lat:x,lon:y,customer:"WATCH",segment:segmentcode
+                                        }),
+                   success: function (data) { 
+                   },
+                   error: function (error) {
+                   }
+               });
+    }
+   
     //Get Country
     function getCountry() {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
@@ -2875,28 +2898,18 @@ function outletMessage() {
             });
         }
                                                  , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                     //  if (err.code == "1") {
+                                                     //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                     //  } else if (err.code == "2") {
+                                                     //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                     //  }
                                                      lat = window.localStorage.getItem("lat");
                                                      lon = window.localStorage.getItem("lon");
                                                      mcountry = country;
                                                      window.localStorage.setItem("country", mcountry);
                                                      getFlag(mcountry);
-                                                 }, positionOption);
+                                                 });
     }
-    
-    function showTop(e) {
-        window.plugins.toast.showWithOptions({
-                                                 message: e,
-                                                 duration: "short",
-                                                 position: "bottom",
-                                                 addPixelsY: -40  // added a negative value to move it up a bit (default 0)
-                                             },
-                                             function() {
-                                             }, // optional
-                                             function() {
-                                             }    // optional
-            );
-    }
-    
     function getFlag(e) {
         $.ajax({ 
                    type: "POST",
@@ -2924,6 +2937,50 @@ function outletMessage() {
                });
     }
     
+    function processRegionMonitorCallback (result) {
+        if (result.callbacktype === "exit" || result.callbacktype === "enter") {
+            trackDevice(result);
+        }
+    }
+    
+    function trackDevice(mresult) {
+        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+            lat = position.coords.latitude;                                  
+            lon = position.coords.longitude
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });        
+        }
+                                                 , function onErrorShowMap(error) {
+                                                 });
+    }
+    
+    function showTop(e) {
+        window.plugins.toast.showWithOptions({
+                                                 message: e,
+                                                 duration: "short",
+                                                 position: "bottom",
+                                                 addPixelsY: -40  // added a negative value to move it up a bit (default 0)
+                                             },
+                                             function() {
+                                             }, // optional
+                                             function() {
+                                             }    // optional
+            );
+    }
+    
     function checklocation() {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
             lat = position.coords.latitude;                                  
@@ -2931,22 +2988,67 @@ function outletMessage() {
         }
                                                  , function onErrorShowMap(error) { 
                                                      gpsError();
-                                                     $.ajax({ 
-                                                                type: "POST",
-                                                                cache:false,
-                                                                async:true,
-                                                                timeout:20000,
-                                                                url: gurl + "/trackDevice.aspx",
-                                                                contentType: "application/json; charset=utf-8",
-                                                                data: JSON.stringify({
-                                                                                         merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat"),lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"GPSOFF"
-                                                                                     }),
-                                                                success: function (data) {
-                                                                },
-                                                                error: function (error) {
-                                                                }
-                                                            });        
-                                                 }, positionOption);   
+                                                 });   
+    }
+    
+    function startMonitor() {
+        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+            lat = position.coords.latitude;                                  
+            lon = position.coords.longitude
+            $.ajax({
+                       type: "POST",
+                       cache: false,
+                       async: true,
+                       timeout: 20000,
+                       url: gurl + "/propertyList.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode: merchant, mdevice: mdevicestat
+                                            }),
+                       success: function (data) {
+                           var getData = JSON.parse(data);
+                           var i = 0;
+                           if (getData.statuscode === "000") {
+                               if (getData.propertylist.length > 0) {
+                                   //Start Monitor
+                                   while (i <= getData.propertylist.length - 1) {
+                                       //Stop Monitor
+                                       var params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
+                                       window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                                                                        function(result) {
+                                                                                            // not used.
+                                                                                        }, function(error) {
+                                                                                            // not used
+                                                                                        });
+                                       
+                                       params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
+                                       window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
+                                       }, function(error) {
+                                       });
+                                       i++;
+                                   }
+                                   
+                                   hideSpin(); //hide loading popup
+                               } else {
+                                   navigator.notification.alert("There are no Property for the selected Program!", function () {
+                                   }, "IHG® Dining Rewards", "Dismiss")
+                                   hideSpin(); //hide loading popup
+                               }
+                           } else {
+                               navigator.notification.alert("Cannot get Property List " + getData.statusdesc, function () {
+                               }, "IHG® Dining Rewards", "Dismiss")
+                               hideSpin(); //hide loading popup
+                           }
+                       },
+                       error: function (error) {
+                           navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function () {
+                           }, "IHG® Dining Rewards", "Dismiss")
+                       }
+                   });
+        }
+                                                 , function onErrorShowMap(error) {
+                                                 });
+        hideSpin(); 
     }
     
     function httpFAQ() {
@@ -2991,7 +3093,7 @@ function outletMessage() {
                });
     }
     
-      function onPushNotificationReceived(e) {
+    function onPushNotificationReceived(e) {
         // alert(JSON.stringify(e));
         if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
             $("body").data().kendoMobilePane.navigate("views/pl-offerlist.html");  
