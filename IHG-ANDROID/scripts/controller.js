@@ -906,43 +906,61 @@ function outletMessage() {
                                                        segmentimage = "";
                                                    }     
                                             
+                                                   var pushSettings = {
+                                                       iOS: {
+                                                           badge: "1",
+                                                           sound: "default",
+                                                           alert: "true",
+                                                           clearBadge: "true"
+                                                       },
+                                                       android: {
+                                                           senderID: googleApiProjectNumber
+                                                       },
+                                                       wp8: {
+                                                           channelName: 'EverlivePushChannel'
+                                                       },
+                                                       notificationCallbackIOS: onPushNotificationReceived,
+                                                       notificationCallbackAndroid: onPushNotificationReceived,
+                                                       notificationCallbackWP8: onPushNotificationReceived,
+                                                       customParameters: {
+                                                           Memberid: customer,
+                                                           Merchant:merchant,
+                                                           Segment:segmentcode,
+                                                           devicecode:muuid
+                                                       } 
+                                                   };
+                                            
                                                    if (window.localStorage.getItem("notification") == undefined || window.localStorage.getItem("notification") == '' || window.localStorage.getItem("notification") == 'null') {
                                                        //Enable and Register
-                                                       var pushSettings = {
-                                                           iOS: {
-                                                               badge: "1",
-                                                               sound: "default",
-                                                               alert: "true",
-                                                               clearBadge: "true"
-                                                           },
-                                                           android: {
-                                                               senderID: googleApiProjectNumber
-                                                           },
-                                                           wp8: {
-                                                               channelName: 'EverlivePushChannel'
-                                                           },
-                                                           notificationCallbackIOS: function(args) {
-                                                           },
-                                                           notificationCallbackAndroid: function(args) {
-                                                           },
-                                                           notificationCallbackWP8: function(args) {
-                                                           },
-                                                           customParameters: {
-                                                               Memberid: customer,
-                                                               Merchant:merchant,
-                                                               Segment:segmentcode,
-                                                               devicecode:muuid
-                                                           } 
-                                                       };
-                                                       
                                                        currentDevice.enableNotifications(pushSettings, function (data) {
                                                            currentDevice.register(pushSettings, function (data) {
                                                            }, function (err) {
-                                                           }); 
+                                                           });
                                                            //Set notification to 1 so that its not registered again
                                                            window.localStorage.setItem("notification", "1");
                                                        }, function (err) {
                                                        });
+                                                   } else {
+                                                       if (window.localStorage.getItem("notification") === "1") {
+                                                           currentDevice.getRegistration(function () {
+                                                               currentDevice.unregister().then(function () {
+                                                               }, function (err) {
+                                                               });
+                                                               currentDevice.enableNotifications(pushSettings, function (data) {
+                                                                   currentDevice.register(pushSettings, function (data) {
+                                                                   }, function (err) {
+                                                                   });
+                                                               }, function (err) {
+                                                               });
+                                                           }, function (err) { //If not registered then enable and register
+                                                               currentDevice.enableNotifications(pushSettings, function (data) {
+                                                                   currentDevice.register(pushSettings, function (data) {
+                                                                   }, function (err) {
+                                                                   });
+                                                               }, function (err) {
+                                                               });
+                                                           });
+                                                       }
                                                    }
                                                    //flag display
                                                }
@@ -1151,12 +1169,9 @@ function outletMessage() {
                                                                       wp8: {
                                                                           channelName: 'EverlivePushChannel'
                                                                       },
-                                                                      notificationCallbackIOS: function(args) {
-                                                                      },
-                                                                      notificationCallbackAndroid: function(args) {
-                                                                      },
-                                                                      notificationCallbackWP8: function(args) {
-                                                                      },
+                                                                      notificationCallbackIOS: onPushNotificationReceived,
+                                                                      notificationCallbackAndroid:onPushNotificationReceived,
+                                                                      notificationCallbackWP8:onPushNotificationReceived,
                                                                       customParameters: {
                                                                           Memberid: customer,
                                                                           Merchant:merchant,
@@ -2262,12 +2277,9 @@ function outletMessage() {
                                                                        wp8: {
                                                                            channelName: 'EverlivePushChannel'
                                                                        },
-                                                                       notificationCallbackIOS: function(args) {
-                                                                       },
-                                                                       notificationCallbackAndroid: function(args) {
-                                                                       },
-                                                                       notificationCallbackWP8: function(args) {
-                                                                       },
+                                                                       notificationCallbackIOS: onPushNotificationReceived,
+                                                                       notificationCallbackAndroid: onPushNotificationReceived,
+                                                                       notificationCallbackWP8: onPushNotificationReceived,
                                                                        customParameters: {
                                                                            Memberid: customer,
                                                                            Merchant:merchant,
@@ -2978,5 +2990,14 @@ function outletMessage() {
                    }
                });
     }
+    
+      function onPushNotificationReceived(e) {
+        // alert(JSON.stringify(e));
+        if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
+            $("body").data().kendoMobilePane.navigate("views/pl-offerlist.html");  
+        } else {
+            $("body").data().kendoMobilePane.navigate("views/offerlist.html");
+        }                  
+    };
 }
     )(window);
