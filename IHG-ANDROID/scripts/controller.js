@@ -8,6 +8,8 @@ function outletMessage() {
     }, "IHG® Dining Rewards", "Dismiss")    
 }
 
+
+
 (function (global) {
     var gpsErrorShow = "";
     var gpsErrorShowApp = "";
