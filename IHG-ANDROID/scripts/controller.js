@@ -1642,6 +1642,7 @@ function outletMessage() {
                                                     pllistOutlet();
                                                     hideSpin();
                                                 }
+                                                hidespin();
                                             } ,
         
                                             plshowOutletItem
@@ -1861,6 +1862,7 @@ function outletMessage() {
                                                     pllistOffer();
                                                     hideSpin();
                                                 }
+                                                 hideSpin();
                                             },
                                                 
                                             
