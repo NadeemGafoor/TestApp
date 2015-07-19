@@ -3098,9 +3098,9 @@ function outletMessage() {
     function onPushNotificationReceived(e) {
         // alert(JSON.stringify(e));
         if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
-            $("body").data().kendoMobilePane.navigate("views/pl-offerlist.html");  
+            $("body").data().kendoMobilePane.navigate("views/pl-offerlist.html?geo=1");  
         } else {
-            $("body").data().kendoMobilePane.navigate("views/offerlist.html");
+            $("body").data().kendoMobilePane.navigate("views/offerlist.html?geo=1");
         }                  
     };
 }
