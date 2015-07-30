@@ -84,6 +84,8 @@ function outletMessage() {
     //};
 
     //var options = { frequency: 1000 };  // Update every 3 seconds
+    
+   
      
     window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
@@ -769,10 +771,6 @@ function outletMessage() {
                                                    
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                    });
-                                                   
-                                                   window.estimote.startRanging("Beacons");
-                                                  
-                                                   document.addEventListener('beaconsReceived', preLogin.onBeaconsReceived, false);
 
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
