@@ -779,14 +779,16 @@ function outletMessage() {
                                                    
                                                  
                                                    
-                                                   var region = { identifier: 'UAE' }
+                                                   var region = { identifier: "UAE",
+                                                                  uuid:"B9407F30-F5F8-466E-AFF9-25556B57FE6D"
+                                                           }
                                                    
-                                                     window.estimote.beacons.stopMonitoringForRegion(
+                                                     estimote.beacons.stopMonitoringForRegion(
                                                        region,
                                                        function(){},
                                                        function(){})
                                                    
-                                                   window.estimote.beacons.startMonitoringForRegion(
+                                                   estimote.beacons.startMonitoringForRegion(
                                                        region,
                                                        onMonitoringSuccess,
                                                        function(){alert(error);});
