@@ -3108,7 +3108,7 @@ document.addEventListener('beaconsReceived', onBeaconsReceived, false);
     if (result.beacons && result.beacons.length > 0) {
         for (var i = 0; i < result.beacons.length; i++) {
             var beacon = result.beacons[i];
-              //alert(window.localStorage.getItem("customer"));
+              //alert(result.beacons.length);
             $.ajax({ 
                        type: "POST",
                        cache:false,
@@ -3117,7 +3117,7 @@ document.addEventListener('beaconsReceived', onBeaconsReceived, false);
                        url: gurl + "/trackDevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON"
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + beacon.macAddress + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON"
                                             }),
                        success: function (data) {
                             alert("success");
@@ -3126,7 +3126,7 @@ document.addEventListener('beaconsReceived', onBeaconsReceived, false);
                            alert("error");
                        }
                    });        
-                      alert("MacAddress: " + beacon.macAddress + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color);
+                     // alert("MacAddress: " + beacon.macAddress + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color);
         }
     }
 }
