@@ -150,7 +150,7 @@ function outletMessage() {
                                                         hideSpin();
                                                     }
                                                 });   
-    
+    //preLogin.onBeaconsReceived
     window.preLogin = kendo.observable({ 
                                            username:"",
                                            password:"",
@@ -164,8 +164,20 @@ function outletMessage() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
+                                           onBeaconsReceived : function(result) {        
+                                               alert("hello");
+                                               for (var index = 0; index < e.beacons.length; index++) {
+                                                   alert(e.beacons.length);
+                                                   alert(e.beacons[index].distance);
+                                                   alert(e.beacons[index].major);
+                                                   alert(e.beacons[index].minor);
+                                               }
+                                           }
+                                           ,
+    
                                            destroymypolicy
-                                           :function() {
+                                           :
+                                           function() {
                                                $("#device-theme").remove();  
                                            },
                                            destroymyfaq
@@ -173,16 +185,18 @@ function outletMessage() {
                                                $("#faq-theme").remove();  
                                            },
                                 
-                                           pldestroyBenefitList:function() {
+                                           pldestroyBenefitList
+                                           :function() {
                                                $("#pl-benefit-list").remove();  
                                            },
         
-                                           destroyBenefitList:function() {
+                                           destroyBenefitList
+                                           :function() {
                                                $("#benefit-list").remove();  
                                            },
-        
             
-                                           destroypasswordchange:function() {
+                                           destroypasswordchange
+                                           :function() {
                                                $("#resetpassword-theme").remove();
                                            },
                                            destroyTokenThemeView
@@ -196,10 +210,12 @@ function outletMessage() {
                                                $("#login-theme").remove();  
                                            },
         
-                                           destroyOfferListNearMeView:function() {
+                                           destroyOfferListNearMeView
+                                           :function() {
                                                $("#offerlistnearme-view").remove();  
                                            },
-                                           destroyOfferListView:function() {
+                                           destroyOfferListView
+                                           :function() {
                                                $("#offerlist-view").remove();  
                                            },
                 
@@ -212,48 +228,59 @@ function outletMessage() {
                                            :function() {
                                                $("#offerdetailnearme-theme").remove();  
                                            },
-                                          
         
-                                           outletdetailthemedestroyView: function() {
+                                           outletdetailthemedestroyView
+                                           : function() {
                                                $("#outletdetail-theme").remove();
                                                isMapInitialized = false;
                                            },
         
-                                           outletdetailthemedestroyViewNearMe: function() {
+                                           outletdetailthemedestroyViewNearMe
+                                           : function() {
                                                $("#outletdetailnearme-theme").remove();
                                                isMapInitialized = false;
                                            },
         
-                                           outletlistnearmethemedestroyView: function() {
+                                           outletlistnearmethemedestroyView
+                                           : function() {
                                                $("#outletlistnearme-theme").remove();
                                            },
-                                           outletlistthemedestroyView: function() {
+                                           outletlistthemedestroyView
+                                           : function() {
                                                $("#outletlist-theme").remove();
                                            },
         
-                                           destroyCustomerService:function() {
+                                           destroyCustomerService
+                                           :function() {
                                                $("#customerservice-theme").remove();  
                                            },
         
-                                           destroyplCustomerService:function() {
+                                           destroyplCustomerService
+                                           :function() {
                                                $("#pl-customerservice-theme").remove();  
                                            },
-                                           destroyTermsofService:function() {
+                                           destroyTermsofService
+                                           :function() {
                                                $("#termsofservice-theme").remove();  
                                            },
-                                           destroyplTermsofService:function() {
+                                           destroyplTermsofService
+                                           :function() {
                                                $("#pl-termsofservice-theme").remove();  
                                            },
-                                           destroyJoin:function() {
+                                           destroyJoin
+                                           :function() {
                                                $("#join-theme").remove();  
                                            },
-                                           destroyBrandPage:function() {
+                                           destroyBrandPage
+                                           :function() {
                                                $("#brandpage-theme").remove();  
                                            },
-                                           destroyBenefitDetail:function() {
+                                           destroyBenefitDetail
+                                           :function() {
                                                $("#benefit-detail").remove();  
                                            },
-                                           pldestroyBenefitDetail:function() {
+                                           pldestroyBenefitDetail
+                                           :function() {
                                                $("#pl-benefit-detail").remove();  
                                            },                                         
                                            showBrandPage
@@ -262,7 +289,8 @@ function outletMessage() {
                                                $("body").data("kendoMobilePane").navigate("views/brandpage.html");  
                                            } ,       
                                       
-                                           benefitdetail: function (e) { 
+                                           benefitdetail
+                                           : function (e) { 
                                                benefitcode = e.view.params.bd; 
                                                showSpin(); //show loading popup
                                                $.ajax({ 
@@ -306,7 +334,8 @@ function outletMessage() {
                                                       });
                                            },
         
-                                           showAllOutlet: function (e) {
+                                           showAllOutlet
+                                           : function (e) {
                                                y = e.view.params.geo;
                                                outletcode = "";
                                                brandcode = "";
@@ -360,7 +389,6 @@ function outletMessage() {
                                                                                             listOutlet();
                                                                                         });
                                            },
-
         
                                            showOutletItem
                                            : function (e) {
@@ -424,7 +452,6 @@ function outletMessage() {
                                                       });
                                            },
         
-        
                                            showOutletOffer
                                            : function () {
                                                offercode = "";
@@ -471,9 +498,8 @@ function outletMessage() {
                                                       });
                                            },
         
-        
-        
-                                           getLocationO: function() {
+                                           getLocationO
+                                           : function() {
                                                showSpin(); //show loading popup
                                                if (!isMapInitialized) {
                                                    var latlng = new google.maps.LatLng(
@@ -512,7 +538,8 @@ function outletMessage() {
                                                hideSpin(); //hide loading popup
                                            },
         
-                                           offerlist: function (e) {
+                                           offerlist
+                                           : function (e) {
                                                y = e.view.params.geo;
                                         
                                                showSpin();
@@ -563,28 +590,9 @@ function outletMessage() {
                                                                                             listOffer();
                                                                                         });
                                            },
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                            
-
         
-                                           offeritem: function (e) {
+                                           offeritem
+                                           : function (e) {
                                                offercode = e.view.params.of; //offer code for single offer inquiry
                                                offertype = "2"; //single offer inquiry
                                                showSpin();
@@ -634,11 +642,7 @@ function outletMessage() {
                                                       });
                                            },
         
-        
-        
                                            oofferOutlet: 
-                                               
-                                               
                                                
                                            function () {
                                                showSpin(); //show loading popup
@@ -768,16 +772,13 @@ function outletMessage() {
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                    });
                                                    
-                                                   
                                                    estimote.startRanging({
-                                                                             region: country,
-                                                                             uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
+                                                                             region: "Telerik"
                                                                          });
-                                                   
                                                   
-                                                   document.addEventListener('beaconsReceived', function(){alert("Beacons");}, false);
+                                                   document.addEventListener('beaconsReceived', preLogin.onBeaconsReceived, false);
                                                    
-                                                                                                      alert("beacons");
+                                                   alert("beacons");
 
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -3087,31 +3088,44 @@ function outletMessage() {
                                hideSpin(); //hide loading popup
                            }else {
                                navigator.notification.alert("No FAQ exists for the selected Program", function() {
-                               }, "Al Yamamah Rewards", "Dismiss")    
+                               }, "IHG® Dining Rewards", "Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
                            navigator.notification.alert("Cannot get FAQ list " + getData.statusdesc, function() {
-                           }, "Al Yamamah Rewards", "Dismiss")          
+                           }, "IHG® Dining Rewards", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
                        navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "Al Yamamah Rewards", "Dismiss")
+                       }, "IHG® Dining Rewards", "Dismiss")
                        hideSpin(); //hide loading popup                                          
                    }
                });
     }
     
     function onBeaconsReceived(e) {
-        alert("hello");
-        for (var index = 0; index < e.beacons.length; index++) {
-            alert(e.beacons.length);
-            alert(e.beacons[index].UUID);
-            alert(e.beacons[index].major);
-            alert(e.beacons[index].minor);
+        if (result.beacons && result.beacons.length > 0) {
+            var msg = "<b>I found " + result.beacons.length + " beacons!";
+            for (var i = 0; i < result.beacons.length; i++) {
+                var beacon = result.beacons[i];
+                if (beacon.distance > 0) {
+                    msg += "<br/>";
+                    if (beacon.color !== undefined) {
+                        msg += "There is a <b>" + beacon.color + "</b> beacon ";
+                    }                        
+                    msg += "within " + beacon.distance + " meters of this location.<br/>";
+                    if (beacon.distance < 1) {
+                        $("#" + beacon.color + "").show();
+                        msg += "When you see it, press the button above!<br/>";
+                    }
+                }
+            }
+        } else {
+            var msg = "I haven't found a beacon just yet. Let's keep looking!"
         }
+        document.getElementById('beaconlog').innerHTML = msg;
     }
     
     function onPushNotificationReceived(e) {
