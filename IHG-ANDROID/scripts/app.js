@@ -45,6 +45,10 @@ var currentDevice;
                           });
     
         currentDevice = el.push.currentDevice(false);
+        
+  
+
+        
     }, false);
     
    
