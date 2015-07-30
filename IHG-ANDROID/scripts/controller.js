@@ -1,3 +1,11 @@
+ function onBeaconsReceived(e) {
+        for (var index = 0; index < e.beacons.length; index++) {
+            alert(e.beacons.length);
+            alert(e.beacons[index].name);
+            alert(e.beacons[index].distance);
+        }
+    }
+
 function offerMessage() {
     navigator.notification.alert("To view offer details please select All Offers from the menu", function() {
     }, "IHG® Dining Rewards", "Dismiss")    
@@ -7,6 +15,8 @@ function outletMessage() {
     navigator.notification.alert("To view Restaurant details please select Restaurants List from the menu", function() {
     }, "IHG® Dining Rewards", "Dismiss")    
 }
+
+    document.addEventListener('beaconsReceived', onBeaconsReceived, false);
 
 (function (global) {
     var gpsErrorShow = "";
@@ -85,7 +95,7 @@ function outletMessage() {
 
     //var options = { frequency: 1000 };  // Update every 3 seconds
     
-   document.addEventListener('beaconsReceived', onBeaconsReceived, false);
+
      
     window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
@@ -764,10 +774,13 @@ function outletMessage() {
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                    });
                                                    
-                                                    window.estimote.startRanging({
-    region: "Telerik",
-    uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
-});
+                                                   window.estimote.stopRanging();
+
+                                                   
+                                                   window.estimote.startRanging({
+                                                                                    region: "Telerik",
+                                                                                    uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
+                                                                                });
 
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -2339,10 +2352,7 @@ function outletMessage() {
                                             }        
                                         });
     
-    
-     document.addEventListener('beaconsReceived', preLogin.onBeaconsReceived, false);
-
-    
+    document.addEventListener('beaconsReceived', preLogin.onBeaconsReceived, false);
     
     function listCountry() {
         showSpin(); //show loading popup
@@ -3099,16 +3109,7 @@ function outletMessage() {
                });
     }
     
-    function onBeaconsReceived(e) {
-     
-                                               for (var index = 0; index < e.beacons.length; index++) {
-                                                   alert(e.beacons.length);
-                                                   alert(e.beacons[index].name);
-                                                   alert(e.beacons[index].distance);
-                                               }
-
-                                      
-    }
+   
     
     function onPushNotificationReceived(e) {
         // alert(JSON.stringify(e));
