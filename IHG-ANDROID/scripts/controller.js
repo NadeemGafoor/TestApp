@@ -6,15 +6,8 @@ function onBeaconsReceived(result) {
     if (result.beacons && result.beacons.length > 0) {
         for (var i = 0; i < result.beacons.length; i++) {
             var beacon = result.beacons[i];
-            alert("Distance: " + beacon.distance + " m");
-            alert("Major / Minor: " + beacon.major + " / " + beacon.minor);
-            alert("Rssi: " + beacon.rssi);
-            if (beacon.color !== undefined) { // iOS
-                console.log("Color: " + beacon.color);
-            }
-            if (beacon.macAddress !== undefined) { // Android
-                console.log("Mac Address: " + beacon.macAddress);
-            }
+            alert("Name: " + beacon.name + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor +" Rssi: " + beacon.rssi +" color: " + beacon.color);
+          
         }
     }
 }
@@ -28,6 +21,8 @@ function outletMessage() {
     navigator.notification.alert("To view Restaurant details please select Restaurants List from the menu", function() {
     }, "IHG® Dining Rewards", "Dismiss")    
 }
+
+ 
 
 (function (global) {
     var gpsErrorShow = "";
@@ -783,13 +778,7 @@ function outletMessage() {
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                    });
                                                    
-                                                   window.estimote.stopRanging();
-
-                                                   window.estimote.startRanging({
-                                                                                    region: "Telerik",
-                                                                                    uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
-                                                                                });
-
+                                                
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
