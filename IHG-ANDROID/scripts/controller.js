@@ -8,8 +8,6 @@ function outletMessage() {
     }, "IHG® Dining Rewards", "Dismiss")    
 }
 
-
-
 (function (global) {
     var gpsErrorShow = "";
     var gpsErrorShowApp = "";
@@ -769,7 +767,18 @@ function outletMessage() {
                                                    
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                    });
-                                                       
+                                                   
+                                                   
+                                                   estimote.startRanging({
+                                                                             region: country,
+                                                                             uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
+                                                                         });
+                                                   
+                                                  
+                                                   document.addEventListener('beaconsReceived', function(){alert("Beacons");}, false);
+                                                   
+                                                                                                      alert("beacons");
+
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
@@ -3093,6 +3102,16 @@ function outletMessage() {
                        hideSpin(); //hide loading popup                                          
                    }
                });
+    }
+    
+    function onBeaconsReceived(e) {
+        alert("hello");
+        for (var index = 0; index < e.beacons.length; index++) {
+            alert(e.beacons.length);
+            alert(e.beacons[index].UUID);
+            alert(e.beacons[index].major);
+            alert(e.beacons[index].minor);
+        }
     }
     
     function onPushNotificationReceived(e) {
