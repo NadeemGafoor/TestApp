@@ -90,8 +90,8 @@ function outletMessage() {
     //};
 
     //var options = { frequency: 1000 };  // Update every 3 seconds
-     // Listen for the event and wire it to our callback function
-document.addEventListener('beaconsReceived', onBeaconsReceived, false);
+    // Listen for the event and wire it to our callback function
+    document.addEventListener('beaconsReceived', onBeaconsReceived, false);
     window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
                                                     social_message:"",
@@ -770,13 +770,27 @@ document.addEventListener('beaconsReceived', onBeaconsReceived, false);
                                                    });
                                                    
                                                    // When looking for beacons no longer makes sense, do:
-                                                   window.estimote.stopRanging();
+                                                   //   window.estimote.stopRanging();
                                                    
-                                                   window.estimote.startRanging({
-                                                                                    region:"Telerik",
-                                                                                    uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
-                                                                                });
-                                                
+                                                   //    window.estimote.startRanging({
+                                                   //                                      region:"Telerik",
+                                                   //                                      uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
+                                                   //                                 });
+                                                   
+                                                 
+                                                   
+                                                   var region = { identifier: 'UAE' }
+                                                   
+                                                     window.estimote.beacons.stopMonitoringForRegion(
+                                                       region,
+                                                       function(){},
+                                                       function(){})
+                                                   
+                                                   window.estimote.beacons.startMonitoringForRegion(
+                                                       region,
+                                                       onMonitoringSuccess,
+                                                       function(){alert(error);});
+                                                   
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
@@ -3104,7 +3118,9 @@ document.addEventListener('beaconsReceived', onBeaconsReceived, false);
                });
     }
     
-   function onBeaconsReceived(result) {
+   
+
+function onMonitoringSuccess(result) {
     if (result.beacons && result.beacons.length > 0) {
         for (var i = 0; i < result.beacons.length; i++) {
             var beacon = result.beacons[i];
@@ -3120,13 +3136,12 @@ document.addEventListener('beaconsReceived', onBeaconsReceived, false);
                                                 merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + beacon.macAddress + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON"
                                             }),
                        success: function (data) {
-                            alert("success");
-                       },
+                                                  },
                        error: function (error) {
-                           alert("error");
+              
                        }
                    });        
-                     // alert("MacAddress: " + beacon.macAddress + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color);
+                      alert("MacAddress: " + beacon.macAddress + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color);
         }
     }
 }
