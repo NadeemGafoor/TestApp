@@ -164,9 +164,12 @@ function outletMessage() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
-                                           onBeaconsReceived : function(result) {        
-                                               alert("hello");
-                                             
+                                           onBeaconsReceived : function(e) {        
+                                               for (var index = 0; index < e.beacons.length; index++) {
+                                                   alert(e.beacons.length);
+                                                   alert(e.beacons[index].name);
+                                                   alert(e.beacons[index].distance);
+                                               }
                                            }
                                            ,
     
@@ -767,12 +770,9 @@ function outletMessage() {
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                    });
                                                    
-                                                   estimote.startRanging({
-                                                                             region: "Telerik"
-                                                                         });
+                                                   window.estimote.startRanging("Beacons");
                                                   
                                                    document.addEventListener('beaconsReceived', preLogin.onBeaconsReceived, false);
-                                                   
 
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
