@@ -1,10 +1,23 @@
- function onBeaconsReceived(e) {
-        for (var index = 0; index < e.beacons.length; index++) {
-            alert(e.beacons.length);
-            alert(e.beacons[index].name);
-            alert(e.beacons[index].distance);
+
+// Listen for the event and wire it to our callback function
+document.addEventListener('beaconsReceived', onBeaconsReceived, false);
+
+function onBeaconsReceived(result) {
+    if (result.beacons && result.beacons.length > 0) {
+        for (var i = 0; i < result.beacons.length; i++) {
+            var beacon = result.beacons[i];
+            alert("Distance: " + beacon.distance + " m");
+            alert("Major / Minor: " + beacon.major + " / " + beacon.minor);
+            alert("Rssi: " + beacon.rssi);
+            if (beacon.color !== undefined) { // iOS
+                console.log("Color: " + beacon.color);
+            }
+            if (beacon.macAddress !== undefined) { // Android
+                console.log("Mac Address: " + beacon.macAddress);
+            }
         }
     }
+}
 
 function offerMessage() {
     navigator.notification.alert("To view offer details please select All Offers from the menu", function() {
@@ -15,8 +28,6 @@ function outletMessage() {
     navigator.notification.alert("To view Restaurant details please select Restaurants List from the menu", function() {
     }, "IHG® Dining Rewards", "Dismiss")    
 }
-
-    document.addEventListener('beaconsReceived', onBeaconsReceived, false);
 
 (function (global) {
     var gpsErrorShow = "";
@@ -94,8 +105,6 @@ function outletMessage() {
     //};
 
     //var options = { frequency: 1000 };  // Update every 3 seconds
-    
-
      
     window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
@@ -776,7 +785,6 @@ function outletMessage() {
                                                    
                                                    window.estimote.stopRanging();
 
-                                                   
                                                    window.estimote.startRanging({
                                                                                     region: "Telerik",
                                                                                     uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
@@ -3108,8 +3116,6 @@ function outletMessage() {
                    }
                });
     }
-    
-   
     
     function onPushNotificationReceived(e) {
         // alert(JSON.stringify(e));
