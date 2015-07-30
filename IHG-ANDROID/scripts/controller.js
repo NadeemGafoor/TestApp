@@ -85,7 +85,7 @@ function outletMessage() {
 
     //var options = { frequency: 1000 };  // Update every 3 seconds
     
-   
+   document.addEventListener('beaconsReceived', onBeaconsReceived, false);
      
     window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
@@ -166,15 +166,7 @@ function outletMessage() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
-                                           onBeaconsReceived : function(e) {        
-                                               for (var index = 0; index < e.beacons.length; index++) {
-                                                   alert(e.beacons.length);
-                                                   alert(e.beacons[index].name);
-                                                   alert(e.beacons[index].distance);
-                                               }
-                                           }
-                                           ,
-    
+                                         
                                            destroymypolicy
                                            :
                                            function() {
@@ -771,6 +763,11 @@ function outletMessage() {
                                                    
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                    });
+                                                   
+                                                    window.estimote.startRanging({
+    region: "Telerik",
+    uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
+});
 
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -2342,6 +2339,11 @@ function outletMessage() {
                                             }        
                                         });
     
+    
+     document.addEventListener('beaconsReceived', preLogin.onBeaconsReceived, false);
+
+    
+    
     function listCountry() {
         showSpin(); //show loading popup
                                       
@@ -3097,27 +3099,15 @@ function outletMessage() {
                });
     }
     
-    function onBeaconsReceived(result) {
-        if (result.beacons && result.beacons.length > 0) {
-            var msg = "<b>I found " + result.beacons.length + " beacons!";
-            for (var i = 0; i < result.beacons.length; i++) {
-                var beacon = result.beacons[i];
-                if (beacon.distance > 0) {
-                    msg += "<br/>";
-                    if (beacon.color !== undefined) {
-                        msg += "There is a <b>" + beacon.color + "</b> beacon ";
-                    }                        
-                    msg += "within " + beacon.distance + " meters of this location.<br/>";
-                    if (beacon.distance < 1) {
-                        $("#" + beacon.color + "").show();
-                        msg += "When you see it, press the button above!<br/>";
-                    }
-                }
-            }
-        } else {
-            var msg = "I haven't found a beacon just yet. Let's keep looking!"
-        }
-        document.getElementById('beaconlog').innerHTML = msg;
+    function onBeaconsReceived(e) {
+     
+                                               for (var index = 0; index < e.beacons.length; index++) {
+                                                   alert(e.beacons.length);
+                                                   alert(e.beacons[index].name);
+                                                   alert(e.beacons[index].distance);
+                                               }
+
+                                      
     }
     
     function onPushNotificationReceived(e) {
