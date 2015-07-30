@@ -44,11 +44,11 @@
 		<source-file src="src/ios/CDVEstimote.m" />
 
 		<config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
-			<string>This application uses your location to determine which table you're at when ordering your coffee.</string>
+			<string>IHG Dining Rewards would like to use your Location to send Offers and Promotions when you are near IHG property</string>
 		</config-file>
 
 		<config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
-			<string>This application monitors your location to show you promotional offers in shops you're passing by.</string>
+			<string>IHG Dining Rewards would like to use your Location to send Offers and Promotions when you are near IHG property</string>
 		</config-file>
 
 	</platform>
