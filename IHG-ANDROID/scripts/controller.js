@@ -166,12 +166,7 @@ function outletMessage() {
                                            customercaretelephone:customercaretelephone,
                                            onBeaconsReceived : function(result) {        
                                                alert("hello");
-                                               for (var index = 0; index < e.beacons.length; index++) {
-                                                   alert(e.beacons.length);
-                                                   alert(e.beacons[index].distance);
-                                                   alert(e.beacons[index].major);
-                                                   alert(e.beacons[index].minor);
-                                               }
+                                             
                                            }
                                            ,
     
@@ -778,7 +773,6 @@ function outletMessage() {
                                                   
                                                    document.addEventListener('beaconsReceived', preLogin.onBeaconsReceived, false);
                                                    
-                                                   alert("beacons");
 
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -3105,7 +3099,7 @@ function outletMessage() {
                });
     }
     
-    function onBeaconsReceived(e) {
+    function onBeaconsReceived(result) {
         if (result.beacons && result.beacons.length > 0) {
             var msg = "<b>I found " + result.beacons.length + " beacons!";
             for (var i = 0; i < result.beacons.length; i++) {
