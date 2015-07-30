@@ -6,8 +6,22 @@ function onBeaconsReceived(result) {
     if (result.beacons && result.beacons.length > 0) {
         for (var i = 0; i < result.beacons.length; i++) {
             var beacon = result.beacons[i];
-            alert("Name: " + beacon.name + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor +" Rssi: " + beacon.rssi +" color: " + beacon.color);
-          
+            alert("Name: " + beacon.name + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color);
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + "Name: " + beacon.name + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });        
         }
     }
 }
@@ -21,8 +35,6 @@ function outletMessage() {
     navigator.notification.alert("To view Restaurant details please select Restaurants List from the menu", function() {
     }, "IHG® Dining Rewards", "Dismiss")    
 }
-
- 
 
 (function (global) {
     var gpsErrorShow = "";
@@ -778,6 +790,13 @@ function outletMessage() {
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                    });
                                                    
+                                                   // When looking for beacons no longer makes sense, do:
+                                                   window.estimote.stopRanging();
+                                                   
+                                                   window.estimote.startRanging({
+                                                                                    region:"Telerik",
+                                                                                    uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
+                                                                                });
                                                 
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
