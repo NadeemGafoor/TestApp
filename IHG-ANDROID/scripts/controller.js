@@ -1,30 +1,8 @@
 
-// Listen for the event and wire it to our callback function
-document.addEventListener('beaconsReceived', onBeaconsReceived, false);
 
-function onBeaconsReceived(result) {
-    if (result.beacons && result.beacons.length > 0) {
-        for (var i = 0; i < result.beacons.length; i++) {
-            var beacon = result.beacons[i];
-            alert("Name: " + beacon.name + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color);
-            $.ajax({ 
-                       type: "POST",
-                       cache:false,
-                       async:true,
-                       timeout:20000,
-                       url: gurl + "/trackDevice.aspx",
-                       contentType: "application/json; charset=utf-8",
-                       data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + "Name: " + beacon.name + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
-                                            }),
-                       success: function (data) {
-                       },
-                       error: function (error) {
-                       }
-                   });        
-        }
-    }
-}
+
+ 
+
 
 function offerMessage() {
     navigator.notification.alert("To view offer details please select All Offers from the menu", function() {
@@ -112,7 +90,8 @@ function outletMessage() {
     //};
 
     //var options = { frequency: 1000 };  // Update every 3 seconds
-     
+     // Listen for the event and wire it to our callback function
+document.addEventListener('beaconsReceived', onBeaconsReceived, false);
     window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
                                                     social_message:"",
@@ -3124,6 +3103,33 @@ function outletMessage() {
                    }
                });
     }
+    
+   function onBeaconsReceived(result) {
+    if (result.beacons && result.beacons.length > 0) {
+        for (var i = 0; i < result.beacons.length; i++) {
+            var beacon = result.beacons[i];
+              //alert(window.localStorage.getItem("customer"));
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON"
+                                            }),
+                       success: function (data) {
+                            alert("success");
+                       },
+                       error: function (error) {
+                           alert("error");
+                       }
+                   });        
+                      alert("MacAddress: " + beacon.macAddress + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color);
+        }
+    }
+}
     
     function onPushNotificationReceived(e) {
         // alert(JSON.stringify(e));
