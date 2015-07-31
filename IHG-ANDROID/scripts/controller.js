@@ -91,7 +91,7 @@ function outletMessage() {
 
     //var options = { frequency: 1000 };  // Update every 3 seconds
     // Listen for the event and wire it to our callback function
-    document.addEventListener('beaconsReceived', onBeaconsReceived, false);
+ 
     window.sharingSocialView = kendo.observable({
                                                     social_subject:"",
                                                     social_message:"",
@@ -777,13 +777,11 @@ function outletMessage() {
                                                    //                                      uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
                                                    //                                 });
                                                    
-                                                   var region = new wondow.ibeacon.Region({
+                                                   var region = new ibeacon.Region({
                                                                                               uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
                                                                                           });
 
-                                                   window.ibeacon.stopMonitoringForRegion({
-                                                                                              region: region
-                                                                                          });
+                                                
                                                    
                                                    ibeacon.startMonitoringForRegion({
                                                                                         region: region,
@@ -2362,7 +2360,6 @@ function outletMessage() {
                                             }        
                                         });
     
-    document.addEventListener('beaconsReceived', preLogin.onBeaconsReceived, false);
     
     function listCountry() {
         showSpin(); //show loading popup
@@ -3144,7 +3141,16 @@ function outletMessage() {
         }
     }
     
-    function fdidDetermineState(result){
+     function fdidDetermineState(result){
+  alert("Determine State " + result.state + result.beacon[0].major);
+    }
+    
+     function fdidEnter(result){
+        alert("Determine Enter " + result.beacon[0].major);
+     }
+    
+    
+    function fdidDetermineState1(result){
     window.plugins.toast.showWithOptions({
                                                  message: result.state,
                                                  duration: "short",
@@ -3158,7 +3164,7 @@ function outletMessage() {
             );
     }
     
-    function fdidEnter(result){
+    function fdidEnter1(result){
        window.plugins.toast.showWithOptions({
                                                  message: result.major + "/" + result.minor,
                                                  duration: "short",
