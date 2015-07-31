@@ -777,21 +777,20 @@ function outletMessage() {
                                                    //                                      uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
                                                    //                                 });
                                                    
-                                                 
+                                                   var region = new wondow.ibeacon.Region({
+                                                                                              uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
+                                                                                          });
+
+                                                   window.ibeacon.stopMonitoringForRegion({
+                                                                                              region: region
+                                                                                          });
                                                    
-                                                   var region = { identifier: "UAE",
-                                                                  uuid:"B9407F30-F5F8-466E-AFF9-25556B57FE6D"
-                                                           }
-                                                   
-                                                     estimote.beacons.stopMonitoringForRegion(
-                                                       region,
-                                                       function(){},
-                                                       function(){})
-                                                   
-                                                   estimote.beacons.startMonitoringForRegion(
-                                                       region,
-                                                       onMonitoringSuccess,
-                                                       function(){alert(error);});
+                                                   ibeacon.startMonitoringForRegion({
+                                                                                        region: region,
+                                                                                        didDetermineState: fdidDetermineState,
+                                                       didEnter:fdidEnter,
+                                                       
+                                                                                    });
                                                    
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -3119,34 +3118,60 @@ function outletMessage() {
                    }
                });
     }
-    
-   
 
-function onMonitoringSuccess(result) {
-    if (result.beacons && result.beacons.length > 0) {
-        for (var i = 0; i < result.beacons.length; i++) {
-            var beacon = result.beacons[i];
-              //alert(result.beacons.length);
-            $.ajax({ 
-                       type: "POST",
-                       cache:false,
-                       async:true,
-                       timeout:20000,
-                       url: gurl + "/trackDevice.aspx",
-                       contentType: "application/json; charset=utf-8",
-                       data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + beacon.macAddress + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON"
-                                            }),
-                       success: function (data) {
-                                                  },
-                       error: function (error) {
-              
-                       }
-                   });        
-                      alert("MacAddress: " + beacon.macAddress + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color);
+    function onMonitoringSuccess(result) {
+        if (result.beacons && result.beacons.length > 0) {
+            for (var i = 0; i < result.beacons.length; i++) {
+                var beacon = result.beacons[i];
+                //alert(result.beacons.length);
+                $.ajax({ 
+                           type: "POST",
+                           cache:false,
+                           async:true,
+                           timeout:20000,
+                           url: gurl + "/trackDevice.aspx",
+                           contentType: "application/json; charset=utf-8",
+                           data: JSON.stringify({
+                                                    merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + beacon.macAddress + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON"
+                                                }),
+                           success: function (data) {
+                           },
+                           error: function (error) {
+                           }
+                       });        
+                alert("MacAddress: " + beacon.macAddress + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color);
+            }
         }
     }
-}
+    
+    function fdidDetermineState(result){
+    window.plugins.toast.showWithOptions({
+                                                 message: result.state,
+                                                 duration: "short",
+                                                 position: "bottom",
+                                                 addPixelsY: -40  // added a negative value to move it up a bit (default 0)
+                                             },
+                                             function() {
+                                             }, // optional
+                                             function() {
+                                             }    // optional
+            );
+    }
+    
+    function fdidEnter(result){
+       window.plugins.toast.showWithOptions({
+                                                 message: result.major + "/" + result.minor,
+                                                 duration: "short",
+                                                 position: "bottom",
+                                                 addPixelsY: -40  // added a negative value to move it up a bit (default 0)
+                                             },
+                                             function() {
+                                             }, // optional
+                                             function() {
+                                             }    // optional
+            );
+    }
+    
     
     function onPushNotificationReceived(e) {
         // alert(JSON.stringify(e));
