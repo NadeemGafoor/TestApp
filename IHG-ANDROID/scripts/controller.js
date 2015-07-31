@@ -780,15 +780,13 @@ function outletMessage() {
                                                    var region = new window.ibeacon.Region({
                                                                                               uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
                                                                                           });
-
-                                                
                                                    
                                                    window.ibeacon.startMonitoringForRegion({
-                                                                                        region: region,
-                                                                                        didDetermineState: fdidDetermineState,
-                                                       didEnter:fdidEnter,
+                                                                                               region: region,
+                                                                                               didDetermineState: fdidDetermineState,
+                                                                                               didEnter:fdidEnter,
                                                        
-                                                                                    });
+                                                                                           });
                                                    
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -2360,7 +2358,6 @@ function outletMessage() {
                                             }        
                                         });
     
-    
     function listCountry() {
         showSpin(); //show loading popup
                                       
@@ -3141,17 +3138,44 @@ function outletMessage() {
         }
     }
     
-     function fdidDetermineState(result){
-  alert("Determine State " + result.state + result.beacon[0].major);
+    function fdidDetermineState(result) {
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/trackDevice.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + result.state + "Distance: " + result.distance + "m  " + "Major / Minor: " + result.major + " / " + result.minor + " Rssi: " + result.rssi + " color: " + result.identifier ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON1"
+                                        }),
+                   success: function (data) {
+                   },
+                   error: function (error) {
+                   }
+               });        
     }
     
-     function fdidEnter(result){
-        alert("Determine Enter " + result.beacon[0].major);
-     }
+    function fdidEnter(result) {
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/trackDevice.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + result.state + "Distance: " + result.distance + "m  " + "Major / Minor: " + result.major + " / " + result.minor + " Rssi: " + result.rssi + " color: " + result.identifier ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON2"
+                                        }),
+                   success: function (data) {
+                   },
+                   error: function (error) {
+                   }
+               });        
+    }
     
-    
-    function fdidDetermineState1(result){
-    window.plugins.toast.showWithOptions({
+    function fdidDetermineState1(result) {
+        window.plugins.toast.showWithOptions({
                                                  message: result.state,
                                                  duration: "short",
                                                  position: "bottom",
@@ -3164,8 +3188,8 @@ function outletMessage() {
             );
     }
     
-    function fdidEnter1(result){
-       window.plugins.toast.showWithOptions({
+    function fdidEnter1(result) {
+        window.plugins.toast.showWithOptions({
                                                  message: result.major + "/" + result.minor,
                                                  duration: "short",
                                                  position: "bottom",
@@ -3177,7 +3201,6 @@ function outletMessage() {
                                              }    // optional
             );
     }
-    
     
     function onPushNotificationReceived(e) {
         // alert(JSON.stringify(e));
