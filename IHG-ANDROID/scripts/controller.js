@@ -777,13 +777,13 @@ function outletMessage() {
                                                    //                                      uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
                                                    //                                 });
                                                    
-                                                   var region = new ibeacon.Region({
+                                                   var region = new window.ibeacon.Region({
                                                                                               uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
                                                                                           });
 
                                                 
                                                    
-                                                   ibeacon.startMonitoringForRegion({
+                                                   window.ibeacon.startMonitoringForRegion({
                                                                                         region: region,
                                                                                         didDetermineState: fdidDetermineState,
                                                        didEnter:fdidEnter,
