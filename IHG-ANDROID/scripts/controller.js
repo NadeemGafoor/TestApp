@@ -780,8 +780,9 @@ function outletMessage() {
                                                    // Start monitoring. 
                                                    window.estimote.beacons.startMonitoringForRegion(
                                                        {}, // Empty region matches all beacons. 
-                                                       onMonitor, 
-                                                       onError); 
+                                                       fdidStartMonitoringForRegion, 
+                                                       function() {
+                                                       }); 
                                                    
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -3133,7 +3134,7 @@ function outletMessage() {
         }
     }
     
-     function fdidStartMonitoringForRegion(regionState) {
+    function fdidStartMonitoringForRegion(regionState) {
         $.ajax({
                    type: "POST",
                    cache:false,
