@@ -777,16 +777,31 @@ function outletMessage() {
                                                    //                                      uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
                                                    //                                 });
                                                    
-                                                   var region = new window.ibeacon.Region({
-                                                                                              uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
-                                                                                          });
+                                                   var delegate = new cordova.plugins.locationManager.Delegate().implement({
+
+                                                                                                                               didDetermineStateForRegion: fdidDetermineStateForRegion,
+
+                                                                                                                               didStartMonitoringForRegion: fdidStartMonitoringForRegion,
+
+                                                                                                                               didRangeBeaconsInRegion:fdidRangeBeaconsInRegion
+
+                                                                                                                           });
                                                    
-                                                   window.ibeacon.startMonitoringForRegion({
-                                                                                               region: region,
-                                                                                               didDetermineState: fdidDetermineState,
-                                                                                               didEnter:fdidEnter,
-                                                       
-                                                                                           });
+                                                   
+                                                    var uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
+        var identifier = 'beaconOnTheMacBooksShelf';
+        var minor = 14699;
+        var major = 34712;
+        var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
+
+        cordova.plugins.locationManager.setDelegate(delegate);
+        cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
+            .fail(alert("error"))
+            .done();
+
+                                                   
+                                                   
+                                                   
                                                    
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -2975,7 +2990,7 @@ function outletMessage() {
                        url: gurl + "/trackDevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.major + "^" + mresult.minor + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
                                             }),
                        success: function (data) {
                        },
@@ -3138,7 +3153,9 @@ function outletMessage() {
         }
     }
     
-    function fdidDetermineState(result) {
+   
+    
+    function fdidDetermineStateForRegion(pluginResult) {
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -3147,7 +3164,7 @@ function outletMessage() {
                    url: gurl + "/trackDevice.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + result.state + "Distance: " + result.distance + "m  " + "Major / Minor: " + result.major + " / " + result.minor + " Rssi: " + result.rssi + " color: " + result.identifier ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON1"
+                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + pluginResult  ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON1"
                                         }),
                    success: function (data) {
                    },
@@ -3156,7 +3173,7 @@ function outletMessage() {
                });        
     }
     
-    function fdidEnter(result) {
+    function fdidStartMonitoringForRegion(pluginResult) {
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -3165,7 +3182,25 @@ function outletMessage() {
                    url: gurl + "/trackDevice.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + result.state + "Distance: " + result.distance + "m  " + "Major / Minor: " + result.major + " / " + result.minor + " Rssi: " + result.rssi + " color: " + result.identifier ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON2"
+                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + pluginResult  ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON2"
+                                        }),
+                   success: function (data) {
+                   },
+                   error: function (error) {
+                   }
+               });        
+    }
+    
+     function fdidRangeBeaconsInRegion(pluginResult) {
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/trackDevice.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + pluginResult ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON3"
                                         }),
                    success: function (data) {
                    },
