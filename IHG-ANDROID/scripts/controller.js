@@ -777,27 +777,7 @@ function outletMessage() {
                                                    //                                      uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
                                                    //                                 });
                                                    
-                                                   var delegate = new cordova.plugins.locationManager.Delegate().implement({
-
-                                                                                                                               didDetermineStateForRegion: fdidDetermineStateForRegion,
-
-                                                                                                                               didStartMonitoringForRegion: fdidStartMonitoringForRegion,
-
-                                                                                                                               didRangeBeaconsInRegion:fdidRangeBeaconsInRegion
-
-                                                                                                                           });
-                                                   
-                                                   
-                                                    var uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
-        var identifier = 'beaconOnTheMacBooksShelf';
-        var minor = 14699;
-        var major = 34712;
-        var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
-
-        cordova.plugins.locationManager.setDelegate(delegate);
-        cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-            .fail(alert("error"))
-            .done();
+                                                  
 
                                                    
                                                    
@@ -3155,59 +3135,7 @@ function outletMessage() {
     
    
     
-    function fdidDetermineStateForRegion(pluginResult) {
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/trackDevice.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + pluginResult  ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON1"
-                                        }),
-                   success: function (data) {
-                   },
-                   error: function (error) {
-                   }
-               });        
-    }
-    
-    function fdidStartMonitoringForRegion(pluginResult) {
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/trackDevice.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + pluginResult  ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON2"
-                                        }),
-                   success: function (data) {
-                   },
-                   error: function (error) {
-                   }
-               });        
-    }
-    
-     function fdidRangeBeaconsInRegion(pluginResult) {
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/trackDevice.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + pluginResult ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON3"
-                                        }),
-                   success: function (data) {
-                   },
-                   error: function (error) {
-                   }
-               });        
-    }
+  
     
     function fdidDetermineState1(result) {
         window.plugins.toast.showWithOptions({
