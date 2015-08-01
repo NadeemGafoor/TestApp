@@ -776,12 +776,12 @@ function outletMessage() {
                                                    //                                      region:"Telerik",
                                                    //                                      uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D" // default
                                                    //                                 });
-                                                   
                                                   
-
-                                                   
-                                                   
-                                                   
+                                                   // Start monitoring. 
+                                                   window.estimote.beacons.startMonitoringForRegion(
+                                                       {}, // Empty region matches all beacons. 
+                                                       onMonitor, 
+                                                       onError); 
                                                    
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -3133,9 +3133,23 @@ function outletMessage() {
         }
     }
     
-   
-    
-  
+     function fdidStartMonitoringForRegion(regionState) {
+        $.ajax({
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/trackDevice.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"State: " + regionState.state + " Major : " + regionState.major + " Minor : " + regionState.minor + " Indentfier : " + regionState.identifier + " UUID : " + regionState.uuid  ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON2"
+                                        }),
+                   success: function (data) {
+                   },
+                   error: function (error) {
+                   }
+               });
+    }
     
     function fdidDetermineState1(result) {
         window.plugins.toast.showWithOptions({

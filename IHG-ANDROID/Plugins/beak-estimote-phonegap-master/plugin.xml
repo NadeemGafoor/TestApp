@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="horyd.beakestimotephonegap"
+    version="0.1.1">
+    <name>EstimoteBeacons</name>
+	<description>Beak's custom implementation of the Phonegap EstimoteBeacons plugin.</description>
+	<license>n/a</license>
+    <author>Jaryd Carolin + kdzwinel</author>
+	<keywords>estimote,phonegap,beak</keywords>
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    <js-module src="www/EstimoteBeacons.js" name="EstimoteBeacons">
+        <clobbers target="EstimoteBeacons" />
+    </js-module>
+    <!-- ios -->
+    <platform name="ios">     
+		<framework src="CoreBluetooth.framework" />
+		<framework src="CoreLocation.framework" />
+		<framework src="SystemConfiguration.framework" />
+		<header-file src="src/ios/ESTBeacon.h" />
+		<header-file src="src/ios/ESTBeaconDefinitions.h" />
+		<header-file src="src/ios/ESTBeaconManager.h" />
+		<header-file src="src/ios/ESTBeaconRegion.h" />
+		<header-file src="src/ios/ESTBeaconUpdateInfo.h" />
+        <header-file src="src/ios/EstimoteBeacons.h" />
+        <source-file src="src/ios/EstimoteBeacons.m" />
+    	<config-file target="config.xml" parent="/*">
+            <feature name="EstimoteBeacons">
+                <param name="ios-package" value="EstimoteBeacons" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+	</platform>
+</plugin>
