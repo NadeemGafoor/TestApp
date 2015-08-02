@@ -788,7 +788,7 @@ function outletMessage() {
                                                  //      };
 
                                                    delegate.didRangeBeaconsInRegion  = function (pluginResult) {
-                                                       alert("didRangeBeaconsInRegion " + JSON.stringify(pluginResult));
+                                                       fdidEnter(pluginResult);
                                                    };
 
                                                    var uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
