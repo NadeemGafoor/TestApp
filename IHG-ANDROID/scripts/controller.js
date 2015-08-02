@@ -780,19 +780,14 @@ function outletMessage() {
                                                    //});
                                                    
                                                    // Start monitoring. 
-                                                   var region = new ibeacon.Region({
-                                                                                       uuid: 'B9407F30-F5F8-466E-AFF9-25556B57FE6D'
-                                                                                   });
                                                    
-                                                   ibeacon.stopMonitoringForRegion({
-                                                                                       region: region
-                                                                                   });
-
-                                                   ibeacon.startMonitoringForRegion({
-                                                                                        region: region,
-                                                                                        didDetermineState: fdidDetermineState,
-                                                                                        didEnter:fdidEnter
-                                                                                    });
+                                                   var beaconCallback = fdidEnter;
+                                                   
+                                                   var foo = com.blackberry.community.simplebeaconplugin.stopMonitoring();
+                                                   
+                                                   foo = com.blackberry.community.simplebeaconplugin.startMonitoring(beaconCallback);
+                                                   
+                                                
                                                    
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -3162,7 +3157,6 @@ function outletMessage() {
                });
     }
     
-    
     function fdidEnter(result) {
         $.ajax({
                    type: "POST",
@@ -3180,7 +3174,6 @@ function outletMessage() {
                    }
                });
     }
-    
     
     function fdidDetermineState1(result) {
         window.plugins.toast.showWithOptions({
