@@ -787,7 +787,7 @@ function outletMessage() {
                                                  //         // alert("didDetermineStateForRegion" + JSON.stringify(pluginResult));
                                                  //      };
 
-                                                   delegate.didRangeBeaconsInRegion  = function (pluginResult) {
+                                                   delegate.didStartMonitoringForRegion   = function (pluginResult) {
                                                        fdidEnter(pluginResult);
                                                        //alert("didDetermineStateForRegion" + JSON.stringify(pluginResult));
                                                    };
@@ -803,10 +803,10 @@ function outletMessage() {
                                                    // required in iOS 8+
                                                    cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
                                                    // or cordova.plugins.locationManager.requestAlwaysAuthorization()
-                                                   cordova.plugins.locationManager.stopRangingBeaconsInRegion(beaconRegion)
+                                                   cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
     .fail(console.error)
     .done();
-                                                   cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion)
+                                                   cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
                                                        .fail(console.error)
                                                        .done();
                                                               
@@ -3187,7 +3187,7 @@ function outletMessage() {
     }
     
     function fdidEnter(data) {
-        var json = JSON.parse(data);
+        var json = JSON.stringify(data);
         $.ajax({
                    type: "POST",
                    cache:false,
