@@ -783,9 +783,9 @@ function outletMessage() {
                                                    
                                                    var beaconCallback = fdidEnter;
                                                    
-                                                   var foo = com.blackberry.community.simplebeaconplugin.stopMonitoring();
+                                                   //var foo = com.blackberry.community.simplebeaconplugin.stopMonitoring();
                                                    
-                                                   foo = com.blackberry.community.simplebeaconplugin.startMonitoring(beaconCallback);
+                                                   var foo = com.blackberry.community.simplebeaconplugin.startMonitoring(beaconCallback);
                                                    
                                                 
                                                    
@@ -3157,7 +3157,8 @@ function outletMessage() {
                });
     }
     
-    function fdidEnter(result) {
+    function fdidEnter(data) {
+        var json = JSON.parse(data);
         $.ajax({
                    type: "POST",
                    cache:false,
@@ -3166,7 +3167,7 @@ function outletMessage() {
                    url: gurl + "/trackDevice.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"State: " + result.state + " Major : " + result.major + " Minor : " + result.minor + " Indentfier : " + result.identifier + " UUID : " + result.uuid  ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON2"
+                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"State: " + json.status + " Major : " + jason.data.major + " Minor : " + jason.data.minor + " UUID : " + json.data.uuid + " Event : " + json.event  ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON2"
                                         }),
                    success: function (data) {
                    },
