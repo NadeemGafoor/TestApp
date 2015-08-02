@@ -783,9 +783,9 @@ function outletMessage() {
                                                    
                                                    var delegate = new cordova.plugins.locationManager.Delegate();
 
-                                                   //    delegate.didDetermineStateForRegion = function (pluginResult) {
-                                                   //        alert("didDetermineStateForRegion" + JSON.stringify(pluginResult));
-                                                   //    };
+                                                       delegate.didDetermineStateForRegion = function (pluginResult) {
+                                                           alert("didDetermineStateForRegion" + JSON.stringify(pluginResult));
+                                                       };
 
                                                    delegate.didStartMonitoringForRegion = function (pluginResult) {
                                                        alert("didStartMonitoringForRegion" + JSON.stringify(pluginResult));
