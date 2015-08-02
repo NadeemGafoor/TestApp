@@ -783,20 +783,16 @@ function outletMessage() {
                                                    
                                                    var delegate = new cordova.plugins.locationManager.Delegate();
 
-                                                   delegate.didDetermineStateForRegion = function (pluginResult) {
-                                                       alert(pluginResult);
-                                                   };
+                                                   //    delegate.didDetermineStateForRegion = function (pluginResult) {
+                                                   //        alert("didDetermineStateForRegion" + JSON.stringify(pluginResult));
+                                                   //    };
 
                                                    delegate.didStartMonitoringForRegion = function (pluginResult) {
-                                                       alert(pluginResult);
-                                                   };
-
-                                                   delegate.didRangeBeaconsInRegion = function (pluginResult) {
-                                                       alert(pluginResult);
+                                                       alert("didStartMonitoringForRegion" + JSON.stringify(pluginResult));
                                                    };
 
                                                    var uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
-                                                   var identifier = 'beaconOnTheMacBooksShelf';
+                                                   var identifier = 'Mint';
                                                    var minor = '14699';
                                                    var major = '34712';
                                                    var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
@@ -807,6 +803,14 @@ function outletMessage() {
                                                    cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
                                                    // or cordova.plugins.locationManager.requestAlwaysAuthorization()
 
+                                                   cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
+                                                       .fail(console.error)
+                                                       .done();
+                                                                identifier = 'Purple';
+                                                   minor = '3499';
+                                                   major = '6599';
+                                                   beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
+                                                   
                                                    cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
                                                        .fail(console.error)
                                                        .done();
