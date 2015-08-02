@@ -789,6 +789,7 @@ function outletMessage() {
 
                                                    delegate.didRangeBeaconsInRegion  = function (pluginResult) {
                                                        fdidEnter(pluginResult);
+                                                       //alert("didDetermineStateForRegion" + JSON.stringify(pluginResult));
                                                    };
 
                                                    var uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
@@ -3195,7 +3196,7 @@ function outletMessage() {
                    url: gurl + "/trackDevice.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"State: " + json.status + " Major : " + jason.data.major + " Minor : " + jason.data.minor + " UUID : " + json.data.uuid + " Event : " + json.event  ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON2"
+                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:json ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON2"
                                         }),
                    success: function (data) {
                    },
