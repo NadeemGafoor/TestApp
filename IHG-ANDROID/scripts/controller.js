@@ -783,12 +783,13 @@ function outletMessage() {
                                                    
                                                    var delegate = new cordova.plugins.locationManager.Delegate();
 
-                                                 //     delegate.didDetermineStateForRegion = function (pluginResult) {
-                                                 //         // alert("didDetermineStateForRegion" + JSON.stringify(pluginResult));
-                                                 //      };
+                                                   delegate.didDetermineStateForRegion = function (pluginResult) {
+                                                       fdidEntera(pluginResult);
+                                                       //alert("didDetermineStateForRegion" + JSON.stringify(pluginResult));
+                                                   };
 
-                                                   delegate.didStartMonitoringForRegion   = function (pluginResult) {
-                                                       fdidEnter(pluginResult);
+                                                   delegate.didStartMonitoringForRegion = function (pluginResult) {
+                                                       fdidEntera(pluginResult);
                                                        //alert("didDetermineStateForRegion" + JSON.stringify(pluginResult));
                                                    };
 
@@ -804,16 +805,34 @@ function outletMessage() {
                                                    cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
                                                    // or cordova.plugins.locationManager.requestAlwaysAuthorization()
                                                    cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
-    .fail(console.error)
-    .done();
+                                                       .fail(console.error)
+                                                       .done();
                                                    cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
                                                        .fail(console.error)
                                                        .done();
-                                                              
                                                    
-            cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
-    .fail(console.error)
-    .done();
+                                                   uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
+                                                   identifier = 'ice';
+                                                   minor = '46480';
+                                                   major = '9646';
+                                                   beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
+                                                              
+                                                   cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
+                                                       .fail(console.error)
+                                                       .done();
+                                                   cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
+                                                       .fail(console.error)
+                                                       .done();
+                                                   
+                                                    uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
+                                                   identifier = 'Nadeemhome';
+                                                   minor = '3499';
+                                                   major = '6559';
+                                                   beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
+                                                              
+                                                   cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
+                                                       .fail(console.error)
+                                                       .done();
                                                    cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
                                                        .fail(console.error)
                                                        .done();
@@ -3005,7 +3024,7 @@ function outletMessage() {
                        url: gurl + "/trackDevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.major + "^" + mresult.minor + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
                                             }),
                        success: function (data) {
                        },
@@ -3203,6 +3222,14 @@ function outletMessage() {
                    error: function (error) {
                    }
                });
+    }
+    
+    function fdidEntera(data) {
+        var json = JSON.stringify(data);
+        window.plugin.notification.local.add({
+                title:   'IHG Beacon',
+                message: json
+            });
     }
     
     function fdidDetermineState1(result) {
