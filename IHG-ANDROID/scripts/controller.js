@@ -825,7 +825,7 @@ function outletMessage() {
                                                        .done();
                                                    
                                                     uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
-                                                   identifier = 'Crownplaxadxb';
+                                                   identifier = 'Crownplazadxb';
                                                    minor = '3499';
                                                    major = '6559';
                                                    beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
@@ -3015,7 +3015,11 @@ function outletMessage() {
     function trackDevice(mresult) {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
             lat = position.coords.latitude;                                  
-            lon = position.coords.longitude
+            lon = position.coords.longitude;
+            
+               window.plugin.notification.local.add({
+                title:   'IHG Beacon/GeoFence',
+                message: mresult.callbacktype + " " + mresult.regionId});
             $.ajax({ 
                        type: "POST",
                        cache:false,
@@ -3229,7 +3233,7 @@ function outletMessage() {
     function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-        if (jsonp["region"].typeName === "BeaconRegion"){
+        if (jsonp["region"].typeName === "BeaconRegion1"){
         window.plugin.notification.local.add({
                 title:   'IHG Beacon',
                 message: jsonp["region"].typeName + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier  + " " + jsonp["region"].uuid
