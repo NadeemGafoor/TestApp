@@ -792,6 +792,12 @@ function outletMessage() {
                                                        fdidEntera(pluginResult);
                                                        //alert("didStartMonitoringForRegion" + JSON.stringify(pluginResult));
                                                    };
+                                                   
+                                                      cordova.plugins.locationManager.setDelegate(delegate);
+                                                   
+                                                    // required in iOS 8+
+                                                   cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
+                                                   // or cordova.plugins.locationManager.requestAlwaysAuthorization()
 
                                                    var uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
                                                    var identifier = 'Hdoffice';
@@ -799,11 +805,7 @@ function outletMessage() {
                                                    var major = '34712';
                                                    var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
 
-                                                   cordova.plugins.locationManager.setDelegate(delegate);
-
-                                                   // required in iOS 8+
-                                                   cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
-                                                   // or cordova.plugins.locationManager.requestAlwaysAuthorization()
+                                                                                                 
                                                    cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
                                                        .fail(console.error)
                                                        .done();
