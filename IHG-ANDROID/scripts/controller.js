@@ -3229,6 +3229,7 @@ function outletMessage() {
     function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
+        if (jsonp["region"].typeName === "BeaconRegion"){
         window.plugin.notification.local.add({
                 title:   'IHG Beacon',
                 message: jsonp["region"].typeName + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier  + " " + jsonp["region"].uuid
@@ -3248,6 +3249,7 @@ function outletMessage() {
                    error: function (error) {
                    }
                });
+            }
     }
     
     function fdidDetermineState1(result) {
