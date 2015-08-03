@@ -794,7 +794,7 @@ function outletMessage() {
                                                    };
 
                                                    var uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
-                                                   var identifier = 'Mint';
+                                                   var identifier = 'Hdoffice';
                                                    var minor = '14699';
                                                    var major = '34712';
                                                    var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
@@ -812,9 +812,9 @@ function outletMessage() {
                                                        .done();
                                                    
                                                    uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
-                                                   identifier = 'ice';
-                                                   minor = '46480';
-                                                   major = '9646';
+                                                   identifier = 'Nadhome';
+                                                   minor = '62568';
+                                                   major = '10663';
                                                    beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
                                                               
                                                    cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
@@ -825,7 +825,7 @@ function outletMessage() {
                                                        .done();
                                                    
                                                     uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
-                                                   identifier = 'Nadeemhome';
+                                                   identifier = 'Crownplaxadxb';
                                                    minor = '3499';
                                                    major = '6559';
                                                    beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
