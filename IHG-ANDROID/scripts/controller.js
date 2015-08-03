@@ -3230,7 +3230,7 @@ function outletMessage() {
         var json = JSON.stringify(data);
         window.plugin.notification.local.add({
                 title:   'IHG Beacon',
-                message: json
+                message: json.region.typeName + " " + json.region.minor + " " + json.region.major + " " + json.region.identifier  + " " + json.region.uuid
             });
               $.ajax({
                    type: "POST",
