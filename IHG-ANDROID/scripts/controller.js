@@ -3007,9 +3007,9 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-        if (result.callbacktype === "exit" || result.callbacktype === "enter") {
+       // if (result.callbacktype === "exit" || result.callbacktype === "enter") {
             trackDevice(result);
-        }
+       // }
     }
     
     function trackDevice(mresult) {
