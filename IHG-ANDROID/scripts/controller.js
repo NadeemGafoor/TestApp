@@ -790,7 +790,7 @@ function outletMessage() {
 
                                                    delegate.didStartMonitoringForRegion = function (pluginResult) {
                                                        fdidEntera(pluginResult);
-                                                       //alert("didDetermineStateForRegion" + JSON.stringify(pluginResult));
+                                                       //alert("didStartMonitoringForRegion" + JSON.stringify(pluginResult));
                                                    };
 
                                                    var uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
@@ -3222,6 +3222,8 @@ function outletMessage() {
                    error: function (error) {
                    }
                });
+
+  
     }
     
     function fdidEntera(data) {
@@ -3230,6 +3232,21 @@ function outletMessage() {
                 title:   'IHG Beacon',
                 message: json
             });
+              $.ajax({
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/trackDevice.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:json ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON"
+                                        }),
+                   success: function (data) {
+                   },
+                   error: function (error) {
+                   }
+               });
     }
     
     function fdidDetermineState1(result) {
