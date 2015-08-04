@@ -799,7 +799,7 @@ function outletMessage() {
                                                    cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
                                                    // or cordova.plugins.locationManager.requestAlwaysAuthorization()
 
-                                                   var uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
+                                                   var uuid = '743519D1-490F-49DF-9CE0-AC523F10A985';
                                                    var identifier = 'Hdoffice';
                                                    var minor = '14699';
                                                    var major = '34712';
@@ -813,7 +813,7 @@ function outletMessage() {
                                                        .fail(console.error)
                                                        .done();
                                                    
-                                                   uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
+                                                   uuid = '6D1D6968-9A44-4242-8C0A-A5A6478CC621';
                                                    identifier = 'Nadhome';
                                                    minor = '62568';
                                                    major = '10663';
@@ -826,7 +826,7 @@ function outletMessage() {
                                                        .fail(console.error)
                                                        .done();
                                                    
-                                                    uuid = 'B9407F30-F5F8-466E-AFF9-25556B57FE6D';
+                                                    uuid = '16CA7186-3961-4F25-B3C5-9DA00B47B1A4';
                                                    identifier = 'Crownplazadxb';
                                                    minor = '3499';
                                                    major = '6559';
