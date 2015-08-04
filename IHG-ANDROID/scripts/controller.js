@@ -779,28 +779,31 @@ function outletMessage() {
                                                
                                                    //});
                                                    
-                                                   // Start monitoring. 
+                                                   // Start monitoring.
                                                    
-                                                   var delegate = new cordova.plugins.locationManager.Delegate().implement({
+                                                    // required in iOS 8+
+                cordova.plugins.locationManager.requestAlwaysAuthorization();
 
-            didDetermineStateForRegion: function (pluginResult) {
-                fdidEntera(pluginResult);
-            },
+                var delegate = new cordova.plugins.locationManager.Delegate();
 
-            didStartMonitoringForRegion: function (pluginResult) {
-                 fdidEntera(pluginResult);
-            },
+                delegate.didDetermineStateForRegion = function (pluginResult) {
+                    fdidEntera(pluginResult);
+                };
 
-            didRangeBeaconsInRegion: function (pluginResult) {
-                fdidEntera(pluginResult);
-            }
+                delegate.didStartMonitoringForRegion = function (pluginResult) {
+                     fdidEntera(pluginResult);
+                };
 
-        });
+                delegate.didRangeBeaconsInRegion = function (pluginResult) {
+                    fdidEntera(pluginResult);
+                };
+                                                   
+                                                
                                                    
                                                    
                                               
                                                    
-                                                      cordova.plugins.locationManager.setDelegate(delegate);
+                                                     cordova.plugins.locationManager.setDelegate(delegate);
                                                    
                                                     // required in iOS 8+
                                                    cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
