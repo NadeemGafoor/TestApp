@@ -3013,7 +3013,7 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-        if (result.callbacktype === "exit" || result.callbacktype === "enter") {
+        if (result.callbacktype === "enter") {
             trackDevice(result);
         }
     }
@@ -3244,7 +3244,7 @@ function outletMessage() {
                 title:   'IHG Beacon',
                 message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier  + " " + jsonp["region"].uuid
             });
-         }
+
               $.ajax({
                    type: "POST",
                    cache:false,
@@ -3260,7 +3260,7 @@ function outletMessage() {
                    error: function (error) {
                    }
                });
-           
+         }           
     }
     
     function fdidDetermineState1(result) {
