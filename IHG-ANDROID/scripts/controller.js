@@ -3013,9 +3013,9 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-       // if (result.callbacktype === "exit" || result.callbacktype === "enter") {
+        if (result.callbacktype === "exit" || result.callbacktype === "enter") {
             trackDevice(result);
-       // }
+        }
     }
     
     function trackDevice(mresult) {
@@ -3239,10 +3239,10 @@ function outletMessage() {
     function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-        if (jsonp["region"].typeName === "BeaconRegion"){
+        if (jsonp["state"] === "CLRegionStateInside"){
         window.plugin.notification.local.add({
                 title:   'IHG Beacon',
-                message: jsonp["region"].typeName + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier  + " " + jsonp["region"].uuid
+                message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier  + " " + jsonp["region"].uuid
             });
          }
               $.ajax({
@@ -3253,7 +3253,7 @@ function outletMessage() {
                    url: gurl + "/trackDevice.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:json ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON"
+                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + json ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON"
                                         }),
                    success: function (data) {
                    },
