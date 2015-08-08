@@ -2999,10 +2999,10 @@ function outletMessage() {
             lat = position.coords.latitude;                                  
             lon = position.coords.longitude;
             
-            window.plugin.notification.local.add({
-                                                     title:   'IHG Beacon/GeoFence',
-                                                     message: mresult.callbacktype + " " + mresult.regionId
-                                                 });
+          //  window.plugin.notification.local.add({
+          //                                           title:   'IHG Beacon/GeoFence',
+          //                                           message: mresult.callbacktype + " " + mresult.regionId
+          //                                       });
             $.ajax({ 
                        type: "POST",
                        cache:false,
