@@ -67,6 +67,12 @@ function outletMessage() {
     var rn = "";
     var cn = "";
     var sr = "";
+    
+    var uuid = "";
+    var identifier = "";
+    var major = "";
+    var minor = "";
+    
     var appad_location = "http://www.ihgdiningrewards.com";
     var appad_location_short = "http://www.ihgdiningrewards.com";    
     var social_subject = "IHG® Dining Rewards";
@@ -780,68 +786,26 @@ function outletMessage() {
                                                    //});
                                                    
                                                    // Start monitoring.
-                                                   
-                                                    // required in iOS 8+
-                cordova.plugins.locationManager.requestAlwaysAuthorization();
 
-                var delegate = new cordova.plugins.locationManager.Delegate();
+                                                   var delegate = new cordova.plugins.locationManager.Delegate();
 
-                delegate.didDetermineStateForRegion = function (pluginResult) {
-                    fdidEntera(pluginResult);
-                };
+                                                   delegate.didDetermineStateForRegion = function (pluginResult) {
+                                                       fdidEntera(pluginResult);
+                                                   };
 
-                delegate.didStartMonitoringForRegion = function (pluginResult) {
-                     fdidEntera(pluginResult);
-                };
+                                                   delegate.didStartMonitoringForRegion = function (pluginResult) {
+                                                       fdidEntera(pluginResult);
+                                                   };
 
-                delegate.didRangeBeaconsInRegion = function (pluginResult) {
-                    fdidEntera(pluginResult);
-                };
+                                                   delegate.didRangeBeaconsInRegion = function (pluginResult) {
+                                                       fdidEntera(pluginResult);
+                                                   };
                                                    
-                                                
+                                                   cordova.plugins.locationManager.setDelegate(delegate);
                                                    
-                                                   
-                                              
-                                                   
-                                                     cordova.plugins.locationManager.setDelegate(delegate);
-                                                   
-                                                    // required in iOS 8+
+                                                   // required in iOS 8+
                                                    cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
                                                    // or cordova.plugins.locationManager.requestAlwaysAuthorization()
-
-                                                   var uuid = '743519D1-490F-49DF-9CE0-AC523F10A985';
-                                                   var identifier = 'Hdoffice';
-                                                   var minor = '14699';
-                                                   var major = '34712';
-                                                   var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
-
-                                                                                                 
-                                                 
-                                                   cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                       .fail(console.error)
-                                                       .done();
-                                                   
-                                                   uuid = '6D1D6968-9A44-4242-8C0A-A5A6478CC621';
-                                                   identifier = 'Nadhome';
-                                                   minor = '62568';
-                                                   major = '10663';
-                                                   beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
-                                                              
-                                              
-                                                   cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                       .fail(console.error)
-                                                       .done();
-                                                   
-                                                    uuid = '16CA7186-3961-4F25-B3C5-9DA00B47B1A4';
-                                                   identifier = 'Crownplazadxb';
-                                                   minor = '3499';
-                                                   major = '6559';
-                                                   beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
-                                                              
-                                                
-                                                   cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                       .fail(console.error)
-                                                       .done();
                                                    
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -876,6 +840,18 @@ function outletMessage() {
                                                                                   }, function(error) {
                                                                                       showTop("Unable to reset locations");     
                                                                                   });
+                                                                                  
+                                                                                  uuid = getData.propertylist[i].UUID;
+                                                                                  identifier = getData.propertylist[i].BeaconName;
+                                                                                  minor = getData.propertylist[i].BeaconMinor;
+                                                                                  major = getData.propertylist[i].BeaconMajor;
+                                                                                  if (uuid.length > 0 && identifier.length > 0 && major.length > 0 && minor.length > 0) {
+                                                                                      beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
+                                                                                      cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
+                                                                                          .fail(console.error)
+                                                                                          .done();
+                                                                                  }
+                                                                                  
                                                                                   i++;
                                                                               }
                                                                       
@@ -3023,9 +2999,10 @@ function outletMessage() {
             lat = position.coords.latitude;                                  
             lon = position.coords.longitude;
             
-               window.plugin.notification.local.add({
-                title:   'IHG Beacon/GeoFence',
-                message: mresult.callbacktype + " " + mresult.regionId});
+            window.plugin.notification.local.add({
+                                                     title:   'IHG Beacon/GeoFence',
+                                                     message: mresult.callbacktype + " " + mresult.regionId
+                                                 });
             $.ajax({ 
                        type: "POST",
                        cache:false,
@@ -3172,125 +3149,36 @@ function outletMessage() {
                });
     }
 
-    function onMonitoringSuccess(result) {
-        if (result.beacons && result.beacons.length > 0) {
-            for (var i = 0; i < result.beacons.length; i++) {
-                var beacon = result.beacons[i];
-                //alert(result.beacons.length);
-                $.ajax({ 
-                           type: "POST",
-                           cache:false,
-                           async:true,
-                           timeout:20000,
-                           url: gurl + "/trackDevice.aspx",
-                           contentType: "application/json; charset=utf-8",
-                           data: JSON.stringify({
-                                                    merchantcode :window.localStorage.getItem("merchant"),mdevice:"MacAddress: " + beacon.macAddress + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON"
-                                                }),
-                           success: function (data) {
-                           },
-                           error: function (error) {
-                           }
-                       });        
-                alert("MacAddress: " + beacon.macAddress + "Distance: " + beacon.distance + "m  " + "Major / Minor: " + beacon.major + " / " + beacon.minor + " Rssi: " + beacon.rssi + " color: " + beacon.color);
-            }
-        }
-    }
-    
-    function fdidDetermineState(result) {
-        $.ajax({
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/trackDevice.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:"State: " + result.state + " Major : " + result.major + " Minor : " + result.minor + " Indentfier : " + result.identifier + " UUID : " + result.uuid  ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON2"
-                                        }),
-                   success: function (data) {
-                   },
-                   error: function (error) {
-                   }
-               });
-    }
-    
-    function fdidEnter(data) {
-        var json = JSON.stringify(data);
-        $.ajax({
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/trackDevice.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:json ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON2"
-                                        }),
-                   success: function (data) {
-                   },
-                   error: function (error) {
-                   }
-               });
-
-  
-    }
-    
-    function fdidEntera(data) {
+        
+       
+        
+   function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-        if (jsonp["state"] === "CLRegionStateInside"){
-        window.plugin.notification.local.add({
-                title:   'IHG Beacon',
-                message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier  + " " + jsonp["region"].uuid
-            });
+        if (jsonp["state"] === "CLRegionStateInside") {
+            window.plugin.notification.local.add({
+                                                     title: 'IHG Beacon',
+                                                     message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
+                                                 });
+            $.ajax({
+                       type: "POST",
+                       cache: false,
+                       async: true,
+                       timeout: 20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^" + jsonp["region"].typeName + "^" + jsonp["state"] + "^" + jsonp["region"].minor + "^" + jsonp["region"].major + "^" + jsonp["region"].identifier + "^" + jsonp["region"].uuid, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: jsonp["region"].identifier
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });
+        }
+    }                     
+    
 
-              $.ajax({
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/trackDevice.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + json ,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:"BEACON"
-                                        }),
-                   success: function (data) {
-                   },
-                   error: function (error) {
-                   }
-               });
-         }           
-    }
-    
-    function fdidDetermineState1(result) {
-        window.plugins.toast.showWithOptions({
-                                                 message: result.state,
-                                                 duration: "short",
-                                                 position: "bottom",
-                                                 addPixelsY: -40  // added a negative value to move it up a bit (default 0)
-                                             },
-                                             function() {
-                                             }, // optional
-                                             function() {
-                                             }    // optional
-            );
-    }
-    
-    function fdidEnter1(result) {
-        window.plugins.toast.showWithOptions({
-                                                 message: result.major + "/" + result.minor,
-                                                 duration: "short",
-                                                 position: "bottom",
-                                                 addPixelsY: -40  // added a negative value to move it up a bit (default 0)
-                                             },
-                                             function() {
-                                             }, // optional
-                                             function() {
-                                             }    // optional
-            );
-    }
-    
     function onPushNotificationReceived(e) {
         // alert(JSON.stringify(e));
         if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {

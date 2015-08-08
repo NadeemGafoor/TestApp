@@ -54,10 +54,10 @@
         </config-file>
         
         <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
-            <string>This app would like to scan for iBeacons even when in the background.</string>
+            <string>IHG Dining Rewards app would like to scan for iBeacons in background to provide you with a personalized member experience.</string>
         </config-file>
         <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
-            <string>This app would like to scan for iBeacons while it is in use.</string>
+            <string>IHG Dining Rewards app would like to scan for iBeacons in background to provide you with a personalized member experience.</string>
         </config-file>
          
 
