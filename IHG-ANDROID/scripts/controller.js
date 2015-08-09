@@ -848,12 +848,12 @@ function outletMessage() {
                                                                                   if (uuid.length > 0 && identifier.length > 0 && major.length > 0 && minor.length > 0) {
                                                                                       beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
                                                                                       
-                                                                                      cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
-                                                                                          .fail(showTop("Cannot Stop Beacon:" + identifier))
-                                                                                          .done();
+                                                                                     // cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
+                                                                                     //     .fail(alert("Cannot Stop Beacon:" + identifier))
+                                                                                     //     .done();
                                                                                       
                                                                                       cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                                                          .fail(showTop("Cannot Start Beacon:" + identifier))
+                                                                                          .fail(alert("Cannot Start Beacon:" + identifier))
                                                                                           .done();
                                                                                   }
                                                                                   
