@@ -2999,10 +2999,10 @@ function outletMessage() {
             lat = position.coords.latitude;                                  
             lon = position.coords.longitude;
             
-            window.plugin.notification.local.add({
-                                                    title:   'IHG Beacon/GeoFence',
-                                                     message: mresult.callbacktype + " " + mresult.regionId
-                                                 });
+            //window.plugin.notification.local.add({
+             //                                       title:   'IHG Beacon/GeoFence',
+              //                                       message: mresult.callbacktype + " " + mresult.regionId
+                      //                           });
             $.ajax({ 
                        type: "POST",
                        cache:false,
@@ -3156,10 +3156,10 @@ function outletMessage() {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
         if (jsonp["state"] === "CLRegionStateInside") {
-            window.plugin.notification.local.add({
-                                                     title: 'IHG Beacon',
-                                                     message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
-                                                 });
+        //    window.plugin.notification.local.add({
+         //                                            title: 'IHG Beacon',
+          //                                           message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
+           //                                      });
             $.ajax({
                        type: "POST",
                        cache: false,
