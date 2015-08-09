@@ -851,9 +851,8 @@ function outletMessage() {
                                                                                    
                                                                                       
                                                                                       cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                                                          .fail(function(e){
-                  alert(JSON.stringify(e));
-                  })
+                                                                                          .fail()
+                                                                                      
                                                                                           .done();
                                                                                   }
                                                                                   
@@ -2994,9 +2993,9 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-       // if (result.callbacktype === "enter") {
+        if (result.callbacktype === "enter") {
             trackDevice(result);
-      //  }
+        }
     }
     
     function trackDevice(mresult) {
@@ -3160,7 +3159,7 @@ function outletMessage() {
    function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-        //if (jsonp["state"] === "CLRegionStateInside") {
+        if (jsonp["state"] === "CLRegionStateInside") {
         //    window.plugin.notification.local.add({
          //                                            title: 'IHG Beacon',
           //                                           message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
@@ -3180,7 +3179,7 @@ function outletMessage() {
                        error: function (error) {
                        }
                    });
-       // }
+        }
     }                     
     
 
