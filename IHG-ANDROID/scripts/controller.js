@@ -805,7 +805,7 @@ function outletMessage() {
                                                    
                                                    // required in iOS 8+
                                                    cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
-                                                   // or cordova.plugins.locationManager.requestAlwaysAuthorization()
+                                                   //cordova.plugins.locationManager.requestAlwaysAuthorization();
                                                    
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -848,12 +848,12 @@ function outletMessage() {
                                                                                   if (uuid.length > 0 && identifier.length > 0 && major.length > 0 && minor.length > 0) {
                                                                                       beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
                                                                                       
-                                                                                      cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
-                                                                                          .fail()
-                                                                                          .done();
+                                                                                   
                                                                                       
                                                                                       cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                                                          .fail()
+                                                                                          .fail(function(e){
+                  alert(JSON.stringify(e));
+                  })
                                                                                           .done();
                                                                                   }
                                                                                   
