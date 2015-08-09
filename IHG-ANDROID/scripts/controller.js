@@ -847,8 +847,13 @@ function outletMessage() {
                                                                                   major = getData.propertylist[i].BeaconMajor;
                                                                                   if (uuid.length > 0 && identifier.length > 0 && major.length > 0 && minor.length > 0) {
                                                                                       beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
+                                                                                      
+                                                                                      cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
+                                                                                          .fail(showTop("Cannot Stop Beacon:" + identifier))
+                                                                                          .done();
+                                                                                      
                                                                                       cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                                                          .fail(console.error)
+                                                                                          .fail(showTop("Cannot Start Beacon:" + identifier))
                                                                                           .done();
                                                                                   }
                                                                                   
@@ -2989,9 +2994,9 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-        if (result.callbacktype === "enter") {
+       // if (result.callbacktype === "enter") {
             trackDevice(result);
-        }
+      //  }
     }
     
     function trackDevice(mresult) {
@@ -3155,7 +3160,7 @@ function outletMessage() {
    function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-        if (jsonp["state"] === "CLRegionStateInside") {
+        //if (jsonp["state"] === "CLRegionStateInside") {
         //    window.plugin.notification.local.add({
          //                                            title: 'IHG Beacon',
           //                                           message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
@@ -3175,7 +3180,7 @@ function outletMessage() {
                        error: function (error) {
                        }
                    });
-        }
+       // }
     }                     
     
 
