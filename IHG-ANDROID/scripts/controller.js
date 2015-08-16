@@ -833,7 +833,7 @@ function outletMessage() {
                                                                                                                                    function(result) {
                                                                                                                                    }, function(error) {
                                                                                                                                        m = JSON.stringify(error);
-                                                                                                                                       m=JSON.parse(error);
+                                                                                                                                       m=JSON.parse(m);
                                                                                                                                        showTop( m.message); 
                                                                                                                                    });
                                                                                   
@@ -841,7 +841,7 @@ function outletMessage() {
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
                                                                                         m = JSON.stringify(error);
-                                                                                                                                       m=JSON.parse(error);
+                                                                                                                                       m=JSON.parse(m);
                                                                                                                                        showTop( m.message);   
                                                                                   });
                                                                                   
@@ -855,7 +855,7 @@ function outletMessage() {
                                                                                    
                                                                                       
                                                                                       cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                                                          .fail()
+                                                                                          .fail(console.error)
                                                                                       
                                                                                           .done();
                                                                                   }
@@ -2997,9 +2997,9 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-        if (result.callbacktype === "enter") {
+      //  if (result.callbacktype === "enter") {
             trackDevice(result);
-        }
+      //  }
     }
     
     function trackDevice(mresult) {
@@ -3163,7 +3163,7 @@ function outletMessage() {
    function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-        if (jsonp["state"] === "CLRegionStateInside") {
+       // if (jsonp["state"] === "CLRegionStateInside") {
         //    window.plugin.notification.local.add({
          //                                            title: 'IHG Beacon',
           //                                           message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
@@ -3183,7 +3183,7 @@ function outletMessage() {
                        error: function (error) {
                        }
                    });
-        }
+       // }
     }                     
     
 
