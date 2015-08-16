@@ -804,8 +804,8 @@ function outletMessage() {
                                                    cordova.plugins.locationManager.setDelegate(delegate);
                                                    
                                                    // required in iOS 8+
-                                                   cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
-                                                   //cordova.plugins.locationManager.requestAlwaysAuthorization();
+                                                   //cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
+                                                   cordova.plugins.locationManager.requestAlwaysAuthorization();
                                                    
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -832,13 +832,17 @@ function outletMessage() {
                                                                                   window.plugins.DGGeofencing.stopMonitoringRegion(params, 
                                                                                                                                    function(result) {
                                                                                                                                    }, function(error) {
-                                                                                                                                       showTop("Unable to reset locations"); 
+                                                                                                                                       m = JSON.stringify(error);
+                                                                                                                                       m=JSON.parse(error);
+                                                                                                                                       showTop( m.message); 
                                                                                                                                    });
                                                                                   
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
-                                                                                      showTop("Unable to reset locations");     
+                                                                                        m = JSON.stringify(error);
+                                                                                                                                       m=JSON.parse(error);
+                                                                                                                                       showTop( m.message);   
                                                                                   });
                                                                                   
                                                                                   uuid = getData.propertylist[i].UUID;
