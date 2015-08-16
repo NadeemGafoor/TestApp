@@ -14,7 +14,7 @@
     </js-module>
 
     <platform name="ios">
-		<config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+	<config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
 			<string>IHG Dining Rewards would like to use your Location to send Offers and Promotions when you are near IHG property</string>
 		</config-file>
 		<config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
