@@ -863,12 +863,12 @@ function outletMessage() {
                                                                                       beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
                                                                                       
                                                                                    cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
-                                                                                          .fail(showTop("Error"))
+                                                                                          .fail(showTop(JSON.stringify(error)))
                                                                                       
                                                                                           .done();
                                                                                       
                                                                                       cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                                                          .fail(showTop("Error"))
+                                                                                          .fail(showTop(JSON.stringify(error)))
                                                                                       
                                                                                           .done();
                                                                                   }
