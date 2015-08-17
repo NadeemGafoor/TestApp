@@ -772,7 +772,11 @@ function outletMessage() {
                                                    // } else {
                                                    //Check whether GPS enabled
                                                    
-                                                   //window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {});
+                                                  // window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
+                                                  //    m = JSON.stringify(error);
+                                                  //                                                                                     m=JSON.parse(m);
+                                                  //                                                                                     console.log(m.message);   
+                                                  // });
                                                    
                                                    // When looking for beacons no longer makes sense, do:
                                                    //   window.estimote.stopRanging();
@@ -863,12 +867,12 @@ function outletMessage() {
                                                                                       beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
                                                                                       
                                                                                    cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
-                                                                                          .fail(showTop(JSON.stringify(error)))
+                                                                                          .fail(console.error)
                                                                                       
                                                                                           .done();
                                                                                       
                                                                                       cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                                                          .fail(showTop(JSON.stringify(error)))
+                                                                                          .fail(console.error)
                                                                                       
                                                                                           .done();
                                                                                   }
