@@ -772,8 +772,7 @@ function outletMessage() {
                                                    // } else {
                                                    //Check whether GPS enabled
                                                    
-                                                   window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
-                                                   });
+                                                   //window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {});
                                                    
                                                    // When looking for beacons no longer makes sense, do:
                                                    //   window.estimote.stopRanging();
@@ -826,24 +825,74 @@ function outletMessage() {
                                                                       var i = 0;
                                                                       if (getData.statuscode === "000") {
                                                                           if (getData.propertylist.length > 0) {
+                                                                              
+                                                                              
+                                                                               while (i <= getData.propertylist.length - 1) {
+                                                                                  //Stop Monitor
+                                                                                  //params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
+                                                                                  //window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                                                                   //                                                function(result) {
+                                                                                   //                                                }, function(error) {
+                                                                                   //                                                    m = JSON.stringify(error);
+                                                                                   //                                                    m=JSON.parse(m);
+                                                                                   //                                                    showTop( m.message); 
+                                                                                   //                                                });
+                                                                                  
+                                                                                  //params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
+                                                                                  //window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                                                  //}, function(error) {
+                                                                                  //      m = JSON.stringify(error);
+                                                                                  //                                                     m=JSON.parse(m);
+                                                                                 //                                                      showTop( m.message);   
+                                                                                 // });
+                                                                                  
+                                                                                  uuid = getData.propertylist[i].brandcode;
+                                                                                  identifier = getData.propertylist[i].brandcode;
+                                                                                  minor = getData.propertylist[i].lat;
+                                                                                  major = getData.propertylist[i].lon;
+                                                                                  if (uuid.length > 0 && identifier.length > 0 && major.length > 0 && minor.length > 0) {
+                                                                                      beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
+                                                                                      
+                                                                                   cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
+                                                                                          .fail()
+                                                                                      
+                                                                                          .done();
+                                                                                      
+                                                                                      cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
+                                                                                          .fail()
+                                                                                      
+                                                                                          .done();
+                                                                                  }
+                                                                                  
+                                                                                  i++;
+                                                                              }
+                                                                              
+                                                                              
+                                                                              
+                                                                              
+                                                                              
+                                                                              
+                                                                              
+                                                                              
+                                                                              
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   //Stop Monitor
-                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
-                                                                                  window.plugins.DGGeofencing.stopMonitoringRegion(params, 
-                                                                                                                                   function(result) {
-                                                                                                                                   }, function(error) {
-                                                                                                                                       m = JSON.stringify(error);
-                                                                                                                                       m=JSON.parse(m);
-                                                                                                                                       showTop( m.message); 
-                                                                                                                                   });
+                                                                                  //params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
+                                                                                  //window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                                                                   //                                                function(result) {
+                                                                                   //                                                }, function(error) {
+                                                                                   //                                                    m = JSON.stringify(error);
+                                                                                   //                                                    m=JSON.parse(m);
+                                                                                   //                                                    showTop( m.message); 
+                                                                                   //                                                });
                                                                                   
-                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
-                                                                                  window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                                                  }, function(error) {
-                                                                                        m = JSON.stringify(error);
-                                                                                                                                       m=JSON.parse(m);
-                                                                                                                                       showTop( m.message);   
-                                                                                  });
+                                                                                  //params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
+                                                                                  //window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                                                  //}, function(error) {
+                                                                                  //      m = JSON.stringify(error);
+                                                                                  //                                                     m=JSON.parse(m);
+                                                                                 //                                                      showTop( m.message);   
+                                                                                 // });
                                                                                   
                                                                                   uuid = getData.propertylist[i].UUID;
                                                                                   identifier = getData.propertylist[i].BeaconName;
@@ -852,10 +901,13 @@ function outletMessage() {
                                                                                   if (uuid.length > 0 && identifier.length > 0 && major.length > 0 && minor.length > 0) {
                                                                                       beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
                                                                                       
-                                                                                   
+                                                                                   cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
+                                                                                          .fail()
+                                                                                      
+                                                                                          .done();
                                                                                       
                                                                                       cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                                                          .fail(console.error)
+                                                                                          .fail()
                                                                                       
                                                                                           .done();
                                                                                   }
