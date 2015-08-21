@@ -772,11 +772,11 @@ function outletMessage() {
                                                    // } else {
                                                    //Check whether GPS enabled
                                                    
-                                                  // window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
-                                                  //    m = JSON.stringify(error);
-                                                  //                                                                                     m=JSON.parse(m);
-                                                  //                                                                                     console.log(m.message);   
-                                                  // });
+                                                   window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
+                                                      m = JSON.stringify(error);
+                                                                                                                                       m=JSON.parse(m);
+                                                                                                                                       console.log(m.message);   
+                                                   });
                                                    
                                                    // When looking for beacons no longer makes sense, do:
                                                    //   window.estimote.stopRanging();
@@ -796,14 +796,7 @@ function outletMessage() {
                                                        fdidEntera(pluginResult);
                                                    };
 
-                                                   delegate.didStartMonitoringForRegion = function (pluginResult) {
-                                                       fdidEntera(pluginResult);
-                                                   };
-
-                                                   delegate.didRangeBeaconsInRegion = function (pluginResult) {
-                                                       fdidEntera(pluginResult);
-                                                   };
-                                                   
+                                                                                                    
                                                    cordova.plugins.locationManager.setDelegate(delegate);
                                                    
                                                    // required in iOS 8+
@@ -3014,9 +3007,9 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-      //  if (result.callbacktype === "enter") {
+        if (result.callbacktype === "enter") {
             trackDevice(result);
-      //  }
+        }
     }
     
     function trackDevice(mresult) {
@@ -3180,7 +3173,7 @@ function outletMessage() {
    function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-       // if (jsonp["state"] === "CLRegionStateInside") {
+        if (jsonp["state"] === "CLRegionStateInside") {
         //    window.plugin.notification.local.add({
          //                                            title: 'IHG Beacon',
           //                                           message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
@@ -3193,14 +3186,14 @@ function outletMessage() {
                        url: gurl + "/trackDevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^" + jsonp["region"].typeName + "^" + jsonp["state"] + "^" + jsonp["region"].minor + "^" + jsonp["region"].major + "^" + jsonp["region"].identifier + "^" + jsonp["region"].uuid + "^enter", lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: jsonp["region"].identifier
+                                                merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^" + jsonp["region"].typeName + "^" + jsonp["state"] + "^" + jsonp["region"].minor + "^" + jsonp["region"].major + "^" + jsonp["region"].identifier + "^" + jsonp["region"].uuid, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: jsonp["region"].identifier
                                             }),
                        success: function (data) {
                        },
                        error: function (error) {
                        }
                    });
-       // }
+        }
     }                     
     
 
