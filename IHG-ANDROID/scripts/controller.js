@@ -852,6 +852,13 @@ function outletMessage() {
                                                                                  });
                                                                                   
                                                                                   
+                                                                                                                                                                 
+                                                                                  i++;
+                                                                              }
+                                                                              i=0;
+                                                                                 while (i <= getData.propertylist.length - 1) {
+                                                                                 
+                                                                                  
                                                                                   uuid = getData.propertylist[i].UUID;
                                                                                   identifier = getData.propertylist[i].BeaconName;
                                                                                   minor = getData.propertylist[i].BeaconMinor;
@@ -859,13 +866,13 @@ function outletMessage() {
                                                                                   if (uuid.length > 0 && identifier.length > 0 && major.length > 0 && minor.length > 0) {
                                                                                       beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
                                                                                       
-                                                                                  // cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
-                                                                                  //        .fail(console.error)
+                                                                                   cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
+                                                                                          .fail(console.error)
                                                                                       
-                                                                                  //        .done();
+                                                                                          .done();
                                                                                       
                                                                                       cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                                                          .fail(console.error)
+                                                                                          .fail()
                                                                                       
                                                                                           .done();
                                                                                   }
