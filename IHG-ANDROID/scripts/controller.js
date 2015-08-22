@@ -773,9 +773,7 @@ function outletMessage() {
                                                    //Check whether GPS enabled
                                                    
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
-                                                      m = JSON.stringify(error);
-                                                                                                                                       m=JSON.parse(m);
-                                                                                                                                       console.log(m.message);   
+                                                     callBackError(error) ;
                                                    });
                                                    
                                                    // When looking for beacons no longer makes sense, do:
@@ -835,22 +833,24 @@ function outletMessage() {
                                                                               
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   //Stop Monitor
-                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
-                                                                                  window.plugins.DGGeofencing.stopMonitoringRegion(params, 
-                                                                                                                                   function(result) {
-                                                                                                                                   }, function(error) {
-                                                                                                                                       m = JSON.stringify(error);
-                                                                                                                                       m=JSON.parse(m);
-                                                                                                                                       showTop( m.message); 
-                                                                                                                                   });
+                                                                               //  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
+                                                                                //  window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                                                                //                                                   function(result) {
+                                                                                //                                                   }, function(error) {
+                                                                                //                                                       m = JSON.stringify(error);
+                                                                               //                                                        m=JSON.parse(m);
+                                                                               //                                                        showTop( m.message); 
+                                                                              //                                                     });
                                                                                   
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
+                                                                                 
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
                                                                                         m = JSON.stringify(error);
                                                                                                                                        m=JSON.parse(m);
                                                                                                                                        showTop( m.message);   
                                                                                  });
+                                                                                  
                                                                                   
                                                                                   uuid = getData.propertylist[i].UUID;
                                                                                   identifier = getData.propertylist[i].BeaconName;
@@ -859,10 +859,10 @@ function outletMessage() {
                                                                                   if (uuid.length > 0 && identifier.length > 0 && major.length > 0 && minor.length > 0) {
                                                                                       beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
                                                                                       
-                                                                                   cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
-                                                                                          .fail(console.error)
+                                                                                  // cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
+                                                                                  //        .fail(console.error)
                                                                                       
-                                                                                          .done();
+                                                                                  //        .done();
                                                                                       
                                                                                       cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
                                                                                           .fail(console.error)
@@ -3007,9 +3007,9 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-        if (result.callbacktype === "enter") {
+     //   if (result.callbacktype === "enter") {
             trackDevice(result);
-        }
+      //  }
     }
     
     function trackDevice(mresult) {
@@ -3088,12 +3088,12 @@ function outletMessage() {
                                    while (i <= getData.propertylist.length - 1) {
                                        //Stop Monitor
                                        var params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
-                                       window.plugins.DGGeofencing.stopMonitoringRegion(params, 
-                                                                                        function(result) {
-                                                                                            // not used.
-                                                                                        }, function(error) {
-                                                                                            // not used
-                                                                                        });
+                                      // window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                      //                                                  function(result) {
+                                      //                                                      // not used.
+                                      //                                                  }, function(error) {
+                                     //                                                       // not used
+                                      //                                                  });
                                        
                                        params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                        window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
@@ -3173,7 +3173,7 @@ function outletMessage() {
    function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-        if (jsonp["state"] === "CLRegionStateInside") {
+      //  if (jsonp["state"] === "CLRegionStateInside") {
         //    window.plugin.notification.local.add({
          //                                            title: 'IHG Beacon',
           //                                           message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
@@ -3193,7 +3193,7 @@ function outletMessage() {
                        error: function (error) {
                        }
                    });
-        }
+       // }
     }                     
     
 
@@ -3205,5 +3205,26 @@ function outletMessage() {
             $("body").data().kendoMobilePane.navigate("views/offerlist.html?geo=1");
         }                  
     };
+    
+    
+    function callBackError(e){
+         m = JSON.stringify(e);
+         m=JSON.parse(m);
+           $.ajax({
+                       type: "POST",
+                       cache: false,
+                       async: true,
+                       timeout: 20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^" + m, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment:"ERROR"
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   }); 
+    }
 }
     )(window);
