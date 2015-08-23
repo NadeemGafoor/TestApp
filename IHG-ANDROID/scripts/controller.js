@@ -829,7 +829,7 @@ function outletMessage() {
                                                                                   //                                                        m=JSON.parse(m);
                                                                                   //                                                        showTop( m.message); 
                                                                                   //                                                     });
-                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
+                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius];
                                                                                  
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
@@ -846,7 +846,7 @@ function outletMessage() {
                                                                                  // identifier = getData.propertylist[i].BeaconName;
                                                                                  // minor = getData.propertylist[i].BeaconMinor;
                                                                                  // major = getData.propertylist[i].BeaconMajor;
-                                                                                  params = [getData.propertylist[i].BeaconName, getData.propertylist[i].lat, getData.propertylist[i].lon, 70,"3"];
+                                                                                  params = [getData.propertylist[i].BeaconName, getData.propertylist[i].lat, getData.propertylist[i].lon, 70];
                                                                                  
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
