@@ -773,7 +773,7 @@ function outletMessage() {
                                                    //Check whether GPS enabled
                                                    
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
-                                                     callBackError(error) ;
+                                                       callBackError(error) ;
                                                    });
                                                    
                                                    // When looking for beacons no longer makes sense, do:
@@ -788,18 +788,17 @@ function outletMessage() {
                                                    
                                                    // Start monitoring.
 
-                                                   var delegate = new cordova.plugins.locationManager.Delegate();
+                                                   //var delegate = new cordova.plugins.locationManager.Delegate();
 
-                                                   delegate.didDetermineStateForRegion = function (pluginResult) {
-                                                       fdidEntera(pluginResult);
-                                                   };
-
+                                                   //delegate.didDetermineStateForRegion = function (pluginResult) {
+                                                   //    fdidEntera(pluginResult);
+                                                   //};
                                                                                                     
-                                                   cordova.plugins.locationManager.setDelegate(delegate);
+                                                   //cordova.plugins.locationManager.setDelegate(delegate);
                                                    
                                                    // required in iOS 8+
                                                    //cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
-                                                   cordova.plugins.locationManager.requestAlwaysAuthorization();
+                                                   //cordova.plugins.locationManager.requestAlwaysAuthorization();
                                                    
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
@@ -820,62 +819,41 @@ function outletMessage() {
                                                                       var i = 0;
                                                                       if (getData.statuscode === "000") {
                                                                           if (getData.propertylist.length > 0) {
-                                                                              
-                                                                              
-                                                                                                                                                        
-                                                                              
-                                                                              
-                                                                              
-                                                                              
-                                                                              
-                                                                              
-                                                                              
-                                                                              
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   //Stop Monitor
-                                                                               //  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
-                                                                                //  window.plugins.DGGeofencing.stopMonitoringRegion(params, 
-                                                                                //                                                   function(result) {
-                                                                                //                                                   }, function(error) {
-                                                                                //                                                       m = JSON.stringify(error);
-                                                                               //                                                        m=JSON.parse(m);
-                                                                               //                                                        showTop( m.message); 
-                                                                              //                                                     });
-                                                                                  
+                                                                                  //  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
+                                                                                  //  window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                                                                  //                                                   function(result) {
+                                                                                  //                                                   }, function(error) {
+                                                                                  //                                                       m = JSON.stringify(error);
+                                                                                  //                                                        m=JSON.parse(m);
+                                                                                  //                                                        showTop( m.message); 
+                                                                                  //                                                     });
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                                                                  
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
-                                                                                        m = JSON.stringify(error);
-                                                                                                                                       m=JSON.parse(m);
-                                                                                                                                       showTop( m.message);   
-                                                                                 });
-                                                                                  
-                                                                                  
+                                                                                      m = JSON.stringify(error);
+                                                                                      m = JSON.parse(m);
+                                                                                      showTop(m.message);   
+                                                                                  });
                                                                                                                                                                  
                                                                                   i++;
                                                                               }
-                                                                              i=0;
-                                                                                 while (i <= getData.propertylist.length - 1) {
+                                                                              i = 0;
+                                                                              while (i <= getData.propertylist.length - 1) {
+                                                                                 // uuid = getData.propertylist[i].UUID;
+                                                                                 // identifier = getData.propertylist[i].BeaconName;
+                                                                                 // minor = getData.propertylist[i].BeaconMinor;
+                                                                                 // major = getData.propertylist[i].BeaconMajor;
+                                                                                  params = [getData.propertylist[i].BeaconName, getData.propertylist[i].lat, getData.propertylist[i].lon, 70,"3"];
                                                                                  
-                                                                                  
-                                                                                  uuid = getData.propertylist[i].UUID;
-                                                                                  identifier = getData.propertylist[i].BeaconName;
-                                                                                  minor = getData.propertylist[i].BeaconMinor;
-                                                                                  major = getData.propertylist[i].BeaconMajor;
-                                                                                  if (uuid.length > 0 && identifier.length > 0 && major.length > 0 && minor.length > 0) {
-                                                                                      beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
-                                                                                      
-                                                                                   cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
-                                                                                          .fail(console.error)
-                                                                                      
-                                                                                          .done();
-                                                                                      
-                                                                                      cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                                                          .fail()
-                                                                                      
-                                                                                          .done();
-                                                                                  }
+                                                                                  window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                                                  }, function(error) {
+                                                                                      m = JSON.stringify(error);
+                                                                                      m = JSON.parse(m);
+                                                                                      showTop(m.message);   
+                                                                                  });
                                                                                   
                                                                                   i++;
                                                                               }
@@ -3014,9 +2992,9 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-     //   if (result.callbacktype === "enter") {
-            trackDevice(result);
-      //  }
+        //   if (result.callbacktype === "enter") {
+        trackDevice(result);
+        //  }
     }
     
     function trackDevice(mresult) {
@@ -3025,9 +3003,9 @@ function outletMessage() {
             lon = position.coords.longitude;
             
             //window.plugin.notification.local.add({
-             //                                       title:   'IHG Beacon/GeoFence',
-              //                                       message: mresult.callbacktype + " " + mresult.regionId
-                      //                           });
+            //                                       title:   'IHG Beacon/GeoFence',
+            //                                       message: mresult.callbacktype + " " + mresult.regionId
+            //                           });
             $.ajax({ 
                        type: "POST",
                        cache:false,
@@ -3095,12 +3073,12 @@ function outletMessage() {
                                    while (i <= getData.propertylist.length - 1) {
                                        //Stop Monitor
                                        var params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
-                                      // window.plugins.DGGeofencing.stopMonitoringRegion(params, 
-                                      //                                                  function(result) {
-                                      //                                                      // not used.
-                                      //                                                  }, function(error) {
-                                     //                                                       // not used
-                                      //                                                  });
+                                       // window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                       //                                                  function(result) {
+                                       //                                                      // not used.
+                                       //                                                  }, function(error) {
+                                       //                                                       // not used
+                                       //                                                  });
                                        
                                        params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                        window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
@@ -3173,36 +3151,32 @@ function outletMessage() {
                    }
                });
     }
-
         
-       
-        
-   function fdidEntera(data) {
+    function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-      //  if (jsonp["state"] === "CLRegionStateInside") {
+        //  if (jsonp["state"] === "CLRegionStateInside") {
         //    window.plugin.notification.local.add({
-         //                                            title: 'IHG Beacon',
-          //                                           message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
-           //                                      });
-            $.ajax({
-                       type: "POST",
-                       cache: false,
-                       async: true,
-                       timeout: 20000,
-                       url: gurl + "/trackDevice.aspx",
-                       contentType: "application/json; charset=utf-8",
-                       data: JSON.stringify({
-                                                merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^" + jsonp["region"].typeName + "^" + jsonp["state"] + "^" + jsonp["region"].minor + "^" + jsonp["region"].major + "^" + jsonp["region"].identifier + "^" + jsonp["region"].uuid, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: jsonp["region"].identifier
-                                            }),
-                       success: function (data) {
-                       },
-                       error: function (error) {
-                       }
-                   });
-       // }
+        //                                            title: 'IHG Beacon',
+        //                                           message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
+        //                                      });
+        $.ajax({
+                   type: "POST",
+                   cache: false,
+                   async: true,
+                   timeout: 20000,
+                   url: gurl + "/trackDevice.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^" + jsonp["region"].typeName + "^" + jsonp["state"] + "^" + jsonp["region"].minor + "^" + jsonp["region"].major + "^" + jsonp["region"].identifier + "^" + jsonp["region"].uuid, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: jsonp["region"].identifier
+                                        }),
+                   success: function (data) {
+                   },
+                   error: function (error) {
+                   }
+               });
+        // }
     }                     
-    
 
     function onPushNotificationReceived(e) {
         // alert(JSON.stringify(e));
@@ -3213,25 +3187,24 @@ function outletMessage() {
         }                  
     };
     
-    
-    function callBackError(e){
-         m = JSON.stringify(e);
-         m=JSON.parse(m);
-           $.ajax({
-                       type: "POST",
-                       cache: false,
-                       async: true,
-                       timeout: 20000,
-                       url: gurl + "/trackDevice.aspx",
-                       contentType: "application/json; charset=utf-8",
-                       data: JSON.stringify({
-                                                merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^" + m, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment:"ERROR"
-                                            }),
-                       success: function (data) {
-                       },
-                       error: function (error) {
-                       }
-                   }); 
+    function callBackError(e) {
+        m = JSON.stringify(e);
+        m = JSON.parse(m);
+        $.ajax({
+                   type: "POST",
+                   cache: false,
+                   async: true,
+                   timeout: 20000,
+                   url: gurl + "/trackDevice.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^" + m, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment:"ERROR"
+                                        }),
+                   success: function (data) {
+                   },
+                   error: function (error) {
+                   }
+               }); 
     }
 }
     )(window);
