@@ -3120,7 +3120,7 @@ function outletMessage() {
                    success: function (data) { 
                        var getData = JSON.parse(data);
                                                                                                                                 
-                       if (getData.statuscode == "000") {
+                       if (getData.statuscode === "000") {
                            //fill the outlet template
                            if (getData.faqlist.length > 0) {
                                $("#faqlist-all").kendoMobileListView({
