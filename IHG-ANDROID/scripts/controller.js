@@ -775,7 +775,6 @@ function outletMessage() {
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                        callBackError(error) ;
                                                    });
-                                                   
                                                
                                                    var delegate = new cordova.plugins.locationManager.Delegate();
 
@@ -792,7 +791,6 @@ function outletMessage() {
                                                    };
                                                    
                                                    cordova.plugins.locationManager.requestAlwaysAuthorization();
-
                                                    
                                                    cordova.plugins.locationManager.setDelegate(delegate);
                                                                                                      
@@ -815,6 +813,8 @@ function outletMessage() {
                                                                       var i = 0;
                                                                       if (getData.statuscode === "000") {
                                                                           if (getData.propertylist.length > 0) {
+                                                                
+                                                                              
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   //Stop Monitor
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius];
@@ -823,34 +823,35 @@ function outletMessage() {
                                                                                   }, function(error) {
                                                                                       m = JSON.stringify(error);
                                                                                       m = JSON.parse(m);
-                                                                                      showTop(m.message);   
+                                                                                      alert(m.message);   
                                                                                   });
                                                                                  
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
                                                                                       m = JSON.stringify(error);
                                                                                       m = JSON.parse(m);
-                                                                                      showTop(m.message);   
+                                                                                      alert(m.message);   
                                                                                   });
                                                                                                                                                                  
                                                                                   i++;
                                                                               }
-                                                                              i = 0;
+                                                                                     i = 0;
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   uuid = getData.propertylist[i].UUID;
                                                                                   identifier = getData.propertylist[i].BeaconName;
                                                                                   minor = getData.propertylist[i].BeaconMinor;
                                                                                   major = getData.propertylist[i].BeaconMajor;
-                                                                                                          alert(i + uuid + " " + identifier + " " + minor + " " + major);
-                                                                                  if (uuid.length > 0 && identifier.length > 0) {
+                                                                                   
+                                                                                  if (uuid.length > 0 && identifier.length > 0 && minor.length > 0 && major.length > 0) {
+                                                                                      
+                                                                                  beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
                                                                                       cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
-                                                                                          .fail(console.error)
+                                                                                          .fail()
                                                                                           .done();
                                                                                       
                                                                                       cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                                                          .fail(console.error)
+                                                                                          .fail()
                                                                                           .done();
-                                                              
                                                                                   }
                                                                                   
                                                                                   i++;
@@ -3001,9 +3002,9 @@ function outletMessage() {
             lon = position.coords.longitude;
             
             window.plugin.notification.local.add({
-                                                   title:   'IHG GeoFence',
-                                                   message: mresult.callbacktype + " " + mresult.regionId
-                                       });
+                                                     title:   'IHG GeoFence',
+                                                     message: mresult.callbacktype + " " + mresult.regionId
+                                                 });
             $.ajax({ 
                        type: "POST",
                        cache:false,
@@ -3153,11 +3154,11 @@ function outletMessage() {
     function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-         // if (jsonp["state"] === "CLRegionStateInside") {
-            window.plugin.notification.local.add({
-                                                    title: 'IHG Beacon',
-                                                   message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
-                                              });
+        // if (jsonp["state"] === "CLRegionStateInside") {
+        window.plugin.notification.local.add({
+                                                 title: 'IHG Beacon',
+                                                 message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
+                                             });
         $.ajax({
                    type: "POST",
                    cache: false,
@@ -3166,7 +3167,7 @@ function outletMessage() {
                    url: gurl + "/trackDevice.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^" + jsonp["region"].typeName + "^" + jsonp["state"] + "^" + jsonp["region"].minor + "^" + jsonp["region"].major + "^" + jsonp["region"].identifier + "^" + jsonp["region"].uuid + "^enter", lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: jsonp["region"].identifier
+                                            merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^" + jsonp["region"].typeName + "^" + jsonp["state"] + "^" + jsonp["region"].minor + "^" + jsonp["region"].major + "^" + jsonp["region"].identifier + "^" + jsonp["region"].uuid, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: jsonp["region"].identifier
                                         }),
                    success: function (data) {
                    },
