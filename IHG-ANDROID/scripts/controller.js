@@ -823,14 +823,14 @@ function outletMessage() {
                                                                                   }, function(error) {
                                                                                       m = JSON.stringify(error);
                                                                                       m = JSON.parse(m);
-                                                                                      alert(m.message);   
+                                                                                      showTop(m.message);   
                                                                                   });
                                                                                  
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
                                                                                       m = JSON.stringify(error);
                                                                                       m = JSON.parse(m);
-                                                                                      alert(m.message);   
+                                                                                      showTop(m.message);   
                                                                                   });
                                                                                                                                                                  
                                                                                   i++;
