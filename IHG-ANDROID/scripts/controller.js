@@ -776,8 +776,7 @@ function outletMessage() {
                                                        callBackError(error) ;
                                                    });
                                                    
-                                                   cordova.plugins.locationManager.requestAlwaysAuthorization();
-
+                                               
                                                    var delegate = new cordova.plugins.locationManager.Delegate();
 
                                                    delegate.didDetermineStateForRegion = function (pluginResult) {
@@ -791,6 +790,9 @@ function outletMessage() {
                                                    delegate.didRangeBeaconsInRegion = function (pluginResult) {
                                                        fdidEntera(pluginResult);
                                                    };
+                                                   
+                                                   cordova.plugins.locationManager.requestAlwaysAuthorization();
+
                                                    
                                                    cordova.plugins.locationManager.setDelegate(delegate);
                                                                                                      
@@ -839,15 +841,16 @@ function outletMessage() {
                                                                                   identifier = getData.propertylist[i].BeaconName;
                                                                                   minor = getData.propertylist[i].BeaconMinor;
                                                                                   major = getData.propertylist[i].BeaconMajor;
-                                                                                  
+                                                                                                          alert(i + uuid + " " + identifier + " " + minor + " " + major);
                                                                                   if (uuid.length > 0 && identifier.length > 0) {
                                                                                       cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
-                                                                                          .fail()
+                                                                                          .fail(console.error)
                                                                                           .done();
                                                                                       
                                                                                       cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                                                          .fail()
+                                                                                          .fail(console.error)
                                                                                           .done();
+                                                              
                                                                                   }
                                                                                   
                                                                                   i++;
@@ -2997,10 +3000,10 @@ function outletMessage() {
             lat = position.coords.latitude;                                  
             lon = position.coords.longitude;
             
-            //window.plugin.notification.local.add({
-            //                                       title:   'IHG Beacon/GeoFence',
-            //                                       message: mresult.callbacktype + " " + mresult.regionId
-            //                           });
+            window.plugin.notification.local.add({
+                                                   title:   'IHG GeoFence',
+                                                   message: mresult.callbacktype + " " + mresult.regionId
+                                       });
             $.ajax({ 
                        type: "POST",
                        cache:false,
@@ -3150,11 +3153,11 @@ function outletMessage() {
     function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-          if (jsonp["state"] === "CLRegionStateInside") {
-        //    window.plugin.notification.local.add({
-        //                                            title: 'IHG Beacon',
-        //                                           message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
-        //                                      });
+         // if (jsonp["state"] === "CLRegionStateInside") {
+            window.plugin.notification.local.add({
+                                                    title: 'IHG Beacon',
+                                                   message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
+                                              });
         $.ajax({
                    type: "POST",
                    cache: false,
@@ -3170,7 +3173,7 @@ function outletMessage() {
                    error: function (error) {
                    }
                });
-         }
+        // }
     }                     
 
     function onPushNotificationReceived(e) {
