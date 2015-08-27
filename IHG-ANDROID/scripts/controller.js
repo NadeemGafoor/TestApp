@@ -3022,10 +3022,42 @@ function outletMessage() {
                                        
                                        i++;
                                    }
-                                   
                                } 
                            } else {
-                               showTop("Error Retrieving Geofence Offers");
+                               showTop("Error Retrieving Geofence Offers" + getData.statuscode + getData.statusdesc);
+                           }
+                       },
+                       error: function (error) {
+                       }
+                   });  
+            
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/beaconMessageBroadCast.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                            }),
+                       success: function (data) {
+                           var getData = JSON.parse(data);
+                           var i = 0;
+                           if (getData.statuscode === "000") {
+                               if (getData.beaconoffers.length > 0) {
+                                   //Start Monitor
+                                   while (i <= getData.beaconoffers.length - 1) {
+                                       window.plugin.notification.local.add({
+                                                                                title:   getData.beaconoffers[i].msgtitle,
+                                                                                message: getData.beaconoffers[i].msgnotification
+                                                                            });
+                                       
+                                       i++;
+                                   }
+                               } 
+                           } else {
+                               showTop("Error Retrieving Beacon Message" + getData.statuscode + getData.statusdesc);
                            }
                        },
                        error: function (error) {
@@ -3166,25 +3198,77 @@ function outletMessage() {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
         if (jsonp["state"] === "CLRegionStateInside") {
-            window.plugin.notification.local.add({
-                                                     title: 'IHG Beacon',
-                                                     message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
-                                                 });
-            $.ajax({
+            
+            
+            $.ajax({ 
                        type: "POST",
-                       cache: false,
-                       async: true,
-                       timeout: 20000,
-                       url: gurl + "/trackDevice.aspx",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/beaconMessageBroadCast.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
                                                 merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^" + jsonp["region"].typeName + "^" + jsonp["state"] + "^" + jsonp["region"].minor + "^" + jsonp["region"].major + "^" + jsonp["region"].identifier + "^" + jsonp["region"].uuid, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: jsonp["region"].identifier
                                             }),
                        success: function (data) {
+                           var getData = JSON.parse(data);
+                           var i = 0;
+                           if (getData.statuscode === "000") {
+                               if (getData.beaconoffers.length > 0) {
+                                   //Start Monitor
+                                   while (i <= getData.beaconoffers.length - 1) {
+                                       window.plugin.notification.local.add({
+                                                                                title:   getData.beaconoffers[i].msgtitle,
+                                                                                message: getData.beaconoffers[i].msgnotification
+                                                                            });
+                                       
+                                       i++;
+                                   }
+                               } 
+                           } else {
+                               showTop("Error Retrieving Beacon Message" + getData.statuscode + getData.statusdesc);
+                           }
                        },
                        error: function (error) {
                        }
-                   });
+                   });        
+            
+            
+            
+               $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/geofenceMessageBroadCast.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                            }),
+                       success: function (data) {
+                           var getData = JSON.parse(data);
+                           var i = 0;
+                           if (getData.statuscode === "000") {
+                               if (getData.geofenceoffers.length > 0) {
+                                   //Start Monitor
+                                   while (i <= getData.geofenceoffers.length - 1) {
+                                       window.plugin.notification.local.add({
+                                                                                title:   getData.geofenceoffers[i].msgtitle,
+                                                                                message: getData.geofenceoffers[i].msgnotification
+                                                                            });
+                                       
+                                       i++;
+                                   }
+                               } 
+                           } else {
+                               showTop("Error Retrieving Geofence Offers" + getData.statuscode + getData.statusdesc);
+                           }
+                       },
+                       error: function (error) {
+                       }
+                   });  
+            
+            
         }
     }                     
 
