@@ -813,8 +813,6 @@ function outletMessage() {
                                                                       var i = 0;
                                                                       if (getData.statuscode === "000") {
                                                                           if (getData.propertylist.length > 0) {
-                                                                
-                                                                              
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   //Stop Monitor
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius];
@@ -835,7 +833,7 @@ function outletMessage() {
                                                                                                                                                                  
                                                                                   i++;
                                                                               }
-                                                                                     i = 0;
+                                                                              i = 0;
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   uuid = getData.propertylist[i].UUID;
                                                                                   identifier = getData.propertylist[i].BeaconName;
@@ -843,8 +841,7 @@ function outletMessage() {
                                                                                   major = getData.propertylist[i].BeaconMajor;
                                                                                    
                                                                                   if (uuid.length > 0 && identifier.length > 0 && minor.length > 0 && major.length > 0) {
-                                                                                      
-                                                                                  beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
+                                                                                      beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
                                                                                       cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
                                                                                           .fail()
                                                                                           .done();
@@ -2991,31 +2988,46 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-           if (result.callbacktype === "enter") {
-        trackDevice(result);
-          }
+        if (result.callbacktype === "enter") {
+            trackDevice(result);
+        }
     }
     
     function trackDevice(mresult) {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
             lat = position.coords.latitude;                                  
             lon = position.coords.longitude;
-            
-            window.plugin.notification.local.add({
-                                                     title:   'IHG GeoFence',
-                                                     message: mresult.callbacktype + " " + mresult.regionId
-                                                });
+           
             $.ajax({ 
                        type: "POST",
                        cache:false,
                        async:true,
                        timeout:20000,
-                       url: gurl + "/trackDevice.aspx",
+                       url: gurl + "/geofenceMessageBroadCast.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
                                                 merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
                                             }),
                        success: function (data) {
+                           var getData = JSON.parse(data);
+                           var i = 0;
+                           if (getData.statuscode === "000") {
+                               if (getData.geofenceoffers.length > 0) {
+                                   //Start Monitor
+                                   while (i <= getData.geofenceoffers.length - 1) {
+                                       window.plugin.notification.local.add({
+                                                                                title:   getData.geofenceoffers[i].msgtitle,
+                                                                                message: getData.geofenceoffers[i].msgnotification
+                                                                            });
+                                       
+                                       i++;
+                                   }
+                                   
+                                   hideSpin(); //hide loading popup
+                               } 
+                           } else {
+                               showTop("Error Retrieving Geofence Offers");
+                           }
                        },
                        error: function (error) {
                        }
@@ -3028,7 +3040,7 @@ function outletMessage() {
     function showTop(e) {
         window.plugins.toast.showWithOptions({
                                                  message: e,
-                                                 duration: "short",
+                                                 duration: "long",
                                                  position: "bottom",
                                                  addPixelsY: -40  // added a negative value to move it up a bit (default 0)
                                              },
@@ -3154,26 +3166,26 @@ function outletMessage() {
     function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-         if (jsonp["state"] === "CLRegionStateInside") {
-        window.plugin.notification.local.add({
-                                                 title: 'IHG Beacon',
-                                                 message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
-                                             });
-        $.ajax({
-                   type: "POST",
-                   cache: false,
-                   async: true,
-                   timeout: 20000,
-                   url: gurl + "/trackDevice.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^" + jsonp["region"].typeName + "^" + jsonp["state"] + "^" + jsonp["region"].minor + "^" + jsonp["region"].major + "^" + jsonp["region"].identifier + "^" + jsonp["region"].uuid, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: jsonp["region"].identifier
-                                        }),
-                   success: function (data) {
-                   },
-                   error: function (error) {
-                   }
-               });
+        if (jsonp["state"] === "CLRegionStateInside") {
+            window.plugin.notification.local.add({
+                                                     title: 'IHG Beacon',
+                                                     message: jsonp["region"].typeName + " " + jsonp["state"] + " " + jsonp["region"].minor + " " + jsonp["region"].major + " " + jsonp["region"].identifier + " " + jsonp["region"].uuid
+                                                 });
+            $.ajax({
+                       type: "POST",
+                       cache: false,
+                       async: true,
+                       timeout: 20000,
+                       url: gurl + "/trackDevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^" + jsonp["region"].typeName + "^" + jsonp["state"] + "^" + jsonp["region"].minor + "^" + jsonp["region"].major + "^" + jsonp["region"].identifier + "^" + jsonp["region"].uuid, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: jsonp["region"].identifier
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });
         }
     }                     
 
