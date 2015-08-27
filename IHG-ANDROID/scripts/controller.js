@@ -3023,7 +3023,6 @@ function outletMessage() {
                                        i++;
                                    }
                                    
-                                   hideSpin(); //hide loading popup
                                } 
                            } else {
                                showTop("Error Retrieving Geofence Offers");
