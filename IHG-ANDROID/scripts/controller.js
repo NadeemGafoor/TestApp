@@ -3015,16 +3015,7 @@ function outletMessage() {
                                if (getData.geofenceoffers.length > 0) {
                                    //Start Monitor
                                    while (i <= getData.geofenceoffers.length - 1) {
-                                       window.plugin.notification.local.add({
-                                                                                //  title:   getData.geofenceoffers[i].msgtitle,
-                                                                                id:getData.geofenceoffers[i].msgsequence,
-                                                                                message: getData.geofenceoffers[i].msgnotification,
-                                                                                badge:++i
-                                                                            });
-                                      
-                                       //alert(getData.geofenceoffers[i].msgnotification);
-                                       window.setInterval(function () {
-                                       }, 2000);
+                                       notifyme(getData.geofenceoffers[i].msgsequence,getData.geofenceoffers[i].msgnotification);
                                        i++;
                                    }
                                } 
@@ -3071,6 +3062,18 @@ function outletMessage() {
         }
                                                  , function onErrorShowMap(error) {
                                                  });
+    }
+    
+    function notifyMe(x,y){
+           window.plugin.notification.local.add({
+                                                                                //  title:   getData.geofenceoffers[i].msgtitle,
+                                                                                id:x,
+                                                                                message:y
+                                                                            });
+                                      
+                                       //alert(getData.geofenceoffers[i].msgnotification);
+                                       window.setInterval(function () {
+                                       }, 2000);
     }
     
     function showTop(e) {
