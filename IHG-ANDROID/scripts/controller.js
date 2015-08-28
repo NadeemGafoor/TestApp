@@ -2988,7 +2988,7 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-        if (result.callbacktype === "monitorstart" && result.regionId === "CPADY") {
+        if (result.callbacktype === "enter") {
             trackDeviceY(result);
         }
     }
