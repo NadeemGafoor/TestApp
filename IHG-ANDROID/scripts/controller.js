@@ -2989,7 +2989,7 @@ function outletMessage() {
     
     function processRegionMonitorCallback (result) {
         if (result.callbacktype === "monitorstart" && result.regionId === "CPADY") {
-            trackDevice(result);
+            trackDeviceY(result);
         }
     }
     
@@ -3082,27 +3082,10 @@ function outletMessage() {
                        url: gurl + "/trackdevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:mresult.regionId + "^" + window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype + "^enter",lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
                                             }),
                        success: function (data) {
-                           var getData = JSON.parse(data);
-                           var i = 0;
-                           if (getData.statuscode === "000") {
-                               if (getData.geofenceoffers.length > 0) {
-                                   //Start Monitor
-                                   while (i <= getData.geofenceoffers.length - 1) {
-                                       window.plugin.notification.local.add({
-                                                                                // title:   getData.geofenceoffers[i].msgtitle,
-                                                                                id:getData.geofenceoffers[i].msgsequence,
-                                                                                message: getData.geofenceoffers[i].msgnotification
-                                                                            });
-                                       
-                                       i++;
-                                   }
-                               } 
-                           } else {
-                               //showTop("Error Retrieving Geofence Offers" + getData.statuscode + getData.statusdesc);
-                           }
+                         
                        },
                        error: function (error) {
                        }
@@ -3275,39 +3258,7 @@ function outletMessage() {
                        error: function (error) {
                        }
                    });        
-            
-            $.ajax({ 
-                       type: "POST",
-                       cache:false,
-                       async:true,
-                       timeout:20000,
-                       url: gurl + "/geofenceMessageBroadCast.aspx",
-                       contentType: "application/json; charset=utf-8",
-                       data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:jsonp["region"].identifier + "^" + window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
-                                            }),
-                       success: function (data) {
-                           var getData = JSON.parse(data);
-                           var i = 0;
-                           if (getData.statuscode === "000") {
-                               if (getData.geofenceoffers.length > 0) {
-                                   //Start Monitor
-                                   while (i <= getData.geofenceoffers.length - 1) {
-                                       window.plugin.notification.local.add({
-                                                                                // title:   getData.geofenceoffers[i].msgtitle,
-                                                                                message: getData.geofenceoffers[i].msgnotification
-                                                                            });
-                                       
-                                       i++;
-                                   }
-                               } 
-                           } else {
-                               //showTop("Error Retrieving Geofence Offers" + getData.statuscode + getData.statusdesc);
-                           }
-                       },
-                       error: function (error) {
-                       }
-                   });  
+                      
         }
     }                     
 
