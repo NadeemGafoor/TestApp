@@ -3018,14 +3018,16 @@ function outletMessage() {
                                        window.plugin.notification.local.add({
                                                                                 //  title:   getData.geofenceoffers[i].msgtitle,
                                                                                 id:getData.geofenceoffers[i].msgsequence,
-                                                                                message: getData.geofenceoffers[i].msgnotification
+                                                                                message: getData.geofenceoffers[i].msgnotification,
+                                                                                badge:++i
                                                                             });
                                       
                                        //alert(getData.geofenceoffers[i].msgnotification);
+                                       window.setInterval(function () {
+                                       }, 2000);
                                        i++;
                                    }
                                } 
-                               window.plugin.notification.local.cancelAll();
                            } else {
                                //showTop("Error Retrieving Geofence Offers" + getData.statuscode + getData.statusdesc);
                            }
