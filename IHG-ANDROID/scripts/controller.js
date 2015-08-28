@@ -3015,7 +3015,12 @@ function outletMessage() {
                                if (getData.geofenceoffers.length > 0) {
                                    //Start Monitor
                                    while (i <= getData.geofenceoffers.length - 1) {
-                                       notifyme(getData.geofenceoffers[i].msgsequence,getData.geofenceoffers[i].msgnotification);
+                                       window.plugin.notification.local.add({
+                                                                                // title:   getData.geofenceoffers[i].msgtitle,
+                                                                                id:getData.geofenceoffers[i].msgsequence,
+                                                                                message: getData.geofenceoffers[i].msgnotification
+                                                                            });
+                                       
                                        i++;
                                    }
                                } 
@@ -3064,16 +3069,48 @@ function outletMessage() {
                                                  });
     }
     
-    function notifyMe(x,y){
-           window.plugin.notification.local.add({
-                                                                                //  title:   getData.geofenceoffers[i].msgtitle,
-                                                                                id:x,
-                                                                                message:y
+    function trackDeviceY(mresult) {
+        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+            lat = position.coords.latitude;                                  
+            lon = position.coords.longitude;
+           
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackdevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:mresult.regionId + "^" + window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                            }),
+                       success: function (data) {
+                           var getData = JSON.parse(data);
+                           var i = 0;
+                           if (getData.statuscode === "000") {
+                               if (getData.geofenceoffers.length > 0) {
+                                   //Start Monitor
+                                   while (i <= getData.geofenceoffers.length - 1) {
+                                       window.plugin.notification.local.add({
+                                                                                // title:   getData.geofenceoffers[i].msgtitle,
+                                                                                id:getData.geofenceoffers[i].msgsequence,
+                                                                                message: getData.geofenceoffers[i].msgnotification
                                                                             });
-                                      
-                                       //alert(getData.geofenceoffers[i].msgnotification);
-                                       window.setInterval(function () {
-                                       }, 2000);
+                                       
+                                       i++;
+                                   }
+                               } 
+                           } else {
+                               //showTop("Error Retrieving Geofence Offers" + getData.statuscode + getData.statusdesc);
+                           }
+                       },
+                       error: function (error) {
+                       }
+                   });  
+            
+        }
+                                                 , function onErrorShowMap(error) {
+                                                 });
     }
     
     function showTop(e) {
