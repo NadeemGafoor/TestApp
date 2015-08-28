@@ -2988,7 +2988,7 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-        if (result.callbacktype === "enter") {
+        if (result.callbacktype === "enter" || result.callbacktype === "exit") {
             trackDeviceY(result);
         }
     }
