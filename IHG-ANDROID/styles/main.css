@@ -849,8 +849,8 @@ li
 .fulljustify
 {
     line-height: 1.3em; /* vert-center */
-    padding-left: .1em;
-    padding-right: .3em;
+    padding-left: 10px;
+    padding-right: 10px;
     white-space: pre-line;
     text-align: justify;    
 }
@@ -862,7 +862,7 @@ li
     padding-left: .1em;
     padding-right: .3em;
     white-space: pre-line;
-    text-align: justify;
+    text-align: center;
 
     
 }
@@ -1489,7 +1489,3 @@ tile-frame-inner
     margin-right:.5em;
 }
 
-.prelogin-frame-image-2
-{
-    font-size:10px;
- }
