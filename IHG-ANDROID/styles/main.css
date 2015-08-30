@@ -30,6 +30,7 @@ a:active
     color:#fff;
 }
 
+
 .km-ios7 .km-navbar .km-icon
 {
     color:#fff;
@@ -1487,3 +1488,8 @@ tile-frame-inner
     width:40px;
     margin-right:.5em;
 }
+
+.prelogin-frame-image-2
+{
+    font-size:10px;
+ }
