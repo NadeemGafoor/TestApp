@@ -1,9 +1,4 @@
 
-
-
- 
-
-
 function offerMessage() {
     navigator.notification.alert("To view offer details please select All Offers from the menu", function() {
     }, "IHG® Dining Rewards", "Dismiss")    
@@ -814,8 +809,8 @@ function outletMessage() {
                                                                       if (getData.statuscode === "000") {
                                                                           if (getData.propertylist.length > 0) {
                                                                               while (i <= getData.propertylist.length - 1) {
-                                                                                  //Stop Monitor
-                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius];
+                                                                                  //Stop Geo Fence Monitor
+                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
                                                                                   
                                                                                   window.plugins.DGGeofencing.stopMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
@@ -823,7 +818,8 @@ function outletMessage() {
                                                                                       m = JSON.parse(m);
                                                                                       showTop(m.message);   
                                                                                   });
-                                                                                 
+                                                                                  //Start Geofence Monitoring
+                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
                                                                                       m = JSON.stringify(error);
@@ -3085,12 +3081,10 @@ function outletMessage() {
                                                 merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype + "^enter",lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
                                             }),
                        success: function (data) {
-                         
                        },
                        error: function (error) {
                        }
                    });  
-            
         }
                                                  , function onErrorShowMap(error) {
                                                  });
@@ -3143,12 +3137,12 @@ function outletMessage() {
                                    while (i <= getData.propertylist.length - 1) {
                                        //Stop Monitor
                                        var params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
-                                       // window.plugins.DGGeofencing.stopMonitoringRegion(params, 
-                                       //                                                  function(result) {
-                                       //                                                      // not used.
-                                       //                                                  }, function(error) {
-                                       //                                                       // not used
-                                       //                                                  });
+                                        window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                                                                         function(result) {
+                                                                                             // not used.
+                                                                                         }, function(error) {
+                                                                                              // not used
+                                                                                         });
                                        
                                        params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                        window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
@@ -3258,7 +3252,6 @@ function outletMessage() {
                        error: function (error) {
                        }
                    });        
-                      
         }
     }                     
 
