@@ -2985,7 +2985,13 @@ function outletMessage() {
     
     function processRegionMonitorCallback (result) {
         if (result.callbacktype === "enter" || result.callbacktype === "exit") {
-            trackDeviceY(result);
+           
+              window.plugin.notification.local.add({
+                                                                                title:   "GeoFence",
+                                                                                message: mresult.regionId + " " + mresult.callbacktype
+                                                                            });
+            
+            // trackDeviceY(result);
         }
     }
     
@@ -3219,40 +3225,14 @@ function outletMessage() {
     function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
+        
         if (jsonp["state"] === "CLRegionStateInside") {
-            $.ajax({ 
-                       type: "POST",
-                       cache:false,
-                       async:true,
-                       timeout:20000,
-                       url: gurl + "/beaconMessageBroadCast.aspx",
-                       contentType: "application/json; charset=utf-8",
-                       data: JSON.stringify({
-                                                merchantcode: window.localStorage.getItem("merchant"), mdevice: jsonp["region"].identifier + "^" + window.localStorage.getItem("mdevicestat") + "^" + jsonp["region"].typeName + "^" + jsonp["state"] + "^" + jsonp["region"].minor + "^" + jsonp["region"].major + "^" + jsonp["region"].identifier + "^" + jsonp["region"].uuid, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: jsonp["region"].identifier
-                                            }),
-                       success: function (data) {
-                           var getData = JSON.parse(data);
-                           var i = 0;
-                           if (getData.statuscode === "000") {
-                               if (getData.beaconoffers.length > 0) {
-                                   //Start Monitor
-                                   while (i <= getData.beaconoffers.length - 1) {
-                                       window.plugin.notification.local.add({
-                                                                                // title:   getData.beaconoffers[i].msgtitle,
-                                                                                message: getData.beaconoffers[i].msgnotification
+         window.plugin.notification.local.add({
+                                                                                title:   "Beacon",
+                                                                                message: jsonp["region"].identifier + " " + jsonp["state"]
                                                                             });
-                                       
-                                       i++;
-                                   }
-                               } 
-                           } else {
-                               // showTop("Error Retrieving Beacon Message" + getData.statuscode + getData.statusdesc);
-                           }
-                       },
-                       error: function (error) {
-                       }
-                   });        
-        }
+            }
+        
     }                     
 
     function onPushNotificationReceived(e) {
