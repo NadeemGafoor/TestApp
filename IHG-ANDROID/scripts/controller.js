@@ -2984,15 +2984,15 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-        if (result.callbacktype === "enter" || result.callbacktype === "exit") {
+      //  if (result.callbacktype === "enter" || result.callbacktype === "exit") {
            
               window.plugin.notification.local.add({
                                                                                 title:   "GeoFence",
-                                                                                message: mresult.regionId + " " + mresult.callbacktype
+                                                                                message: result.regionId + " " + result.callbacktype
                                                                             });
             
             // trackDeviceY(result);
-        }
+    //    }
     }
     
     function trackDevice(mresult) {
