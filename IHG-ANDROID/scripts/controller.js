@@ -2987,11 +2987,12 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (mresult) {
-        // if (result.callbacktype === "enter" || result.callbacktype === "exit") {
-        //   window.plugin.notification.local.add({
-        //                                                                     title:   "GeoFence",
-        //                                                                     message: result.regionId + " " + result.callbacktype
-        //                                                                 });
+         if (result.callbacktype === "enter" || result.callbacktype === "exit") {
+           window.plugin.notification.local.add({
+                                                                             title:   "GeoFence",
+                                                                             message: mresult.regionId + " " + mresult.callbacktype
+                                                                         });
+             }
         // trackDeviceY(result);
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
             lat = position.coords.latitude;                                  
@@ -3276,8 +3277,7 @@ function outletMessage() {
                                    while (i <= getData.beaconoffers.length - 1) {
                                        window.plugin.notification.local.add({
                                                                                 // title:   getData.beaconoffers[i].msgtitle,
-                                                                                message: getData.beaconoffers[i].msgnotification,
-                                                                                sound: "file://images/sound.mp3"
+                                                                                message: getData.beaconoffers[i].msgnotification
                                                                             });
                                        
                                        i++;
