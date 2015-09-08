@@ -2984,15 +2984,38 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (result) {
-      //  if (result.callbacktype === "enter" || result.callbacktype === "exit") {
+        if (result.callbacktype === "enter" || result.callbacktype === "exit") {
            
-              window.plugin.notification.local.add({
-                                                                                title:   "GeoFence",
-                                                                                message: result.regionId + " " + result.callbacktype
-                                                                            });
+           //   window.plugin.notification.local.add({
+           //                                                                     title:   "GeoFence",
+           //                                                                     message: result.regionId + " " + result.callbacktype
+           //                                                                 });
             
             // trackDeviceY(result);
-    //    }
+            
+              navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+            lat = position.coords.latitude;                                  
+            lon = position.coords.longitude;
+           
+            $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/trackdevice.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype + "^enter",lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                            }),
+                       success: function (data) {
+                       },
+                       error: function (error) {
+                       }
+                   });  
+        }
+                                                 , function onErrorShowMap(error) {
+                                                 });
+        }
     }
     
     function trackDevice(mresult) {
@@ -3226,12 +3249,12 @@ function outletMessage() {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
         
-        if (jsonp["state"] === "CLRegionStateInside") {
-         window.plugin.notification.local.add({
-                                                                                title:   "Beacon",
-                                                                                message: jsonp["region"].identifier + " " + jsonp["state"]
-                                                                            });
-            }
+     //   if (jsonp["state"] === "CLRegionStateInside") {
+     //    window.plugin.notification.local.add({
+     //                                                                           title:   "Beacon",
+     //                                                                           message: jsonp["region"].identifier + " " + jsonp["state"]
+     //                                                                       });
+     //       }
         
         if (jsonp["state"] === "CLRegionStateInside") {
             $.ajax({ 
