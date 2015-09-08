@@ -829,7 +829,9 @@ function outletMessage() {
                                                                                                                                                                  
                                                                                   i++;
                                                                               }
+                                                                              
                                                                               i = 0;
+                                                                              
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   uuid = getData.propertylist[i].UUID;
                                                                                   identifier = getData.propertylist[i].BeaconName;
