@@ -809,6 +809,7 @@ function outletMessage() {
                                                                       if (getData.statuscode === "000") {
                                                                           if (getData.propertylist.length > 0) {
                                                                               while (i <= getData.propertylist.length - 1) {
+                                                                                  
                                                                                   //Stop Geo Fence Monitor
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
                                                                                   
@@ -818,6 +819,7 @@ function outletMessage() {
                                                                                       m = JSON.parse(m);
                                                                                       showTop(m.message);   
                                                                                   });
+                                                                                  
                                                                                   //Start Geofence Monitoring
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
@@ -2985,8 +2987,8 @@ function outletMessage() {
                });
     }
     
-    function processRegionMonitorCallback (result) {
-        if (result.callbacktype === "enter" || result.callbacktype === "exit") {
+    function processRegionMonitorCallback (mresult) {
+       // if (result.callbacktype === "enter" || result.callbacktype === "exit") {
            
            //   window.plugin.notification.local.add({
            //                                                                     title:   "GeoFence",
@@ -3007,7 +3009,7 @@ function outletMessage() {
                        url: gurl + "/trackdevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype + "^enter",lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
                                             }),
                        success: function (data) {
                        },
@@ -3018,7 +3020,7 @@ function outletMessage() {
                                                  , function onErrorShowMap(error) {
                                                  });
         }
-    }
+   // }
     
     function trackDevice(mresult) {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
