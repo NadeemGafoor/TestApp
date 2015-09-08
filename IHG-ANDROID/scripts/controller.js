@@ -2987,11 +2987,10 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (mresult) {
-        if (result.callbacktype === "enter" || result.callbacktype === "exit") {
+        //if (result.callbacktype === "enter" || result.callbacktype === "exit") {
             window.plugin.notification.local.add({
                                                      title:   "GeoFence",
-                                                     message: mresult.regionId + " " + mresult.callbacktype,
-                sound:"images/sound.mp3"
+                                                     message: mresult.regionId + " " + mresult.callbacktype
                                                  });
             //     }
             // trackDeviceY(result);
@@ -3007,14 +3006,14 @@ function outletMessage() {
                        url: gurl + "/trackdevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype + "^enter",lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
                                             }),
                        success: function (data) {
                        },
                        error: function (error) {
                        }
                    });  
-        }
+       // }
     }
     //      , function onErrorShowMap(error) {
     //      });
@@ -3178,8 +3177,7 @@ function outletMessage() {
                                    while (i <= getData.beaconoffers.length - 1) {
                                        window.plugin.notification.local.add({
                                                                                 // title:   getData.beaconoffers[i].msgtitle,
-                                                                                message: getData.beaconoffers[i].msgnotification,
-                                            sound:"images/sound.mp3"
+                                                                                message: getData.beaconoffers[i].msgnotification
                                                                             });
                                        
                                        i++;
