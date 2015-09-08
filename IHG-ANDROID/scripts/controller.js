@@ -2992,11 +2992,11 @@ function outletMessage() {
                                                                              title:   "GeoFence",
                                                                              message: mresult.regionId + " " + mresult.callbacktype
                                                                          });
-             }
+        //     }
         // trackDeviceY(result);
-        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-            lat = position.coords.latitude;                                  
-            lon = position.coords.longitude;
+       // navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+       //     lat = position.coords.latitude;                                  
+       //     lon = position.coords.longitude;
            
             $.ajax({ 
                        type: "POST",
@@ -3014,9 +3014,9 @@ function outletMessage() {
                        }
                    });  
         }
-                                                 , function onErrorShowMap(error) {
-                                                 });
-    }
+                                           //      , function onErrorShowMap(error) {
+                                           //      });
+   // }
     // }
     
     function trackDevice(mresult) {
@@ -3250,12 +3250,12 @@ function outletMessage() {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
         
-        //   if (jsonp["state"] === "CLRegionStateInside") {
-        //    window.plugin.notification.local.add({
-        //                                                                           title:   "Beacon",
-        //                                                                           message: jsonp["region"].identifier + " " + jsonp["state"]
-        //                                                                       });
-        //       }
+           if (jsonp["state"] === "CLRegionStateInside") {
+            window.plugin.notification.local.add({
+                                                                                   title:   "Beacon",
+                                                                                  message: jsonp["region"].identifier + " " + jsonp["state"]
+                                                                               });
+              }
         
         if (jsonp["state"] === "CLRegionStateInside") {
             $.ajax({ 
