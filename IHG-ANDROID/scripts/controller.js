@@ -809,7 +809,6 @@ function outletMessage() {
                                                                       if (getData.statuscode === "000") {
                                                                           if (getData.propertylist.length > 0) {
                                                                               while (i <= getData.propertylist.length - 1) {
-                                                                                  
                                                                                   //Stop Geo Fence Monitor
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
                                                                                   
@@ -2988,16 +2987,13 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (mresult) {
-       // if (result.callbacktype === "enter" || result.callbacktype === "exit") {
-           
-           //   window.plugin.notification.local.add({
-           //                                                                     title:   "GeoFence",
-           //                                                                     message: result.regionId + " " + result.callbacktype
-           //                                                                 });
-            
-            // trackDeviceY(result);
-            
-              navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+        // if (result.callbacktype === "enter" || result.callbacktype === "exit") {
+        //   window.plugin.notification.local.add({
+        //                                                                     title:   "GeoFence",
+        //                                                                     message: result.regionId + " " + result.callbacktype
+        //                                                                 });
+        // trackDeviceY(result);
+        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
             lat = position.coords.latitude;                                  
             lon = position.coords.longitude;
            
@@ -3019,8 +3015,8 @@ function outletMessage() {
         }
                                                  , function onErrorShowMap(error) {
                                                  });
-        }
-   // }
+    }
+    // }
     
     function trackDevice(mresult) {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
@@ -3170,12 +3166,12 @@ function outletMessage() {
                                    while (i <= getData.propertylist.length - 1) {
                                        //Stop Monitor
                                        var params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
-                                        window.plugins.DGGeofencing.stopMonitoringRegion(params, 
-                                                                                         function(result) {
-                                                                                             // not used.
-                                                                                         }, function(error) {
-                                                                                              // not used
-                                                                                         });
+                                       window.plugins.DGGeofencing.stopMonitoringRegion(params, 
+                                                                                        function(result) {
+                                                                                            // not used.
+                                                                                        }, function(error) {
+                                                                                            // not used
+                                                                                        });
                                        
                                        params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius,"3"];
                                        window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
@@ -3253,12 +3249,12 @@ function outletMessage() {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
         
-     //   if (jsonp["state"] === "CLRegionStateInside") {
-     //    window.plugin.notification.local.add({
-     //                                                                           title:   "Beacon",
-     //                                                                           message: jsonp["region"].identifier + " " + jsonp["state"]
-     //                                                                       });
-     //       }
+        //   if (jsonp["state"] === "CLRegionStateInside") {
+        //    window.plugin.notification.local.add({
+        //                                                                           title:   "Beacon",
+        //                                                                           message: jsonp["region"].identifier + " " + jsonp["state"]
+        //                                                                       });
+        //       }
         
         if (jsonp["state"] === "CLRegionStateInside") {
             $.ajax({ 
@@ -3280,7 +3276,8 @@ function outletMessage() {
                                    while (i <= getData.beaconoffers.length - 1) {
                                        window.plugin.notification.local.add({
                                                                                 // title:   getData.beaconoffers[i].msgtitle,
-                                                                                message: getData.beaconoffers[i].msgnotification
+                                                                                message: getData.beaconoffers[i].msgnotification,
+                                                                                sound: "file://images/sound.mp3"
                                                                             });
                                        
                                        i++;
