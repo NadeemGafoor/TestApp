@@ -930,8 +930,8 @@ function outletMessage() {
                                                    }     
                                                    var pushSettings = {
                                                        iOS: {
-                                                           badge: "1",
-                                                           sound: "default",
+                                                           badge: "true",
+                                                           sound: "true",
                                                            alert: "true",
                                                            clearBadge: "true"
                                                        },
@@ -1184,7 +1184,7 @@ function outletMessage() {
                                                                  
                                                                   pushSettings = {
                                                                       iOS: {
-                                                                          badge: "false",
+                                                                          badge: "true",
                                                                           sound: "true",
                                                                           alert: "true",
                                                                           clearBadge: "true"
@@ -2301,7 +2301,7 @@ function outletMessage() {
                                                                    window.localStorage.setItem("country", country);  
                                                                    pushSettings = {
                                                                        iOS: {
-                                                                           badge: "false",
+                                                                           badge: "true",
                                                                            sound: "true",
                                                                            alert: "true",
                                                                            clearBadge: "true"
@@ -2987,16 +2987,17 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (mresult) {
-         if (result.callbacktype === "enter" || result.callbacktype === "exit") {
-           window.plugin.notification.local.add({
-                                                                             title:   "GeoFence",
-                                                                             message: mresult.regionId + " " + mresult.callbacktype
-                                                                         });
-        //     }
-        // trackDeviceY(result);
-       // navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-       //     lat = position.coords.latitude;                                  
-       //     lon = position.coords.longitude;
+        if (result.callbacktype === "enter" || result.callbacktype === "exit") {
+            window.plugin.notification.local.add({
+                                                     title:   "GeoFence",
+                                                     message: mresult.regionId + " " + mresult.callbacktype,
+                sound:"images/sound.mp3"
+                                                 });
+            //     }
+            // trackDeviceY(result);
+            // navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+            //     lat = position.coords.latitude;                                  
+            //     lon = position.coords.longitude;
            
             $.ajax({ 
                        type: "POST",
@@ -3006,7 +3007,7 @@ function outletMessage() {
                        url: gurl + "/trackdevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype+"^enter",lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype + "^enter",lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
                                             }),
                        success: function (data) {
                        },
@@ -3014,11 +3015,11 @@ function outletMessage() {
                        }
                    });  
         }
-                                           //      , function onErrorShowMap(error) {
-                                           //      });
-   // }
+    }
+    //      , function onErrorShowMap(error) {
+    //      });
     // }
-    
+    // }
        
     function showTop(e) {
         window.plugins.toast.showWithOptions({
@@ -3150,12 +3151,12 @@ function outletMessage() {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
         
-           if (jsonp["state"] === "CLRegionStateInside") {
+        if (jsonp["state"] === "CLRegionStateInside") {
             window.plugin.notification.local.add({
-                                                                                   title:   "Beacon",
-                                                                                  message: jsonp["region"].identifier + " " + jsonp["state"]
-                                                                               });
-              }
+                                                     title:   "Beacon",
+                                                     message: jsonp["region"].identifier + " " + jsonp["state"]
+                                                 });
+        }
         
         if (jsonp["state"] === "CLRegionStateInside") {
             $.ajax({ 
@@ -3177,7 +3178,8 @@ function outletMessage() {
                                    while (i <= getData.beaconoffers.length - 1) {
                                        window.plugin.notification.local.add({
                                                                                 // title:   getData.beaconoffers[i].msgtitle,
-                                                                                message: getData.beaconoffers[i].msgnotification
+                                                                                message: getData.beaconoffers[i].msgnotification,
+                                            sound:"images/sound.mp3"
                                                                             });
                                        
                                        i++;
