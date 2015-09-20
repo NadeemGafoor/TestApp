@@ -3018,7 +3018,7 @@ function outletMessage() {
     //      , function onErrorShowMap(error) {
     //      });
     // }
-    // }
+     }
        
     function showTop(e) {
         window.plugins.toast.showWithOptions({
@@ -3155,10 +3155,7 @@ function outletMessage() {
                                                      title:   "Beacon",
                                                      message: jsonp["region"].identifier + " " + jsonp["state"]
                                                  });
-        }
-        
-        if (jsonp["state"] === "CLRegionStateInside") {
-            $.ajax({ 
+               $.ajax({ 
                        type: "POST",
                        cache:false,
                        async:true,
