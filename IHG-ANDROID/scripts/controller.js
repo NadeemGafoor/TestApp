@@ -811,7 +811,7 @@ function outletMessage() {
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   //Stop Geo Fence Monitor
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
-                                                                                  
+                                                                                  alert(getData.propertylist[i].brandcode);
                                                                                   window.plugins.DGGeofencing.stopMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
                                                                                       m = JSON.stringify(error);
