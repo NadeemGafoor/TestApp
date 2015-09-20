@@ -2992,12 +2992,7 @@ function outletMessage() {
                                                      title:   "GeoFence",
                                                      message: mresult.regionId + " " + mresult.callbacktype
                                                  });
-            //     }
-            // trackDeviceY(result);
-            // navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-            //     lat = position.coords.latitude;                                  
-            //     lon = position.coords.longitude;
-           
+
             $.ajax({ 
                        type: "POST",
                        cache:false,
@@ -3013,11 +3008,9 @@ function outletMessage() {
                        error: function (error) {
                        }
                    });  
-       // }
+      
     }
-    //      , function onErrorShowMap(error) {
-    //      });
-    // }
+ 
      }
        
     function showTop(e) {
