@@ -2986,7 +2986,7 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (mresult) {
-   //     if (result.callbacktype === "enter" || result.callbacktype === "exit") {
+        if (result.callbacktype === "enter" || result.callbacktype === "exit") {
             window.plugin.notification.local.add({
                                                      title:   "GeoFence",
                                                      message: mresult.regionId + " " + mresult.callbacktype
@@ -3010,7 +3010,7 @@ function outletMessage() {
       
     }
  
-    // }
+    }
        
     function showTop(e) {
         window.plugins.toast.showWithOptions({
