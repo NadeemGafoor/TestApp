@@ -6,8 +6,8 @@
   "DisplayName": "Test IHG® Dining Rewards",
   "Author": "Hospitality Dynamics",
   "Description": "Test IHG® Dining Rewards and Offers",
-  "BundleVersion": "1.0",
-  "AndroidVersionCode": "1",
+  "BundleVersion": "1.10",
+  "AndroidVersionCode": "2",
   "iOSDeviceFamily": [
     "1"
   ],
@@ -38,7 +38,7 @@
   "DeviceOrientations": [
     "Portrait"
   ],
-  "AndroidHardwareAcceleration": "true",
+  "AndroidHardwareAcceleration": "false",
   "iOSStatusBarStyle": "Default",
   "Framework": "Cordova",
   "WP8TileTitle": "",
