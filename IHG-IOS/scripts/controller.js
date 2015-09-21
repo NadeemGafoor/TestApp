@@ -2986,11 +2986,11 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (mresult) {
-   //     if (result.callbacktype === "enter" || result.callbacktype === "exit") {
-            window.plugin.notification.local.add({
-                                                     title:   "GeoFence",
-                                                     message: mresult.regionId + " " + mresult.callbacktype
-                                                 });
+        if (result.callbacktype === "enter" || result.callbacktype === "exit") {
+          //  window.plugin.notification.local.add({
+          //                                           title:   "GeoFence",
+          //                                           message: mresult.regionId + " " + mresult.callbacktype
+         //                                        });
 
             $.ajax({ 
                        type: "POST",
@@ -3010,7 +3010,7 @@ function outletMessage() {
       
     }
  
-   // }
+    }
        
     function showTop(e) {
         window.plugins.toast.showWithOptions({
@@ -3143,10 +3143,10 @@ function outletMessage() {
         var jsonp = JSON.parse(json);
         
         if (jsonp["state"] === "CLRegionStateInside") {
-            window.plugin.notification.local.add({
-                                                    title:   "Beacon",
-                                                     message: jsonp["region"].identifier + " " + jsonp["state"]
-                                               });
+          //  window.plugin.notification.local.add({
+          //                                          title:   "Beacon",
+           //                                          message: jsonp["region"].identifier + " " + jsonp["state"]
+            //                                   });
                $.ajax({ 
                        type: "POST",
                        cache:false,
