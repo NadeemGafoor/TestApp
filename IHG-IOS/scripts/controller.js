@@ -2986,7 +2986,7 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (mresult) {
-        if (result.callbacktype === "enter" || result.callbacktype === "exit") {
+        //if (result.callbacktype === "enter" || result.callbacktype === "exit") {
             window.plugin.notification.local.add({
                                                      title:   "GeoFence",
                                                      message: mresult.regionId + " " + mresult.callbacktype
@@ -3000,7 +3000,7 @@ function outletMessage() {
                        url: gurl + "/trackdevice.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^enter^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
+                                                merchantcode :window.localStorage.getItem("merchant"),mdevice:window.localStorage.getItem("mdevicestat") + "^" + mresult.callbacktype,lat:lat,lon:lon,customer:window.localStorage.getItem("customer"),segment:mresult.regionId
                                             }),
                        success: function (data) {
                        },
@@ -3010,7 +3010,7 @@ function outletMessage() {
       
     }
  
-    }
+    //}
        
     function showTop(e) {
         window.plugins.toast.showWithOptions({
