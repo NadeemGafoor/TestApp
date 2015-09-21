@@ -3143,10 +3143,10 @@ function outletMessage() {
         var jsonp = JSON.parse(json);
         
         if (jsonp["state"] === "CLRegionStateInside") {
-          //  window.plugin.notification.local.add({
-          //                                          title:   "Beacon",
+           // window.plugin.notification.local.add({
+           //                                         title:   "Beacon",
            //                                          message: jsonp["region"].identifier + " " + jsonp["state"]
-            //                                   });
+           //                                    });
                $.ajax({ 
                        type: "POST",
                        cache:false,
