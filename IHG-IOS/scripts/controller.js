@@ -819,7 +819,7 @@ function outletMessage() {
                                                                                   });
                                                                                   
                                                                                   //Start Geofence Monitoring
-                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  getData.propertylist[i].radius];
+                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  parseInt(getData.propertylist[i].radius)];
                                                                                   //alert(getData.propertylist[i].brandcode + " " + getData.propertylist[i].lat +  " " +  getData.propertylist[i].lon + " " +   getData.propertylist[i].radius);
                                                                                   window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
@@ -2987,7 +2987,7 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (mresult) {
-        //if (result.callbacktype === "enter" || result.callbacktype === "exit") {
+        if (result.callbacktype == "enter" || result.callbacktype == "exit") {
             window.plugin.notification.local.add({
                                                      title:   "GeoFence",
                                                      message: mresult.regionId + " " + mresult.callbacktype
@@ -3011,7 +3011,7 @@ function outletMessage() {
       
     }
  
-    //}
+    }
        
     function showTop(e) {
         window.plugins.toast.showWithOptions({
