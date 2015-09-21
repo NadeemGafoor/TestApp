@@ -2987,7 +2987,7 @@ function outletMessage() {
     }
     
     function processRegionMonitorCallback (mresult) {
-        if (mresult.callbacktype == "enter" || mresult.callbacktype == "exit") {
+        if (mresult.callbacktype === "enter" || mresult.callbacktype === "exit") {
             window.plugin.notification.local.add({
                                                      title:   "GeoFence",
                                                      message: mresult.regionId + " " + mresult.callbacktype
