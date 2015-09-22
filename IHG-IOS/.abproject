@@ -2,10 +2,10 @@
   "ProjectName": "IHG-IOS",
   "ProjectGuid": "37d24e92-f8a1-4d2a-a04b-ab545fe1b60e",
   "projectVersion": 1,
-  "AppIdentifier": "com.HDNew.IHGDiningRewards",
-  "DisplayName": "Test IHG® Dining Rewards",
+  "AppIdentifier": "com.HDProd.IHGDiningRewards",
+  "DisplayName": "IHG® Dining Rewards",
   "Author": "Hospitality Dynamics",
-  "Description": "Test IHG® Dining Rewards and Offers",
+  "Description": "IHG® Dining Rewards and Offers",
   "BundleVersion": "1.10",
   "AndroidVersionCode": "2",
   "iOSDeviceFamily": [
