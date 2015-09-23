@@ -21,7 +21,8 @@ function outletMessage() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-    var gurl = "http://exclusiveu.dynns.com:8088/mobilePortal";
+    //var gurl = "http://exclusiveu.dynns.com:8088/mobilePortal";
+        var gurl = "https://appapi.exclusiveu.in/mobilePortal";
     var merchant = "INTER09705";
     var customer = "9999999999";
     var customername = "Guest";
@@ -71,8 +72,11 @@ function outletMessage() {
     var appad_location = "http://www.ihgdiningrewards.com";
     var appad_location_short = "http://www.ihgdiningrewards.com";    
     var social_subject = "IHG® Dining Rewards";
-    var share_image = "http://exclusiveu.dynns.com:8088/mobileportal/images/ihg_logo.png";
-    var flag_image = "http://exclusiveu.dynns.com:8088/mobileportal/flagimages/";
+    //var share_image = "http://exclusiveu.dynns.com:8088/mobileportal/images/ihg_logo.png";
+    //var flag_image = "http://exclusiveu.dynns.com:8088/mobileportal/flagimages/";
+    var notification_image = "https://appapi.exclusiveu.in/mobileportal/images/36x36_icon.png";    
+    var share_image = "https://appapi.exclusiveu.in/mobileportal/images/ihg_logo.png";
+    var flag_image = "https://appapi.exclusiveu.in/mobileportal/flagimages/";
     var short_msg = "Check out the IHG® Dining Rewards at ";
     var offertelephone = "0097142766186";
     var enrollmenttelephone = "0097142766213";

@@ -1,5 +1,6 @@
 // This is your Telerik Backend Services API key.
-var bsApiKey = '6LEEprHEujIskeua';
+//var bsApiKey = '6LEEprHEujIskeua';
+var bsApiKey = 'oDrMvNSac4JXOWS2';
 
 // This is the scheme (http or https) to use for accessing the Telerik Backend Services REST API.
 var bsScheme = 'http';
@@ -23,9 +24,9 @@ var currentDevice;
         // Initialize the Backend Services SDK
    
         if (!bsApiKey || bsApiKey === 'BACKEND_SERVICES_API_KEY') {
-            navigator.notification.alert("Unable to register for Notification Services, you may not be able to receive Notifications from Al Yamamah Rewards");
+            navigator.notification.alert("Unable to register for Notification Services, you may not be able to receive Notifications from IHG Dining Rewards");
         } else if ((!googleApiProjectNumber || googleApiProjectNumber === 'GOOGLE_API_PROJECT_NUMBER') && device.platform.toLowerCase() == "android") {
-            navigator.notification.alert("Unable to register for Notification Services, you may not be able to receive Notifications from Al Yamamah Rewards");
+            navigator.notification.alert("Unable to register for Notification Services, you may not be able to receive Notifications from IHG Dining Rewards");
         }
        
         app = new kendo.mobile.Application(document.body, {
