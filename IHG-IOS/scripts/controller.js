@@ -23,7 +23,8 @@ function outletMessage() {
     var ctr = 0;
     //var gurl = "http://exclusiveu.dynns.com:8088/mobilePortal";
         var gurl = "https://appapi.exclusiveu.in/mobilePortal";
-    var merchant = "INTER09705";
+    //var merchant = "INTER09705";
+    var merchant = "IHGDI09999";
     var customer = "9999999999";
     var customername = "Guest";
     var password = "";
