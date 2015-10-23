@@ -6,7 +6,7 @@
   "DisplayName": "IHG® Dining Rewards",
   "Author": "Hospitality Dynamics",
   "Description": "IHG® Dining Rewards and Offers",
-  "BundleVersion": "1.10",
+  "BundleVersion": "1.1",
   "AndroidVersionCode": "2",
   "iOSDeviceFamily": [
     "1"
