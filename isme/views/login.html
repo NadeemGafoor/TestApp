@@ -1,59 +1,75 @@
-<div data-role="view" data-layout="back-layout" data-title="Sign In" id="login-theme" data-model="preLogin" data-show="preLogin.loginInit" data-hide="preLogin.destroyLoginView">
-    
-    <div  class="class-home-view">
-                <div data-role="navbar">
-                    <div class="brand-icon"></div> 
-                    <span data-role="view-title"></span>
-                     <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
-                </div>
+<div data-role="view" data-layout="back-layout" data-title="Sign In" id="login-theme" data-model="preLogin" data-show="preLogin.loginInit" data-hide="preLogin.destroyLoginView" >
+
+    <div data-role="navbar">
+        <div class="brand-icon"></div>
+        <span data-role="view-title"></span>
+        <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
+    </div>
 
     <ul data-role="listview">
 
-           
         <li>
-            <div class="input-frame whitecolor">
-                <label for="username">Membership #: </label>
-                <input type="number" id="username" data-bind="value: username" />
+            <div class="input-frame ">
+                <input type="number" id="username" data-bind="value: username" placeholder="Member ID"/>
             </div>
         </li>
         <li>
-            <div class="input-frame whitecolor">
-                <label for="password">Password: </label>
-                <input type="password" id="password" data-bind="value: password" />
+            <div class="input-frame ">
+                <input type="password" id="password" data-bind="value: password" placeholder="Password"/>
             </div>
         </li>
         <li>
-            <div class="switch-frame whitecolor" style="margin-left:1.5em">
-                <label >
-                    Remember Me
-                    <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
-                </label>
+            <div class="switch-frame-i">
+                <div class="switch-frame" >
+                    <label >
+                        Remember Me
+                        <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
+                    </label>
+                </div>
             </div>
         </li>
-        <li>
-            <div class="button-frame">
-                 <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser"  >Login</a>
-                 <a data-transition="slide"   id="mobile-button2" href="views/resetpassword.html" data-role="button"  >Reset Password</a>
-                 <a data-transition="slide"   id="mobile-button3" href="views/join.html" data-role="button"  >Join Now</a>
-            </div>
-        </li>
-          <li>
-            <div class="button-frame">
-                 <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser"  >Login</a>
-                 <a data-transition="slide"   id="mobile-button2" href="views/resetpassword.html" data-role="button"  >Reset Password</a>
-                 <a data-transition="slide"   id="mobile-button3" href="views/join.html" data-role="button"  >Join Now</a>
-            </div>
-        </li>
-          <li>
-            <div class="button-frame">
-                 <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser"  >Login</a>
-                 <a data-transition="slide"   id="mobile-button2" href="views/resetpassword.html" data-role="button"  >Reset Password</a>
-                 <a data-transition="slide"   id="mobile-button3" href="views/join.html" data-role="button"  >Join Now</a>
-            </div>
-        </li>
-        <li></li>
-    </ul>
 
-          </div>
+        <li>
+            <div class="button-frame">
+                <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-login" >Login</a>
+            </div>
+        </li>
+        <li>
+            <div class="button-frame">
+                <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-loginwithfacebook">Login with Facebook</a>
+            </div>
+        </li>
+        <div>
+        <li>
+            <div class="switch-frame-i one-line">RESET PASSWORD</div>
+        </li>
+            </div>
+    </ul>
 </div>
 
+<style scoped>
+    .one-line
+    {
+        color: #fff;
+        line-height: 3em;
+        text-align: center;
+        padding-top: 1em;
+    }
+    
+    #login-theme .button-login
+    {
+        background-color: rgba(62, 65, 66, 0.7);
+        color: #fff;
+    }
+    
+    #login-theme .button-loginwithfacebook
+    {
+        background-color: rgba(13, 104, 197, 1);
+        color: #fff;
+    }
+    
+    #login-theme .km-listview,li,ul
+    {
+        border-bottom: 0px;
+    }
+    </style>

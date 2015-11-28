@@ -5,8 +5,9 @@
 @font-face { font-family: 'Gotham-Light'; src: url('../styles/fonts/Gotham-Light.ttf')  format('truetype'); } /* Safari, Android, iOS */
 @font-face { font-family: 'Gotham-LightItalic'; src: url('../styles/fonts/Gotham-Book.otf')  format('opentype'); } /* Safari, Android, iOS */
 
-
-
+.km-ios7 .km-view .km-header{
+    background-color:#000;
+}
 a
 {
     text-decoration: none;
@@ -54,25 +55,21 @@ a
 
 ul a:active
 {
-    background-color: #e67e1d !important;
-    color: #343434;
+    background-color: #000 !important;
+    color: #ccc;
 }
 
 a:active
 {
-    background-color: #e67e1d !important;
-    color: #343434;
+    background-color: #000 !important;
+    color: #fff;
 }
 
-.km-ios7 .km-view  .km-content
-{
-    background-color: #000;
-} 
 
 .km-ios7 .km-view .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../images/640x960_bg.png) no-repeat center center;
-     background-size: cover;
+    background-size: cover;
     -webkit-background-size: cover;
 }
 
@@ -111,11 +108,6 @@ h2
     color: #000;
 }
 
-.whitecolor
-{
-    color: #575757;
-}
-
 .km-ios7 .km-view ul
 {
     margin-left: 2%;
@@ -125,7 +117,6 @@ h2
     border-radius: 5px; 
     font-size: .8em; 
 }
-
 
 .km-ios7 p
 {
@@ -217,7 +208,6 @@ img
     margin-top: .2em; 
 }
 
-
 #scrollview-container
 {
     margin: 0 0 1em 0;
@@ -305,7 +295,7 @@ img
 }
 .button-group .km-button.km-state-active
 {
-    background-color: #575757;
+    background-color: #000;
 }
 
 #modalview-offersocial img
@@ -353,7 +343,8 @@ img
     height: 5em;
     line-height: 5em;
     width: 100%;
-    padding-left: 5%;
+    padding-left: 15%;
+    color: #fff;
 }
 .input-frame label
 {
@@ -361,6 +352,7 @@ img
     line-height: 1.2em;
     width: 100%;
     text-align: left;
+    color: #fff;
 }
 
 #pl-settings-theme .input-frame input,
@@ -371,12 +363,13 @@ img
 #pl-myprofile-theme .input-frame input
 {
     display: block;
-    width: 85%;
+    width: 70%;
     height: 2.3em;
     line-height: 2em;
-    border: 1px solid #ccc;
-    background-color: #f7f3f1;
-    left: 8%;
+    border-bottom: 2px solid #fff;
+    left: 15%;
+    background-color: transparent !important;
+    color: #fff;
 }
 .button-frame-inline
 {
@@ -393,7 +386,6 @@ img
     width: 100%;
     position: relative;
     float: none;
-   
 }
 
 .button-frame-inline .km-button
@@ -409,18 +401,17 @@ img
     border-radius: 0px;
 }
 
-
 .button-frame .km-button
 {
-    line-height:1.5em;
+    line-height: 1.5em;
     width: 70%;
     display: block;
     text-align: center;
     font-size: 1.4em;
     margin-left: 15%;
-     -webkit-border: #fff solid 1px;
-    -moz-border:  #fff solid 1px;
-    border:  #fff solid 1px;
+    -webkit-border: #fff solid 1px;
+    -moz-border: #fff solid 1px;
+    border: #fff solid 1px;
     -webkit-border-radius: 35px;
     -moz-border-radius: 35px;
     border-radius: 35px;
@@ -504,8 +495,8 @@ img
 
 .input-frame
 {
-    height: 5em;
-    line-height: 5em;
+    height: 4em;
+    line-height: 4em;
     width: 100%;
     padding-left: 5%;
 }
@@ -520,13 +511,23 @@ img
 
 .switch-frame
 {
-    height: 3.5em;
-    line-height: 5em;
+    height: 3em;
+    width: 100%;
     float: none;
 }
+
 .switch-frame label
 {
-    line-height: 3.5em;
+    line-height: 3em;
+    color: #fff;
+}
+.switch-frame-i
+{
+    position: relative;
+    width: 70%;
+    height: auto;
+    float: none;
+    left: 15%;
 }
 
 .detail-subhead
