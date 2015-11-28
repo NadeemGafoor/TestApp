@@ -1,0 +1,49 @@
+<!--Explore View-->
+<div data-role="view" data-title="isme" data-layout="main-layout" id="home-view" data-show="preLogin.varInit" data-model="preLogin" data-stretch="true">
+    <div  class="class-home-view">
+        <div data-role="navbar">
+            <a  data-role="button" href="#appdrawerN" data-rel="drawer" data-align="left">
+                <i class="fa fa-reorder fa-lg" style="color:#fff"></i>
+            </a>
+            <span data-role="view-title" id="item-title"></span>
+        </div>
+        
+        <div class="empty-top">&nbsp;</div>
+        
+        <div class="button-frame">
+            <a data-transition="slide" id="btnDiscover" data-role="button" href="views/discoverpage.html" class="button-discover">Discover</a>
+            <div class="filler"></div>
+            <a data-transition="slide" id="btnLogin" data-role="button" href="views/login.html" class="button-login">Login</a>
+            <div class="filler"></div>
+            <a data-transition="slide" id="btnEnrol" data-role="button" href="views/join.html" class="button-enrol" >Enrol</a>
+         
+        </div>
+    </div>
+</div>
+
+<style scoped>
+    
+    #home-view .button-discover
+    {
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+       
+    }
+    
+    #home-view .button-login
+    {
+        background-color: rgba(62, 65, 66, 0.7);
+        color: #fff;
+    }
+    
+     #home-view .button-enrol
+    {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #000;
+    }
+    
+    #home-view .filler
+    {
+        height:20px;
+    }
+</style>
