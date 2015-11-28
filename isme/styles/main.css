@@ -5,8 +5,9 @@
 @font-face { font-family: 'Gotham-Light'; src: url('../styles/fonts/Gotham-Light.ttf')  format('truetype'); } /* Safari, Android, iOS */
 @font-face { font-family: 'Gotham-LightItalic'; src: url('../styles/fonts/Gotham-Book.otf')  format('opentype'); } /* Safari, Android, iOS */
 
-.km-ios7 .km-view .km-header{
-    background-color:#000;
+.km-ios7 .km-view .km-header
+{
+    background-color: #000;
 }
 a
 {
@@ -65,6 +66,14 @@ a:active
     color: #fff;
 }
 
+.discover-back
+{
+    height: 1280;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../images/discover_bg.png) no-repeat center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+}
 
 .km-ios7 .km-view .km-content
 {
@@ -1456,4 +1465,23 @@ tile-frame-inner
     height: 25px;
     width: 40px;
     margin-right: .5em;
+}
+
+.discover-back
+{
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/discover_bg.png) no-repeat center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+.discover-back-part
+{
+    position:relative;
+    display:inline;
+    width: 50%;
+    color:#fff;
+    font-size:1.4em;
+    text-align:center;  
+    width:50%;
 }
