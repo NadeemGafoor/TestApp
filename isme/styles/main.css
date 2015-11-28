@@ -32,6 +32,7 @@ a
 .km-ios7 .km-navbar .km-button
 {
     margin-top: -10px;
+    width:40px;
 }
 
 .km-navbar a:active
@@ -1540,14 +1541,7 @@ tile-frame-inner
     padding-top:35%;
 }
 
-.image-enhancer{
-    background-size: cover;
-    -webkit-background-size: cover;
-    position: relative;
-    float: left;
-    width: 100%;
-    padding-top: 0px;
-    }
+
 
 .outer-frame-1{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/001.png) no-repeat center center;}
 .outer-frame-2{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/002.png) no-repeat center center;}
@@ -1555,3 +1549,12 @@ tile-frame-inner
 .outer-frame-4{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/004.png) no-repeat center center;}
 .outer-frame-5{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/005.png) no-repeat center center;}
 .outer-frame-6{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/006.png) no-repeat center center;}
+
+.image-enhancer{
+    background-size: cover;
+    -webkit-background-size: cover;
+    position: relative;
+    float: none;
+    width: 100%;
+    overflow:hidden;
+    }
