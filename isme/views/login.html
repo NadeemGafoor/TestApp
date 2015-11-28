@@ -1,20 +1,20 @@
 <div data-role="view" data-layout="back-layout" data-title="Sign In" id="login-theme" data-model="preLogin" data-show="preLogin.loginInit" data-hide="preLogin.destroyLoginView" >
-
-    <div data-role="navbar">
-        <div class="brand-icon"></div>
-        <span data-role="view-title"></span>
-        <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
+    <div data-role="header">
+        <div data-role="navbar">
+            <div class="brand-icon"></div>
+            <span data-role="view-title"></span>
+            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
+        </div>
     </div>
-
     <ul data-role="listview">
 
         <li>
-            <div class="input-frame ">
+            <div class="input-frame">
                 <input type="number" id="username" data-bind="value: username" placeholder="Member ID"/>
             </div>
         </li>
         <li>
-            <div class="input-frame ">
+            <div class="input-frame">
                 <input type="password" id="password" data-bind="value: password" placeholder="Password"/>
             </div>
         </li>
@@ -30,31 +30,25 @@
         </li>
 
         <li>
-            <div class="button-frame">
+            <div class="button-frame-inline">
                 <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-login" >Login</a>
             </div>
         </li>
         <li>
-            <div class="button-frame">
+            <div class="button-frame-inline">
                 <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-loginwithfacebook">Login with Facebook</a>
             </div>
         </li>
         <div>
-        <li>
-            <div class="switch-frame-i one-line">RESET PASSWORD</div>
-        </li>
-            </div>
+            <li>
+                <div class="switch-frame-i one-line">RESET PASSWORD</div>
+            </li>
+        </div>
     </ul>
 </div>
 
 <style scoped>
-    .one-line
-    {
-        color: #fff;
-        line-height: 3em;
-        text-align: center;
-        padding-top: 1em;
-    }
+    
     
     #login-theme .button-login
     {
@@ -66,10 +60,5 @@
     {
         background-color: rgba(13, 104, 197, 1);
         color: #fff;
-    }
-    
-    #login-theme .km-listview,li,ul
-    {
-        border-bottom: 0px;
     }
     </style>

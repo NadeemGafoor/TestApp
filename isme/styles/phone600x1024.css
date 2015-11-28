@@ -66,16 +66,7 @@
         display: inline;
     }
 
-.outer-frame
-{
-    height:10em;
-    position: relative;
-    float: left;
-    width: 100%;
-    padding-top: 0px;
-}
- 
- 
+
 #login-theme .header-class,
     #pl-home-view .header-class
     {
@@ -229,5 +220,13 @@
 
  .discover-back-height-2{
       height:482px;
-     line-height:482px;
+
     }
+
+
+.outer-frame
+{
+    height:10em;
+}
+ 
+ 

@@ -208,7 +208,15 @@ function outletMessage() {
         
                                            destroyLoginView
                                            :function() {
+                                               $("#brandlist-view").remove();  
+                                           },
+                                           destroyDiscoverListView
+                                           :function() {
                                                $("#login-theme").remove();  
+                                           },
+                                           destroyEnrolView
+                                           :function() {
+                                               $("#enrol-theme").remove();  
                                            },
         
                                            destroyOfferListNearMeView
@@ -217,7 +225,7 @@ function outletMessage() {
                                            },
                                            destroyOfferListView
                                            :function() {
-                                               $("#offerlist-view").remove();  
+                                               $("#brandlist-view").remove();  
                                            },
                 
                                            offerDetaildestroyView
@@ -2991,11 +2999,10 @@ function outletMessage() {
     
     function processRegionMonitorCallback (mresult) {
         if (mresult.callbacktype === "enter" || mresult.callbacktype === "exit") {
-           // window.plugin.notification.local.add({
-           //                                          title:   "GeoFence",
-           //                                          message: mresult.regionId + " " + mresult.callbacktype
-          //                                       });
-
+            // window.plugin.notification.local.add({
+            //                                          title:   "GeoFence",
+            //                                          message: mresult.regionId + " " + mresult.callbacktype
+            //                                       });
             $.ajax({ 
                        type: "POST",
                        cache:false,
@@ -3011,9 +3018,7 @@ function outletMessage() {
                        error: function (error) {
                        }
                    });  
-      
-    }
- 
+        }
     }
        
     function showTop(e) {
@@ -3147,11 +3152,11 @@ function outletMessage() {
         var jsonp = JSON.parse(json);
         
         if (jsonp["state"] === "CLRegionStateInside") {
-           // window.plugin.notification.local.add({
-           //                                         title:   "Beacon",
-           //                                          message: jsonp["region"].identifier + " " + jsonp["state"]
-           //                                    });
-               $.ajax({ 
+            // window.plugin.notification.local.add({
+            //                                         title:   "Beacon",
+            //                                          message: jsonp["region"].identifier + " " + jsonp["state"]
+            //                                    });
+            $.ajax({ 
                        type: "POST",
                        cache:false,
                        async:true,

@@ -72,10 +72,7 @@
 .outer-frame
 {
     height:5.5em;
-    position: relative;
-    float: left;
-    width: 100%;
-    padding-top: 0px;
+ 
 }
  
  
@@ -298,5 +295,5 @@
 
  .discover-back-height-2{
       height:260px;
-     line-height:260px;
+
     }

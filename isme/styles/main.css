@@ -349,12 +349,40 @@ img
 
 .input-frame
 {
-    height: 5em;
-    line-height: 5em;
+    height: 4em;
+    line-height: 4em;
     width: 100%;
     padding-left: 15%;
     color: #fff;
 }
+
+.input-frame-enrol
+{
+    height: 2em;
+    line-height: 2em;
+    width: 100%;
+    padding-left: 15%;
+    color: #fff;
+}
+
+.input-frame-enrol-radio
+{
+    height: 6em;
+    line-height: 6em;
+    width: 100%;
+    padding-left: 15%;
+    color: #fff;
+}
+
+.input-frame-enrol label
+{
+    height: 3em;
+    line-height: 3em;
+    width: 50%;
+    text-align: left;
+    color: #fff;
+}
+
 .input-frame label
 {
     height: 1.2em;
@@ -365,7 +393,7 @@ img
 }
 
 #pl-settings-theme .input-frame input,
-#join-theme .input-frame input,
+#enrol-theme .input-frame-enrol input,
 #token-theme .input-frame input,
 #login-theme .input-frame input,
 #resetpassword-theme .input-frame input,
@@ -380,13 +408,21 @@ img
     background-color: transparent !important;
     color: #fff;
 }
+
+.one-line
+    {
+        color: #fff;
+        line-height: 3em;
+        text-align: center;
+        padding-top: 1em;
+    }
 .button-frame-inline
 {
-    height: auto;
-    line-height: 2.5em;
-    width: 100%;
-    text-align: center;
-    background-color: #fff;
+
+    line-height: 1em;
+       width: 100%;
+    position: relative;
+    float: none;
 }
 
 .button-frame
@@ -397,17 +433,21 @@ img
     float: none;
 }
 
+
 .button-frame-inline .km-button
 {
-    line-height: 1.8em;
-    width: 49%;
-    display: inline-block;
-    vertical-align: middle;
+   line-height: 1em;
+    width: 70%;
+    display: block;
     text-align: center;
-    background-color: #d86932;
     font-size: 1.2em;
-    margin: 0px;
-    border-radius: 0px;
+    margin-left: 15%;
+    -webkit-border: #fff solid 1px;
+    -moz-border: #fff solid 1px;
+    border: #fff solid 1px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 25px;
 }
 
 .button-frame .km-button
@@ -539,6 +579,19 @@ img
     left: 15%;
 }
 
+
+
+
+.switch-frame-it
+{
+    position: relative;
+    width: 90%;
+    height: auto;
+    float: none;
+    left: 5%;
+    
+}
+
 .detail-subhead
 {
     text-align: center;
@@ -547,16 +600,16 @@ img
     height: auto;
 }
 
-#pl-setting-theme .input-frame select
+#enrol-theme .input-frame-enrol select
 {
     display: block;
-    width: 96%;
-    height: 2.3em;
-    line-height: 1.5em;
-    border: 1px solid #ccc;
-    background-color: #f0f2f3;
-    left: 2%;
-    color: #575757;
+    width: 70%;
+    height: 2.5em;
+    line-height: 2em;
+    border-bottom: 2px solid #fff;
+    background-color: transparent !important;
+    left: 15%;
+    color: #fff;
 }
 
 .image-position
@@ -1478,10 +1531,27 @@ tile-frame-inner
 .discover-back-part
 {
     position:relative;
+    float:left;  
     display:inline;
-    width: 50%;
+    width: 48%;
     color:#fff;
     font-size:1.4em;
-    text-align:center;  
-    width:50%;
+    text-align:center;   
+    padding-top:35%;
 }
+
+.image-enhancer{
+    background-size: cover;
+    -webkit-background-size: cover;
+    position: relative;
+    float: left;
+    width: 100%;
+    padding-top: 0px;
+    }
+
+.outer-frame-1{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/001.png) no-repeat center center;}
+.outer-frame-2{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/002.png) no-repeat center center;}
+.outer-frame-3{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/003.png) no-repeat center center;}
+.outer-frame-4{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/004.png) no-repeat center center;}
+.outer-frame-5{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/005.png) no-repeat center center;}
+.outer-frame-6{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/006.png) no-repeat center center;}

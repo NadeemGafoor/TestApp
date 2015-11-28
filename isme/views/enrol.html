@@ -1,0 +1,101 @@
+<div data-role="view" data-layout="back-layout" data-title="Enrol" id="enrol-theme" data-model="preLogin" data-show="preLogin.loginInit" data-hide="preLogin.destroyEnrolView" >
+    <div data-role="header">
+        <div data-role="navbar">
+            <div class="brand-icon"></div>
+            <span data-role="view-title"></span>
+            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
+        </div>
+    </div>
+    <ul data-role="listview">
+
+        <li>
+            <div class="input-frame-enrol ">
+                <input type="number" id="firstname" data-bind="value: firstname" placeholder="First Name *"/>
+            </div>
+        </li>
+        <li>
+            <div class="input-frame-enrol ">
+                <input type="password" id="lastname" data-bind="value: lastname" placeholder="Last Name *"/>
+            </div>
+        </li>
+        <li>
+            <div class="input-frame-enrol ">
+                <input type="text" id="emailid" data-bind="value: emailid" placeholder="Email *"/>
+            </div>
+        </li>
+        <li>
+            <div class="input-frame-enrol ">
+                <input type="number" id="mobile" data-bind="value: mobile" placeholder="Mobile (Eg:+9715XXXXXXXX) *"/>
+            </div>
+        </li>
+        <li>
+            <div class="input-frame-enrol">
+                <select id="selCity">
+                    <option value="" selected="true" data-bind="click: getCity">Select Emirate *</option>
+                </select>
+            </div>
+        </li>
+        <li>
+            <div class="input-frame-enrol ">
+                <input type="number" id="siriusnumber" data-bind="value: siriusnumber" placeholder="Sirius Member ID (if any)"/>
+            </div>
+        </li>
+        <li>
+           <div class="input-frame-enrol">
+                <select id="selCity">
+                    <option value="" selected="true" data-bind="click: getCity">Select Gender *</option>
+                      <option value="First Option">Male</option>
+                                <option value="Second Option">Female</option>
+                </select>
+            </div>
+        </li>
+        <li>
+            <div class="switch-frame-it">
+                <div class="switch-frame" >
+                    <label >
+                        Agree to Terms & Conditions
+                        <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
+                    </label>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="button-frame-inline">
+                <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-login" >Continue</a>
+            </div>
+        </li>
+        <li>
+            <div class="button-frame-inline">
+                <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-loginwithfacebook">Enrol using Facebook</a>
+            </div>
+        </li>
+
+            <li>
+                <div class="switch-frame-i one-line">Already have an Account?</div>
+            </li>
+              <li>
+            <div class="button-frame-inline">
+                <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-login">Log In</a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<style scoped>
+   
+    
+    #enrol-theme .button-login
+    {
+        background-color: rgba(62, 65, 66, 0.7);
+        color: #fff;
+    }
+    
+    #enrol-theme .button-loginwithfacebook
+    {
+        background-color: rgba(13, 104, 197, 1);
+        color: #fff;
+    }
+    
+    
+</style>
