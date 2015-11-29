@@ -1,55 +1,75 @@
 <!--Offer List View-->
 <div id="offerlist-view"
      data-role="view"
-     data-title="Offers" data-layout="back-layout"  data-model="preLogin" data-show="preLogin.offerlist" data-hide="preLogin.destroyOfferListView" >
-    <div data-role="header">
+     data-title="Offers" data-layout="back-layout"  data-model="preLogin" data-hide="preLogin.destroyOfferListView" >
+      <div data-role="header">
         <div data-role="navbar">
-            <div class="brand-icon"></div> 
-            <span data-role="view-title"></span>
             <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
-             <a data-transition="slide"   data-role="button" href="views/home.html" data-align="right" ><i class="fa fa-home fa-lg" style="color:#fff"></i></a>
+            <span data-role="view-title"></span>
+            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="right" >
+                <i class="fa fa-search fa-lg" style="color:#fff"></i>
+            </a>
+            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="right" >
+                <i class="fa fa-map-marker fa-lg" style="color:#fff"></i>
+            </a>
         </div>
     </div>
-    <ul data-role="listview" style="background-color:#fff" id="offer-list-view">
 
-    </ul>
+        <ul data-role="listview"  >
 
-    <footer data-role="footer">
-
-        <div data-role="navbar">
-            <div class="home-navbar" >
-                <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
+            <div class="offer-frame-1  outer-frame image-enhancer">
+                <div class="box-text">Emirates Airline Offer</div>
             </div>
-               <div class="footer-logo" data-bind="click:showBrandPage">&nbsp;</div>
 
-        </div>
-    </footer>
-</div>
-
-<script type="text/x-kendo-template" id="offerListTemplate">
-    <a data-transition="slide"   href="views/offerdetail.html?of=${itemcode}" data-role="button"   class="a-class">
-        <div class="outer-frame">
-            <div class="image-frame-list small-image-height">
-                <img src="${imageurls}" style="height:100%;width:100%"/>
+            <div class="offer-frame-2  outer-frame image-enhancer" >
+                <div class="box-text">Couple Dinner</div>
             </div>
-            <div class="inner-frame-1">${itemname} </div>
-            <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
-        </div>
-    </a>
 
-</script>
+            <div class="offer-frame-3  outer-frame image-enhancer ">
+                <div class="box-text">Niught Out at Rays Grill</div>
+            </div>
 
-<style scoped>
+            <div class="offer-frame-4  outer-frame image-enhancer ">
+                <div class="box-text">Family Day at Al Maraa</div>
+            </div>
 
-    #offerlist-view li
-    {
-        border-top: 1px solid #ccc !important;
-        border-bottom: 1px solid #ccc !important;
-    }
-    
-    #offer-list-view a
-    {
-        background-color: transparent !important;
-        color:#575757;
-    }         
+            <div class="offer-frame-5 outer-frame image-enhancer ">
+                <div class="box-text">UAE National Day Celebration</div>
+            </div>
+
+            <div class="offer-frame-6 image-enhancer outer-frame">
+                <div class="box-text">Dinner at Alfies Interior</div>
+            </div>
+
+            <div class="offer-frame-7 image-enhancer outer-frame">
+                <div class="box-text">Tea Time Offer at Lobby Lounge</div>
+            </div>
+            <div class="offer-frame-8 image-enhancer outer-frame">
+                <div class="box-text">Lunch at Arboretum</div>
+            </div>
+            <div class="offer-frame-9 image-enhancer outer-frame">
+                <div class="box-text">Weekend Brunch Offer</div>
+            </div>
+            <div class="offer-frame-10 image-enhancer outer-frame">
+                <div class="box-text">Morrocon Night at Al Iwan</div>
+            </div>
+
+        </ul>
+
+
+    <style scoped>
+
+     
+        #offerlist-list-view a
+        {
+            background-color: transparent !important;
+            color: #fff;
+        }    
+        #offerlist-view ul li
+        {
+            width: 100%;
+            margin-left: -5%;
+            margin-right: -5%;
+            margin-bottom: 5px;
+        }
     </style>

@@ -464,7 +464,7 @@ img
     width: 70%;
     display: block;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin-left: 15%;
     -webkit-border: #fff solid 1px;
     -moz-border: #fff solid 1px;
@@ -1551,12 +1551,39 @@ tile-frame-inner
 
 
 
-.outer-frame-1{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/001.png) no-repeat center center;}
-.outer-frame-2{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/002.png) no-repeat center center;}
-.outer-frame-3{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/003.png) no-repeat center center;}
-.outer-frame-4{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/004.png) no-repeat center center;}
-.outer-frame-5{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/005.png) no-repeat center center;}
-.outer-frame-6{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/006.png) no-repeat center center;}
+.outer-frame-1{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/Brand1.png) no-repeat center center;}
+.outer-frame-2{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/Brand2.png) no-repeat center center;}
+.outer-frame-3{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/Brand3.png) no-repeat center center;}
+.outer-frame-4{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/Brand4.png) no-repeat center center;}
+.outer-frame-5{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/Brand5.png) no-repeat center center;}
+.outer-frame-6{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/Brand6.png) no-repeat center center;}
+.outer-frame-7{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/Brand7.png) no-repeat center center;}
+.outer-frame-8{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/Brand8.png) no-repeat center center;}
+.outer-frame-9{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/Brand9.png) no-repeat center center;}
+.outer-frame-10{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/Brand10.png) no-repeat center center;}
+
+
+.rest-frame-1{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/rest1.png) no-repeat center center;}
+.rest-frame-2{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/rest2.png) no-repeat center center;}
+.rest-frame-3{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/rest3.png) no-repeat center center;}
+.rest-frame-4{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/rest4.png) no-repeat center center;}
+.rest-frame-5{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/rest5.png) no-repeat center center;}
+.rest-frame-6{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/rest6.png) no-repeat center center;}
+.rest-frame-7{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/rest7.png) no-repeat center center;}
+.rest-frame-8{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/rest8.png) no-repeat center center;}
+.rest-frame-9{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/rest9.png) no-repeat center center;}
+.rest-frame-10{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/rest10.png) no-repeat center center;}
+
+.offer-frame-1{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/offer1.png) no-repeat center center;}
+.offer-frame-2{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/offer2.png) no-repeat center center;}
+.offer-frame-3{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/offer3.png) no-repeat center center;}
+.offer-frame-4{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/offer4.png) no-repeat center center;}
+.offer-frame-5{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/offer5.png) no-repeat center center;}
+.offer-frame-6{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/offer6.png) no-repeat center center;}
+.offer-frame-7{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/offer7.png) no-repeat center center;}
+.offer-frame-8{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/offer8.png) no-repeat center center;}
+.offer-frame-9{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/offer9.png) no-repeat center center;}
+.offer-frame-10{background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/offer10.png) no-repeat center center;}
 
 .image-enhancer{
     background-size: cover;
@@ -1565,4 +1592,12 @@ tile-frame-inner
     float: none;
     width: 100%;
     overflow:hidden;
+
     }
+
+.box-text{
+    font-size:1.4em;
+    color:#fff;
+    text-align:center;   
+    margin:23% auto;        
+}

@@ -302,7 +302,13 @@ function outletMessage() {
                                            : function () {
                                                // alert("Hello");
                                                $("body").data("kendoMobilePane").navigate("views/brandpage.html");  
-                                           } ,       
+                                           } ,   
+                                           loadDrawer:function() {
+                                               window.plugins.nativepagetransitions.slide({
+                                                                                              // the defaults for direction, duration, etc are all fine
+                                                                                              "href" : "#appdrawerN"
+                                                                                          });  
+                                           },
                                       
                                            benefitdetail
                                            : function (e) { 
