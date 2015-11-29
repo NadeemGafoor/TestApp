@@ -32,7 +32,7 @@ a
 .km-ios7 .km-navbar .km-button
 {
     margin-top: -10px;
-    width:40px;
+    width:30px;
 }
 
 .km-navbar a:active
@@ -50,10 +50,6 @@ a
     font-size: 1em;
 }
 
-.empty-space
-{
-    margin-top: 50%;
-}
 
 ul a:active
 {
