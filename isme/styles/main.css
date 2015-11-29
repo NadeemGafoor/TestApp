@@ -47,7 +47,7 @@ a
     height: 3em;
     line-height: 3em;
     font-family: Gotham-Book;
-    font-size: 20px;
+    font-size: 1em;
 }
 
 .empty-space
@@ -292,7 +292,7 @@ img
 {
     display: block;
     color: #003566;
-    font-size: 2em;
+    font-size: 1em;
     border: 0px;
 }
 
@@ -468,7 +468,7 @@ img
     width: 70%;
     display: block;
     text-align: center;
-    font-size: 1.4em;
+    font-size: 1.2em;
     margin-left: 15%;
     -webkit-border: #fff solid 1px;
     -moz-border: #fff solid 1px;
@@ -1206,7 +1206,7 @@ li
 .tile-frame-text
 {
     text-align: center;
-    font-size: 14px;
+    font-size: 1.2em;
     font-weight: bold;
     color: #343434;
     margin-top: -20%;
@@ -1215,7 +1215,7 @@ li
 .tile-frame-text-1
 {
     text-align: center;
-    font-size: 14px;
+    font-size: 1.2em;
     font-weight: bold;
     color: #343434;
     margin-top: -10px;
@@ -1315,7 +1315,7 @@ tile-frame-inner
 .msgfont
 {
     text-align: center;
-    font-size: 18px;
+    font-size: 1.4em;
     font-weight: bold;
     color: #fff;
 }
