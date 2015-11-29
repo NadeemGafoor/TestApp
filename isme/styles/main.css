@@ -67,18 +67,36 @@ a:active
     color: #fff;
 }
 
-.discover-back
+#enrol-theme .km-content
 {
-    height: 1280;
-    width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../images/discover_bg.png) no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/640x960_bg.png) no-repeat center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+#discoverlist-view .km-content
+{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/discover_bg.png) no-repeat center center;
     background-size: cover;
     -webkit-background-size: cover;
 }
 
 .km-ios7 .km-view .km-content
 {
-    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../images/640x960_bg.png) no-repeat center center;
+    background-color:#000;
+}
+
+#login-theme .km-content
+{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/640x960_bg.png) no-repeat center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+
+#home-view .km-content
+{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/640x960_bg.png) no-repeat center center;
     background-size: cover;
     -webkit-background-size: cover;
 }
@@ -94,19 +112,20 @@ a:active
 *
 {
     font-family: "Gotham-Book";
-    font-size: 18px;
+    font-size: 1em;
 }
 
 ul
 {
     border-top: 0  !important;
     border-bottom: 0  !important;
-    font-size: .9em !important;
+    font-size: 1em !important;
     line-height: 1.3em !important;
 }
       
 li
 {
+    padding:0px;
     border-top: 0 solid #fff !important;
     border-bottom: 0 solid #fff !important;
 }  
@@ -366,14 +385,6 @@ img
     color: #fff;
 }
 
-.input-frame-enrol-radio
-{
-    height: 6em;
-    line-height: 6em;
-    width: 100%;
-    padding-left: 15%;
-    color: #fff;
-}
 
 .input-frame-enrol label
 {
@@ -930,7 +941,8 @@ li
     display: none;
 }
 #offerlist-view .km-listview .km-group-title, #outletlist-view .km-listview .km-group-title,
-#pl-offerlist-view .km-listview .km-group-title, #pl-outletlist-view .km-listview .km-group-title
+#pl-offerlist-view .km-listview .km-group-title, #pl-outletlist-view .km-listview .km-group-title,
+#brandlist-view .km-listview
 {
     padding: 0;
     border: none;
@@ -1543,12 +1555,12 @@ tile-frame-inner
 
 
 
-.outer-frame-1{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/001.png) no-repeat center center;}
-.outer-frame-2{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/002.png) no-repeat center center;}
-.outer-frame-3{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/003.png) no-repeat center center;}
-.outer-frame-4{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/004.png) no-repeat center center;}
-.outer-frame-5{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/005.png) no-repeat center center;}
-.outer-frame-6{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.45)), url(../images/006.png) no-repeat center center;}
+.outer-frame-1{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/001.png) no-repeat center center;}
+.outer-frame-2{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/002.png) no-repeat center center;}
+.outer-frame-3{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/003.png) no-repeat center center;}
+.outer-frame-4{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/004.png) no-repeat center center;}
+.outer-frame-5{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/005.png) no-repeat center center;}
+.outer-frame-6{background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/006.png) no-repeat center center;}
 
 .image-enhancer{
     background-size: cover;
