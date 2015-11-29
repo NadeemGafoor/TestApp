@@ -3,7 +3,7 @@
         <div data-role="navbar">
             <div class="brand-icon"></div>
             <span data-role="view-title"></span>
-             <a data-role="button" href="views/home.html"  data-align="left" style="color:#fff" data-icon="back" data-transition="slide"></a>
+            <a data-role="button" href="views/home.html"  data-align="left" style="color:#fff" data-icon="back" data-transition="slide"></a>
         </div>
     </div>
     <ul data-role="listview">
@@ -41,11 +41,11 @@
             </div>
         </li>
         <li>
-           <div class="input-frame-enrol">
+            <div class="input-frame-enrol">
                 <select id="selCity">
                     <option value="" selected="true" data-bind="click: getCity">Select Gender *</option>
-                      <option value="First Option">Male</option>
-                                <option value="Second Option">Female</option>
+                    <option value="First Option">Male</option>
+                    <option value="Second Option">Female</option>
                 </select>
             </div>
         </li>
@@ -53,7 +53,10 @@
             <div class="switch-frame-it">
                 <div class="switch-frame" >
                     <label >
-                        Agree to Terms & Conditions
+                        Agree to
+                        <a href="#modalview-login" style="color:#0d6fe9">
+                            Terms & Conditions
+                        </a>
                         <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
                     </label>
                 </div>
@@ -71,16 +74,43 @@
             </div>
         </li>
 
-            <li>
-                <div class="switch-frame-i one-line">Already have an Account?</div>
-            </li>
-              <li>
+        <li>
+            <div class="switch-frame-i one-line">Already have an Account?</div>
+        </li>
+        <li>
             <div class="button-frame-inline">
                 <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-login">Log In</a>
             </div>
         </li>
     </ul>
 </div>
+
+<div data-role="modalview" id="modalview-login" style="height:90%;width: 90%;">
+    <div data-role="header">
+        <div data-role="navbar">
+            <span>Terms & Conditions</span>
+            <a data-click="closeModalViewLogin" data-role="button" data-align="right">
+                <i class="fa fa-times-circle fa-lg" style="color:#fff"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="fulljustify">
+        By providing my personal data (which may include sensitive personal data, e.g. details of my race, physical or mental health or condition), I acknowledge that I am agreeing to its collection, transfer and processing by Jumeirah International LLC in Dubai and their affiliated businesses and third party processors which are involved in the operation of their facilities and services throughout the world in countries where data protection laws may differ or not exist. Details of such affiliated businesses, facilities and services can be provided on request. Details of third party processors, what data may be collected and how the data will be used can be found in Jumeirah International LLC’s Privacy and Cookies Policy which can be accessed online at http://www.jumeirah.com/privacypolicy
+        If I am providing data about a third party, I confirm that I have obtained the consent of that third party to such use of their data.
+
+        You may opt out of receiving any marketing material from us at any time by informing us at the following email address: isme@jumeirah.com
+
+        I agree to the terms set out above relating to the use of data and accept the Isme by Jumeirah Terms and Conditions. I confirm that I am at least 18 years of age.
+
+    </div>
+</div>
+
+<script>
+    function closeModalViewLogin() {
+        $("#modalview-login").kendoMobileModalView("close");
+    }
+</script>
 
 <style scoped>
    
@@ -96,6 +126,4 @@
         background-color: rgba(13, 104, 197, 1);
         color: #fff;
     }
-    
-    
-</style>
+    </style>
