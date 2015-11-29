@@ -208,12 +208,18 @@ function outletMessage() {
         
                                            destroyLoginView
                                            :function() {
-                                               $("#brandlist-view").remove();  
+                                               $("#login-theme").remove();  
                                            },
                                            destroyDiscoverListView
                                            :function() {
-                                               $("#login-theme").remove();  
+                                               $("#discoverlist-view").remove();  
                                            },
+        
+                                           destroyHomeView
+                                           :function() {
+                                               $("#home-view").remove();  
+                                           },
+        
                                            destroyEnrolView
                                            :function() {
                                                $("#enrol-theme").remove();  
@@ -223,7 +229,7 @@ function outletMessage() {
                                            :function() {
                                                $("#offerlistnearme-view").remove();  
                                            },
-                                           destroyOfferListView
+                                           destroyBrandListView
                                            :function() {
                                                $("#brandlist-view").remove();  
                                            },
