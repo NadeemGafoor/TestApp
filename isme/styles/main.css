@@ -312,11 +312,11 @@ img
 
 .button-group .km-button .km-text
 {
-    color: rgb(178, 178, 178);
+    color: rgb(0,0,0);
 }
 .button-group .km-button.km-state-active .km-text
 {
-    color: rgb(255, 255, 255);
+    color: rgb(80, 80, 80);
 }
 .button-group .km-button.km-state-active
 {
@@ -1600,4 +1600,11 @@ tile-frame-inner
     color:#fff;
     text-align:center;   
     margin:23% auto;        
+}
+
+.class-benefit{
+text-align:justify;
+font-size:1em;
+color:#000;       
+height:auto;    
 }
