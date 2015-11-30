@@ -1,51 +1,19 @@
-<div data-role="view" data-title="IHG® Dining Rewards" data-layout="back-layout" id="customerservice-theme" data-model="preLogin" data-hide="preLogin.destroyCustomerService">
+<div data-role="view" data-title="Customer Service" data-layout="back-layout" id="customerservice-theme" data-model="preLogin" data-hide="preLogin.destroyCustomerService">
     <div data-role="header">
                 <div data-role="navbar">
-                    <div class="brand-icon"></div> 
                     <span data-role="view-title"></span>
                      <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
                 </div>
             </div>
     
-       <ul data-role="listview"   style="background-color:#fff" class="home-pos">
-         <li style="height:75px"></li> 
-            <div style="font-family:HelveticaNeue;font-size:1.3em;font-weight:bold;color:#d86932;height:100px;text-align:center">
-                Customer Service
-            </div>
+    <div class="outer-frame">
+          
+ <div class="button-frame-inline-round">
+                <a id="btn-email" data-role="button" data-bind="click: customerCare" class="button-loginwithfacebook"> <i class="fa fa-envelope fa-2x" style="color:#fff"></i></a>
+      <a id="btn-email" data-role="button" data-bind="click: customerCare" class="button-loginwithfacebook"> <i class="fa fa-phone fa-2x" style="color:#fff"></i></a>
+            </div>            
             
-            <div style="font-family:HelveticaNeue;font-size:1.2em;font-weight:bold;color:#000;height:100px;text-align:center">
-                Enrollment Telephone Number<br>+971 427 66 213
-            </div>
-
-             <div style="font-family:HelveticaNeue;font-size:1.2em;font-weight:bold;color:#000;height:100px;text-align:center">
-                Customer Care Telephone Number<br>+971 427 66 186
-            </div>
-           
-           </ul>
-    
-     <footer data-role="footer">
-           <div class="button-frame-inline">
-                     <a data-transition="slide"   data-role="button"   data-bind="click: callTelc">Enrollment</a>
-                     <a data-transition="slide"   data-role="button"    data-bind="click: customerCare">Customer Care</a>   
-                </div>
-
-                <div data-role="navbar">
-                    <div class="home-navbar" >
-                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
-                    </div>
-               <div class="footer-logo" data-bind="click:showBrandPage">&nbsp;</div>
-
-
-                </div>
-            </footer>
+            
+        </div>
 </div> 
 
-<style scoped>
-    
-     #customerservice-theme li
-    {
-        border-top: 0px solid #ccc !important;
-        border-bottom: 0px solid #ccc !important;
-    }
-    
-</style>

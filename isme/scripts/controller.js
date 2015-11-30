@@ -1,12 +1,12 @@
 
 function offerMessage() {
     navigator.notification.alert("To view offer details please select All Offers from the menu", function() {
-    }, "IHG® Dining Rewards", "Dismiss")    
+    }, "isme by Jumeirah", "Dismiss")    
 }
 
 function outletMessage() {
     navigator.notification.alert("To view Restaurant details please select Restaurants List from the menu", function() {
-    }, "IHG® Dining Rewards", "Dismiss")    
+    }, "isme by Jumeirah", "Dismiss")    
 }
 
 (function (global) {
@@ -76,7 +76,7 @@ function outletMessage() {
     //var notification_image = "https://appapi.exclusiveu.in/mobileportal/images/36x36_icon.png";    
     //var share_image = "https://appapi.exclusiveu.in/mobileportal/images/ihg_logo.png";
     //var flag_image = "https://appapi.exclusiveu.in/mobileportal/flagimages/";
-    var short_msg = "Check out the IHG® Dining Rewards at ";
+    var short_msg = "Check out the isme by Jumeirah at ";
     var offertelephone = "0097142766186";
     var enrollmenttelephone = "0097142766213";
     var customercaretelephone = "0097142766186";
@@ -132,7 +132,7 @@ function outletMessage() {
                                                     socialsharingWhatsApp: function () {
                                                         showSpin();
                                                       
-                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg + "\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email, null, "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), function () {
+                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg + "\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email, null, "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), function () {
                                                         }, function (errormsg) {
                                                         })
                                                         hideSpin();
@@ -141,7 +141,7 @@ function outletMessage() {
                                                     socialsharingSMS: function () {
                                                         showSpin();
                                                          
-                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email + "\n\n" + "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), null, function (msg) {
+                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), null, function (msg) {
                                                         }, function (msg) {
                                                         })
                                                         hideSpin();
@@ -150,7 +150,7 @@ function outletMessage() {
                                                     socialsharingEmail:  function () {
                                                         showSpin();
                                                         window.plugins.socialsharing.shareViaEmail(
-                                                            sharingSocialView.social_message + "\n\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email + "\n\n" + "Download the IHG® Dining Rewards Mobile App at " + window.localStorage.getItem("appad_location"), // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
+                                                            sharingSocialView.social_message + "\n\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
                                                             sharingSocialView.social_shortmsg, null, null, null, // TO: must be null or an array
                                                             null, // FILES: can be null, a string, or an array
                                                             function (msg) {
@@ -274,9 +274,9 @@ function outletMessage() {
                                            :function() {
                                                $("#pl-customerservice-theme").remove();  
                                            },
-                                           destroyTermsofService
+                                           destroyAboutisme
                                            :function() {
-                                               $("#termsofservice-theme").remove();  
+                                               $("#aboutisme-theme").remove();  
                                            },
                                            destroyplTermsofService
                                            :function() {
@@ -338,18 +338,18 @@ function outletMessage() {
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       navigator.notification.alert("There are no Benefits for the selected Program", function() {
-                                                                      }, "IHG® Dining Rewards", "Dismiss")    
+                                                                      }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("Cannot get Benefit details. " + getData.statusdesc, function() {
-                                                                  }, "IHG® Dining Rewards", "Dismiss")          
+                                                                  }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
                                                               navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                              }, "IHG® Dining Rewards", "Dismiss")
+                                                              }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
@@ -461,13 +461,13 @@ function outletMessage() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Cannot get Restaurant List " + getData.statusdesc, function() {
-                                                                  }, "IHG® Dining Rewards", "Dismiss")          
+                                                                  }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
                                                               navigator.notification.alert("Unknown Error, Cannot get Restaurant List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                              }, "IHG® Dining Rewards", "Dismiss")
+                                                              }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -502,18 +502,18 @@ function outletMessage() {
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       navigator.notification.alert("No Offers currently exist for the selected Restaurant", function() {
-                                                                      }, "IHG® Dining Rewards", "Dismiss")    
+                                                                      }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("Cannot get Offer List " + getData.statusdesc, function() {
-                                                                  }, "IHG® Dining Rewards", "Dismiss")          
+                                                                  }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                              }, "IHG® Dining Rewards", "Dismiss")
+                                                              }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -651,13 +651,13 @@ function outletMessage() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
-                                                                  }, "IHG® Dining Rewards", "Dismiss")          
+                                                                  }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                              }, "IHG® Dining Rewards", "Dismiss")
+                                                              }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -772,13 +772,13 @@ function outletMessage() {
                                                                       $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
                                                                   } else {
                                                                       navigator.notification.alert("Platform Error, Services may not be available. " + getData.statusdesc, function() {
-                                                                      }, "IHG® Dining Rewards", "Dismiss")          
+                                                                      }, "isme by Jumeirah", "Dismiss")          
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               },
                                                               error: function (errormsg) {
                                                                   navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                                  }, "IHG® Dining Rewards", "Dismiss")
+                                                                  }, "isme by Jumeirah", "Dismiss")
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           });
@@ -881,18 +881,18 @@ function outletMessage() {
                                                                               hideSpin(); //hide loading popup
                                                                           } else {
                                                                               navigator.notification.alert("There are no Property for the selected Program!", function () {
-                                                                              }, "IHG® Dining Rewards", "Dismiss")
+                                                                              }, "isme by Jumeirah", "Dismiss")
                                                                               hideSpin(); //hide loading popup
                                                                           }
                                                                       } else {
                                                                           navigator.notification.alert("Cannot get Property List " + getData.statusdesc, function () {
-                                                                          }, "IHG® Dining Rewards", "Dismiss")
+                                                                          }, "isme by Jumeirah", "Dismiss")
                                                                           hideSpin(); //hide loading popup
                                                                       }
                                                                   },
                                                                   error: function (error) {
                                                                       navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function () {
-                                                                      }, "IHG® Dining Rewards", "Dismiss")
+                                                                      }, "isme by Jumeirah", "Dismiss")
                                                                   }
                                                               });
                                                    }
@@ -1081,13 +1081,13 @@ function outletMessage() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Cannot Logout. " + getData.statusdesc, function() {
-                                                                  }, "IHG® Dining Rewards", "Dismiss")          
+                                                                  }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Unknown Error, Cannot Logout. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                              }, "IHG® Dining Rewards", "Dismiss")
+                                                              }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1130,12 +1130,12 @@ function outletMessage() {
                                            : function () {
                                                if (!this.username) {
                                                    navigator.notification.alert("Invalid Membership # or Empty", function() {
-                                                   }, "IHG® Dining Rewards", "Dismiss");
+                                                   }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
                                                if (!this.password) {
                                                    navigator.notification.alert("Invalid Password or Empty", function() {
-                                                   }, "IHG® Dining Rewards", "Dismiss");
+                                                   }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
                                                customer = this.username;
@@ -1258,13 +1258,13 @@ function outletMessage() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Cannot Login. " + getData.statusdesc, function() {
-                                                                  }, "IHG® Dining Rewards", "Dismiss")         
+                                                                  }, "isme by Jumeirah", "Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Unknown Error, Cannot Login.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                              }, "IHG® Dining Rewards", "Dismiss")
+                                                              }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1274,7 +1274,7 @@ function outletMessage() {
                                            : function () {
                                                if (!this.tokennum) {
                                                    navigator.notification.alert("Invalid Token or Empty", function() {
-                                                   }, "IHG® Dining Rewards", "Dismiss");
+                                                   }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
                             
@@ -1307,13 +1307,13 @@ function outletMessage() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Cannot Login. " + getData.statusdesc, function() {
-                                                                  }, "IHG® Dining Rewards", "Dismiss")         
+                                                                  }, "isme by Jumeirah", "Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Unknown Error, Cannot Login.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                              }, "IHG® Dining Rewards", "Dismiss")
+                                                              }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1322,12 +1322,12 @@ function outletMessage() {
                                            function () {
                                                if (!this.username) {
                                                    navigator.notification.alert("Invalid Membership # or Empty", function() {
-                                                   }, "IHG® Dining Rewards", "Dismiss");
+                                                   }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
                                                if (!this.emailid) {
                                                    navigator.notification.alert("Invalid email or Empty", function() {
-                                                   }, "IHG® Dining Rewards", "Dismiss");
+                                                   }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
                              
@@ -1350,19 +1350,19 @@ function outletMessage() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") { //Login Successful
                                                                   navigator.notification.alert("A URL has been sent to your registered email with a link to set your new password", function() {
-                                                                  }, "IHG® Dining Rewards", "Dismiss");   
+                                                                  }, "isme by Jumeirah", "Dismiss");   
                                                                   preLogin.set("username", "");
                                                                   preLogin.set("emailid", "");
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Unable to send the password reset URL. " + getData.statusdesc, function() {
-                                                                  }, "IHG® Dining Rewards", "Dismiss")         
+                                                                  }, "isme by Jumeirah", "Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Unknown Error, Unable to send the password reset URL [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                              }, "IHG® Dining Rewards", "Dismiss")
+                                                              }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1394,18 +1394,18 @@ function outletMessage() {
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       navigator.notification.alert("There are no Benefits for the selected Program!", function() {
-                                                                      }, "IHG® Dining Rewards", "Dismiss")    
+                                                                      }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("Cannot get Benefit List " + getData.statusdesc, function() {
-                                                                  }, "IHG® Dining Rewards", "Dismiss")          
+                                                                  }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
                                                               navigator.notification.alert("Unknown Error, Cannot get Benefit List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                              }, "IHG® Dining Rewards", "Dismiss")
+                                                              }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -1567,16 +1567,16 @@ function outletMessage() {
                                                                                                                  });
                                                                    }else {
                                                                        navigator.notification.alert("No message history for your Membership", function() {
-                                                                       }, "IHG® Dining Rewards", "Dismiss")    
+                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Cannot get message history. " + getData.statusdesc, function() {
-                                                                   }, "IHG® Dining Rewards", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot get message history.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "IHG® Dining Rewards", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
@@ -1614,16 +1614,16 @@ function outletMessage() {
                                                                        postLogin.set("msgsequence", getData.messageitem[0].sequence);
                                                                    }else {
                                                                        navigator.notification.alert("No message available for your Membership", function() {
-                                                                       }, "IHG® Dining Rewards", "Dismiss")    
+                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Cannot get message item. " + getData.statusdesc, function() {
-                                                                   }, "IHG® Dining Rewards", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot get message item.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "IHG® Dining Rewards", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
@@ -1747,13 +1747,13 @@ function outletMessage() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get Restaurant List. " + getData.statusdesc, function() {
-                                                                   }, "IHG® Dining Rewards", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
                                                                navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "IHG® Dining Rewards", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -1826,18 +1826,18 @@ function outletMessage() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No Offers currently exist for the selected Restaurant", function() {
-                                                                       }, "IHG® Dining Rewards", "Dismiss")    
+                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
-                                                                   }, "IHG® Dining Rewards", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "IHG® Dining Rewards", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -1963,13 +1963,13 @@ function outletMessage() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get Offer item. " + getData.statusdesc, function() {
-                                                                   }, "IHG® Dining Rewards", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot get Offer item.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "IHG® Dining Rewards", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -2008,7 +2008,7 @@ function outletMessage() {
                                             : function (e) {
                                                 if (!document.getElementById("tandc-accept").checked) {
                                                     navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
-                                                    }, "IHG® Dining Rewards", "Dismiss");
+                                                    }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
                                                 writeSpin();
@@ -2034,13 +2034,13 @@ function outletMessage() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot activate offer. " + getData.statusdesc, function() {
-                                                                   }, "IHG® Dining Rewards", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error Cannot activate offer. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "IHG® Dining Rewards", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup                                                                 
                                                            }
                                                        });
@@ -2078,18 +2078,18 @@ function outletMessage() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No Vouchers available in Wallet.", function() {
-                                                                       }, "IHG® Dining Rewards", "Dismiss")    
+                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Cannot retrieve Wallet.  " + getData.statusdesc, function() {
-                                                                   }, "IHG® Dining Rewards", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "IHG® Dining Rewards", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -2134,18 +2134,18 @@ function outletMessage() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No Vouchers available in Wallet.", function() {
-                                                                       }, "IHG® Dining Rewards", "Dismiss")    
+                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Cannot retrieve Wallet. " + getData.statusdesc, function() {
-                                                                   }, "IHG® Dining Rewards", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "IHG® Dining Rewards", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -2203,12 +2203,12 @@ function outletMessage() {
                                                                    $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");  
                                                                }else {
                                                                    navigator.notification.alert("Cannot delete message. " + getData.statusdesc, function() {
-                                                                   }, "IHG® Dining Rewards", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot delete message. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "IHG® Dining Rewards", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
@@ -2260,19 +2260,19 @@ function outletMessage() {
                                                 if (!document.getElementById("profile-autolocation").checked) {
                                                     if (document.getElementById("selCountry").value == "") {
                                                         navigator.notification.alert("Select Country", function() {
-                                                        }, "IHG® Dining Rewards", "Dismiss");
+                                                        }, "isme by Jumeirah", "Dismiss");
                                                         return; 
                                                     }
                                                     if (document.getElementById("selCity").value == "") {
                                                         navigator.notification.alert("Select City", function() {
-                                                        }, "IHG® Dining Rewards", "Dismiss");
+                                                        }, "isme by Jumeirah", "Dismiss");
                                                         return; 
                                                     }
                                                 }      
                                                                                                 
                                                 if ((!document.getElementById("profile-pushoffer").checked) && (document.getElementById("profile-remindexpiry").checked)) {
                                                     navigator.notification.alert("Please enable Push Notification to receive reminders for expirying vouchers", function() {
-                                                    }, "IHG® Dining Rewards", "Dismiss");
+                                                    }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
                                                                                            
@@ -2385,18 +2385,18 @@ function outletMessage() {
                                                                    }
                                                                      
                                                                    navigator.notification.alert("Profile changes successfully updated.", function() {
-                                                                   }, "IHG® Dining Rewards", "Dismiss")   
+                                                                   }, "isme by Jumeirah", "Dismiss")   
                                                                    $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Could not update profile changes due to error. " + getData.statusdesc, function() {
-                                                                   }, "IHG® Dining Rewards", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
                                                                navigator.notification.alert("Unknown Error, Could not update profile.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "IHG® Dining Rewards", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -2439,7 +2439,7 @@ function outletMessage() {
                                hideSpin();
                            }else {
                                navigator.notification.alert("Cannot get Country list. " + getData.statusdesc, function() {
-                               }, "IHG® Dining Rewards", "Dismiss")          
+                               }, "isme by Jumeirah", "Dismiss")          
                                hideSpin(); //hide loading popup
                            }
                        }
@@ -2447,7 +2447,7 @@ function outletMessage() {
                    error:
                    function (error) {
                        navigator.notification.alert("Unknown Error, Cannot get Country list. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "IHG® Dining Rewards", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2480,13 +2480,13 @@ function outletMessage() {
                            }
                        }else {
                            navigator.notification.alert("Cannot get City list. " + getData.statusdesc, function() {
-                           }, "IHG® Dining Rewards", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
                        navigator.notification.alert("Unknown Error, Cannot get City list. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "IHG® Dining Rewards", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2501,7 +2501,7 @@ function outletMessage() {
     function showSpin() {
         if (!checkConnectionBool()) {
             navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.", function() {
-            }, "IHG® Dining Rewards", "Dismiss");  
+            }, "isme by Jumeirah", "Dismiss");  
             //        //$("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
         } else {
             window.plugins.spinnerDialog.show(null, null, true); //show loading popup
@@ -2511,7 +2511,7 @@ function outletMessage() {
     function writeSpin() {
         if (!checkConnectionBool()) {
             navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.", function() {
-            }, "IHG® Dining Rewards", "Dismiss");              
+            }, "isme by Jumeirah", "Dismiss");              
             //        $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
         } else {
             window.plugins.spinnerDialog.show(null, null, true); //show loading popup
@@ -2530,7 +2530,7 @@ function outletMessage() {
         states[Connection.NONE] = 'No network connection';
         if (states[networkState] == "No network connection") {
             navigator.notification.alert(states[networkState], function() {
-            }, "IHG® Dining Rewards", "Dismiss");                     
+            }, "isme by Jumeirah", "Dismiss");                     
             return false;
         } else {
             return true;
@@ -2583,18 +2583,18 @@ function outletMessage() {
                                hideSpin(); //hide loading popup
                            }else {
                                navigator.notification.alert("No Restaurant exists for the selected property", function() {
-                               }, "IHG® Dining Rewards", "Dismiss")    
+                               }, "isme by Jumeirah", "Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
                            navigator.notification.alert("Cannot get Restaurant List." + getData.statusdesc, function() {
-                           }, "IHG® Dining Rewards", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "IHG® Dining Rewards", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2636,18 +2636,18 @@ function outletMessage() {
                                hideSpin(); //hide loading popup
                            }else {
                                navigator.notification.alert("There are no Restaurant for the selected Hotel", function() {
-                               }, "IHG® Dining Rewards", "Dismiss")    
+                               }, "isme by Jumeirah", "Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
                            navigator.notification.alert("Cannot get Restaurant List. " + getData.statusdesc, function() {
-                           }, "IHG® Dining Rewards", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "IHG® Dining Rewards", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2690,18 +2690,18 @@ function outletMessage() {
                                hideSpin(); //hide loading popup
                            }else {
                                navigator.notification.alert("No Offers currently exist", function() {
-                               }, "IHG® Dining Rewards", "Dismiss")    
+                               }, "isme by Jumeirah", "Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
                            navigator.notification.alert("Cannot get Offer List." + getData.statusdesc, function() {
-                           }, "IHG® Dining Rewards", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "IHG® Dining Rewards", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2747,18 +2747,18 @@ function outletMessage() {
                                hideSpin(); //hide loading popup
                            }else {
                                navigator.notification.alert("No Offers currently exist", function() {
-                               }, "IHG® Dining Rewards", "Dismiss")    
+                               }, "isme by Jumeirah", "Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
                            navigator.notification.alert("Cannot get Offer List." + getData.statusdesc, function() {
-                           }, "IHG® Dining Rewards", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "IHG® Dining Rewards", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2787,18 +2787,18 @@ function outletMessage() {
                                hideSpin(); //hide loading popup
                            }else {
                                navigator.notification.alert("There are no Restaurant for the selected offer.", function() {
-                               }, "IHG® Dining Rewards", "Dismiss")    
+                               }, "isme by Jumeirah", "Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
                            navigator.notification.alert("Cannot get Restaurant List. " + getData.statusdesc, function() {
-                           }, "IHG® Dining Rewards", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
                        navigator.notification.alert("Unknown Error, Cannot get Restaurant List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "IHG® Dining Rewards", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2827,18 +2827,18 @@ function outletMessage() {
                                hideSpin(); //hide loading popup
                            }else {
                                navigator.notification.alert("There are no Restaurant for the selected offer.", function() {
-                               }, "IHG® Dining Rewards", "Dismiss")    
+                               }, "isme by Jumeirah", "Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
                            navigator.notification.alert("Cannot get Restaurant List. " + getData.statusdesc, function() {
-                           }, "IHG® Dining Rewards", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
                        navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "IHG® Dining Rewards", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2867,18 +2867,18 @@ function outletMessage() {
                                hideSpin(); //hide loading popup
                            }else {
                                navigator.notification.alert("There are no Restaurants for the selected offer.", function() {
-                               }, "IHG® Dining Rewards", "Dismiss")    
+                               }, "isme by Jumeirah", "Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
                            navigator.notification.alert("Cannot get Restaurants List." + getData.statusdesc, function() {
-                           }, "IHG® Dining Rewards", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
                        navigator.notification.alert("Unknown Error, Cannot get Restaurants List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "IHG® Dining Rewards", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -2888,7 +2888,7 @@ function outletMessage() {
         if (gpsErrorShow==="") {
             showTop("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
             // navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.", function() {
-            // }, "IHG® Dining Rewards", "Dismiss");
+            // }, "isme by Jumeirah", "Dismiss");
             
             $.ajax({ 
                        type: "POST",
@@ -2913,7 +2913,7 @@ function outletMessage() {
         if (gpsErrorShowApp==="") {    
             showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
             //navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.", function() {
-            //}, "IHG® Dining Rewards", "Dismiss");
+            //}, "isme by Jumeirah", "Dismiss");
             //gpsErrorShowApp = "1"; remove the comment if error message is required to be shown only once
         }
     }
@@ -3097,18 +3097,18 @@ function outletMessage() {
                                    hideSpin(); //hide loading popup
                                } else {
                                    navigator.notification.alert("There are no Property for the selected Program!", function () {
-                                   }, "IHG® Dining Rewards", "Dismiss")
+                                   }, "isme by Jumeirah", "Dismiss")
                                    hideSpin(); //hide loading popup
                                }
                            } else {
                                navigator.notification.alert("Cannot get Property List " + getData.statusdesc, function () {
-                               }, "IHG® Dining Rewards", "Dismiss")
+                               }, "isme by Jumeirah", "Dismiss")
                                hideSpin(); //hide loading popup
                            }
                        },
                        error: function (error) {
                            navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function () {
-                           }, "IHG® Dining Rewards", "Dismiss")
+                           }, "isme by Jumeirah", "Dismiss")
                        }
                    });
         }
@@ -3142,18 +3142,18 @@ function outletMessage() {
                                hideSpin(); //hide loading popup
                            }else {
                                navigator.notification.alert("No FAQ exists for the selected Program", function() {
-                               }, "IHG® Dining Rewards", "Dismiss")    
+                               }, "isme by Jumeirah", "Dismiss")    
                                hideSpin(); //hide loading popup
                            }
                        }else {
                            navigator.notification.alert("Cannot get FAQ list " + getData.statusdesc, function() {
-                           }, "IHG® Dining Rewards", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
                        navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "IHG® Dining Rewards", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup                                          
                    }
                });
