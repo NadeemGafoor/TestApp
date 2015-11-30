@@ -61,18 +61,17 @@ a:active
     background-color: #000 !important;
     color: #fff;
 }
-#benefit-theme .km-content
+#benefit-theme .km-content, #customerservice-theme .km-content
 {
     background-color: #fff;
 }
 
-#faq-theme .km-content,#enrol-theme .km-content,#home-view .km-content,#login-theme .km-content,#aboutisme-theme .km-content
+#faq-theme .km-content, #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #aboutisme-theme .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/640x960_bg.png) no-repeat center center;
     background-size: cover;
     -webkit-background-size: cover;
 }
-
 
 #discoverlist-view .km-content
 {
@@ -85,7 +84,6 @@ a:active
 {
     background-color: #000;
 }
-
 
 .fa .km-icon:after,
 .fa .km-icon:before
@@ -422,6 +420,28 @@ img
     float: none;
 }
 
+.button-frame-inline-round
+{
+    margin-top: 50%;
+    width: 49%;
+    position: relative;
+    float: left;
+}
+
+.button-frame-inline-round .km-button
+{
+    padding-top: 10px;
+    margin: auto;
+    line-height: 100px;
+    width: 120px;
+    display: block;
+    text-align: center;
+      
+    -webkit-border-radius: 70px;
+    -moz-border-radius: 70px;
+    border-radius: 70px;
+}
+
 .button-frame
 {
     line-height: 40px;
@@ -594,13 +614,10 @@ img
 
 #enrol-theme .input-frame-enrol select
 {
+    height:2.5em;
     display: block;
     width: 90%;
-    height: 2.5em;
-    line-height: 2em;
-    border-bottom: 2px solid #fff;
-    background-color: transparent !important;
-    left: 5%;
+    line-height: 1.5em;
     color: #fff;
 }
 

@@ -1,19 +1,45 @@
 <div data-role="view" data-title="Customer Service" data-layout="back-layout" id="customerservice-theme" data-model="preLogin" data-hide="preLogin.destroyCustomerService">
     <div data-role="header">
-                <div data-role="navbar">
-                    <span data-role="view-title"></span>
-                     <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
-                </div>
-            </div>
-    
-    <div class="outer-frame">
-          
- <div class="button-frame-inline-round">
-                <a id="btn-email" data-role="button" data-bind="click: customerCare" class="button-loginwithfacebook"> <i class="fa fa-envelope fa-2x" style="color:#fff"></i></a>
-      <a id="btn-email" data-role="button" data-bind="click: customerCare" class="button-loginwithfacebook"> <i class="fa fa-phone fa-2x" style="color:#fff"></i></a>
-            </div>            
-            
-            
+        <div data-role="navbar">
+            <span data-role="view-title"></span>
+            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
         </div>
-</div> 
+    </div>
+
+    <div class="outer-frame">
+
+        <div class="button-frame-inline-round email-class">
+            <a id="btn-email" data-role="button" data-bind="click: supportEmailA" >
+                <i class="fa fa-envelope fa-3x" style="color:#1c6b06"></i>
+            </a>
+        </div>
+        <div class="button-frame-inline-round start-top call-class">
+            <a id="btn-call" data-role="button" data-bind="click: customerCare" >
+                <i class="fa fa-phone fa-3x" style="color: #966806"></i>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<style scoped>
+    #btn-email 
+    {
+        -webkit-border: #1c6b06 solid 2px;
+        -moz-border: #1c6b06 solid 2px;
+        border: #1c6b06 solid 2px; 
+    }     
+    
+    #btn-call
+    {
+        -webkit-border: #966806 solid 2px;
+        -moz-border: #966806 solid 2px;
+        border: #966806 solid 2px; 
+    }     
+    
+    #customerservice-theme .km-button.km-state-active
+    {
+        background-color: rgba(0, 0, 0, 0.5) !important;
+    }
+</style>
 

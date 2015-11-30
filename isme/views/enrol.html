@@ -1,4 +1,4 @@
-<div data-role="view" data-layout="back-layout" data-title="Enrol" id="enrol-theme" data-model="preLogin" data-show="preLogin.loginInit" data-hide="preLogin.destroyEnrolView" >
+<div data-role="view" data-layout="back-layout" data-title="Enrol" id="enrol-theme" data-model="preLogin"  data-hide="preLogin.destroyEnrolView" >
     <div data-role="header">
         <div data-role="navbar">
             <div class="brand-icon"></div>
@@ -29,7 +29,7 @@
             </div>
         </li>
         <li>
-            <div class="input-frame-enrol">
+            <div class="input-frame-enrol" style="border-bottom: 2px solid #fff;width:98%">
                 <select id="selCity">
                     <option value="" selected="true" data-bind="click: getCity">Select Emirate *</option>
                 </select>
@@ -41,7 +41,7 @@
             </div>
         </li>
         <li>
-            <div class="input-frame-enrol">
+            <div class="input-frame-enrol" style="border-bottom: 2px solid #fff;width:98%">
                 <select id="selCity">
                     <option value="" selected="true" data-bind="click: getCity">Select Gender *</option>
                     <option value="First Option">Male</option>
@@ -54,7 +54,7 @@
                 <div class="switch-frame" >
                     <label >
                         Agree to
-                        <a href="#modalview-login" style="color:#0d6fe9">
+                        <a data-click="onClick" style="color:#fff000" data-role="button" id="modal-button">
                             Terms & Conditions
                         </a>
                         <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
@@ -85,31 +85,36 @@
     </ul>
 </div>
 
-<div data-role="modalview" id="modalview-login" style="height:90%;width: 90%;">
+<div data-role="modalview" id="modalview-terms" style="width: 90%;height:80%;">
     <div data-role="header">
         <div data-role="navbar">
             <span>Terms & Conditions</span>
             <a data-click="closeModalViewLogin" data-role="button" data-align="right">
-                <i class="fa fa-times-circle fa-lg" style="color:#fff"></i>
+                <i class="fa fa-times-circle fa-2x" style="color:#fff"></i>
             </a>
         </div>
     </div>
 
-    <div class="fulljustify">
-        By providing my personal data (which may include sensitive personal data, e.g. details of my race, physical or mental health or condition), I acknowledge that I am agreeing to its collection, transfer and processing by Jumeirah International LLC in Dubai and their affiliated businesses and third party processors which are involved in the operation of their facilities and services throughout the world in countries where data protection laws may differ or not exist. Details of such affiliated businesses, facilities and services can be provided on request. Details of third party processors, what data may be collected and how the data will be used can be found in Jumeirah International LLC’s Privacy and Cookies Policy which can be accessed online at http://www.jumeirah.com/privacypolicy
-        If I am providing data about a third party, I confirm that I have obtained the consent of that third party to such use of their data.
+    <div class="fulljustify" style="margin-left:5px;margin-right:5px;line-height:1.5em">
+By providing my personal data (which may include sensitive personal data, e.g. details of my race, physical or mental health or condition), I acknowledge that I am agreeing to its collection, transfer and processing by Jumeirah International LLC in Dubai and their affiliated businesses and third party processors which are involved in the operation of their facilities and services throughout the world in countries where data protection laws may differ or not exist. Details of such affiliated businesses, facilities and services can be provided on request. Details of third party processors, what data may be collected and how the data will be used can be found in Jumeirah International LLC’s Privacy and Cookies Policy which can be accessed online at http://www.jumeirah.com/privacypolicy. 
+        
+If I am providing data about a third party, I confirm that I have obtained the consent of that third party to such use of their data.
 
-        You may opt out of receiving any marketing material from us at any time by informing us at the following email address: isme@jumeirah.com
+You may opt out of receiving any marketing material from us at any time by informing us at the following email address: isme@jumeirah.com
 
-        I agree to the terms set out above relating to the use of data and accept the Isme by Jumeirah Terms and Conditions. I confirm that I am at least 18 years of age.
+I agree to the terms set out above relating to the use of data and accept the Isme by Jumeirah Terms and Conditions. I confirm that I am at least 18 years of age.
 
     </div>
 </div>
 
 <script>
     function closeModalViewLogin() {
-        $("#modalview-login").kendoMobileModalView("close");
+        $("#modalview-terms").data("kendoMobileModalView").close();
     }
+    
+      function onClick(e) {
+            $("#modalview-terms").data("kendoMobileModalView").open();
+        }
 </script>
 
 <style scoped>
@@ -126,4 +131,14 @@
         background-color: rgba(13, 104, 197, 1);
         color: #fff;
     }
+    #modal-button .km-button{
+        border:0px;
+        
+    }
+    
+        #modal-button a:active{
+        background-color:transparent !important;
+        
+    }
+
     </style>

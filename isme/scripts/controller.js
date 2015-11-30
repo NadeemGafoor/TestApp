@@ -81,7 +81,7 @@ function outletMessage() {
     var enrollmenttelephone = "0097142766213";
     var customercaretelephone = "0097142766186";
     var cardimage = "";
-
+    var supportemail = "isme@jumeirah.com";
     //// function onSuccess(acceleration) {
     // alert('Acceleration X: ' + acceleration.x + '\n' +
     //     'Acceleration Y: ' + acceleration.y + '\n' +
@@ -308,6 +308,19 @@ function outletMessage() {
                                                                                               // the defaults for direction, duration, etc are all fine
                                                                                               "href" : "#appdrawerN"
                                                                                           });  
+                                           },
+                                           supportEmailA:  function () {
+                                                window.plugins.socialsharing.shareViaEmail(
+                                                   '', 
+                                                   'isme By Jumeirah', [supportemail], 
+                                                   null, 
+                                                   function (msg) {
+                                                   }, 
+                                                   function (msg) {
+                                                       navigator.notification.alert("Cannot Activate Email " + msg, function() {
+                                                       }, "isme by Jumeirah", "Dismiss")          
+                                                   } 
+                                                   );
                                            },
                                       
                                            benefitdetail
