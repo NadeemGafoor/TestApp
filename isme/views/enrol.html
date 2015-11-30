@@ -54,7 +54,7 @@
                 <div class="switch-frame" >
                     <label >
                         Agree to
-                        <a data-click="onClick" style="color:#fff000" data-role="button" id="modal-button">
+                        <a data-click="onClick" data-role="button" class="modal-button">
                             Terms & Conditions
                         </a>
                         <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
@@ -131,14 +131,16 @@ I agree to the terms set out above relating to the use of data and accept the Is
         background-color: rgba(13, 104, 197, 1);
         color: #fff;
     }
-    #modal-button .km-button{
+      
+    
+    #enrol-theme .switch-frame .km-button{
         border:0px;
-        
+        color:#fff000;
+        font-size:1em;
     }
     
-        #modal-button a:active{
+     #enrol-theme .switch-frame a{
         background-color:transparent !important;
-        
     }
 
     </style>
