@@ -61,7 +61,7 @@ a:active
     background-color: #000 !important;
     color: #fff;
 }
-#benefit-theme .km-content, #customerservice-theme .km-content,#outletdetail-theme .km-content,#offerdetail-theme .km-content
+#benefit-theme .km-content, #customerservice-theme .km-content,#outletdetail-theme .km-content,#offerdetail-theme .km-content,#branddetail-theme .km-content
 {
     background-color: #fff;
 }
@@ -1624,14 +1624,14 @@ tile-frame-inner
 
 .discover-back-part-a1
 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/small2.png) no-repeat center center;
+    background: url(../images/small2.png) no-repeat center center;
     background-size: cover;
     -webkit-background-size: cover; 
 }
 
 .discover-back-part-a2
 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/small1.png) no-repeat center center;
+    background:  url(../images/small1.png) no-repeat center center;
     background-size: cover;
     -webkit-background-size: cover;
   
