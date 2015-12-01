@@ -215,6 +215,11 @@ function outletMessage() {
                                                $("#discoverlist-view").remove();  
                                            },
         
+             brandDetaildestroyView
+                                           :function() {
+                                               $("#branddetail-theme").remove();  
+                                           },
+        
                                            destroyHomeView
                                            :function() {
                                                $("#home-view").remove();  

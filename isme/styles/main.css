@@ -1601,12 +1601,42 @@ tile-frame-inner
     position: relative;
     float: left; 
     display: inline;
-    width: 48%;
+    width: 49%;
     color: #fff;
     font-size: 1.2em;
     text-align: center; 
     padding-top: 35%;
 }
+
+.discover-back-part-a
+{
+  
+    position: relative;
+    float: left; 
+    display: inline;
+    width: 49%;
+    height:100px;
+    color: #fff;
+    font-size: 1em;
+    text-align: center; 
+    padding-top: 35%;
+}
+
+.discover-back-part-a1
+{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/small2.png) no-repeat center center;
+    background-size: cover;
+    -webkit-background-size: cover; 
+}
+
+.discover-back-part-a2
+{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/small1.png) no-repeat center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+  
+}
+
 
 .outer-frame-1 { background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/Brand1.png) no-repeat center center; }
 .outer-frame-2 { background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(../images/Brand2.png) no-repeat center center; }
