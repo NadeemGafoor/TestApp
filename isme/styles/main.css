@@ -1613,13 +1613,14 @@ tile-frame-inner
   
     position: relative;
     float: left; 
-    display: inline;
-    width: 49%;
+    display: inline-block;
+    width: 48%;
     height:100px;
     color: #fff;
     font-size: 1em;
     text-align: center; 
-    padding-top: 35%;
+    margin:3px 3px 3px 3px;
+    padding-top:8%;
 }
 
 .discover-back-part-a1

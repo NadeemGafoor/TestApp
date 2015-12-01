@@ -215,7 +215,7 @@ function outletMessage() {
                                                $("#discoverlist-view").remove();  
                                            },
         
-             brandDetaildestroyView
+                                           brandDetaildestroyView
                                            :function() {
                                                $("#branddetail-theme").remove();  
                                            },
@@ -315,7 +315,7 @@ function outletMessage() {
                                                                                           });  
                                            },
                                            supportEmailA:  function () {
-                                                window.plugins.socialsharing.shareViaEmail(
+                                               window.plugins.socialsharing.shareViaEmail(
                                                    '', 
                                                    'isme By Jumeirah', [supportemail], 
                                                    null, 
