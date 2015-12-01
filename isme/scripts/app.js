@@ -34,7 +34,8 @@ var currentDevice;
                                                layout:'main-layout',
                                                initial: "views/home.html",
                                                //initial: "views/home.html",
-                                               useNativeScrolling: false
+                                               useNativeScrolling: false,
+            transition: 'slide'
                                            });
         
         //kendo.UserEvents.defaultThreshold(20); 

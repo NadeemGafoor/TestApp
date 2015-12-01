@@ -1,121 +1,47 @@
-<div data-role="view"   data-layout="back-layout" id="offerdetail-theme" data-init="initButtonGroup"  data-hide="preLogin.offerDetaildestroyView" data-show="preLogin.offeritem" data-model="preLogin">
-  <header data-role="header">
+<div data-role="view"   data-layout="back-layout" id="offerdetail-theme"  data-hide="preLogin.offerDetaildestroyView" data-model="preLogin">
+   <header data-role="header">
         <div data-role="navbar">
-             <div class="brand-icon"></div><div class="locationarrow"><i class="fa fa-location-arrow" id="loc-arrow"></i></div>
-             <a data-transition="slide"   data-role="button" href="views/offerlist.html?geo=1" data-align="left"  data-icon="back">
+            <a data-transition="slide"   data-role="button" href="views/offerlist.html" data-align="left"  data-icon="back">
             </a>
-            <span data-role="view-title" id="item-title"></span>
-            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="right" ><i class="fa fa-home fa-lg" style="color:#fff"></i></a>
+            <span data-role="view-title" id="item-title">Airline Offer</span>
+            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="right" >
+                <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
+            </a>
         </div>
     </header>
-    <ul data-role="buttongroup" data-index="0" id="offertab" class="button-group" style="margin-top:0px">
-        <li>
-            Details
-        </li>
-        <li data-bind="click: oofferOutlet">
-            Outlets
-        </li>
 
-    </ul>
-    <ul data-role="listview"   style="background-color:#fff;margin-top:0px;display:none" id="offer-detail-div">
+    <div class="hero-image" id="outlet-image-large">
+        <img id="outletimage" src="images/rest3.png" class="img-hero"/>
 
-        <div class="hero-image" id="offer-image-large">
-                        <img id="offerimage" src="images/largeihglogoimage.png" class="img-hero"/>
+    </div>
+
+    <ul data-role="listview"    style="margin-top:0px" id="outlet-detail-div" >
+         <div class="fulljustifyblue-bold">
+             Triple Krisflyer and bonus miles.
+             -Singapore Airlines
+         </div>
+        
+        
+        <div id="ooutlet-long" class="fulljustifyblack">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+
+            Doloremque laudantium, totam rem aperiam. eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+         
         </div>
+        
+        <div class="fulljustifyblue-bold">
+             This offer is valid for isme members only
+         </div>
 
-        <li>
-            <div class="detail-subhead whitecolor" id="ooffer-shortname"></div>
-        </li>
-        <li>
-            <div id="ooffer-description" class="whitecolor"></div>
-        </li>
-        <li>
-            <div class="detail-subhead whitecolor" id="ooffer-expiry"></div>
-        </li>
-
-        <li>
-            <div id="ooffer-remark" class="whitecolor"></div>
-        </li>
-
-        <li>
-            <div class="detail-subhead" style="color:#ffb606">This offer is only for IHG® Dining Rewards members. Please login to use this offer.</div>
-        </li>
 
     </ul>
-    <ul data-role="listview"   style="display:none;background-color:#fff;margin-top:0px" id="offer-outlet-list-view">
-
-    </ul>
-    
-      <footer data-role="footer">
-                   <div class="button-frame-inline">
-                     <a data-transition="slide"   data-role="button"   data-bind="click: callTel">Call Now</a>
-                     <a data-transition="slide"   data-role="button"    data-bind="click: shareOutlet">Share</a>   
-                </div>
-    
-                <div data-role="navbar">
-                    <div class="home-navbar" >
-                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
-                    </div>
-               <div class="footer-logo" data-bind="click:showBrandPage">&nbsp;</div>
-
-
+    <footer data-role="footer">
+                <div data-role="tabstrip" style="background-color:#000" data-selected-index="5">
+                    <a id="outlet1" href="#" class="fa" data-icon="customstar" ></a>
+                    <a id="outlet2" href="#" class="fa" data-icon="customlocation"></a>
+                    <a id="outlet3" href="#" class="fa" data-icon="customenvelope"></a>
+                    <a id="outlet4" href="#" class="fa" data-icon="customcall"></a>
                 </div>
             </footer>
 </div>
-
-<script type="text/x-kendo-template" id="offerOutletTemplate">
-    <a data-transition="slide"   data-role="button"   data-click="outletMessage">
-    <div class="outer-frame">
-           <div class="image-frame-list small-image-height">
-            <img src="${imageurl}" style="height:100%;width:100%"/>
-        </div>
-        <div class="inner-frame-1">${outletname}</div>
-        <div class="inner-frame-2">${hotelname}</div>
-        <div class="inner-frame-3">Distance ${distance} Km</div>
-     
-    </div>
-    </a>
-</script>
-
-<script>
-    function initButtonGroup() {
-        var listviews = this.element.find("ul.km-listview");
-
-        $("#offertab").kendoMobileButtonGroup({
-                                                  select: function (e) {
-                                                      listviews.hide()
-                                                          .eq(e.index)
-                                                          .show();
-                                                  },
-                                                  index: 0
-                                              });
-    }  
-</script>
-
-<style scoped>
-
-    .button-group
-    {
-        margin-top: 0px;
-        width: 60%;
-        margin-left: 20%;
-    }
-    
-    #offerdetail-theme .km-ios7 .km-view  .km-content{
-        background-color:#f4efed !important;
-    }
-   
-    
-     #offer-outlet-list-view li
-    {
-        border-top: 1px solid #ccc !important;
-        border-bottom: 1px solid #ccc !important;
-    }  
-    
-      #offer-outlet-list-view a{
-           background-color:transparent !important;
-          color:#575757;
-       }
-    
-    </style>
 
