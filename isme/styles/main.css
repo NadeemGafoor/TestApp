@@ -93,6 +93,30 @@ a:active
     font: .7em/.7em 'FontAwesome';
 }
 
+.km-customstar:before,
+.km-customstar:after
+{
+    content: "\f005";
+}
+
+.km-customenvelope:before,
+.km-customenvelope:after
+{
+    content: "\f0e0";
+}
+
+.km-customlocation:before,
+.km-customlocation:after
+{
+    content: "\f095";
+}
+
+.km-customcall:before,
+.km-customcall:after
+{
+    content: "\f002";
+}
+
 *
 {
     font-family: "Gotham-Book";
