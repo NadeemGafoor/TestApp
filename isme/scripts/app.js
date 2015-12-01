@@ -35,11 +35,10 @@ var currentDevice;
                                                initial: "views/home.html",
                                                //initial: "views/home.html",
                                                useNativeScrolling: false,
-            transition: 'slide'
+                                               transition: 'slide:up'
                                            });
         
         //kendo.UserEvents.defaultThreshold(20); 
-       
         
         // Initialize the Backend Services SDK
         el = new Everlive({

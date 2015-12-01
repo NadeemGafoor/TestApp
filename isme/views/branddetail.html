@@ -4,11 +4,20 @@
             <a data-transition="slide"   data-role="button" href="views/brandlist.html" data-align="left"  data-icon="back">
             </a>
             <span data-role="view-title" id="item-title">Burj Al Arab</span>
-            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="right" >
+            <a data-role="button" data-click="onClick" data-align="right" >
                 <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
             </a>
         </div>
     </header>
+    <div id="panel" class="class-share-div">
+        <div class="share-menu-line-1">111</div>
+        <div class="share-menu-line-1">222</div>
+        <div class="share-menu-line-2">
+            <a data-click="closeShareView" data-role="button">
+                CLOSE
+            </a>
+        </div>
+    </div>
 
     <div class="hero-image" id="outlet-image-large">
         <img id="outletimage" src="images/Brand1.png" class="img-hero"/>
@@ -46,3 +55,12 @@
     </footer>
 </div>
 
+<script>
+    function closeShareView() {
+        $("#panel").slideUp("slow");
+    }
+    
+    function onClick(e) {
+        $("#panel").slideDown("slow");
+    }
+</script>
