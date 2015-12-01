@@ -2508,7 +2508,7 @@ function outletMessage() {
     function hideSpin() {
         setTimeout(function() {
             window.plugins.spinnerDialog.hide();
-        }, 2000);  //hide Loading Popup
+        }, 200);  //hide Loading Popup
     }
          
     function showSpin() {
