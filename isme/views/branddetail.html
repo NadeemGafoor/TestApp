@@ -4,7 +4,7 @@
             <a data-transition="slide"   data-role="button" href="views/brandlist.html" data-align="left"  data-icon="back">
             </a>
             <span data-role="view-title" id="item-title">Burj Al Arab</span>
-            <a data-role="button" data-click="onClick" data-align="right" >
+            <a data-role="button" data-click="openShare" data-align="right" >
                 <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
             </a>
         </div>
@@ -13,7 +13,7 @@
         <div class="share-menu-line-1">111</div>
         <div class="share-menu-line-1">222</div>
         <div class="share-menu-line-2">
-            <a data-click="closeShareView" data-role="button">
+            <a data-click="closeShare" data-role="button">
                 CLOSE
             </a>
         </div>
@@ -45,9 +45,18 @@
         </div>
 
     </ul>
+      <div id="panelstar" class="class-share-div">
+        <div class="share-menu-line-1">111</div>
+        <div class="share-menu-line-1">222</div>
+        <div class="share-menu-line-2">
+            <a data-click="closeStar" data-role="button">
+                CLOSE
+            </a>
+        </div>
+    </div>
     <footer data-role="footer">
         <div data-role="tabstrip" style="background-color:#000" data-selected-index="5">
-            <a id="outlet1" href="#" class="fa" data-icon="customstar" ></a>
+            <a id="outlet1" href="#" class="fa" data-icon="customstar" data-click="openStar" ></a>
             <a id="outlet2" href="#" class="fa" data-icon="customlocation"></a>
             <a id="outlet3" href="#" class="fa" data-icon="customenvelope"></a>
             <a id="outlet4" href="#" class="fa" data-icon="customcall"></a>
@@ -60,7 +69,7 @@
         $("#panel").slideUp("slow");
     }
     
-    function onClick(e) {
+    function openShare() {
         $("#panel").slideDown("slow");
     }
 </script>
