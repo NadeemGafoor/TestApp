@@ -52,6 +52,6 @@ var currentDevice;
     function hideNav() {
         setTimeout(function() {
             navigator.splashscreen.hide();  
-        }, 3000);  //hide Loading Popup
+        }, 2000);  //hide Loading Popup
     }
 }());
