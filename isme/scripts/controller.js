@@ -95,6 +95,72 @@ function outletMessage() {
 
     //var options = { frequency: 1000 };  // Update every 3 seconds
     // Listen for the event and wire it to our callback function
+    
+    window.sharingView = kendo.observable({
+                                              destroySharingView: function() {
+                                                  $("#modalviewstar").remove();
+                                              },
+                                                                                    
+                                              mysubmitShare: function () {
+                                                  if (ctr === 0) { 
+                                                        navigator.notification.alert("Rate 1 to 5", function() {
+    }, "isme by Jumeirah", "Dismiss")   
+                                                      return;
+                                                  }
+                                                  
+                                                  if (this.txtremarks.length > 256) { 
+                                                       navigator.notification.alert("Remarks should be less than 256 characters", function() {
+    }, "isme by Jumeirah", "Dismiss")   
+                                                      return;
+                                                  }
+                                                  //kendo.mobile.application.showLoading(); //show loading popup
+                                                  showSpin();
+
+                                                  $.ajax({
+                                                             type: "POST",
+                                                             url: gurl + "/addRating.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,customerid:shareCustomer,producttype:shareProductType,productcode:shareProductCode,notes:this.txtremarks,rating:ctr
+                                                                                  }),
+                                                             success: function (data) {
+                                                                 var getData = JSON.parse(data);
+                                                                 window.plugins.spinnerDialog.hide();
+                                                                 if (getData.statuscode == "000") {
+                                                                      navigator.notification.alert("Thank You very much for Rating  " + getData.producttype, function() {
+    }, "isme by Jumeirah", "Dismiss");   
+                                                                    
+                                                                 }else {
+                                                                      navigator.notification.alert("Unknown Error, Cannot Publish Rating", function() {
+    }, "isme by Jumeirah", "Dismiss");   
+                                                                       
+                                                                 }
+                                                                   $("#modalviewstar").data("kendoMobileModalView").close();
+                                                             },
+                                                             error: function (errormsg) {
+                                                                 navigator.notification.alert("Unknown Error, Cannot Publish Rating!. Try after sometime")
+                                                                 // kendo.mobile.application.hideLoading(); //hide loading popup
+                                                                 window.plugins.spinnerDialog.hide();
+                                                             }
+                                                         });
+                                              },
+                                              starCounter: function(e) {                                    
+                                                  for (var i = 1;i <= 5;i++) {
+                                                      document.getElementById("d" + i).className = "detail-rate";
+                                                  }
+                                                  ctr = 0;
+                                                  var y = $(e.target).data('parameter');
+
+                                                  for (i = 1;i <= y;i++) {
+                                                      document.getElementById("d" + i).className = "detail-rate-tap";
+                                                  }
+                                                  ctr = y;
+                                              },
+                                              viewInit:    function(e) {
+                                                  document.getElementById("txtReview").value = "";
+                                                  ctr = 0;
+                                              }
+                                          });  
  
     window.sharingSocialView = kendo.observable({
                                                     social_subject:"",

@@ -286,6 +286,7 @@ img
 
 .detail-outer-star
 {
+    margin-top:10px;
     width: 100%;
     position: relative;
     float: left;
@@ -612,7 +613,7 @@ img
 
 .switch-frame label
 {
-    line-height: 3em;
+    line-height: 2em;
     color: #fff;
 }
 .switch-frame-i
@@ -1752,4 +1753,24 @@ tile-frame-inner
     color:#fff;
     background-color:#000;
   
+}
+
+.detail-rate
+{
+    background: url(../images/star.png) no-repeat center center;
+    width: 18%;
+    position: relative;
+    float: none;
+    height: 4em;
+    display: inline-block;
+}
+.detail-rate-tap
+{
+    background: url(../images/star.png) no-repeat center center;
+    width: 18%;
+    position: relative;
+    float: none;
+    height: 4em;
+    display: inline-block;
+    background-color: #fff000;
 }

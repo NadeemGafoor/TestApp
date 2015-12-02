@@ -54,7 +54,7 @@
                 <div class="switch-frame" >
                     <label >
                         Agree to
-                        <a data-click="onClick" data-role="button" class="modal-button">
+                        <a href="#modalviewterms" data-role="button" class="modal-button" data-rel="modalview" data-transition="slide:up">
                             Terms & Conditions
                         </a>
                         <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
@@ -85,7 +85,7 @@
     </ul>
 </div>
 
-<div data-role="modalview" id="modalview-terms" style="width: 90%;height:80%;">
+<div data-role="modalview" id="modalviewterms" style="width: 90%;height:80%;">
     <div data-role="header">
         <div data-role="navbar">
             <span>Terms & Conditions</span>
@@ -109,11 +109,11 @@ I agree to the terms set out above relating to the use of data and accept the Is
 
 <script>
     function closeModalViewLogin() {
-        $("#modalview-terms").data("kendoMobileModalView").close();
+        $("#modalviewterms").data("kendoMobileModalView").close();
     }
     
       function onClick(e) {
-            $("#modalview-terms").data("kendoMobileModalView").open();
+            $("#modalviewterms").data("kendoMobileModalView").open();
         }
 </script>
 
