@@ -1707,6 +1707,14 @@ tile-frame-inner
     padding-right: 10px;
 }
 
+.class-share-div-s{
+    display:none;
+    width:100%;
+    background-color:rgba(0, 0, 0, 1);
+    height:250px;
+   
+}
+
 .class-share-div{
     display:none;
     width:100%;
