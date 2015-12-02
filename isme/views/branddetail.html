@@ -4,7 +4,7 @@
             <a data-transition="slide"   data-role="button" href="views/brandlist.html" data-align="left"  data-icon="back">
             </a>
             <span data-role="view-title" id="item-title">Burj Al Arab</span>
-            <a data-role="button" data-click="openStar" data-align="right" >
+            <a data-role="button" data-click="openShare" data-align="right" >
                 <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
             </a>
         </div>
@@ -45,44 +45,52 @@
         </div>
 
     </ul>
-    <div id="panelstar" class="class-share-div-s">
-        <div class="share-menu-line-2">
-            <a data-click="closeStar" data-role="button">
-                CLOSE
-            </a>
-        </div>
-        <div class="share-menu-line-1">111</div>
-        <div class="share-menu-line-1">222</div>
-
-    </div>
     <footer data-role="footer">
 
         <div data-role="tabstrip" style="background-color:#000" data-selected-index="5">
-            <a  data-role="button" id="outlet1" class="fa" data-icon="customstar" data-click="openStar"></a>
+            <a id="outlet1" class="fa" data-icon="customstar"  data-rel="modalview" href="#modalviewstar" data-transition="slide:up"></a>
             <a id="outlet2" class="fa" data-icon="customlocation"></a>
-            <a id="outlet3" class="fa" data-icon="customenvelope"></a>
-            <a id="outlet4" class="fa" data-icon="customcall"></a>
+            <a id="outlet3" class="fa" data-icon="customenvelope" data-bind="click: supportEmailA" ></a>
+            <a id="outlet4" class="fa" data-icon="customcall" data-bind="click: customerCare"></a>
         </div>
     </footer>
 </div>
+
+
+<div data-role="modalview" id="modalviewstar" style="width: 100%;height:60%;">
+    <div data-role="header">
+        <div data-role="navbar">
+            <span>Rate</span>
+            <a data-click="closeModalStar" data-role="button" data-align="right">
+                <i class="fa fa-times-circle fa-2x" style="color:#fff"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="fulljustify" style="margin-left:5px;margin-right:5px;line-height:1.5em">
+By providing my personal data (which may include sensitive personal data, e.g. details of my race, physical or mental health or condition), I acknowledge that I am agreeing to its collection, transfer and processing by Jumeirah International LLC in Dubai and their affiliated businesses and third party processors which are involved in the operation of their facilities and services throughout the world in countries where data protection laws may differ or not exist. Details of such affiliated businesses, facilities and services can be provided on request. Details of third party processors, what data may be collected and how the data will be used can be found in Jumeirah International LLC’s Privacy and Cookies Policy which can be accessed online at http://www.jumeirah.com/privacypolicy. 
+        
+If I am providing data about a third party, I confirm that I have obtained the consent of that third party to such use of their data.
+
+You may opt out of receiving any marketing material from us at any time by informing us at the following email address: isme@jumeirah.com
+
+I agree to the terms set out above relating to the use of data and accept the Isme by Jumeirah Terms and Conditions. I confirm that I am at least 18 years of age.
+
+    </div>
+</div>
+
 
 <script>
     function closeShare() {
         $("#panel").slideUp("slow");
     }
     
-    function closeStar() {
-        $("#panel").slideUp("slow");
-    }
-    
     function openShare() {
-        $("#panelstar").slideUp("slow");
         $("#panel").slideDown("slow");
+    }    
+    
+      function closeModalStar() {
+        $("#modalviewstar").data("kendoMobileModalView").close();
     }
     
-    function openStar() {
-        alert("hello");
-        $("#panel").slideUp("slow");
-        $("#panelstar").slideDown("slow");
-    }
-</script>
+  </script>
