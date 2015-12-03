@@ -393,7 +393,7 @@ function closeTypeView() {
                                                $("#outletlist-theme").data("kendoMobileView").destroy();
                                                $("#outletlist-theme").remove();
                                                initialized = false;
-                                               alert("killed");
+
                                            },
         
                                            destroyCustomerService
