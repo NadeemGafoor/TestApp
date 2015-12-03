@@ -1731,8 +1731,7 @@ tile-frame-inner
 
 .class-filter-div{
     display:none;
-    width:100%;
-    background-color:rgba(0, 0, 0, 1);  
+    background-color:rgba(255, 255, 255, 1);  
 }
 
 .share-menu-line-1{
@@ -1785,4 +1784,30 @@ tile-frame-inner
     height: 4em;
     display: inline-block;
     background-color: #fff000;
+}
+
+.list-group{
+   height:40px;
+   line-height:40px;
+   background-color:#ccc;
+   color:#000;
+    font-size:1em;
+    font-weight:bold;
+    border-radius:3px;
+}    
+
+.list-group-data-header{
+    position:relative;
+    font-size:1em;
+}
+
+.list-group-data-item{
+    position:relative;
+    float:left;
+    width:50%;
+  height:40px;
+   line-height:40px;
+    color:#000;
+    font-size:1em;
+    background-color:#fff;
 }
