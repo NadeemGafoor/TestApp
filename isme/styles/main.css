@@ -109,31 +109,6 @@ a:active
 }
 
 
-.km-customyes:before
-{
-    content: "\f067";
-     color:#000;
-}
-
-.km-customyes:after
-{
-    content: "\f055";
-     color:#000;
-}
-
-.km-customno:before
-{
-    content: "\f068";
-     color:#000;
-}
-
-.km-customno:after
-{
-    content: "\f056";
-     color:#000;
-}
-
-
 .km-customlocation:before,
 .km-customlocation:after
 {
@@ -1823,10 +1798,6 @@ tile-frame-inner
     border-radius:3px;
 }    
 
-.list-group-data-header{
-
-    width:100%;
-}
 
 .list-group-data-item{
     position:relative;
@@ -1844,6 +1815,6 @@ tile-frame-inner
     height:40px;
        line-height:30px;   
         font-size:1em;
-    width:100%;
+    width:auto;
     text-align:left;
 }

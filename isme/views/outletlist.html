@@ -11,47 +11,7 @@
             </a>
         </div>
     </div>
-    <div id="filterpanel" class="class-filter-div filter-height" data-bind="value: getAddRestFilter">
-        <div data-role="header" style="background-color:#4f5053">
-            <div data-role="navbar">
-                <span >Filters</span>
-                <a data-click="clearList" data-role="button" data-align="left" data-animated="true" class="km-small km-justified">
-                    Clear
-                </a>
-                <a data-click="clearList" data-role="button" data-align="right" data-animated="true" class="km-small km-justified"  >
-                    Go
-                </a>
-            </div>
-        </div>
-        <div class="list-group">&nbsp;Location</div>
-        <div class="list-group-data-header">
-            <a data-click="loadLocation" data-role="button">
-                <div class="list-group-data-item">Select Location...</div>
-                <div class="list-group-data-item" id="restaurantLocation">All</div>
-            </a>
-        </div>
-        <div class="list-group">&nbsp;Type</div>
-        <div class="list-group-data-header">
-            <a data-click="loadType" data-role="button">
-                <div class="list-group-data-item">Select Type...</div>
-                <div class="list-group-data-item" id="restaurantType">All</div>
-            </a>
-        </div>
 
-        <div class="list-group">&nbsp;Cuisine</div>
-        <div class="list-group-data-header">
-            <a data-click="loadType" data-role="button">
-                <div class="list-group-data-item">Select Cuisine...</div>
-                <div class="list-group-data-item" id="restaurantCuisine">All</div>
-            </a>
-        </div>
-        <div class="list-group">&nbsp;Additional Filters</div>
-
-        <ul id="add-Rest-Filter">
-
-        </ul>
-
-    </div>
     <ul data-role="listview"  >
         <a href="views/outletdetail.html" data-transition="slide:left">
             <div class="rest-frame-1  outer-frame image-enhancer">
@@ -115,17 +75,173 @@
     </div>
 </div>
 
-<script type="text/x-kendo-template" id="add-Rest-Filter-Template">
+<div data-role="modalview" id="modalviewfilter" style="height:90%;width:90%" data-model="preLogin" data-hide="preLogin.destroyFilterView">
+    <div data-role="header" style="background-color:#4f5053">
+        <div data-role="navbar">
+            <span >Filters</span>
+            <a data-click="closeFilterView" data-role="button" data-align="right" data-animated="true">
+                Go
+            </a>
+        </div>
+    </div>
+    <div class="list-group">&nbsp;Location</div>
     <div class="list-group-data-header">
-        <div class="list-group-data-item">${addrestitem}</div>
-        <div class="list-group-data-item" id=${addrestkey} data-icon="customno"></div><div class="list-group-data-item" id=${addrestkey} data-icon="customyes"></div>
+        <a data-click="loadLocationView" data-role="button">
+            <div class="list-group-data-item">Select Location...</div>
+            <div class="list-group-data-item" id="restaurantLocation">All</div>
+        </a>
+    </div>
+    <div class="list-group">&nbsp;Restaurant Type</div>
+    <div class="list-group-data-header">
+        <a data-click="loadTypeView" data-role="button">
+            <div class="list-group-data-item">Select Restaurant Type...</div>
+            <div class="list-group-data-item" id="restaurantType">All</div>
+        </a>
+    </div>
+
+    <div class="list-group">&nbsp;Cuisine</div>
+    <div class="list-group-data-header">
+        <a data-click="loadCuisineView" data-role="button">
+            <div class="list-group-data-item">Select Cuisine...</div>
+            <div class="list-group-data-item" id="restaurantCuisine">All</div>
+        </a>
+    </div>
+    <div class="list-group" data-bind="value:getAddRestFilter">&nbsp;Additional Filters</div>
+
+    <ul id="add-Rest-Filter">
+
+    </ul>
+    <div class="button-frame-inline">
+        <a id="mobile-button1" data-role="button" class="button-select">Select/UnSelect All</a>
+    </div>
+
+</div>
+
+<div data-role="modalview" id="modalviewcountry" data-title=""  style="height:70%;width:90%" data-model="preLogin" data-hide="preLogin.destroyLocationView">
+    <div data-role="header" style="background-color:#4f5053">
+        <div data-role="navbar">
+            <span >Select Location</span>
+            <a data-click="closeLocationView" data-role="button" data-align="right" data-animated="true">
+                Go
+            </a>
+        </div>
+    </div>
+    <ul id="Location-Filter"  data-bind="value:getLocationFilter" >
+
+    </ul>
+    <div class="button-frame-inline">
+        <a id="mobile-button1" data-role="button" class="button-select">Select/UnSelect All</a>
+    </div>
+</div>
+
+
+<div data-role="modalview" id="modalviewtype" data-title=""  style="height:70%;width:90%" data-model="preLogin" data-hide="preLogin.destroyTypeView">
+    <div data-role="header" style="background-color:#4f5053">
+        <div data-role="navbar">
+            <span >Restaurant Type</span>
+            <a data-click="closeTypeView" data-role="button" data-align="right" data-animated="true">
+                Go
+            </a>
+        </div>
+    </div>
+    <ul id="Type-Filter"  data-bind="value:getRestTypeFilter" >
+
+    </ul>
+    <div class="button-frame-inline">
+        <a id="mobile-button1" data-role="button" class="button-select">Select/UnSelect All</a>
+    </div>
+</div>
+
+
+
+<div data-role="modalview" id="modalviewcuisine" data-title=""  style="height:70%;width:90%" data-model="preLogin" data-hide="preLogin.destroyCuisineView">
+    <div data-role="header" style="background-color:#4f5053">
+        <div data-role="navbar">
+            <span >Select Cuisine</span>
+            <a data-click="closeCuisineView" data-role="button" data-align="right" data-animated="true">
+                Go
+            </a>
+        </div>
+    </div>
+    <ul id="Cuisine-Filter"  data-bind="value:getRestCuisineFilter" >
+
+    </ul>
+    <div class="button-frame-inline">
+        <a id="mobile-button1" data-role="button" class="button-select">Select/UnSelect All</a>
+    </div>
+</div>
+
+<script type="text/x-kendo-template" id="CuisineFilter-Template">
+    <div class="list-group-data-header">
+        <div class="list-group-data-item" style="margin-left:10px;;width:65%">${cuisineitem}</div>
+        <div class="list-group-data-item" id=${cuisinekey} style="text-align:center;width:15%">
+            <i class="fa fa-minus-square-o fa-lg"></i>
+        </div>
+        <div class="list-group-data-item" id=${cuisinekey} style="text-align:center;width:15%">
+            <i class="fa fa-plus-square-o fa-lg"></i>
+        </div>
     </div>
 </script>
 
+<script type="text/x-kendo-template" id="TypeFilter-Template">
+    <div class="list-group-data-header">
+        <div class="list-group-data-item" style="margin-left:10px;;width:65%">${typeitem}</div>
+        <div class="list-group-data-item" id=${typekey} style="text-align:center;width:15%">
+            <i class="fa fa-minus-square-o fa-lg"></i>
+        </div>
+        <div class="list-group-data-item" id=${typekey} style="text-align:center;width:15%">
+            <i class="fa fa-plus-square-o fa-lg"></i>
+        </div>
+    </div>
+</script>
+
+
+<script type="text/x-kendo-template" id="LocationFilter-Template">
+    <div class="list-group-data-header">
+        <div class="list-group-data-item" style="margin-left:10px;;width:65%">${locationitem}</div>
+        <div class="list-group-data-item" id=${locationkey} style="text-align:center;width:15%">
+            <i class="fa fa-minus-square-o fa-lg"></i>
+        </div>
+        <div class="list-group-data-item" id=${locationkey} style="text-align:center;width:15%">
+            <i class="fa fa-plus-square-o fa-lg"></i>
+        </div>
+    </div>
+</script>
+    
+<script type="text/x-kendo-template" id="add-Rest-Filter-Template">
+    <div class="list-group-data-header">
+        <div class="list-group-data-item" style="margin-left:10px;width:65%">
+            <i class="fa-li fa ${addresticon}"></i>${addrestitem}
+        </div>
+        <div class="list-group-data-item" id=${addrestkey} style="text-align:center;width:15%">
+            <i class="fa fa-minus-square-o fa-lg"></i>
+        </div>
+        <div class="list-group-data-item" id=${addrestkey} style="text-align:center;width:15%">
+            <i class="fa fa-plus-square-o fa-lg"></i>
+        </div>
+    </div>
+</script>
+    
 <style scoped>
     #outletlist-theme .list-group-data-header a
     {
         background-color: transparent !important;
+    }
+
+    #modalviewfilter .km-content, #modalviewcountry .km-content, #modalviewtype .km-content, #modalviewcuisine .km-content
+    {
+        background-color: #fff;
+    }
+    
+    #modalviewcountry .button-select, #modalviewfilter .button-select, #modalviewtype .button-select, #modalviewcuisine .button-select
+    
+    {
+        background-color: rgba(62, 65, 66, 0.7);
+        color: #fff;
+        font-size:1em;
+        height:30px;
+        line-height:10px;
+        display:block;
     }
 </style>
 

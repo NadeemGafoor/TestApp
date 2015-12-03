@@ -26,12 +26,42 @@ function openShare() {
 }    
 
 function loadFilterView() {
-    $("#filterpanel").slideDown("slow");
-}  
+    $("#modalviewfilter").data("kendoMobileModalView").open();
+} 
+
+function loadLocationView() {
+    $("#modalviewcountry").data("kendoMobileModalView").open();
+}
+
+function loadCuisineView() {
+    $("#modalviewcuisine").data("kendoMobileModalView").open();
+}
+
+function loadTypeView() {
+    $("#modalviewtype").data("kendoMobileModalView").open();
+}   
     
 function closeModalStar() {
     $("#modalviewstar").data("kendoMobileModalView").close();
-}    
+}
+
+
+function closeFilterView() {
+    $("#modalviewfilter").data("kendoMobileModalView").close();
+} 
+
+function closeLocationView() {
+    $("#modalviewcountry").data("kendoMobileModalView").close();
+}
+
+function closeCuisineView() {
+    $("#modalviewcuisine").data("kendoMobileModalView").close();
+}
+
+function closeTypeView() {
+    $("#modalviewtype").data("kendoMobileModalView").close();
+}
+    
     
 (function (global) {
     var gpsErrorShow = "";
@@ -310,8 +340,25 @@ function closeModalStar() {
                                                $("#offerdetail-theme").remove();  
                                            },
                                           
-                                     
+                                           destroyFilterView
+                                           : function() {
+                                               $("#modalviewfilter").remove();
+                                           },
         
+                                           destroyLocationView
+                                           : function() {
+                                               $("#modalviewcountry").remove();
+                                           },
+        
+                                           destroyTypeView
+                                           : function() {
+                                               $("#modalviewtype").remove();
+                                           },
+        
+                                           destroyCuisineView
+                                           : function() {
+                                               $("#modalviewcuisine").remove();
+                                           },
                                            outletdetailthemedestroyView
                                            : function() {
                                                $("#outletdetail-theme").remove();
@@ -1457,12 +1504,48 @@ function closeModalStar() {
                                            },
         
                                            getAddRestFilter:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getRestAddData() });
+                                               
                                                $("#add-Rest-Filter").kendoMobileListView({
-                                                                                             dataSource: kendo.data.DataSource.create({data: getData.historylist }),
+                                                                                             dataSource: dataSource,
                                                                                              template: $("#add-Rest-Filter-Template").html()
-                                                                           
-                                                                           
+
+                                                                    
                                                                                          });
+                                           },
+        
+                                           getLocationFilter:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getRestLocationData() });
+                                               
+                                               $("#Location-Filter").kendoMobileListView({
+                                                                                             dataSource: dataSource,
+                                                                                             template: $("#LocationFilter-Template").html()
+
+                                                                    
+                                                                                         });
+                                           },
+        
+        
+                                           getRestTypeFilter:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getRestTypeData() });
+                                               
+                                               $("#Type-Filter").kendoMobileListView({
+                                                                                         dataSource: dataSource,
+                                                                                         template: $("#TypeFilter-Template").html()
+
+                                                                    
+                                                                                     });
+                                           },
+        
+                                           getRestCuisineFilter:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getRestCuisineData() });
+                                               
+                                               $("#Cuisine-Filter").kendoMobileListView({
+                                                                                            dataSource: dataSource,
+                                                                                            template: $("#CuisineFilter-Template").html()
+
+                                                                    
+                                                                                        });
                                            }
                                                                                      
                                        });
@@ -3309,6 +3392,85 @@ function closeModalStar() {
         });
         marker.setVisible(true);
         marker.setMap(map); 
+    }
+    
+    function getRestAddData() {
+        var data = [];
+        data.push({addresticon:"fa-beer",addrestkey: "1",addrestitem:"Alcohol"});
+        data.push({addresticon:"fa-spoon",addrestkey: "2",addrestitem:"Brunch"});
+        data.push({addresticon:"fa-cutlery",addrestkey: "3",addrestitem:"Buffet"});
+        data.push({addresticon:"fa-group",addrestkey: "4",addrestitem:"Group Arrangement"});
+        data.push({addresticon:"fa-check-square",addrestkey: "5",addrestitem:"Halal"});
+        data.push({addresticon:"fa-child",addrestkey: "6",addrestitem:"Kids Arrangement"});
+        data.push({addresticon:"fa-microphone",addrestkey: "7",addrestitem:"Live Entertainment"});
+        data.push({addresticon:"fa-sun-o",addrestkey: "8",addrestitem:"Outdoor Seating"});
+        data.push({addresticon:"fa-car",addrestkey: "9",addrestitem:"Parking"});        
+        data.push({addresticon:"fa-magic",addrestkey: "10",addrestitem:"Smoking Indoor"});  
+        data.push({addresticon:"fa-magic",addrestkey: "11",addrestitem:"Smoking Outdoor"});  
+        data.push({addresticon:"fa-magic",addrestkey: "12",addrestitem:"Smoking Sisha"});  
+        data.push({addresticon:"fa-car",addrestkey: "13",addrestitem:"Valet Parking"});  
+        data.push({addresticon:"fa-wheelchair",addrestkey: "14",addrestitem:"Wheelchair"});  
+        data.push({addresticon:"fa-wifi",addrestkey: "15",addrestitem:"Wifi"});  
+        
+        return data;
+    }
+    
+    function getRestLocationData() {
+        var data = [];
+        data.push({locationkey: "1",locationitem:"Abudhabi"});
+        data.push({locationkey: "2",locationitem:"Dubai"});
+        data.push({locationkey: "3",locationitem:"Sharjah"});
+        data.push({locationkey: "4",locationitem:"Ajman"});
+        data.push({locationkey: "5",locationitem:"Fujairah"});
+        data.push({locationkey: "6",locationitem:"Ras Al Khaimah"});
+        data.push({locationkey: "7",locationitem:"Um Al Quwain"});
+        return data;
+    }
+    
+    function getRestTypeData() {
+        var data = [];
+        data.push({typekey: "1",typeitem:"Award Winning"});
+        data.push({typekey: "2",typeitem:"Bar/Lounge"});
+        data.push({typekey: "3",typeitem:"Casual Dining"});
+        data.push({typekey: "4",typeitem:"Corporate/Business"});
+        data.push({typekey: "5",typeitem:"Family Dining"});
+        data.push({typekey: "6",typeitem:"OpenAir Dining"});
+        data.push({typekey: "7",typeitem:"Romantic Dining"});
+        data.push({typekey: "8",typeitem:"Scenic View"});
+        data.push({typekey: "9",typeitem:"Romantic Dining"});
+        data.push({typekey: "10",typeitem:"Spa"});
+        data.push({typekey: "11",typeitem:"Theme Park"});
+        data.push({typekey: "12",typeitem:"Night life/Night Club"});
+        data.push({typekey: "12",typeitem:"Night life/Night Club"});
+        data.push({typekey: "13",typeitem:"Cafe or Bistro"});
+        data.push({typekey: "14",typeitem:"Sports Bar"});
+        data.push({typekey: "15",typeitem:"Cocktail Bar"});
+        data.push({typekey: "16",typeitem:"Signature Fine Dining"});           
+           
+        return data;
+    }
+    
+    function getRestCuisineData() {
+        var data = [];
+        data.push({cuisinekey: "1",cuisineitem:"African"});
+        data.push({cuisinekey: "2",cuisineitem:"Afternoon Tea"});
+        data.push({cuisinekey: "3",cuisineitem:"Asian"});
+        data.push({cuisinekey: "4",cuisineitem:"Bar food"});
+        data.push({cuisinekey: "5",cuisineitem:"Brunch"});    
+        data.push({cuisinekey: "6",cuisineitem:"Business Lunch"});         
+        data.push({cuisinekey: "7",cuisineitem:"European"});
+        data.push({cuisinekey: "8",cuisineitem:"Healthy"});         
+        data.push({cuisinekey: "9",cuisineitem:"International"});
+        data.push({cuisinekey: "10",cuisineitem:"Ladies Night"});         
+        data.push({cuisinekey: "11",cuisineitem:"Latin American"});
+        data.push({cuisinekey: "12",cuisineitem:"Light Bites"});
+        data.push({cuisinekey: "13",cuisineitem:"Middle Eastern"});
+        data.push({cuisinekey: "14",cuisineitem:"Patisserie"});
+        data.push({cuisinekey: "15",cuisineitem:"Seafood"});
+        data.push({cuisinekey: "16",cuisineitem:"Steakhouse"});
+        data.push({cuisinekey: "17",cuisineitem:"Vegetarian"});
+           
+        return data;
     }
 }
     )(window);
