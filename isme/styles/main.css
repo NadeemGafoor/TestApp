@@ -32,7 +32,7 @@ a
 .km-ios7 .km-navbar .km-button
 {
     margin-top: -10px;
-    width: 30px;
+    width: 40px;
 }
 
 .km-navbar a:active
@@ -1727,6 +1727,12 @@ tile-frame-inner
     background-color:rgba(0, 0, 0, 1);
     height:250px;
    
+}
+
+.class-filter-div{
+    display:none;
+    width:100%;
+    background-color:rgba(0, 0, 0, 1);  
 }
 
 .share-menu-line-1{

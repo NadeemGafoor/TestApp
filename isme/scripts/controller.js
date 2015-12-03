@@ -24,6 +24,10 @@ function closeShare() {
 function openShare() {
     $("#panel").slideDown("slow");
 }    
+
+function loadFilterView() {
+    $("#filterpanel").slideDown("slow");
+}  
     
 function closeModalStar() {
     $("#modalviewstar").data("kendoMobileModalView").close();
@@ -278,7 +282,7 @@ function closeModalStar() {
         
                                            brandDetaildestroyView
                                            :function() {
-                                
+                                               
                                                $("#branddetail-theme").remove();  
                                            },
         
@@ -293,20 +297,17 @@ function closeModalStar() {
                                            },
         
                                            destroyOfferListView:function() {
-                           
                                                $("#offerlist-view").remove();  
                                            },
         
                                          
                                            destroyBrandListView
                                            :function() {
-                                 
                                                $("#brandlist-view").remove();  
                                            },
                 
                                            offerDetaildestroyView
                                            :function() {
-                       
                                                $("#offerdetail-theme").remove();  
                                            },
                                           
@@ -314,7 +315,6 @@ function closeModalStar() {
         
                                            outletdetailthemedestroyView
                                            : function() {
-                               
                                                $("#outletdetail-theme").remove();
                                            },
         
@@ -323,7 +323,7 @@ function closeModalStar() {
                                          
                                            outletlistthemedestroyView
                                            : function() {
-                                                                                        $("#outletlist-theme").remove();
+                                               $("#outletlist-theme").remove();
                                            },
         
                                            destroyCustomerService
@@ -3264,37 +3264,35 @@ function closeModalStar() {
     }
     
     function mapInitialize() {
-        
-        if (!initialized){
-        var latlng = new google.maps.LatLng(
-            lat,
-            lon);
+        if (!initialized) {
+            var latlng = new google.maps.LatLng(
+                lat,
+                lon);
  
-        var mapOptions = {
-            sensor: true,
-            center: latlng,
-            panControl: false,
-            zoomControl: true,
-            zoom: 16,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            streetViewControl: false,
-            mapTypeControl: true,
+            var mapOptions = {
+                sensor: true,
+                center: latlng,
+                panControl: false,
+                zoomControl: true,
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                streetViewControl: false,
+                mapTypeControl: true,
  
-        };
+            };
  
-        var map = new google.maps.Map(
-            document.getElementById('map_canvas1'),
-            mapOptions
-            );
+            var map = new google.maps.Map(
+                document.getElementById('map_canvas1'),
+                mapOptions
+                );
             
-              initialized=true;
-            }
+            initialized = true;
+        }
  
         var marker = new google.maps.Marker({
                                                 position: latlng,
                                                 map: map
                                             });
-          
                                        
         google.maps.event.addListenerOnce(map, 'idle', function() {
             google.maps.event.trigger(map, 'resize');

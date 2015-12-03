@@ -3,59 +3,74 @@
         <div data-role="navbar">
             <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
             <span data-role="view-title"></span>
-            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="right" >
-                <i class="fa fa-search fa-lg" style="color:#fff"></i>
+            <a  data-role="button" data-click="loadFilterView" data-align="right" >
+                <i class="fa fa-filter fa-lg" style="color:#fff"></i>
             </a>
-            <a data-transition="slide"   data-role="button" data-click="loadMapView" data-align="right" >
+            <a data-role="button" data-click="loadMapView" data-align="right" >
                 <i class="fa fa-map-marker fa-lg" style="color:#fff"></i>
             </a>
         </div>
     </div>
+    <div id="filterpanel" class="class-filter-div filter-height">
+        <div data-role="header">
+            <div data-role="navbar">
+                <span style="color:#000">Filters</span>
+                <a data-click="clearList" data-role="button" data-align="left" class="km-small">
+                    Clear
+                </a>
+                <a data-click="clearList" data-role="button" data-align="right"  class="km-small">
+                    Done
+                </a>
+            </div>
 
-        <ul data-role="listview"  >
- <a href="views/outletdetail.html" data-transition="slide:left">
+        </div>
+
+    </div>
+    <ul data-role="listview"  >
+        <a href="views/outletdetail.html" data-transition="slide:left">
             <div class="rest-frame-1  outer-frame image-enhancer">
                 <div class="box-text">AL MAHAARA</div>
             </div>
-     </a>
-            <a href="views/outletdetail.html" data-transition="slide:left">
+        </a>
+        <a href="views/outletdetail.html" data-transition="slide:left">
 
             <div class="rest-frame-2  outer-frame image-enhancer" >
                 <div class="box-text">TORI NO SU</div>
             </div>
-</a>
-            <a href="views/outletdetail.html" data-transition="slide:left">
+        </a>
+        <a href="views/outletdetail.html" data-transition="slide:left">
             <div class="rest-frame-3  outer-frame image-enhancer ">
                 <div class="box-text">RAYS GRILL</div>
             </div>
-                </a>
+        </a>
 
-            <div class="rest-frame-4  outer-frame image-enhancer ">
-                <div class="box-text">OBSERVATION DECK</div>
-            </div>
+        <div class="rest-frame-4  outer-frame image-enhancer ">
+            <div class="box-text">OBSERVATION DECK</div>
+        </div>
 
-            <div class="rest-frame-5 outer-frame image-enhancer ">
-                <div class="box-text">LOBBY LOUNGE</div>
-            </div>
+        <div class="rest-frame-5 outer-frame image-enhancer ">
+            <div class="box-text">LOBBY LOUNGE</div>
+        </div>
 
-            <div class="rest-frame-6 image-enhancer outer-frame">
-                <div class="box-text">ALFIES INTERIOR</div>
-            </div>
+        <div class="rest-frame-6 image-enhancer outer-frame">
+            <div class="box-text">ALFIES INTERIOR</div>
+        </div>
 
-            <div class="rest-frame-7 image-enhancer outer-frame">
-                <div class="box-text">NEW LOBBY LOUNGE</div>
-            </div>
-            <div class="rest-frame-8 image-enhancer outer-frame">
-                <div class="box-text">ARBORETUM</div>
-            </div>
-            <div class="rest-frame-9 image-enhancer outer-frame">
-                <div class="box-text">TALISE</div>
-            </div>
-            <div class="rest-frame-10 image-enhancer outer-frame">
-                <div class="box-text">AL IWAN</div>
-            </div>
+        <div class="rest-frame-7 image-enhancer outer-frame">
+            <div class="box-text">NEW LOBBY LOUNGE</div>
+        </div>
+        <div class="rest-frame-8 image-enhancer outer-frame">
+            <div class="box-text">ARBORETUM</div>
+        </div>
+        <div class="rest-frame-9 image-enhancer outer-frame">
+            <div class="box-text">TALISE</div>
+        </div>
+        <div class="rest-frame-10 image-enhancer outer-frame">
+            <div class="box-text">AL IWAN</div>
+        </div>
 
-        </ul>
+    </ul>
+
 </div>
 
 <div data-role="modalview" id="modalviewmap" data-title="Map"  style="height:100%;width:100%" data-model="preLogin" data-hide="preLogin.destroyMapView">
@@ -68,9 +83,9 @@
         </div>
 
     </div>
- 
-      <div id="map_canvas1" class="home-pos" data-bind="value: getLocationO">
 
-            </div>
+    <div id="map_canvas1" class="home-pos" data-bind="value: getLocationO">
+
+    </div>
 </div>
    
