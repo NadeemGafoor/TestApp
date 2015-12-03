@@ -72,7 +72,7 @@
 
         <div data-role="tabstrip" style="background-color:#000" data-selected-index="5">
             <a id="outlet1" class="fa" data-icon="customstar"  data-rel="modalview" href="#modalviewstar"></a>
-            <a id="outlet2" class="fa" data-icon="customlocation"></a>
+            <a id="outlet2" class="fa" data-icon="customlocation" data-rel="modalview" href="#modalviewmap"></a>
             <a id="outlet3" class="fa" data-icon="customenvelope" data-bind="click: supportEmailA" ></a>
             <a id="outlet4" class="fa" data-icon="customcall" data-bind="click: customerCare"></a>
         </div>
@@ -123,19 +123,21 @@
     </ul>
 </div>
 
-<script>
-    function closeShare() {
-        $("#panel").slideUp("slow");
-    }
-    
-    function openShare() {
-        $("#panel").slideDown("slow");
-    }    
-    
-    function closeModalStar() {
-        $("#modalviewstar").data("kendoMobileModalView").close();
-    }    
-</script>
+<div data-role="modalview" id="modalviewmap" data-title="Map"  style="height:100%;width:100%" data-model="preLogin" data-hide="preLogin.destroyMapView">
+    <div data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title"></span>
+            <a data-click="closeModalMap" data-role="button" data-align="right">
+                <i class="fa fa-times-circle fa-2x" style="color:#fff"></i>
+            </a>
+        </div>
+
+    </div>
+ 
+      <div id="map_canvas1" class="home-pos" data-bind="value: getLocationO">
+
+            </div>
+</div>
 
 <style scoped>
     

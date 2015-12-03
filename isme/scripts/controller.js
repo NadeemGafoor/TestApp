@@ -9,6 +9,23 @@ function outletMessage() {
     }, "isme by Jumeirah", "Dismiss")    
 }
 
+    function closeModalMap() {
+
+        $("#modalviewmap").data("kendoMobileModalView").close();
+    }    
+
+ function closeShare() {
+        $("#panel").slideUp("slow");
+    }
+    
+    function openShare() {
+        $("#panel").slideDown("slow");
+    }    
+    
+    function closeModalStar() {
+        $("#modalviewstar").data("kendoMobileModalView").close();
+    }    
+    
 (function (global) {
     var gpsErrorShow = "";
     var gpsErrorShowApp = "";
@@ -258,6 +275,7 @@ function outletMessage() {
         
                                            brandDetaildestroyView
                                            :function() {
+                                                        $("#map_canvas1").empty();
                                                $("#branddetail-theme").remove();  
                                            },
         
@@ -581,6 +599,7 @@ function outletMessage() {
                                            getLocationO
                                            : function() {
                                                showSpin(); //show loading popup
+                                               document.getElementById("map_canvas1").style.backgroundColor="#e9e5dc";
                                                setTimeout(mapInitialize, 2000);
                                                hideSpin(); //hide loading popup
                                            },
@@ -3292,5 +3311,8 @@ function outletMessage() {
         marker.setVisible(true);
         marker.setMap(map); 
     }
+    
+   
+        
 }
     )(window);
