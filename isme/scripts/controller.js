@@ -581,33 +581,7 @@ function outletMessage() {
                                            getLocationO
                                            : function() {
                                                showSpin(); //show loading popup
-                                               
-                                               var latlng = new google.maps.LatLng(
-                                                   lat,
-                                                   lon);
- 
-                                               var mapOptions = {
-                                                   sensor: true,
-                                                   center: latlng,
-                                                   panControl: false,
-                                                   zoomControl: true,
-                                                   zoom: 16,
-                                                   mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                                   streetViewControl: false,
-                                                   mapTypeControl: true,
- 
-                                               };
- 
-                                               var map = new google.maps.Map(
-                                                   document.getElementById('map_canvas1'),
-                                                   mapOptions
-                                                   );
- 
-                                               var marker = new google.maps.Marker({
-                                                                                       position: latlng,
-                                                                                       map: map
-                                                                                   });
-                                               
+                                               setTimeout(mapInitialize, 2000);
                                                hideSpin(); //hide loading popup
                                            },
         
@@ -3282,6 +3256,41 @@ function outletMessage() {
                    error: function (error) {
                    }
                }); 
+    }
+    
+    function mapInitialize() {
+        var latlng = new google.maps.LatLng(
+            lat,
+            lon);
+ 
+        var mapOptions = {
+            sensor: true,
+            center: latlng,
+            panControl: false,
+            zoomControl: true,
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            streetViewControl: false,
+            mapTypeControl: true,
+ 
+        };
+ 
+        var map = new google.maps.Map(
+            document.getElementById('map_canvas1'),
+            mapOptions
+            );
+ 
+        var marker = new google.maps.Marker({
+                                                position: latlng,
+                                                map: map
+                                            });
+                                       
+        google.maps.event.addListenerOnce(map, 'idle', function() {
+            google.maps.event.trigger(map, 'resize');
+            map.setCenter(latlng);  
+        });
+        marker.setVisible(true);
+        marker.setMap(map); 
     }
 }
     )(window);
