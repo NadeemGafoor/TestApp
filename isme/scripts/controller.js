@@ -11,7 +11,6 @@ function outletMessage() {
 
 function closeModalMap() {
     $("#modalviewmap").data("kendoMobileModalView").close();
-    initialized = false;
 }    
 
 function loadMapView() {
@@ -3168,8 +3167,7 @@ function closeTypeView() {
     }
     
     function mapInitialize() {
-        if (!initialized) {
-            alert("Hello");
+
             var latlng = new google.maps.LatLng(
                 lat,
                 lon);
@@ -3191,8 +3189,7 @@ function closeTypeView() {
                 mapOptions
                 );
             
-            initialized = true;
-        }
+  
  
         var marker = new google.maps.Marker({
                                                 position: latlng,
