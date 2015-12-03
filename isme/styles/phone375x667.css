@@ -11,12 +11,12 @@
 
 .home-pos 
     {
-        height: 460px;
+        position:absolute;
+        height: 610px;
         width: 100%;
         display:block;
         margin:auto;
      }
-
 
     .brand-image-pos
     {

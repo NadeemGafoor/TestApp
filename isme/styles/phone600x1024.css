@@ -11,7 +11,8 @@
 
 .home-pos 
     {
-        height: 800px;
+        position:absolute;
+        height: 960px;
         width: 100%;
         display:block;
         margin:auto;

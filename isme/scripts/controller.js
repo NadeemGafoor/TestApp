@@ -585,8 +585,6 @@ function outletMessage() {
                                            getLocationO
                                            : function() {
                                                showSpin(); //show loading popup
-                                               isMapInitialized=false;
-                                                                                                  alert("hello");
                                                if (!isMapInitialized) {
 
                                                    var latlng = new google.maps.LatLng(
@@ -617,7 +615,7 @@ function outletMessage() {
                                                    marker.setVisible(true);
                                                    marker.setMap(map); 
                                                    map.setCenter(marker.position);  
-                                                   google.maps.event.trigger(map, 'resize');
+                                                  // google.maps.event.trigger(map, 'resize');
                                                    hideSpin(); //hide loading popup
                            
                                                    isMapInitialized = true;
