@@ -73,7 +73,7 @@ function closeModalStar() {
     var outletcode = "";
     var brandcode = "";
     var benefitcode = "";
-    var isMapInitialized = false;
+    var initialized = false;
     var m = [];  
     var offertype = "1"; //prelogin ofer
     var offercode = ""; //All Offers default
@@ -278,7 +278,7 @@ function closeModalStar() {
         
                                            brandDetaildestroyView
                                            :function() {
-                                               $("#map_canvas1").empty();
+                                
                                                $("#branddetail-theme").remove();  
                                            },
         
@@ -293,20 +293,20 @@ function closeModalStar() {
                                            },
         
                                            destroyOfferListView:function() {
-                                               $("#map_canvas1").empty();
+                           
                                                $("#offerlist-view").remove();  
                                            },
         
                                          
                                            destroyBrandListView
                                            :function() {
-                                               $("#map_canvas1").empty();
+                                 
                                                $("#brandlist-view").remove();  
                                            },
                 
                                            offerDetaildestroyView
                                            :function() {
-                                               $("#map_canvas1").empty();
+                       
                                                $("#offerdetail-theme").remove();  
                                            },
                                           
@@ -314,7 +314,7 @@ function closeModalStar() {
         
                                            outletdetailthemedestroyView
                                            : function() {
-                                               $("#map_canvas1").empty();
+                               
                                                $("#outletdetail-theme").remove();
                                            },
         
@@ -323,8 +323,7 @@ function closeModalStar() {
                                          
                                            outletlistthemedestroyView
                                            : function() {
-                                               $("#map_canvas1").empty();
-                                               $("#outletlist-theme").remove();
+                                                                                        $("#outletlist-theme").remove();
                                            },
         
                                            destroyCustomerService
@@ -3265,6 +3264,8 @@ function closeModalStar() {
     }
     
     function mapInitialize() {
+        
+        if (!initialized){
         var latlng = new google.maps.LatLng(
             lat,
             lon);
@@ -3285,11 +3286,15 @@ function closeModalStar() {
             document.getElementById('map_canvas1'),
             mapOptions
             );
+            
+              initialized=true;
+            }
  
         var marker = new google.maps.Marker({
                                                 position: latlng,
                                                 map: map
                                             });
+          
                                        
         google.maps.event.addListenerOnce(map, 'idle', function() {
             google.maps.event.trigger(map, 'resize');
