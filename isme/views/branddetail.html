@@ -126,7 +126,7 @@
 
 
 
-<div data-role="modalview" id="modalviewmap" data-title="Map"  style="height:100%;width:100%" data-model="preLogin" data-show="preLogin.getLocationO" data-hide="preLogin.destroyMapView">
+<div data-role="modalview" id="modalviewmap" data-title="Map"  style="height:100%;width:100%" data-model="preLogin" data-hide="preLogin.destroyMapView">
     <div data-role="header">
         <div data-role="navbar">
             <span data-role="view-title"></span>
@@ -137,8 +137,8 @@
 
     </div>
  
-      <div id="map_canvas1" class="home-pos" style="color:#fff">
-          fgdsfgsdfgsdfgsdfgsdfgdsfg
+      <div id="map_canvas1" class="home-pos" data-bind="click: getLocationO">
+
             </div>
 </div>
 
