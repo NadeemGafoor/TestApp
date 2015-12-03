@@ -450,9 +450,14 @@ img
     float: none;
 }
 
+.share-class{
+    color:#fff;
+  
+}
+
 .button-frame-inline-round
 {
-    margin-top: 50%;
+
     width: 49%;
     position: relative;
     float: left;
@@ -462,11 +467,11 @@ img
 {
     padding-top: 10px;
     margin: auto;
-    line-height: 100px;
-    width: 120px;
+    height: 100px;
+    line-height:90px;
+    width: 100px;
     display: block;
     text-align: center;
-      
     -webkit-border-radius: 70px;
     -moz-border-radius: 70px;
     border-radius: 70px;
@@ -1738,6 +1743,7 @@ tile-frame-inner
     position: relative;
     float: none;
     width:100%;
+    margin-top:-10px;
 }
 
 

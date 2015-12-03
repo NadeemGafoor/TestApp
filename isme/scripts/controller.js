@@ -103,14 +103,14 @@ function outletMessage() {
                                                                                     
                                               mysubmitShare: function () {
                                                   if (ctr === 0) { 
-                                                        navigator.notification.alert("Rate 1 to 5", function() {
-    }, "isme by Jumeirah", "Dismiss")   
+                                                      navigator.notification.alert("Rate 1 to 5", function() {
+                                                      }, "isme by Jumeirah", "Dismiss")   
                                                       return;
                                                   }
                                                   
                                                   if (this.txtremarks.length > 256) { 
-                                                       navigator.notification.alert("Remarks should be less than 256 characters", function() {
-    }, "isme by Jumeirah", "Dismiss")   
+                                                      navigator.notification.alert("Remarks should be less than 256 characters", function() {
+                                                      }, "isme by Jumeirah", "Dismiss")   
                                                       return;
                                                   }
                                                   //kendo.mobile.application.showLoading(); //show loading popup
@@ -127,15 +127,12 @@ function outletMessage() {
                                                                  var getData = JSON.parse(data);
                                                                  window.plugins.spinnerDialog.hide();
                                                                  if (getData.statuscode == "000") {
-                                                                      navigator.notification.alert("Thank You very much for Rating  " + getData.producttype, function() {
-    }, "isme by Jumeirah", "Dismiss");   
-                                                                    
+                                                                     navigator.notification.alert("Thank You very much for Rating  " + getData.producttype, function() {
+                                                                     }, "isme by Jumeirah", "Dismiss");   
                                                                  }else {
-                                                                      navigator.notification.alert("Unknown Error, Cannot Publish Rating", function() {
-    }, "isme by Jumeirah", "Dismiss");   
-                                                                       
+                                                                     navigator.notification.alert("Unknown Error, Cannot Publish Rating", function() {
+                                                                     }, "isme by Jumeirah", "Dismiss");   
                                                                  }
-                                                                   $("#modalviewstar").data("kendoMobileModalView").close();
                                                              },
                                                              error: function (errormsg) {
                                                                  navigator.notification.alert("Unknown Error, Cannot Publish Rating!. Try after sometime")
@@ -143,6 +140,7 @@ function outletMessage() {
                                                                  window.plugins.spinnerDialog.hide();
                                                              }
                                                          });
+                                                  $("#modalviewstar").data("kendoMobileModalView").close();
                                               },
                                               starCounter: function(e) {                                    
                                                   for (var i = 1;i <= 5;i++) {
@@ -161,74 +159,15 @@ function outletMessage() {
                                                   ctr = 0;
                                               }
                                           });  
- 
-    window.sharingSocialView = kendo.observable({
-                                                    social_subject:"",
-                                                    social_message:"",
-                                                    social_image:share_image,
-                                                    social_header:"",
-                                                    social_shortmsg:short_msg,
-                                                    social_telephone:"",
-                                                    social_email:"",
-                                                    offersocialDestroyView:function() {
-                                                        $("#pl-modalview-offersocial").remove();  
-                                                    },
-        
-                                                    offersocialDestroyViewA:function() {
-                                                        $("#modalview-offersocial").remove();  
-                                                    },
-       
-                                                 
-                                                    socialsharingFacebook: function () {
-                                                        showSpin();
-                                                        
-                                                        window.plugins.socialsharing.shareViaFacebook(null, window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"), function () {
-                                                        }, function (errormsg) {
-                                                        })
-                                                        hideSpin();
-                                                    },
-
-                                                    socialsharingTwitter:  function () {
-                                                        showSpin();
-                                                          
-                                                        window.plugins.socialsharing.shareViaTwitter(sharingSocialView.social_shortmsg + "\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email, null, "Download the Mobile App at " + window.localStorage.getItem("appad_location"))
-                                                        hideSpin();
-                                                    },
-
-                                                    socialsharingWhatsApp: function () {
-                                                        showSpin();
-                                                      
-                                                        window.plugins.socialsharing.shareViaWhatsApp(sharingSocialView.social_shortmsg + "\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email, null, "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), function () {
-                                                        }, function (errormsg) {
-                                                        })
-                                                        hideSpin();
-                                                    },
-
-                                                    socialsharingSMS: function () {
-                                                        showSpin();
-                                                         
-                                                        window.plugins.socialsharing.shareViaSMS(sharingSocialView.social_shortmsg + "\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), null, function (msg) {
-                                                        }, function (msg) {
-                                                        })
-                                                        hideSpin();
-                                                    },
-
-                                                    socialsharingEmail:  function () {
-                                                        showSpin();
-                                                        window.plugins.socialsharing.shareViaEmail(
-                                                            sharingSocialView.social_message + "\n\n" + sharingSocialView.social_telephone + "\n" + sharingSocialView.social_email + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
-                                                            sharingSocialView.social_shortmsg, null, null, null, // TO: must be null or an array
-                                                            null, // FILES: can be null, a string, or an array
-                                                            function (msg) {
-                                                            }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
-                                                            function (msg) {
-                                                            } // called when sh*t hits the fan
-                                                            );
-                                                        hideSpin();
-                                                    }
-                                                });   
-    //preLogin.onBeaconsReceived
-    window.preLogin = kendo.observable({ 
+    
+    window.preLogin = kendo.observable({
+                                           social_subject:"",
+                                           social_message:"",
+                                           social_image:share_image,
+                                           social_header:"",
+                                           social_shortmsg:short_msg,
+                                           social_telephone:"",
+                                           social_email:"",
                                            username:"",
                                            password:"",
                                            outlettelephone:"",
@@ -241,6 +180,43 @@ function outletMessage() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
+                                           socialsharingFacebook: function () {
+                                                       
+                                               window.plugins.socialsharing.shareViaFacebook(null, window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"), function () {
+                                               }, function (errormsg) {
+                                               })
+                                           },
+
+                                           socialsharingTwitter:  function () {
+                                                          
+                                               window.plugins.socialsharing.shareViaTwitter("sharingSocialView.social_shortmsg" + "\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email", null, "Download the Mobile App at " + window.localStorage.getItem("appad_location"))
+                                           },
+
+                                           socialsharingWhatsApp: function () {
+                                                   
+                                               window.plugins.socialsharing.shareViaWhatsApp("sharingSocialView.social_shortmsg" + "\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email", null, "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), function () {
+                                               }, function (errormsg) {
+                                               })
+                                           },
+
+                                           socialsharingSMS: function () {
+                                                         
+                                               window.plugins.socialsharing.shareViaSMS("sharingSocialView.social_shortmsg" + "\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email" + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), null, function (msg) {
+                                               }, function (msg) {
+                                               })
+                                           },
+        
+                                           socialsharingEmail:  function () {
+                                               window.plugins.socialsharing.shareViaEmail(
+                                                   "sharingSocialView.social_message" + "\n\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email" + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
+                                                   "sharingSocialView.social_shortmsg", null, null, null, // TO: must be null or an array
+                                                   null, // FILES: can be null, a string, or an array
+                                                   function (msg) {
+                                                   }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
+                                                   function (msg) {
+                                                   } // called when sh*t hits the fan
+                                                   );
+                                           },        
                                          
                                            destroymypolicy
                                            :

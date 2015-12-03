@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="styles/phone800x1280.css" media="(min-height: 1190px) and (max-height: 1256px)"/>
 
         <script src="cordova.js"></script>
-        <script src="scripts/nativePageTransition.js"></script>
+        <script src="scripts/NativePageTransitionsKendoAdapter.js"></script>
         <script src="kendo/js/jquery.min.js"></script>
         <script src="kendo/js/kendo.mobile.min.js"></script>
         <script src="scripts/everlive.all.min.js"></script>
@@ -49,7 +49,7 @@
 
         <!-- application views will be rendered here -->
         <!-- application drawer and contents -->
-        <div data-role="drawer" id="appdrawerN" style="width: 65%;padding-left:-10px;padding-top:-10px;background-color:#000" data-swipe-to-open-views='["home-view"]' data-views='["home-view"]'>
+        <div data-role="drawer" id="appdrawerN" style="width: 65%;padding-left:-10px;padding-top:-10px;background-color:#000" data-swipe-to-open-views='["home-view"]' data-views='["home-view"]' data-use-native-scrolling="true">
 
             <div class="li-div">
                 &nbsp;
