@@ -59,7 +59,7 @@
 
 </div>
 
-<div data-role="modalview" id="modalviewmap" data-title="Map"  style="height:100%;width:100%" data-model="preLogin" data-hide="destroyMapView">
+<div data-role="modalview" id="modalviewmap" data-title="Map"  style="height:100%;width:100%" data-model="preLogin" data-hide="destroyMapView" >
     <div data-role="header">
         <div data-role="navbar">
             <span data-role="view-title"></span>
@@ -70,9 +70,10 @@
 
     </div>
 
-    <div id="map_canvas1" class="home-pos" data-bind="value: getLocationO">
+    <div id="map_canvas1" class="home-pos">
 
     </div>
+     <div data-bind="value: getLocationO" style="display:none"></div>
 </div>
 
 <div data-role="modalview" id="modalviewfilter" style="height:90%;width:90%" data-model="preLogin" data-hide="destroyFilterView">

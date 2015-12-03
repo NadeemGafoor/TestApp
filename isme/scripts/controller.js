@@ -321,6 +321,8 @@ function closeTypeView() {
                                            :function() {
                                                $("#branddetail-theme").data("kendoMobileView").destroy();  
                                                $("#branddetail-theme").remove();  
+                                               initialized = false;
+                                               
                                            },
         
                                            destroyHomeView
@@ -338,6 +340,7 @@ function closeTypeView() {
                                            destroyOfferListView:function() {
                                                $("#offerlist-view").data("kendoMobileView").destroy();  
                                                $("#offerlist-view").remove();  
+                                               initialized = false;
                                            },
         
                                          
@@ -345,12 +348,14 @@ function closeTypeView() {
                                            :function() {
                                                $("#brandlist-view").data("kendoMobileView").destroy();  
                                                $("#brandlist-view").remove();  
+                                               initialized = false;
                                            },
                 
                                            offerDetaildestroyView
                                            :function() {
                                                $("#offerdetail-theme").data("kendoMobileView").destroy();  
-                                               $("#offerdetail-theme").remove();                                                 
+                                               $("#offerdetail-theme").remove();   
+                                               initialized = false;
                                            },
                                           
                                            destroyFilterView
@@ -380,12 +385,15 @@ function closeTypeView() {
                                            : function() {
                                                $("#outletdetail-theme").data("kendoMobileView").destroy();
                                                $("#outletdetail-theme").remove();
+                                               initialized = false;
                                            },
                                         
                                            outletlistthemedestroyView
                                            : function() {
                                                $("#outletlist-theme").data("kendoMobileView").destroy();
                                                $("#outletlist-theme").remove();
+                                               initialized = false;
+                                               alert("killed");
                                            },
         
                                            destroyCustomerService
@@ -665,6 +673,7 @@ function closeTypeView() {
         
                                            getLocationO
                                            : function() {
+                               
                                                showSpin(); //show loading popup
                                                document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
                                                setTimeout(mapInitialize, 2000);
