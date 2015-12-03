@@ -3169,6 +3169,7 @@ function closeTypeView() {
     
     function mapInitialize() {
         if (!initialized) {
+            alert("Hello");
             var latlng = new google.maps.LatLng(
                 lat,
                 lon);
