@@ -181,26 +181,22 @@ function outletMessage() {
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
                                            socialsharingFacebook: function () {
-                                                       
                                                window.plugins.socialsharing.shareViaFacebook(null, window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"), function () {
                                                }, function (errormsg) {
                                                })
                                            },
 
                                            socialsharingTwitter:  function () {
-                                                          
                                                window.plugins.socialsharing.shareViaTwitter("sharingSocialView.social_shortmsg" + "\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email", null, "Download the Mobile App at " + window.localStorage.getItem("appad_location"))
                                            },
 
                                            socialsharingWhatsApp: function () {
-                                                   
                                                window.plugins.socialsharing.shareViaWhatsApp("sharingSocialView.social_shortmsg" + "\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email", null, "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), function () {
                                                }, function (errormsg) {
                                                })
                                            },
 
                                            socialsharingSMS: function () {
-                                                         
                                                window.plugins.socialsharing.shareViaSMS("sharingSocialView.social_shortmsg" + "\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email" + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), null, function (msg) {
                                                }, function (msg) {
                                                })
@@ -218,9 +214,9 @@ function outletMessage() {
                                                    );
                                            },        
                                          
-        destroyMapView:function(){
-             $("#destroymapview").remove(); 
-        },
+                                           destroyMapView:function() {
+                                               $("#destroymapview").remove(); 
+                                           },
                                            destroymypolicy
                                            :
                                            function() {
@@ -585,41 +581,33 @@ function outletMessage() {
                                            getLocationO
                                            : function() {
                                                showSpin(); //show loading popup
-                                               if (!isMapInitialized) {
-
-                                                   var latlng = new google.maps.LatLng(
-                                                       lat,
-                                                       lon);
-    
-                                                   var mapOptions = {
-                                                       sensor: true,
-                                                       center: latlng,
-                                                       panControl: false,
-                                                       zoomControl: true,
-                                                       zoom: 15,
-                                                       mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                                       streetViewControl: false,
-                                                       mapTypeControl: true,
-    
-                                                   }; 
-    
-                                                   var map = new google.maps.Map(
-                                                       document.getElementById("map_canvas1"),
-                                                       mapOptions
-                                                       );
-    
-                                                   var marker = new google.maps.Marker({
-                                                                                           position: latlng,
-                                                                                           map: map
-                                                                                       });
-                                                   marker.setVisible(true);
-                                                   marker.setMap(map); 
-                                                   map.setCenter(marker.position);  
-                                                  // google.maps.event.trigger(map, 'resize');
-                                                   hideSpin(); //hide loading popup
-                           
-                                                   isMapInitialized = true;
-                                               }
+                                               
+                                               var latlng = new google.maps.LatLng(
+                                                   lat,
+                                                   lon);
+ 
+                                               var mapOptions = {
+                                                   sensor: true,
+                                                   center: latlng,
+                                                   panControl: false,
+                                                   zoomControl: true,
+                                                   zoom: 16,
+                                                   mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                   streetViewControl: false,
+                                                   mapTypeControl: true,
+ 
+                                               };
+ 
+                                               var map = new google.maps.Map(
+                                                   document.getElementById('map_canvas1'),
+                                                   mapOptions
+                                                   );
+ 
+                                               var marker = new google.maps.Marker({
+                                                                                       position: latlng,
+                                                                                       map: map
+                                                                                   });
+                                               
                                                hideSpin(); //hide loading popup
                                            },
         
