@@ -218,6 +218,9 @@ function outletMessage() {
                                                    );
                                            },        
                                          
+        destroyMapView:function(){
+             $("#destroymapview").remove(); 
+        },
                                            destroymypolicy
                                            :
                                            function() {
@@ -582,7 +585,10 @@ function outletMessage() {
                                            getLocationO
                                            : function() {
                                                showSpin(); //show loading popup
+                                               isMapInitialized=false;
+                                                                                                  alert("hello");
                                                if (!isMapInitialized) {
+
                                                    var latlng = new google.maps.LatLng(
                                                        lat,
                                                        lon);
