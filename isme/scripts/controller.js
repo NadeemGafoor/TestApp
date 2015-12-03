@@ -322,7 +322,6 @@ function closeTypeView() {
                                                $("#branddetail-theme").data("kendoMobileView").destroy();  
                                                $("#branddetail-theme").remove();  
                                                initialized = false;
-                                               
                                            },
         
                                            destroyHomeView
@@ -393,7 +392,6 @@ function closeTypeView() {
                                                $("#outletlist-theme").data("kendoMobileView").destroy();
                                                $("#outletlist-theme").remove();
                                                initialized = false;
-
                                            },
         
                                            destroyCustomerService
@@ -673,7 +671,6 @@ function closeTypeView() {
         
                                            getLocationO
                                            : function() {
-                               
                                                showSpin(); //show loading popup
                                                document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
                                                setTimeout(mapInitialize, 2000);
