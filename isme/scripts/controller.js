@@ -11,6 +11,7 @@ function outletMessage() {
 
 function closeModalMap() {
     $("#modalviewmap").data("kendoMobileModalView").close();
+    initialized = false;
 }    
 
 function loadMapView() {
@@ -149,11 +150,7 @@ function closeTypeView() {
     // Listen for the event and wire it to our callback function
     
     window.sharingView = kendo.observable({
-                                              destroySharingView: function() {
-                                                  $("#modalviewstar").data("kendoMobileModalView").destroy();
-                                                  $("#modalviewstar").remove();
-                                              },
-                                                                                    
+                                                                                     
                                               mysubmitShare: function () {
                                                   if (ctr === 0) { 
                                                       navigator.notification.alert("Rate 1 to 5", function() {
@@ -267,174 +264,7 @@ function closeTypeView() {
                                                    );
                                            },        
                                          
-                                           destroyMapView:function() {
-                                               $("#destroymapview").data("kendoMobileModalView").destroy(); 
-                                               $("#destroymapview").remove(); 
-                                           },
-                                           destroymypolicy
-                                           :
-                                           function() {
-                                               $("#device-theme").data("kendoMobileView").destroy();  
-                                               $("#device-theme").remove();  
-                                           },
-                                           destroymyfaq
-                                           :function() {
-                                               $("#faq-theme").data("kendoMobileView").destroy();
-                                               $("#faq-theme").remove();  
-                                           },
-                                
-                                           pldestroyBenefitList
-                                           :function() {
-                                               $("#pl-benefit-list").data("kendoMobileView").destroy(); 
-                                               $("#pl-benefit-list").remove();
-                                           },
-        
-                                           destroyBenefitList
-                                           :function() {
-                                               $("#benefit-list").data("kendoMobileView").destroy();  
-                                           },
-            
-                                           destroypasswordchange
-                                           :function() {
-                                               $("#resetpassword-theme").data("kendoMobileView").destroy();
-                                               $("#resetpassword-theme").remove();
-                                           },
-                                           destroyTokenThemeView
-                                           :function() {
-                                               preLogin.set("tokennum", "");
-                                               $("#token-theme").data("kendoMobileView").destroy();
-                                               $("#token-theme").remove();
-                                           },
-        
-                                           destroyLoginView
-                                           :function() {
-                                               $("#login-theme").data("kendoMobileView").destroy();  
-                                               $("#login-theme").remove();  
-                                           },
-                                           destroyDiscoverListView
-                                           :function() {
-                                               $("#discoverlist-view").data("kendoMobileView").destroy();  
-                                               $("#discoverlist-view").remove();  
-                                           },
-        
-                                           brandDetaildestroyView
-                                           :function() {
-                                               $("#branddetail-theme").data("kendoMobileView").destroy();  
-                                               $("#branddetail-theme").remove();  
-                                               initialized = false;
-                                           },
-        
-                                           destroyHomeView
-                                           :function() {
-                                               $("#home-view").data("kendoMobileView").destroy();  
-                                               $("#home-view").remove();  
-                                           },
-        
-                                           destroyEnrolView
-                                           :function() {
-                                               $("#enrol-theme").data("kendoMobileView").destroy();  
-                                               $("#enrol-theme").remove();
-                                           },
-        
-                                           destroyOfferListView:function() {
-                                               $("#offerlist-view").data("kendoMobileView").destroy();  
-                                               $("#offerlist-view").remove();  
-                                               initialized = false;
-                                           },
-        
-                                         
-                                           destroyBrandListView
-                                           :function() {
-                                               $("#brandlist-view").data("kendoMobileView").destroy();  
-                                               $("#brandlist-view").remove();  
-                                               initialized = false;
-                                           },
-                
-                                           offerDetaildestroyView
-                                           :function() {
-                                               $("#offerdetail-theme").data("kendoMobileView").destroy();  
-                                               $("#offerdetail-theme").remove();   
-                                               initialized = false;
-                                           },
-                                          
-                                           destroyFilterView
-                                           : function() {
-                                               $("#modalviewfilter").data("kendoMobileModalView").destroy();
-                                               $("#modalviewfilter").remove();                                               
-                                           },
-        
-                                           destroyLocationView
-                                           : function() {
-                                               $("#modalviewcountry").data("kendoMobileModalView").destroy();
-                                               $("#modalviewcountry").remove();
-                                           },
-        
-                                           destroyTypeView
-                                           : function() {
-                                               $("#modalviewtype").data("kendoMobileModalView").destroy();
-                                               $("#modalviewtype").remove();
-                                           },
-        
-                                           destroyCuisineView
-                                           : function() {
-                                               $("#modalviewcuisine").data("kendoMobileModalView").destroy();
-                                               $("#modalviewcuisine").remove();                                               
-                                           },
-                                           outletdetailthemedestroyView
-                                           : function() {
-                                               $("#outletdetail-theme").data("kendoMobileView").destroy();
-                                               $("#outletdetail-theme").remove();
-                                               initialized = false;
-                                           },
-                                        
-                                           outletlistthemedestroyView
-                                           : function() {
-                                               $("#outletlist-theme").data("kendoMobileView").destroy();
-                                               $("#outletlist-theme").remove();
-                                               initialized = false;
-                                           },
-        
-                                           destroyCustomerService
-                                           :function() {
-                                               $("#customerservice-theme").data("kendoMobileView").destroy();  
-                                               $("#customerservice-theme").remove();  
-                                           },
-        
-                                           destroyplCustomerService
-                                           :function() {
-                                               $("#pl-customerservice-theme").data("kendoMobileView").destroy();  
-                                               $("#pl-customerservice-theme").remove();                                                 
-                                           },
-                                           destroyAboutisme
-                                           :function() {
-                                               $("#aboutisme-theme").data("kendoMobileView").destroy();  
-                                               $("#aboutisme-theme").remove(); 
-                                           },
-                                           destroyplTermsofService
-                                           :function() {
-                                               $("#pl-termsofservice-theme").data("kendoMobileView").destroy();  
-                                               $("#pl-termsofservice-theme").remove();                                                 
-                                           },
-                                           destroyJoin
-                                           :function() {
-                                               $("#join-theme").data("kendoMobileView").destroy();  
-                                               $("#join-theme").remove();  
-                                           },
-                                           destroyBrandPage
-                                           :function() {
-                                               $("#brandpage-theme").data("kendoMobileView").destroy();  
-                                               $("#brandpage-theme").remove();  
-                                           },
-                                           destroyBenefitDetail
-                                           :function() {
-                                               $("#benefit-detail").data("kendoMobileView").destroy();  
-                                               $("#benefit-detail").remove();  
-                                           },
-                                           pldestroyBenefitDetail
-                                           :function() {
-                                               $("#pl-benefit-detail").data("kendoMobileView").destroy();  
-                                               $("#pl-benefit-detail").remove();  
-                                           },                                         
+                                                             
                                            showBrandPage
                                            : function () {
                                                // alert("Hello");
@@ -1602,55 +1432,7 @@ function closeTypeView() {
                                                     document.getElementById("selCity").style.color = "#575757";
                                                 }
                                             },
-                                            destroysettingview                  
-                                            :function() {
-                                                $("#pl-setting-theme").data("kendoMobileView").destroy();
-                                            },
-                                            destroymyvoucher
-                                            :function() {
-                                                $("#myvoucherdetail-theme").data("kendoMobileView").destroy();
-                                            },
-                                            walletviewdestroy
-                                            :function() {
-                                                $("#pl-mywallet-theme").data("kendoMobileView").destroy();
-                                            },
-                                            destroyreceipt
-                                            :function() {
-                                                $("#receipt-view").data("kendoMobileView").destroy();  
-                                            },
-        
-                                            plofferDetaildestroyView
-                                            :function() {
-                                                $("#pl-offerdetail-theme").data("kendoMobileView").destroy();  
-                                            },
-        
-                                         
-                                            pldestroyOfferListView:function() {
-                                                $("#pl-offerlist-view").data("kendoMobileView").destroy();  
-                                            },
-
-                                         
-                                            ploutletdetailthemedestroyView: function() {
-                                                $("#pl-outletdetail-theme").data("kendoMobileView").destroy();
-                                                isMapInitialized = false;
-                                            },
-        
-                                         
-                                            ploutletlistthemedestroyView: function() {
-                                                $("#pl-outletlist-theme").data("kendoMobileView").destroy();
-                                            },
-                                            destroymyprofileview:function() {
-                                                $("#myprofile-view").data("kendoMobileView").destroy();
-                                            },
-                                            destroymessageitem:function() {
-                                                $("#messageitem-theme").data("kendoMobileView").destroy();
-                                            },
-                                            pldestroyBrandPage:function() {
-                                                $("#pl-brandpage-theme").data("kendoMobileView").destroy();
-                                            },
-                                            destroymymessages:function() {
-                                                $("#mymessagelist-theme").data("kendoMobileView").destroy();
-                                            },
+                                        
                                             loginSuccess:function() {
                                                 if (segmentcode==="") {
                                                     $("body").data("kendoMobilePane").navigate("views/home.html"); 
