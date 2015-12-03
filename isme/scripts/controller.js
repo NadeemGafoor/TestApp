@@ -45,7 +45,6 @@ function closeModalStar() {
     $("#modalviewstar").data("kendoMobileModalView").close();
 }
 
-
 function closeFilterView() {
     $("#modalviewfilter").data("kendoMobileModalView").close();
 } 
@@ -61,7 +60,6 @@ function closeCuisineView() {
 function closeTypeView() {
     $("#modalviewtype").data("kendoMobileModalView").close();
 }
-    
     
 (function (global) {
     var gpsErrorShow = "";
@@ -152,6 +150,7 @@ function closeTypeView() {
     
     window.sharingView = kendo.observable({
                                               destroySharingView: function() {
+                                                  $("#modalviewstar").data("kendoMobileModalView").destroy();
                                                   $("#modalviewstar").remove();
                                               },
                                                                                     
@@ -269,140 +268,165 @@ function closeTypeView() {
                                            },        
                                          
                                            destroyMapView:function() {
+                                               $("#destroymapview").data("kendoMobileModalView").destroy(); 
                                                $("#destroymapview").remove(); 
                                            },
                                            destroymypolicy
                                            :
                                            function() {
+                                               $("#device-theme").data("kendoMobileView").destroy();  
                                                $("#device-theme").remove();  
                                            },
                                            destroymyfaq
                                            :function() {
+                                               $("#faq-theme").data("kendoMobileView").destroy();
                                                $("#faq-theme").remove();  
                                            },
                                 
                                            pldestroyBenefitList
                                            :function() {
-                                               $("#pl-benefit-list").remove();  
+                                               $("#pl-benefit-list").data("kendoMobileView").destroy(); 
+                                               $("#pl-benefit-list").remove();
                                            },
         
                                            destroyBenefitList
                                            :function() {
-                                               $("#benefit-list").remove();  
+                                               $("#benefit-list").data("kendoMobileView").destroy();  
                                            },
             
                                            destroypasswordchange
                                            :function() {
+                                               $("#resetpassword-theme").data("kendoMobileView").destroy();
                                                $("#resetpassword-theme").remove();
                                            },
                                            destroyTokenThemeView
                                            :function() {
                                                preLogin.set("tokennum", "");
+                                               $("#token-theme").data("kendoMobileView").destroy();
                                                $("#token-theme").remove();
                                            },
         
                                            destroyLoginView
                                            :function() {
+                                               $("#login-theme").data("kendoMobileView").destroy();  
                                                $("#login-theme").remove();  
                                            },
                                            destroyDiscoverListView
                                            :function() {
+                                               $("#discoverlist-view").data("kendoMobileView").destroy();  
                                                $("#discoverlist-view").remove();  
                                            },
         
                                            brandDetaildestroyView
                                            :function() {
+                                               $("#branddetail-theme").data("kendoMobileView").destroy();  
                                                $("#branddetail-theme").remove();  
                                            },
         
                                            destroyHomeView
                                            :function() {
+                                               $("#home-view").data("kendoMobileView").destroy();  
                                                $("#home-view").remove();  
                                            },
         
                                            destroyEnrolView
                                            :function() {
-                                               $("#enrol-theme").remove();  
+                                               $("#enrol-theme").data("kendoMobileView").destroy();  
+                                               $("#enrol-theme").remove();
                                            },
         
                                            destroyOfferListView:function() {
+                                               $("#offerlist-view").data("kendoMobileView").destroy();  
                                                $("#offerlist-view").remove();  
                                            },
         
                                          
                                            destroyBrandListView
                                            :function() {
+                                               $("#brandlist-view").data("kendoMobileView").destroy();  
                                                $("#brandlist-view").remove();  
                                            },
                 
                                            offerDetaildestroyView
                                            :function() {
-                                               $("#offerdetail-theme").remove();  
+                                               $("#offerdetail-theme").data("kendoMobileView").destroy();  
+                                               $("#offerdetail-theme").remove();                                                 
                                            },
                                           
                                            destroyFilterView
                                            : function() {
-                                               $("#modalviewfilter").remove();
+                                               $("#modalviewfilter").data("kendoMobileModalView").destroy();
+                                               $("#modalviewfilter").remove();                                               
                                            },
         
                                            destroyLocationView
                                            : function() {
+                                               $("#modalviewcountry").data("kendoMobileModalView").destroy();
                                                $("#modalviewcountry").remove();
                                            },
         
                                            destroyTypeView
                                            : function() {
+                                               $("#modalviewtype").data("kendoMobileModalView").destroy();
                                                $("#modalviewtype").remove();
                                            },
         
                                            destroyCuisineView
                                            : function() {
-                                               $("#modalviewcuisine").remove();
+                                               $("#modalviewcuisine").data("kendoMobileModalView").destroy();
+                                               $("#modalviewcuisine").remove();                                               
                                            },
                                            outletdetailthemedestroyView
                                            : function() {
+                                               $("#outletdetail-theme").data("kendoMobileView").destroy();
                                                $("#outletdetail-theme").remove();
                                            },
-        
-                                      
-        
-                                         
+                                        
                                            outletlistthemedestroyView
                                            : function() {
+                                               $("#outletlist-theme").data("kendoMobileView").destroy();
                                                $("#outletlist-theme").remove();
                                            },
         
                                            destroyCustomerService
                                            :function() {
+                                               $("#customerservice-theme").data("kendoMobileView").destroy();  
                                                $("#customerservice-theme").remove();  
                                            },
         
                                            destroyplCustomerService
                                            :function() {
-                                               $("#pl-customerservice-theme").remove();  
+                                               $("#pl-customerservice-theme").data("kendoMobileView").destroy();  
+                                               $("#pl-customerservice-theme").remove();                                                 
                                            },
                                            destroyAboutisme
                                            :function() {
-                                               $("#aboutisme-theme").remove();  
+                                               $("#aboutisme-theme").data("kendoMobileView").destroy();  
+                                               $("#aboutisme-theme").remove(); 
                                            },
                                            destroyplTermsofService
                                            :function() {
-                                               $("#pl-termsofservice-theme").remove();  
+                                               $("#pl-termsofservice-theme").data("kendoMobileView").destroy();  
+                                               $("#pl-termsofservice-theme").remove();                                                 
                                            },
                                            destroyJoin
                                            :function() {
+                                               $("#join-theme").data("kendoMobileView").destroy();  
                                                $("#join-theme").remove();  
                                            },
                                            destroyBrandPage
                                            :function() {
+                                               $("#brandpage-theme").data("kendoMobileView").destroy();  
                                                $("#brandpage-theme").remove();  
                                            },
                                            destroyBenefitDetail
                                            :function() {
+                                               $("#benefit-detail").data("kendoMobileView").destroy();  
                                                $("#benefit-detail").remove();  
                                            },
                                            pldestroyBenefitDetail
                                            :function() {
+                                               $("#pl-benefit-detail").data("kendoMobileView").destroy();  
                                                $("#pl-benefit-detail").remove();  
                                            },                                         
                                            showBrandPage
@@ -1574,52 +1598,52 @@ function closeTypeView() {
                                             },
                                             destroysettingview                  
                                             :function() {
-                                                $("#pl-setting-theme").remove();
+                                                $("#pl-setting-theme").data("kendoMobileView").destroy();
                                             },
                                             destroymyvoucher
                                             :function() {
-                                                $("#myvoucherdetail-theme").remove();
+                                                $("#myvoucherdetail-theme").data("kendoMobileView").destroy();
                                             },
                                             walletviewdestroy
                                             :function() {
-                                                $("#pl-mywallet-theme").remove();
+                                                $("#pl-mywallet-theme").data("kendoMobileView").destroy();
                                             },
                                             destroyreceipt
                                             :function() {
-                                                $("#receipt-view").remove();  
+                                                $("#receipt-view").data("kendoMobileView").destroy();  
                                             },
         
                                             plofferDetaildestroyView
                                             :function() {
-                                                $("#pl-offerdetail-theme").remove();  
+                                                $("#pl-offerdetail-theme").data("kendoMobileView").destroy();  
                                             },
         
                                          
                                             pldestroyOfferListView:function() {
-                                                $("#pl-offerlist-view").remove();  
+                                                $("#pl-offerlist-view").data("kendoMobileView").destroy();  
                                             },
 
                                          
                                             ploutletdetailthemedestroyView: function() {
-                                                $("#pl-outletdetail-theme").remove();
+                                                $("#pl-outletdetail-theme").data("kendoMobileView").destroy();
                                                 isMapInitialized = false;
                                             },
         
                                          
                                             ploutletlistthemedestroyView: function() {
-                                                $("#pl-outletlist-theme").remove();
+                                                $("#pl-outletlist-theme").data("kendoMobileView").destroy();
                                             },
                                             destroymyprofileview:function() {
-                                                $("#myprofile-view").remove();
+                                                $("#myprofile-view").data("kendoMobileView").destroy();
                                             },
                                             destroymessageitem:function() {
-                                                $("#messageitem-theme").remove();
+                                                $("#messageitem-theme").data("kendoMobileView").destroy();
                                             },
                                             pldestroyBrandPage:function() {
-                                                $("#pl-brandpage-theme").remove();
+                                                $("#pl-brandpage-theme").data("kendoMobileView").destroy();
                                             },
                                             destroymymessages:function() {
-                                                $("#mymessagelist-theme").remove();
+                                                $("#mymessagelist-theme").data("kendoMobileView").destroy();
                                             },
                                             loginSuccess:function() {
                                                 if (segmentcode==="") {
