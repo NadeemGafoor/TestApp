@@ -282,7 +282,6 @@ function closeModalStar() {
         
                                            brandDetaildestroyView
                                            :function() {
-                                               
                                                $("#branddetail-theme").remove();  
                                            },
         
@@ -1455,7 +1454,17 @@ function closeModalStar() {
                                            getfaq
                                            : function () {
                                                httpFAQ();
+                                           },
+        
+                                           getAddRestFilter:function() {
+                                               $("#add-Rest-Filter").kendoMobileListView({
+                                                                                             dataSource: kendo.data.DataSource.create({data: getData.historylist }),
+                                                                                             template: $("#add-Rest-Filter-Template").html()
+                                                                           
+                                                                           
+                                                                                         });
                                            }
+                                                                                     
                                        });
     
     window.postLogin = kendo.observable({ 

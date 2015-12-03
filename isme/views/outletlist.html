@@ -11,7 +11,7 @@
             </a>
         </div>
     </div>
-    <div id="filterpanel" class="class-filter-div filter-height">
+    <div id="filterpanel" class="class-filter-div filter-height" data-bind="value: getAddRestFilter">
         <div data-role="header" style="background-color:#4f5053">
             <div data-role="navbar">
                 <span >Filters</span>
@@ -22,17 +22,34 @@
                     Go
                 </a>
             </div>
-                    </div>
-            <ul data-role="listview">
-                <div class="list-group">&nbsp;Location</div>
-                <div class="list-group-data-header">
-                    <a data-role="button" data-click="loadType">
-                        <div class="list-group-data-item">Select Location...</div>
-                        <div class="list-group-data-item" id="restaurantType">All</div>
-                    </a>
-                </div>
-            </ul>
+        </div>
+        <div class="list-group">&nbsp;Location</div>
+        <div class="list-group-data-header">
+            <a data-click="loadLocation" data-role="button">
+                <div class="list-group-data-item">Select Location...</div>
+                <div class="list-group-data-item" id="restaurantLocation">All</div>
+            </a>
+        </div>
+        <div class="list-group">&nbsp;Type</div>
+        <div class="list-group-data-header">
+            <a data-click="loadType" data-role="button">
+                <div class="list-group-data-item">Select Type...</div>
+                <div class="list-group-data-item" id="restaurantType">All</div>
+            </a>
+        </div>
 
+        <div class="list-group">&nbsp;Cuisine</div>
+        <div class="list-group-data-header">
+            <a data-click="loadType" data-role="button">
+                <div class="list-group-data-item">Select Cuisine...</div>
+                <div class="list-group-data-item" id="restaurantCuisine">All</div>
+            </a>
+        </div>
+        <div class="list-group">&nbsp;Additional Filters</div>
+
+        <ul id="add-Rest-Filter">
+
+        </ul>
 
     </div>
     <ul data-role="listview"  >
@@ -98,9 +115,17 @@
     </div>
 </div>
 
+<script type="text/x-kendo-template" id="add-Rest-Filter-Template">
+    <div class="list-group-data-header">
+        <div class="list-group-data-item">${addrestitem}</div>
+        <div class="list-group-data-item" id=${addrestkey} data-icon="customno"></div><div class="list-group-data-item" id=${addrestkey} data-icon="customyes"></div>
+    </div>
+</script>
+
 <style scoped>
-    #outletlist-theme  a{
-        background-color:transparent !important;
+    #outletlist-theme .list-group-data-header a
+    {
+        background-color: transparent !important;
     }
 </style>
 
