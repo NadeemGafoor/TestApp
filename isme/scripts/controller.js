@@ -9,22 +9,25 @@ function outletMessage() {
     }, "isme by Jumeirah", "Dismiss")    
 }
 
-    function closeModalMap() {
+function closeModalMap() {
+    $("#modalviewmap").data("kendoMobileModalView").close();
+}    
 
-        $("#modalviewmap").data("kendoMobileModalView").close();
-    }    
+function loadMapView() {
+    $("#modalviewmap").data("kendoMobileModalView").open();
+}    
 
- function closeShare() {
-        $("#panel").slideUp("slow");
-    }
+function closeShare() {
+    $("#panel").slideUp("slow");
+}
     
-    function openShare() {
-        $("#panel").slideDown("slow");
-    }    
+function openShare() {
+    $("#panel").slideDown("slow");
+}    
     
-    function closeModalStar() {
-        $("#modalviewstar").data("kendoMobileModalView").close();
-    }    
+function closeModalStar() {
+    $("#modalviewstar").data("kendoMobileModalView").close();
+}    
     
 (function (global) {
     var gpsErrorShow = "";
@@ -275,7 +278,7 @@ function outletMessage() {
         
                                            brandDetaildestroyView
                                            :function() {
-                                                        $("#map_canvas1").empty();
+                                               $("#map_canvas1").empty();
                                                $("#branddetail-theme").remove();  
                                            },
         
@@ -289,43 +292,38 @@ function outletMessage() {
                                                $("#enrol-theme").remove();  
                                            },
         
-                                           destroyOfferListNearMeView
-                                           :function() {
-                                               $("#offerlistnearme-view").remove();  
+                                           destroyOfferListView:function() {
+                                               $("#map_canvas1").empty();
+                                               $("#offerlist-view").remove();  
                                            },
+        
+                                         
                                            destroyBrandListView
                                            :function() {
+                                               $("#map_canvas1").empty();
                                                $("#brandlist-view").remove();  
                                            },
                 
                                            offerDetaildestroyView
                                            :function() {
+                                               $("#map_canvas1").empty();
                                                $("#offerdetail-theme").remove();  
                                            },
                                           
-                                           offerDetaildestroyViewNearMe
-                                           :function() {
-                                               $("#offerdetailnearme-theme").remove();  
-                                           },
+                                     
         
                                            outletdetailthemedestroyView
                                            : function() {
+                                               $("#map_canvas1").empty();
                                                $("#outletdetail-theme").remove();
-                                               isMapInitialized = false;
                                            },
         
-                                           outletdetailthemedestroyViewNearMe
-                                           : function() {
-                                               $("#outletdetailnearme-theme").remove();
-                                               isMapInitialized = false;
-                                           },
+                                      
         
-                                           outletlistnearmethemedestroyView
-                                           : function() {
-                                               $("#outletlistnearme-theme").remove();
-                                           },
+                                         
                                            outletlistthemedestroyView
                                            : function() {
+                                               $("#map_canvas1").empty();
                                                $("#outletlist-theme").remove();
                                            },
         
@@ -599,7 +597,7 @@ function outletMessage() {
                                            getLocationO
                                            : function() {
                                                showSpin(); //show loading popup
-                                               document.getElementById("map_canvas1").style.backgroundColor="#e9e5dc";
+                                               document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
                                                setTimeout(mapInitialize, 2000);
                                                hideSpin(); //hide loading popup
                                            },
@@ -1505,29 +1503,18 @@ function outletMessage() {
                                                 $("#pl-offerdetail-theme").remove();  
                                             },
         
-                                            plofferDetaildestroyViewNearMe
-                                            :function() {
-                                                $("#pl-offerdetailnearme-theme").remove();  
-                                            },
-                                            pldestroyOfferListViewnearme:function() {
-                                                $("#pl-offerlistnearme-view").remove();  
-                                            },
+                                         
                                             pldestroyOfferListView:function() {
                                                 $("#pl-offerlist-view").remove();  
                                             },
 
-                                            ploutletlistthemenearmedestroyView: function() {
-                                                $("#pl-outletlistnearme-theme").remove();
-                                            },
+                                         
                                             ploutletdetailthemedestroyView: function() {
                                                 $("#pl-outletdetail-theme").remove();
                                                 isMapInitialized = false;
                                             },
         
-                                            ploutletdetailthemedestroyViewNearMe: function() {
-                                                $("#pl-outletdetailnearme-theme").remove();
-                                                isMapInitialized = false;
-                                            },
+                                         
                                             ploutletlistthemedestroyView: function() {
                                                 $("#pl-outletlist-theme").remove();
                                             },
@@ -3311,8 +3298,5 @@ function outletMessage() {
         marker.setVisible(true);
         marker.setMap(map); 
     }
-    
-   
-        
 }
     )(window);
