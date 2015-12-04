@@ -6,8 +6,8 @@
         <div data-role="navbar">
             <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
             <span data-role="view-title"></span>
-            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="right" >
-                <i class="fa fa-search fa-lg" style="color:#fff"></i>
+           <a  data-role="button" data-click="offerFilterView" data-align="right" >
+                <i class="fa fa-filter fa-lg" style="color:#fff"></i>
             </a>
             <a data-transition="slide"   data-role="button" data-click="loadMapView" data-align="right" >
                 <i class="fa fa-map-marker fa-lg" style="color:#fff"></i>
@@ -76,3 +76,103 @@
 
             </div> <div data-bind="value: getLocationO" style="display:none"></div>
 </div>
+
+<div data-role="modalview" id="modalviewofferfilter" style="height:90%;width:90%" data-model="preLogin">
+    <div data-role="header" style="background-color:#4f5053">
+        <div data-role="navbar">
+            <span >Filters</span>
+            <a data-click="closeOfferFilterView" data-role="button" data-align="right" data-animated="true">
+                Go
+            </a>
+        </div>
+    </div>
+    <div class="list-group">&nbsp;Location</div>
+    <div class="list-group-data-header">
+        <a data-click="loadLocationView" data-role="button">
+            <div class="list-group-data-item">Select Location...</div>
+            <div class="list-group-data-item" id="restaurantLocation">All</div>
+        </a>
+    </div>
+    <div class="list-group">&nbsp;Celebration Type</div>
+    <div class="list-group-data-header">
+        <a data-click="loadCeleberationTypeView" data-role="button">
+            <div class="list-group-data-item">Select Celebration Type...</div>
+            <div class="list-group-data-item" id="restaurantType">All</div>
+        </a>
+    </div>
+
+   
+    <div class="list-group" data-bind="value:getOfferTypeData">&nbsp;Additional Filters</div>
+
+    <ul id="Offer-Filter">
+
+    </ul>
+    
+
+</div>
+
+<div data-role="modalview" id="modalviewcountry" data-title=""  style="height:70%;width:90%" data-model="preLogin">
+    <div data-role="header" style="background-color:#4f5053">
+        <div data-role="navbar">
+            <span >Select Location</span>
+            <a data-click="closeLocationView" data-role="button" data-align="right" data-animated="true">
+                Go
+            </a>
+        </div>
+    </div>
+    <ul id="Location-Filter"  data-bind="value:getLocationFilter" >
+   </ul>
+</div>
+
+<div data-role="modalview" id="modalviewceleberationtype" data-title=""  style="height:70%;width:90%" data-model="preLogin">
+    <div data-role="header" style="background-color:#4f5053">
+        <div data-role="navbar">
+            <span >Celebration Type</span>
+            <a data-click="closeCeleberationTypeView" data-role="button" data-align="right" data-animated="true">
+                Go
+            </a>
+        </div>
+    </div>
+    <ul id="Celebration-Filter"  data-bind="value:getCelebrationFilter" >
+    </ul>
+</div>
+
+<script type="text/x-kendo-template" id="Celebration-Filter-Template">
+    <div class="list-group-data-header">
+        <div class="list-group-data-item" style="margin-left:10px;;width:65%">${celebitem}</div>
+        <div class="list-group-data-item" id=${celebkey} style="text-align:center;width:15%">
+            <i class="fa fa-minus-square-o fa-lg"></i>
+        </div>
+        <div class="list-group-data-item" id=${celebkey} style="text-align:center;width:15%">
+            <i class="fa fa-plus-square-o fa-lg"></i>
+        </div>
+    </div>
+</script>
+
+
+<script type="text/x-kendo-template" id="LocationFilter-Template">
+    <div class="list-group-data-header">
+        <div class="list-group-data-item" style="margin-left:10px;;width:65%">${locationitem}</div>
+        <div class="list-group-data-item" id=${locationkey} style="text-align:center;width:15%">
+            <i class="fa fa-minus-square-o fa-lg"></i>
+        </div>
+        <div class="list-group-data-item" id=${locationkey} style="text-align:center;width:15%">
+            <i class="fa fa-plus-square-o fa-lg"></i>
+        </div>
+    </div>
+</script>
+    
+<script type="text/x-kendo-template" id="Offer-Filter-Template">
+    <div class="list-group-data-header">
+        <div class="list-group-data-item" style="margin-left:10px;width:65%">
+            ${offeritem}
+        </div>
+        <div class="list-group-data-item" id=${offerkey} style="text-align:center;width:15%">
+            <i class="fa fa-minus-square-o fa-lg"></i>
+        </div>
+        <div class="list-group-data-item" id=${offerkey} style="text-align:center;width:15%">
+            <i class="fa fa-plus-square-o fa-lg"></i>
+        </div>
+    </div>
+</script>
+

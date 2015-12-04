@@ -60,6 +60,22 @@ function closeCuisineView() {
 function closeTypeView() {
     $("#modalviewtype").data("kendoMobileModalView").close();
 }
+
+function offerFilterView() {
+    $("#modalviewofferfilter").data("kendoMobileModalView").open();
+}
+
+function closeOfferFilterView() {
+    $("#modalviewofferfilter").data("kendoMobileModalView").close();
+} 
+
+function loadCeleberationTypeView() {
+    $("#modalviewceleberationtype").data("kendoMobileModalView").open();
+}
+
+function closeCeleberationTypeView() {
+    $("#modalviewceleberationtype").data("kendoMobileModalView").open();
+}
     
 (function (global) {
     var gpsErrorShow = "";
@@ -1405,6 +1421,27 @@ function closeTypeView() {
 
                                                                     
                                                                                         });
+                                           },
+        
+                                           getOfferTypeData:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
+                                               
+                                               $("#Offer-Filter").kendoMobileListView({
+                                                                                          dataSource: dataSource,
+                                                                                          template: $("#Offer-Filter-Template").html()
+
+                                                                    
+                                                                                      });
+                                           },
+                                           getCelebrationFilter:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getOfferCeleberationData() });
+                                               
+                                               $("#Celebration-Filter").kendoMobileListView({
+                                                                                                dataSource: dataSource,
+                                                                                                template: $("#Celebration-Filter-Template").html()
+
+                                                                    
+                                                                                            });
                                            }
                                                                                      
                                        });
@@ -3167,29 +3204,26 @@ function closeTypeView() {
     }
     
     function mapInitialize() {
-
-            var latlng = new google.maps.LatLng(
-                lat,
-                lon);
+        var latlng = new google.maps.LatLng(
+            lat,
+            lon);
  
-            var mapOptions = {
-                sensor: true,
-                center: latlng,
-                panControl: false,
-                zoomControl: true,
-                zoom: 16,
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                streetViewControl: false,
-                mapTypeControl: true,
+        var mapOptions = {
+            sensor: true,
+            center: latlng,
+            panControl: false,
+            zoomControl: true,
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            streetViewControl: false,
+            mapTypeControl: true,
  
-            };
+        };
  
-            var map = new google.maps.Map(
-                document.getElementById('map_canvas1'),
-                mapOptions
-                );
-            
-  
+        var map = new google.maps.Map(
+            document.getElementById('map_canvas1'),
+            mapOptions
+            );
  
         var marker = new google.maps.Marker({
                                                 position: latlng,
@@ -3279,6 +3313,59 @@ function closeTypeView() {
         data.push({cuisinekey: "15",cuisineitem:"Seafood"});
         data.push({cuisinekey: "16",cuisineitem:"Steakhouse"});
         data.push({cuisinekey: "17",cuisineitem:"Vegetarian"});
+           
+        return data;
+    }
+    
+    function getOfferTypeData() {
+        var data = [];
+        data.push({offerkey: "1",offeritem:"Art & Culture"});
+        data.push({offerkey: "2",offeritem:"Beach"});
+        data.push({offerkey: "3",offeritem:"Beauty"});
+        data.push({offerkey: "4",offeritem:"Brunch"});
+        data.push({offerkey: "5",offeritem:"Family & Kids"});    
+        data.push({offerkey: "6",offeritem:"Fashion"});         
+        data.push({offerkey: "7",offeritem:"Fine Dining"});
+        data.push({offerkey: "8",offeritem:"Football"});         
+        data.push({offerkey: "9",offeritem:"Gadgets"});
+        data.push({offerkey: "10",offeritem:"Golf"});         
+        data.push({offerkey: "11",offeritem:"Grape Tasting"});
+        data.push({offerkey: "12",offeritem:"Horse Racing"});
+        data.push({offerkey: "13",offeritem:"Leisure"});
+        data.push({offerkey: "14",offeritem:"Live music"});
+        data.push({offerkey: "15",offeritem:"Luxury Goods"});
+        data.push({offerkey: "16",offeritem:"Motor Sports"});
+        data.push({offerkey: "17",offeritem:"Networking"});
+        data.push({offerkey: "18",offeritem:"No alcohol"});
+        data.push({offerkey: "19",offeritem:"Rugby"});
+        data.push({offerkey: "20",offeritem:"Shopping"});
+        data.push({offerkey: "21",offeritem:"Signature Events"});
+        data.push({offerkey: "22",offeritem:"Spa / Fitness"});
+        data.push({offerkey: "23",offeritem:"Special Holiday Offers"});
+        data.push({offerkey: "24",offeritem:"Travel & Stay Packages"});
+        data.push({offerkey: "25",offeritem:"Watersports"});
+        data.push({offerkey: "26",offeritem:"Weight loss"});
+        data.push({offerkey: "27",offeritem:"Wellness & Wellbeing"});
+        data.push({offerkey: "27",offeritem:"Yoga"});
+           
+        return data;
+    }
+    
+    function getOfferCeleberationData() {
+        var data = [];
+        data.push({celebkey: "1",celebitem:"Birthdays"});
+        data.push({celebkey: "2",celebitem:"Corporate entertainment"});
+        data.push({celebkey: "3",celebitem:"Easter celebrations"});
+        data.push({celebkey: "4",celebitem:"Eid celebrations"});
+        data.push({celebkey: "5",celebitem:"Father`s day"});    
+        data.push({celebkey: "6",celebitem:"Festive"});         
+        data.push({celebkey: "7",celebitem:"Mothers day"});
+        data.push({celebkey: "8",celebitem:"Ramadan"});         
+        data.push({celebkey: "9",celebitem:"Thanks giving day"});
+        data.push({celebkey: "10",celebitem:"UAE National Day"});         
+        data.push({celebkey: "11",celebitem:"Valentines"});
+        data.push({celebkey: "12",celebitem:"Wedding Anniversary"});
+        data.push({celebkey: "13",celebitem:"Women`s Day"});
            
         return data;
     }
