@@ -117,7 +117,7 @@ function plcloseShareBrand() {
 }
 
 function cloakerClick() {
-    alert("fff");
+    window.setTimeout(function(){ },100);
     if (document.getElementById("foot1").style.display != "block") {
         $("#foot").animate({bottom:'375px'}, 300);
            window.setTimeout(function(){ document.getElementById("foot1").style.display = "block";
@@ -130,12 +130,6 @@ function cloakerClick() {
     }
 }
 
-function cloakerClose() {
-    alert("fff");
-        $("#foot").animate({bottom:'0px'}, 100);
-            document.getElementById("foot1").style.display = "none";        
-            document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-}
     
 (function (global) {
     var gpsErrorShow = "";
