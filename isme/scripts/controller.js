@@ -1,11 +1,39 @@
 function hideOfferListView(){
      $("#offerlist-view").remove();
-    alert("offerlist-view removed");
+}
+
+function hideModalViewMap(){
+     $("#outletlist-theme").remove();
+
+}
+
+function hideModalViewOfferFilter(){
+      $("#modalviewofferfilter").remove();
+}
+
+function hideModalViewCountry(){
+      $("#modalviewcountry").remove();    
+}
+
+
+function hideModalViewCelebrationType(){
+      $("#modalviewceleberationtype").remove();        
 }
 
 function hideOutletListTheme(){
      $("#outletlist-theme").remove();
-    alert("outletlist-theme removed");
+}
+
+function hideModalViewFilter(){
+     $("#modalviewfilter").remove();    
+}
+
+function hideModalViewType(){
+         $("#modalviewtype").remove(); 
+}
+
+function hideModalViewCuisine(){
+         $("#modalviewcuisine").remove();     
 }
 
 
