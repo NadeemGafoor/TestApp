@@ -538,6 +538,16 @@ function closeCeleberationTypeView() {
                                                hideSpin(); //hide loading popup
                                            },
         
+                                           getLocation1
+                                           : function() {
+                                               alert("Hello");
+                                               $("#modalviewmap").data("kendoMobileModalView").open();
+                                               showSpin(); //show loading popup
+                                               document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
+                                               setTimeout(mapInitialize, 2000);
+                                               hideSpin(); //hide loading popup
+                                           },
+        
                                            offerlist
                                            : function (e) {
                                                y = e.view.params.geo;
@@ -3223,27 +3233,26 @@ function closeCeleberationTypeView() {
         var latlng = new google.maps.LatLng(
             lat,
             lon);
-        if (!initialized){
+        if (!initialized) {
+            var mapOptions = {
+                sensor: true,
+                center: latlng,
+                panControl: false,
+                zoomControl: true,
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                streetViewControl: false,
+                mapTypeControl: true,
  
-        var mapOptions = {
-            sensor: true,
-            center: latlng,
-            panControl: false,
-            zoomControl: true,
-            zoom: 16,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            streetViewControl: false,
-            mapTypeControl: true,
+            };
  
-        };
- 
-        var map = new google.maps.Map(
-            document.getElementById('map_canvas1'),
-            mapOptions
-            );
+            var map = new google.maps.Map(
+                document.getElementById('map_canvas1'),
+                mapOptions
+                );
             
-            initialized=true;
-            }
+            initialized = true;
+        }
  
         var marker = new google.maps.Marker({
                                                 position: latlng,
