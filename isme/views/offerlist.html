@@ -1,7 +1,7 @@
 <!--Offer List View-->
 <div id="offerlist-view"
      data-role="view"
-     data-title="Offers" data-layout="back-layout"  data-model="preLogin">
+     data-title="Offers" data-layout="back-layout"  data-model="preLogin" data-hide="hideOfferListView">
     <div data-role="header">
         <div data-role="navbar">
             <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
@@ -107,7 +107,9 @@
     <ul id="Offer-Filter">
 
     </ul>
-    
+      <div class="button-frame-inline">
+        <a data-role="button" class="button-select">Select/UnSelect All</a>
+    </div>
 
 </div>
 
@@ -122,6 +124,9 @@
     </div>
     <ul id="Location-Filter"  data-bind="value:getLocationFilter" >
    </ul>
+      <div class="button-frame-inline">
+        <a data-role="button" class="button-select">Select/UnSelect All</a>
+    </div>
 </div>
 
 <div data-role="modalview" id="modalviewceleberationtype" data-title=""  style="height:70%;width:90%" data-model="preLogin">
@@ -135,6 +140,9 @@
     </div>
     <ul id="Celebration-Filter"  data-bind="value:getCelebrationFilter" >
     </ul>
+      <div class="button-frame-inline">
+        <a data-role="button" class="button-select">Select/UnSelect All</a>
+    </div>
 </div>
 
 <script type="text/x-kendo-template" id="Celebration-Filter-Template">

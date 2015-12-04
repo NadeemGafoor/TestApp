@@ -1,3 +1,13 @@
+function hideOfferListView(){
+     $("#offerlist-view").remove();
+    alert("offerlist-view removed");
+}
+
+function hideOutletListTheme(){
+     $("#outletlist-theme").remove();
+    alert("outletlist-theme removed");
+}
+
 
 function offerMessage() {
     navigator.notification.alert("To view offer details please select All Offers from the menu", function() {
