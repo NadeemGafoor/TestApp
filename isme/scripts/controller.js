@@ -121,13 +121,13 @@ function plSlideMenuPanel() {
 }
 
 function cloakerClick() {
-    if (document.getElementById("foot1").style.display==="none") {
-        $("#foot").animate({bottom:'300px'}, 50);
+    if (document.getElementById("foot1").style.display!="block"){
+        $("#foot").animate({bottom:'300px'}, 100);
         document.getElementById("foot1").style.display = "block";
         document.getElementById("mymenu").innerHTML='<i class="fa fa-sort-desc fa-lg" style="color:#fff"></i>';
     }else{
         document.getElementById("foot1").style.display = "none";
-        $("#foot").animate({bottom:'0px'}, 50);
+        $("#foot").animate({bottom:'0px'}, 100);
         document.getElementById("mymenu").innerHTML='<i class="fa fa-sort-asc fa-lg" style="color:#fff"></i>';
     }
 }
