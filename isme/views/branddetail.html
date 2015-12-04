@@ -80,67 +80,7 @@
     </footer>
 </div>
 
-<div data-role="modalview" id="modalviewstar" data-title="Rate" data-model="sharingView"  data-show="sharingView.viewInit" style="height:80%;width:100%">
-    <div data-role="header">
-        <div data-role="navbar">
-            <span data-role="view-title"></span>
-            <a data-click="closeModalStar" data-role="button" data-align="right">
-                <i class="fa fa-times-circle fa-2x" style="color:#fff"></i>
-            </a>
-        </div>
 
-    </div>
-    <ul data-role="listview" data-style="inset">
-        <li>
-            <div class="detail-outer-star">
-                <div class="detail-rate" id="d1" data-bind="click : starCounter" data-parameter="1" data-icon="customstar">
-                </div>
-                <div class="detail-rate" id="d2" data-bind="click : starCounter" data-parameter="2" data-icon="customstar">
-                </div>
-                <div class="detail-rate" id="d3" data-bind="click : starCounter" data-parameter="3" data-icon="customstar">
-                </div>
-                <div class="detail-rate" id="d4" data-bind="click : starCounter" data-parameter="4" data-icon="customstar">
-                </div>
-                <div class="detail-rate" id="d5"  data-bind="click : starCounter" data-parameter="5" data-icon="customstar">
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="detail-outer-star">Tap on Stars to rate from 1 to 5</div>
-        </li>
-        <li>
-            <div class="detail-outer-star">
-                <textarea placeholder="Write your Review..." style="background-color:#f7f3f1" id="txtReview" data-bind="value: txtremarks" maxlength="256"></textarea>
-            </div>
-        </li>
-        <div>
-            <li>
-                <div class="button-frame-inline">
-                    <a id="mobile-button1" data-role="button" data-bind="click: mysubmitShare" class="button-submit">Save</a>
-                </div>
-            </li>
-        </div>
-    </ul>
-</div>
-
-
-
-
-<div data-role="modalview" id="modalviewmap" data-title="Map"  style="height:100%;width:100%" data-model="preLogin" >
-    <div data-role="header">
-        <div data-role="navbar">
-            <span data-role="view-title"></span>
-            <a data-click="closeModalMap" data-role="button" data-align="right">
-                <i class="fa fa-times-circle fa-2x" style="color:#fff"></i>
-            </a>
-        </div>
-
-    </div>
- 
-      <div id="map_canvas1" class="home-pos">
-
-            </div> <div data-bind="value: getLocationO" style="display:none"></div>
-</div>
 
 
 <style scoped>
@@ -152,13 +92,5 @@
         border: #fff solid 2px; 
     }     
     
-    #modalviewstar .km-content
-    {
-        background-color: #ccc; 
-    }
-    #modalviewstar .button-submit 
-    {
-        background-color: rgba(62, 65, 66, 0.7);
-        color: #fff;
-    }
+  
 </style>
