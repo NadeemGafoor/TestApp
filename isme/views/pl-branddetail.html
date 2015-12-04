@@ -1,15 +1,15 @@
-<div data-role="view" id="pl-outletdetail-theme"    data-layout="pl-back2-layout" data-model="preLogin" data-hide="closeShareOutlet">
+<div data-role="view"   data-layout="pl-back2-layout" id="pl-branddetail-theme"  data-model="preLogin" data-hide="closeShareBrand">
     <header data-role="header">
         <div data-role="navbar">
-            <a data-transition="slide"   data-role="button" href="views/pl-outletlist.html" data-align="left"  data-icon="back">
+            <a data-transition="slide"   data-role="button" href="views/pl-brandlist.html" data-align="left"  data-icon="back">
             </a>
-            <span data-role="view-title" id="item-title">Al Mahaara</span>
-           <a data-role="button" data-click="openShareOutlet" data-align="right" >
+            <span data-role="view-title" id="item-title">Burj Al Arab</span>
+            <a data-role="button" data-click="openShareBrand" data-align="right" >
                 <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
             </a>
         </div>
     </header>
- <div id="panelOutlet" class="class-share-div">
+    <div id="panelBrand" class="class-share-div">
         <div class="share-menu-line-1">
             <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
             <div class="button-frame-inline-round">
@@ -37,26 +37,35 @@
             </div>
         </div>
         <div class="share-menu-line-2">
-            <a data-click="closeShareOutlet" data-role="button">
+            <a data-click="closeShareBrand" data-role="button">
                 CLOSE
             </a>
         </div>
     </div>
 
     <div class="hero-image" id="outlet-image-large">
-        <img id="outletimage" src="images/rest10.png" class="img-hero"/>
+        <img id="outletimage" src="images/Brand1.png" class="img-hero"/>
 
     </div>
 
     <ul data-role="listview"    style="margin-top:0px" id="outlet-detail-div" >
+        <div style="width:100%">
+            <a href="views/outletlist.html"  data-transition="slide:up" >
+                <div class="discover-back-part-a discover-back-part-a1">
+                    View<br>Restaurants
+                </div>
+            </a>
+            <a href="views/outletlist.html" data-transition="slide:up">
+                <div class="discover-back-part-a discover-back-part-a2">
+                    View<br>Spa
+                </div>
+            </a>
+        </div>
         <div id="ooutlet-long" class="fulljustifyblack">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
 
             Doloremque laudantium, totam rem aperiam. eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
 
-            sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
-
-            sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
         </div>
 
     </ul>
@@ -71,7 +80,6 @@
     </footer>
 </div>
 
-    
 
 
 
@@ -84,4 +92,5 @@
         border: #fff solid 2px; 
     }     
     
-  </style>
+  
+</style>
