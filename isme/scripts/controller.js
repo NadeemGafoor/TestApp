@@ -529,13 +529,13 @@ function closeCeleberationTypeView() {
                                                       });
                                            },
         
-                                           getLocationO
-                                           : function() {
-                                               showSpin(); //show loading popup
-                                               document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
-                                               setTimeout(mapInitialize, 2000);
-                                               hideSpin(); //hide loading popup
-                                           },
+                                       //    getLocationO
+                                       //   : function() {
+                                       //    showSpin(); //show loading popup
+                                       //     document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
+                                      //       setTimeout(mapInitialize, 2000);
+                                      //       hideSpin(); //hide loading popup
+                                      //   },
         
                                            offerlist
                                            : function (e) {
@@ -3219,6 +3219,8 @@ function closeCeleberationTypeView() {
     }
     
     function showMap() {
+        $("#modalviewmap").data("kendoMobileModalView").open();
+        document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
         var latlng = new google.maps.LatLng(
             lat,
             lon);
