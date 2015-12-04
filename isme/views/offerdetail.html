@@ -1,15 +1,15 @@
-<div data-role="view"   data-layout="back2-layout" id="offerdetail-theme"  data-model="preLogin">
+<div data-role="view"   data-layout="back2-layout" id="offerdetail-theme"  data-model="preLogin" data-hide="closeShareOffer">
    <header data-role="header">
         <div data-role="navbar">
             <a data-transition="slide"   data-role="button" href="views/offerlist.html" data-align="left"  data-icon="back">
             </a>
             <span data-role="view-title" id="item-title">Airline Offer</span>
-             <a data-role="button" data-click="openShare" data-align="right" >
+             <a data-role="button" data-click="openShareOffer" data-align="right" >
                 <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
             </a>
         </div>
     </header>
-   <div id="panel" class="class-share-div">
+   <div id="panelOffer" class="class-share-div">
         <div class="share-menu-line-1">
             <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
             <div class="button-frame-inline-round">
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="share-menu-line-2">
-            <a data-click="closeShare" data-role="button">
+            <a data-click="closeShareOffer" data-role="button">
                 CLOSE
             </a>
         </div>
@@ -72,7 +72,7 @@
 
         <div data-role="tabstrip" style="background-color:#000" data-selected-index="5">
             <a id="outlet1" class="fa" data-icon="customstar"  data-rel="modalview" href="#modalviewstar"></a>
-            <a id="outlet2" class="fa" data-icon="customlocation" data-rel="modalview" href="#modalviewmap"></a>
+            <a id="outlet2" class="fa" data-icon="customlocation" data-rel="modalview" data-click="showMap"></a>
             <a id="outlet3" class="fa" data-icon="customenvelope" data-bind="click: supportEmailA" ></a>
             <a id="outlet4" class="fa" data-icon="customcall" data-bind="click: customerCare"></a>
         </div>

@@ -18,12 +18,26 @@ function loadMapView() {
     $("#modalviewmap").data("kendoMobileModalView").open();
 }    
 
-function closeShare() {
-    $("#panel").slideUp("slow");
+function closeShareOffer() {
+    $("#panelOffer").slideUp("slow");
+}
+function closeShareOutlet() {
+    $("#panelOutlet").slideUp("slow");
+}
+function closeShareBrand() {
+    $("#panelBrand").slideUp("slow");
 }
     
-function openShare() {
-    $("#panel").slideDown("slow");
+function openShareOffer() {
+    $("#panelOffer").slideDown("slow");
+}    
+
+function openShareOutlet() {
+    $("#panelOutlet").slideDown("slow");
+}    
+
+function openShareBrand() {
+    $("#panelBrand").slideDown("slow");
 }    
 
 function loadFilterView() {
@@ -3204,10 +3218,11 @@ function closeCeleberationTypeView() {
                }); 
     }
     
-    function mapInitialize() {
+    function showMap() {
         var latlng = new google.maps.LatLng(
             lat,
             lon);
+        if (!initialized){
  
         var mapOptions = {
             sensor: true,
@@ -3225,6 +3240,9 @@ function closeCeleberationTypeView() {
             document.getElementById('map_canvas1'),
             mapOptions
             );
+            
+            initialized=true;
+            }
  
         var marker = new google.maps.Marker({
                                                 position: latlng,
