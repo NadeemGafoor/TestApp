@@ -95,7 +95,6 @@ function closeCeleberationTypeView() {
 function plcloseShareOffer() {
     $("#plpanelOffer").slideUp("slow");
 }
-
     
 function plopenShareOffer() {
     $("#plpanelOffer").slideDown("slow");
@@ -118,13 +117,20 @@ function plcloseShareBrand() {
 }
 
 function plSlideMenuPanel() {
-      $("#plpanelMenu").animate({bottom:'300px'},500);
+    $("#plpanelMenu").animate({bottom:'300px'}, 50);
 }
 
-  function cloakerClick(){
-      $("#foot").animate({bottom:'300px'},1000);
-      document.getElementById("foot").style.display="flex";
-  }
+function cloakerClick() {
+    if (document.getElementById("foot1").style.display==="none") {
+        $("#foot").animate({bottom:'300px'}, 50);
+        document.getElementById("foot1").style.display = "block";
+        document.getElementById("mymenu").innerHTML='<i class="fa fa-sort-desc fa-lg" style="color:#fff"></i>';
+    }else{
+        document.getElementById("foot1").style.display = "none";
+        $("#foot").animate({bottom:'0px'}, 50);
+        document.getElementById("mymenu").innerHTML='<i class="fa fa-sort-asc fa-lg" style="color:#fff"></i>';
+    }
+}
     
 (function (global) {
     var gpsErrorShow = "";
@@ -564,7 +570,6 @@ function plSlideMenuPanel() {
                                            },
                                            getLocation1
                                            : function() {
-
                                                $("#modalviewmap").data("kendoMobileModalView").open();
                                                showSpin(); //show loading popup
                                                document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
@@ -1141,7 +1146,7 @@ function plSlideMenuPanel() {
         
                                            validateUser
                                            : function () {
-                                               $("body").data("kendoMobilePane").navigate("views/pl-home.html","slide:up");  
+                                               $("body").data("kendoMobilePane").navigate("views/pl-home.html", "slide:up");  
                                                return;
                                                
                                                if (!this.username) {

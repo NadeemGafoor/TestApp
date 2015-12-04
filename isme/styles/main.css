@@ -1844,14 +1844,28 @@ tile-frame-inner
 }
 
 .foot {
-    height:300px;
-    border-top: 1px solid #999999;
     position:fixed;
     width: 100%;
     z-index: 10000;
     text-align:center;
     color: #fff;
-    background: #000;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    bottom: 0;
+}
+
+.foot1 {
+    height:300px;    
+    position:fixed;
+    width: 100%;
+    z-index: 10000;
+    text-align:center;
+    color: #fff;
+    background: rgba(0,0,0,0.8);
     display: none;
     justify-content: center; /* align horizontal */
     right: 0;
@@ -1860,3 +1874,20 @@ tile-frame-inner
     margin-left: auto;
     bottom: 0;
 }
+
+.hidden {
+    height:0px;
+       -webkit-transition:height, 0.5s linear;
+    -moz-transition: height, 0.5s linear;
+    -ms-transition: height, 0.5s linear;
+    -o-transition: height, 0.5s linear;
+    transition: height, 0.5s linear;
+}
+    .hidden.open {
+        height:300px;
+     -webkit-transition:height, 0.5s linear;
+    -moz-transition: height, 0.5s linear;
+    -ms-transition: height, 0.5s linear;
+    -o-transition: height, 0.5s linear;
+    transition: height, 0.5s linear;
+    }
