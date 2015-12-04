@@ -1792,6 +1792,13 @@ tile-frame-inner
     height:125px;
 }
 
+.share-menu-line-1-pl{
+    position:relative;
+    display:block;
+    width:100%;
+    height:125px;
+}
+
 
 .share-menu-line-2
 {
@@ -1896,19 +1903,3 @@ tile-frame-inner
     margin:-2px auto;
 }
 
-.hidden {
-    height:0px;
-       -webkit-transition:height, 0.5s linear;
-    -moz-transition: height, 0.5s linear;
-    -ms-transition: height, 0.5s linear;
-    -o-transition: height, 0.5s linear;
-    transition: height, 0.5s linear;
-}
-    .hidden.open {
-        height:300px;
-     -webkit-transition:height, 0.5s linear;
-    -moz-transition: height, 0.5s linear;
-    -ms-transition: height, 0.5s linear;
-    -o-transition: height, 0.5s linear;
-    transition: height, 0.5s linear;
-    }
