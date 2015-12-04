@@ -116,6 +116,15 @@ function plopenShareBrand() {
 function plcloseShareBrand() {
     $("#plpanelBrand").slideUp("slow");
 }
+
+function plSlideMenuPanel() {
+      $("#plpanelMenu").animate({bottom:'300px'},500);
+}
+
+  function cloakerClick(){
+      $("#foot").animate({bottom:'300px'},1000);
+      document.getElementById("foot").style.display="flex";
+  }
     
 (function (global) {
     var gpsErrorShow = "";

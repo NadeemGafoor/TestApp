@@ -119,7 +119,7 @@
 
         </div>
 
-        <div data-role="drawer" id="appdrawer" style="width: 65%;padding-left:-10px;padding-top:-10px;background-color:#000" data-swipe-to-open-views='["home-view"]' data-views='["home-view"]' data-use-native-scrolling="false">
+        <div data-role="drawer" id="appdrawer" style="width: 65%;padding-left:-10px;padding-top:-10px;background-color:#000" data-swipe-to-open-views='["pl-home-view"]' data-views='["pl-home-view"]' data-use-native-scrolling="false">
 
             <div class="li-div">
                 &nbsp;
@@ -167,7 +167,7 @@
                     <a href="views/faq.html"  data-transition="slide:left">
                         <div class="li-width" style="border-right:1px solid">FAQ</div>
                     </a>
-                    <a href="views/pl-termsconditions.html"  data-transition="slide:left">
+                    <a href="views/pl-termsandcondition.html"  data-transition="slide:left">
                         <div class="li-width">T&C</div>
                     </a>
                     <a href="views/pl-logout.html"  data-transition="slide:left">
@@ -455,7 +455,7 @@
 </html>
 
 <style scoped>
-    #appdrawerN .li-div
+    #appdrawerN .li-div, #appdrawer .li-div
     {
         display: block;
         font-family: Gotham-Book;
@@ -466,7 +466,7 @@
         line-height: 60px;
     }
     
-    #appdrawerN .li-footer-div
+    #appdrawerN .li-footer-div,  #appdrawer .li-footer-div
     {
         border: 1px #fff solid;
         border-radius: 5px;
@@ -475,7 +475,7 @@
         background-color: #000; 
     }
     
-    #appdrawerN .li-width
+    #appdrawerN .li-width,  #appdrawer .li-width
     {
         position: relative;
         width: 33%;
@@ -483,7 +483,7 @@
         text-align: center;
     }
     
-    #appdrawerN .km-drawer .km-pane
+    #appdrawerN .km-drawer .km-pane,    #appdrawer .km-drawer .km-pane
     {
         background-color: #000;
     }

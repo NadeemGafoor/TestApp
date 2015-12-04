@@ -67,7 +67,7 @@ a:active
     background-color: #fff;
 }
 
-#faq-theme .km-content, #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #aboutisme-theme .km-content, #pl-home-view .km-content
+#faq-theme .km-content, #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #aboutisme-theme .km-content, #pl-home-view .km-content, #pl-termsconditions-theme .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/640x960_bg.png) no-repeat center center;
     background-size: cover;
@@ -1741,6 +1741,19 @@ tile-frame-inner
    
 }
 
+.class-share-div-bottom{
+    position:fixed;
+    display:flex;
+    width:100%;
+    background-color:rgba(0, 0, 0, 1);
+  right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    bottom: 20px;
+   
+}
+
 .class-filter-div{
     display:none;
     background-color:rgba(255, 255, 255, 1);
@@ -1828,4 +1841,22 @@ tile-frame-inner
         font-size:1em;
     width:auto;
     text-align:left;
+}
+
+.foot {
+    height:300px;
+    border-top: 1px solid #999999;
+    position:fixed;
+    width: 100%;
+    z-index: 10000;
+    text-align:center;
+    color: #fff;
+    background: #000;
+    display: none;
+    justify-content: center; /* align horizontal */
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    bottom: 0;
 }
