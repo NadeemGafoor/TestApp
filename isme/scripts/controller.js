@@ -121,14 +121,18 @@ function plSlideMenuPanel() {
 }
 
 function cloakerClick() {
-    if (document.getElementById("foot1").style.display!="block"){
-        $("#foot").animate({bottom:'300px'}, 100);
-        document.getElementById("foot1").style.display = "block";
-        document.getElementById("mymenu").innerHTML='<i class="fa fa-sort-desc fa-lg" style="color:#fff"></i>';
-    }else{
-        document.getElementById("foot1").style.display = "none";
-        $("#foot").animate({bottom:'0px'}, 100);
-        document.getElementById("mymenu").innerHTML='<i class="fa fa-sort-asc fa-lg" style="color:#fff"></i>';
+    if (document.getElementById("foot1").style.display != "block") {
+        $("#foot").animate({bottom:'375px'}, 200);
+        window.setTimeout(function() {
+            document.getElementById("foot1").style.display = "block";
+            document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
+        }, 50);
+    }else {
+        $("#foot").animate({bottom:'0px'}, 200);
+        window.setTimeout(function() {
+            document.getElementById("foot1").style.display = "none";        
+            document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+        }, 200);
     }
 }
     

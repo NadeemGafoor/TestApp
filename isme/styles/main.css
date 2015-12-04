@@ -505,6 +505,7 @@ img
 
 .button-frame
 {
+    height:40px;
     line-height: 40px;
     width: 100%;
     position: relative;
@@ -1880,23 +1881,19 @@ tile-frame-inner
     margin-right: auto;
     margin-left: auto;
     bottom: 0;
+    background: rgba(0,0,0,0.8);
 }
 
 .foot1 {
-    height:350px;    
+    height:375px;    
     position:fixed;
     width: 100%;
     z-index: 10000;
-    text-align:center;
     color: #fff;
     background: rgba(0,0,0,0.8);
     display: none;
     justify-content: center; /* align horizontal */
-    right: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;
-    bottom: 0;
+    margin:-2px auto;
 }
 
 .hidden {
