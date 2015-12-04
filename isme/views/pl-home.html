@@ -2,7 +2,7 @@
 <div data-role="view" data-title="" data-layout="pl-main-layout" id="pl-home-view" data-show="varInit" data-model="postLogin" data-stretch="true">
     <div>
         <div data-role="navbar">
-            <a  data-role="button" href="#appdrawer" data-align="left" data-transition="none" data-rel="drawer" >
+            <a  data-role="button" href="#appdrawer" data-align="left" data-transition="none" data-rel="drawer">
                 <i class="fa fa-reorder fa-lg" style="color:#fff"></i>
             </a>
             <span data-role="view-title" id="item-title">Hello, Ricardo!</span>
@@ -34,17 +34,17 @@
                     <div class="share-menu-line-1-pl" style="height:10px">&nbsp;</div>
                     <div class="button-frame-inline-round-menu">
                         <a data-role="button" >
-                            <i class="fa fa-life-bouy fa-3x  share-class"></i>
+                            <i class="fa fa-life-bouy fa-3x"></i>
                         </a><br>My Wallet
                     </div>
                     <div class="button-frame-inline-round-menu">
                         <a  data-role="button" >
-                            <i class="fa fa-check-square-o fa-3x   share-class"></i>
+                            <i class="fa fa-check-square-o fa-3x"></i>
                         </a><br>My Benefits
                     </div>
                     <div class="button-frame-inline-round-menu">
                         <a data-role="button" >
-                            <i class="fa fa-envelope fa-3x   share-class"></i>
+                            <i class="fa fa-envelope fa-3x"></i>
                         </a><br>My Messages
                     </div>
                 </div>
@@ -52,17 +52,17 @@
                 <div class="share-menu-line-1-pl">
                     <div class="button-frame-inline-round-menu">
                         <a data-role="button" >
-                            <i class="fa fa-history fa-3x  share-class"></i>
+                            <i class="fa fa-history fa-3x"></i>
                         </a><br>My History
                     </div>
                     <div class="button-frame-inline-round-menu">
                         <a  data-role="button" >
-                            <i class="fa fa-gear fa-3x   share-class"></i>
+                            <i class="fa fa-gear fa-3x"></i>
                         </a><br>My Settings
                     </div>
                     <div class="button-frame-inline-round-menu">
                         <a data-role="button" >
-                            <i class="fa fa-star fa-3x   share-class"></i>
+                            <i class="fa fa-star fa-3x "></i>
                         </a><br>My Favorites
                     </div>
                 </div>
@@ -97,3 +97,10 @@
     }
 </style>
 
+<script>
+    function onClick(e) {
+        $("#foot").animate({bottom:'0px'}, 100);
+            document.getElementById("foot1").style.display = "none";        
+            document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+}
+</script>

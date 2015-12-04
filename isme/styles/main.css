@@ -1881,7 +1881,7 @@ tile-frame-inner
     z-index: 10000;
     text-align:center;
     color: #fff;
-    display: flex;
+    display: block;
     justify-content: center; /* align horizontal */
     right: 0;
     left: 0;

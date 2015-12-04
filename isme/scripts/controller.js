@@ -116,24 +116,21 @@ function plcloseShareBrand() {
     $("#plpanelBrand").slideUp("slow");
 }
 
-function plSlideMenuPanel() {
-    $("#plpanelMenu").animate({bottom:'300px'}, 50);
-}
-
 function cloakerClick() {
     if (document.getElementById("foot1").style.display != "block") {
         $("#foot").animate({bottom:'375px'}, 100);
             document.getElementById("foot1").style.display = "block";
             document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
     }else {
-        $("#foot").animate({bottom:'0px'}, 100);
+       $("#foot").animate({bottom:'0px'}, 100);
       
             document.getElementById("foot1").style.display = "none";        
             document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
     }
 }
 
-function cloakerClickClose() {
+function cloakerClose() {
+    alert("fff");
         $("#foot").animate({bottom:'0px'}, 100);
             document.getElementById("foot1").style.display = "none";        
             document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
