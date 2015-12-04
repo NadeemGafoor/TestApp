@@ -1132,6 +1132,9 @@ function plcloseShareBrand() {
         
                                            validateUser
                                            : function () {
+                                               $("body").data("kendoMobilePane").navigate("views/pl-home.html","slide:up");  
+                                               return;
+                                               
                                                if (!this.username) {
                                                    navigator.notification.alert("Invalid Membership # or Empty", function() {
                                                    }, "isme by Jumeirah", "Dismiss");

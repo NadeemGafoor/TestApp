@@ -67,7 +67,7 @@ a:active
     background-color: #fff;
 }
 
-#faq-theme .km-content, #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #aboutisme-theme .km-content
+#faq-theme .km-content, #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #aboutisme-theme .km-content, #pl-home-view .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/640x960_bg.png) no-repeat center center;
     background-size: cover;
@@ -1697,6 +1697,16 @@ tile-frame-inner
     text-align: center; 
     margin: 23% auto; 
 }
+.general-text-line
+{
+    width:80%;
+    margin-left:10%;
+    font-size: 1.2em;
+    color: #fff;
+    text-align: left; 
+    height:25px;
+    line-height:25px;
+    }
 
 .class-benefit
 {
