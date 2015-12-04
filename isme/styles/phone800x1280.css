@@ -210,9 +210,14 @@
 
 
 
-.empty-top
+.logo-top
 {
-    padding-top: 70%;
+    height: 70%;
+    width:100%;
+    display:block;
+    position:absolute;
+    float:none;
+    background-color:transparent;
 }
 
  .discover-back-height{

@@ -4,6 +4,7 @@
 @font-face { font-family: 'Gotham-BookItalic'; src: url('../styles/fonts/Gotham-BookItalic.otf')  format('opentype'); } /* Safari, Android, iOS */
 @font-face { font-family: 'Gotham-Light'; src: url('../styles/fonts/Gotham-Light.ttf')  format('truetype'); } /* Safari, Android, iOS */
 @font-face { font-family: 'Gotham-LightItalic'; src: url('../styles/fonts/Gotham-Book.otf')  format('opentype'); } /* Safari, Android, iOS */
+@font-face {font-family: 'Georgia';src: url('../styles/fonts/Georgia.ttf')  format('truetype');} /* Safari, Android, iOS */
 
 .km-ios7 .km-view .km-header
 {

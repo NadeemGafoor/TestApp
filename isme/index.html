@@ -30,6 +30,10 @@
     </head>
 
     <body>
+        
+         <div data-role="layout" data-id="pl-back2-layout">
+
+        </div>
 
         <div data-role="layout" data-id="pl-back-layout">
 
@@ -59,13 +63,7 @@
                 &nbsp;
             </div>
 
-            <div class="li-div">
-
-                <a href="views/benefitdetail.html"  >
-                    &nbsp;&nbsp;Home
-                </a>
-            </div>
-
+        
             <div class="li-div">
                 <a href="views/aboutisme.html"  data-transition="slide:right" >
                     &nbsp;&nbsp;About isme
@@ -121,80 +119,66 @@
 
         </div>
 
-        <div data-role="drawer" id="appdrawer" style="width: 80%" data-swipe-to-open-views='["myprofile-view"]' data-views='["myprofile-view"]' data-model="preLogin">
-            <div style="width:auto;height:1300px;background-color:#fff">
-                <ul data-role="listview" style="background-color:#fff">
-                    <li style="background-color:#fff">
-                        <img src="images/brand_logo_color.png" style="height:auto;width:auto;margin:-5px auto auto -5px;"/>
-                    </li>
+        <div data-role="drawer" id="appdrawer" style="width: 65%;padding-left:-10px;padding-top:-10px;background-color:#000" data-swipe-to-open-views='["home-view"]' data-views='["home-view"]' data-use-native-scrolling="false">
 
-                    <li >
-                        <a     href="views/pl-mymessagelist.html"  >
-                            My Messages
-                        </a>
-                    </li>
-
-                    <li >
-                        <a     href="views/pl-benefitdetail.html"  >
-                            My Benefits
-                        </a>
-                    </li>
-
-                    <li >
-                        Participating Restaurants
-                    </li>
-                    <li>
-                        <a     href="views/pl-outletlist.html?geo=1"  >
-                            <i class="fa fa-cutlery"></i>&nbsp;&nbsp;List of Restaurants
-                        </a>
-                    </li>
-                    <li>
-                        <a     href="views/pl-outletlistnearme.html?geo=2"  >
-                            <i class="fa fa-location-arrow"></i>&nbsp;&nbsp;Restaurants Near Me
-                        </a>
-                    </li>
-
-                    <li>
-                        Offers
-                    </li>
-                    <li>
-                        <a     href="views/pl-offerlist.html?geo=1"  >
-                            <i class="fa fa-tag"></i>&nbsp;&nbsp;All Offers
-                        </a>
-                    </li>
-                    <li >
-                        <a     href="views/pl-offerlistnearme.html?geo=2"   >
-                            <i class="fa fa-location-arrow"></i>&nbsp;&nbsp;Offers Near Me
-                        </a>
-                    </li>
-
-                    <li>
-                        Support
-                    </li>
-
-                    <li >
-                        <a     href="views/pl-setting.html"   >
-                            <i class="fa fa-wrench"></i>&nbsp;&nbsp;Settings
-                        </a>
-                    </li>
-                    <li>
-                        <a     href="views/pl-customerservice.html"  >
-                            <i class="fa fa-briefcase"></i>&nbsp;&nbsp;Customer Service
-                        </a>
-                    </li>
-                    <li>
-                        <a     href="views/pl-termsofservice.html"  >
-                            <i class="fa fa-file"></i>&nbsp;&nbsp;Terms & Conditions
-                        </a>
-                    </li>
-                    <li>
-                        <a data-bind="click:logMeOut"  >
-                            <i class="fa fa-sign-out"></i>&nbsp;&nbsp;Logout
-                        </a>
-                    </li>
-
-                </ul>
+            <div class="li-div">
+                &nbsp;
             </div>
+
+      
+            <div class="li-div">
+                <a href="views/pl-aboutisme.html"  data-transition="slide:right" >
+                    &nbsp;&nbsp;isme Elite
+                </a>
+            </div>
+            <div class="li-div">
+                <a href="views/pl-benefitdetail.html" data-transition="slide:right">
+                    &nbsp;&nbsp;isme Benefits
+                </a>
+            </div>
+            <div class="li-div">
+                <a href="views/pl-brandlist.html" data-transition="slide:right">
+                    &nbsp;&nbsp;Explore our Brands
+                </a>
+            </div>
+            <div class="li-div">
+                <a href="views/pl-outletlist.html" data-transition="slide:right">
+                    &nbsp;&nbsp;Restaurants
+                </a>
+            </div>
+
+            <div class="li-div">
+                <a href="views/pl-offerlist.html"  data-transition="slide:right">
+                    &nbsp;&nbsp;On-going Offers
+                </a>
+            </div>
+            <div class="li-div">
+                <a href="views/customerservice.html"  data-transition="slide:right">
+                    &nbsp;&nbsp;Customer Service
+                </a>
+            </div>
+            <div class="li-div">
+                &nbsp;
+            </div>
+
+            <footer data-role="footer">
+
+                <div class="li-div li-footer-div">
+                    <a href="views/faq.html"  data-transition="slide:left">
+                        <div class="li-width" style="border-right:1px solid">FAQ</div>
+                    </a>
+                    <a href="views/enrol.html"  data-transition="slide:left">
+                        <div class="li-width">T&C</div>
+                    </a>
+                    <a href="views/pl-logout.html"  data-transition="slide:left">
+                        <div class="li-width"  style="border-left:1px solid">LOGOUT</div>
+                    </a>
+                </div>
+                <div style="height:20px">&nbsp;</div>
+                <div style="height:20px">&nbsp;</div>
+                <div style="height:20px">&nbsp;</div>
+            </footer>
+
         </div>
 
         <div data-role="modalview" id="modalviewfilter" style="height:90%;width:90%" data-model="preLogin">

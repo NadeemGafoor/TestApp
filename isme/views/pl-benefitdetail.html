@@ -1,33 +1,125 @@
-<!--Program Benefits View-->
-<div id="pl-benefit-detail"
-     data-role="view"
-     data-layout="pl-back-layout"  data-model="preLogin" data-show="benefitdetail">
-     <header data-role="header">
-                <div data-role="navbar">
-                    <div class="brand-icon"></div> 
-                     <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left" data-icon="back">
-                    </a>
-                    <span data-role="view-title" id="item-title"></span>
-                     <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" ><i class="fa fa-home fa-lg" style="color:#fff"></i></a>    
-                </div>
-            </header>
-
-    <ul data-role="listview"   style="background-color:#fff;display:none" id="benefit-detail-view">
-       
-        
+<div data-role="view"  data-title="Program Benefits" data-layout="pl-back-layout" id="pl-benefit-theme" data-init="initButtonGroup" data-model="preLogin" >
+  <header data-role="header">
+        <div data-role="navbar">
+            <a data-transition="slide"   data-role="button" href="views/home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
+            <span data-role="view-title"></span>
+           
+        </div>
+    </header>
+    <ul data-role="buttongroup" data-index="0" id="offertab" class="button-group a-group">
         <li>
-            <div id="benefit-text3"></div>
+            isme
+        </li>
+        <li>
+            isme Elite
         </li>
 
     </ul>
- <footer data-role="footer">
+    <ul data-role="listview"   style="background-color:#fff;margin-top:0px" id="isme">
 
-                <div data-role="navbar">
-                    <div class="home-navbar" >
-                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
-                    </div>               <div class="footer-logo">&nbsp;</div>
+    
+        <li>
+            <div class="class-benefit gutter-space">Membership Duration</div>
+            <div class="class-benefit">No Expiry</div>
+        </li>
+        <li>
+             <div class="class-benefit gutter-space">Rooms</div>
+            <div class="class-benefit">10% off best available rates (UAE Hotels only)</div>
+        </li>
+        <li>
+             <div class="class-benefit gutter-space">Food & Beverage</div>
+            <div class="class-benefit">10% off on food & beverage </div>
+        </li>
 
+        <li>
+            <div class="class-benefit gutter-space">Talise Spa</div>
+            <div class="class-benefit">10% off on treatments</div>
+        </li>
 
-                </div>
-            </footer>
+        <li>
+            <div class="class-benefit gutter-space">Wild Wadi</div>
+            <div class="class-benefit">15% off on entry</div>
+              </li>
+        <li>
+            <div class="class-benefit gutter-space">Spouse Card</div>
+            <div class="class-benefit">No</div>
+        </li>
+        <li>
+            <div class="class-benefit gutter-space">e-Vouhers (Valid for (3) months from subscription</div>
+            <div class="class-benefit">-Instant Welcome Pack<br>-BOGOF on Talise Spa 60 minutes massage<br>-BOGOF on dinner at any JRG Rstaurant (food only)<br>-BOGOF on dinner at any JRG Rstaurant (food only)</div>
+        </li>
+
+    </ul>
+
+    <ul data-role="listview"   style="background-color:#fff;margin-top:0px;display:none" id="isme-elite">
+
+    
+        <li>
+            <div class="class-benefit gutter-space">Membership Duration</div>
+            <div class="class-benefit">One Year</div>
+        </li>
+        <li>
+             <div class="class-benefit gutter-space">Rooms</div>
+            <div class="class-benefit">25% off best available rates (UAE Hotels only)</div>
+        </li>
+        <li>
+             <div class="class-benefit gutter-space">Food & Beverage</div>
+            <div class="class-benefit">25% off on food & beverage </div>
+        </li>
+
+        <li>
+            <div class="class-benefit gutter-space">Talise Spa</div>
+            <div class="class-benefit">25% off on treatments</div>
+        </li>
+
+        <li>
+            <div class="class-benefit gutter-space">Wild Wadi</div>
+            <div class="class-benefit">25% off on entry</div>
+              </li>
+        <li>
+            <div class="class-benefit gutter-space">Spouse Card</div>
+            <div class="class-benefit">No</div>
+        </li>
+        <li>
+            <div class="class-benefit gutter-space">e-Vouhers (Valid for 1 year from subscription</div>
+            <div class="class-benefit">-Instant Welcome Pack<br>-BOGOF on Talise Spa 60 minutes massage<br>-BOGOF on dinner at any JRG Rstaurant (food only)<br>-BOGOF on dinner at any JRG Rstaurant (food only)</div>
+        </li>
+   </ul>
+    
 </div>
+
+
+
+<script>
+    function initButtonGroup() {
+        var listviews = this.element.find("ul.km-listview");
+
+        $("#offertab").kendoMobileButtonGroup({
+                                                  select: function (e) {
+                                                      listviews.hide()
+                                                          .eq(e.index)
+                                                          .show();
+                                                  },
+                                                  index: 0
+                                              });
+    }  
+</script>
+
+<style scoped>
+
+   a-group .km-button{
+         -webkit-border: #fff solid 0px;
+    -moz-border: #fff solid 0px;
+    border: #fff solid 0px;
+   }
+    
+     #isme li,#isme-elite li
+    {
+        border-top: 1px solid #ccc !important;
+        border-bottom: 1px solid #ccc !important;
+    }  
+    
+   
+    
+    </style>
+

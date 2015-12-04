@@ -528,19 +528,9 @@ function closeCeleberationTypeView() {
                                                           }
                                                       });
                                            },
-        
-                                           getLocationO
-                                           : function() {
-                                               alert("Hello");
-                                               showSpin(); //show loading popup
-                                               document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
-                                               setTimeout(mapInitialize, 2000);
-                                               hideSpin(); //hide loading popup
-                                           },
-        
                                            getLocation1
                                            : function() {
-                                               alert("Hello");
+
                                                $("#modalviewmap").data("kendoMobileModalView").open();
                                                showSpin(); //show loading popup
                                                document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";

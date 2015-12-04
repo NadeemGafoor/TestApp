@@ -173,9 +173,14 @@
 }
 
 
-.empty-top
+.logo-top
 {
-    padding-top: 60%;
+    height: 400px;
+    width:100%;
+    display:block;
+    position:relative;
+    float:none;
+    background-color:transparent;
 }
 
 
