@@ -1,125 +1,93 @@
-<div data-role="view"   data-layout="pl-back-layout" id="pl-offerdetail-theme" data-init="initButtonGroup" data-show="postLogin.plofferitem" data-model="postLogin">
-<header data-role="header">
+<div data-role="view"   data-layout="pl-back2-layout" id="pl-offerdetail-theme"  data-model="preLogin" data-hide="closeShareOffer">
+   <header data-role="header">
         <div data-role="navbar">
-            <div class="brand-icon"></div> 
-            <a data-transition="slide"   data-role="button" href="views/pl-offerlist.html?geo=1" data-align="left"  data-icon="back">
+            <a data-transition="slide"   data-role="button" href="views/pl-offerlist.html" data-align="left"  data-icon="back">
             </a>
-            <span data-role="view-title" id="item-title"></span>
-                        <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" ><i class="fa fa-home fa-lg" style="color:#fff"></i></a>            
+            <span data-role="view-title" id="item-title">Airline Offer</span>
+             <a data-role="button" data-click="openShareOffer" data-align="right" >
+                <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
+            </a>
         </div>
     </header>
-    <ul data-role="buttongroup" data-index="0" id="ploffertab" class="button-group" style="margin-top:0px">
-        <li>
-            Details
-        </li>
-        <li data-bind="click: oofferOutlet">
-            Outlets
-        </li>
+   <div id="panelOffer" class="class-share-div">
+        <div class="share-menu-line-1">
+            <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
+            <div class="button-frame-inline-round">
+                <a id="btn-facebook" data-role="button" data-bind="click: socialsharingFacebook" >
+                    <i class="fa fa-facebook fa-3x  share-class"></i>
+                </a>
+            </div>
+            <div class="button-frame-inline-round">
+                <a id="btn-twitter" data-role="button" data-bind="click: socialsharingTwitter" >
+                    <i class="fa fa-twitter fa-3x   share-class"></i>
+                </a>
+            </div>
+        </div>
+        <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
+        <div class="share-menu-line-1">
+            <div class="button-frame-inline-round">
+                <a id="btn-whatsapp" data-role="button" data-bind="click: socialsharingWhatsApp" >
+                    <i class="fa fa-whatsapp fa-3x   share-class"></i>
+                </a>
+            </div>
+            <div class="button-frame-inline-round">
+                <a id="btn-email" data-role="button" data-bind="click: socialsharingEmail" >
+                    <i class="fa fa-envelope fa-3x   share-class"></i>
+                </a>
+            </div>
+        </div>
+        <div class="share-menu-line-2">
+            <a data-click="closeShareOffer" data-role="button">
+                CLOSE
+            </a>
+        </div>
+    </div>
 
-    </ul>
-    <ul data-role="listview"   style="background-color:#fff;margin-top:0px;display:none" id="pl-offerdetail-div">
+    <div class="hero-image" id="outlet-image-large">
+        <img id="outletimage" src="images/rest3.png" class="img-hero"/>
 
-        <div class="hero-image" id="pl-offer-image-large">                        <img id="plofferimage" src="images/largeihglogoimage.png" class="img-hero"/>
+    </div>
+
+    <ul data-role="listview"    style="margin-top:0px" id="outlet-detail-div" >
+         <div class="fulljustifyblue-bold">
+             Triple Krisflyer and bonus miles.
+             -Singapore Airlines
+         </div>
+        
+        
+        <div id="ooutlet-long" class="fulljustifyblack">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+
+            Doloremque laudantium, totam rem aperiam. eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+         
         </div>
         
-           <li>
-              <div class="switch-frame">
-            <label class="whitecolor">
-                 Agree To Offer Terms & Conditions**
-                    <input data-role="switch" name="tandc-accept" id="tandc-accept" type="checkbox"/>
-            </label>
-                  </div>
-        </li>
-        <li>
-            <div class="button-frame">
-                 <a data-transition="slide"   id="activate-offer-button" data-role="button" data-bind="click: activateoffer">Activate Offer</a>
-            </div>
-        </li>
+        <div class="fulljustifyblue-bold">
+             This offer is valid for isme members only
+         </div>
 
-        <li>
-            <div class="detail-subhead whitecolor" id="pl-ooffer-shortname"></div>
-        </li>
-        <li>
-            <div id="pl-ooffer-description" class="whitecolor"></div>
-        </li>
-        <li>
-            <div class="detail-subhead whitecolor" id="pl-ooffer-expiry" style="text-align:left"></div>
-        </li>
-
-        <li>
-            <div id="pl-ooffer-remark" class="whitecolor"></div>
-        </li>
-  
-    </ul>
-    <ul data-role="listview"   style="display:none;background-color:#fff;margin-top:0px" id="pl-offer-outlet-list-view">
 
     </ul>
-    
-      <footer data-role="footer">
-                   <div class="button-frame-inline">
-                     <a data-transition="slide"   data-role="button"   data-bind="click: callTel">Call Now</a>
-                     <a data-transition="slide"   data-role="button"    data-bind="click: shareOutlet">Share</a>   
-                </div>
-    
-                <div data-role="navbar">
-                    <div class="home-navbar" >
-                        <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
-                    </div>
-               <div class="footer-logo" data-bind="click:plshowBrandPage">&nbsp;</div>
+    <footer data-role="footer">
 
-
-                </div>
-            </footer>
+        <div data-role="tabstrip" style="background-color:#000" data-selected-index="5">
+            <a id="outlet1" class="fa" data-icon="customstar"  data-rel="modalview" href="#modalviewstar"></a>
+            <a id="outlet2" class="fa" data-icon="customlocation" data-bind="click: getLocation1"></a>
+            <a id="outlet3" class="fa" data-icon="customenvelope" data-bind="click: supportEmailA" ></a>
+            <a id="outlet4" class="fa" data-icon="customcall" data-bind="click: customerCare"></a>
+        </div>
+    </footer>
 </div>
 
-<script type="text/x-kendo-template" id="plofferOutletTemplate">
-        <a data-transition="slide"   data-role="button"   data-click="outletMessage">
-    <div class="outer-frame">
-           <div class="image-frame-list small-image-height">
-            <img src="${imageurl}" style="height:100%;width:100%"/>
-        </div>
-        <div class="inner-frame-1">${outletname}</div>
-        <div class="inner-frame-2">${hotelname}</div>
-        <div class="inner-frame-3">Distance ${distance} Km</div>
-    </div>
-    </a>
-</script>
 
-<script>
-    function initButtonGroup() {
-        var listviews = this.element.find("ul.km-listview");
-
-        $("#ploffertab").kendoMobileButtonGroup({
-                                                  select: function (e) {
-                                                      listviews.hide()
-                                                          .eq(e.index)
-                                                          .show();
-                                                  },
-                                                  index: 0
-                                              });
-    }  
-</script>
 
 <style scoped>
-
-    .button-group
-    {
-        margin-top: 0px;
-        width: 60%;
-        margin-left: 20%;
-    }
     
-          #pl-offer-outlet-list-view li
+    #btn-email, #btn-facebook, #btn-twitter, #btn-whatsapp 
     {
-        border-top: 1px solid #ccc !important;
-        border-bottom: 1px solid #ccc !important;
-    }  
+        -webkit-border: #fff solid 2px;
+        -moz-border: #fff solid 2px;
+        border: #fff solid 2px; 
+    }     
     
-      #pl-offer-outlet-list-view a
-    {
-        background-color: transparent !important;
-        color:#575757;
-    }   
-    
-    </style>
-
+  </style>
