@@ -91,6 +91,31 @@ function loadCeleberationTypeView() {
 function closeCeleberationTypeView() {
     $("#modalviewceleberationtype").data("kendoMobileModalView").close();
 }
+
+function plcloseShareOffer() {
+    $("#plpanelOffer").slideUp("slow");
+}
+
+    
+function plopenShareOffer() {
+    $("#plpanelOffer").slideDown("slow");
+}    
+
+function plopenShareOutlet() {
+    $("#plpanelOutlet").slideDown("slow");
+}    
+
+function plcloseShareOutlet() {
+    $("#plpanelOutlet").slideUp("slow");
+}
+
+function plopenShareBrand() {
+    $("#plpanelBrand").slideDown("slow");
+} 
+
+function plcloseShareBrand() {
+    $("#plpanelBrand").slideUp("slow");
+}
     
 (function (global) {
     var gpsErrorShow = "";
