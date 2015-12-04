@@ -74,7 +74,7 @@ function loadCeleberationTypeView() {
 }
 
 function closeCeleberationTypeView() {
-    $("#modalviewceleberationtype").data("kendoMobileModalView").open();
+    $("#modalviewceleberationtype").data("kendoMobileModalView").close();
 }
     
 (function (global) {
