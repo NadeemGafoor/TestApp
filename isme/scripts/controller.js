@@ -134,7 +134,6 @@ function cloakerClick() {
 }
 
 function cloakerClickClose() {
-    alert("fff");
         $("#foot").animate({bottom:'0px'}, 100);
             document.getElementById("foot1").style.display = "none";        
             document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
