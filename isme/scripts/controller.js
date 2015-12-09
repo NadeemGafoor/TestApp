@@ -148,6 +148,27 @@ function plHomeClick() {
     }
 
 }
+
+
+function plHomeClickClose() {
+    var elems = document.getElementsByClassName('foot1');
+    for (i = 0; i < elems.length; i++) {
+    
+            $(".foot").animate({bottom:'0px'}, 300);
+            window.setTimeout(function() { 
+                for (i = 0; i < elems.length; i++) {
+                    elems[i].style.display = 'none';
+                }
+ 
+                elems = document.getElementsByClassName('mymenu');
+                for (i = 0; i < elems.length; i++) {
+                    elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+                }
+            }, 300);
+
+    }
+
+}
     
     (function (global) {
         var gpsErrorShow = "";

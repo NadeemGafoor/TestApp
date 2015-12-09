@@ -1,15 +1,15 @@
 <div data-role="view"  data-title="My Profile" data-layout="pl-main-layout" id="pl-myprofile-view" data-model="postLogin">
     <header data-role="header">
         <div data-role="navbar">
-            <a data-transition="slide"   data-role="button" href="views/pl-home.html" data-align="left"  data-icon="back" data-click="cloakerClose">
+            <a data-transition="slide"   data-role="button" href="views/pl-home.html" data-align="left"  data-icon="back" data-click="plHomeClickClose">
             </a>
             <span data-role="view-title" id="item-title"></span>
-            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" data-click="cloakerClose">
+            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" data-click="plHomeClickClose">
                 <i class="fa fa-credit-card fa-lg" style="color:#fff"></i>
             </a>
         </div>
     </header>
-    <div data-role="touch" data-tap="cloakerClose">
+    <div data-role="touch" data-tap="plHomeClick">
         <div class="profile-image-holder">
             <div class="profile-image"></div>
             <div class="profile-image-change-button">
