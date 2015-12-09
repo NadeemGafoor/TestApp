@@ -62,7 +62,7 @@ a:active
     background-color: #000 !important;
     color: #fff;
 }
-#benefit-theme .km-content, #customerservice-theme .km-content,#outletdetail-theme .km-content,#offerdetail-theme .km-content,#branddetail-theme .km-content,#pl-outletdetail-theme .km-content,#pl-offerdetail-theme .km-content,#pl-branddetail-theme .km-content
+#benefit-theme .km-content, #customerservice-theme .km-content,#outletdetail-theme .km-content,#offerdetail-theme .km-content,#branddetail-theme .km-content,#pl-outletdetail-theme .km-content,#pl-offerdetail-theme .km-content,#pl-branddetail-theme .km-content,#myprofile-view .km-content
 {
     background-color: #fff;
 }
@@ -1901,5 +1901,37 @@ tile-frame-inner
     display: none;
     justify-content: center; /* align horizontal */
     margin:-2px auto;
+}
+
+.profile-image-holder{
+    height:150px;
+    width:100px;
+    display:block;
+    position:relative;
+    float:none;
+    margin:0px auto;
+}
+
+.profile-image{
+    height:70px;
+    width:70px;
+    margin:30px auto;
+background: url(../images/profile_image.png) no-repeat center center;
+    background-size:cover;
+    display:block;
+    position:relative;
+    float:none;
+    
+}
+
+.profile-image-change-button{
+    height:30px;
+    width:100%;
+    margin:10px auto;
+    display:block;
+    position:relative;
+    float:none;
+    
+    
 }
 
