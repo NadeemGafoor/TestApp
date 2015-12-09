@@ -1,59 +1,30 @@
-<div data-role="view"  data-title="My Profile" data-layout="pl-main-layout" id="myprofile-view" data-model="postLogin"  data-show="postLogin.loginSuccess">
-    <div data-role="header">
+<div data-role="view"  data-title="My Profile" data-layout="pl-main-layout" id="myprofile-view" data-model="postLogin">
+   <header data-role="header">
         <div data-role="navbar">
-            <a  data-role="button" href="#appdrawer" data-rel="drawer" data-align="left">
-                <i class="fa fa-reorder fa-lg" style="color:#fff"></i>
+            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left"  data-icon="back">
             </a>
-            <div class="brand-icon"></div>
-            <span data-role="view-title" style="margin-right:.5em"></span>
-            <div id="plflagtitle" data-align="right" class="flag-title"></div>
+            <span data-role="view-title" id="item-title"></span>
+             <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" ><i class="fa fa-credit-card fa-lg" style="color:#fff"></i></a>    
         </div>
-    </div>
-    <div class="tile-frame-2">
-        <div class="my-card" id="mycardimage">
-            <div class="mycard-name" id="mycardname"></div>
-            <div class="mycard-id" id="mycardexpiry"></div>
-            <div class="mycard-expiry" id="mycardid"></div>
+    </header>
+       <div class="logo-top">
+            <div class="logo-image-holder"></div>
+            <div class="home-page-holder"></div>
+            <div class="home-page-holder">
+                <div class="general-text-line">RICARDO MANRIQUEZ</div>
+                <div class="general-text-line">9704213568</div>
+                <div class="general-text-line">isme Member</div>
+                <div class="general-text-line">Member Since 01/01/2015</div>
 
-        </div>
-    </div>
-     <div class="tile-frame">
-        <div class="tile-frame-inner-1 ">
-            <a data-transition="slide"   data-role="button" href="views/pl-outletlist.html?geo=2" class="center-pos"  >
-                <div class="tile-frame-image-restaurant tile-image-pos-1 image-size-80"></div>
-                <div class="tile-frame-text-1">My Restaurants</div>
-            </a>
-        </div>
-        <div class="tile-frame-inner-1">
-            <a data-transition="slide"   data-role="button" href="views/pl-mymessagelist.html" class="center-pos"  >
-                <div class="tile-frame-image-mymessages tile-image-pos-1 image-size-80"></div>
-                <div class="tile-frame-text-1">My Messages</div>
-            </a>
-        </div>
-        <div class="tile-frame-inner-1">
-            <a data-transition="slide"   data-role="button" href="views/pl-offerlist.html?geo=2" class="center-pos"  >
-                <div class="tile-frame-image-myoffer tile-image-pos-1 image-size-80"></div>
-                <div class="tile-frame-text-1">My Offers</div>
-            </a>
-        </div>
-        <div class="tile-frame-inner-1">
-            <a data-transition="slide"   data-role="button" href="views/pl-myreward.html" class="center-pos"  >
-                <div class="tile-frame-image-myrewards tile-image-pos-1 image-size-80"></div>
-                <div class="tile-frame-text-1">My Wallet</div>
-            </a>
-        </div>
-    </div>
-
-    <footer data-role="footer">
-
-        <div data-role="navbar">
-            <div class="home-navbar" >
-                <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
             </div>
-            <div class="footer-logo"   data-bind="click:plshowBrandPage">&nbsp;</div>
 
         </div>
-    </footer>
+        <div class="home-page-holder"></div>
+        <div class="button-frame">
+            <a data-transition="slide:up" id="btnLogin" data-role="button" class="button-discount">Apply Discount</a>
+        </div>
+
+     
 
 </div>
 
