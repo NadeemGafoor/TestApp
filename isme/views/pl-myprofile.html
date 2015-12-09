@@ -1,4 +1,4 @@
-<div data-role="view"  data-title="My Profile" data-layout="pl-main-layout" id="myprofile-view" data-model="postLogin">
+<div data-role="view"  data-title="My Profile" data-layout="pl-main-layout" id="pl-myprofile-view" data-model="postLogin">
     <header data-role="header">
         <div data-role="navbar">
             <a data-transition="slide"   data-role="button" href="views/pl-home.html" data-align="left"  data-icon="back" data-click="cloakerClose">
@@ -9,6 +9,7 @@
             </a>
         </div>
     </header>
+     <div data-role="touch" data-tap="cloakerClose">
     <div class="profile-image-holder">
         <div class="profile-image"></div>
         <div class="profile-image-change-button">
@@ -34,10 +35,11 @@
     </div>
 
 </div>
+    </div>
 
 <style scoped>
     
-    #myprofile-view a
+    #pl-myprofile-view a
     {
         background-color: transparent !important;
     }

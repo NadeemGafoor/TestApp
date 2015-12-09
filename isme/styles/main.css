@@ -65,7 +65,7 @@ a:active
     background-color: #000 !important;
     color: #fff;
 }
-#benefit-theme .km-content, #customerservice-theme .km-content,#outletdetail-theme .km-content,#offerdetail-theme .km-content,#branddetail-theme .km-content,#pl-outletdetail-theme .km-content,#pl-offerdetail-theme .km-content,#pl-branddetail-theme .km-content,#myprofile-view .km-content
+#benefit-theme .km-content, #customerservice-theme .km-content,#outletdetail-theme .km-content,#offerdetail-theme .km-content,#branddetail-theme .km-content,#pl-outletdetail-theme .km-content,#pl-offerdetail-theme .km-content,#pl-branddetail-theme .km-content,#pl-myprofile-view .km-content
 {
     background-color: #fff;
 }
@@ -1878,7 +1878,7 @@ tile-frame-inner
     text-align:left;
 }
 
-.foot {
+#pl-home-view .foot,#pl-myprofile-view .foot {
     position:fixed;
     width: 100%;
     z-index: 10000;
@@ -1894,7 +1894,7 @@ tile-frame-inner
     background: rgba(0,0,0,0.8);
 }
 
-.foot1 {
+#pl-home-view .foot1,#pl-myprofile-view .foot1 {
     height:375px;    
     position:fixed;
     width: 100%;
