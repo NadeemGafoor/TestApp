@@ -116,25 +116,26 @@ function plcloseShareBrand() {
     $("#plpanelBrand").slideUp("slow");
 }
 
-function cloakerClick() {
- 
+function plHomeClick() {
+    alert("hello");
+    //alert(document.getElementsByClassName("foot1").style.display);
     window.setTimeout(function(){ },100);
-    if (document.getElementById("foot1").style.display === "" || document.getElementById("foot1").style.display === "none") {
+    if (document.getElementsByClassName("foot1").style.display === "" || document.getElementsByClassName("foot1").style.display === "none") {
        
-        $("#foot").animate({bottom:'375px'}, 300);
-           window.setTimeout(function(){ document.getElementById("foot1").style.display = "block";
-            document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';},50);
+        $(".foot").animate({bottom:'375px'}, 300);
+           window.setTimeout(function(){ document.getElementsByClassName("foot1").style.display = "block";
+            document.getElementsByClassName("mymenu").innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';},50);
      
     }else {
-       $("#foot").animate({bottom:'0px'}, 300);
+       $(".foot").animate({bottom:'0px'}, 300);
       
-             window.setTimeout(function(){ document.getElementById("foot1").style.display = "none";        
-            document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';},300);
+             window.setTimeout(function(){ document.getElementsByClassName("foot1").style.display = "none";        
+            document.getElementsByClassName("mymenu").innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';},300);
        // document.getElementById("foot").style.bottom = "0px";
     }
 }
 
-function cloakerClose() {
+function plHomeClickClose() {
     if (document.getElementById("foot1").style.display === "block") {
        $("#foot").animate({bottom:'0px'}, 300);
             window.setTimeout(function(){ document.getElementById("foot1").style.display = "none";        
