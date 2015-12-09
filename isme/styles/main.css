@@ -1918,7 +1918,7 @@ tile-frame-inner
 .profile-image{
     height:80px;
     width:80px;
-    margin:30px auto;
+    margin:40px auto;
 background: url(../images/profile_image.png) no-repeat center center;
     background-size:cover;
     border-radius:50px;
@@ -1929,7 +1929,7 @@ background: url(../images/profile_image.png) no-repeat center center;
 }
 
 .profile-image-change-button{
-    height:30px;
+    height:10px;
     width:100%;
     margin:10px auto;
     display:block;

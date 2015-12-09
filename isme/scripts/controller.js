@@ -133,9 +133,10 @@ function cloakerClick() {
 function cloakerClose() {
     if (document.getElementById("foot1").style.display === "block") {
        $("#foot").animate({bottom:'0px'}, 300);
-             window.setTimeout(function(){ document.getElementById("foot1").style.display = "none";        
+            window.setTimeout(function(){ document.getElementById("foot1").style.display = "none";        
             document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';},300);
     }
+    document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
 }
     
 (function (global) {
