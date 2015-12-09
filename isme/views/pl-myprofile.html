@@ -1,16 +1,15 @@
 <div data-role="view"  data-title="My Profile" data-layout="pl-main-layout" id="myprofile-view" data-model="postLogin">
    <header data-role="header">
         <div data-role="navbar">
-            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left"  data-icon="back">
+            <a data-transition="slide"   data-role="button" href="views/pl-home.html" data-align="left"  data-icon="back" data-click="cloakerClose">
             </a>
             <span data-role="view-title" id="item-title"></span>
-             <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" ><i class="fa fa-credit-card fa-lg" style="color:#fff"></i></a>    
+             <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" data-click="cloakerClose"><i class="fa fa-credit-card fa-lg" style="color:#fff"></i></a>    
         </div>
     </header>
        <div class="profile-image-holder">
-            <div class="profile-image"></div>
             <div class="profile-image-change-button"><a data-role="km-button" ></a></div>
-            <div class="home-page-holder" id="read-profile" style="display:block">
+            <div class="home-page-holder" id="read-profile" style="display:block;color:#000">
                 <div class="general-text-line">RICARDO MANRIQUEZ</div>
                 <div class="general-text-line">9704213568</div>
                 <div class="general-text-line">isme Member</div>

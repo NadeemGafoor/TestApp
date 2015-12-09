@@ -21,6 +21,9 @@ a
     border-bottom: 0px;
 }
 
+.km-footer{
+    background-color: rgba(0,0,0,0.5) !important;
+}
 .km-ios7 .km-navbar
 {
     background-color: transparent !important;
@@ -1913,11 +1916,12 @@ tile-frame-inner
 }
 
 .profile-image{
-    height:70px;
-    width:70px;
+    height:80px;
+    width:80px;
     margin:30px auto;
 background: url(../images/profile_image.png) no-repeat center center;
     background-size:cover;
+    border-radius:50px;
     display:block;
     position:relative;
     float:none;
