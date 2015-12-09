@@ -117,6 +117,7 @@ function plcloseShareBrand() {
 }
 
 function cloakerClick() {
+    alert("Hello");
     window.setTimeout(function(){ },100);
     if (document.getElementById("foot1").style.display != "block") {
         $("#foot").animate({bottom:'375px'}, 300);
