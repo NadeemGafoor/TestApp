@@ -786,6 +786,7 @@ function loadMyProfile(){
                                                    showSpin();
                                                    //document.getElementById("flagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center"; 
                                                    //checklocation();
+                                                       window.localStorage.setItem("appopen", "0");
                                                    if (firsttime === "") { //Register Access and device in the platform
                                                        mdevice = device.model;
                                                        muuid = device.uuid;
@@ -798,7 +799,7 @@ function loadMyProfile(){
                                                        preLogin.set("segmentcode", segmentcode);
                                                        window.localStorage.setItem("mdevicestat", mdevicestat);
                                                        window.localStorage.setItem("merchant", merchant);
-                                                   window.localStorage.setItem("appopen", "0");
+                                               
                                                        window.localStorage.setItem("appad_location", appad_location);
                                                        window.localStorage.setItem("appad_location_short", appad_location_short);
                                                        $.ajax({ 
