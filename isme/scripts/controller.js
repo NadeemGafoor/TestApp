@@ -131,7 +131,7 @@ function cloakerClick() {
       
              window.setTimeout(function(){ document.getElementById("foot1").style.display = "none";        
             document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';},300);
-        document.getElementById("foot").style.bottom = "0px";
+       // document.getElementById("foot").style.bottom = "0px";
     }
 }
 
@@ -142,7 +142,7 @@ function cloakerClose() {
             document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';},300);
     }
     document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-    document.getElementById("foot").style.bottom = "0px";    
+   // document.getElementById("foot").style.bottom = "0px";    
 }
     
 (function (global) {
