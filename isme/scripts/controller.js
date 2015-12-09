@@ -126,7 +126,6 @@ function cloakerClick() {
             document.getElementById("mymenu").innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';},50);
      
     }else {
-           alert("close");
        $("#foot").animate({bottom:'0px'}, 300);
       
              window.setTimeout(function(){ document.getElementById("foot1").style.display = "none";        

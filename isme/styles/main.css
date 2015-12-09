@@ -1879,7 +1879,7 @@ tile-frame-inner
 }
 
 #pl-home-view .foot,#pl-myprofile-view .foot {
-    position:fixed;
+    position:absolute;
     width: 100%;
     z-index: 10000;
     text-align:center;
@@ -1896,7 +1896,7 @@ tile-frame-inner
 
 #pl-home-view .foot1,#pl-myprofile-view .foot1 {
     height:375px;    
-    position:fixed;
+    position:absolute;
     width: 100%;
     z-index: 10000;
     color: #fff;
