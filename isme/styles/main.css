@@ -1878,7 +1878,7 @@ tile-frame-inner
     text-align:left;
 }
 
-#pl-home-view .foot,#pl-myprofile-view .foot {
+ .foot{
     position:absolute;
     width: 100%;
     z-index: 10000;
@@ -1894,7 +1894,7 @@ tile-frame-inner
     background: rgba(0,0,0,0.8);
 }
 
-#pl-home-view .foot1,#pl-myprofile-view .foot1 {
+.foot1 {
     height:375px;    
     position:absolute;
     width: 100%;
