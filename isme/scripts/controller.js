@@ -1,5 +1,4 @@
 
-
 function offerMessage() {
     navigator.notification.alert("To view offer details please select All Offers from the menu", function() {
     }, "isme by Jumeirah", "Dismiss")    
@@ -172,7 +171,12 @@ function plHomeClickClose() {
 
 function loadMyProfile(){
     plHomeClickClose();
-    app.navigate('views/pl-myprofile.html', 'slide:up');
+    if (window.localStorage.getItem("appopen") != "1"){
+    window.plugins.nativepagetransitions.slide({
+        'direction': 'up',
+        'href': '#views/pl-myprofile.html'});
+     window.localStorage.setItem("appopen","1");   
+    }    
 }
     
     (function (global) {
@@ -794,7 +798,7 @@ function loadMyProfile(){
                                                        preLogin.set("segmentcode", segmentcode);
                                                        window.localStorage.setItem("mdevicestat", mdevicestat);
                                                        window.localStorage.setItem("merchant", merchant);
-                                             
+                                                   window.localStorage.setItem("appopen", "0");
                                                        window.localStorage.setItem("appad_location", appad_location);
                                                        window.localStorage.setItem("appad_location_short", appad_location_short);
                                                        $.ajax({ 
