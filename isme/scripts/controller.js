@@ -169,6 +169,11 @@ function plHomeClickClose() {
     }
 
 }
+
+function loadMyProfile(){
+    plHomeClickClose();
+    app.navigate('views/pl-myprofile.html', 'slide:up');
+}
     
     (function (global) {
         var gpsErrorShow = "";
