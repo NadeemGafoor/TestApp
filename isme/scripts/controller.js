@@ -17,27 +17,7 @@ function loadMapView() {
     $("#modalviewmap").data("kendoMobileModalView").open();
 }    
 
-function closeShareOffer() {
-    $("#panelOffer").slideUp("slow");
-}
-function closeShareOutlet() {
-    $("#panelOutlet").slideUp("slow");
-}
-function closeShareBrand() {
-    $("#panelBrand").slideUp("slow");
-}
-    
-function openShareOffer() {
-    $("#panelOffer").slideDown("slow");
-}    
 
-function openShareOutlet() {
-    $("#panelOutlet").slideDown("slow");
-}    
-
-function openShareBrand() {
-    $("#panelBrand").slideDown("slow");
-}    
 
 function loadFilterView() {
     $("#modalviewfilter").data("kendoMobileModalView").open();
@@ -89,30 +69,6 @@ function loadCeleberationTypeView() {
 
 function closeCeleberationTypeView() {
     $("#modalviewceleberationtype").data("kendoMobileModalView").close();
-}
-
-function plcloseShareOffer() {
-    $("#plpanelOffer").slideUp("slow");
-}
-    
-function plopenShareOffer() {
-    $("#plpanelOffer").slideDown("slow");
-}    
-
-function plopenShareOutlet() {
-    $("#plpanelOutlet").slideDown("slow");
-}    
-
-function plcloseShareOutlet() {
-    $("#plpanelOutlet").slideUp("slow");
-}
-
-function plopenShareBrand() {
-    $("#plpanelBrand").slideDown("slow");
-} 
-
-function plcloseShareBrand() {
-    $("#plpanelBrand").slideUp("slow");
 }
 
 
