@@ -115,6 +115,77 @@ function plcloseShareBrand() {
     $("#plpanelBrand").slideUp("slow");
 }
 
+
+function shareClick(){
+
+    var elems = document.getElementsByClassName('head1');
+    for (i = 0; i < elems.length; i++) {
+        if (elems[i].style.display === "" || elems[i].style.display === "none") {
+            $(".sharehead").animate({top:'260px'}, 300);
+    
+            window.setTimeout(function() { 
+                for (i = 0; i < elems.length; i++) {
+                    elems[i].style.display = 'block';
+                }
+ 
+                elems = document.getElementsByClassName('mymenu');
+                for (i = 0; i < elems.length; i++) {
+                    elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+                                        elems[i].style.display = 'block';
+                }
+            }, 50);
+        } else {
+            $(".sharehead").animate({top:'0px'}, 300);
+            window.setTimeout(function() { 
+                for (i = 0; i < elems.length; i++) {
+                    elems[i].style.display = 'none';
+                }
+ 
+                elems = document.getElementsByClassName('mymenu');
+                for (i = 0; i < elems.length; i++) {                  
+                    elems[i].style.display = 'none';
+                }
+                
+                
+                   elems = document.getElementsByClassName('sharehead');
+                for (i = 0; i < elems.length; i++) {                  
+                    elems[i].style.display = 'none';
+                }
+            }, 300);
+        }
+    }
+  
+    
+    }
+
+
+
+function shareClickClose(){
+
+    var elems = document.getElementsByClassName('head1');
+
+            $(".sharehead").animate({top:'0px'}, 300);
+            window.setTimeout(function() { 
+                for (i = 0; i < elems.length; i++) {
+                    elems[i].style.display = 'none';
+                }
+ 
+                elems = document.getElementsByClassName('mymenu');
+                for (i = 0; i < elems.length; i++) {                  
+                    elems[i].style.display = 'none';
+                }
+                
+                
+                   elems = document.getElementsByClassName('sharehead');
+                for (i = 0; i < elems.length; i++) {                  
+                    elems[i].style.display = 'none';
+                }
+            }, 300);
+        }
+  
+
+
+
 function plHomeClick() {
     var elems = document.getElementsByClassName('foot1');
     for (i = 0; i < elems.length; i++) {
@@ -167,6 +238,7 @@ function plHomeClickClose() {
 }
 
 function loadMyProfile() {
+    
     plHomeClickClose();
     if (window.localStorage.getItem("appopen") != "1") {
         window.plugins.nativepagetransitions.slide({
@@ -177,19 +249,12 @@ function loadMyProfile() {
     }    
 }
 
-function openPreDrawer() {
-    var options = {
-        "direction"         : "left", // 'left|right', open the drawer from this side of the view, default 'left'
-        "duration"       :    300, // in milliseconds (ms), default 400
-        "iosdelay"       :     50, // ms to wait for the iOS webview to update before animation kicks in, default 60
-        "href"            : "#appdrawerN"  
-    };
-    window.plugins.nativepagetransitions.slide(
-        options, function() {
-        }, function() {
-        }
-        );
+function preLoginBack() {
+    shareClickClose();
+    window.setTimeout(function(){app.navigate("#:back","slide:left")},500);
 }
+
+
 
 function openPostDrawer() {
     var options = {

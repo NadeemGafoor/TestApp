@@ -1,47 +1,6 @@
-<div data-role="view"   data-layout="back2-layout" id="branddetail-theme"  data-model="preLogin" data-hide="closeShareBrand">
-    <header data-role="header">
-        <div data-role="navbar">
-            <a data-transition="slide"   data-role="button" href="views/brandlist.html" data-align="left"  data-icon="back">
-            </a>
-            <span data-role="view-title" id="item-title">Burj Al Arab</span>
-            <a data-role="button" data-click="openShareBrand" data-align="right" >
-                <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
-            </a>
-        </div>
-    </header>
-    <div id="panelBrand" class="class-share-div">
-        <div class="share-menu-line-1">
-            <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
-            <div class="button-frame-inline-round">
-                <a id="btn-facebook" data-role="button" data-bind="click: socialsharingFacebook" >
-                    <i class="fa fa-facebook fa-2x  share-class"></i>
-                </a>
-            </div>
-            <div class="button-frame-inline-round">
-                <a id="btn-twitter" data-role="button" data-bind="click: socialsharingTwitter" >
-                    <i class="fa fa-twitter fa-2x   share-class"></i>
-                </a>
-            </div>
-        </div>
-        <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
-        <div class="share-menu-line-1">
-            <div class="button-frame-inline-round">
-                <a id="btn-whatsapp" data-role="button" data-bind="click: socialsharingWhatsApp" >
-                    <i class="fa fa-whatsapp fa-2x   share-class"></i>
-                </a>
-            </div>
-            <div class="button-frame-inline-round">
-                <a id="btn-email" data-role="button" data-bind="click: socialsharingEmail" >
-                    <i class="fa fa-envelope fa-2x   share-class"></i>
-                </a>
-            </div>
-        </div>
-        <div class="share-menu-line-2">
-            <a data-click="closeShareBrand" data-role="button">
-                <i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>
-            </a>
-        </div>
-    </div>
+<div data-role="view"   data-layout="back2-layout" id="branddetail-theme"  data-model="preLogin" data-hide="shareClickClose">
+
+    
 
     <div class="hero-image" id="outlet-image-large">
         <img id="outletimage" src="images/Brand1.png" class="img-hero"/>
@@ -69,28 +28,9 @@
         </div>
 
     </ul>
-    <footer data-role="footer">
-
-        <div data-role="tabstrip" style="background-color:#000" data-selected-index="5">
-            <a id="outlet1" class="fa" data-icon="customstar"  data-rel="modalview" href="#modalviewstar"></a>
-            <a id="outlet2" class="fa" data-icon="customlocation" data-bind="click: getLocation1"></a>
-            <a id="outlet3" class="fa" data-icon="customenvelope" data-bind="click: supportEmailA" ></a>
-            <a id="outlet4" class="fa" data-icon="customcall" data-bind="click: customerCare"></a>
-        </div>
-    </footer>
+  
 </div>
 
 
 
 
-<style scoped>
-    
-    #btn-email, #btn-facebook, #btn-twitter, #btn-whatsapp 
-    {
-        -webkit-border: #fff solid 2px;
-        -moz-border: #fff solid 2px;
-        border: #fff solid 2px; 
-    }     
-    
-  
-</style>
