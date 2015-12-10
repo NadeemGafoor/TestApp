@@ -482,9 +482,9 @@ img
 {
     padding-top: 10px;
     margin: auto;
-    height: 90px;
-    line-height:90px;
-    width: 100px;
+    height: 80px;
+    line-height:70px;
+    width: 80px;
     display: block;
     text-align: center;
     -webkit-border-radius: 70px;
@@ -1893,7 +1893,7 @@ tile-frame-inner
 }
 
 .foot1 {
-    height:375px;    
+    height:380px;    
     position:fixed;
     width: 100%;
     z-index: 10000;

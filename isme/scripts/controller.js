@@ -212,6 +212,12 @@ function preLoginBack() {
 }
 
 
+function postLoginBack() {
+   plHomeClickClose();
+           window.localStorage.setItem("appopen", "0");        
+   app.navigate("#:back","slide");
+}
+
 
 
 (function (global) {
