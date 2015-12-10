@@ -89,9 +89,9 @@ function shareClick(){
                     elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
                                         elems[i].style.display = 'block';
                 }
-            }, 50);
+            },100);
         } else {
-            $(".sharehead").animate({top:'0px'}, 300);
+            $(".sharehead").animate({top:'0px'}, 500);
             window.setTimeout(function() { 
                 for (i = 0; i < elems.length; i++) {
                     elems[i].style.display = 'none';
@@ -107,7 +107,7 @@ function shareClick(){
                 for (i = 0; i < elems.length; i++) {                  
                     elems[i].style.display = 'none';
                 }
-            }, 300);
+            }, 500);
         }
     }
   
@@ -206,27 +206,14 @@ function loadMyProfile() {
 }
 
 function preLoginBack() {
-    shareClickClose();
-    window.setTimeout(function(){app.navigate("#:back","slide:left")},500);
+   shareClickClose();
+        
+   app.navigate("#:back","slide");
 }
 
 
 
-function openPostDrawer() {
-    var options = {
-        "direction"         : "left", // 'left|right', open the drawer from this side of the view, default 'left'
-        "action"         : "open", // 'open|close', default 'open', note that close is not behaving nicely on Crosswalk
-        "duration"       :    300, // in milliseconds (ms), default 400
-        "iosdelay"       :     50, // ms to wait for the iOS webview to update before animation kicks in, default 60
-        "href"            : "#appdrawer"  
-    };
-   window.plugins.nativepagetransitions.slide(
-        options, function() {
-        }, function() {
-        }
-        );
-}
-    
+
 (function (global) {
     var gpsErrorShow = "";
     var gpsErrorShowApp = "";
