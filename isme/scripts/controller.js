@@ -230,6 +230,18 @@ function loadMyBenefit() {
     }    
 }
 
+function loadMyMessages() {
+    
+    plHomeClickClose();
+    if (window.localStorage.getItem("appopen") != "4") {
+        window.plugins.nativepagetransitions.slide({
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-mymessagelist.html'
+                                                   });
+        window.localStorage.setItem("appopen", "4");   
+    }    
+}
+
 function preLoginBack() {
    shareClickClose();
 //   $("body").data("kendoMobilePane").navigate("#:back");

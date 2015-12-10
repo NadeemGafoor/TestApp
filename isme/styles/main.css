@@ -62,7 +62,7 @@ a:active
     background-color: #000 !important;
     color: #fff;
 }
-#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content,#pl-myvoucherdetail-theme .km-content,#pl-benefit-theme .km-content
+#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content,#pl-myvoucherdetail-theme .km-content,#pl-benefit-theme .km-content,#mymessagelist-theme .km-content
 {
     background-color: #fff;
 }
@@ -1421,6 +1421,7 @@ tile-frame-inner
     position: relative;
     float: none;
     width: 100%;
+            border-bottom:1px solid #ccc;
 }
 
 .msg-narration-frame
@@ -1432,6 +1433,7 @@ tile-frame-inner
     margin-left: .3em;
     margin-right: .3em;
     text-align: justify;
+    color:#000;
 }
 
 .msg-action-frame-outer
@@ -1449,6 +1451,7 @@ tile-frame-inner
     float: none;
     width: 100%;
     display: inline-block;
+    text-align:center;
 }
 
 .msg-action-frame-inner-2
@@ -1478,7 +1481,7 @@ tile-frame-inner
     position: relative;
     float: none;
     width: 100%;
-    background-color: #de5716; 
+    background-color: #000; 
     border-radius: 5px;
     -webkit-border-radius: 5px;
     overflow: hidden !important;
@@ -1603,7 +1606,7 @@ tile-frame-inner
 
 .dotcolor
 {
-    ;color: #de5716;
+    ;color: #000;
 }
 
 .locationarrow
