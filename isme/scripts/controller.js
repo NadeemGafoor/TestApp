@@ -77,7 +77,7 @@ function shareClick(){
     var elems = document.getElementsByClassName('head1');
     for (i = 0; i < elems.length; i++) {
         if (elems[i].style.display === "" || elems[i].style.display === "none") {
-            $(".sharehead").animate({top:'260px'}, 300);
+            $(".sharehead").animate({top:'260px'}, 5000);
     
             window.setTimeout(function() { 
                 for (i = 0; i < elems.length; i++) {
@@ -89,9 +89,9 @@ function shareClick(){
                     elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
                                         elems[i].style.display = 'block';
                 }
-            },100);
+            },1000);
         } else {
-            $(".sharehead").animate({top:'0px'}, 500);
+            $(".sharehead").animate({top:'0px'}, 1000);
             window.setTimeout(function() { 
                 for (i = 0; i < elems.length; i++) {
                     elems[i].style.display = 'none';
