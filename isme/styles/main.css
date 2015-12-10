@@ -788,29 +788,6 @@ pre
     text-decoration: underline;
 }
 
-.mycard-detail-holder-label
-{
-    margin-top: 0;
-    width: 40%;
-    height: 1.5em;
-    line-height: 1.5em;
-    padding-left: .5em;
-    font-size: .9em;
-    position: relative;
-    float: left;
-}
-    
-.mycard-detail-holder-data
-{
-    margin-top: 0;
-    width: 60%;
-    height: 1.5em;
-    line-height: 1.5em;
-    font-size: .9em;
-    font-weight: bold;
-    position: relative;
-    float: left;
-}
 
 li
 {
@@ -1072,11 +1049,20 @@ li
     background-repeat: no-repeat;
     background-position: center center;
 }
+
+.mycard-holder{
+    height:auto;
+    width:100%;
+    position:relative;
+    float:none;
+    margin-top:.5em;
+}
   
 .qr-image
 {
-    height: 150px;
-    width: 150px; 
+     background: url(../images/qr.png) no-repeat center center;
+    height: 125px;
+    width: 125px; 
     background-size: 100%;
     margin: .5em auto;
     display: block;
@@ -1085,7 +1071,7 @@ li
     
 .qr-image-sep
 {
-    height: 160px;
+    height: 140px;
     position: relative; 
     float: none;
 }
@@ -1228,9 +1214,9 @@ li
     height: 1.5em;
     line-height: 1.5em;
     padding-left: .5em;
-    font-size: .9em;
     position: relative;
     float: left;
+    color:#000;
 }
     
 .mycard-detail-holder-data
@@ -1239,10 +1225,10 @@ li
     width: 60%;
     height: 1.5em;
     line-height: 1.5em;
-    font-size: .9em;
     font-weight: bold;
     position: relative;
     float: left;
+    color:#000;    
 }
 
 #mycardimage .mycard-name
@@ -1992,3 +1978,5 @@ tile-frame-inner
     justify-content: center; /* align horizontal */
     margin: -2px auto;
 }
+
+
