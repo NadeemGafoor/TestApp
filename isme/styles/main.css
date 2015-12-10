@@ -509,6 +509,9 @@ img
     -moz-border-radius: 70px;
     border-radius: 70px;
     color: #fff;
+            -webkit-border: #fff solid 1px;
+        -moz-border: #fff solid 1px;
+        border: #fff solid 1px; 
 }
 
 .button-frame-inline-round .km-button
@@ -1421,7 +1424,7 @@ tile-frame-inner
     position: relative;
     float: none;
     width: 100%;
-            border-bottom:1px solid #ccc;
+
 }
 
 .msg-narration-frame
