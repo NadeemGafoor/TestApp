@@ -179,13 +179,12 @@ function loadMyProfile() {
 
 function openPreDrawer() {
     var options = {
-        "origin"         : "left", // 'left|right', open the drawer from this side of the view, default 'left'
-        "action"         : "open", // 'open|close', default 'open', note that close is not behaving nicely on Crosswalk
+        "direction"         : "left", // 'left|right', open the drawer from this side of the view, default 'left'
         "duration"       :    300, // in milliseconds (ms), default 400
         "iosdelay"       :     50, // ms to wait for the iOS webview to update before animation kicks in, default 60
         "href"            : "#appdrawerN"  
     };
-    window.plugins.nativepagetransitions.drawer(
+    window.plugins.nativepagetransitions.slide(
         options, function() {
         }, function() {
         }
@@ -194,13 +193,13 @@ function openPreDrawer() {
 
 function openPostDrawer() {
     var options = {
-        "origin"         : "left", // 'left|right', open the drawer from this side of the view, default 'left'
+        "direction"         : "left", // 'left|right', open the drawer from this side of the view, default 'left'
         "action"         : "open", // 'open|close', default 'open', note that close is not behaving nicely on Crosswalk
         "duration"       :    300, // in milliseconds (ms), default 400
         "iosdelay"       :     50, // ms to wait for the iOS webview to update before animation kicks in, default 60
         "href"            : "#appdrawer"  
     };
-   window.plugins.nativepagetransitions.drawer(
+   window.plugins.nativepagetransitions.slide(
         options, function() {
         }, function() {
         }
