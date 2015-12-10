@@ -21,9 +21,6 @@ a
     border-bottom: 0px;
 }
 
-.km-footer{
-    background-color: rgba(0,0,0,0.5) !important;
-}
 
 .km-ios7 .km-navbar
 {
@@ -93,9 +90,9 @@ a:active
 .fa .km-icon:after,
 .fa .km-icon:before
 {
-    margin-top: .5em;
+    margin-top: .2em;
     margin-left: .2em;
-    font: .7em/.7em 'FontAwesome';
+    font: .9em/.9em 'FontAwesome';
 
 }
 

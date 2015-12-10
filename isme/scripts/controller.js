@@ -207,15 +207,14 @@ function loadMyProfile() {
 
 function preLoginBack() {
    shareClickClose();
-        
-   app.navigate("#:back","slide");
+   $("body").data("kendoMobilePane").navigate("#:back");
 }
 
 
 function postLoginBack() {
    plHomeClickClose();
            window.localStorage.setItem("appopen", "0");        
-   app.navigate("#:back","slide");
+$("body").data("kendoMobilePane").navigate("#:back");
 }
 
 
