@@ -9,27 +9,43 @@
             </a>
         </div>
     </header>
-   <div class="hero-image" id="outlet-image-large">
-            <img id="outletimage" src="images/Brand1.png" class="img-hero"/>
+    <div class="hero-image" id="outlet-image-large">
+        <img id="outletimage" src="images/Brand1.png" class="img-hero"/>
 
-        </div>
+    </div>
+    <ul data-role="listview">
+            <li>
+            <div class="swith-frame-voucher">
+                Agree to
+                <a href="#modalviewterms" data-role="button" data-click="onClick" style="border:0px">
+                    Terms & Conditions
+                </a>
+                <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
+            </div>
+        </li>     <li>
+                    <div class="button-frame-inline">
+                <a  id="redeem-button" data-role="button">Redeem</a>
+            </div>
+        </li>
+
+        <li>
+            <div class="mycard-holder">
+                <div class="mycard-detail-holder-label whitecolor">Voucher #</div>
+                <div class="mycard-detail-holder-data  whitecolor" id="voucher-number">999999999</div>
+                <div class="mycard-detail-holder-label  whitecolor">Voucher Name</div>
+                <div class="mycard-detail-holder-data  whitecolor" id="voucher-name" style="height:3.6em;line-height:1.2em">Emirates Offer BOGOF to Europe Destination</div>
+                <div class="mycard-detail-holder-label  whitecolor">Expiry</div>
+                <div class="mycard-detail-holder-data  whitecolor" id="voucher-expiry">01/01/2017</div>
+            </div>
+        </li>
+        <li>
+            <div class="qr-image-sep">
+                <div class="qr-image" id="qr-image-3"></div>
+            </div>
+        </li>
    
-        <div class="mycard-holder">
-            <div class="mycard-detail-holder-label whitecolor">Voucher #</div>
-            <div class="mycard-detail-holder-data  whitecolor" id="voucher-number"></div>
-            <div class="mycard-detail-holder-label  whitecolor">Voucher Name</div>
-            <div class="mycard-detail-holder-data  whitecolor" id="voucher-name" style="height:3.6em;line-height:1.2em"></div>
-            <div class="mycard-detail-holder-label  whitecolor">Expiry</div>
-            <div class="mycard-detail-holder-data  whitecolor" id="voucher-expiry"></div>
-        </div>
-        <div class="home-page-holder"></div>
-        <div class="qr-image-sep">
-            <div class="qr-image" id="qr-image-3"></div>
-        </div>
-
-        <div class="home-page-holder"></div>
-        <div class="button-frame">
-            <a  id="redeem-button" data-role="button" class="button-redeem">Redeem</a>
-        </div>
+       
+        <li>&nbsp;</li>
+    </ul>
 </div>
 

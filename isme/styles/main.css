@@ -62,7 +62,7 @@ a:active
     background-color: #000 !important;
     color: #fff;
 }
-#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content,#pl-myvoucherdetail-theme .km-content
+#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content,#pl-myvoucherdetail-theme .km-content,#pl-benefit-theme .km-content
 {
     background-color: #fff;
 }
@@ -328,6 +328,23 @@ img
     text-align: center;
 }
 
+.button-group-single-isme 
+{
+    margin-top:5px;
+    background-color: rgba(0, 0, 0,1);
+    width:80%;
+    margin-left:10%;
+    border:1px solid #000;
+    color:#fff;
+    height:30px;
+    line-height:30px;
+    border-radius:5px;
+    text-align:center;
+    font-weight:bold;
+}
+
+
+
 .button-group .km-button .km-text
 {
     color: rgb(0, 0, 0);
@@ -434,6 +451,13 @@ img
     color: #fff;
 }
 
+#pl-myvoucherdetail-theme .switch-frame-voucher 
+
+{
+    padding-top:10px;
+   
+}
+
 .one-line
 {
     color: #fff;
@@ -509,6 +533,7 @@ img
     position: relative;
     float: none;
 }
+
 
 .button-frame-inline .km-button
 {
@@ -641,10 +666,21 @@ img
     float: none;
 }
 
+.switch-frame-voucher
+{
+    height: 4em;
+    line-height:2em;
+    float: none;
+    background-color:#ccc;
+    margin-left:10%;
+}
+
+
 .switch-frame label
 {
     line-height: 2em;
     color: #fff;
+
 }
 .switch-frame-i
 {
@@ -1038,24 +1074,13 @@ li
 .benefit-image1 { background-image: url(../images/gold_card.png); }
 .benefit-image2 { background-image: url(../images/platinum_card.png); }
 
-.card-image
-{
-    height: 150px;
-    width: 250px;
-    display: block;
-    margin: 10% auto;
-    -webkit-background-size: 100%;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
 
 .mycard-holder{
-    height:auto;
+    height:6em;
     width:100%;
     position:relative;
     float:none;
-    margin-top:.5em;
+    font-size:.9em;
 }
   
 .qr-image
@@ -1071,22 +1096,11 @@ li
     
 .qr-image-sep
 {
-    height: 140px;
+    height: 125px;
     position: relative; 
     float: none;
 }
 
-.photo1
-{
-    height: 150px;
-    width: 250px;
-    display: block;
-    background-repeat: no-repeat;
-    background-position: center center;
-    margin: auto;
-    -webkit-background-size: 100%;
-    background-size: 100%;
-}
 
 #pl-home-view .menu-holder
 {

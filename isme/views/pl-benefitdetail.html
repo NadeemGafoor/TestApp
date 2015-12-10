@@ -1,21 +1,19 @@
-<div data-role="view"  data-title="Program Benefits" data-layout="pl-back-layout" id="pl-benefit-theme" data-init="initButtonGroup" data-model="preLogin" >
-  <header data-role="header">
+<div data-role="view"  data-title="Program Benefits" data-layout="pl-main-layout" id="pl-benefit-theme" data-model="preLogin" >
+      <header data-role="header">
         <div data-role="navbar">
-            <a data-transition="slide"   data-role="button" href="views/pl-home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
-            <span data-role="view-title"></span>
-           
+            <a data-role="backbutton" data-align="left"  style="margin-top:.3em;color:#fff" data-click="postLoginBack">
+            </a>
+            <span data-role="view-title" id="item-title"></span>
+            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" >
+                <i class="fa fa-credit-card fa-lg" style="color:#fff"></i>
+            </a>
         </div>
     </header>
-    <ul data-role="buttongroup" data-index="0" id="offertab" class="button-group a-group">
-        <li>
-            isme
-        </li>
-        <li>
-            isme Elite
-        </li>
+    <div class="button-group-single-isme">isme</div>
+     
 
-    </ul>
-    <ul data-role="listview"   style="background-color:#fff;margin-top:0px" id="isme">
+  
+    <ul data-role="listview">
 
     
         <li>
@@ -44,11 +42,12 @@
             <div class="class-benefit gutter-space">Spouse Card</div>
             <div class="class-benefit">No</div>
         </li>
+        <div style="margin-left:5%;margin-right:3%">
         <li>
-            <div class="class-benefit gutter-space">e-Vouhers (Valid for (3) months from subscription</div>
+            <div class="class-benefit gutter-space">e-Vouchers (Valid for (3) months from subscription</div>
             <div class="class-benefit">-Instant Welcome Pack<br>-BOGOF on Talise Spa 60 minutes massage<br>-BOGOF on dinner at any JRG Rstaurant (food only)<br>-BOGOF on dinner at any JRG Rstaurant (food only)</div>
         </li>
-
+</div>
     </ul>
 
     <ul data-role="listview"   style="background-color:#fff;margin-top:0px;display:none" id="isme-elite">
@@ -90,36 +89,5 @@
 
 
 
-<script>
-    function initButtonGroup() {
-        var listviews = this.element.find("ul.km-listview");
 
-        $("#offertab").kendoMobileButtonGroup({
-                                                  select: function (e) {
-                                                      listviews.hide()
-                                                          .eq(e.index)
-                                                          .show();
-                                                  },
-                                                  index: 0
-                                              });
-    }  
-</script>
-
-<style scoped>
-
-   a-group .km-button{
-         -webkit-border: #fff solid 0px;
-    -moz-border: #fff solid 0px;
-    border: #fff solid 0px;
-   }
-    
-     #isme li,#isme-elite li
-    {
-        border-top: 1px solid #ccc !important;
-        border-bottom: 1px solid #ccc !important;
-    }  
-    
-   
-    
-    </style>
 

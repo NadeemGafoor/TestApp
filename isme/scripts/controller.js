@@ -216,6 +216,20 @@ function loadMyReward() {
         window.localStorage.setItem("appopen", "2");   
     }    
 }
+
+
+function loadMyBenefit() {
+    
+    plHomeClickClose();
+    if (window.localStorage.getItem("appopen") != "3") {
+        window.plugins.nativepagetransitions.slide({
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-benefitdetail.html'
+                                                   });
+        window.localStorage.setItem("appopen", "3");   
+    }    
+}
+
 function preLoginBack() {
    shareClickClose();
 //   $("body").data("kendoMobilePane").navigate("#:back");
