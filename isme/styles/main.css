@@ -34,6 +34,7 @@ a
 {
     margin-top: -10px;
     width: 40px;
+    border:0px !important;
 }
 
 .km-navbar a:active
@@ -62,7 +63,7 @@ a:active
     background-color: #000 !important;
     color: #fff;
 }
-#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content,#pl-myvoucherdetail-theme .km-content,#pl-benefit-theme .km-content,#mymessagelist-theme .km-content
+#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content,#pl-myvoucherdetail-theme .km-content,#pl-benefit-theme .km-content,#mymessagelist-theme .km-content,#messageitem-theme .km-content
 {
     background-color: #fff;
 }
