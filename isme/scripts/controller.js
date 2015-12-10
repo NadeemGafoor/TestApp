@@ -141,6 +141,7 @@ function plHomeClick() {
                 elems = document.getElementsByClassName('mymenu');
                 for (i = 0; i < elems.length; i++) {
                     elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+                                        elems[i].style.display='block';
                 }
             }, 300);
         }
@@ -162,6 +163,7 @@ function plHomeClickClose() {
                 elems = document.getElementsByClassName('mymenu');
                 for (i = 0; i < elems.length; i++) {
                     elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+                    elems[i].style.display='block';
                 }
             }, 300);
 
@@ -837,13 +839,13 @@ function loadMyProfile(){
                                                                       }else if (getData.statuscode === "047") {
                                                                           $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
                                                                       } else {
-                                                                          navigator.notification.alert("Platform Error, Services may not be available. " + getData.statusdesc, function() {
+                                                                          navigator.notification.alert("Platform Error, Services may not be available. " + getData.statusText, function() {
                                                                           }, "isme by Jumeirah", "Dismiss")          
                                                                           hideSpin(); //hide loading popup
                                                                       }
                                                                   },
                                                                   error: function (errormsg) {
-                                                                      navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                                      navigator.notification.alert("111111111111Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")
                                                                       hideSpin(); //hide loading popup
                                                                   }
