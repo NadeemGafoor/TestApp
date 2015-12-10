@@ -1,54 +1,67 @@
-<div data-role="view" data-title="My Wallet" data-layout="pl-back-layout" id="pl-mywallet-theme" data-model="postLogin" data-show="postLogin.mywalletofferlist">
+<div data-role="view" data-title="My Wallet" data-layout="pl-main-layout" id="pl-mywallet-theme" data-model="postLogin">
     <header data-role="header">
         <div data-role="navbar">
-            <div class="brand-icon"></div> 
-            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left"  data-icon="back">
+            <a data-role="backbutton" data-align="left"  style="margin-top:.3em;color:#fff" data-click="postLoginBack">
             </a>
             <span data-role="view-title" id="item-title"></span>
-             <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" ><i class="fa fa-home fa-lg" style="color:#fff"></i></a>    
+            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" >
+                <i class="fa fa-credit-card fa-lg" style="color:#fff"></i>
+            </a>
         </div>
     </header>
-    <ul data-role="listview"   style="background-color:#fff" id="mywallet-voucher-list">
+    <ul data-role="listview"  >
+        <a href="views/pl-myvoucherdetail.html" data-transition="slide:left">
+            <div class="offer-frame-1  outer-frame image-enhancer">
+                <div class="voucher-text">Emirates Airline Offer</div>
+                <div class="expiry-text">Expiry : 01/01/2017</div>
+            </div>
+        </a>
+        <a href="views/pl-myvoucherdetail.html" data-transition="slide:left">
+            <div class="offer-frame-2  outer-frame image-enhancer" >
+                <div class="voucher-text">Couple Dinner</div>
+                <div class="expiry-text">Expiry : 01/01/2017</div>
+            </div>
+        </a>
+        <a href="views/pl-myvoucherdetail.html" data-transition="slide:left">
+
+            <div class="offer-frame-3  outer-frame image-enhancer ">
+                <div class="voucher-text">Night Out at Rays Grill</div>
+                <div class="expiry-text">Expiry : 01/01/2017</div>
+            </div>
+        </a>
+
+        <div class="offer-frame-4  outer-frame image-enhancer ">
+            <div class="voucher-text">Family Day at Al Maraa</div>
+            <div class="expiry-text">Expiry : 01/01/2017</div>
+        </div>
+
+        <div class="offer-frame-5 outer-frame image-enhancer ">
+            <div class="voucher-text">UAE National Day Celebration</div>
+            <div class="expiry-text">Expiry : 01/01/2017</div>
+        </div>
+
+        <div class="offer-frame-6 image-enhancer outer-frame">
+            <div class="voucher-text">Dinner at Alfies Interior</div>
+            <div class="expiry-text">Expiry : 01/01/2017</div>
+        </div>
+
+        <div class="offer-frame-7 image-enhancer outer-frame">
+            <div class="voucher-text">Tea Time Offer at Lobby Lounge</div>
+            <div class="expiry-text">Expiry : 01/01/2017</div>
+        </div>
+        <div class="offer-frame-8 image-enhancer outer-frame">
+            <div class="voucher-text">Lunch at Arboretum</div>
+            <div class="expiry-text">Expiry : 01/01/2017</div>
+        </div>
+        <div class="offer-frame-9 image-enhancer outer-frame">
+            <div class="expiry-text">Weekend Brunch Offer</div>
+        </div>
+        <div class="offer-frame-10 image-enhancer outer-frame">
+            <div class="voucher-text">Morrocon Night at Al Iwan</div>
+            <div class="expiry-text">Expiry : 01/01/2017</div>
+        </div>
 
     </ul>
 
-    <footer data-role="footer">
-
-        <div data-role="navbar">
-            <div class="home-navbar" >
-                <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
-            </div>
-               <div class="footer-logo" data-bind="click:plshowBrandPage">&nbsp;</div>
-
-        </div>
-    </footer>
-
 </div>
-
-<script type="text/x-kendo-template" id="mywallet-voucherlist-Template">
-    <a data-transition="slide"   href="views/pl-myvoucherdetail.html?itc=${itemcode}" data-role="button"  >
-        <div class="outer-frame">
-            <div class="image-frame-list small-image-height">
-                <img src="${imageurls}" style="height:100%;width:100%"/>
-            </div>
-            <div class="inner-frame-1">${itemname}</div>
-            <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
-        </div>
-    </a>
-</script>
-
-<style scoped>
-
-    #pl-mywallet-theme li
-    {
-        border-top: 1px solid #ccc !important;
-        border-bottom: 1px solid #ccc !important;
-    }
-    
-      #mywallet-voucher-list a
-    {
-        background-color: transparent !important;
-        color:#575757;
-    }   
-</style>
 

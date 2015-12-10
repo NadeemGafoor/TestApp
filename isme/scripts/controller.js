@@ -205,6 +205,17 @@ function loadMyProfile() {
     }    
 }
 
+function loadMyReward() {
+    
+    plHomeClickClose();
+    if (window.localStorage.getItem("appopen") != "2") {
+        window.plugins.nativepagetransitions.slide({
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-myreward.html'
+                                                   });
+        window.localStorage.setItem("appopen", "2");   
+    }    
+}
 function preLoginBack() {
    shareClickClose();
 //   $("body").data("kendoMobilePane").navigate("#:back");
@@ -213,7 +224,7 @@ function preLoginBack() {
 
 function postLoginBack() {
    plHomeClickClose();
- //          window.localStorage.setItem("appopen", "0");        
+           window.localStorage.setItem("appopen", "0");        
 //$("body").data("kendoMobilePane").navigate("#:back");
 }
 

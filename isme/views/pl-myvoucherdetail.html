@@ -1,102 +1,40 @@
-<div data-role="view" data-title="My Voucher" data-layout="pl-back-layout" id="myvoucherdetail-theme" data-init="initButtonGroup"  data-model="postLogin" data-show="postLogin.mywalletofferdetail">
+<div data-role="view" data-title="My Voucher" data-layout="pl-main-layout" id="pl-myvoucherdetail-theme" data-model="postLogin">
     <header data-role="header">
         <div data-role="navbar">
-            <div class="brand-icon"></div> 
-            <a data-transition="slide"   data-role="button" href="views/pl-myreward.html" data-align="left"  data-icon="back">
+            <a data-role="backbutton" data-align="left"  style="margin-top:.3em;color:#fff" data-click="postLoginBack">
             </a>
-            <span data-role="view-title"></span>
-            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" ><i class="fa fa-home fa-lg" style="color:#fff"></i></a>              
+            <span data-role="view-title" id="item-title"></span>
+            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" >
+                <i class="fa fa-credit-card fa-lg" style="color:#fff"></i>
+            </a>
         </div>
     </header>
-    <ul data-role="buttongroup" data-index="0" id="myvouchertab" class="button-group" style="margin-top:0px" >
-        <li>
-            Details
-        </li>
-        <li data-bind="click: myofferOutlet">
-            Outlet
-        </li>
+    <div class="hero-image" id="outlet-image-large">
+        <img id="outletimage" src="images/Brand1.png" class="img-hero"/>
 
-    </ul>
-    <ul data-role="listview"   style="background-color:#fff;margin-top:0px;display:none" id="wallet-div">
+    </div>
 
-        <div class="hero-image" id="myvoucher-load">                        <img id="myvoucherimage" src="images/largeihglogoimage.png" class="img-hero"/></div>
-        
-          <li>
-            <div class="detail-subhead whitecolor" id="pl-ooffer-voucher" style="text-align:left"></div>
-        </li>
-        
-          <li>
-            <div class="detail-subhead whitecolor" id="pl-ooffer-shortname"></div>
-        </li>
-        <li>
-            <div id="pl-ooffer-description" class="whitecolor"></div>
-        </li>
-        <li>
-            <div class="detail-subhead whitecolor" id="pl-ooffer-expiry" style="text-align:left"></div>
-        </li>
-
-        <li>
-            <div id="pl-ooffer-remark" class="whitecolor"></div>
-        </li>
-    </ul>
-    <ul data-role="listview"   style="display:none;background-color:#fff;margin-top:0px" id="my-offer-outlet-list-view">
-
-    </ul>
-
-    <footer data-role="footer">
-
-        <div data-role="navbar">
-            <div class="home-navbar" >
-                <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
-            </div>
-               <div class="footer-logo" data-bind="click:plshowBrandPage">&nbsp;</div>
-
-
+    <ul data-role="listview"    style="margin-top:0px">
+        <div class="hero-image" id="myvoucher-load"></div>
+        <div class="mycard-holder">
+            <div class="mycard-detail-holder-label whitecolor">Voucher #</div>
+            <div class="mycard-detail-holder-data  whitecolor" id="voucher-number"></div>
+            <div class="mycard-detail-holder-label  whitecolor">Voucher Name</div>
+            <div class="mycard-detail-holder-data  whitecolor" id="voucher-name" style="height:3.6em;line-height:1.2em"></div>
+            <div class="mycard-detail-holder-label  whitecolor">Expiry</div>
+            <div class="mycard-detail-holder-data  whitecolor" id="voucher-expiry"></div>
         </div>
-    </footer>
+        <div class="home-page-holder"></div>
+        <div class="qr-image-sep">
+            <div class="qr-image" id="qr-image-3"></div>
+        </div>
+
+        <div class="home-page-holder"></div>
+        <div class="button-frame">
+            <a data-transition="slide:up" id="discount-button" data-role="button" class="button-discount">Redeem</a>
+        </div>
+
+    </ul>
+
 </div>
 
-<script type="text/x-kendo-template" id="my-offerOutletTemplate">
-        <a data-transition="slide"   data-role="button"   data-click="outletMessage">  
-    <div class="outer-frame">
-        <div class="image-frame-list small-image-height">
-            <img src="${imageurl}" style="height:100%;width:100%"/>
-        </div>
-        <div class="inner-frame-1">${outletname}</div>
-        <div class="inner-frame-2">${hotelname}</div>
-        <div class="inner-frame-3">Distance ${distance} Km</div>
-      
-    </div>
-    </a>
-</script>
-
-<script>
-    function initButtonGroup() {
-        var listviews = this.element.find("ul.km-listview");
-
-        $("#myvouchertab").kendoMobileButtonGroup({
-                                                      select: function (e) {
-                                                          listviews.hide()
-                                                              .eq(e.index)
-                                                              .show();
-                                                      },
-                                                      index: 0
-                                                  });
-    }      
-    
-    
-</script>
-<style scoped>
-       #my-offer-outlet-list-view li
-    {
-        border-top: 1px solid #ccc !important;
-        border-bottom: 1px solid #ccc !important;
-    } 
-    
-      #my-offer-outlet-list-view a
-    {
-        background-color: transparent !important;
-        color:#575757;
-    }   
-    
-</style>
