@@ -63,7 +63,7 @@ a:active
     background-color: #000 !important;
     color: #fff;
 }
-#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content,#pl-myvoucherdetail-theme .km-content,#pl-benefit-theme .km-content,#mymessagelist-theme .km-content,#messageitem-theme .km-content
+#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content,#pl-myvoucherdetail-theme .km-content,#pl-benefit-theme .km-content,#mymessagelist-theme .km-content,#messageitem-theme .km-content,#pl-setting-theme .km-content
 {
     background-color: #fff;
 }
@@ -1426,7 +1426,7 @@ tile-frame-inner
 }
 .msg-outer-frame
 {
-    height: 6em;
+    height: 4em;
     position: relative;
     float: none;
     width: 100%;
@@ -1435,10 +1435,10 @@ tile-frame-inner
 
 .msg-narration-frame
 {
-    height: 6em;
+    height: 4em;
     position: relative;
     float: left;
-    width: 70%;
+    width: 90%;
     margin-left: .3em;
     margin-right: .3em;
     text-align: justify;
@@ -1447,7 +1447,7 @@ tile-frame-inner
 
 .msg-action-frame-outer
 {
-    height: 6em;
+    height: 4em;
     position: relative;
     float: left;
     width: 5%;
@@ -1459,8 +1459,9 @@ tile-frame-inner
     position: relative;
     float: none;
     width: 100%;
-    display: inline-block;
-    text-align:center;
+    display: block;
+    text-align:right;
+    margin-left:.5em;
 }
 
 .msg-action-frame-inner-2
@@ -1473,17 +1474,17 @@ tile-frame-inner
     margin: auto;
 }
 
-msg-date-frame-line
+.msg-date-frame-line
 {
-    height: 3em;
-    line-height:3em;
-    position: relative;
-    float: none;
-    width: 100%;
-    color:#000;
-    text-align:center;
-    font-size:1.2em;
-    font-weight:bold;
+    height: 2em !important;
+    line-height:2em !important;
+    position: relative !important;
+    float: none !important;
+    width: 100% !important;
+    color:#000 !important;
+    text-align:left !important;
+    font-size:1.2em !important;
+    font-weight:bold !important;
     }
     
 .msg-date-frame-outer

@@ -1,82 +1,87 @@
-<div data-role="view" data-title="My Settings" data-layout="pl-back-layout" id="pl-setting-theme" data-model="postLogin" data-show="postLogin.editsettingdata" >
+<div data-role="view" data-title="My Settings" data-layout="pl-main-layout" id="pl-setting-theme" data-model="postLogin">
 
-    <div data-role="header">
+    <header data-role="header">
         <div data-role="navbar">
-            <span data-role="view-title"></span>
-            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left"  data-icon="back"></a>
-            <a data-transition="slide"   data-role="button" data-align="right" style="color:#fff" data-bind="click:saveSetting">Save</a>
+            <a data-role="backbutton" data-align="left"  style="margin-top:.3em;color:#fff;border:0px !important" data-click="postLoginBack" >
+            </a>
+            <span data-role="view-title" id="item-title"></span>
+            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" style="border:0px !important" >
+                <i class="fa fa-credit-card fa-lg" style="color:#fff"></i>
+            </a>
         </div>
+
+    </header>
+    <div data-role="navbar" style="background-color:#ccc">
+        <a data-transition="slide"   data-role="button" href="views/pl-home.html" data-align="left" >
+            <i class="fa fa-home fa-lg" style="color:#fff"></i>
+        </a>
+        <a data-transition="slide"   data-role="button"  data-bind="click: deleteMessage" data-align="right" >
+            <i class="fa fa-trash fa-lg" style="color:#fff"></i>
+        </a>
     </div>
+    
+     <ul data-role="listview">
 
-    <ul data-role="listview"   style="background-color:#fff;display:none" id="setting-view">
-
-        <li>
-            <div class="switch-frame">
-                <label class="whitecolor" >
-                    Allow Push Notifications
-                    <input data-role="switch" name="pushoffer" id="profile-pushoffer" type="checkbox" checked="false"/>
-                </label>
+            <li>
+            <div class="input-frame-enrol ">
+                <input type="text" id="emailid" data-bind="value: emailid" placeholder="Email *"/>
             </div>
         </li>
         <li>
+            <div class="input-frame-enrol ">
+                <input type="number" id="mobile" data-bind="value: mobile" placeholder="Mobile (Eg:+9715XXXXXXXX) *"/>
+            </div>
+        </li>
+        <li>
+            <div class="input-frame-enrol" style="border-bottom: 2px solid #fff;width:98%">
+                <select id="selCity">
+                    <option value="" selected="true" data-bind="click: getCity">Select Emirate *</option>
+                </select>
+            </div>
+        </li>
+        <li>
+            <div class="input-frame-enrol ">
+                <input type="number" id="siriusnumber" data-bind="value: siriusnumber" placeholder="Sirius Member ID (if any)"/>
+            </div>
+        </li>
+       <li>
             <div class="switch-frame">
                 <label  class="whitecolor">
-                    Expiring Vouchers Reminder
+                    Voucher Expiry Reminders
                     <input data-role="switch" name="remindexpiry" id="profile-remindexpiry" type="checkbox" checked="false"/>
                 </label>
             </div>
         </li>
+          <li>
+            <div class="switch-frame">
+                <label class="whitecolor" >
+                    Allow Notifications
+                    <input data-role="switch" name="pushoffer" id="profile-pushoffer" type="checkbox" checked="false"/>
+                </label>
+            </div>
+        </li>
+      
         <li>
             <div class="switch-frame">
                 <label  class="whitecolor">
-                    Auto Location
+                    Allow Location Services
                     <input data-role="switch" name="showprofile" id="profile-autolocation" type="checkbox" checked="false" data-bind="checked:toggleDD"/>
                 </label>
             </div>
         </li>
         <li>
-            <div class="input-frame">
-                <label class="whitecolor" style="margin-left:-6%">
-                    Country
-                    <select id="selCountry" >
-                        <option value="" selected="true">&nbsp;Select Country</option>
-                    </select>
-                </label>
+            <div class="button-frame-inline">
+                <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-login" >Change PIN</a>
             </div>
         </li>
         <li>
-            <div class="input-frame">
-                <label class="whitecolor"  style="margin-left:-6%">
-                    City
-                    <select id="selCity">
-                        <option value="" selected="true" data-bind="click: getCity">&nbsp;Select City</option>
-                    </select>
-                </label>
+            <div class="button-frame-inline">
+                <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-loginwithfacebook">Link Facebook</a>
             </div>
         </li>
 
     </ul>
 
-    <footer data-role="footer">
 
-        <div data-role="navbar">
-            <div class="home-navbar" >
-                <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
-            </div>
-            <div class="footer-logo" data-bind="click:plshowBrandPage">&nbsp;</div>
-
-        </div>
-    </footer>
 </div>
 
-<style scoped>
-    input
-    {
-        display: block;
-        width: 85%;
-        height: 2.3em;
-        line-height: 2em;
-        border: 1px solid #ccc;
-        background-color: #f7f3f1;
-    }
-</style> 

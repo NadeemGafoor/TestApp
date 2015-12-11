@@ -242,6 +242,18 @@ function loadMyMessages() {
     }    
 }
 
+function loadSetting() {
+    
+    plHomeClickClose();
+    if (window.localStorage.getItem("appopen") != "5") {
+        window.plugins.nativepagetransitions.slide({
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-setting.html'
+                                                   });
+        window.localStorage.setItem("appopen", "5");   
+    }    
+}
+
 function preLoginBack() {
    shareClickClose();
 //   $("body").data("kendoMobilePane").navigate("#:back");
