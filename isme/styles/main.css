@@ -17,6 +17,11 @@ a
     border-bottom: 0px;
 }
 
+.km-ios7 .km-navbar .km-view-title
+{
+    color: #fff;
+}
+
 .km-ios7 .km-navbar
 {
     background-color: #000;
