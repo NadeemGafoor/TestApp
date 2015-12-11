@@ -9,45 +9,43 @@
                 <i class="fa fa-credit-card fa-lg" style="color:#fff"></i>
             </a>
         </div>
-      
+
     </header>
-  <div data-role="navbar" style="background-color:#ccc">
-              <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="left" >
-                  <i class="fa fa-home fa-lg" style="color:#fff"></i>
-              </a>
-              <a data-transition="slide"   data-role="button"  data-bind="click: deleteMessage" data-align="right" >
-                  <i class="fa fa-trash fa-lg" style="color:#fff"></i>
-              </a>
-        </div>
-    <ul data-role="listview"  id="pl-messageitem-list">
+    <div data-role="navbar" style="background-color:#ccc">
+        <a data-transition="slide"   data-role="button" href="views/pl-home.html" data-align="left" >
+            <i class="fa fa-home fa-lg" style="color:#fff"></i>
+        </a>
+        <a data-transition="slide"   data-role="button"  data-bind="click: deleteMessage" data-align="right" >
+            <i class="fa fa-trash fa-lg" style="color:#fff"></i>
+        </a>
+    </div>
+    <ul data-role="listview" id="pl-messageitem-list">
+        
         <li>
 
-                <div class="msg-outer-frame" style="height:150px" >
-                    <div class="msg-date-frame-outer">
-                        <div class="msg-date-frame-inner-1">
-                            <div class="msg-date-text  msgfont">10</div>
-                        </div>
-                        <div class="msg-date-frame-inner-2">
-                            <div class="msg-date-text  msgfont">JUN</div>
-                        </div>
-                    </div>
-                    <div class="msg-narration-frame" style="margin-top:.2em">
-                        Free BOGF offer from Jumeirah Latitude. Free BOGF offer from Jumeirah Latitude. Free BOGF offer from Jumeirah Latitude. ree BOGF offer from Jumeirah Latitude. Free BOGF offer from Jumeirah Latitude ree BOGF offer from Jumeirah Latitude. Free BOGF offer from Jumeirah Latitude
+            <div class="msg-outer-frame" style="height:auto" >
+                <div class="msg-date-frame-line">10 DEC</div>
+                <div class="msg-narration-frame" id="msgnarration" style="width:100%">Free BOGF offer from Jumeirah Latitude. Free BOGF offer from Jumeirah Latitude. Free BOGF offer from Jumeirah Latitude. Free BOGF offer from Jumeirah Latitude. </div>
 
-                    </div>
-                </div>
+            </div>
+
         </li>
     </ul>
-  
+
 </div>
 
 <style scope>
      
      
-  #messageitem-theme     a
+    #messageitem-theme     a
     {
-        border:1px solid #fff !important;
+        border: 1px solid #fff !important;
         background-color: transparent !important;
-
     }  
-    </style>
+    
+    #messageitem-theme     li
+    {
+        border: none !important;
+        border-bottom: 0px !important;
+    }
+</style>

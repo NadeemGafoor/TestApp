@@ -142,7 +142,12 @@ li
     padding: 0px;
     border-top: 0 solid #fff !important;
     border-bottom: 0 solid #fff !important;
+        font-size: 1em;
 }  
+
+div{
+    font-size:1em;
+}
 
 h2
 {
@@ -1468,6 +1473,19 @@ tile-frame-inner
     margin: auto;
 }
 
+msg-date-frame-line
+{
+    height: 3em;
+    line-height:3em;
+    position: relative;
+    float: none;
+    width: 100%;
+    color:#000;
+    text-align:center;
+    font-size:1.2em;
+    font-weight:bold;
+    }
+    
 .msg-date-frame-outer
 {
     height: 6em;
