@@ -560,8 +560,8 @@ pl-setting-theme .input-frame-enrol input
 
 .button-frame
 {
-    height: 40px;
-    line-height: 40px;
+    height: 30px;
+    line-height: 30px;
     width: 100%;
     position: relative;
     float: none;
@@ -570,7 +570,7 @@ pl-setting-theme .input-frame-enrol input
 
 .button-frame-inline .km-button
 {
-    line-height: 40px;
+    line-height: 30px;
     width: 70%;
     display: block;
     text-align: center;
@@ -586,7 +586,7 @@ pl-setting-theme .input-frame-enrol input
 
 .button-frame .km-button
 {
-    line-height: 40px;
+    line-height: 30px;
     width: 70%;
     display: block;
     text-align: center;
@@ -602,7 +602,7 @@ pl-setting-theme .input-frame-enrol input
 
 .button-frame-y .km-button
 {
-    line-height: 40px;
+    line-height: 30px;
     width: 40%;
     margin-top: .5em;
     display: inline-block;
@@ -615,7 +615,7 @@ pl-setting-theme .input-frame-enrol input
 
 .button-frame-z .km-button
 {
-    line-height: 40px;
+    line-height: 30px;
     width: 25%;
     margin-top: .5em;
     display: inline-block;
@@ -2080,6 +2080,26 @@ tile-frame-inner
     width:90%;    
     color:#fff;
     font-size:.8em;
+}
+
+.hanging-icon{
+    position:absolute;
+    display:block;
+    margin-top:2%;
+    margin-left:70%;
+  z-index: 10000;
+    background-color:rgba(0,0,0,.5);
+    color:#fff;
+    border-radius:50px;
+     border:0px !important;
+}
+
+.hanging-icon .km-button{
+    height:50px;
+    width:50px;
+    line-height:35px;
+    border:0px !important;
+    color:#fff;
 }
 
 

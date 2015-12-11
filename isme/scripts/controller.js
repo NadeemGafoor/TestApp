@@ -81,7 +81,7 @@ function shareClick() {
     var elems = document.getElementsByClassName('head1');
     for (i = 0; i < elems.length; i++) {
         if (elems[i].style.display === "" || elems[i].style.display === "none") {
-            $(".sharehead").animate({top:'260px'}, 500);
+            $(".sharehead").animate({top:'260px'}, 300);
     
             window.setTimeout(function() { 
                 for (i = 0; i < elems.length; i++) {
@@ -93,7 +93,7 @@ function shareClick() {
                     elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
                     elems[i].style.display = 'block';
                 }
-            }, 50);
+            }, 100);
         } else {
             $(".sharehead").animate({top:'0px'}, 100);
             window.setTimeout(function() { 
@@ -105,7 +105,7 @@ function shareClick() {
                 for (i = 0; i < elems.length; i++) {                  
                     elems[i].style.display = 'none';
                 }
-            }, 50);
+            }, 100);
         }
     }
 }
@@ -131,7 +131,7 @@ function cardClick() {
     var elems = document.getElementsByClassName('head2');
     for (i = 0; i < elems.length; i++) {
         if (elems[i].style.display === "" || elems[i].style.display === "none") {
-            $(".cardhead").animate({top:'260px'}, 500);
+            $(".cardhead").animate({top:'260px'}, 300);
     
             window.setTimeout(function() { 
                 for (i = 0; i < elems.length; i++) {
@@ -192,7 +192,7 @@ function plHomeClick() {
                 for (i = 0; i < elems.length; i++) {
                     elems[i].innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
                 }
-            }, 50);
+            }, 100);
         } else {
             $(".foot").animate({bottom:'0px'}, 100);
             window.setTimeout(function() { 
@@ -246,7 +246,7 @@ function loadMyProfile() {
                                                        });
             window.localStorage.setItem("appopen", "1");   
         }
-    }, 50)
+    }, 200)
 }
 
 function loadMyReward() {
@@ -264,7 +264,7 @@ function loadMyReward() {
                                                        });
             window.localStorage.setItem("appopen", "2");   
         }
-    }, 50)
+    }, 200)
 }
 
 function loadMyBenefit() {
@@ -300,7 +300,7 @@ function loadMyMessages() {
                                                        });
             window.localStorage.setItem("appopen", "4");   
         }
-    }, 50)
+    }, 200)
 }
 
 function loadSetting() {
@@ -318,7 +318,7 @@ function loadSetting() {
                                                        });
             window.localStorage.setItem("appopen", "5");   
         }
-    }, 50)
+    }, 200)
 }
 
 function loadHistory() {
@@ -336,7 +336,7 @@ function loadHistory() {
                                                        });
             window.localStorage.setItem("appopen", "6");   
         }
-    }, 50)
+    }, 200)
 }
 
 function loadFavorites() {
@@ -354,7 +354,7 @@ function loadFavorites() {
                                                        });
             window.localStorage.setItem("appopen", "7");   
         }
-    }, 50)
+    }, 200)
 }
 
 function preLoginBack() {

@@ -50,15 +50,15 @@
             </div>
         </li>
         <li>
-                <div class="switch-frame" >
-                    <label >
-                        Agree to
-                        <a href="#modalviewterms" data-role="button" data-click="onClick">
-                            Terms & Conditions
-                        </a>
-                        <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
-                    </label>
-                </div>
+            <div class="switch-frame" >
+                <label >
+                    Agree to
+                    <a href="#modalviewterms" data-role="button" data-click="onClick">
+                        Terms & Conditions
+                    </a>
+                    <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
+                </label>
+            </div>
         </li>
 
         <li>
@@ -75,11 +75,13 @@
         <li>
             <div class="switch-frame-i one-line">Already have an Account?</div>
         </li>
-        <li>
-            <div class="button-frame-inline">
-                <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-login">Log In</a>
-            </div>
-        </li>
+        <div>
+            <li>
+                <div class="button-frame-inline">
+                    <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-login">Log In</a>
+                </div>
+            </li>
+        </div>
     </ul>
 </div>
 
@@ -94,13 +96,13 @@
     </div>
 
     <div class="fulljustify" style="margin-left:5px;margin-right:5px;line-height:1.5em">
-By providing my personal data (which may include sensitive personal data, e.g. details of my race, physical or mental health or condition), I acknowledge that I am agreeing to its collection, transfer and processing by Jumeirah International LLC in Dubai and their affiliated businesses and third party processors which are involved in the operation of their facilities and services throughout the world in countries where data protection laws may differ or not exist. Details of such affiliated businesses, facilities and services can be provided on request. Details of third party processors, what data may be collected and how the data will be used can be found in Jumeirah International LLC’s Privacy and Cookies Policy which can be accessed online at http://www.jumeirah.com/privacypolicy. 
-        
-If I am providing data about a third party, I confirm that I have obtained the consent of that third party to such use of their data.
+        By providing my personal data (which may include sensitive personal data, e.g. details of my race, physical or mental health or condition), I acknowledge that I am agreeing to its collection, transfer and processing by Jumeirah International LLC in Dubai and their affiliated businesses and third party processors which are involved in the operation of their facilities and services throughout the world in countries where data protection laws may differ or not exist. Details of such affiliated businesses, facilities and services can be provided on request. Details of third party processors, what data may be collected and how the data will be used can be found in Jumeirah International LLC’s Privacy and Cookies Policy which can be accessed online at http://www.jumeirah.com/privacypolicy.
 
-You may opt out of receiving any marketing material from us at any time by informing us at the following email address: isme@jumeirah.com
+        If I am providing data about a third party, I confirm that I have obtained the consent of that third party to such use of their data.
 
-I agree to the terms set out above relating to the use of data and accept the Isme by Jumeirah Terms and Conditions. I confirm that I am at least 18 years of age.
+        You may opt out of receiving any marketing material from us at any time by informing us at the following email address: isme@jumeirah.com
+
+        I agree to the terms set out above relating to the use of data and accept the Isme by Jumeirah Terms and Conditions. I confirm that I am at least 18 years of age.
 
     </div>
 </div>
@@ -110,9 +112,9 @@ I agree to the terms set out above relating to the use of data and accept the Is
         $("#modalviewterms").data("kendoMobileModalView").close();
     }
     
-      function onClick(e) {
-            $("#modalviewterms").data("kendoMobileModalView").open();
-        }
+    function onClick(e) {
+        $("#modalviewterms").data("kendoMobileModalView").open();
+    }
 </script>
 
 <style scoped>
@@ -129,16 +131,16 @@ I agree to the terms set out above relating to the use of data and accept the Is
         background-color: rgba(13, 104, 197, 1);
         color: #fff;
     }
-      
     
-    #enrol-theme .switch-frame .km-button{
-        border:0px;
-        color:#fff000;
-        font-size:1em;
+    #enrol-theme .switch-frame .km-button
+    {
+        border: 0px;
+        color: #fff000;
+        font-size: 1em;
     }
     
-     #enrol-theme .switch-frame a{
-        background-color:transparent !important;
+    #enrol-theme .switch-frame a
+    {
+        background-color: transparent !important;
     }
-
     </style>
