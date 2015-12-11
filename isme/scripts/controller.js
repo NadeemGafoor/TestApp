@@ -160,209 +160,176 @@ function cardClick() {
     }
 }
 
-function cardClickClose() {
-    var elems = document.getElementsByClassName('head2');
-    $(".cardhead").animate({top:'0px'}, 100);
-   
-    window.setTimeout(function() { 
-        for (i = 0; i < elems.length; i++) {
-            elems[i].style.display = 'none';
-        }
-                          
-        elems = document.getElementsByClassName('cardhead');
-        for (i = 0; i < elems.length; i++) {                  
-            elems[i].style.display = 'none';
-        }
-    }, 100);
-}
 
 function plHomeClick() {
-    cardClickClose();
-    var elems = document.getElementsByClassName('foot1');
+   elems = document.getElementsByClassName('cardhead');
+     for (i = 0; i < elems.length; i++) {
+        if (elems[i].style.display === "block") {
+            cardClick();
+        }  
+    }
+    $(".foot").slideToggle("slow");
+    elems = document.getElementsByClassName('mymenu1');
     for (i = 0; i < elems.length; i++) {
-        if (elems[i].style.display === "" || elems[i].style.display === "none") {
-            $(".foot").animate({bottom:'375px'}, 300);
-    
-            window.setTimeout(function() { 
-                for (i = 0; i < elems.length; i++) {
-                    elems[i].style.display = 'block';
-                }
- 
-                elems = document.getElementsByClassName('mymenu');
-                for (i = 0; i < elems.length; i++) {
-                    elems[i].innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
-                }
-            }, 100);
+        if (elems[i].innerHTML === '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>') {
+            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
         } else {
-            $(".foot").animate({bottom:'0px'}, 100);
-            window.setTimeout(function() { 
-                for (i = 0; i < elems.length; i++) {
-                    elems[i].style.display = 'none';
-                }
-                elems = document.getElementsByClassName('mymenu');
-                for (i = 0; i < elems.length; i++) {
-                    elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-                    elems[i].style.display = 'block';
-                }
-            }, 100);
-        }
+            elems[i].innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
+        }  
+        elems[i].style.width="100%";
+        elems[i].style.zIndex= 1000000;
+        elems[i].style.textAlign="center";
+
     }
 }
 
-function plHomeClickClose() {
-    var elems = document.getElementsByClassName('foot1');
+function cardClick() {
+     elems = document.getElementsByClassName('foot');
+     for (i = 0; i < elems.length; i++) {
+        if (elems[i].style.display === "block") {
+            plHomeClick();
+        }  
+    }
+    $(".cardhead").slideToggle("slow");
+    elems = document.getElementsByClassName('mymenu1');
     for (i = 0; i < elems.length; i++) {
         if (elems[i].style.display === "block") {
-            for (i = 0; i < elems.length; i++) {
-                $(".foot").animate({bottom:'0px'}, 100);
-                window.setTimeout(function() { 
-                    elems[i].style.display = 'none';
-                }
-                                  , 100
-                    );
-            }
-        }
-    }
-    
-    elems = document.getElementsByClassName('mymenu');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-        elems[i].style.display = 'block';
+            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+        } else {
+            elems[i].innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
+        }  
+        elems[i].style.width="100%";
+        elems[i].style.zIndex= 1000000;
+        elems[i].style.textAlign="center";
+
     }
 }
 
 function loadMyProfile() {
-    plHomeClickClose();
-    window.setTimeout(function() { 
-        if (window.localStorage.getItem("appopen") != "1") {
-            window.plugins.nativepagetransitions.slide({
-                                                           "duration"         :  500, // in milliseconds (ms), default 400
-                                                           "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                           "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                           "androiddelay"     :  150, // same as above but for Android, default 70
+    plHomeClick();
 
-                                                           'direction': 'up',
-                                                           'href': '#views/pl-myprofile.html'
-                                                       });
-            window.localStorage.setItem("appopen", "1");   
-        }
-    }, 200)
+    if (window.localStorage.getItem("appopen") != "1") {
+        window.plugins.nativepagetransitions.slide({
+                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-myprofile.html'
+                                                   });
+        window.localStorage.setItem("appopen", "1");   
+    }
 }
 
 function loadMyReward() {
-    plHomeClickClose();  
-    window.setTimeout(function() { 
-        if (window.localStorage.getItem("appopen") != "2") {
-            window.plugins.nativepagetransitions.slide({
-                                                           "duration"         :  500, // in milliseconds (ms), default 400
-                                                           "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                           "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                           "androiddelay"     :  150, // same as above but for Android, default 70
+    plHomeClick();  
 
-                                                           'direction': 'up',
-                                                           'href': '#views/pl-myreward.html'
-                                                       });
-            window.localStorage.setItem("appopen", "2");   
-        }
-    }, 200)
+    if (window.localStorage.getItem("appopen") != "2") {
+        window.plugins.nativepagetransitions.slide({
+                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-myreward.html'
+                                                   });
+        window.localStorage.setItem("appopen", "2");   
+    }
 }
 
 function loadMyBenefit() {
-    plHomeClickClose();
-    window.setTimeout(function() { 
-        if (window.localStorage.getItem("appopen") != "3") {
-            window.plugins.nativepagetransitions.slide({
-                                                           "duration"         :  500, // in milliseconds (ms), default 400
-                                                           "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                           "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                           "androiddelay"     :  150, // same as above but for Android, default 70
+    plHomeClick();
 
-                                                           'direction': 'up',
-                                                           'href': '#views/pl-benefitdetail.html'
-                                                       });
-            window.localStorage.setItem("appopen", "3");   
-        }
-    }, 50)    
+    if (window.localStorage.getItem("appopen") != "3") {
+        window.plugins.nativepagetransitions.slide({
+                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-benefitdetail.html'
+                                                   });
+        window.localStorage.setItem("appopen", "3");   
+    }
 }
 
 function loadMyMessages() {
-    plHomeClickClose();
-    window.setTimeout(function() {
-        if (window.localStorage.getItem("appopen") != "4") {
-            window.plugins.nativepagetransitions.slide({
-                                                           "duration"         :  500, // in milliseconds (ms), default 400
-                                                           "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                           "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                           "androiddelay"     :  150, // same as above but for Android, default 70
+    plHomeClick();
 
-                                                           'direction': 'up',
-                                                           'href': '#views/pl-mymessagelist.html'
-                                                       });
-            window.localStorage.setItem("appopen", "4");   
-        }
-    }, 200)
+    if (window.localStorage.getItem("appopen") != "4") {
+        window.plugins.nativepagetransitions.slide({
+                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-mymessagelist.html'
+                                                   });
+        window.localStorage.setItem("appopen", "4");   
+    }
 }
 
 function loadSetting() {
-    plHomeClickClose();
-    window.setTimeout(function() { 
-        if (window.localStorage.getItem("appopen") != "5") {
-            window.plugins.nativepagetransitions.slide({
-                                                           "duration"         :  500, // in milliseconds (ms), default 400
-                                                           "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                           "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                           "androiddelay"     :  150, // same as above but for Android, default 70
+    plHomeClick();
 
-                                                           'direction': 'up',
-                                                           'href': '#views/pl-setting.html'
-                                                       });
-            window.localStorage.setItem("appopen", "5");   
-        }
-    }, 200)
+    if (window.localStorage.getItem("appopen") != "5") {
+        window.plugins.nativepagetransitions.slide({
+                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-setting.html'
+                                                   });
+        window.localStorage.setItem("appopen", "5");   
+    }
 }
 
 function loadHistory() {
-    plHomeClickClose();
-    window.setTimeout(function() { 
-        if (window.localStorage.getItem("appopen") != "6") {
-            window.plugins.nativepagetransitions.slide({
-                                                           "duration"         :  500, // in milliseconds (ms), default 400
-                                                           "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                           "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                           "androiddelay"     :  150, // same as above but for Android, default 70
+    plHomeClick();
 
-                                                           'direction': 'up',
-                                                           'href': '#views/pl-historylist.html'
-                                                       });
-            window.localStorage.setItem("appopen", "6");   
-        }
-    }, 200)
+    if (window.localStorage.getItem("appopen") != "6") {
+        window.plugins.nativepagetransitions.slide({
+                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-historylist.html'
+                                                   });
+        window.localStorage.setItem("appopen", "6");   
+    }
 }
 
 function loadFavorites() {
-    plHomeClickClose();
-    window.setTimeout(function() { 
-        if (window.localStorage.getItem("appopen") != "7") {
-            window.plugins.nativepagetransitions.slide({
-                                                           "duration"         :  500, // in milliseconds (ms), default 400
-                                                           "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                           "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                           "androiddelay"     :  150, // same as above but for Android, default 70
+    plHomeClick();
 
-                                                           'direction': 'up',
-                                                           'href': '#views/pl-favorites.html'
-                                                       });
-            window.localStorage.setItem("appopen", "7");   
-        }
-    }, 200)
+    if (window.localStorage.getItem("appopen") != "7") {
+        window.plugins.nativepagetransitions.slide({
+                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-favorites.html'
+                                                   });
+        window.localStorage.setItem("appopen", "7");   
+    }
 }
 
 function preLoginBack() {
-    plHomeClickClose();
+    plHomeClick();
 }
 
 function postLoginBack() {
-    plHomeClickClose();
+    plHomeClick();
     window.localStorage.setItem("appopen", "0");   
     window.plugins.nativepagetransitions.slide({
                                                    'direction': 'right',
@@ -372,7 +339,7 @@ function postLoginBack() {
 }
 
 function postLoginBackOne() {
-    plHomeClickClose();
+    plHomeClick();
     window.localStorage.setItem("appopen", "0");   
 }
 

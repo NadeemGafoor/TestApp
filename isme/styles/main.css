@@ -1948,12 +1948,13 @@ tile-frame-inner
 
 .foot
 {
+    height:380px;
     position: fixed;
     width: 100%;
     z-index: 10000;
     text-align: center;
     color: #fff;
-    display: block;
+    display: none;
     justify-content: center; /* align horizontal */
     right: 0;
     left: 0;
@@ -1963,18 +1964,6 @@ tile-frame-inner
     background: rgba(0, 0, 0, 0.8);
 }
 
-.foot1
-{
-    height: 380px; 
-    position: fixed;
-    width: 100%;
-    z-index: 10000;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    justify-content: center; /* align horizontal */
-    margin: -2px auto;
-}
 
 .profile-image-holder
 {
@@ -2020,34 +2009,22 @@ tile-frame-inner
 
 .sharehead,.cardhead
 {
-    height: 1px;
+    height: 300px;
     position: fixed;
     width: 100%;
     z-index: 10000;
     text-align: center;
     color: #fff;
-    display: block;
+    display: none;
     justify-content: center; /* align horizontal */
     right: 0;
     left: 0;
     margin-right: auto;
     margin-left: auto;
-    bottom: 0;
+    top: 35px;
     background: rgba(0, 0, 0, 0.8);
 }
 
-.head1,.head2
-{ 
-    height: 260px;
-    position: fixed;
-    width: 100%;
-    z-index: 10000;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    justify-content: center; /* align horizontal */
-    margin: -2px auto;
-}
 
 .progress-bar-holder{
     position:relative;

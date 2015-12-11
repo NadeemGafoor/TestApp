@@ -1,7 +1,6 @@
 <div data-role="view" data-title="My Messages" data-layout="pl-back1-layout" id="mymessagelist-theme" data-model="postLogin">
 
-
-    <ul data-role="listview" id="message-list">
+    <ul data-role="listview" id="message-list" class="ul-class">
         <a data-transition="slide"   href="views/pl-messageitem.html?mi=${sequence}" data-role="button" >
             <div class="msg-outer-frame" >
                 <div class="msg-date-frame-line">10 DEC</div>
@@ -160,11 +159,9 @@
 <style scope>
      
      
-    #mymessagelist-theme     a
+    #mymessagelist-theme    .ul-class  a
     {
-        border: 1px solid #fff !important;
+        border: 0px  !important;
         background-color: transparent !important;
     }  
-    
-
-</style>
+    </style>
