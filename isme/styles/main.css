@@ -59,7 +59,8 @@ a:active
     background-color: #000 !important;
     color: #fff;
 }
-#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content,#pl-myvoucherdetail-theme .km-content,#pl-benefit-theme .km-content,#mymessagelist-theme .km-content,#messageitem-theme .km-content,#pl-setting-theme .km-content
+#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content,#pl-myvoucherdetail-theme .km-content,#pl-benefit-theme .km-content,#mymessagelist-theme .km-content,#messageitem-theme .km-content,#pl-setting-theme .km-content,
+#history-theme .km-content,#historyitem-theme .km-content,#modalviewhistoryfilter .km-content
 {
     background-color: #fff;
 }

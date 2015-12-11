@@ -242,6 +242,17 @@ function loadSetting() {
     }    
 }
 
+function loadHistory() {
+    plHomeClickClose();
+    if (window.localStorage.getItem("appopen") != "6") {
+        window.plugins.nativepagetransitions.slide({
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-historylist.html'
+                                                   });
+        window.localStorage.setItem("appopen", "6");   
+    }    
+}
+
 function preLoginBack() {
     shareClickClose();
     //   $("body").data("kendoMobilePane").navigate("#:back");
@@ -2560,7 +2571,7 @@ function postLoginBack() {
                                                 $("body").data("kendoMobilePane").navigate("views/pl-brandpage.html");  
                                             },
                                             getHistoryFilter:function() {
-                                                var dataSource = new kendo.data.DataSource({ data: getHistoryFilternData() });
+                                                var dataSource = new kendo.data.DataSource({ data: getHistoryFilterData() });
                                                
                                                 $("#History-Filter").kendoMobileListView({
                                                                                              dataSource: dataSource,
@@ -3563,15 +3574,15 @@ function postLoginBack() {
         return data;
     }
     
-    function getHistoryFilerData() {
+    function getHistoryFilterData() {
         var data = [];
-        data.push({celebkey: "1",celebitem:"Activate Offer"});
-        data.push({celebkey: "2",celebitem:"Change Profile"});
-        data.push({celebkey: "3",celebitem:"New Subscription"});
-        data.push({celebkey: "4",celebitem:"Redeem Spend"});
-        data.push({celebkey: "5",celebitem:"Redeem Voucher"});    
-        data.push({celebkey: "6",celebitem:"Renew Membership"});         
-        data.push({celebkey: "7",celebitem:"Other Transactions"});
+        data.push({historykey: "1",historyitem:"Activate Offer"});
+        data.push({historykey: "2",historyitem:"Change Profile"});
+        data.push({historykey: "3",historyitem:"New Subscription"});
+        data.push({historykey: "4",historyitem:"Redeem Spend"});
+        data.push({historykey: "5",historyitem:"Redeem Voucher"});    
+        data.push({historykey: "6",historyitem:"Renew Membership"});         
+        data.push({historykey: "7",historyitem:"Other Transactions"});
   
         return data;
     }
