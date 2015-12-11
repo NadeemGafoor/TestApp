@@ -189,77 +189,85 @@ function plHomeClickClose() {
 
 function loadMyProfile() {
     plHomeClickClose();
+    window.setTimeout(function() { 
     if (window.localStorage.getItem("appopen") != "1") {
         window.plugins.nativepagetransitions.slide({
                                                        'direction': 'up',
                                                        'href': '#views/pl-myprofile.html'
                                                    });
         window.localStorage.setItem("appopen", "1");   
-    }    
+    }    },300)
 }
 
 function loadMyReward() {
-    plHomeClickClose();
+    
+    plHomeClickClose();  
+    window.setTimeout(function() { 
     if (window.localStorage.getItem("appopen") != "2") {
         window.plugins.nativepagetransitions.slide({
                                                        'direction': 'up',
                                                        'href': '#views/pl-myreward.html'
                                                    });
         window.localStorage.setItem("appopen", "2");   
-    }    
+    }    },300)
 }
 
 function loadMyBenefit() {
     plHomeClickClose();
+    window.setTimeout(function() { 
+    
     if (window.localStorage.getItem("appopen") != "3") {
         window.plugins.nativepagetransitions.slide({
                                                        'direction': 'up',
                                                        'href': '#views/pl-benefitdetail.html'
                                                    });
         window.localStorage.setItem("appopen", "3");   
-    }    
+    }},300)    
 }
 
 function loadMyMessages() {
-    plHomeClickClose();
+     plHomeClickClose();
+    window.setTimeout(function() {
     if (window.localStorage.getItem("appopen") != "4") {
         window.plugins.nativepagetransitions.slide({
                                                        'direction': 'up',
                                                        'href': '#views/pl-mymessagelist.html'
                                                    });
         window.localStorage.setItem("appopen", "4");   
-    }    
+    }    },300)
 }
 
 function loadSetting() {
     plHomeClickClose();
+    window.setTimeout(function() { 
     if (window.localStorage.getItem("appopen") != "5") {
         window.plugins.nativepagetransitions.slide({
                                                        'direction': 'up',
                                                        'href': '#views/pl-setting.html'
                                                    });
         window.localStorage.setItem("appopen", "5");   
-    }    
+    }    },300)
 }
 
 function loadHistory() {
     plHomeClickClose();
+    window.setTimeout(function() { 
     if (window.localStorage.getItem("appopen") != "6") {
         window.plugins.nativepagetransitions.slide({
                                                        'direction': 'up',
                                                        'href': '#views/pl-historylist.html'
                                                    });
         window.localStorage.setItem("appopen", "6");   
-    }    
+    }    },300)
 }
 
 function preLoginBack() {
-    shareClickClose();
+ plHomeClickClose();
     //   $("body").data("kendoMobilePane").navigate("#:back");
 }
 
 function postLoginBack() {
-    plHomeClickClose();
+ plHomeClickClose();
     window.localStorage.setItem("appopen", "0");        
     //$("body").data("kendoMobilePane").navigate("#:back");
 }
