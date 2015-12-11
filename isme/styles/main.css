@@ -6,10 +6,6 @@
 @font-face { font-family: 'Gotham-LightItalic'; src: url('../styles/fonts/Gotham-Book.otf')  format('opentype'); } /* Safari, Android, iOS */
 @font-face { font-family: 'Georgia'; src: url('../styles/fonts/Georgia.ttf')  format('truetype'); } /* Safari, Android, iOS */
 
-.km-ios7 .km-view .km-header
-{
-    background-color: #000;
-}
 a
 {
     text-decoration: none;
@@ -23,10 +19,9 @@ a
 
 .km-ios7 .km-navbar
 {
-    background-color: transparent !important;
+    background-color: #000;
     border: none;
     height: 3em;
-    color: #fff;
     line-height: 3em;
 }
 
@@ -35,6 +30,7 @@ a
     margin-top: -10px;
     width: 40px;
     border:0px !important;
+    color:#fff;
 }
 
 .km-navbar a:active
@@ -440,7 +436,7 @@ img
     color: #fff;
 }
 
-#pl-settings-theme .input-frame input,
+#pl-setting-theme .input-frame-enrol input,
 #enrol-theme .input-frame-enrol input,
 #token-theme .input-frame input,
 #login-theme .input-frame input,
@@ -455,6 +451,11 @@ img
     left: 5%;
     background-color: transparent !important;
     color: #fff;
+}
+
+pl-setting-theme .input-frame-enrol input
+{
+    color: #000;
 }
 
 #pl-myvoucherdetail-theme .switch-frame-voucher 
@@ -717,13 +718,19 @@ img
     height: auto;
 }
 
-#enrol-theme .input-frame-enrol select
+#enrol-theme .input-frame-enrol select,
+#pl-setting-theme .input-frame-enrol select
 {
     height: 2.5em;
     display: block;
     width: 90%;
     line-height: 1.5em;
     color: #fff;
+}
+
+#pl-setting-theme .input-frame-enrol select
+{
+    color: #000;
 }
 
 .image-position
