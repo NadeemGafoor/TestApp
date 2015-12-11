@@ -60,7 +60,7 @@ a:active
     color: #fff;
 }
 #benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content,#pl-myvoucherdetail-theme .km-content,#pl-benefit-theme .km-content,#mymessagelist-theme .km-content,#messageitem-theme .km-content,#pl-setting-theme .km-content,
-#history-theme .km-content,#historyitem-theme .km-content,#modalviewhistoryfilter .km-content
+#history-theme .km-content,#historyitem-theme .km-content,#modalviewhistoryfilter .km-content,#myfavorite-view .km-content
 {
     background-color: #fff;
 }
@@ -2027,4 +2027,11 @@ tile-frame-inner
     margin: -2px auto;
 }
 
+
+.photo1 { background: url(../images/001.png) no-repeat center center; }
+.photo2 { background: url(../images/002.png) no-repeat center center; }
+.photo3 { background: url(../images/003.png) no-repeat center center; }
+.photo4 { background: url(../images/004.png) no-repeat center center; }
+.photo5 { background: url(../images/005.png) no-repeat center center; }
+.photo6 { background: url(../images/006.png) no-repeat center center; }
 

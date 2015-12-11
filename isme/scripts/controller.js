@@ -261,6 +261,18 @@ function loadHistory() {
     }    },300)
 }
 
+function loadFavorites() {
+    plHomeClickClose();
+    window.setTimeout(function() { 
+    if (window.localStorage.getItem("appopen") != "7") {
+        window.plugins.nativepagetransitions.slide({
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-favorites.html'
+                                                   });
+        window.localStorage.setItem("appopen", "7");   
+    }    },300)
+}
+
 function preLoginBack() {
  plHomeClickClose();
     //   $("body").data("kendoMobilePane").navigate("#:back");
@@ -1621,6 +1633,16 @@ function postLoginBack() {
                                                                     
                                                                                         });
                                            },
+              getRestCuisineFilter1:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getRestCuisineData() });
+                                               
+                                               $("#Cuisine-Filter1").kendoMobileListView({
+                                                                                            dataSource: dataSource,
+                                                                                            template: $("#CuisineFilter-Template1").html()
+
+                                                                    
+                                                                                        });
+                                           },
         
                                            getOfferTypeData:function() {
                                                var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
@@ -1628,6 +1650,16 @@ function postLoginBack() {
                                                $("#Offer-Filter").kendoMobileListView({
                                                                                           dataSource: dataSource,
                                                                                           template: $("#Offer-Filter-Template").html()
+
+                                                                    
+                                                                                      });
+                                           },
+           getOfferTypeData1:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
+                                               
+                                               $("#Offer-Filter1").kendoMobileListView({
+                                                                                          dataSource: dataSource,
+                                                                                          template: $("#Offer-Filter-Template1").html()
 
                                                                     
                                                                                       });
@@ -3497,7 +3529,6 @@ function postLoginBack() {
         data.push({typekey: "10",typeitem:"Spa"});
         data.push({typekey: "11",typeitem:"Theme Park"});
         data.push({typekey: "12",typeitem:"Night life/Night Club"});
-        data.push({typekey: "12",typeitem:"Night life/Night Club"});
         data.push({typekey: "13",typeitem:"Cafe or Bistro"});
         data.push({typekey: "14",typeitem:"Sports Bar"});
         data.push({typekey: "15",typeitem:"Cocktail Bar"});
@@ -3517,7 +3548,6 @@ function postLoginBack() {
         data.push({cuisinekey: "7",cuisineitem:"European"});
         data.push({cuisinekey: "8",cuisineitem:"Healthy"});         
         data.push({cuisinekey: "9",cuisineitem:"International"});
-        data.push({cuisinekey: "10",cuisineitem:"Ladies Night"});         
         data.push({cuisinekey: "11",cuisineitem:"Latin American"});
         data.push({cuisinekey: "12",cuisineitem:"Light Bites"});
         data.push({cuisinekey: "13",cuisineitem:"Middle Eastern"});

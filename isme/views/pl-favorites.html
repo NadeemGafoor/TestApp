@@ -1,0 +1,87 @@
+<div data-role="view"  data-title="My Favorites" data-layout="pl-main-layout" id="myfavorite-view" data-model="preLogin">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="backbutton" data-align="left"  style="margin-top:.3em;color:#fff" data-click="postLoginBack">
+            </a>
+            <span data-role="view-title">My Favorites</span>
+            <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html" data-align="right" >
+                <i class="fa fa-credit-card fa-lg" style="color:#fff"></i>
+            </a>
+        </div>
+        <div data-role="navbar" style="background-color:#7e6b6d">
+
+            <a data-transition="slide"   data-role="button"  data-align="right" style="margin-right:10px">
+                Save
+            </a>
+        </div>
+    </header>
+    <div class="list-group">&nbsp;My Favorite Restaurants</div>
+    <div data-role="scrollview" data-content-height="100%" data-enable-pager="false">
+        <div class="photo photo1">Restaurant 1
+        </div>
+        <div class="photo photo2">Restaurant 2
+        </div>
+        <div class="photo photo3">Restaurant 3
+        </div>
+        <div class="photo photo4">Restaurant 4
+        </div>
+        <div class="photo photo5">Restaurant 5
+        </div>
+        <div class="photo photo6">&nbsp;
+        </div>
+    </div>
+
+    <div class="list-group">&nbsp;My Lifestyle Interests</div>
+
+    <ul id="Offer-Filter1"  data-bind="value:getOfferTypeData1">
+
+    </ul>
+    <div class="list-group" >&nbsp;My Cuisine Type</div>
+
+    <ul id="Cuisine-Filter1" data-bind="value:getRestCuisineFilter1">
+    </ul>
+
+</div>
+
+<script type="text/x-kendo-template" id="Offer-Filter-Template1">
+    <div class="list-group-data-header">
+        <div class="list-group-data-item" style="margin-left:10px;width:65%">
+            ${offeritem}
+        </div>
+        <div class="list-group-data-item" id=${offerkey} style="text-align:center;width:15%">
+            <i class="fa fa-minus-square-o fa-lg"></i>
+        </div>
+        <div class="list-group-data-item" id=${offerkey} style="text-align:center;width:15%">
+            <i class="fa fa-plus-square-o fa-lg"></i>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="CuisineFilter-Template1">
+    <div class="list-group-data-header">
+        <div class="list-group-data-item" style="margin-left:10px;;width:65%">${cuisineitem}</div>
+        <div class="list-group-data-item" id=${cuisinekey} style="text-align:center;width:15%">
+            <i class="fa fa-minus-square-o fa-lg"></i>
+        </div>
+        <div class="list-group-data-item" id=${cuisinekey} style="text-align:center;width:15%">
+            <i class="fa fa-plus-square-o fa-lg"></i>
+        </div>
+    </div>
+</script>
+
+<style scoped>
+    #myfavorite-view .photo
+    {
+        margin-top:0px;
+        position:relative;
+        float:none;
+        height: 100px;
+        width: 30%;
+        display: inline-block;
+        background-size: auto;
+        font-size: .8em;
+        color: #fff;
+        line-height:100px;
+        text-align:center;
+    }
+    </style>
