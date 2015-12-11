@@ -17,8 +17,6 @@ function loadMapView() {
     $("#modalviewmap").data("kendoMobileModalView").open();
 }    
 
-
-
 function loadFilterView() {
     $("#modalviewfilter").data("kendoMobileModalView").open();
 } 
@@ -63,6 +61,14 @@ function closeOfferFilterView() {
     $("#modalviewofferfilter").data("kendoMobileModalView").close();
 } 
 
+function historyFilterView() {
+    $("#modalviewhistoryfilter").data("kendoMobileModalView").open();
+}
+
+function closeHistoryFilterView() {
+    $("#modalviewhistoryfilter").data("kendoMobileModalView").close();
+} 
+
 function loadCeleberationTypeView() {
     $("#modalviewceleberationtype").data("kendoMobileModalView").open();
 }
@@ -71,9 +77,7 @@ function closeCeleberationTypeView() {
     $("#modalviewceleberationtype").data("kendoMobileModalView").close();
 }
 
-
-function shareClick(){
-
+function shareClick() {
     var elems = document.getElementsByClassName('head1');
     for (i = 0; i < elems.length; i++) {
         if (elems[i].style.display === "" || elems[i].style.display === "none") {
@@ -87,9 +91,9 @@ function shareClick(){
                 elems = document.getElementsByClassName('mymenu');
                 for (i = 0; i < elems.length; i++) {
                     elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-                                        elems[i].style.display = 'block';
+                    elems[i].style.display = 'block';
                 }
-            },50);
+            }, 50);
         } else {
             $(".sharehead").animate({top:'0px'}, 300);
             window.setTimeout(function() { 
@@ -102,45 +106,35 @@ function shareClick(){
                     elems[i].style.display = 'none';
                 }
                 
-                
-                   elems = document.getElementsByClassName('sharehead');
+                elems = document.getElementsByClassName('sharehead');
                 for (i = 0; i < elems.length; i++) {                  
                     elems[i].style.display = 'none';
                 }
             }, 50);
         }
     }
-  
-    
-    }
+}
 
-
-
-function shareClickClose(){
-
+function shareClickClose() {
     var elems = document.getElementsByClassName('head1');
 
-            $(".sharehead").animate({top:'0px'}, 300);
-            window.setTimeout(function() { 
-                for (i = 0; i < elems.length; i++) {
-                    elems[i].style.display = 'none';
-                }
- 
-                elems = document.getElementsByClassName('mymenu');
-                for (i = 0; i < elems.length; i++) {                  
-                    elems[i].style.display = 'none';
-                }
-                
-                
-                   elems = document.getElementsByClassName('sharehead');
-                for (i = 0; i < elems.length; i++) {                  
-                    elems[i].style.display = 'none';
-                }
-            }, 300);
+    $(".sharehead").animate({top:'0px'}, 300);
+    window.setTimeout(function() { 
+        for (i = 0; i < elems.length; i++) {
+            elems[i].style.display = 'none';
         }
-  
-
-
+ 
+        elems = document.getElementsByClassName('mymenu');
+        for (i = 0; i < elems.length; i++) {                  
+            elems[i].style.display = 'none';
+        }
+                
+        elems = document.getElementsByClassName('sharehead');
+        for (i = 0; i < elems.length; i++) {                  
+            elems[i].style.display = 'none';
+        }
+    }, 300);
+}
 
 function plHomeClick() {
     var elems = document.getElementsByClassName('foot1');
@@ -194,7 +188,6 @@ function plHomeClickClose() {
 }
 
 function loadMyProfile() {
-    
     plHomeClickClose();
     if (window.localStorage.getItem("appopen") != "1") {
         window.plugins.nativepagetransitions.slide({
@@ -206,7 +199,6 @@ function loadMyProfile() {
 }
 
 function loadMyReward() {
-    
     plHomeClickClose();
     if (window.localStorage.getItem("appopen") != "2") {
         window.plugins.nativepagetransitions.slide({
@@ -217,9 +209,7 @@ function loadMyReward() {
     }    
 }
 
-
 function loadMyBenefit() {
-    
     plHomeClickClose();
     if (window.localStorage.getItem("appopen") != "3") {
         window.plugins.nativepagetransitions.slide({
@@ -231,7 +221,6 @@ function loadMyBenefit() {
 }
 
 function loadMyMessages() {
-    
     plHomeClickClose();
     if (window.localStorage.getItem("appopen") != "4") {
         window.plugins.nativepagetransitions.slide({
@@ -243,7 +232,6 @@ function loadMyMessages() {
 }
 
 function loadSetting() {
-    
     plHomeClickClose();
     if (window.localStorage.getItem("appopen") != "5") {
         window.plugins.nativepagetransitions.slide({
@@ -255,18 +243,15 @@ function loadSetting() {
 }
 
 function preLoginBack() {
-   shareClickClose();
-//   $("body").data("kendoMobilePane").navigate("#:back");
+    shareClickClose();
+    //   $("body").data("kendoMobilePane").navigate("#:back");
 }
-
 
 function postLoginBack() {
-   plHomeClickClose();
-           window.localStorage.setItem("appopen", "0");        
-//$("body").data("kendoMobilePane").navigate("#:back");
+    plHomeClickClose();
+    window.localStorage.setItem("appopen", "0");        
+    //$("body").data("kendoMobilePane").navigate("#:back");
 }
-
-
 
 (function (global) {
     var gpsErrorShow = "";
@@ -2573,7 +2558,17 @@ function postLoginBack() {
                                             : function () {
                                                 // alert("Hello");
                                                 $("body").data("kendoMobilePane").navigate("views/pl-brandpage.html");  
-                                            }        
+                                            },
+                                            getHistoryFilter:function() {
+                                                var dataSource = new kendo.data.DataSource({ data: getHistoryFilternData() });
+                                               
+                                                $("#History-Filter").kendoMobileListView({
+                                                                                             dataSource: dataSource,
+                                                                                             template: $("#History-Filter-Template").html()
+
+                                                                    
+                                                                                         });
+                                            }
                                         });
     
     function listCountry() {
@@ -3565,6 +3560,19 @@ function postLoginBack() {
         data.push({celebkey: "12",celebitem:"Wedding Anniversary"});
         data.push({celebkey: "13",celebitem:"Women`s Day"});
            
+        return data;
+    }
+    
+    function getHistoryFilerData() {
+        var data = [];
+        data.push({celebkey: "1",celebitem:"Activate Offer"});
+        data.push({celebkey: "2",celebitem:"Change Profile"});
+        data.push({celebkey: "3",celebitem:"New Subscription"});
+        data.push({celebkey: "4",celebitem:"Redeem Spend"});
+        data.push({celebkey: "5",celebitem:"Redeem Voucher"});    
+        data.push({celebkey: "6",celebitem:"Renew Membership"});         
+        data.push({celebkey: "7",celebitem:"Other Transactions"});
+  
         return data;
     }
 }

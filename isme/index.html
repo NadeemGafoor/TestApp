@@ -482,6 +482,42 @@
                 </div>
             </ul>
         </div>
+        
+        
+        
+          <div data-role="modalview" id="modalviewhistoryfilter" style="height:90%;width:90%" data-model="postLogin">
+            <div data-role="header" style="background-color:#4f5053">
+                <div data-role="navbar">
+                    <span >History Filters</span>
+                    <a data-click="closeHistoryFilterView" data-role="button" data-align="right" data-animated="true">
+                        Go
+                    </a>
+                </div>
+            </div>
+            <ul id="History-Filter" data-bind="value:getHistoryFilter">
+
+            </ul>
+            <div class="button-frame-inline">
+                <a data-role="button" class="button-select">Select/UnSelect All</a>
+            </div>
+
+        </div>
+        
+            <script type="text/x-kendo-template" id="History-Filter-Template">
+            <div class="list-group-data-header">
+                <div class="list-group-data-item" style="margin-left:10px;width:65%">
+                    ${historyitem}
+                </div>
+                <div class="list-group-data-item" id=${historykey} style="text-align:center;width:15%">
+                    <i class="fa fa-minus-square-o fa-lg"></i>
+                </div>
+                <div class="list-group-data-item" id=${historykey} style="text-align:center;width:15%">
+                    <i class="fa fa-plus-square-o fa-lg"></i>
+                </div>
+            </div>
+        </script>
+        
+
 
         <script type="text/x-kendo-template" id="Offer-Filter-Template">
             <div class="list-group-data-header">

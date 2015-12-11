@@ -12,37 +12,37 @@
 
     </header>
     <div data-role="navbar" style="background-color:#ccc">
-    
-        <a data-transition="slide"   data-role="button"  data-bind="click: deleteMessage" data-align="right" style="color:#000">
+
+        <a data-transition="slide"   data-role="button"  data-align="right" style="color:#000">
             Save
         </a>
     </div>
-    
-     <ul data-role="listview">
 
-            <li>
+    <ul data-role="listview">
+
+        <li>
             <div class="input-frame-enrol ">
-                <input type="text" id="emailid" data-bind="value: emailid" placeholder="Email *"/>
+                <input type="text" id="emailid" placeholder="Email *"/>
             </div>
         </li>
         <li>
             <div class="input-frame-enrol ">
-                <input type="number" id="mobile" data-bind="value: mobile" placeholder="Mobile (Eg:+9715XXXXXXXX) *"/>
+                <input type="number" id="mobile" placeholder="Mobile (Eg:+9715XXXXXXXX) *"/>
             </div>
         </li>
         <li>
             <div class="input-frame-enrol" style="border-bottom: 2px solid #000;width:98%">
                 <select id="selCity">
-                    <option value="" selected="true" data-bind="click: getCity">Select Emirate *</option>
+                    <option value="" selected="true" >Select Emirate *</option>
                 </select>
             </div>
         </li>
         <li>
             <div class="input-frame-enrol ">
-                <input type="number" id="siriusnumber" data-bind="value: siriusnumber" placeholder="Sirius Member ID (if any)"/>
+                <input type="number" id="siriusnumber" placeholder="Sirius Member ID (if any)"/>
             </div>
         </li>
-       <li>
+        <li>
             <div class="switch-frame">
                 <label  class="whitecolor">
                     Voucher Expiry Reminders
@@ -50,7 +50,7 @@
                 </label>
             </div>
         </li>
-          <li>
+        <li>
             <div class="switch-frame">
                 <label class="whitecolor" >
                     Allow Notifications
@@ -58,41 +58,45 @@
                 </label>
             </div>
         </li>
-      
+
         <li>
             <div class="switch-frame">
                 <label  class="whitecolor">
                     Allow Location Services
-                    <input data-role="switch" name="showprofile" id="profile-autolocation" type="checkbox" checked="false" data-bind="checked:toggleDD"/>
+                    <input data-role="switch" name="showprofile" id="profile-autolocation" type="checkbox" checked="false"/>
                 </label>
             </div>
         </li>
-         <div>
+        <div>
+            <li>
+                <div class="button-frame-inline">
+                    <a data-transition="slide" data-role="button" class="button-login" >Change PIN</a>
+                </div>
+            </li>
+            <li>
+                <div class="button-frame-inline">
+                    <a data-transition="slide" data-role="button" class="button-loginwithfacebook">Link Facebook</a>
+                </div>
+            </li>
+        </div>
         <li>
-            <div class="button-frame-inline">
-                <a data-transition="slide" data-role="button" data-bind="click: validateUser" class="button-login" >Change PIN</a>
-            </div>
+            
         </li>
-        <li>
-            <div class="button-frame-inline">
-                <a data-transition="slide" data-role="button" data-bind="click: validateUser" class="button-loginwithfacebook">Link Facebook</a>
-            </div>
-        </li>
-</div>
     </ul>
-
 
 </div>
 
 <style scoped>
-    #pl-setting-theme .input-frame-enrol input{
-    border-bottom:2px solid #000;
+    #pl-setting-theme .input-frame-enrol input
+    {
+        border-bottom: 2px solid #000;
     }
-    #pl-setting-theme .input-frame-enrol input{
-    border-bottom:2px solid #000;
+    #pl-setting-theme .input-frame-enrol input
+    {
+        border-bottom: 2px solid #000;
     }
     
-     #pl-setting-theme .button-login
+    #pl-setting-theme .button-login
     {
         background-color: rgba(62, 65, 66, 0.7);
         color: #fff;
@@ -103,17 +107,16 @@
         background-color: rgba(13, 104, 197, 1);
         color: #fff;
     }
-      
     
-    
-     #pl-setting-theme .switch-frame a{
-        background-color:transparent !important;
+    #pl-setting-theme .switch-frame a
+    {
+        background-color: transparent !important;
     }
     
-    #pl-setting-theme label{
-        color:#000;
-        margin-left:2%;
+    #pl-setting-theme label
+    {
+        color: #000;
+        margin-left: 2%;
     }
-
-</style>
+    </style>
 
