@@ -17,6 +17,11 @@ a
     border-bottom: 0px;
 }
 
+.km-ios7 .km-navbar .km-icon
+{
+    color:#fff;
+ }
+
 .km-ios7 .km-navbar .km-view-title
 {
     color: #fff;
@@ -28,6 +33,16 @@ a
     border: none;
     height: 3em;
     line-height: 3em;
+}
+
+.km-navbar a:active{
+    background-color:transparent !important;
+}
+
+.km-navbar span,
+.km-navbar .km-view-title span
+{
+   color: #fff;
 }
 
 .km-ios7 .km-navbar .km-button
@@ -2001,7 +2016,7 @@ tile-frame-inner
     text-align: center;
 }
 
-.sharehead
+.sharehead,.cardhead
 {
     height: 1px;
     position: fixed;
@@ -2019,7 +2034,7 @@ tile-frame-inner
     background: rgba(0, 0, 0, 0.8);
 }
 
-.head1
+.head1,.head2
 { 
     height: 260px;
     position: fixed;
@@ -2030,6 +2045,39 @@ tile-frame-inner
     display: none;
     justify-content: center; /* align horizontal */
     margin: -2px auto;
+}
+
+.progress-bar-holder{
+    position:relative;
+    float:none;
+    margin-left:5%;
+    background-color:#000;
+    border-radius:5px;
+    height:20px;
+    width:90%;    
+}
+
+.progress-bar-data-holder{
+    position:relative;
+    float:none;
+    margin-left:0%;
+    background-color:#17ae2f;
+    border-radius:5px;
+    height:20px;
+    width:30%;    
+}
+
+.progress-bar-amount-holder{
+    position:relative;
+    float:none;
+    margin-left:25%;
+    background-color:transparent !important;
+    border-radius:5px;
+    height:25px;
+    line-height:25px;
+    width:90%;    
+    color:#fff;
+    font-size:.8em;
 }
 
 

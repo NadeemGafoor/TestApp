@@ -117,26 +117,89 @@ function shareClick() {
 
 function shareClickClose() {
     var elems = document.getElementsByClassName('head1');
-
-    $(".sharehead").animate({top:'0px'}, 300);
-    window.setTimeout(function() { 
-        for (i = 0; i < elems.length; i++) {
-            elems[i].style.display = 'none';
-        }
+    for (i = 0; i < elems.length; i++) {
+        if (elems[i].style.display === "block") {
+            $(".sharehead").animate({top:'0px'}, 100);
+            window.setTimeout(function() { 
+                elems[i].style.display = 'none';
  
-        elems = document.getElementsByClassName('mymenu');
-        for (i = 0; i < elems.length; i++) {                  
-            elems[i].style.display = 'none';
-        }
+                elems = document.getElementsByClassName('mymenu');
+                for (i = 0; i < elems.length; i++) {                  
+                    elems[i].style.display = 'none';
+                }
                 
-        elems = document.getElementsByClassName('sharehead');
-        for (i = 0; i < elems.length; i++) {                  
-            elems[i].style.display = 'none';
+                elems = document.getElementsByClassName('sharehead');
+                for (i = 0; i < elems.length; i++) {                  
+                    elems[i].style.display = 'none';
+                }
+            }, 100);
         }
-    }, 300);
+    }
+}
+
+function cardClick() {
+    plHomeClickClose();  
+    var elems = document.getElementsByClassName('head2');
+    for (i = 0; i < elems.length; i++) {
+        if (elems[i].style.display === "" || elems[i].style.display === "none") {
+            $(".cardhead").animate({top:'260px'}, 300);
+    
+            window.setTimeout(function() { 
+                for (i = 0; i < elems.length; i++) {
+                    elems[i].style.display = 'block';
+                }
+ 
+                elems = document.getElementsByClassName('mymenu');
+                for (i = 0; i < elems.length; i++) {
+                    elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+                    elems[i].style.display = 'block';
+                }
+            }, 50);
+        } else {
+            $(".cardhead").animate({top:'0px'}, 300);
+            window.setTimeout(function() { 
+                for (i = 0; i < elems.length; i++) {
+                    elems[i].style.display = 'none';
+                }
+ 
+                elems = document.getElementsByClassName('mymenu');
+                for (i = 0; i < elems.length; i++) {                  
+                    elems[i].style.display = 'none';
+                }
+                
+                elems = document.getElementsByClassName('cardhead');
+                for (i = 0; i < elems.length; i++) {                  
+                    elems[i].style.display = 'none';
+                }
+            }, 50);
+        }
+    }
+}
+
+function cardClickClose() {
+    var elems = document.getElementsByClassName('head2');
+    for (i = 0; i < elems.length; i++) {
+        if (elems[i].style.display === "block") {
+            $(".cardhead").animate({top:'0px'}, 100);
+            window.setTimeout(function() { 
+                elems[i].style.display = 'none';
+ 
+                elems = document.getElementsByClassName('mymenu');
+                for (i = 0; i < elems.length; i++) {                  
+                    elems[i].style.display = 'none';
+                }
+                
+                elems = document.getElementsByClassName('cardhead');
+                for (i = 0; i < elems.length; i++) {                  
+                    elems[i].style.display = 'none';
+                }
+            }, 100);
+        }
+    }
 }
 
 function plHomeClick() {
+    cardClickClose();
     var elems = document.getElementsByClassName('foot1');
     for (i = 0; i < elems.length; i++) {
         if (elems[i].style.display === "" || elems[i].style.display === "none") {
@@ -172,18 +235,22 @@ function plHomeClick() {
 function plHomeClickClose() {
     var elems = document.getElementsByClassName('foot1');
     for (i = 0; i < elems.length; i++) {
-        $(".foot").animate({bottom:'0px'}, 200);
-        window.setTimeout(function() { 
+        if (elems[i].style.display === "block") {
             for (i = 0; i < elems.length; i++) {
-                elems[i].style.display = 'none';
+                $(".foot").animate({bottom:'0px'}, 200);
+                window.setTimeout(function() { 
+                    elems[i].style.display = 'none';
+                    
+                    elems = document.getElementsByClassName('mymenu');
+                    for (i = 0; i < elems.length; i++) {
+                        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+                        elems[i].style.display = 'block';
+                    }
+                }
+                                  , 200
+                    );
             }
- 
-            elems = document.getElementsByClassName('mymenu');
-            for (i = 0; i < elems.length; i++) {
-                elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-                elems[i].style.display = 'block';
-            }
-        }, 200);
+        }
     }
 }
 
@@ -312,8 +379,6 @@ function loadFavorites() {
         }
     }, 50)
 }
-
-
 
 function preLoginBack() {
     plHomeClickClose();

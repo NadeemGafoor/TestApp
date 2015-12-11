@@ -39,69 +39,95 @@
 
         </div>
 
-        <div data-role="layout" data-id="pl-main-layout">
-            
-              <header data-role="header">
-        <div data-role="navbar">
-            <a data-role="button" data-align="left"  style="color:#fff" data-click="postLoginBack" data-icon="back">
-            </a>
-            <span data-role="view-title" id="item-title"></span>
-            <a data-click="plCardClick"   data-role="button" data-align="right" >
-                <i class="fa fa-credit-card fa-lg" style="color:#fff"></i>
-            </a>
+        <div data-role="layout" data-id="pl-back1-layout">
+            <header data-role="header">
+                <div data-role="navbar">
+                    <a data-role="button" data-align="left"  style="color:#fff" data-click="postLoginBack" data-icon="back">
+                    </a>
+                    <span data-role="view-title" id="item-title"></span>
+                    <a data-click="cardClick"   data-role="button" data-align="right" >
+                        <i class="fa fa-credit-card fa-lg" style="color:#fff"></i>
+                    </a>
+                </div>
+
+                <div class="cardhead"> </div>
+                <div class="head2">
+
+                    <div class="progress-bar-amount-holder" style="margin-top:10px">AED 5000</div>
+                    <div class="progress-bar-holder" style="margin-top:10px">
+                        <div class="progress-bar-data-holder"></div>
+                    </div>
+                    <div class="home-page-holder"></div>
+                    <div class="home-page-holder">
+                        <div class="general-text-line">RICARDO MANRIQUEZ</div>
+                        <div class="general-text-line">9704213568</div>
+                        <div class="general-text-line">isme Member</div>
+                        <div class="general-text-line">Member Since 01/01/2015</div>
+                    </div>
+                    <div class="home-page-holder"></div>
+                    <div class="share-menu-line-2">
+                        <a  data-click="cardClickClose" data-role="button" style="border:0px;background-color:transparent" class="mymenu">
+                            <i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </header>
+
+            <footer data-role="footer">
+                <div class="foot" >
+                    <a  data-click="plHomeClick" data-role="button" style="border:0px !important;background-color:transparent" class="mymenu">
+                        <i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>
+                    </a>
+                    <div class="foot1">
+
+                        <div class="share-menu-line-1-pl">
+                            <div class="share-menu-line-1-pl" style="height:10px">&nbsp;</div>
+                            <div class="button-frame-inline-round-menu">
+                                <a data-role="button" data-click="loadMyReward">
+                                    <i class="fa fa-life-bouy fa-2x"></i>
+                                </a><br>My Wallet
+                            </div>
+                            <div class="button-frame-inline-round-menu">
+                                <a  data-role="button" data-click="loadMyBenefit">
+                                    <i class="fa fa-check-square-o fa-2x"></i>
+                                </a><br>My Benefits
+                            </div>
+                            <div class="button-frame-inline-round-menu">
+                                <a data-role="button" data-click="loadMyMessages">
+                                    <i class="fa fa-envelope fa-2x"></i>
+                                </a><br>My Messages
+                            </div>
+                        </div>
+                        <div class="share-menu-line-1-pl" style="height:40px">&nbsp;</div>
+                        <div class="share-menu-line-1-pl">
+                            <div class="button-frame-inline-round-menu">
+                                <a data-role="button" data-click="loadHistory">
+                                    <i class="fa fa-history fa-2x"></i>
+                                </a><br>My History
+                            </div>
+                            <div class="button-frame-inline-round-menu">
+                                <a  data-role="button" data-click="loadSetting">
+                                    <i class="fa fa-gear fa-2x"></i>
+                                </a><br>My Settings
+                            </div>
+                            <div class="button-frame-inline-round-menu">
+                                <a data-role="button" data-click="loadFavorites">
+                                    <i class="fa fa-star fa-2x "></i>
+                                </a><br>My Favorites
+                            </div>
+                        </div>
+                        <div class="share-menu-line-1-pl" style="height:30px">&nbsp;</div>
+                        <div class="button-frame">
+                            <a data-role="button" class="button-profile" data-click="loadMyProfile" id="profile-button">My Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
         </div>
-                  
-           <div class="cardhead"> </div>
-	                <div class="head2">
-	                    <div class="class-share-div">
-	                        <div class="share-menu-line-1">
-	                            <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
-	                            <div class="button-frame-inline-round">
-	                                <a id="btn-facebook" data-role="button">
-	                                    <i class="fa fa-facebook fa-2x  share-class"></i>
-	                                </a>
-	                            </div>
-	                            <div class="button-frame-inline-round">
-	                                <a id="btn-twitter" data-role="button" >
-	                                    <i class="fa fa-twitter fa-2x   share-class"></i>
-	                                </a>
-	                            </div>
-	                        </div>
-	                        <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
-	                        <div class="share-menu-line-1">
-	                            <div class="button-frame-inline-round">
-	                                <a id="btn-whatsapp" data-role="button"  >
-	                                    <i class="fa fa-whatsapp fa-2x   share-class"></i>
-	                                </a>
-	                            </div>
-	                            <div class="button-frame-inline-round">
-	                                <a id="btn-email" data-role="button" >
-	                                    <i class="fa fa-envelope fa-2x   share-class"></i>
-	                                </a>
-	                            </div>
-	                        </div>
-	                        <div class="share-menu-line-2">
-	                            <a  data-click="cardClickClose" data-role="button" style="border:0px;background-color:transparent" class="mymenu">
-	                                <i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>
-	                            </a>
-	                        </div>
-	                    </div>
-	
-	                </div>
-        
-                  
-    </header>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
+        <div data-role="layout" data-id="pl-main-layout">
 
             <footer data-role="footer">
                 <div class="foot" >
@@ -206,20 +232,18 @@
 
             </header>
 
-             <footer data-role="footer">
-    
-            <div data-role="tabstrip" style="background-color:#000" data-selected-index="5">
-                <a id="outlet1" class="fa" data-icon="customstar"  data-rel="modalview" href="#modalviewstar"></a>
-                <a id="outlet2" class="fa" data-icon="customlocation" data-bind="click: getLocation1"></a>
-                <a id="outlet3" class="fa" data-icon="customenvelope" data-bind="click: supportEmailA" ></a>
-                <a id="outlet4" class="fa" data-icon="customcall" data-bind="click: customerCare"></a>
-            </div>
-    </footer>
+            <footer data-role="footer">
+
+                <div data-role="tabstrip" style="background-color:#000" data-selected-index="5">
+                    <a id="outlet1" class="fa" data-icon="customstar"  data-rel="modalview" href="#modalviewstar"></a>
+                    <a id="outlet2" class="fa" data-icon="customlocation" data-bind="click: getLocation1"></a>
+                    <a id="outlet3" class="fa" data-icon="customenvelope" data-bind="click: supportEmailA" ></a>
+                    <a id="outlet4" class="fa" data-icon="customcall" data-bind="click: customerCare"></a>
+                </div>
+            </footer>
         </div>
 
         <div data-role="layout" data-id="back-layout">
-            
-            
 
         </div>
 
@@ -544,10 +568,8 @@
                 </div>
             </ul>
         </div>
-        
-        
-        
-          <div data-role="modalview" id="modalviewhistoryfilter" style="height:60%;width:90%" data-model="postLogin">
+
+        <div data-role="modalview" id="modalviewhistoryfilter" style="height:60%;width:90%" data-model="postLogin">
             <div data-role="header" style="background-color:#4f5053">
                 <div data-role="navbar">
                     <span >History Filters</span>
@@ -564,8 +586,8 @@
             </div>
 
         </div>
-        
-            <script type="text/x-kendo-template" id="History-Filter-Template">
+
+        <script type="text/x-kendo-template" id="History-Filter-Template">
             <div class="list-group-data-header">
                 <div class="list-group-data-item" style="margin-left:10px;width:65%">
                     ${historyitem}
@@ -578,8 +600,6 @@
                 </div>
             </div>
         </script>
-        
-
 
         <script type="text/x-kendo-template" id="Offer-Filter-Template">
             <div class="list-group-data-header">
@@ -725,7 +745,7 @@
         color: #fff;
     }
     
-   #discount-button,#profile-button,#redeem-button
+    #discount-button, #profile-button, #redeem-button
     {
         background-color: rgba(62, 65, 66, 0.7) !important;
         color: #fff !important;
@@ -757,12 +777,12 @@
         margin-bottom: 2px;
     }
     
-   .km-button  a:active
+    .km-button  a:active
     {
         background-color: transparent !important;
     }
     
-      #btn-email, #btn-facebook, #btn-twitter, #btn-whatsapp 
+    #btn-email, #btn-facebook, #btn-twitter, #btn-whatsapp 
     {
         -webkit-border: #fff solid 1px;
         -moz-border: #fff solid 1px;
