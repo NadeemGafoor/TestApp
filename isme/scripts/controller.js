@@ -160,14 +160,11 @@ function cardClick() {
     }
 }
 
-
 function plHomeClick() {
-   elems = document.getElementsByClassName('cardhead');
-     for (i = 0; i < elems.length; i++) {
-        if (elems[i].style.display === "block") {
-            cardClick();
+     elems = document.getElementsByClassName('cardhead');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.display='none';
         }  
-    }
     $(".foot").slideToggle("slow");
     elems = document.getElementsByClassName('mymenu1');
     for (i = 0; i < elems.length; i++) {
@@ -176,32 +173,29 @@ function plHomeClick() {
         } else {
             elems[i].innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
         }  
-        elems[i].style.width="100%";
-        elems[i].style.zIndex= 1000000;
-        elems[i].style.textAlign="center";
-
+        elems[i].style.width = "100%";
+        elems[i].style.zIndex = 1000000;
+        elems[i].style.textAlign = "center";
     }
 }
 
 function cardClick() {
-     elems = document.getElementsByClassName('foot');
-     for (i = 0; i < elems.length; i++) {
-        if (elems[i].style.display === "block") {
-            plHomeClick();
+         elems = document.getElementsByClassName('foot');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.display='none';
         }  
-    }
+
     $(".cardhead").slideToggle("slow");
     elems = document.getElementsByClassName('mymenu1');
     for (i = 0; i < elems.length; i++) {
-        if (elems[i].style.display === "block") {
+        if (elems[i].innerHTML === '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>') {
             elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
         } else {
             elems[i].innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
         }  
-        elems[i].style.width="100%";
-        elems[i].style.zIndex= 1000000;
-        elems[i].style.textAlign="center";
-
+        elems[i].style.width = "100%";
+        elems[i].style.zIndex = 1000000;
+        elems[i].style.textAlign = "center";
     }
 }
 
@@ -329,7 +323,14 @@ function preLoginBack() {
 }
 
 function postLoginBack() {
-    plHomeClick();
+       elems = document.getElementsByClassName('cardhead');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.display='none';
+        }  
+       elems = document.getElementsByClassName('foot');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.display='none';
+        }  
     window.localStorage.setItem("appopen", "0");   
     window.plugins.nativepagetransitions.slide({
                                                    'direction': 'right',
@@ -339,7 +340,14 @@ function postLoginBack() {
 }
 
 function postLoginBackOne() {
-    plHomeClick();
+      elems = document.getElementsByClassName('cardhead');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.display='none';
+        }  
+       elems = document.getElementsByClassName('foot');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.display='none';
+        }  
     window.localStorage.setItem("appopen", "0");   
 }
 
