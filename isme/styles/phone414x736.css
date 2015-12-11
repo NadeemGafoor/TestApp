@@ -163,6 +163,16 @@
     background-color: transparent;
 }
 
+.pl-logo-top
+{
+    height: 550px;
+    width: 100%;
+    display: block;
+    position: relative;
+    float: none;
+    background-color: transparent;
+}
+
 .logo-image-holder
 {
     height:250px;
@@ -173,7 +183,7 @@
 
 .home-page-holder
 {
-    height:100px;
+    height:50px;
     width:100%;
     color:#fff;
    

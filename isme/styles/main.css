@@ -20,6 +20,8 @@ a
 .km-ios7 .km-navbar .km-icon
 {
     color:#fff;
+    border:0px !important;
+    border:none !important;
  }
 
 .km-ios7 .km-navbar .km-view-title
