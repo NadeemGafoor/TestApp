@@ -34,6 +34,18 @@ function getLocation1() {
 }
 
 function mapInitialize() {
+    
+        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                                                   lat = position.coords.latitude;                                  
+                                                   lon = position.coords.longitude;
+                                                
+                                               }
+                                                                                        , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                                                           
+                                                                                            lat = window.localStorage.getItem("lat");
+                                                                                            lon = window.localStorage.getItem("lon");
+
+                                                                                        });
     var latlng = new google.maps.LatLng(
         lat,
         lon);
@@ -74,7 +86,7 @@ function mapInitialize() {
 function getSupportEmailA() {
     window.plugins.socialsharing.shareViaEmail(
         '', 
-        'isme By Jumeirah', [supportemail], 
+        'isme By Jumeirah', ["isme@jumeirah.com"], 
         null, 
         function (msg) {
         }, 
@@ -86,7 +98,7 @@ function getSupportEmailA() {
 }
 
 function customerCare() {
-    window.open("tel:" + preLogin.customercaretelephone);
+    window.open("tel:" + "9999999999");
 }
 
 function offerMessage() {
@@ -2031,44 +2043,7 @@ function postLoginBackOne() {
                                                        });
                                             },
         
-                                            getLocationO: function() {
-                                                showSpin(); //show loading popup
-                                                if (!isMapInitialized) {
-                                                    var latlng = new google.maps.LatLng(
-                                                        lat,
-                                                        lon);
-    
-                                                    var mapOptions = {
-                                                        sensor: true,
-                                                        center: latlng,
-                                                        panControl: false,
-                                                        zoomControl: true,
-                                                        zoom: 15,
-                                                        mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                                        streetViewControl: false,
-                                                        mapTypeControl: true,
-    
-                                                    }; 
-    
-                                                    var map = new google.maps.Map(
-                                                        document.getElementById("map_canvas1"),
-                                                        mapOptions
-                                                        );
-    
-                                                    var marker = new google.maps.Marker({
-                                                                                            position: latlng,
-                                                                                            map: map
-                                                                                        });
-                                                    marker.setVisible(true);
-                                                    marker.setMap(map); 
-                                                    map.setCenter(marker.position);  
-                                                    google.maps.event.trigger(map, 'resize');
-                                                    hideSpin(); //hide loading popup
-                           
-                                                    isMapInitialized = true;
-                                                }
-                                                hideSpin(); //hide loading popup
-                                            },
+
                                             showOutletOffer
                                             : function () {
                                                 offercode = "";
