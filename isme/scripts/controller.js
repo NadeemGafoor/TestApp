@@ -1,46 +1,44 @@
 
-function mvshow(){
-    $("#mvwait").data("kendoMobileModalView").open(); 
+
+
+function loadDiscover() {
+    window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'up',
+                                                                     'href': '#views/discoverlist.html'
+                                                                 }), 500);
 }
 
-function mvhide(){
-    window.setTimeout($("#mvwait").data("kendoMobileModalView").close(),3000); 
+function loadLogin() {
+
+    window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'up',
+                                                                     'href': '#views/login.html'
+                                                                 }), 500);
+     
 }
 
-function loadDiscover(){
-      window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                   "duration"         :  500, // in milliseconds (ms), default 400
-                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                   "androiddelay"     :  150, // same as above but for Android, default 70
+function loadEnrol() {
 
-                                                   'direction': 'up',
-                                                   'href': '#views/discoverlist.html'
-                                               }),5000);
-}
+    window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
 
-function loadLogin(){
-       window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                   "duration"         :  500, // in milliseconds (ms), default 400
-                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                   "androiddelay"     :  150, // same as above but for Android, default 70
+                                                                     'direction': 'up',
+                                                                     'href': '#views/enrol.html'
+                                                                 }), 500);
 
-                                                   'direction': 'up',
-                                                   'href': '#views/login.html'
-                                               }),5000);
-}
-
-function loadEnrol(){
-      window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                   "duration"         :  500, // in milliseconds (ms), default 400
-                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                   "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                   'direction': 'up',
-                                                   'href': '#views/enrol.html'
-                                               }),5000);
 }
 
 function faceBookClick() {
@@ -180,8 +178,8 @@ function closeResetPinForEnrollment() {
     $("#modalviewrepin").data("kendoMobileModalView").close();
 }
 
-function enterPinForRedemption(){
-   $("#modalviewenterpin").data("kendoMobileModalView").open(); 
+function enterPinForRedemption() {
+    $("#modalviewenterpin").data("kendoMobileModalView").open(); 
 }
 
 function closeEnterPinForRedemption() {
@@ -302,7 +300,7 @@ function plHomeClick() {
     for (i = 0; i < elems.length; i++) {
         elems[i].style.zIndex = -10000;
     }  
-            window.localStorage.setItem("appopen", "0"); 
+    window.localStorage.setItem("appopen", "0"); 
 }
 
 function cardClick() {
@@ -589,6 +587,7 @@ function completeRedemption() {
     //var options = { frequency: 1000 };  // Update every 3 seconds
     // Listen for the event and wire it to our callback function
     
+       
     window.sharingView = kendo.observable({
                                                                                      
                                               mysubmitShare: function () {
@@ -650,6 +649,16 @@ function completeRedemption() {
                                               }
                                           });  
     
+
+
+function mvhide() {
+   window.setTimeout(function(){$("#mvwait").data("kendoMobileModalView").close();},3000); 
+}
+    
+   function mvshow() {
+   $("#mvwait").data("kendoMobileModalView").open();
+}
+    
     window.preLogin = kendo.observable({
                                            social_subject:"",
                                            social_message:"",
@@ -670,15 +679,15 @@ function completeRedemption() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
-                                           showDiscoveryList:function(){
+                                           showDiscoveryList:function() {
                                                mvshow();
                                                mvhide();
                                            },
-                                          showLogin:function(){
-                                               mvshow();
+                                           showLogin:function() {
+                                                 mvshow();
                                                mvhide();
                                            },
-                                          showEnrol:function(){
+                                           showEnrol:function() {
                                                mvshow();
                                                mvhide();
                                            },
@@ -2844,7 +2853,7 @@ function completeRedemption() {
     function hideSpin() {
         setTimeout(function() {
             window.plugins.spinnerDialog.hide();
-        }, 200);  //hide Loading Popup
+        }, 2000);  //hide Loading Popup
     }
          
     function showSpin() {
