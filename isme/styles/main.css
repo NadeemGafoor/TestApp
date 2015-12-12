@@ -2124,10 +2124,19 @@ tile-frame-inner
      position:relative;
      float:none;
      display:block;
-    height:100%;
      width:100%;
-    margin:auto;
-     background-color:transparent !important;
+     background-color:rgba(246,13,36,0.3) !important;
+    }
+
+#mvwait .spin-div .spin-div1{
+     position:relative;
+     float:none;
+     display:block;
+    height:40px;
+     width:40px;
+    border-radius:5px;
+    margin: auto;
+     background-color:#000 !important;
     }
 
 .photo1 { background: url(../images/001.png) no-repeat center center; }
