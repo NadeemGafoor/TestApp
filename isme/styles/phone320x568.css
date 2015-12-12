@@ -262,7 +262,7 @@
 
 .pl-logo-top
 {
-    height: 300px;
+    height: 400px;
     width: 100%;
     display: block;
     position: relative;
@@ -283,7 +283,7 @@
     height:40px;
     width:100%;
     color:#fff;
-   
+    font-size:.8em;
 }
 
 .home-page-logo-text-holder
@@ -293,6 +293,17 @@
     font-size:1.5em;
     font-weight:bold;
     text-align:center;
+}
+
+.general-text-line
+{
+    width: 80%;
+    margin-left: 10%;
+    font-size: 1em;
+    color: #fff;
+    text-align: left; 
+    height: 20px;
+    line-height: 20px;
 }
 
 .prelogin-frame-image-2
