@@ -27,14 +27,14 @@ function emailClick() {
         );
 }
 
-function getLocation1() {
+function getLocation5() {
     $("#modalviewmap").data("kendoMobileModalView").open();
     document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
     setTimeout(mapInitialize, 2000);
 }
 
 function mapInitialize() {
-    
+    alert("ddd");
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                    lat = position.coords.latitude;                                  
                                                    lon = position.coords.longitude;
@@ -49,7 +49,7 @@ function mapInitialize() {
     var latlng = new google.maps.LatLng(
         lat,
         lon);
-    if (!initialized) {
+  //  if (!initialized) {
         var mapOptions = {
             sensor: true,
             center: latlng,
@@ -68,7 +68,7 @@ function mapInitialize() {
             );
             
         initialized = true;
-    }
+//}
  
     var marker = new google.maps.Marker({
                                             position: latlng,
