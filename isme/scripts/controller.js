@@ -118,6 +118,18 @@ function closeSetPinForEnrollment(){
     $("#modalviewpin").data("kendoMobileModalView").close();
 }
 
+
+
+function resetPinForEnrollment(){
+    $("#modalviewpin").data("kendoMobileModalView").close();
+    $("#modalviewrepin").data("kendoMobileModalView").open();
+}
+
+function closeResetPinForEnrollment(){
+    $("#modalviewrepin").data("kendoMobileModalView").close();
+}
+
+
 function closeModalMap() {
     $("#modalviewmap").data("kendoMobileModalView").close();
 }    

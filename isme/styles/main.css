@@ -99,6 +99,11 @@ a:active
     color: #fff;
 }
 
+#modalviewrepin .km-content{
+      background-color: rgba(110,110,110,1) !important;
+    color: #fff;
+}
+
 #discoverlist-view .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/discover_bg.png) no-repeat center center;
@@ -482,7 +487,8 @@ img
     color: #fff;
 }
 
-#modalviewpin .input-frame input
+#modalviewpin .input-frame input,
+#modalviewrepin .input-frame input
 {
     position:relative;
     float:none;
@@ -496,6 +502,7 @@ img
     background-color: transparent !important;
     color: #fff;
     text-align:center;
+    left:0;
 }
 
 pl-setting-theme .input-frame-enrol input
