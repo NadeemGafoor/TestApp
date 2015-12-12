@@ -1,4 +1,57 @@
 
+function faceBookClick() {
+    window.plugins.socialsharing.shareViaFacebook(null, window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"), function () {
+    }, function (errormsg) {
+    });
+}
+
+function twitterClick() {
+    window.plugins.socialsharing.shareViaTwitter("sharingSocialView.social_shortmsg" + "\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email", null, "Download the Mobile App at " + window.localStorage.getItem("appad_location"));
+}
+
+function whatsappClick() {
+    window.plugins.socialsharing.shareViaWhatsApp("sharingSocialView.social_shortmsg" + "\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email", null, "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), function () {
+    }, function (errormsg) {
+    })
+}
+
+function emailClick() {
+    window.plugins.socialsharing.shareViaEmail(
+        "sharingSocialView.social_message" + "\n\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email" + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
+        "sharingSocialView.social_shortmsg", null, null, null, // TO: must be null or an array
+        null, // FILES: can be null, a string, or an array
+        function (msg) {
+        }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
+        function (msg) {
+        } // called when sh*t hits the fan
+        );
+}
+
+function getLocation1() {
+    alert("click");
+   // $("#modalviewmap").data("kendoMobileModalView").open();
+  //  document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
+ //   setTimeout(mapInitialize, 2000);
+}
+
+function getSupportEmailA() {
+    window.plugins.socialsharing.shareViaEmail(
+        '', 
+        'isme By Jumeirah', [supportemail], 
+        null, 
+        function (msg) {
+        }, 
+        function (msg) {
+            navigator.notification.alert("Cannot Activate Email " + msg, function() {
+            }, "isme by Jumeirah", "Dismiss")          
+        } 
+        );
+}
+
+function customerCare() {
+    window.open("tel:" + preLogin.customercaretelephone);
+}
+
 function offerMessage() {
     navigator.notification.alert("To view offer details please select All Offers from the menu", function() {
     }, "isme by Jumeirah", "Dismiss")    
@@ -78,52 +131,13 @@ function closeCeleberationTypeView() {
 }
 
 function shareClick() {
-    var elems = document.getElementsByClassName('head1');
-    for (i = 0; i < elems.length; i++) {
-        if (elems[i].style.display === "" || elems[i].style.display === "none") {
-            $(".sharehead").animate({top:'260px'}, 300);
-    
-            window.setTimeout(function() { 
-                for (i = 0; i < elems.length; i++) {
-                    elems[i].style.display = 'block';
-                }
- 
-                elems = document.getElementsByClassName('mymenu');
-                for (i = 0; i < elems.length; i++) {
-                    elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-                    elems[i].style.display = 'block';
-                }
-            }, 100);
-        } else {
-            $(".sharehead").animate({top:'0px'}, 100);
-            window.setTimeout(function() { 
-                for (i = 0; i < elems.length; i++) {
-                    elems[i].style.display = 'none';
-                }
-                   
-                elems = document.getElementsByClassName('sharehead');
-                for (i = 0; i < elems.length; i++) {                  
-                    elems[i].style.display = 'none';
-                }
-            }, 100);
-        }
-    }
-}
+    $(".sharehead").slideToggle("slow");
+      
+    elems = document.getElementsByClassName('sharehead');
 
-function shareClickClose() {
-    var elems = document.getElementsByClassName('head1');
-    $(".sharehead").animate({top:'0px'}, 100);
-   
-    window.setTimeout(function() { 
-        for (i = 0; i < elems.length; i++) {
-            elems[i].style.display = 'none';
-        }
-                          
-        elems = document.getElementsByClassName('sharehead');
-        for (i = 0; i < elems.length; i++) {                  
-            elems[i].style.display = 'none';
-        }
-    }, 100);
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.zIndex = -10000;
+    }  
 }
 
 function plHomeClick() {
@@ -156,27 +170,14 @@ function plHomeClick() {
 }
 
 function cardClick() {
-   elems = document.getElementsByClassName('foot');
+    elems = document.getElementsByClassName('foot');
     if (elems.length > 0) {
         for (i = 0; i < elems.length; i++) {
             elems[i].style.display = 'none';
         }
     }
     $(".cardhead").slideToggle("slow");
-  
-    elems = document.getElementsByClassName('mymenu');
-
-    for (i = 0; i < elems.length; i++) {
-        if (elems[i].innerHTML === '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>') {
-            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-        } else {
-            elems[i].innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
-        }  
-        elems[i].style.width = "100%";
-        elems[i].style.zIndex = 10000;
-        elems[i].style.textAlign = "center";
-    }
-    
+   
     elems = document.getElementsByClassName('cardhead');
 
     for (i = 0; i < elems.length; i++) {
@@ -304,7 +305,10 @@ function loadFavorites() {
 }
 
 function preLoginBack() {
-    plHomeClick();
+    elems = document.getElementsByClassName('sharehead');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.display = 'none';
+    } 
 }
 
 function postLoginBack() {
@@ -549,20 +553,8 @@ function postLoginBackOne() {
                                                                                               // the defaults for direction, duration, etc are all fine
                                                                                               "href" : "#appdrawerN"
                                                                                           });  
-                                           },
-                                           supportEmailA:  function () {
-                                               window.plugins.socialsharing.shareViaEmail(
-                                                   '', 
-                                                   'isme By Jumeirah', [supportemail], 
-                                                   null, 
-                                                   function (msg) {
-                                                   }, 
-                                                   function (msg) {
-                                                       navigator.notification.alert("Cannot Activate Email " + msg, function() {
-                                                       }, "isme by Jumeirah", "Dismiss")          
-                                                   } 
-                                                   );
-                                           },
+                                           }
+                                           ,
                                       
                                            benefitdetail
                                            : function (e) { 
@@ -772,14 +764,6 @@ function postLoginBackOne() {
                                                           }
                                                       });
                                            },
-                                           getLocation1
-                                           : function() {
-                                               $("#modalviewmap").data("kendoMobileModalView").open();
-                                               showSpin(); //show loading popup
-                                               document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
-                                               setTimeout(mapInitialize, 2000);
-                                               hideSpin(); //hide loading popup
-                                           },
         
                                            offerlist
                                            : function (e) {
@@ -927,10 +911,7 @@ function postLoginBackOne() {
                                            :  function () {
                                                window.open("tel:" + preLogin.enrollmenttelephone);
                                            },
-                                           customerCare
-                                           :  function () {
-                                               window.open("tel:" + preLogin.customercaretelephone);
-                                           },
+                                         
         
                                            shareOutlet
                                            :  function () {

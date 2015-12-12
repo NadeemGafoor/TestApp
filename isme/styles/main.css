@@ -2050,7 +2050,7 @@ tile-frame-inner
     position:relative;
     float:none;
     margin-left:25%;
-    background-color:#000 !important;
+    background-color:transparent !important;
     border-radius:5px;
     height:25px;
     line-height:25px;
