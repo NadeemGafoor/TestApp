@@ -1,4 +1,48 @@
 
+function mvshow(){
+    $("#mvwait").data("kendoMobileModalView").open(); 
+}
+
+function mvhide(){
+    window.setTimeout($("#mvwait").data("kendoMobileModalView").close(),3000); 
+}
+
+function loadDiscover(){
+      window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                   'direction': 'up',
+                                                   'href': '#views/discoverlist.html'
+                                               }),5000);
+}
+
+function loadLogin(){
+       window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                   'direction': 'up',
+                                                   'href': '#views/login.html'
+                                               }),5000);
+}
+
+function loadEnrol(){
+      window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                   'direction': 'up',
+                                                   'href': '#views/enrol.html'
+                                               }),5000);
+}
+
 function faceBookClick() {
     window.plugins.socialsharing.shareViaFacebook(null, window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
@@ -626,7 +670,19 @@ function completeRedemption() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
-                                           
+                                           showDiscoveryList:function(){
+                                               mvshow();
+                                               mvhide();
+                                           },
+                                          showLogin:function(){
+                                               mvshow();
+                                               mvhide();
+                                           },
+                                          showEnrol:function(){
+                                               mvshow();
+                                               mvhide();
+                                           },
+
                                                              
                                            showBrandPage
                                            : function () {
