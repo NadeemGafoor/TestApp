@@ -1,6 +1,5 @@
 <!--Explore View-->
 <div data-role="view" data-title="Hello, Ricardo!" data-layout="pl-main-layout" id="pl-home-view" data-model="postLogin">
-    <div data-role="touch" data-tap="plHomeClick">
         <div data-role="navbar" style="background-color:transparent !important">
             <a  data-role="button" data-align="left" data-rel="drawer"  data-click-on="down" href="#appdrawer">
                 <i class="fa fa-reorder fa-lg" style="color:#fff"></i>
@@ -22,10 +21,8 @@
                 <div class="general-text-line">Member Since 01/01/2015</div>
             </div>
         </div>
-        <div class="button-frame">
-            <a data-click="enterPinForRedemption" data-role="button" class="button-discount">Apply Discount</a>
+        <div class="button-frame-inline">
+            <a data-click="enterPinForRedemption" data-role="button" id="redeem-button">Apply Discount</a>
         </div>
-
-    </div>
 </div>
 
