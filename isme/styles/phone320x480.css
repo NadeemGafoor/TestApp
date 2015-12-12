@@ -1,6 +1,6 @@
 /* Smartphones (portrait and landscape) ----------- */
 
-    /* Styles  iPhone 4 */
+    /* Styles  iPhone 5 */
 
 .km-ios7 .km-navbar .km-button .km-text
 {
@@ -12,7 +12,7 @@
 .home-pos 
     {
         position:absolute;
-        height: 420px;
+        height: 510px;
         width: 100%;
         display:block;
         margin:auto;
@@ -22,7 +22,7 @@
 
     .brand-image-pos
     {
-        height:100px;
+        height:125px;
         width: 100%;
         display: inline-block;
         background-repeat: no-repeat;
@@ -30,17 +30,15 @@
              -webkit-background-size: 55%;
         background-size: 55%;
     }
-
 .img-hero{
-        height: 170px;
+        height: 175px;
         width: 100%;
 
 }
- 
 
   .hero-image
     {
-        height: 170px;
+        height: 175px;
         width: 100%;
         display: inline-block;
          background-image: url(../images/large_logo_placeholder.png);
@@ -53,7 +51,7 @@
 
   .dashboard-image
     {
-        height: 190px;
+        height: 245px;
         width: 100%;
         display: inline-block;
          background-image: url(../images/dashboard_image.png);
@@ -65,7 +63,7 @@
 
     .home-dashboard
     {
-        height: 300px;
+        height: 350px;
         width: 100%;
         border-top: 0;
         display: inline;
@@ -74,14 +72,14 @@
 .outer-frame
 {
     height:150px;
- 
+   
 }
  
  
 #login-theme .header-class,
     #pl-home-view .header-class
     {
-        height: 80px;
+        height: 100px;
         background-image: url(../images/dashboard_banner.png);
         display: inline-block;
         -webkit-background-size: cover;
@@ -99,7 +97,7 @@
         float: left; 
         height: 70px;
         line-height: 1em;
-        margin-top:-5px;
+        margin-top:0px;
     }
 
     #pl-home-view .button-sep .km-button
@@ -120,8 +118,8 @@
 
     #pl-home-view .text-bottom{
     text-align:center;
-    margin-top:.7em;
-        font-size:.7em;
+    margin-top:1em;
+        font-size:.8em;
 
 }
    
@@ -135,57 +133,26 @@
 .button-group .km-button
 {
    background-color: #ccc;
- 
-    font-size: 1em;
-    width:150px;
-}
-
-
-.card-image
-    {
-        height: 140px;
-        width: 250px;
-        display: block;
-        margin:2% auto;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size:auto;
-        -webkit-background-size: auto;                    
-    }
-
   
-   .qr-image
-    {
-        height: 150px;
-        width: 150px; 
-        margin: -3% auto;
-        display: block;
-        -webkit-background-size: auto;            
-        background-size:auto;        
-    }
-    
-    .qr-image-sep
-    {
-        height:150px;
-        position: relative; 
-        float:none;
-    }
-
-
+    width:150px;
+        font-size: 1em;
+}
 
 .brand-holder
 {
     width:100%;
-    height:400px;
+    height:450px;
     background: url(../images/aboutusimage.png) no-repeat center center;
     -webkit-background-size: 90%;
     background-size:90%;
 }
 
 
+
+
 .prelogin-frame
 {
-    height: 400px;
+    height: 550px;
     font-size:.9em;
 
 }
@@ -194,7 +161,7 @@
 .prelogin-frame-image-1
 {
     width: 100%;
-    height: 150px;
+    height: 200px;
     background: url(../images/preloginimage.png) no-repeat center center;
     -webkit-background-size: cover;
     background-size: cover;
@@ -279,6 +246,65 @@
  display:none;
 }
 
+.logo-top
+{
+    height: 300px;
+    width: 100%;
+    display: block;
+    position: relative;
+    float: none;
+    background-color: transparent;
+}
+ .filler
+    {
+        height: 10px;
+    }
+
+.pl-logo-top
+{
+    height: 400px;
+    width: 100%;
+    display: block;
+    position: relative;
+    float: none;
+    background-color: transparent;
+}
+
+.logo-image-holder
+{
+    height:200px;
+    width:100%;
+    margin:5px auto;
+    background: url(../images/home_page_logo.png) no-repeat center center;
+}
+
+.home-page-holder
+{
+    height:40px;
+    width:100%;
+    color:#fff;
+    font-size:1em;
+}
+
+.home-page-logo-text-holder
+{
+    margin:5px auto;
+    font-family:'Georgia';
+    font-size:1.5em;
+    font-weight:bold;
+    text-align:center;
+}
+
+.general-text-line
+{
+    width: 80%;
+    margin-left: 10%;
+    font-size: 1em;
+    color: #fff;
+    text-align: left; 
+    height: 20px;
+    line-height: 20px;
+}
 
 .prelogin-frame-image-2
 {
@@ -291,20 +317,21 @@
 }
 
  .discover-back-height{
-      height:420px;
+      height:508px;
+ 
     }
 
 
  .discover-back-height-2{
-      height:260px;
+      height:254px;
 
     }
 
 .filter-height{
-    height:350px;
+    height:400px;
     }
 
 .spin-div{
-     height:480px;
+     height:568px;
      margin:auto;
     }
