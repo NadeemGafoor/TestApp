@@ -2021,7 +2021,7 @@ tile-frame-inner
     left: 0;
     margin-right: auto;
     margin-left: auto;
-    top: 35px;
+    top: 25px;
     background: rgba(0, 0, 0, 0.8);
 }
 
@@ -2050,13 +2050,14 @@ tile-frame-inner
     position:relative;
     float:none;
     margin-left:25%;
-    background-color:transparent !important;
+    background-color:#000 !important;
     border-radius:5px;
     height:25px;
     line-height:25px;
-    width:90%;    
+    width:75%;    
     color:#fff;
     font-size:.8em;
+    text-align:left;
 }
 
 .hanging-icon{
@@ -2068,7 +2069,7 @@ tile-frame-inner
     background-color:rgba(0,0,0,.5);
     color:#fff;
     border-radius:50px;
-     border:0px !important;
+    border:0px !important;
 }
 
 .hanging-icon .km-button{

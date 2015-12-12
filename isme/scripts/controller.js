@@ -156,13 +156,16 @@ function plHomeClick() {
 }
 
 function cardClick() {
-    elems = document.getElementsByClassName('foot');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.display = 'none';
-    }  
-
+   elems = document.getElementsByClassName('foot');
+    if (elems.length > 0) {
+        for (i = 0; i < elems.length; i++) {
+            elems[i].style.display = 'none';
+        }
+    }
     $(".cardhead").slideToggle("slow");
+  
     elems = document.getElementsByClassName('mymenu');
+
     for (i = 0; i < elems.length; i++) {
         if (elems[i].innerHTML === '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>') {
             elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
@@ -170,9 +173,15 @@ function cardClick() {
             elems[i].innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
         }  
         elems[i].style.width = "100%";
-        elems[i].style.zIndex = 100000;
+        elems[i].style.zIndex = 10000;
         elems[i].style.textAlign = "center";
     }
+    
+    elems = document.getElementsByClassName('cardhead');
+
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.zIndex = -10000;
+    }  
 }
 
 function loadMyProfile() {
