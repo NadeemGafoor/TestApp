@@ -258,6 +258,7 @@ function plHomeClick() {
     for (i = 0; i < elems.length; i++) {
         elems[i].style.zIndex = -10000;
     }  
+            window.localStorage.setItem("appopen", "0"); 
 }
 
 function cardClick() {
