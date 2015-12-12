@@ -144,7 +144,7 @@ function closeEnterPinForRedemption() {
     $("#modalviewenterpin").data("kendoMobileModalView").close();
 }
 
-function enterStaffPinForEnrollment() {
+function enterStaffPinForRedemption() {
     $("#modalviewenterpin").data("kendoMobileModalView").close();
     $("#modalviewstaffpin").data("kendoMobileModalView").open();
 }
