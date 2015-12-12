@@ -2120,25 +2120,24 @@ tile-frame-inner
     color: #fff;
 }
 
-#mvwait .spin-div{
-     position:relative;
-     float:none;
-     display:block;
-     width:100%;
-     background-color:rgba(0,0,0,0.3) !important;
-    }
+#mvwait .spin-div
+{
+    position: relative;
+    float: none;
+    display: block;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
 
-#mvwait .spin-div .spin-div1{
-     position:relative;
-     float:none;
-     display:block;
-    height:40px;
-     width:40px;
-    border-radius:5px;
-    margin:45% auto;
-     background-color:#000 !important;
-    z-index:10000;
-    }
+#mvwait .spin-div1
+{
+    position: relative;
+    float: none;
+    display: block;
+    top: 47%;
+    left: 47%; 
+    margin: auto;
+}
 
 .photo1 { background: url(../images/001.png) no-repeat center center; }
 .photo2 { background: url(../images/002.png) no-repeat center center; }
