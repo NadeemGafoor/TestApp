@@ -76,8 +76,8 @@
             </header>
 
             <footer data-role="footer">
-                <div class="mymenu">
-                    <a  data-click="plHomeClick" data-role="button" class="mymenu1" >
+                <div class="mymenu-style">
+                    <a  data-click="plHomeClick" data-role="button"  class="mymenu1">
                         <i class="fa fa-chevron-up fa-2x" style="color:#fff" ></i>
                     </a>
                 </div>
@@ -131,8 +131,8 @@
         <div data-role="layout" data-id="pl-main-layout">
 
             <footer data-role="footer">
-                <div class="mymenu">
-                    <a  data-click="plHomeClick" data-role="button" class="mymenu1" >
+                <div  class="mymenu-style">
+                    <a  data-click="plHomeClick" data-role="button" class="mymenu1">
                         <i class="fa fa-chevron-up fa-2x" style="color:#fff" ></i>
                     </a>
                 </div>
@@ -758,23 +758,31 @@
         color: #fff !important;
     }
     
-    .mymenu
+    .mymenu, .mymenu1
     {
         width: 100%;
-        background-color: rgba(0, 0, 0, 1);
+        background-color: #000;
         color: #fff;
         border: 1px solid #000 !important;
+        z-index: 10000;
     }
-    
-    .mymenu .km-button
+       
+    .mymenu .km-button, .mymenu1 .km-button
     {
         width: 100%;
         bottom: 0px;
-        background-color: rgba(0, 0, 0, 1);
+        background-color: #000;
         color: #fff;
-        z-index: 100000;
         border: 1px solid #000 !important;
         margin-bottom: -1px;
+        z-index: 10000;
+    }
+    
+    .mymenu-style{
+                width: 100%;
+         background-color: #000;
+        color: #fff;
+        border: 1px solid #000 !important;
     }
     
     .km-button  a:active
@@ -789,5 +797,5 @@
         border: #fff solid 1px; 
     }     
 </style>
-
+    
     
