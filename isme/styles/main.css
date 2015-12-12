@@ -19,10 +19,10 @@ a
 
 .km-ios7 .km-navbar .km-icon
 {
-    color:#fff;
-    border:0px !important;
-    border:none !important;
- }
+    color: #fff;
+    border: 0px !important;
+    border: none !important;
+}
 
 .km-ios7 .km-navbar .km-view-title
 {
@@ -37,22 +37,23 @@ a
     line-height: 3em;
 }
 
-.km-navbar a:active{
-    background-color:transparent !important;
+.km-navbar a:active
+{
+    background-color: transparent !important;
 }
 
 .km-navbar span,
 .km-navbar .km-view-title span
 {
-   color: #fff;
+    color: #fff;
 }
 
 .km-ios7 .km-navbar .km-button
 {
     margin-top: -10px;
     width: 40px;
-    border:0px !important;
-    color:#fff;
+    border: 0px !important;
+    color: #fff;
 }
 
 .km-navbar a:active
@@ -81,26 +82,34 @@ a:active
     background-color: #000 !important;
     color: #fff;
 }
-#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content,#pl-myvoucherdetail-theme .km-content,#pl-benefit-theme .km-content,#mymessagelist-theme .km-content,#messageitem-theme .km-content,#pl-setting-theme .km-content,
-#history-theme .km-content,#historyitem-theme .km-content,#modalviewhistoryfilter .km-content,#myfavorite-view .km-content,#pl-confirmpage-view .km-content,#pl-customerservice-theme .km-content,#enrolmentpage-view .km-content,#pl-confirmredemption-view .km-content
+#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content, #pl-myvoucherdetail-theme .km-content, #pl-benefit-theme .km-content, #mymessagelist-theme .km-content, #messageitem-theme .km-content, #pl-setting-theme .km-content,
+#history-theme .km-content, #historyitem-theme .km-content, #modalviewhistoryfilter .km-content, #myfavorite-view .km-content, #pl-confirmpage-view .km-content, #pl-customerservice-theme .km-content, #enrolmentpage-view .km-content, #pl-confirmredemption-view .km-content
 {
     background-color: #fff;
 }
 
-#faq-theme .km-content, #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #aboutisme-theme .km-content, #pl-home-view .km-content, #pl-termsconditions-theme .km-content,#pl-aboutisme-theme .km-content
+#faq-theme .km-content, #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #aboutisme-theme .km-content, #pl-home-view .km-content, #pl-termsconditions-theme .km-content, #pl-aboutisme-theme .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/640x960_bg.png) no-repeat center center;
     background-size: cover;
     -webkit-background-size: cover;
 }
 
-#modalviewpin .km-content,#modalviewstaffpin .km-content{
-      background-color: rgba(0,0,0,1) !important;
+#modalviewpin .km-content, #modalviewstaffpin .km-content
+{
+    background-color: rgba(0, 0, 0, 1) !important;
     color: #fff;
 }
 
-#modalviewrepin .km-content,#modalviewenterpin km-content{
-      background-color: rgba(110,110,110,1) !important;
+#modalviewrepin .km-content
+{
+    background-color: rgba(110, 110, 110, 1) !important;
+    color: #fff;
+}
+
+#modalviewenterpin km-content
+{
+    background-color: rgba(110, 110, 110, 1) !important;
     color: #fff;
 }
 
@@ -171,11 +180,12 @@ li
     padding: 0px;
     border-top: 0 solid #fff !important;
     border-bottom: 0 solid #fff !important;
-        font-size: 1em;
+    font-size: 1em;
 }  
 
-div{
-    font-size:1em;
+div
+{
+    font-size: 1em;
 }
 
 h2
@@ -365,20 +375,18 @@ img
 
 .button-group-single-isme 
 {
-    margin-top:5px;
-    background-color: rgba(0, 0, 0,1);
-    width:80%;
-    margin-left:10%;
-    border:1px solid #000;
-    color:#fff;
-    height:30px;
-    line-height:30px;
-    border-radius:5px;
-    text-align:center;
-    font-weight:bold;
+    margin-top: 5px;
+    background-color: rgba(0, 0, 0, 1);
+    width: 80%;
+    margin-left: 10%;
+    border: 1px solid #000;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
 }
-
-
 
 .button-group .km-button .km-text
 {
@@ -469,7 +477,6 @@ img
     color: #fff;
 }
 
-
 #pl-setting-theme .input-frame-enrol input,
 #enrol-theme .input-frame-enrol input,
 #token-theme .input-frame input,
@@ -492,19 +499,19 @@ img
 #modalviewenterpin .input-frame input,
 #modalviewstaffpin .input-frame input
 {
-    position:relative;
-    float:none;
+    position: relative;
+    float: none;
     display: block;
-    width:60%;
+    width: 60%;
     height: 2.3em;
     line-height: 2em;
-    border:none !important;
+    border: none !important;
     border-bottom: 2px solid #fff !important;
-    margin:auto;
+    margin: auto;
     background-color: transparent !important;
     color: #fff;
-    text-align:center;
-    left:0;
+    text-align: center;
+    left: 0;
 }
 
 pl-setting-theme .input-frame-enrol input
@@ -515,8 +522,7 @@ pl-setting-theme .input-frame-enrol input
 #pl-myvoucherdetail-theme .switch-frame-voucher 
 
 {
-    padding-top:10px;
-   
+    padding-top: 10px;
 }
 
 .one-line
@@ -570,9 +576,9 @@ pl-setting-theme .input-frame-enrol input
     -moz-border-radius: 70px;
     border-radius: 70px;
     color: #fff;
-            -webkit-border: #fff solid 1px;
-        -moz-border: #fff solid 1px;
-        border: #fff solid 1px; 
+    -webkit-border: #fff solid 1px;
+    -moz-border: #fff solid 1px;
+    border: #fff solid 1px; 
 }
 
 .button-frame-inline-round .km-button
@@ -597,7 +603,6 @@ pl-setting-theme .input-frame-enrol input
     position: relative;
     float: none;
 }
-
 
 .button-frame-inline .km-button
 {
@@ -733,18 +738,16 @@ pl-setting-theme .input-frame-enrol input
 .switch-frame-voucher
 {
     height: 4em;
-    line-height:2em;
+    line-height: 2em;
     float: none;
-    background-color:#ccc;
-    margin-left:10%;
+    background-color: #ccc;
+    margin-left: 10%;
 }
-
 
 .switch-frame label
 {
     line-height: 2em;
     color: #fff;
-
 }
 .switch-frame-i
 {
@@ -893,7 +896,6 @@ pre
 {
     text-decoration: underline;
 }
-
 
 li
 {
@@ -1144,18 +1146,18 @@ li
 .benefit-image1 { background-image: url(../images/gold_card.png); }
 .benefit-image2 { background-image: url(../images/platinum_card.png); }
 
-
-.mycard-holder{
-    height:6em;
-    width:100%;
-    position:relative;
-    float:none;
-    font-size:.9em;
+.mycard-holder
+{
+    height: 6em;
+    width: 100%;
+    position: relative;
+    float: none;
+    font-size: .9em;
 }
   
 .qr-image
 {
-     background: url(../images/qr.png) no-repeat center center;
+    background: url(../images/qr.png) no-repeat center center;
     height: 125px;
     width: 125px; 
     background-size: 100%;
@@ -1170,7 +1172,6 @@ li
     position: relative; 
     float: none;
 }
-
 
 #pl-home-view .menu-holder
 {
@@ -1300,7 +1301,7 @@ li
     padding-left: .5em;
     position: relative;
     float: left;
-    color:#000;
+    color: #000;
 }
     
 .mycard-detail-holder-data
@@ -1312,7 +1313,7 @@ li
     font-weight: bold;
     position: relative;
     float: left;
-    color:#000;    
+    color: #000; 
 }
 
 #mycardimage .mycard-name
@@ -1491,7 +1492,6 @@ tile-frame-inner
     position: relative;
     float: none;
     width: 100%;
-
 }
 
 .msg-narration-frame
@@ -1503,7 +1503,7 @@ tile-frame-inner
     margin-left: .3em;
     margin-right: .3em;
     text-align: justify;
-    color:#000;
+    color: #000;
 }
 
 .msg-action-frame-outer
@@ -1521,8 +1521,8 @@ tile-frame-inner
     float: none;
     width: 100%;
     display: block;
-    text-align:right;
-    margin-left:.5em;
+    text-align: right;
+    margin-left: .5em;
 }
 
 .msg-action-frame-inner-2
@@ -1538,15 +1538,15 @@ tile-frame-inner
 .msg-date-frame-line
 {
     height: 2em !important;
-    line-height:2em !important;
+    line-height: 2em !important;
     position: relative !important;
     float: none !important;
     width: 100% !important;
-    color:#000 !important;
-    text-align:left !important;
-    font-size:1.2em !important;
-    font-weight:bold !important;
-    }
+    color: #000 !important;
+    text-align: left !important;
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+}
     
 .msg-date-frame-outer
 {
@@ -1808,7 +1808,7 @@ tile-frame-inner
 
 .voucher-text
 {
-    height:50%;
+    height: 50%;
     font-size: 1.4em;
     line-height: 25px;
     color: #fff;
@@ -1818,7 +1818,7 @@ tile-frame-inner
 
 .expiry-text
 {
-    height:50%;
+    height: 50%;
     line-height: 25px;
     font-size: 1.2em;
     color: #fff;
@@ -1979,7 +1979,7 @@ tile-frame-inner
 
 .foot
 {
-    height:380px;
+    height: 380px;
     position: fixed;
     width: 100%;
     z-index: 10000;
@@ -1994,7 +1994,6 @@ tile-frame-inner
     bottom: 0;
     background: rgba(0, 0, 0, 0.8);
 }
-
 
 .profile-image-holder
 {
@@ -2038,7 +2037,7 @@ tile-frame-inner
     text-align: center;
 }
 
-.sharehead,.cardhead
+.sharehead, .cardhead
 {
     height: 300px;
     position: fixed;
@@ -2056,61 +2055,64 @@ tile-frame-inner
     background: rgba(0, 0, 0, 0.8);
 }
 
-
-.progress-bar-holder{
-    position:relative;
-    float:none;
-    margin-left:5%;
-    background-color:#000;
-    border-radius:5px;
-    height:20px;
-    width:90%;    
+.progress-bar-holder
+{
+    position: relative;
+    float: none;
+    margin-left: 5%;
+    background-color: #000;
+    border-radius: 5px;
+    height: 20px;
+    width: 90%; 
 }
 
-.progress-bar-data-holder{
-    position:relative;
-    float:none;
-    margin-left:0%;
-    background-color:#17ae2f;
-    border-radius:5px;
-    height:20px;
-    width:30%;    
+.progress-bar-data-holder
+{
+    position: relative;
+    float: none;
+    margin-left: 0%;
+    background-color: #17ae2f;
+    border-radius: 5px;
+    height: 20px;
+    width: 30%; 
 }
 
-.progress-bar-amount-holder{
-    position:relative;
-    float:none;
-    margin-left:25%;
-    background-color:transparent !important;
-    border-radius:5px;
-    height:25px;
-    line-height:25px;
-    width:75%;    
-    color:#fff;
-    font-size:.8em;
-    text-align:left;
+.progress-bar-amount-holder
+{
+    position: relative;
+    float: none;
+    margin-left: 25%;
+    background-color: transparent !important;
+    border-radius: 5px;
+    height: 25px;
+    line-height: 25px;
+    width: 75%; 
+    color: #fff;
+    font-size: .8em;
+    text-align: left;
 }
 
-.hanging-icon{
-    position:absolute;
-    display:block;
-    margin-top:2%;
-    margin-left:70%;
-  z-index: 10000;
-    background-color:rgba(0,0,0,.5);
-    color:#fff;
-    border-radius:50px;
-    border:0px !important;
+.hanging-icon
+{
+    position: absolute;
+    display: block;
+    margin-top: 2%;
+    margin-left: 70%;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, .5);
+    color: #fff;
+    border-radius: 50px;
+    border: 0px !important;
 }
 
-.hanging-icon .km-button{
-    height:50px;
-    width:50px;
-    line-height:35px;
-    border:0px !important;
-    color:#fff;
+.hanging-icon .km-button
+{
+    height: 50px;
+    width: 50px;
+    line-height: 35px;
+    border: 0px !important;
+    color: #fff;
 }
-
 
 .photo1 { background: url(../images/001.png) no-repeat center center; }
 .photo2 { background: url(../images/002.png) no-repeat center center; }
@@ -2118,4 +2120,3 @@ tile-frame-inner
 .photo4 { background: url(../images/004.png) no-repeat center center; }
 .photo5 { background: url(../images/005.png) no-repeat center center; }
 .photo6 { background: url(../images/006.png) no-repeat center center; }
-
