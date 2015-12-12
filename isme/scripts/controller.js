@@ -28,10 +28,47 @@ function emailClick() {
 }
 
 function getLocation1() {
-    alert("click");
-   // $("#modalviewmap").data("kendoMobileModalView").open();
-  //  document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
- //   setTimeout(mapInitialize, 2000);
+    $("#modalviewmap").data("kendoMobileModalView").open();
+    document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
+    setTimeout(mapInitialize, 2000);
+}
+
+function mapInitialize() {
+    var latlng = new google.maps.LatLng(
+        lat,
+        lon);
+    if (!initialized) {
+        var mapOptions = {
+            sensor: true,
+            center: latlng,
+            panControl: false,
+            zoomControl: true,
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            streetViewControl: false,
+            mapTypeControl: true,
+ 
+        };
+ 
+        var map = new google.maps.Map(
+            document.getElementById('map_canvas1'),
+            mapOptions
+            );
+            
+        initialized = true;
+    }
+ 
+    var marker = new google.maps.Marker({
+                                            position: latlng,
+                                            map: map
+                                        });
+                                       
+    google.maps.event.addListenerOnce(map, 'idle', function() {
+        google.maps.event.trigger(map, 'resize');
+        map.setCenter(latlng);  
+    });
+    marker.setVisible(true);
+    marker.setMap(map); 
 }
 
 function getSupportEmailA() {
@@ -3475,44 +3512,6 @@ function postLoginBackOne() {
                    error: function (error) {
                    }
                }); 
-    }
-    
-    function mapInitialize() {
-        var latlng = new google.maps.LatLng(
-            lat,
-            lon);
-        if (!initialized) {
-            var mapOptions = {
-                sensor: true,
-                center: latlng,
-                panControl: false,
-                zoomControl: true,
-                zoom: 16,
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                streetViewControl: false,
-                mapTypeControl: true,
- 
-            };
- 
-            var map = new google.maps.Map(
-                document.getElementById('map_canvas1'),
-                mapOptions
-                );
-            
-            initialized = true;
-        }
- 
-        var marker = new google.maps.Marker({
-                                                position: latlng,
-                                                map: map
-                                            });
-                                       
-        google.maps.event.addListenerOnce(map, 'idle', function() {
-            google.maps.event.trigger(map, 'resize');
-            map.setCenter(latlng);  
-        });
-        marker.setVisible(true);
-        marker.setMap(map); 
     }
     
     function getRestAddData() {
