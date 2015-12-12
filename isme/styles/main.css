@@ -107,9 +107,15 @@ a:active
     color: #fff;
 }
 
-#modalviewenterpin km-content
+#modalviewenterpin .km-content
 {
     background-color: rgba(110, 110, 110, 1) !important;
+    color: #fff;
+}
+
+#mvwait .km-content
+{
+    background-color: rgba(0, 0, 0, 0.3) !important;
     color: #fff;
 }
 
@@ -2113,6 +2119,16 @@ tile-frame-inner
     border: 0px !important;
     color: #fff;
 }
+
+#mvwait .spin-div{
+     position:relative;
+     float:none;
+     display:block;
+    height:100%;
+     width:100%;
+    margin:auto;
+     background-color:transparent !important;
+    }
 
 .photo1 { background: url(../images/001.png) no-repeat center center; }
 .photo2 { background: url(../images/002.png) no-repeat center center; }
