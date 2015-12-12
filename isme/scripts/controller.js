@@ -35,6 +35,8 @@ function getLocation5() {
 
 function mapInitialize() {
     alert("ddd");
+    var lat = "";
+    var lon = "";
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                    lat = position.coords.latitude;                                  
                                                    lon = position.coords.longitude;
