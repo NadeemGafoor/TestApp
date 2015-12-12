@@ -110,25 +110,22 @@ function outletMessage() {
     }, "isme by Jumeirah", "Dismiss")    
 }
 
-function setPinForEnrollment(){
+function setPinForEnrollment() {
     $("#modalviewpin").data("kendoMobileModalView").open();
 }
 
-function closeSetPinForEnrollment(){
+function closeSetPinForEnrollment() {
     $("#modalviewpin").data("kendoMobileModalView").close();
 }
 
-
-
-function resetPinForEnrollment(){
+function resetPinForEnrollment() {
     $("#modalviewpin").data("kendoMobileModalView").close();
     $("#modalviewrepin").data("kendoMobileModalView").open();
 }
 
-function closeResetPinForEnrollment(){
+function closeResetPinForEnrollment() {
     $("#modalviewrepin").data("kendoMobileModalView").close();
 }
-
 
 function closeModalMap() {
     $("#modalviewmap").data("kendoMobileModalView").close();
@@ -409,17 +406,16 @@ function postLoginBackOne() {
 }
 
 function completeEnrollment() {
-        $("#modalviewrepin").data("kendoMobileModalView").close();
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+    $("#modalviewrepin").data("kendoMobileModalView").close();
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                       'direction': 'up',
-                                                       'href': '#views/confirmEnrollment.html'
-                                                   });
-    }
+                                                   'direction': 'up',
+                                                   'href': '#views/confirmEnrollment.html'
+                                               });
 }
 
 (function (global) {
