@@ -246,8 +246,54 @@
  display:none;
 }
 
+.logo-top
+{
+    height: 300px;
+    width: 100%;
+    display: block;
+    position: relative;
+    float: none;
+    background-color: transparent;
+}
+ .filler
+    {
+        height: 10px;
+    }
 
+.pl-logo-top
+{
+    height: 300px;
+    width: 100%;
+    display: block;
+    position: relative;
+    float: none;
+    background-color: transparent;
+}
 
+.logo-image-holder
+{
+    height:200px;
+    width:100%;
+    margin:5px auto;
+    background: url(../images/home_page_logo.png) no-repeat center center;
+}
+
+.home-page-holder
+{
+    height:40px;
+    width:100%;
+    color:#fff;
+   
+}
+
+.home-page-logo-text-holder
+{
+    margin:5px auto;
+    font-family:'Georgia';
+    font-size:1.5em;
+    font-weight:bold;
+    text-align:center;
+}
 
 .prelogin-frame-image-2
 {

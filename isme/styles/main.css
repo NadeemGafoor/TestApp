@@ -613,11 +613,11 @@ pl-setting-theme .input-frame-enrol input
 .button-frame-inline .km-button
 {
     line-height: 30px;
-    width: 70%;
+    width: 80%;
     display: block;
     text-align: center;
     font-size: 1em;
-    margin-left: 15%;
+    margin-left: 10%;
     -webkit-border: #fff solid 1px;
     -moz-border: #fff solid 1px;
     border: #fff solid 1px;
@@ -629,11 +629,11 @@ pl-setting-theme .input-frame-enrol input
 .button-frame .km-button
 {
     line-height: 30px;
-    width: 70%;
+    width: 80%;
     display: block;
     text-align: center;
     font-size: 1.2em;
-    margin-left: 15%;
+    margin-left: 10%;
     -webkit-border: #fff solid 1px;
     -moz-border: #fff solid 1px;
     border: #fff solid 1px;
@@ -2145,3 +2145,8 @@ tile-frame-inner
 .photo4 { background: url(../images/004.png) no-repeat center center; }
 .photo5 { background: url(../images/005.png) no-repeat center center; }
 .photo6 { background: url(../images/006.png) no-repeat center center; }
+
+ .filler
+    {
+        height: 20px;
+    }
