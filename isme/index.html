@@ -92,11 +92,11 @@
         </div>
 
         <div data-role="layout" data-id="pl-back3-layout">
-    <header data-role="header">
-        <div data-role="navbar">
-            <span data-role="view-title"></span>
-        </div>
-    </header>
+            <header data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                </div>
+            </header>
         </div>
 
         <div data-role="layout" data-id="pl-back1-layout">
@@ -647,6 +647,31 @@
 
         </div>
 
+        <div data-role="modalview" id="modalviewpin" style="height:60%;width:80%" data-model="postLogin" data-title="Create isme PIN">
+            <div data-role="header" style="background-color:#4f5053">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+
+                    <a data-click="closeSetPinForEnrollment" data-role="button" data-align="right">
+                        <i class="fa fa-times-circle fa-2x" style="color:#fff"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="home-page-holder"></div>
+            <div class="input-frame">
+                <input type="password" id="password" data-bind="value: password" placeholder="Create your 4 digit PIN"/>
+            </div>
+            <div class="home-page-holder"></div>
+            <div class="button-frame-inline">
+                <a data-role="button" class="button-select" style="background-color:rgba(255,255,255,0.5);color:#000">Set PIN</a>
+            </div>
+            <div class="home-page-holder"></div>
+            <div class="fulljustify">
+                You will be using this PIN to activate Vouchers to your Wallet and redeeming Vouchers at Restaurants
+            </div>
+            <div style="height:10px">&nbsp;</div>
+        </div>
+
         <script type="text/x-kendo-template" id="History-Filter-Template">
             <div class="list-group-data-header">
                 <div class="list-group-data-item" style="margin-left:10px;width:65%">
@@ -785,7 +810,7 @@
     }
     
     #modalviewcountry .button-select, #modalviewceleberationtype .button-select, #modalviewofferfilter .button-select, #modalviewfilter .button-select, #modalviewtype .button-select, #modalviewcuisine .button-select,
-    #modalviewhistoryfilter .button-select
+    #modalviewhistoryfilter .button-select, #modalviewpin .button-select
     
     {
         background-color: rgba(62, 65, 66, 0.7);
@@ -794,6 +819,7 @@
         height: 30px;
         line-height: 30px;
         display: block;
+        margin:auto;
     }
     #modalviewstar .km-content
     {

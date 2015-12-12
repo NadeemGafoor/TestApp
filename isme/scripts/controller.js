@@ -110,6 +110,14 @@ function outletMessage() {
     }, "isme by Jumeirah", "Dismiss")    
 }
 
+function setPinForEnrollment(){
+    $("#modalviewpin").data("kendoMobileModalView").open();
+}
+
+function closeSetPinForEnrollment(){
+    $("#modalviewpin").data("kendoMobileModalView").close();
+}
+
 function closeModalMap() {
     $("#modalviewmap").data("kendoMobileModalView").close();
 }    

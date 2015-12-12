@@ -94,6 +94,11 @@ a:active
     -webkit-background-size: cover;
 }
 
+#modalviewpin .km-content{
+      background-color: rgba(0,0,0,1) !important;
+    color: #fff;
+}
+
 #discoverlist-view .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/discover_bg.png) no-repeat center center;
@@ -459,6 +464,7 @@ img
     color: #fff;
 }
 
+
 #pl-setting-theme .input-frame-enrol input,
 #enrol-theme .input-frame-enrol input,
 #token-theme .input-frame input,
@@ -471,9 +477,25 @@ img
     height: 2.3em;
     line-height: 2em;
     border-bottom: 2px solid #fff;
-    left: 5%;
+    margin-left: 5%;
     background-color: transparent !important;
     color: #fff;
+}
+
+#modalviewpin .input-frame input
+{
+    position:relative;
+    float:none;
+    display: block;
+    width:60%;
+    height: 2.3em;
+    line-height: 2em;
+    border:none !important;
+    border-bottom: 2px solid #fff !important;
+    margin:auto;
+    background-color: transparent !important;
+    color: #fff;
+    text-align:center;
 }
 
 pl-setting-theme .input-frame-enrol input
