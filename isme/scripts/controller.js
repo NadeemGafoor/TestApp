@@ -462,8 +462,8 @@ function postLoginBack() {
     //$("body").data("kendoMobilePane").navigate("#:back");
 }
 
-function postLoginBackOne() {
-    elems = document.getElementsByClassName('cardhead');
+function doOneBack(){
+     elems = document.getElementsByClassName('cardhead');
     for (i = 0; i < elems.length; i++) {
         elems[i].style.display = 'none';
     }  
@@ -471,7 +471,30 @@ function postLoginBackOne() {
     for (i = 0; i < elems.length; i++) {
         elems[i].style.display = 'none';
     }  
-    window.localStorage.setItem("appopen", "0");   
+    window.localStorage.setItem("appopen", "0");  
+}
+
+function postLoginBackOne() {
+   doOneBack();
+   
+
+}
+
+function postLoginBackMessage() {
+     doOneBack();
+
+   window.plugins.nativepagetransitions.slide({
+                                                   'direction': 'right',
+                                                   'href': '#views/pl-mymessagelist.html'
+                                               });
+}
+
+function postLoginBackMessage() {
+        doOneBack();
+   window.plugins.nativepagetransitions.slide({
+                                                   'direction': 'right',
+                                                   'href': '#views/pl-historylist.html'
+                                               });
 }
 
 function completeEnrollment() {
