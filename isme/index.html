@@ -759,8 +759,8 @@
         
         
         
-          <div data-role="modalview" id="mvwait" style="height:100%;width:100%;background-color:rgba(0,0,0,0.3)">
-
+          <div data-role="modalview" id="mvwait" style="height:100%;width:100%">
+             <div class="spin-div"><i class="fa fa-cog fa-spin fa-3x" style="color:#fff"></i></div>
               
               </div>
         
@@ -984,6 +984,16 @@
         -webkit-border: #fff solid 1px;
         -moz-border: #fff solid 1px;
         border: #fff solid 1px; 
-    }     
+    }  
+    
+    #mvwait .spin-div{
+     position:relative;
+     float:none;
+     display:block;
+        height:100%;
+        width:100%;
+     margin: auto;
+    background-color:transparent !important;
+    }
 </style>
 
