@@ -94,12 +94,12 @@ a:active
     -webkit-background-size: cover;
 }
 
-#modalviewpin .km-content{
+#modalviewpin .km-content,#modalviewstaffpin .km-content{
       background-color: rgba(0,0,0,1) !important;
     color: #fff;
 }
 
-#modalviewrepin .km-content{
+#modalviewrepin .km-content,#modalviewenterpin km-content{
       background-color: rgba(110,110,110,1) !important;
     color: #fff;
 }
@@ -488,7 +488,9 @@ img
 }
 
 #modalviewpin .input-frame input,
-#modalviewrepin .input-frame input
+#modalviewrepin .input-frame input,
+#modalviewenterpin .input-frame input,
+#modalviewstaffpin .input-frame input
 {
     position:relative;
     float:none;
