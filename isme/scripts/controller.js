@@ -34,43 +34,39 @@ function getLocation5() {
 }
 
 function mapInitialize() {
-    alert("ddd");
     var lat = "";
     var lon = "";
-        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                   lat = position.coords.latitude;                                  
-                                                   lon = position.coords.longitude;
-                                                
-                                               }
-                                                                                        , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                           
-                                                                                            lat = window.localStorage.getItem("lat");
-                                                                                            lon = window.localStorage.getItem("lon");
-
-                                                                                        });
+    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+        lat = position.coords.latitude;                                  
+        lon = position.coords.longitude;
+    }
+                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                 lat = window.localStorage.getItem("lat");
+                                                 lon = window.localStorage.getItem("lon");
+                                             });
     var latlng = new google.maps.LatLng(
         lat,
         lon);
-  //  if (!initialized) {
-        var mapOptions = {
-            sensor: true,
-            center: latlng,
-            panControl: false,
-            zoomControl: true,
-            zoom: 16,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            streetViewControl: false,
-            mapTypeControl: true,
+    //  if (!initialized) {
+    var mapOptions = {
+        sensor: true,
+        center: latlng,
+        panControl: false,
+        zoomControl: true,
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        streetViewControl: false,
+        mapTypeControl: true,
  
-        };
+    };
  
-        var map = new google.maps.Map(
-            document.getElementById('map_canvas1'),
-            mapOptions
-            );
+    var map = new google.maps.Map(
+        document.getElementById('map_canvas1'),
+        mapOptions
+        );
             
-        initialized = true;
-//}
+    initialized = true;
+    //}
  
     var marker = new google.maps.Marker({
                                             position: latlng,
@@ -86,6 +82,7 @@ function mapInitialize() {
 }
 
 function getSupportEmailA() {
+    alert("Suppotr");
     window.plugins.socialsharing.shareViaEmail(
         '', 
         'isme By Jumeirah', ["isme@jumeirah.com"], 
@@ -559,40 +556,7 @@ function postLoginBackOne() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
-                                           socialsharingFacebook: function () {
-                                               window.plugins.socialsharing.shareViaFacebook(null, window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"), function () {
-                                               }, function (errormsg) {
-                                               })
-                                           },
-
-                                           socialsharingTwitter:  function () {
-                                               window.plugins.socialsharing.shareViaTwitter("sharingSocialView.social_shortmsg" + "\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email", null, "Download the Mobile App at " + window.localStorage.getItem("appad_location"))
-                                           },
-
-                                           socialsharingWhatsApp: function () {
-                                               window.plugins.socialsharing.shareViaWhatsApp("sharingSocialView.social_shortmsg" + "\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email", null, "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), function () {
-                                               }, function (errormsg) {
-                                               })
-                                           },
-
-                                           socialsharingSMS: function () {
-                                               window.plugins.socialsharing.shareViaSMS("sharingSocialView.social_shortmsg" + "\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email" + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), null, function (msg) {
-                                               }, function (msg) {
-                                               })
-                                           },
-        
-                                           socialsharingEmail:  function () {
-                                               window.plugins.socialsharing.shareViaEmail(
-                                                   "sharingSocialView.social_message" + "\n\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email" + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
-                                                   "sharingSocialView.social_shortmsg", null, null, null, // TO: must be null or an array
-                                                   null, // FILES: can be null, a string, or an array
-                                                   function (msg) {
-                                                   }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
-                                                   function (msg) {
-                                                   } // called when sh*t hits the fan
-                                                   );
-                                           },        
-                                         
+                                           
                                                              
                                            showBrandPage
                                            : function () {

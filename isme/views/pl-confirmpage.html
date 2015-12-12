@@ -1,45 +1,32 @@
-<div data-role="view" data-title="Offer Activated" data-layout="pl-back-layout" id="receipt-view" data-model="postLogin" data-show="postLogin.confirmIssueResponse" >
-    <header data-role="header">
-        <div data-role="navbar">
-            <span data-role="view-title"></span>
-        </div>
-    </header>
-     
+<div data-role="view" data-title="Offer Activated" data-layout="pl-back3-layout" id="pl-confirmpage-view" data-model="postLogin">
+
     <ul data-role="listview"   style="background-color:#fff">
-        <div class="hero-image">                        <img id="offerimage" src="images/largeihglogoimage.png" class="img-hero"/></div>
+        <div class="hero-image">
+            <img id="offerimage" src="images/large_logo_placeholder.png" class="img-hero"/>
+        </div>
         <li>
             <div style="width:100%;position:relative;float:left">
-            <div class="mycard-detail-holder-label whitecolor">Voucher #:</div>
-            <div class="mycard-detail-holder-data  whitecolor" id="offer-1"></div>
+                <div class="mycard-detail-holder-label whitecolor">Voucher #:</div>
+                <div class="mycard-detail-holder-data  whitecolor" id="offer-1">999999999999</div>
 
-            <div class="mycard-detail-holder-label  whitecolor">Offer:</div>
-            <div class="mycard-detail-holder-data  whitecolor" id="offer-2" style="height:3em;line-height:1.5em"></div>
-  
-               </div>
+                <div class="mycard-detail-holder-label  whitecolor">Offer:</div>
+                <div class="mycard-detail-holder-data  whitecolor" id="offer-2" style="height:3em;line-height:1.5em">Emirates BOGOF offer</div>
+
+            </div>
             <br>
         </li>
         <li>
-            <div class="fulljustify">
-               This offer has now been loaded in the My Wallet section.
+            <div class="fulljustify" style="color:#000">
+                This offer has now been loaded in the My Wallet section.
             </div>
         </li>
-          <li>
-			<div class="button-frame">
-				 <a data-transition="slide"   data-role="button" href="views/pl-myprofile.html"  >Home</a>
-			</div>
-		</li>
-        <li></li>
+        <DIV>
+            <LI></LI>
+        </DIV>
     </ul>
-    
-      <footer data-role="footer">
+ 
+    <div class="button-frame-inline">
+        <a  data-role="button" href="views/pl-home.html"  data-transition="slide:up"  id="redeem-button">Home</a>
+    </div>
 
-        <div data-role="navbar">
-            <div class="home-navbar" >
-                <div class="home-navbar-text">&nbsp;&nbsp;Strengthen the relationships that matter most</div>
-            </div>
-                    <div class="footer-logo" data-bind="click:plshowBrandPage">&nbsp;</div>
-
-
-        </div>
-    </footer>
 </div>
