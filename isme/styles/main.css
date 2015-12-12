@@ -2125,7 +2125,7 @@ tile-frame-inner
      float:none;
      display:block;
      width:100%;
-     background-color:rgba(246,13,36,0.3) !important;
+     background-color:rgba(0,0,0,0.3) !important;
     }
 
 #mvwait .spin-div .spin-div1{
@@ -2135,8 +2135,9 @@ tile-frame-inner
     height:40px;
      width:40px;
     border-radius:5px;
-    margin: auto;
+    margin:45% auto;
      background-color:#000 !important;
+    z-index:10000;
     }
 
 .photo1 { background: url(../images/001.png) no-repeat center center; }
