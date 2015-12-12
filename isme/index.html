@@ -32,7 +32,63 @@
     <body>
 
         <div data-role="layout" data-id="pl-back2-layout">
+            <header data-role="header">
+                <div data-role="navbar">
+                    <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff" data-click="postLoginBackOne">
+                    </a>
+                    <span data-role="view-title"></span>
+                    <a data-role="button" data-click="shareClick" data-align="right" >
+                        <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
+                    </a>
+                </div>
+                <div class="sharehead">
+                    <div class="home-page-holder"></div>
+                    <div class="class-share-div">
+                        <div class="share-menu-line-1">
+                            <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
+                            <div class="button-frame-inline-round">
+                                <a id="btn-facebook" data-role="button" data-click="faceBookClick">
+                                    <i class="fa fa-facebook fa-2x  share-class"></i>
+                                </a>
+                            </div>
+                            <div class="button-frame-inline-round">
+                                <a id="btn-twitter" data-role="button" data-click="twitterClick">
+                                    <i class="fa fa-twitter fa-2x   share-class"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
+                        <div class="share-menu-line-1">
+                            <div class="button-frame-inline-round">
+                                <a id="btn-whatsapp" data-role="button"  data-click="whatsappClick">
+                                    <i class="fa fa-whatsapp fa-2x   share-class"></i>
+                                </a>
+                            </div>
+                            <div class="button-frame-inline-round">
+                                <a id="btn-email" data-role="button" data-click="emailClick">
+                                    <i class="fa fa-envelope fa-2x   share-class"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="share-menu-line-2">
+                            <a  data-click="shareClick" data-role="button" style="border:0px !important;background-color:transparent" class="mymenu">
+                                <i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>
+                            </a>
+                        </div>
+                    </div>
 
+                </div>
+            </header>
+
+            <footer data-role="footer">
+
+                <div data-role="tabstrip" style="background-color:#000" data-selected-index="5">
+                    <a id="outlet1" class="fa" data-icon="customstar"  data-role="button" data-rel="modalview" href="#modalviewstar"></a>
+                    <a id="outlet2" class="fa" data-icon="customlocation" data-role="button" data-click="alert('fgfgfg')"></a>
+                    <a id="outlet3" class="fa" data-icon="customenvelope" data-role="button" data-click="supportEmailA" ></a>
+                    <a id="outlet4" class="fa" data-icon="customcall"  data-role="button" data-click="customerCare"></a>
+                </div>
+            </footer>
         </div>
 
         <div data-role="layout" data-id="pl-back-layout">
@@ -193,8 +249,8 @@
                         <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
                     </a>
                 </div>
-                <div class="sharehead"> 
-                 <div class="home-page-holder"></div>
+                <div class="sharehead">
+                    <div class="home-page-holder"></div>
                     <div class="class-share-div">
                         <div class="share-menu-line-1">
                             <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
@@ -229,15 +285,14 @@
                         </div>
                     </div>
 
-
-</div>
+                </div>
             </header>
 
             <footer data-role="footer">
 
                 <div data-role="tabstrip" style="background-color:#000" data-selected-index="5">
                     <a id="outlet1" class="fa" data-icon="customstar"  data-role="button" data-rel="modalview" href="#modalviewstar"></a>
-                    <a id="outlet2" class="fa" data-icon="customlocation" data-role="button" data-click="getLocation1"></a>
+                    <a id="outlet2" class="fa" data-icon="customlocation" data-role="button" data-click="alert('fgfgfg')"></a>
                     <a id="outlet3" class="fa" data-icon="customenvelope" data-role="button" data-click="supportEmailA" ></a>
                     <a id="outlet4" class="fa" data-icon="customcall"  data-role="button" data-click="customerCare"></a>
                 </div>
@@ -778,9 +833,10 @@
         z-index: 10000;
     }
     
-    .mymenu-style{
-                width: 100%;
-         background-color: #000;
+    .mymenu-style
+    {
+        width: 100%;
+        background-color: #000;
         color: #fff;
         border: 1px solid #000 !important;
     }
@@ -797,5 +853,4 @@
         border: #fff solid 1px; 
     }     
 </style>
-    
-    
+
