@@ -264,13 +264,15 @@ function closeCeleberationTypeView() {
 }
 
 function shareClick() {
+       elems = document.getElementsByClassName('foot');
+    if (elems.length > 0) {
+        for (i = 0; i < elems.length; i++) {
+            elems[i].style.display = 'none';
+        }
+    }
     $(".sharehead").slideToggle("slow");
       
-    elems = document.getElementsByClassName('sharehead');
-
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.zIndex = -10000;
-    }  
+   
 }
 
 function plHomeClick() {
@@ -312,11 +314,7 @@ function cardClick() {
     }
     $(".cardhead").slideToggle("slow");
    
-    elems = document.getElementsByClassName('cardhead');
-
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.zIndex = -10000;
-    }  
+   
 }
 
 function loadMyProfile() {

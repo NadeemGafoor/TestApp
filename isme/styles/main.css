@@ -2048,7 +2048,7 @@ tile-frame-inner
     height: 300px;
     position: fixed;
     width: 100%;
-    z-index: 10000;
+    z-index: 100000;
     text-align: center;
     color: #fff;
     display: none;
@@ -2058,7 +2058,7 @@ tile-frame-inner
     margin-right: auto;
     margin-left: auto;
     top: 25px;
-    background: rgba(0, 0, 0, 0.8);
+    background: #000;
 }
 
 .progress-bar-holder
