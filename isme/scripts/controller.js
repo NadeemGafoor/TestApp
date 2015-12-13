@@ -276,7 +276,7 @@ function shareClick() {
     elems = document.getElementsByClassName('sharehead');
 
     for (i = 0; i < elems.length; i++) {
-        elems[i].style.zIndex = 10000;
+        elems[i].style.zIndex = -1000;
     }  
 }
 
@@ -322,7 +322,7 @@ function cardClick() {
     elems = document.getElementsByClassName('cardhead');
 
     for (i = 0; i < elems.length; i++) {
-        elems[i].style.zIndex = 10000;
+        elems[i].style.zIndex = -1000;
     }  
 }
 
@@ -1520,6 +1520,7 @@ function mvhide() {
         
                                            validateUser
                                            : function () {
+                                                window.localStorage.setItem("appopen", "0");   
                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html", "slide:up");  
                                                return;
                                                
