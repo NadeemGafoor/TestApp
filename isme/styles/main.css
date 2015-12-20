@@ -449,8 +449,8 @@ img
 
 .input-frame
 {
-    height: 4em;
-    line-height: 4em;
+    height: 2em;
+    line-height: 2em;
     width: 100%;
     padding-left: 15%;
     color: #fff;
@@ -469,8 +469,8 @@ img
 
 .input-frame-enrol label
 {
-    height: 3em;
-    line-height: 3em;
+    height: 2em;
+    line-height: 2em;
     width: 50%;
     text-align: left;
     color: #fff;
@@ -494,7 +494,7 @@ img
 {
     display: block;
     width: 90%;
-    height: 2.3em;
+    height: 2em;
     line-height: 2em;
     margin-left: 5%;
     background-color: transparent !important;
@@ -510,7 +510,7 @@ img
     float: none;
     display: block;
     width: 60%;
-    height: 2.3em;
+    height: 2em;
     line-height: 2em;
     border: none !important;
     margin: auto;
