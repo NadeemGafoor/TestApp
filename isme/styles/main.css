@@ -454,6 +454,7 @@ img
     width: 100%;
     padding-left: 15%;
     color: #fff;
+     border-bottom:2px solid #fff;
 }
 
 .input-frame-enrol
@@ -463,6 +464,7 @@ img
     width: 100%;
     padding-left: 15%;
     color: #fff;
+    border-bottom:2px solid #fff;
 }
 
 .input-frame-enrol label
@@ -494,7 +496,6 @@ img
     width: 90%;
     height: 2.3em;
     line-height: 2em;
-    border-bottom: 2px solid #fff;
     margin-left: 5%;
     background-color: transparent !important;
     color: #fff;
@@ -512,17 +513,11 @@ img
     height: 2.3em;
     line-height: 2em;
     border: none !important;
-    border-bottom: 2px solid #fff !important;
     margin: auto;
     background-color: transparent !important;
     color: #fff;
     text-align: center;
     left: 0;
-}
-
-pl-setting-theme .input-frame-enrol input
-{
-    color: #000;
 }
 
 #pl-myvoucherdetail-theme .switch-frame-voucher 
