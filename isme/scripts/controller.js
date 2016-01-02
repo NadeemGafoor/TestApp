@@ -381,6 +381,23 @@ function cardClick() {
     }  
 }
 
+function loadExploreDetail() {
+    plHomeClick();
+
+    if (window.localStorage.getItem("appopen") != "1") {
+        window.plugins.nativepagetransitions.slide({
+                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                       'direction': 'up',
+                                                       'href': '#views/pl-branddetail.html'
+                                                   });
+        window.localStorage.setItem("appopen", "1");   
+    }
+}
+
 function loadMyProfile() {
     plHomeClick();
 
