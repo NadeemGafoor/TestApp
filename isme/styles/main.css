@@ -1840,6 +1840,18 @@ tile-frame-inner
     margin-left:2%; 
 }
 
+.detail-text
+{
+    position:relative;
+    float:none;
+    width:95%;
+    height: 25%;
+    line-height: 25px;
+    font-size: 1em;
+    color: #fff;
+    text-align: left; 
+}
+
 .general-text-line
 {
     width: 80%;
