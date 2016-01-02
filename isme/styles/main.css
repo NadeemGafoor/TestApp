@@ -71,15 +71,16 @@ a
     font-size: 1em;
 }
 
+
 ul a:active
 {
-    background-color: #000 !important;
+    background-color: transparent !important;
     color: #ccc;
 }
 
 a:active
 {
-    background-color: #000 !important;
+    background-color: transparent !important;
     color: #fff;
 }
 #benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content, #pl-myvoucherdetail-theme .km-content, #pl-benefit-theme .km-content, #mymessagelist-theme .km-content, #messageitem-theme .km-content, #pl-setting-theme .km-content,
@@ -459,10 +460,9 @@ img
 
 .input-frame-enrol
 {
-    height: 2em;
-    line-height: 2em;
+    height: 2.4em;
+    line-height: 2.4em;
     width: 100%;
-    padding-left: 15%;
     color: #fff;
     border-bottom:2px solid #fff;
 }
@@ -493,10 +493,10 @@ img
 #pl-myprofile-theme .input-frame input
 {
     display: block;
-    width: 90%;
+    width: 80%;
     height: 2em;
     line-height: 2em;
-    margin-left: 5%;
+    margin-left: 10%;
     background-color: transparent !important;
     color: #fff;
 }
@@ -754,7 +754,8 @@ img
 {
     position: relative;
     width: 70%;
-    height: auto;
+    height: 2.5em;
+    line-height:2.5em;
     float: none;
     left: 15%;
 }

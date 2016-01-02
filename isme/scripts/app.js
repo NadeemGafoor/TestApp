@@ -33,7 +33,6 @@ var currentDevice;
                                                platform: 'ios7',
                                                layout:'main-layout',
                                                initial: "views/home.html",
-                                               //initial: "views/home.html",
                                                useNativeScrolling: false
                                            });
         
