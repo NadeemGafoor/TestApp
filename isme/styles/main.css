@@ -467,7 +467,7 @@ img
     border-bottom:2px solid #fff;
 }
 
-.input-frame-enrol label
+.input-frame-enrol label 
 {
     height: 2em;
     line-height: 2em;
@@ -488,7 +488,7 @@ img
 #pl-setting-theme .input-frame-enrol input,
 #enrol-theme .input-frame-enrol input,
 #token-theme .input-frame input,
-#login-theme .input-frame input,
+#login-theme .input-frame-enrol input,
 #resetpassword-theme .input-frame input,
 #pl-myprofile-theme .input-frame input
 {
