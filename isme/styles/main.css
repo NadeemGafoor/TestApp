@@ -9,6 +9,7 @@
 a
 {
     text-decoration: none;
+    color:#fff;
 }
 
 .km-ios7 .km-listview
@@ -643,6 +644,12 @@ img
     border-radius: 35px;
 }
 
+.invert .km-button
+{
+    background-color:rgba(0,0,0,.5);
+    color:#fff;
+}
+
 .button-frame .km-button
 {
     line-height: 30px;
@@ -832,6 +839,7 @@ img
     white-space: -o-pre-wrap; /* Opera 7 */    
     text-align: justify !important;
     text-justify: inter-word;
+    color:#000;
 }
 
 .gen-text
