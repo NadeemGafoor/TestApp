@@ -458,7 +458,7 @@ img
      border-bottom:2px solid #fff;
 }
 
-.input-frame-enrol
+.input-frame-enrol 
 {
     height: 2.4em;
     line-height: 2.4em;
@@ -493,10 +493,9 @@ img
 #pl-myprofile-theme .input-frame input
 {
     display: block;
-    width: 80%;
+    width: 90%;
     height: 2em;
     line-height: 2em;
-    margin-left: 10%;
     background-color: transparent !important;
     color: #fff;
 }
