@@ -163,6 +163,16 @@
     background-color: transparent;
 }
 
+.logo-top-list
+{
+    height: 250px;
+    width: 100%;
+    display: block;
+    position: relative;
+    float: none;
+    background-color: transparent;
+}
+
 .pl-logo-top
 {
     height: 550px;

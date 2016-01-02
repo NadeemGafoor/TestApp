@@ -255,6 +255,18 @@
     float: none;
     background-color: transparent;
 }
+
+.logo-top-list
+{
+    height: 175px;
+    width: 100%;
+    display: block;
+    position: relative;
+    float: none;
+    background-color: transparent;
+}
+
+
  .filler
     {
         height: 10px;

@@ -187,6 +187,16 @@
     background-color: transparent;
 }
 
+.logo-top-list
+{
+    height: 200px;
+    width: 100%;
+    display: block;
+    position: relative;
+    float: none;
+    background-color: transparent;
+}
+
 .pl-logo-top
 {
     height: 450px;

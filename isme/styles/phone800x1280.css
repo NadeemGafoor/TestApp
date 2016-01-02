@@ -220,6 +220,17 @@
     background-color:transparent;
 }
 
+.logo-top-list
+{
+    height: 40px;
+    width: 100%;
+    display:block;
+    position:absolute;
+    float: none;
+    background-color: transparent;
+}
+
+
  .discover-back-height{
       height:1200px;
     }

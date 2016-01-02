@@ -8,6 +8,26 @@
     font-size:1em;
     line-height:1em;
 }
+.logo-top
+{
+    height: 70%;
+    width:100%;
+    display:block;
+    position:absolute;
+    float:none;
+    background-color:transparent;
+}
+
+.logo-top-list
+{
+    height: 40px;
+    width: 100%;
+    display:block;
+    position:absolute;
+    float: none;
+    background-color: transparent;
+}
+
 
 .home-pos 
     {
