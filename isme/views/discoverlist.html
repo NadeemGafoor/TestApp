@@ -1,5 +1,6 @@
 <!--Explore View-->
 <div data-role="view" data-title="Discover" data-layout="back-layout" id="discoverlist-view"  data-model="preLogin" data-stretch="true" data-after-show="preLogin.showDiscoveryList">
+    
     <div data-role="header">
         <div data-role="navbar">
              <a data-role="button" href="views/home.html"  data-align="left" style="color:#fff" data-icon="back" data-transition="slide"></a>
@@ -7,15 +8,21 @@
             <span data-role="view-title" id="item-title"></span>
         </div>
           </div>
-
-        <div >
-             <a href="views/aboutisme.html"  data-transition="slide:up" ><div class="discover-back-part discover-back-height-2">isme</div></a>
-              <a href="views/brandlist.html" data-transition="slide:up"><div class="discover-back-part discover-back-height-2">Explore<br>our Brands</div></a>
-                <a href="views/benefitdetail.html" data-transition="slide:up">     <div class="discover-back-part discover-back-height-2">Program<br>Benefits</div> </a>
-               <a href="views/offerlist.html"  data-transition="slide:up"><div class="discover-back-part discover-back-height-2">On-going<br>Offers</div> </a>
+    <div>
+        <div class="logo-top">
+           
         </div>
 
-      
+        <div class="button-frame">
+            <a id="btnDiscover" data-role="button" data-click="loadDiscover" style="color:#fff">Explore</a>
+            <div class="filler"></div>
+            <a  id="btnLogin" data-role="button" data-click="loadLogin" style="color:#fff">Benefits</a>
+            <div class="filler"></div>
+            <a  id="btnEnrol" data-role="button" data-click="loadEnrol" style="color:#fff">Rewards</a>
+
+        </div>
+
+</div>      
   
 </div>
 

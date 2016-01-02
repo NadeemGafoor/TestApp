@@ -606,6 +606,7 @@ img
 
 .button-frame-inline .km-button
 {
+    color:#fff;
     line-height: 30px;
     width: 80%;
     display: block;
@@ -730,9 +731,10 @@ img
 
 .switch-frame
 {
-    height: 2em;
+    line-height: 3em;
     width: 100%;
     float: none;
+
 }
 
 .switch-frame-voucher
@@ -753,8 +755,8 @@ img
 {
     position: relative;
     width: 70%;
-    height: 2.5em;
-    line-height:2.5em;
+    height: 3em;
+    line-height:3em;
     float: none;
     left: 15%;
 }
