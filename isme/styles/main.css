@@ -6,6 +6,7 @@
 @font-face { font-family: 'Gotham-LightItalic'; src: url('../styles/fonts/Gotham-Book.otf')  format('opentype'); } /* Safari, Android, iOS */
 @font-face { font-family: 'Georgia'; src: url('../styles/fonts/Georgia.ttf')  format('truetype'); } /* Safari, Android, iOS */
 
+hr { background-color: #b6b2b4; height: 1px; border: 0; }
 a
 {
     text-decoration: none;
@@ -1799,28 +1800,28 @@ tile-frame-inner
 .voucher-text
 {
     position:relative;
-    float:left;
-    width:100%;
+    float:none;
+    width:95%;
     height: 50%;
     font-size: 1.2em;
     line-height: 25px;
     color: #fff;
-    text-align: left; 
-    margin-left:5%; 
-    margin-right:5%;
+  text-align: justify !important;
+    text-justify: inter-word;
+    margin-left:2%; 
 }
 
 .expiry-text
 {
     position:relative;
-    float:left;
-    width:100%;
+    float:none;
+    width:95%;
     height: 25%;
     line-height: 25px;
     font-size: 1em;
     color: #fff;
     text-align: left; 
-    margin-left:5%; 
+    margin-left:2%; 
 }
 
 .general-text-line
@@ -2137,6 +2138,16 @@ tile-frame-inner
 .height-80 .km-button{
     background-color:rgba(255,255,255,.2);
 }
+
+  .a-group .km-button
+    {
+        line-height:30px;
+        height:30px;
+        -webkit-border: #fff solid 0px;
+        -moz-border: #fff solid 0px;
+        border: #fff solid 0px;
+   
+    }
 
 
 .photo1 { background: url(../images/001.png) no-repeat center center; }
