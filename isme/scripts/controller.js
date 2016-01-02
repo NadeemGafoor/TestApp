@@ -327,7 +327,7 @@ function shareClick() {
     }
     
     $(".sharehead").slideToggle("slow");
-      
+       
     elems = document.getElementsByClassName('sharehead');
 
     for (i = 0; i < elems.length; i++) {
@@ -342,7 +342,7 @@ function plHomeClick() {
             elems[i].style.display = 'none';
         }
     }
-    $(".foot").slideToggle("slow");
+    $(".foot").slideToggle("slow"); 
   
     elems = document.getElementsByClassName('mymenu1');
 
@@ -361,6 +361,14 @@ function plHomeClick() {
 
     for (i = 0; i < elems.length; i++) {
         elems[i].style.zIndex = -10000;
+    }  
+    
+     $(".sharehead").slideUp("slow");
+      
+    elems = document.getElementsByClassName('sharehead');
+
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.zIndex = -1000;
     }  
 
 }
