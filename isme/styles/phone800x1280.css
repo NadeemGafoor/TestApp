@@ -38,7 +38,7 @@
 
   .hero-image
     {
-        height: 600px;
+        height: 400px;
         width: 100%;
         display: inline-block;
          background-image: url(../images/large_logo_placeholder.png);
