@@ -158,7 +158,7 @@
     width: 100%;
     display: block;
     position: relative;
-    float: none;
+    float: none; 
     background-color: transparent;
 }
 

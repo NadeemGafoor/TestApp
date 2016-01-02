@@ -1839,7 +1839,6 @@ tile-frame-inner
     width: 80%;
     margin-left: 10%;
     font-size: 1.2em;
-    color: #fff;
     text-align: left; 
     height: 25px;
     line-height: 25px;
@@ -2089,15 +2088,26 @@ tile-frame-inner
 {
     position: relative;
     float: none;
-    margin-left: 25%;
     background-color: transparent !important;
     border-radius: 5px;
     height: 25px;
     line-height: 25px;
-    width: 75%; 
-    color: #fff;
     font-size: .8em;
     text-align: left;
+}
+
+.a25-percent{
+    margin-left:25%;
+    width:75%;
+}
+
+
+.cwhite{
+    color:#fff;
+}
+
+.cblack{
+    color:#000;
 }
 
 .hanging-icon
