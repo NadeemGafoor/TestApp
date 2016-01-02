@@ -538,9 +538,16 @@ function postLoginBack() {
         elems[i].style.display = 'none';
     }  
     elems = document.getElementsByClassName('foot');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.display = 'none';
-    }  
+       for (i = 0; i < elems.length; i++) {
+        if (elems[i].innerHTML === '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>') {
+            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+        } else {
+            elems[i].innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
+        }  
+        elems[i].style.width = "100%";
+        elems[i].style.zIndex = 10000;
+        elems[i].style.textAlign = "center";
+    }
     window.localStorage.setItem("appopen", "0");   
     window.plugins.nativepagetransitions.slide({
                                                    'direction': 'right',
