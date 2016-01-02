@@ -1,5 +1,5 @@
 <div data-role="view"  data-title="Program Benefits" data-layout="back3-layout" id="benefit-theme" data-init="initButtonGroup" data-model="preLogin" >
-    <ul data-role="buttongroup" data-index="0" id="offertab" class="button-group a-group">
+    <ul data-role="buttongroup" data-index="0" id="benefitdetailtab" class="button-group a-group">
         <li>
             isme
         </li>
@@ -55,7 +55,7 @@
     function initButtonGroup() {
         var listviews = this.element.find("ul.km-listview");
 
-        $("#offertab").kendoMobileButtonGroup({
+        $("#benefitdetailtab").kendoMobileButtonGroup({
                                                   select: function (e) {
                                                       listviews.hide()
                                                           .eq(e.index)

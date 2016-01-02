@@ -1,3 +1,16 @@
+  function showConfirm() {
+        navigator.notification.confirm(
+            'Please enrol or login to activate this reward.',  // message
+            onConfirm,              // callback to invoke with index of button pressed
+            'isme by Jumeirah',            // title
+            'Login,Enrol'          // buttonLabels
+        );
+    }
+
+
+function onConfirm(buttonIndex) {
+        alert('You selected button ' + buttonIndex);
+    }
 
 
 
