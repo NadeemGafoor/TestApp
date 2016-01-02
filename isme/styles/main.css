@@ -410,6 +410,14 @@ img
     text-align: center;
 }
 
+
+.button-group
+{
+    background-color: #ccc;
+    width: 100%;
+    border: 0px solid #000;
+}
+
 .button-group-single-isme 
 {
     margin-top: 5px;
@@ -431,7 +439,7 @@ img
 }
 .button-group .km-button.km-state-active .km-text
 {
-    color: rgb(80, 80, 80);
+    color: rgb(255, 255, 255);
 }
 .button-group .km-button.km-state-active
 {
