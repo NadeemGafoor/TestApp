@@ -20,6 +20,21 @@
         background-color:#e9e5dc;
      }
 
+.logo-image-holder
+{
+    height:250px;
+    width:100%;
+    margin:10px auto;
+    background: url(../images/home_page_logo.png) no-repeat center center;
+}
+
+.pl-logo-image-holder
+{
+    height:250px;
+    width:100%;
+    margin:10px auto;
+    background: url(../images/home_page_logo_black.png) no-repeat center center;
+}
 
     .brand-image-pos
     {

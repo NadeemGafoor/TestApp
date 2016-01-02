@@ -290,6 +290,14 @@
     background: url(../images/home_page_logo.png) no-repeat center center;
 }
 
+.pl-logo-image-holder
+{
+    height:200px;
+    width:100%;
+    margin:10px auto;
+    background: url(../images/home_page_logo_black.png) no-repeat center center;
+}
+
 .home-page-holder
 {
     height:40px;

@@ -9,7 +9,12 @@
 
 
 function onConfirm(buttonIndex) {
-        alert('You selected button ' + buttonIndex);
+        if (buttonIndex===1){
+            loadLogin();
+            
+        } else{
+            loadEnrol();
+        }
     }
 
 
