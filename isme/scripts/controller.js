@@ -333,6 +333,17 @@ function shareClick() {
     for (i = 0; i < elems.length; i++) {
         elems[i].style.zIndex = -1000;
     }  
+    
+     elems = document.getElementsByClassName('mymenu1');
+
+    for (i = 0; i < elems.length; i++) {
+             elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+        
+        elems[i].style.width = "100%";
+        elems[i].style.zIndex = 10000;
+        elems[i].style.textAlign = "center";
+    }
+    
 }
 
 function plHomeClick() {
@@ -387,12 +398,21 @@ function cardClick() {
     for (i = 0; i < elems.length; i++) {
         elems[i].style.zIndex = -1000;
     }  
+    
+     elems = document.getElementsByClassName('mymenu1');
+
+    for (i = 0; i < elems.length; i++) {
+             elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+        
+        elems[i].style.width = "100%";
+        elems[i].style.zIndex = 10000;
+        elems[i].style.textAlign = "center";
+    }
 }
 
 function loadExploreDetail() {
-    plHomeClick();
-
-    if (window.localStorage.getItem("appopen") != "1") {
+           doOneBack();
+    if (window.localStorage.getItem("appopen") != "10") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -402,7 +422,7 @@ function loadExploreDetail() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-branddetail.html'
                                                    });
-        window.localStorage.setItem("appopen", "1");   
+        window.localStorage.setItem("appopen", "10");   
     }
 }
 
@@ -538,16 +558,19 @@ function postLoginBack() {
         elems[i].style.display = 'none';
     }  
     elems = document.getElementsByClassName('foot');
-       for (i = 0; i < elems.length; i++) {
-        if (elems[i].innerHTML === '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>') {
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.display = 'none';
+    } 
+    
+    elems = document.getElementsByClassName('mymenu1');
+
+    for (i = 0; i < elems.length; i++) {
             elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-        } else {
-            elems[i].innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
-        }  
-        elems[i].style.width = "100%";
+              elems[i].style.width = "100%";
         elems[i].style.zIndex = 10000;
         elems[i].style.textAlign = "center";
     }
+    
     window.localStorage.setItem("appopen", "0");   
     window.plugins.nativepagetransitions.slide({
                                                    'direction': 'right',
@@ -564,6 +587,22 @@ function doOneBack(){
     elems = document.getElementsByClassName('foot');
     for (i = 0; i < elems.length; i++) {
         elems[i].style.display = 'none';
+    }  
+    
+      elems = document.getElementsByClassName('mymenu1');
+      for (i = 0; i < elems.length; i++) {
+            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+              elems[i].style.width = "100%";
+        elems[i].style.zIndex = 10000;
+        elems[i].style.textAlign = "center";
+    }
+    
+      $(".sharehead").slideUp("slow");
+      
+    elems = document.getElementsByClassName('sharehead');
+
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.zIndex = -1000;
     }  
     window.localStorage.setItem("appopen", "0");  
 }
