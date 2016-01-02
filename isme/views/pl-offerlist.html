@@ -4,7 +4,7 @@
      data-title="Offers" data-layout="pl-back-layout"  data-model="preLogin">
     <div data-role="header">
         <div data-role="navbar">
-            <a data-transition="slide"   data-role="button" href="views/pl-home.html" data-align="left" style="color:#fff"  data-icon="back"></a>
+            <a data-role="button" data-click="postLoginBack"  data-align="left" style="color:#fff" data-icon="back"></a>
             <span data-role="view-title"></span>
            <a  data-role="button" data-click="offerFilterView" data-align="right" >
                 <i class="fa fa-filter fa-lg" style="color:#fff"></i>
@@ -16,48 +16,63 @@
     </div>
 
     <ul data-role="listview"  >
-        <a href="views/pl-offerdetail.html" data-transition="slide:left">
-            <div class="offer-frame-1  outer-frame image-enhancer">
-                <div class="box-text">Emirates Airline Offer</div>
-            </div>
-        </a>
-        <a href="views/pl-offerdetail.html" data-transition="slide:left">
-            <div class="offer-frame-2  outer-frame image-enhancer" >
-                <div class="box-text">Couple Dinner</div>
-            </div>
-        </a>
-        <a href="views/pl-offerdetail.html" data-transition="slide:left">
 
-            <div class="offer-frame-3  outer-frame image-enhancer ">
-                <div class="box-text">Night Out at Rays Grill</div>
-            </div>
-        </a>
-
-        <div class="offer-frame-4  outer-frame image-enhancer ">
-            <div class="box-text">Family Day at Al Maraa</div>
+        <div class="outer-frame">
+            <div class="voucher-text">Buy One Get One Free Lunch at Arboretum, Madinat Jumeirah</div>
+            <div class="expiry-text">Expiry: 31/05/2016</div>
+            <a data-click="loadOfferDetail">
+                <div class="expiry-text">View Details</div>
+            </a>
         </div>
-
-        <div class="offer-frame-5 outer-frame image-enhancer ">
-            <div class="box-text">UAE National Day Celebration</div>
+        <hr/>
+         <div class="outer-frame">
+            <div class="voucher-text">Buy One Get One Free Lunch at Arboretum,  Madinat Jumeirah</div>
+            <div class="expiry-text">Expiry: 31/05/2016</div>
+            <a data-click="loadOfferDetail">
+                <div class="expiry-text">View Details</div>
+            </a>
         </div>
-
-        <div class="offer-frame-6 image-enhancer outer-frame">
-            <div class="box-text">Dinner at Alfies Interior</div>
+                <hr/>
+         <div class="outer-frame">
+            <div class="voucher-text">Buy One Get One Free dish of the day at Le Beirut, Jumeirah Etihad Towers</div>
+            <div class="expiry-text">Expiry: 31/05/2016</div>
+            <a data-click="loadOfferDetail">
+                <div class="expiry-text">View Details</div>
+            </a>
         </div>
-
-        <div class="offer-frame-7 image-enhancer outer-frame">
-            <div class="box-text">Tea Time Offer at Lobby Lounge</div>
+                <hr/>
+         <div class="outer-frame">
+            <div class="voucher-text">Buy One Get One Free Lunch at Arboretum, Madinat Jumeirah</div>
+            <div class="expiry-text">Expiry: 31/05/2016</div>
+            <a data-click="loadOfferDetail">
+                <div class="expiry-text">View Details</div>
+            </a>
         </div>
-        <div class="offer-frame-8 image-enhancer outer-frame">
-            <div class="box-text">Lunch at Arboretum</div>
+                <hr/>
+         <div class="outer-frame">
+        <div class="voucher-text">Buy One Get One Free dish of the day at Le Beirut, Jumeirah Etihad Towers</div>
+            <div class="expiry-text">Expiry: 31/05/2016</div>
+            <a data-click="loadOfferDetail">
+                <div class="expiry-text">View Details</div>
+            </a>
         </div>
-        <div class="offer-frame-9 image-enhancer outer-frame">
-            <div class="box-text">Weekend Brunch Offer</div>
+                <hr/>
+         <div class="outer-frame">
+            <div class="voucher-text">Emirates Skywards 2000 Bonus Miles</div>
+            <div class="expiry-text">Expiry: 31/05/2016</div>
+            <a data-click="loadOfferDetail">
+                <div class="expiry-text">View Details</div>
+            </a>
         </div>
-        <div class="offer-frame-10 image-enhancer outer-frame">
-            <div class="box-text">Morrocon Night at Al Iwan</div>
+                <hr/>
+         <div class="outer-frame">
+            <div class="voucher-text">Buy One Get One Free Lunch at Arboretum, Madinat Jumeirah</div>
+            <div class="expiry-text">Expiry: 31/05/2016</div>
+            <a data-click="loadOfferDetail">
+                <div class="expiry-text">View Details</div>
+            </a>
         </div>
-
+                <hr/>
     </ul>
 </div>
 

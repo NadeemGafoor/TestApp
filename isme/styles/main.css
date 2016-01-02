@@ -99,7 +99,10 @@ a:active
 }
 
 #outletlist-theme .km-content,
-#offerdetail-theme .km-content
+#offerdetail-theme .km-content,
+#pl-outletlist-theme .km-content,
+#pl-offerdetail-theme .km-content
+
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/barsdining_bg.png) no-repeat center center;
     background-size: cover;
@@ -107,14 +110,16 @@ a:active
 }
 
 
-#liesurelist-theme .km-content
+#liesurelist-theme .km-content,
+#pl-liesurelist-theme .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/liesure_bg.png) no-repeat center center;
     background-size: cover;
     -webkit-background-size: cover;
 }
 
-#offerlist-view .km-content
+#offerlist-view .km-content,
+#pl-offerlist-view .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/rewards_bg.png) no-repeat center center;
     background-size: cover;
@@ -145,7 +150,8 @@ a:active
     color: #fff;
 }
 
-#explorelist-view .km-content
+#explorelist-view .km-content,
+#pl-explorelist-view .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/discover_bg.png) no-repeat center center;
     background-size: cover;
