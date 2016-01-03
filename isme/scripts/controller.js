@@ -319,6 +319,15 @@ function closeCeleberationTypeView() {
 }
 
 function shareClick() {
+       $(".cardhead").slideUp("slow");
+    
+     elems = document.getElementsByClassName('cardhead');
+    if (elems.length > 0) {
+        for (i = 0; i < elems.length; i++) {
+            elems[i].style.display = 'none';
+        }
+    }
+    
      elems = document.getElementsByClassName('foot');
     if (elems.length > 0) {
         for (i = 0; i < elems.length; i++) {
@@ -347,6 +356,7 @@ function shareClick() {
 }
 
 function plHomeClick() {
+     $(".cardhead").slideUp("slow");
     elems = document.getElementsByClassName('cardhead');
     if (elems.length > 0) {
         for (i = 0; i < elems.length; i++) {
@@ -385,6 +395,15 @@ function plHomeClick() {
 }
 
 function cardClick() {
+    
+       $(".sharehead").slideUp("slow");
+    elems = document.getElementsByClassName('sharehead');
+    if (elems.length > 0) {
+        for (i = 0; i < elems.length; i++) {
+            elems[i].style.display = 'none';
+        }
+    }
+    
     elems = document.getElementsByClassName('foot');
     if (elems.length > 0) {
         for (i = 0; i < elems.length; i++) {
