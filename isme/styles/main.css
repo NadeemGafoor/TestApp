@@ -1948,7 +1948,8 @@ tile-frame-inner
     position: relative;
     float: none;
     width: 100%;
-        background-color: rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 1);
+
 }
 
 .share-menu-line-3
