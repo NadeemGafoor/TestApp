@@ -1951,6 +1951,19 @@ tile-frame-inner
     margin-right:5px;
 }
 
+.share-menu-line-4{
+   height:20px;
+    line-height: 20px;
+    position: relative;
+    float: none;
+    width: 100%;
+    background-color:#fff;
+    color:#000;
+    display:block;
+    margin-left:5px;
+    margin-right:5px;  
+}
+
 .share-menu-line-3-a
 {
     width:30%;
@@ -1958,10 +1971,9 @@ tile-frame-inner
     line-height: 20px;
     position: relative;
     float: left;
-    width: 100%;
     background-color:transparent !important;
     color:#000;
-    display:block;
+    font-weight:bold;    
 }
 
 
@@ -2092,7 +2104,7 @@ tile-frame-inner
 
 .sharehead, .cardhead
 {
-    height: 300px;
+    height: 310px;
     position: fixed;
     width: 100%;
     z-index: 100000;
