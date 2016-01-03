@@ -390,7 +390,7 @@ function cardClick() {
         }
     }
   
-    $(".cardhead").slideDown("slow");
+    $(".cardhead").slideToggle("slow");
    
        
 }
