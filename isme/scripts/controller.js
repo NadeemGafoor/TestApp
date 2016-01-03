@@ -312,13 +312,7 @@ function closeCeleberationTypeView() {
 function shareClick() {
     $(".cardhead").slideUp("slow");
     
-    elems = document.getElementsByClassName('cardhead');
-    if (elems.length > 0) {
-        for (i = 0; i < elems.length; i++) {
-            elems[i].style.display = 'none';
-        }
-    }
-    
+  
    
     elems = document.getElementsByClassName('foot');
     if (elems.length > 0) {
@@ -327,7 +321,7 @@ function shareClick() {
         }
     }
     
-    $(".sharehead").slideToggle("slow");
+    $(".sharehead").slideDown("slow");
        
     elems = document.getElementsByClassName('sharehead');
 
@@ -348,13 +342,7 @@ function shareClick() {
 
 function plHomeClick() {
     $(".cardhead").slideUp("slow");
-    elems = document.getElementsByClassName('cardhead');
-    if (elems.length > 0) {
-        for (i = 0; i < elems.length; i++) {
-            elems[i].style.display = 'none';
-        }
-    }
-    
+     
    
     $(".foot").slideToggle("slow"); 
   
@@ -402,23 +390,9 @@ function cardClick() {
         }
     }
   
-    $(".cardhead").slideToggle("slow");
+    $(".cardhead").slideDown("slow");
    
-    elems = document.getElementsByClassName('cardhead');
-
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.zIndex = -1000;
-    } 
-
-    for (i = 0; i < elems.length; i++) {
-        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-        
-        elems[i].style.width = "100%";
-        elems[i].style.zIndex = 10000;
-        elems[i].style.textAlign = "center";
-    }
-    
-    
+       
 }
 
 function loadExploreDetail() {
