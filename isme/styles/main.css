@@ -1893,6 +1893,15 @@ tile-frame-inner
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.class-card-div
+{
+    height:200px;
+    margin:40px auto;
+    display:block;
+    width: 100%;
+    background-color: #fff;
+}
+
 .class-share-div-bottom
 {
     position: fixed;
@@ -1946,8 +1955,6 @@ tile-frame-inner
     background-color:#fff;
     color:#000;
     display:block;
-    margin-left:2px;
-    margin-right:2px;
 }
 
 .share-menu-line-4{
@@ -1958,8 +1965,6 @@ tile-frame-inner
     background-color:#fff;
     color:#000;
     display:block;
-    margin-left:2px;
-    margin-right:2px;  
 }
 
 .share-menu-line-3-a
@@ -1968,12 +1973,13 @@ tile-frame-inner
     line-height:25px;
     position: relative;
     float: left;
-    background-color:#fff000 !important;
+    background-color:transparent !important;
     color:#000;
     font-weight:bold; 
     font-size:1.1em;
     display:block;
-    margin:0 auto;
+    margin:-5px 2px auto 2px;
+
 }
 
 
@@ -2104,7 +2110,7 @@ tile-frame-inner
 
 .sharehead, .cardhead
 {
-    height: 310px;
+    height: 300px;
     position: fixed;
     width: 100%;
     z-index: 100000;

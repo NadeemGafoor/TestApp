@@ -1,23 +1,19 @@
-  function showConfirm() {
-        navigator.notification.confirm(
-            'Please enrol or login to activate this reward.',  // message
-            onConfirm,              // callback to invoke with index of button pressed
-            'isme by Jumeirah',            // title
-            'Login,Enrol'          // buttonLabels
+function showConfirm() {
+    navigator.notification.confirm(
+        'Please enrol or login to activate this reward.', // message
+        onConfirm, // callback to invoke with index of button pressed
+        'isme by Jumeirah', // title
+        'Login,Enrol'          // buttonLabels
         );
-    }
-
+}
 
 function onConfirm(buttonIndex) {
-        if (buttonIndex===1){
-            loadLogin();
-            
-        } else{
-            loadEnrol();
-        }
+    if (buttonIndex===1) {
+        loadLogin();
+    } else {
+        loadEnrol();
     }
-
-
+}
 
 function loadDiscover() {
     window.setTimeout(window.plugins.nativepagetransitions.slide({
@@ -67,9 +63,7 @@ function loadRewards() {
                                                                  }), 500);
 }
 
-
 function loadLogin() {
-
     window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                      "duration"         :  500, // in milliseconds (ms), default 400
                                                                      "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -79,11 +73,9 @@ function loadLogin() {
                                                                      'direction': 'up',
                                                                      'href': '#views/login.html'
                                                                  }), 500);
-     
 }
 
 function loadEnrol() {
-
     window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                      "duration"         :  500, // in milliseconds (ms), default 400
                                                                      "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -93,7 +85,6 @@ function loadEnrol() {
                                                                      'direction': 'up',
                                                                      'href': '#views/enrol.html'
                                                                  }), 500);
-
 }
 
 function faceBookClick() {
@@ -319,16 +310,17 @@ function closeCeleberationTypeView() {
 }
 
 function shareClick() {
-       $(".cardhead").slideUp("slow");
+    $(".cardhead").slideUp("slow");
     
-     elems = document.getElementsByClassName('cardhead');
+    elems = document.getElementsByClassName('cardhead');
     if (elems.length > 0) {
         for (i = 0; i < elems.length; i++) {
             elems[i].style.display = 'none';
         }
     }
     
-     elems = document.getElementsByClassName('foot');
+   
+    elems = document.getElementsByClassName('foot');
     if (elems.length > 0) {
         for (i = 0; i < elems.length; i++) {
             elems[i].style.display = 'none';
@@ -343,26 +335,27 @@ function shareClick() {
         elems[i].style.zIndex = -1000;
     }  
     
-     elems = document.getElementsByClassName('mymenu1');
+    elems = document.getElementsByClassName('mymenu1');
 
     for (i = 0; i < elems.length; i++) {
-             elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
         
         elems[i].style.width = "100%";
         elems[i].style.zIndex = 10000;
         elems[i].style.textAlign = "center";
     }
-    
 }
 
 function plHomeClick() {
-     $(".cardhead").slideUp("slow");
+    $(".cardhead").slideUp("slow");
     elems = document.getElementsByClassName('cardhead');
     if (elems.length > 0) {
         for (i = 0; i < elems.length; i++) {
             elems[i].style.display = 'none';
         }
     }
+    
+   
     $(".foot").slideToggle("slow"); 
   
     elems = document.getElementsByClassName('mymenu1');
@@ -384,19 +377,17 @@ function plHomeClick() {
         elems[i].style.zIndex = -10000;
     }  
     
-     $(".sharehead").slideUp("slow");
+    $(".sharehead").slideUp("slow");
       
     elems = document.getElementsByClassName('sharehead');
 
     for (i = 0; i < elems.length; i++) {
         elems[i].style.zIndex = -1000;
     }  
-
 }
 
 function cardClick() {
-    
-       $(".sharehead").slideUp("slow");
+    $(".sharehead").slideUp("slow");
     elems = document.getElementsByClassName('sharehead');
     if (elems.length > 0) {
         for (i = 0; i < elems.length; i++) {
@@ -410,27 +401,28 @@ function cardClick() {
             elems[i].style.display = 'none';
         }
     }
+  
     $(".cardhead").slideToggle("slow");
    
     elems = document.getElementsByClassName('cardhead');
 
     for (i = 0; i < elems.length; i++) {
         elems[i].style.zIndex = -1000;
-    }  
-    
-     elems = document.getElementsByClassName('mymenu1');
+    } 
 
     for (i = 0; i < elems.length; i++) {
-             elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
         
         elems[i].style.width = "100%";
         elems[i].style.zIndex = 10000;
         elems[i].style.textAlign = "center";
     }
+    
+    
 }
 
 function loadExploreDetail() {
-           doOneBack();
+    doOneBack();
     if (window.localStorage.getItem("appopen") != "10") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
@@ -446,7 +438,7 @@ function loadExploreDetail() {
 }
 
 function loadOfferDetail() {  
-           doOneBack();
+    doOneBack();
     if (window.localStorage.getItem("appopen") != "11") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
@@ -462,7 +454,7 @@ function loadOfferDetail() {
 }
 
 function loadOutletDetail() {
-           doOneBack();
+    doOneBack();
     if (window.localStorage.getItem("appopen") != "13") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
@@ -478,7 +470,7 @@ function loadOutletDetail() {
 }
 
 function loadLeisureDetail() {
-           doOneBack();
+    doOneBack();
     if (window.localStorage.getItem("appopen") != "12") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
@@ -624,6 +616,8 @@ function postLoginBack() {
     for (i = 0; i < elems.length; i++) {
         elems[i].style.display = 'none';
     }  
+    
+   
     elems = document.getElementsByClassName('foot');
     for (i = 0; i < elems.length; i++) {
         elems[i].style.display = 'none';
@@ -632,8 +626,8 @@ function postLoginBack() {
     elems = document.getElementsByClassName('mymenu1');
 
     for (i = 0; i < elems.length; i++) {
-            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-              elems[i].style.width = "100%";
+        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+        elems[i].style.width = "100%";
         elems[i].style.zIndex = 10000;
         elems[i].style.textAlign = "center";
     }
@@ -646,25 +640,26 @@ function postLoginBack() {
     //$("body").data("kendoMobilePane").navigate("#:back");
 }
 
-function doOneBack(){
-     elems = document.getElementsByClassName('cardhead');
+function doOneBack() {
+    elems = document.getElementsByClassName('cardhead');
     for (i = 0; i < elems.length; i++) {
         elems[i].style.display = 'none';
     }  
+    
     elems = document.getElementsByClassName('foot');
     for (i = 0; i < elems.length; i++) {
         elems[i].style.display = 'none';
     }  
     
-      elems = document.getElementsByClassName('mymenu1');
-      for (i = 0; i < elems.length; i++) {
-            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-              elems[i].style.width = "100%";
+    elems = document.getElementsByClassName('mymenu1');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+        elems[i].style.width = "100%";
         elems[i].style.zIndex = 10000;
         elems[i].style.textAlign = "center";
     }
     
-      $(".sharehead").slideUp("slow");
+    $(".sharehead").slideUp("slow");
       
     elems = document.getElementsByClassName('sharehead');
 
@@ -675,16 +670,14 @@ function doOneBack(){
 }
 
 function postLoginBackOne() {
-   doOneBack();
-   
-
+    doOneBack();
 }
 
 function postLoginBackMessage() {
-     doOneBack();
+    doOneBack();
 
-   window.plugins.nativepagetransitions.slide({
-        "duration"         :  500, // in milliseconds (ms), default 400
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
                                                    "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
                                                    "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
                                                    "androiddelay"     :  150, // same as above but for Android, default 70
@@ -694,9 +687,9 @@ function postLoginBackMessage() {
 }
 
 function postLoginBackMessage() {
-        doOneBack();
-   window.plugins.nativepagetransitions.slide({
-        "duration"         :  500, // in milliseconds (ms), default 400
+    doOneBack();
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
                                                    "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
                                                    "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
                                                    "androiddelay"     :  150, // same as above but for Android, default 70
@@ -817,7 +810,6 @@ function completeRedemption() {
 
     //var options = { frequency: 1000 };  // Update every 3 seconds
     // Listen for the event and wire it to our callback function
-    
        
     window.sharingView = kendo.observable({
                                                                                      
@@ -879,16 +871,16 @@ function completeRedemption() {
                                                   ctr = 0;
                                               }
                                           });  
-    
 
-
-function mvhide() {
-   window.setTimeout(function(){$("#mvwait").data("kendoMobileModalView").close();},3000); 
-}
+    function mvhide() {
+        window.setTimeout(function() {
+            $("#mvwait").data("kendoMobileModalView").close();
+        }, 3000); 
+    }
     
-   function mvshow() {
-   $("#mvwait").data("kendoMobileModalView").open();
-}
+    function mvshow() {
+        $("#mvwait").data("kendoMobileModalView").open();
+    }
     
     window.preLogin = kendo.observable({
                                            social_subject:"",
@@ -915,7 +907,7 @@ function mvhide() {
                                                mvhide();
                                            },
                                            showLogin:function() {
-                                                 mvshow();
+                                               mvshow();
                                                mvhide();
                                            },
                                            showEnrol:function() {
@@ -1713,7 +1705,7 @@ function mvhide() {
         
                                            validateUser
                                            : function () {
-                                                window.localStorage.setItem("appopen", "0");   
+                                               window.localStorage.setItem("appopen", "0");   
                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html", "slide:up");  
                                                return;
                                                
