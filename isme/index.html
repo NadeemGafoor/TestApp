@@ -72,7 +72,7 @@
                         </div>
                         <div class="share-menu-line-2">
                             <a  data-click="shareClick" data-role="button" style="border:0px !important;background-color:transparent" class="mymenu">
-                                <i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>
+                                <i class="fa fa-angle-up fa-2x" style="color:#fff"></i>
                             </a>
                         </div>
                     </div>
@@ -95,16 +95,17 @@
 
                     </div>
                     <div class="share-menu-line-2">
-                        <a  data-click="shareClick" data-role="button" style="border:0px !important;background-color:#fff;color:#000" class="mymenu">
-                            <i class="fa fa-angle-up fa-2x" style="color:#fff"></i>
+                        <a  data-click="cardClick" data-role="button" style="border:0px !important;background-color:#fff;color:#000" class="mymenu">
+                            <i class="fa fa-angle-up fa-2x" style="color:#000"></i>
                         </a>
                     </div>
                 </div>
                 <div class="share-menu-line-3">
-                    <div class="share-menu-line-3-a" style="text-align:left">RICARDO</div>
-                    <div class="share-menu-line-3-a" style="text-align:center">2000123456</div>
-                    <div class="share-menu-line-3-a" style="text-align:right">isme</div>
-
+                    <a  data-click="cardClick" data-role="button"  class="cardmenu">
+                        <div class="share-menu-line-3-a" style="text-align:left">RICARDO</div>
+                        <div class="share-menu-line-3-a" style="text-align:center">2000123456</div>
+                        <div class="share-menu-line-3-a" style="text-align:right">isme</div>
+                    </a>
                 </div>
             </header>
 
@@ -118,7 +119,7 @@
                 </div>
                 <div class="mymenu-style">
                     <a  data-click="plHomeClick" data-role="button"  class="mymenu1" style="background:transparent !important">
-                        <i class="fa fa-chevron-up fa-2x" style="color:#fff" ></i>
+                        <i class="fa fa-angle-up fa-2x" style="color:#fff" ></i>
                     </a>
                 </div>
                 <div class="foot" >
@@ -184,43 +185,42 @@
                         <i class="fa fa-map-marker fa-lg" style="color:#fff"></i>
                     </a>
                 </div>
-                <div data-role="touch" data-click="cardClick">
-                    <div class="cardhead" style="background-color:#fff">
+
+                <div class="cardhead" style="background-color:#fff">
+                    <div class="filler"></div>
+                    <div class="class-card-div">
+                        <div class="qr-image-sep">
+                            <div class="qr-image" id="mycard-qr"></div>
+                        </div>
                         <div class="filler"></div>
-                        <div class="class-card-div">
-                            <div class="qr-image-sep">
-                                <div class="qr-image" id="mycard-qr"></div>
+                        <div class="home-page-holder">
+                            <div class="button-frame-inline">
+                                <a data-click="enterPinForRedemption" data-role="button" style="background-color:#000">Apply Discount</a>
                             </div>
                             <div class="filler"></div>
-                            <div class="home-page-holder">
-                                <div class="button-frame-inline">
-                                    <a data-click="enterPinForRedemption" data-role="button" style="background-color:#000">Apply Discount</a>
-                                </div>
-                                <div class="filler"></div>
-                                <div class="general-text-line cblack">Member Expiry 01/01/2015</div>
-                            </div>
+                            <div class="general-text-line cblack">Member Expiry 01/01/2015</div>
+                        </div>
 
-                        </div>
-                        <div class="share-menu-line-2">
-                            <a  data-click="shareClick" data-role="button" style="border:0px !important;background-color:#fff;color:#000" class="mymenu">
-                                <i class="fa fa-angle-up fa-2x" style="color:#fff"></i>
-                            </a>
-                        </div>
                     </div>
-                    <div class="share-menu-line-3">
-                        <a  data-click="cardClick" data-role="button"  class="cardmenu">
-                            <div class="share-menu-line-3-a" style="text-align:left">RICARDO</div>
-                            <div class="share-menu-line-3-a" style="text-align:center">2000123456</div>
-                            <div class="share-menu-line-3-a" style="text-align:right">isme</div>
-
+                    <div class="share-menu-line-2">
+                        <a  data-click="cardClick" data-role="button" style="border:0px !important;background-color:#fff;color:#000" class="mymenu">
+                            <i class="fa fa-angle-up fa-2x" style="color:#000"></i>
                         </a>
                     </div>
+                </div>
+                <div class="share-menu-line-3">
+                    <a  data-click="cardClick" data-role="button"  class="cardmenu">
+                        <div class="share-menu-line-3-a" style="text-align:left">RICARDO</div>
+                        <div class="share-menu-line-3-a" style="text-align:center">2000123456</div>
+                        <div class="share-menu-line-3-a" style="text-align:right">isme</div>
+
+                    </a>
                 </div>
             </div>
             <footer data-role="footer">
                 <div class="mymenu-style">
                     <a  data-click="plHomeClick" data-role="button"  class="mymenu1" style="background:transparent !important">
-                        <i class="fa fa-chevron-up fa-2x" style="color:#fff" ></i>
+                        <i class="fa fa-angle-up fa-2x" style="color:#fff" ></i>
                     </a>
                 </div>
                 <div class="foot" >
@@ -273,49 +273,44 @@
                     <a data-role="button" data-align="left"  style="color:#fff;border:0px !important;" data-click="postLoginBack" data-icon="back">
                     </a>
                     <span data-role="view-title" id="item-title"></span>
-                    <a data-click="cardClick"   data-role="button" data-align="right" style="color:#fff;border:0px !important;" >
-                        <i class="fa fa-credit-card fa-lg" style="color:#fff"></i>
-                    </a>
-                </div>
-                <div data-role="touch" data-click="cardClick">
-                    <div class="cardhead" style="background-color:#fff">
+                 </div>
+                <div class="cardhead" style="background-color:#fff">
+                    <div class="filler"></div>
+                    <div class="class-card-div">
+                        <div class="qr-image-sep">
+                            <div class="qr-image" id="mycard-qr"></div>
+                        </div>
                         <div class="filler"></div>
-                        <div class="class-card-div">
-                            <div class="qr-image-sep">
-                                <div class="qr-image" id="mycard-qr"></div>
+                        <div class="home-page-holder">
+                            <div class="button-frame-inline">
+                                <a data-click="enterPinForRedemption" data-role="button" style="background-color:#000">Apply Discount</a>
                             </div>
                             <div class="filler"></div>
-                            <div class="home-page-holder">
-                                <div class="button-frame-inline">
-                                    <a data-click="enterPinForRedemption" data-role="button" style="background-color:#000">Apply Discount</a>
-                                </div>
-                                <div class="filler"></div>
-                                <div class="general-text-line cblack">Member Expiry 01/01/2015</div>
-                            </div>
+                            <div class="general-text-line cblack">Member Expiry 01/01/2015</div>
+                        </div>
 
-                        </div>
-                        <div class="filler"></div>
-                        <div class="share-menu-line-2">
-                            <a  data-click="shareClick" data-role="button" style="border:0px !important;background-color:#fff;color:#000" class="mymenu">
-                                <i class="fa fa-angle-up fa-2x" style="color:#fff"></i>
-                            </a>
-                        </div>
                     </div>
-                    <div class="share-menu-line-3">
-                        <a  data-click="cardClick" data-role="button"  class="cardmenu">
-                            <div class="share-menu-line-3-a" style="text-align:left">RICARDO</div>
-                            <div class="share-menu-line-3-a" style="text-align:center">2000123456</div>
-                            <div class="share-menu-line-3-a" style="text-align:right">isme</div>
-
+                    <div class="filler"></div>
+                    <div class="share-menu-line-2">
+                        <a  data-click="cardClick" data-role="button" style="border:0px !important;background-color:#fff;color:#000" class="mymenu">
+                            <i class="fa fa-angle-up fa-2x" style="color:#000"></i>
                         </a>
                     </div>
+                </div>
+                <div class="share-menu-line-3">
+                    <a  data-click="cardClick" data-role="button"  class="cardmenu">
+                        <div class="share-menu-line-3-a" style="text-align:left">RICARDO</div>
+                        <div class="share-menu-line-3-a" style="text-align:center">2000123456</div>
+                        <div class="share-menu-line-3-a" style="text-align:right">isme</div>
+
+                    </a>
                 </div>
             </header>
 
             <footer data-role="footer">
                 <div class="mymenu-style">
                     <a  data-click="plHomeClick" data-role="button"  class="mymenu1" style="background:transparent !important">
-                        <i class="fa fa-chevron-up fa-2x" style="color:#fff" ></i>
+                        <i class="fa fa-angle-up fa-2x" style="color:#fff" ></i>
                     </a>
                 </div>
                 <div class="foot" >
@@ -367,7 +362,7 @@
             <footer data-role="footer">
                 <div  class="mymenu-style">
                     <a  data-click="plHomeClick" data-role="button" class="mymenu1" style="background:transparent !important">
-                        <i class="fa fa-chevron-up fa-2x" style="color:#fff" ></i>
+                        <i class="fa fa-angle-up fa-2x" style="color:#fff" ></i>
                     </a>
                 </div>
                 <div class="foot" >
@@ -455,7 +450,7 @@
                         </div>
                         <div class="share-menu-line-2">
                             <a  data-click="shareClick" data-role="button" style="border:0px !important;background-color:transparent" class="mymenu">
-                                <i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>
+                                <i class="fa fa-angle-up fa-2x" style="color:#fff"></i>
                             </a>
                         </div>
                     </div>
@@ -513,7 +508,7 @@
                         </div>
                         <div class="share-menu-line-2">
                             <a  data-click="shareClick" data-role="button" style="border:0px !important;background-color:transparent" class="mymenu">
-                                <i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>
+                                <i class="fa fa-angle-up fa-2x" style="color:#fff"></i>
                             </a>
                         </div>
                     </div>
