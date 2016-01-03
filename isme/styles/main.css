@@ -1952,6 +1952,16 @@ tile-frame-inner
 
 }
 
+.share-menu-line-2-c
+{
+    position: relative;
+    float: none;
+    width: 100%;
+    background-color:#fff;
+    display:block;
+    margin:auto;
+}
+
 .share-menu-line-3
 {
     height:25px;
@@ -2070,7 +2080,7 @@ tile-frame-inner
     margin-right: auto;
     margin-left: auto;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 1);
 }
 
 .profile-image-holder
