@@ -1939,39 +1939,39 @@ tile-frame-inner
 
 .share-menu-line-3
 {
-    height:20px;
-    line-height: 20px;
+    height:25px;
+    line-height: 25px;
     position: relative;
     float: none;
     width: 100%;
     background-color:#fff;
     color:#000;
     display:block;
-    margin-left:5px;
-    margin-right:5px;
+    margin-left:2px;
+    margin-right:2px;
 }
 
 .share-menu-line-4{
-   height:20px;
-    line-height: 20px;
+   height:25px;
+    line-height: 25px;
     position: relative;
     float: none;
     width: 100%;
     background-color:#fff;
     color:#000;
     display:block;
-    margin-left:5px;
-    margin-right:5px;  
+    margin-left:2px;
+    margin-right:2px;  
 }
 
 .share-menu-line-3-a
 {
     width:30%;
-    height:20px;
-    line-height: 20px;
+    height:25px;
+    line-height: 25px;
     position: relative;
     float: left;
-    background-color:transparent !important;
+    background-color:#fff000 !important;
     color:#000;
     font-weight:bold;    
 }
