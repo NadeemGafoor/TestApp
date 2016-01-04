@@ -1,6 +1,6 @@
-<div data-role="view"   data-title="Emirates BOGOF" data-layout="pl-back2-layout" id="pl-offerdetail-theme"  data-model="preLogin">
+<div data-role="view"   data-title="Emirates BOGOF" data-layout="pl-back2-layout" id="pl-offerdetail-theme"  data-model="preLogin" data-init="initPLOfferGroup">
 
-    <ul data-role="buttongroup" data-index="0" id="offertab" class="button-group a-group">
+    <ul data-role="buttongroup" data-index="0" id="ploffertab" class="button-group a-group">
         <li>
             Details
         </li>
@@ -132,10 +132,10 @@
 </div>
 
 <script>
-    function initButtonGroup() {
+    function initPLOfferGroup() {
         var listviews = this.element.find("ul.km-listview");
 
-        $("#offertab").kendoMobileButtonGroup({
+        $("#ploffertab").kendoMobileButtonGroup({
                                                   select: function (e) {
                                                       listviews.hide()
                                                           .eq(e.index)

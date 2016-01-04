@@ -1,4 +1,4 @@
-<div data-role="view"   data-title="Burj Al Arab" data-layout="back2-layout" id="offerdetail-theme"  data-model="preLogin" data-init="initButtonGroup" >
+<div data-role="view"   data-title="Burj Al Arab" data-layout="back2-layout" id="offerdetail-theme"  data-model="preLogin" data-init="initOfferGroup" >
     <ul data-role="buttongroup" data-index="0" id="offertab" class="button-group a-group">
         <li>
             Details
@@ -131,7 +131,7 @@
 </div>
 
 <script>
-    function initButtonGroup() {
+    function initOfferGroup() {
         var listviews = this.element.find("ul.km-listview");
 
         $("#offertab").kendoMobileButtonGroup({
