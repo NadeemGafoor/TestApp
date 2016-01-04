@@ -171,17 +171,14 @@ function mapInitialize() {
 }
 
 function supportEmailA() {
-    alert("Suppotr");
     window.plugins.socialsharing.shareViaEmail(
-        '', 
-        'isme By Jumeirah', ["isme@jumeirah.com"], 
-        null, 
+        "sharingSocialView.social_message" + "\n\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email" + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
+        "sharingSocialView.social_shortmsg", null, null, null, // TO: must be null or an array
+        null, // FILES: can be null, a string, or an array
         function (msg) {
-        }, 
+        }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
         function (msg) {
-            navigator.notification.alert("Cannot Activate Email " + msg, function() {
-            }, "isme by Jumeirah", "Dismiss")          
-        } 
+        } // called when sh*t hits the fan
         );
 }
 
