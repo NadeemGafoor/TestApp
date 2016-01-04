@@ -169,7 +169,7 @@ function mapInitialize() {
     marker.setMap(map); 
 }
 
-function getSupportEmailA() {
+function supportEmailA() {
     alert("Suppotr");
     window.plugins.socialsharing.shareViaEmail(
         '', 
