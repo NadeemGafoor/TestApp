@@ -116,9 +116,10 @@ function emailClick() {
 }
 
 function getLocation5() {
+    alert("ffffff");
     $("#modalviewmap").data("kendoMobileModalView").open();
-    document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
-    setTimeout(mapInitialize, 2000);
+   document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
+   setTimeout(mapInitialize, 2000);
 }
 
 function mapInitialize() {
