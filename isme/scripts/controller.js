@@ -117,8 +117,8 @@ function emailClick() {
 
 function getLocation5() {
     $("#modalviewmap").data("kendoMobileModalView").open();
-   document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
-   setTimeout(mapInitialize, 2000);
+    document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
+    setTimeout(mapInitialize, 2000);
 }
 
 function mapInitialize() {
@@ -167,6 +167,26 @@ function mapInitialize() {
     });
     marker.setVisible(true);
     marker.setMap(map); 
+}
+
+function onSelectTabStrip(e) {
+    var i = $(e.item).index();
+    if (i === 0) {
+        getLocation5();
+    } else if (i === 1) {
+        supportEmailA();
+    } else {
+        customerCare();
+    }
+}
+
+function onSelectTabStrip1(e) {
+    var i = $(e.item).index();
+    if (i === 0) {
+        supportEmailA();
+    } else {
+        customerCare();
+    }
 }
 
 function supportEmailA() {
@@ -308,7 +328,7 @@ function closeCeleberationTypeView() {
 
 function shareClick() {
     $(".cardhead").slideUp("slow");
-     elems = document.getElementsByClassName('foot');
+    elems = document.getElementsByClassName('foot');
     if (elems.length > 0) {
         for (i = 0; i < elems.length; i++) {
             elems[i].style.display = 'none';
@@ -336,7 +356,6 @@ function shareClick() {
 
 function plHomeClick() {
     $(".cardhead").slideUp("slow");
-     
    
     $(".foot").slideToggle("slow"); 
   
@@ -385,8 +404,6 @@ function cardClick() {
     }
   
     $(".cardhead").slideToggle("slow");
-   
-       
 }
 
 function loadExploreDetail() {
@@ -616,7 +633,6 @@ function postLoginBack() {
     for (i = 0; i < elems.length; i++) {
         elems[i].style.display = 'none';
     }  
-    
    
     elems = document.getElementsByClassName('foot');
     for (i = 0; i < elems.length; i++) {
