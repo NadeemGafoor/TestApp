@@ -656,7 +656,7 @@
 
         </div>
 
-        <div data-role="modalview" id="modalviewfilter" style="height:90%;width:90%" data-model="preLogin">
+        <div data-role="modalview" id="modalviewfilter" style="height:90%;width:90%;border-radius:5px" data-model="preLogin">
             <div data-role="header" style="background-color:#4f5053">
                 <div data-role="navbar">
                     <span >Filters</span>
@@ -666,11 +666,9 @@
                 </div>
             </div>
             <div class="list-group">&nbsp;Location</div>
-            <div class="list-group-data-header">
-                <a data-click="loadLocationView" data-role="button">
-                    <div class="list-group-data-item">Select Location...</div>
-                    <div class="list-group-data-item" id="restaurantLocation">All</div>
-                </a>
+            <div class="filter-item-holder">
+                  <div class="list-group-data-item">&nbsp;Locations Near Me</div>
+                    <div class="list-group-data-item-1" id="restaurantType"><input type="checkbox"/></div>
             </div>
             <div class="list-group">&nbsp;Restaurant Type</div>
             <div class="list-group-data-header">
@@ -737,7 +735,7 @@
             <div class="list-group">&nbsp;Location</div>
             <div class="list-group-data-header">
                 <a data-role="button"> 
-                    <div class="list-group-data-item">Restaurant Near Me</div>
+                    <div class="list-group-data-item">Locations Near Me</div>
                     <div class="list-group-data-item" id="restaurantLocation"><input type="checkbox"/></div>
                 </a>
             </div>
