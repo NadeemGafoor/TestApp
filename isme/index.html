@@ -266,7 +266,7 @@
                     <a data-role="button" data-align="left"  style="color:#fff;border:0px solid #000 !important;" data-click="postLoginBack" data-icon="back">
                     </a>
                     <span data-role="view-title" id="item-title"></span>
-                 </div>
+                </div>
                 <div class="cardhead" style="background-color:#fff">
                     <div class="filler"></div>
                     <div class="class-card-div">
@@ -667,8 +667,10 @@
             </div>
             <div class="list-group">&nbsp;Location</div>
             <div class="filter-item-holder">
-                  <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Locations Near Me</div>
-                    <div class="list-group-data-item-1 lheight" id="restaurantType"><input type="checkbox"/></div>
+                <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Locations Near Me</div>
+                <div class="list-group-data-item-1 lheight" id="restaurantType">
+                    <i class="fa fa-square-o fa-lg"></i>
+                </div>
             </div>
             <div class="list-group">&nbsp;Restaurant Type</div>
             <div class="filter-item-holder">
@@ -685,7 +687,7 @@
                     <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
                 </a>
             </div>
-             <div class="list-group">&nbsp;Celebration Type</div>
+            <div class="list-group">&nbsp;Celebration Type</div>
             <div class="filter-item-holder">
                 <a data-click="loadCeleberationTypeView" data-role="button">
                     <div class="list-group-data-item">Select Celebration Type...</div>
@@ -696,7 +698,7 @@
 
         <div data-role="modalview" id="modalviewtype" data-title=""  style="height:80%;width:90%;border-radius:5px;" data-model="preLogin">
             <div data-role="header">
-                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span >Restaurant Type</span>
                     <a data-click="closeTypeView" data-role="button" data-align="right" data-animated="true">
                         Go
@@ -735,9 +737,11 @@
             </div>
             <div class="list-group">&nbsp;Location</div>
             <div class="list-group-data-header">
-                <a data-role="button"> 
+                <a data-role="button">
                     <div class="list-group-data-item">Locations Near Me</div>
-                    <div class="list-group-data-item" id="restaurantLocation"><input type="checkbox"/></div>
+                    <div class="list-group-data-item" id="restaurantLocation">
+                        <input type="checkbox"/>
+                    </div>
                 </a>
             </div>
             <div class="list-group">&nbsp;Celebration Type</div>
@@ -1051,12 +1055,12 @@
         </script>
 
         <script type="text/x-kendo-template" id="TypeFilter-Template">
-                 <div class="filter-item-holder">
-                  <label class="k-checkbox-label" for=${typekey}>${typeitem}</label>
-                    <input type="checkbox" id=${typekey} class="k-checkbox"/>
+            <div class="list-group-data-item lheight">${typeitem}</div>
+            <div class="list-group-data-item-1 lheight" id=${typekey} data-click="tickCheckBox(${typekey})" >
+                <i class="fa fa-square-o fa-lg"></i>
             </div>
-         </script>
-
+        </script>
+            
         <script type="text/x-kendo-template" id="LocationFilter-Template">
             <div class="list-group-data-header">
                 <div class="list-group-data-item" style="margin-left:10px;;width:65%">${locationitem}</div>
@@ -1068,7 +1072,7 @@
                 </div>
             </div>
         </script>
-
+            
         <script type="text/x-kendo-template" id="add-Rest-Filter-Template">
             <div class="list-group-data-header">
                 <div class="list-group-data-item" style="margin-left:10px;width:65%">
@@ -1085,7 +1089,7 @@
 
     </body>
 </html>
-
+    
 <script>
     function closeModalViewLogin() {
         $("#modalviewterms").data("kendoMobileModalView").close();
@@ -1095,7 +1099,7 @@
         $("#modalviewterms").data("kendoMobileModalView").open();
     }
 </script>
-
+    
 <style scoped>
     #appdrawerN .li-div, #appdrawer .li-div
     {
@@ -1129,7 +1133,7 @@
     {
         background-color: #000;
     }
-   
+    
     #offerlist-view .list-group-data-header a, #outletlist-theme .list-group-data-header a
     {
         background-color: transparent !important;
@@ -1140,7 +1144,7 @@
         background-color: #fff;
     }
     
-      #modalviewceleberationtype a, #modalviewcountry a, #modalviewofferfilter a, #modalviewfilter a, #modalviewtype a, #modalviewcuisine a
+    #modalviewceleberationtype a, #modalviewcountry a, #modalviewofferfilter a, #modalviewfilter a, #modalviewtype a, #modalviewcuisine a
     {
         background-color: transparent !important;
     }
@@ -1182,7 +1186,7 @@
         border: 0px !important;
     }
     
-        .mymenu2
+    .mymenu2
     {
         width: 100%;
         background-color: #fff;
@@ -1200,7 +1204,7 @@
         border: 0px !important;
         margin: 0 auto; 
     }
-       
+    
     .mymenu .km-button, .mymenu1 .km-button
     {
         width: 100%;
@@ -1215,7 +1219,7 @@
     .mymenu-style
     {
         width: 100%;
-        background-color: rgba(0,0,0,1);
+        background-color: rgba(0, 0, 0, 1);
         color: #fff;
         border: 1px solid #000 !important;
     }
@@ -1231,7 +1235,6 @@
         -moz-border: #fff solid 1px;
         border: #fff solid 1px; 
     }  
-   
     
     #btn-call
     {
@@ -1245,14 +1248,16 @@
         background-color: rgba(0, 0, 0, 0.5) !important;
     }
     
-     .fieldlist {
-            margin: 0 0 -1em;
-            padding: 0;
-        }
-
-        .fieldlist li {
-            list-style: none;
-            padding-bottom: 1em;
-        }
+    .fieldlist
+    {
+        margin: 0 0 -1em;
+        padding: 0;
+    }
+    
+    .fieldlist li
+    {
+        list-style: none;
+        padding-bottom: 1em;
+    }
 </style>
 

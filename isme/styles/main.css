@@ -2287,3 +2287,7 @@ tile-frame-inner
         height: 20px;
     }
 
+.km-check {
+    border: thin solid black !important;
+}
+
