@@ -2073,16 +2073,16 @@ tile-frame-inner
     font-size: 1em;
     height:40px;    
     line-height:40px;
-    text-align:center;
+    text-align:center; 
 }
 
-.list-group-data-header .km-button
+.filter-item-holder .km-button
 {
+        height:40px;
     border: 0px;
     display: block;
     background-color: #fff;
-    height: 40px;
-    line-height: 30px; 
+    height: 30px;
     font-size: 1em;
     width: auto;
     text-align: left;
