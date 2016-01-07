@@ -2082,7 +2082,7 @@ tile-frame-inner
     border: 0px;
     display: block;
     background-color: #fff;
-    height: 30px;
+    line-height: 20px;
     font-size: 1em;
     width: auto;
     text-align: left;
