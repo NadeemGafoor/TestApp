@@ -680,7 +680,7 @@
                 </a>
             </div>
 
-            <div class="list-group">&nbsp;Cuisine</div>
+            <div class="list-group">&nbsp;Cuisine Type</div>
             <div class="filter-item-holder">
                 <a data-click="loadCuisineView" data-role="button">
                     <div class="list-group-data-item">Select Cuisine...</div>
@@ -694,6 +694,47 @@
                     <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
                 </a>
             </div>
+        </div>
+        
+          <div data-role="modalview" id="modalviewofferfilter" style="height:60%;width:90%;border-radius:5px;" data-model="preLogin">
+            <div data-role="header">
+                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                    <span>Reward Filters</span>
+                    <a data-click="closeOfferFilterView" data-role="button" data-align="right" data-animated="true">
+                        Go
+                    </a>
+                </div>
+            </div>
+            <div class="list-group">&nbsp;Location</div>
+             <div class="filter-item-holder">
+                <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Locations Near Me</div>
+                <div class="list-group-data-item-1 lheight" id="restaurantType">
+                    <input type="checkbox" class="km-checkbox"/>
+                </div>
+            </div>
+            <div class="list-group">&nbsp;Celebration Type</div>
+           <div class="filter-item-holder">
+                <a data-click="loadCeleberationTypeView" data-role="button">
+                    <div class="list-group-data-item">Select Celebration Type...</div>
+                    <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
+                </a>
+            </div>
+              <div class="list-group">&nbsp;Cuisine Type</div>
+  <div class="filter-item-holder">
+                <a data-click="loadCuisineView" data-role="button">
+                    <div class="list-group-data-item">Select Cuisine...</div>
+                    <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
+                </a>
+            </div>
+              <div class="list-group">&nbsp;Offer Type</div>            
+              <div class="filter-item-holder">
+                <a data-click="loadOfferView" data-role="button">
+                    <div class="list-group-data-item">Select Offer Type...</div>
+                    <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
+                </a>
+            </div>
+          
+
         </div>
 
         <div data-role="modalview" id="modalviewtype" data-title=""  style="height:80%;width:90%;border-radius:5px;" data-model="preLogin">
@@ -718,7 +759,12 @@
 
         </div>
 
-        <div data-role="modalview" id="modalviewcuisine" data-title=""  style="height:80%;width:90%;border-radius:5px;" data-model="preLogin">
+    
+
+      
+        
+        
+            <div data-role="modalview" id="modalviewcuisine" data-title=""  style="height:80%;width:90%;border-radius:5px" data-model="preLogin">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span >Select Cuisine</span>
@@ -739,54 +785,12 @@
          
 
         </div>
-
-        <div data-role="modalview" id="modalviewofferfilter" style="height:90%;width:90%" data-model="preLogin">
-            <div data-role="header" style="background-color:#4f5053">
-                <div data-role="navbar">
-                    <span >Filters</span>
-                    <a data-click="closeOfferFilterView" data-role="button" data-align="right" data-animated="true">
-                        Go
-                    </a>
-                </div>
-            </div>
-            <div class="list-group">&nbsp;Location</div>
-             <div class="filter-item-holder">
-                <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Locations Near Me</div>
-                <div class="list-group-data-item-1 lheight" id="restaurantType">
-                    <input type="checkbox" class="km-checkbox"/>
-                </div>
-            </div>
-            <div class="list-group">&nbsp;Celebration Type</div>
-           <div class="filter-item-holder">
-                <a data-click="loadCeleberationTypeView" data-role="button">
-                    <div class="list-group-data-item">Select Celebration Type...</div>
-                    <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
-                </a>
-            </div>
-  <div class="filter-item-holder">
-                <a data-click="loadCuisineView" data-role="button">
-                    <div class="list-group-data-item">Select Cuisine...</div>
-                    <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
-                </a>
-            </div>
-              <div class="filter-item-holder">
-                <a data-click="loadOfferView" data-role="button">
-                    <div class="list-group-data-item">Select Offer Type...</div>
-                    <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
-                </a>
-            </div>
-          
-
-        </div>
         
         
-        
-        
-        
-         <div data-role="modalview" id="modalviewoffertype" data-title=""  style="height:80%;width:90%;border-radius:5px;" data-model="preLogin">
+         <div data-role="modalview" id="modalviewoffertype" data-title=""  style="height:80%;width:90%;border-radius:5px;background-color:#fff" data-model="preLogin">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
-                    <span >Celebration Type</span>
+                    <span >Offer Type</span>
                     <a data-click="closeOfferTypeView" data-role="button" data-align="right" data-animated="true">
                         Go
                     </a>
@@ -1064,17 +1068,11 @@
         </script>
 
         <script type="text/x-kendo-template" id="Offer-Filter-Template">
-            <div class="list-group-data-header">
-                <div class="list-group-data-item" style="margin-left:10px;width:65%">
-                    ${offeritem}
-                </div>
-                <div class="list-group-data-item" id=${offerkey} style="text-align:center;width:15%">
-                    <i class="fa fa-minus-square-o fa-lg"></i>
-                </div>
-                <div class="list-group-data-item" id=${offerkey} style="text-align:center;width:15%">
-                    <i class="fa fa-plus-square-o fa-lg"></i>
-                </div>
-            </div>
+           <label class="km-checkbox-label" >
+                ${offeritem}
+                <input type="checkbox" class="km-checkbox" id="${offerkey}"/>
+
+            </label>
         </script>
 
         <script type="text/x-kendo-template" id="Celebration-Filter-Template">
@@ -1179,7 +1177,7 @@
         background-color: transparent !important;
     }
     
-    #modalviewceleberationtype .km-content, #modalviewcountry .km-content, #modalviewofferfilter .km-content, #modalviewfilter .km-content, #modalviewtype .km-content, #modalviewcuisine .km-content
+    #modalviewceleberationtype .km-content, #modalviewcountry .km-content, #modalviewofferfilter .km-content, #modalviewfilter .km-content, #modalviewtype .km-content, #modalviewcuisine .km-content, #modalviewoffertype .km-content
     {
         background-color: #fff;
     }

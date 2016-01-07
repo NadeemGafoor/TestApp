@@ -1827,7 +1827,7 @@ tile-frame-inner
     float:none;
     width:95%;
     height: 50%;
-    font-size: 1.2em;
+    font-size: 1em;
     line-height: 25px;
     color: #fff;
   text-align: justify !important;
@@ -1842,7 +1842,7 @@ tile-frame-inner
     width:95%;
     height: 25%;
     line-height: 25px;
-    font-size: 1em;
+    font-size: .9em;
     color: #fff;
     text-align: left; 
     margin-left:2%; 
@@ -1855,7 +1855,7 @@ tile-frame-inner
     width:95%;
     height: 25%;
     line-height: 25px;
-    font-size: 1em;
+    font-size: .9em;
     color: #fff;
     text-align: left; 
 }
