@@ -705,13 +705,16 @@
                     </a>
                 </div>
             </div>
+         <div class="filter-item-holder" style="background-color:#ccc">
+                <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Select All</div>
+                <div class="list-group-data-item-1 lheight" id="restaurantType">
+                    <input type="checkbox" class="km-checkbox"/>
+                </div>
+            </div>
+            
             <ul id="Type-Filter" data-bind="value:getRestTypeFilter">
 
             </ul>
-
-            <div class="button-frame-inline">
-                <a data-role="button" class="button-select">Select/UnSelect All</a>
-            </div>
 
         </div>
 
@@ -724,12 +727,16 @@
                     </a>
                 </div>
             </div>
+                <div class="filter-item-holder" style="background-color:#ccc">
+                <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Select All</div>
+                <div class="list-group-data-item-1 lheight" id="restaurantType">
+                    <input type="checkbox" class="km-checkbox"/>
+                </div>
+            </div>
             <ul id="Cuisine-Filter"  data-bind="value:getRestCuisineFilter" >
 
             </ul>
-            <div class="button-frame-inline">
-                <a data-role="button" class="button-select">Select/UnSelect All</a>
-            </div>
+         
 
         </div>
 
@@ -743,32 +750,65 @@
                 </div>
             </div>
             <div class="list-group">&nbsp;Location</div>
-            <div class="list-group-data-header">
-                <a data-role="button">
-                    <div class="list-group-data-item">Locations Near Me</div>
-                    <div class="list-group-data-item" id="restaurantLocation">
-                        <input type="checkbox"/>
-                    </div>
-                </a>
+             <div class="filter-item-holder">
+                <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Locations Near Me</div>
+                <div class="list-group-data-item-1 lheight" id="restaurantType">
+                    <input type="checkbox" class="km-checkbox"/>
+                </div>
             </div>
             <div class="list-group">&nbsp;Celebration Type</div>
-            <div class="list-group-data-header">
+           <div class="filter-item-holder">
                 <a data-click="loadCeleberationTypeView" data-role="button">
                     <div class="list-group-data-item">Select Celebration Type...</div>
-                    <div class="list-group-data-item" id="restaurantType">All</div>
+                    <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
                 </a>
             </div>
-
-            <div class="list-group" data-bind="value:getOfferTypeData">&nbsp;Additional Filters</div>
-
-            <ul id="Offer-Filter">
-
-            </ul>
-            <div class="button-frame-inline">
-                <a data-role="button" class="button-select">Select/UnSelect All</a>
+  <div class="filter-item-holder">
+                <a data-click="loadCuisineView" data-role="button">
+                    <div class="list-group-data-item">Select Cuisine...</div>
+                    <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
+                </a>
             </div>
+              <div class="filter-item-holder">
+                <a data-click="loadOfferView" data-role="button">
+                    <div class="list-group-data-item">Select Offer Type...</div>
+                    <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
+                </a>
+            </div>
+          
 
         </div>
+        
+        
+        
+        
+        
+         <div data-role="modalview" id="modalviewoffertype" data-title=""  style="height:80%;width:90%;border-radius:5px;" data-model="preLogin">
+            <div data-role="header">
+                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                    <span >Celebration Type</span>
+                    <a data-click="closeOfferTypeView" data-role="button" data-align="right" data-animated="true">
+                        Go
+                    </a>
+                </div>
+            </div>
+                <div class="filter-item-holder" style="background-color:#ccc">
+                <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Select All</div>
+                <div class="list-group-data-item-1 lheight" id="restaurantType">
+                    <input type="checkbox" class="km-checkbox"/>
+                </div>
+            </div>
+            <ul id="Offer-Filter"  data-bind="value:getOfferTypeData" >
+            </ul>
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
 
         <div data-role="modalview" id="modalviewceleberationtype" data-title=""  style="height:80%;width:90%;border-radius:5px;" data-model="preLogin">
             <div data-role="header">
@@ -779,11 +819,15 @@
                     </a>
                 </div>
             </div>
+                <div class="filter-item-holder" style="background-color:#ccc">
+                <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Select All</div>
+                <div class="list-group-data-item-1 lheight" id="restaurantType">
+                    <input type="checkbox" class="km-checkbox"/>
+                </div>
+            </div>
             <ul id="Celebration-Filter"  data-bind="value:getCelebrationFilter" >
             </ul>
-            <div class="button-frame-inline">
-                <a data-role="button" class="button-select">Select/UnSelect All</a>
-            </div>
+          
         </div>
 
         <div data-role="modalview" id="modalviewmap" data-title="Map"  style="height:100%;width:100%" data-model="preLogin" data-show="getLocationO">
@@ -872,10 +916,6 @@
             <ul id="History-Filter" data-bind="value:getHistoryFilter">
 
             </ul>
-            <div class="button-frame-inline">
-                <a data-role="button" class="button-select">Select/UnSelect All</a>
-            </div>
-
         </div>
 
         <div data-role="modalview" id="modalviewpin" style="height:70%;width:80%" data-model="postLogin" data-title="Create isme PIN">
@@ -894,7 +934,7 @@
             </div>
             <div class="home-page-holder"></div>
             <div class="button-frame-inline">
-                <a data-role="button" class="button-select" style="background-color:rgba(255,255,255,0.5);color:#000" data-click="resetPinForEnrollment">Set PIN</a>
+                <a data-role="button" style="background-color:rgba(255,255,255,0.5);color:#000" data-click="resetPinForEnrollment">Set PIN</a>
             </div>
             <div class="home-page-holder"></div>
             <div class="fulljustify">
@@ -919,7 +959,7 @@
             </div>
             <div class="home-page-holder"></div>
             <div class="button-frame-inline">
-                <a data-role="button" class="button-select" style="background-color:rgba(255,255,255,0.5);color:#000" data-click="completeEnrollment">Confirm</a>
+                <a data-role="button" style="background-color:rgba(255,255,255,0.5);color:#000" data-click="completeEnrollment">Confirm</a>
             </div>
             <div class="home-page-holder"></div>
             <div class="fulljustify">
@@ -944,7 +984,7 @@
             </div>
             <div class="home-page-holder"></div>
             <div class="button-frame-inline">
-                <a data-role="button" class="button-select" style="background-color:rgba(255,255,255,0.5);color:#000" data-click="enterStaffPinForRedemption">Continue</a>
+                <a data-role="button" style="background-color:rgba(255,255,255,0.5);color:#000" data-click="enterStaffPinForRedemption">Continue</a>
             </div>
             <div class="home-page-holder"></div>
             <div class="fulljustify">
@@ -969,7 +1009,7 @@
             </div>
             <div class="home-page-holder"></div>
             <div class="button-frame-inline">
-                <a data-role="button" class="button-select" style="background-color:rgba(255,255,255,0.5);color:#000" data-click="completeRedemption">Continue</a>
+                <a data-role="button" style="background-color:rgba(255,255,255,0.5);color:#000" data-click="completeRedemption">Continue</a>
             </div>
             <div class="home-page-holder"></div>
             <div class="fulljustify">
@@ -1149,18 +1189,7 @@
         background-color: transparent !important;
     }
     
-    #modalviewcountry .button-select, #modalviewceleberationtype .button-select, #modalviewofferfilter .button-select, #modalviewfilter .button-select, #modalviewtype .button-select, #modalviewcuisine .button-select,
-    #modalviewhistoryfilter .button-select, #modalviewpin .button-select, #modalviewenterpin .button-select, #modalviewstaffpin .button-select
-    
-    {
-        background-color: rgba(62, 65, 66, 0.5);
-        color: #fff;
-        font-size: 1em;
-        height: 30px;
-        line-height: 30px;
-        display: block;
-        margin: auto;
-    }
+ 
     #modalviewstar .km-content
     {
         background-color: #ccc; 
@@ -1247,6 +1276,5 @@
     {
         background-color: rgba(0, 0, 0, 0.5) !important;
     }
-    
- </style>
+    </style>
 

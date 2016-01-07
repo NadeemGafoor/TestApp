@@ -278,6 +278,15 @@ function loadCuisineView() {
     $("#modalviewcuisine").data("kendoMobileModalView").open();
 }
 
+
+function loadOfferView() {
+    $("#modalviewoffertype").data("kendoMobileModalView").open();
+}
+
+function closeOfferTypeView() {
+    $("#modalviewoffertype").data("kendoMobileModalView").close();
+}
+
 function loadTypeView() {
     $("#modalviewtype").data("kendoMobileModalView").open();
 }   
