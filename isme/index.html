@@ -669,7 +669,7 @@
             <div class="filter-item-holder">
                 <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Locations Near Me</div>
                 <div class="list-group-data-item-1 lheight" id="restaurantType">
-                   <input type="checkbox" class="km-checkbox"/>
+                    <input type="checkbox" class="km-checkbox"/>
                 </div>
             </div>
             <div class="list-group">&nbsp;Restaurant Type</div>
@@ -1031,34 +1031,27 @@
         </script>
 
         <script type="text/x-kendo-template" id="Celebration-Filter-Template">
-            <div class="list-group-data-header">
-                <div class="list-group-data-item" style="margin-left:10px;;width:65%">${celebitem}</div>
-                <div class="list-group-data-item" id=${celebkey} style="text-align:center;width:15%">
-                    <i class="fa fa-minus-square-o fa-lg"></i>
-                </div>
-                <div class="list-group-data-item" id=${celebkey} style="text-align:center;width:15%">
-                    <i class="fa fa-plus-square-o fa-lg"></i>
-                </div>
-            </div>
+              <label class="km-checkbox-label" >
+            ${celebitem}
+            <input type="checkbox" class="km-checkbox" id="${celebkey}"/>
+                   
+                </label>
         </script>
 
         <script type="text/x-kendo-template" id="CuisineFilter-Template">
-            <div class="list-group-data-header">
-                <div class="list-group-data-item" style="margin-left:10px;;width:65%">${cuisineitem}</div>
-                <div class="list-group-data-item" id=${cuisinekey} style="text-align:center;width:15%">
-                    <i class="fa fa-minus-square-o fa-lg"></i>
-                </div>
-                <div class="list-group-data-item" id=${cuisinekey} style="text-align:center;width:15%">
-                    <i class="fa fa-plus-square-o fa-lg"></i>
-                </div>
-            </div>
+             <label class="km-checkbox-label" >
+            ${cuisineitem}
+            <input type="checkbox" class="km-checkbox" id="${cuisinekey}"/>
+                   
+                </label>
         </script>
 
         <script type="text/x-kendo-template" id="TypeFilter-Template">
-                <div class="list-group-data-item lheight">${typeitem}</div>
-                <div class="list-group-data-item-1 lheight" >
-                   <input type="checkbox"  class="km-checkbox">
-                </div>
+                <label class="km-checkbox-label" >
+            ${typeitem}
+            <input type="checkbox" class="km-checkbox" id="${typekey}"/>
+                   
+                </label>
         </script>
 
         <script type="text/x-kendo-template" id="LocationFilter-Template">
@@ -1254,10 +1247,11 @@
         padding: 0;
     }
     
-    .fieldlist li
+    .li
     {
         list-style: none;
         padding-bottom: 1em;
+        background-color:transparent !important;
     }
 </style>
 

@@ -2287,7 +2287,12 @@ tile-frame-inner
         height: 20px;
     }
 
-.km-check {
-    border: thin solid black !important;
+.km-checkbox{
+    background-color:#ccc !important;
+    border:1px solid #000 !important;
+}
+
+.km-checkbox-label{
+    background-color:transparent !important;
 }
 
