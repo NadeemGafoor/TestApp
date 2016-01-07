@@ -669,7 +669,7 @@
             <div class="filter-item-holder">
                 <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Locations Near Me</div>
                 <div class="list-group-data-item-1 lheight" id="restaurantType">
-                    <i class="fa fa-square-o fa-lg"></i>
+                   <input type="checkbox" class="km-checkbox"/>
                 </div>
             </div>
             <div class="list-group">&nbsp;Restaurant Type</div>
@@ -1055,12 +1055,12 @@
         </script>
 
         <script type="text/x-kendo-template" id="TypeFilter-Template">
-            <div class="list-group-data-item lheight">${typeitem}</div>
-            <div class="list-group-data-item-1 lheight" id=${typekey} data-click="tickCheckBox(${typekey})" >
-                <i class="fa fa-square-o fa-lg"></i>
-            </div>
+                <div class="list-group-data-item lheight">${typeitem}</div>
+                <div class="list-group-data-item-1 lheight" >
+                   <input type="checkbox" id=${typekey} class="km-checkbox">
+                </div>
         </script>
-            
+
         <script type="text/x-kendo-template" id="LocationFilter-Template">
             <div class="list-group-data-header">
                 <div class="list-group-data-item" style="margin-left:10px;;width:65%">${locationitem}</div>
@@ -1072,7 +1072,7 @@
                 </div>
             </div>
         </script>
-            
+
         <script type="text/x-kendo-template" id="add-Rest-Filter-Template">
             <div class="list-group-data-header">
                 <div class="list-group-data-item" style="margin-left:10px;width:65%">
@@ -1089,7 +1089,7 @@
 
     </body>
 </html>
-    
+
 <script>
     function closeModalViewLogin() {
         $("#modalviewterms").data("kendoMobileModalView").close();
@@ -1099,7 +1099,7 @@
         $("#modalviewterms").data("kendoMobileModalView").open();
     }
 </script>
-    
+
 <style scoped>
     #appdrawerN .li-div, #appdrawer .li-div
     {

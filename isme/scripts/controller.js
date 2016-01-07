@@ -15,10 +15,6 @@ function onConfirm(buttonIndex) {
     }
 }
 
-function tickCheckBox(e){
-    document.getElementById(e).innerHTML='<i class="fa fa-check-square fa-lg"></i>';
-}
-
 function loadDiscover() {
     window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                      "duration"         :  500, // in milliseconds (ms), default 400
