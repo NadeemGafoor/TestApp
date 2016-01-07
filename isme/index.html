@@ -705,15 +705,19 @@
                     </a>
                 </div>
             </div>
-            <ul id="Type-Filter" data-bind="value:getRestTypeFilter" class="fieldlist">
+            <ul id="Type-Filter" data-bind="value:getRestTypeFilter">
 
             </ul>
 
+            <div class="button-frame-inline">
+                <a data-role="button" class="button-select">Select/UnSelect All</a>
+            </div>
+
         </div>
 
-        <div data-role="modalview" id="modalviewcuisine" data-title=""  style="height:70%;width:90%" data-model="preLogin">
-            <div data-role="header" style="background-color:#4f5053">
-                <div data-role="navbar">
+        <div data-role="modalview" id="modalviewcuisine" data-title=""  style="height:80%;width:90%;border-radius:5px;" data-model="preLogin">
+            <div data-role="header">
+                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span >Select Cuisine</span>
                     <a data-click="closeCuisineView" data-role="button" data-align="right" data-animated="true">
                         Go
@@ -723,6 +727,9 @@
             <ul id="Cuisine-Filter"  data-bind="value:getRestCuisineFilter" >
 
             </ul>
+            <div class="button-frame-inline">
+                <a data-role="button" class="button-select">Select/UnSelect All</a>
+            </div>
 
         </div>
 
@@ -763,9 +770,9 @@
 
         </div>
 
-        <div data-role="modalview" id="modalviewceleberationtype" data-title=""  style="height:70%;width:90%" data-model="preLogin">
-            <div data-role="header" style="background-color:#4f5053">
-                <div data-role="navbar">
+        <div data-role="modalview" id="modalviewceleberationtype" data-title=""  style="height:80%;width:90%;border-radius:5px;" data-model="preLogin">
+            <div data-role="header">
+                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span >Celebration Type</span>
                     <a data-click="closeCeleberationTypeView" data-role="button" data-align="right" data-animated="true">
                         Go
@@ -1031,27 +1038,27 @@
         </script>
 
         <script type="text/x-kendo-template" id="Celebration-Filter-Template">
-              <label class="km-checkbox-label" >
-            ${celebitem}
-            <input type="checkbox" class="km-checkbox" id="${celebkey}"/>
-                   
-                </label>
+            <label class="km-checkbox-label" >
+                ${celebitem}
+                <input type="checkbox" class="km-checkbox" id="${celebkey}"/>
+
+            </label>
         </script>
 
         <script type="text/x-kendo-template" id="CuisineFilter-Template">
-             <label class="km-checkbox-label" >
-            ${cuisineitem}
-            <input type="checkbox" class="km-checkbox" id="${cuisinekey}"/>
-                   
-                </label>
+            <label class="km-checkbox-label" >
+                ${cuisineitem}
+                <input type="checkbox" class="km-checkbox" id="${cuisinekey}"/>
+
+            </label>
         </script>
 
         <script type="text/x-kendo-template" id="TypeFilter-Template">
-                <label class="km-checkbox-label" >
-            ${typeitem}
-            <input type="checkbox" class="km-checkbox" id="${typekey}"/>
-                   
-                </label>
+            <label class="km-checkbox-label" >
+                ${typeitem}
+                <input type="checkbox" class="km-checkbox" id="${typekey}"/>
+
+            </label>
         </script>
 
         <script type="text/x-kendo-template" id="LocationFilter-Template">
@@ -1241,17 +1248,5 @@
         background-color: rgba(0, 0, 0, 0.5) !important;
     }
     
-    .fieldlist
-    {
-        margin: 0 0 -1em;
-        padding: 0;
-    }
-    
-    .li
-    {
-        list-style: none;
-        padding-bottom: 1em;
-        background-color:transparent !important;
-    }
-</style>
+ </style>
 
