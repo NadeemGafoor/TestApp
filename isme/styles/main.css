@@ -13,9 +13,6 @@ a
     color:#fff;
 }
 
-.km-view-title{
-    color:#fff;
-}
 
 .km-ios7 .km-listview
 {
@@ -41,6 +38,7 @@ a
     border: none;
     height: 3em;
     line-height: 3em;
+    color:#fff
 }
 
 .km-navbar a:active
