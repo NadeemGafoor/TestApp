@@ -3861,7 +3861,7 @@ function completeRedemption() {
     }
     
     function httpFAQ() {
-        showSpin(); //show loading popup
+        movshow(); //show loading popup
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -3882,22 +3882,22 @@ function completeRedemption() {
                                                                          dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
                                                                          template: $("#faqTemplate").html()
                                                                      });
-                               hideSpin(); //hide loading popup
+                               movhide(); //hide loading popup
                            }else {
                                navigator.notification.alert("No FAQ exists for the selected Program", function() {
                                }, "isme by Jumeirah", "Dismiss")    
-                               hideSpin(); //hide loading popup
+                               movhide(); //hide loading popup
                            }
                        }else {
                            navigator.notification.alert("Cannot get FAQ list " + getData.statusdesc, function() {
                            }, "isme by Jumeirah", "Dismiss")          
-                           hideSpin(); //hide loading popup
+                           movhide(); //hide loading popup
                        }
                    },
                    error: function (error) {
                        navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
-                       hideSpin(); //hide loading popup                                          
+                       movhide(); //hide loading popup                                          
                    }
                });
     }
@@ -4120,12 +4120,23 @@ function completeRedemption() {
     
     function getFAQData() {
         var data = [];
-        data.push({historykey: "1",historyitem:"About isme by Jumeirah"});
-        data.push({historykey: "2",historyitem:"Membership & Validity"});
-        data.push({historykey: "3",historyitem:"Programme Benefits"});
-        data.push({historykey: "4",historyitem:"Tier Privilege"});
+        data.push({faqkey: "1",faqitem:"About isme by Jumeirah"});
+        data.push({faqkey: "2",faqitem:"Membership & Validity"});
+        data.push({faqkey: "3",faqitem:"Programme Benefits"});
+        data.push({faqkey: "4",faqitem:"Tier Privilege"});
+        data.push({faqkey: "5",faqitem:"Mobile App Queries"});        
   
         return data;
+    }
+    
+      function movhide() {
+        window.setTimeout(function() {
+            $("#mvwait").data("kendoMobileModalView").close();
+        }, 1000); 
+    }
+    
+    function movshow() {
+        $("#mvwait").data("kendoMobileModalView").open();
     }
 }
     )(window);
