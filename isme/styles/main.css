@@ -2313,6 +2313,9 @@ tile-frame-inner
 #mvwait .spin-div1
 {
     margin: auto;
+    background-color: transparent !important;
+
+    
 }
 
 .height-80
