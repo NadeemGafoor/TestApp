@@ -28,15 +28,7 @@ function loadDiscover() {
 }
 
 function loadExplore() {
-    window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                     "duration"         :  500, // in milliseconds (ms), default 400
-                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                     'direction': 'up',
-                                                                     'href': '#views/explorelist.html'
-                                                                 }), 500);
+  
 }
 
 function loadBenefits() {
@@ -1760,7 +1752,16 @@ function completeRedemption() {
                                            validateUser
                                            : function () {
                                                window.localStorage.setItem("appopen", "0");   
-                                               $("body").data("kendoMobilePane").navigate("views/pl-home.html", "slide:up");  
+                                               //$("body").data("kendoMobilePane").navigate("views/pl-home.html", "slide:up");  
+                                                 window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'up',
+                                                                     'href': '#views/pl-home.html'
+                                                                 }), 500);
                                                return;
                                                
                                                if (!this.username) {
@@ -1888,7 +1889,16 @@ function completeRedemption() {
                                                                       window.localStorage.setItem("password", password);
                                                                       window.localStorage.setItem("loggedin", "1");
 
-                                                                      $("body").data("kendoMobilePane").navigate("views/pl-myprofile.html");  
+                                                                      //$("body").data("kendoMobilePane").navigate("views/pl-myprofile.html");  
+                                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'up',
+                                                                     'href': '#views/pl-home.html'
+                                                                 }), 500);
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                               }else {
@@ -3055,7 +3065,72 @@ function completeRedemption() {
 
                                                                     
                                                                                          });
-                                            }
+                                            },
+                          addImage:
+                                              function () {
+                                                  var success = function (imageData) {
+                                                      var image = document.getElementById('profile-picture-1');
+                                                      image.src = "data:image/png;base64," + imageData;
+                                                      //image.src = imageURI;
+                                                      newimage = imageData;
+                                                  };
+                                                  var error = function () {
+                                                      navigator.notification.alert("Unfortunately Image cannot be captured");
+                                                  };
+                                                  
+                                                  var config = {
+                                                      quality : 75,
+                                                      destinationType : Camera.DestinationType.DATA_URL,
+                                                      sourceType : Camera.PictureSourceType.CAMERA,
+                                                      allowEdit : true,
+                                                      encodingType: Camera.EncodingType.PNG,
+                                                      targetWidth: 75,
+                                                      targetHeight: 75,
+                                                      popoverOptions: CameraPopoverOptions,
+                                                      saveToPhotoAlbum: false
+                                                  };
+                                                  //                       var config = {
+                                                  //                           destinationType: Camera.DestinationType.DATA_URL,
+                                                  //                           targetHeight: 75,
+                                                  //                           targetWidth: 75,
+                                                  //                           encodingType: Camera.EncodingType.PNG
+                                                  //                       };
+                                                  navigator.camera.getPicture(success, error, config);
+                                              },
+        
+                                              
+                                              getImage:
+                                              function () {
+                                                  var success = function (imageData) {
+                                                      var image = document.getElementById('profile-picture-1');
+                                                      image.src = "data:image/png;base64," + imageData;
+                                                      //image.src = imageURI;
+                                                      newimage = imageData;
+                                                  };
+                                                  var error = function () {
+                                                      navigator.notification.alert("Unfortunately Image cannot be retrieved");
+                                                  };
+                                                  
+                                                  var config = {
+                                                      quality : 75,
+                                                      destinationType : Camera.DestinationType.DATA_URL,
+                                                      sourceType : Camera.PictureSourceType.SAVEDPHOTOALBUM,
+                                                      allowEdit : true,
+                                                      encodingType: Camera.EncodingType.PNG,
+                                                      targetWidth: 75,
+                                                      targetHeight: 75,
+                                                      popoverOptions: CameraPopoverOptions,
+                                                      saveToPhotoAlbum: false
+                                                  };
+                                                  //                       var config = {
+                                                  //                           destinationType: Camera.DestinationType.DATA_URL,
+                                                  //                           targetHeight: 75,
+                                                  //                           targetWidth: 75,
+                                                  //                           encodingType: Camera.EncodingType.PNG
+                                                  //                       };
+                                                  navigator.camera.getPicture(success, error, config);
+                                              },
+        
                                         });
     
     function listCountry() {

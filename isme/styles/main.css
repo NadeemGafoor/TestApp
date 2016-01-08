@@ -97,7 +97,7 @@ a:active
     background-color: #fff;
 }
 
-#faq-theme .km-content, #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #aboutisme-theme .km-content, #pl-termsconditions-theme .km-content, #pl-aboutisme-theme .km-content
+#faq-theme .km-content, #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #aboutisme-theme .km-content, #pl-termsconditions-theme .km-content, #pl-aboutisme-theme .km-content,#resetpassword-theme .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/640x960_bg.png) no-repeat center center;
     background-size: cover;
@@ -548,9 +548,9 @@ img
 
 #pl-setting-theme .input-frame-enrol input,
 #enrol-theme .input-frame-enrol input,
-#token-theme .input-frame input,
+#token-theme .input-frame-enrol input,
 #login-theme .input-frame-enrol input,
-#resetpassword-theme .input-frame input,
+#resetpassword-theme .input-frame-enrol input,
 #pl-myprofile-theme .input-frame input
 {
     display: block;
@@ -563,9 +563,9 @@ img
 }
 
 #enrol-theme .input-frame-enrol input,
-#token-theme .input-frame input,
+#token-theme .input-frame-enrol input,
 #login-theme .input-frame-enrol input,
-#resetpassword-theme .input-frame input
+#resetpassword-theme .input-frame-enrol input
 
 {
     color: #fff;
@@ -596,9 +596,8 @@ img
 .one-line
 {
     color: #fff;
-    line-height: 3em;
+    line-height: 2em;
     text-align: center;
-    padding-top: 1em;
 }
 .button-frame-inline
 {
