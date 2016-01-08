@@ -837,6 +837,7 @@ img
     line-height: 3em;
     width: 100%;
     float: none;
+    color:#fff;
 }
 
 .switch-frame-voucher
@@ -2177,6 +2178,10 @@ tile-frame-inner
     position: relative;
     float: none;
     margin: 0px auto;
+}
+
+.white-color{
+    color:#fff;
 }
 
 .profile-image

@@ -1,12 +1,15 @@
-<div data-role="view"  data-title="My Profile" data-layout="pl-back1-layout" id="pl-myprofile-view" data-model="postLogin">
+<div data-role="view"  data-title="My Profile" data-layout="pl-back1-layout" id="pl-myprofile-view" data-model="postLogin" data-stretch="true">
 <div>
     <div class="profile-image-holder">
         <div class="profile-image">
             <img src=""  id="profile-picture-1" class="class-img">
         </div>
         <div class="profile-image-change-button">
-            <a data-role="button" data-rel="actionsheet" href="#actionsheet">
-                <i class="fa fa-camera"></i> Edit
+            <a data-role="button" data-bind="events: { click: addImage }" class="btn btn-default btn-lg">
+                <i class="fa fa-camera"></i> Take a Picture
+            </a>
+               <a data-role="button" data-bind="events: { click: getImage }" class="btn btn-default btn-lg">
+                <i class="fa fa-file-image-o"></i> Pick from Album
             </a>
         </div>
 
@@ -26,13 +29,7 @@
             </a>
         </div>
     </div>
-    <ul id="actionsheet" data-role="actionsheet" data-cancel="Close" data-popup='{ "direction": "left" }' data-type="phone">
-        <li>
-            <a data-role="button" data-bind="events: { click: addImage }">Take a Picture</a>
-        </li>
-        <li>
-            <a data-role="button" data-bind="events: { click: getImage }">Pick from Album</a>
-        </li>
-    </ul>
+  
 </div>
 
+</div>
