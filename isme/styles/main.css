@@ -80,17 +80,8 @@ a
     box-shadow: 0px 1px 5px #666365;
 }
 
-ul a:active
-{
-    background-color: transparent !important;
-    color: #ccc;
-}
 
-a:active
-{
-    background-color: transparent !important;
-    color: #fff;
-}
+
 #benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content, #pl-myvoucherdetail-theme .km-content, #pl-benefit-theme .km-content, #mymessagelist-theme .km-content, #messageitem-theme .km-content, #pl-setting-theme .km-content, #pl-home-view .km-content,
 #history-theme .km-content, #historyitem-theme .km-content, #modalviewhistoryfilter .km-content, #myfavorite-view .km-content, #pl-confirmpage-view .km-content, #pl-customerservice-theme .km-content, #enrolmentpage-view .km-content, #pl-confirmredemption-view .km-content, #modalviewfaq .km-content
 {
@@ -672,6 +663,17 @@ img
     border-radius: 100px;
 }
 
+
+    
+ #login-theme .button-loginwithfacebook, #pl-setting-theme  .button-loginwithfacebook,#enrol-theme .button-loginwithfacebook
+    {
+        background-color: rgba(13, 104, 197, 1);
+        color: #fff;
+    }
+
+
+
+
 .button-frame
 {
     height: 30px;
@@ -683,7 +685,7 @@ img
 
 .button-frame-inline .km-button
 {
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0,0,0,1);
     color: #fff;
     line-height: 30px;
     width: 80%;
