@@ -542,7 +542,7 @@ function loadLeisureDetail() {
 
 function loadMyProfile() {
     plHomeClick();
-
+    doOneBack();
     if (window.localStorage.getItem("appopen") != "1") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
