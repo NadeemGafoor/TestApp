@@ -500,8 +500,7 @@ function loadOfferDetail() {
     }
 }
 
-function loadOfferDetaila() {  
-    if (window.localStorage.getItem("appopen") != "11a") {
+function loadOfferDetaila() {   
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -511,9 +510,9 @@ function loadOfferDetaila() {
                                                        'direction': 'up',
                                                        'href': '#views/offerdetail.html'
                                                    });
-        window.localStorage.setItem("appopen", "11a");   
+
     }
-}
+
 
 function loadOutletDetail() {
     doOneBack();
