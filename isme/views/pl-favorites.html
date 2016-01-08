@@ -6,28 +6,17 @@
                 Save
             </a>
         </div>
-    <div class="list-group">&nbsp;My Favorite Restaurants</div>
-    <div data-role="scrollview" data-content-height="100%" data-enable-pager="false">
-        <a href="views/pl-outletdetail.html" data-transition="slide:left"><div class="photo photo1">Restaurant 1
-        </div></a>
-        <a href="views/pl-outletdetail.html" data-transition="slide:left"><div class="photo photo2">Restaurant 2
-        </div></a>
-        <a href="views/pl-outletdetail.html" data-transition="slide:left"><div class="photo photo3">Restaurant 3
-        </div></a>
-        <a href="views/pl-outletdetail.html" data-transition="slide:left"><div class="photo photo4">Restaurant 4
-        </div></a>
-        <a href="views/pl-outletdetail.html" data-transition="slide:left"><div class="photo photo5">Restaurant 5
-        </div></a>
-        <a href="views/pl-outletlist.html" data-transition="slide:left"><div class="photo photo6">&nbsp;
-        </div></a>
-    </div>
+     <div class="list-group">&nbsp;My Favourite Restaurants</div>
 
+    <ul id="Offer-Filter1"  data-bind="value:getOfferTypeData1">
+
+    </ul>
     <div class="list-group">&nbsp;My Lifestyle Interests</div>
 
     <ul id="Offer-Filter1"  data-bind="value:getOfferTypeData1">
 
     </ul>
-    <div class="list-group" >&nbsp;My Cuisine Type</div>
+    <div class="list-group" >&nbsp;My Taste Preferences</div>
 
     <ul id="Cuisine-Filter1" data-bind="value:getRestCuisineFilter1">
     </ul>
@@ -35,29 +24,19 @@
 </div>
 
 <script type="text/x-kendo-template" id="Offer-Filter-Template1">
-    <div class="list-group-data-header">
-        <div class="list-group-data-item" style="margin-left:10px;width:65%">
-            ${offeritem}
-        </div>
-        <div class="list-group-data-item" id=${offerkey} style="text-align:center;width:15%">
-            <i class="fa fa-minus-square-o fa-lg"></i>
-        </div>
-        <div class="list-group-data-item" id=${offerkey} style="text-align:center;width:15%">
-            <i class="fa fa-plus-square-o fa-lg"></i>
-        </div>
-    </div>
+    <label class="km-checkbox-label" >
+                ${offeritem}
+                <input type="checkbox" class="km-checkbox" id="${offerkey}"/>
+
+            </label>
 </script>
 
 <script type="text/x-kendo-template" id="CuisineFilter-Template1">
-    <div class="list-group-data-header">
-        <div class="list-group-data-item" style="margin-left:10px;;width:65%">${cuisineitem}</div>
-        <div class="list-group-data-item" id=${cuisinekey} style="text-align:center;width:15%">
-            <i class="fa fa-minus-square-o fa-lg"></i>
-        </div>
-        <div class="list-group-data-item" id=${cuisinekey} style="text-align:center;width:15%">
-            <i class="fa fa-plus-square-o fa-lg"></i>
-        </div>
-    </div>
+  <label class="km-checkbox-label" >
+                ${cuisineitem}
+                <input type="checkbox" class="km-checkbox" id="${cuisinekey}"/>
+
+            </label>
 </script>
 
 <style scoped>
