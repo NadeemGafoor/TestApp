@@ -2310,7 +2310,9 @@ tile-frame-inner
 
 #mvwait .spin-div1
 {
-    margin: auto;
+    height:40px;
+    width:40px;
+    margin: 45% auto;
     background-color: transparent !important;
 
     
