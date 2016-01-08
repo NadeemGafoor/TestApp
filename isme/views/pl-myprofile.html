@@ -1,17 +1,17 @@
 <div data-role="view"  data-title="My Profile" data-layout="pl-back1-layout" id="pl-myprofile-view" data-model="postLogin">
-
+<div>
     <div class="profile-image-holder">
         <div class="profile-image">
             <img src=""  id="profile-picture-1" class="class-img">
         </div>
         <div class="profile-image-change-button">
-            <a data-role="button" data-rel="actionsheet" href="\\#actionsheet">
+            <a data-role="button" data-rel="actionsheet" href="#actionsheet">
                 <i class="fa fa-camera"></i> Edit
             </a>
         </div>
 
     </div>
-    <div class="profile-data-holder" id="read-profile" style="display:block">
+    <div class="profile-data-holder" id="read-profile">
         <div class="general-text-line" style="color:#000">Name :RICARDO MANRIQUEZ</div>
         <div class="general-text-line" style="color:#000">Birthdate :01/01/65</div>
         <div class="general-text-line" style="color:#000">Nationality :Unspecified</div>
@@ -28,10 +28,10 @@
     </div>
     <ul id="actionsheet" data-role="actionsheet" data-cancel="Close" data-popup='{ "direction": "left" }' data-type="phone">
         <li>
-            <a>Foo</a>
+            <a data-role="button" data-bind="events: { click: addImage }">Take a Picture</a>
         </li>
         <li>
-            <a>Bar</a>
+            <a data-role="button" data-bind="events: { click: getImage }">Pick from Album</a>
         </li>
     </ul>
 </div>
