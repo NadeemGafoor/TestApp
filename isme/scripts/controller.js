@@ -38,7 +38,7 @@ function loadExplore() {
                                                                      'href': '#views/explorelist.html'
                                                                  }), 500);
 }
-}
+
 
 function loadBenefits() {
     window.setTimeout(window.plugins.nativepagetransitions.slide({
