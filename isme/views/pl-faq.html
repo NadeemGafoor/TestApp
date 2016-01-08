@@ -1,0 +1,24 @@
+<div data-role="view" data-title="FAQ" data-layout="pl-back5-layout" id="faq-theme" data-model="preLogin" data-show="preLogin.getfaq">
+     <div data-role="header">
+        <div data-role="navbar">
+              <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff" data-click="postLoginBackOne">
+                    </a>
+            <span data-role="view-title"></span>
+            <a  data-role="button" data-click="loadFAQView" data-align="right" >
+                <i class="fa fa-filter fa-lg" style="color:#fff"></i>
+            </a>
+        </div>
+    </div>
+     <ul style="background-color:transparent" id="faqlist-all">
+
+    </ul>
+  
+
+</div>
+  
+<script type="text/x-kendo-template" id="faqTemplate">
+        <div class="faq1" >
+                <div class="faqq">${question}<br><span style="font-weight:bold">${answer}</span></div>
+            </div>
+
+</script>
