@@ -41,7 +41,6 @@
     "ID_RESOLUTION_HD720P"
   ],
   "CorePlugins": [
-    "com.phonegap.plugins.facebookconnect@1.0.1",
     "com.phonegap.plugins.PushPlugin@3.0.5",
     "com.telerik.plugins.nativepagetransitions@0.5.7",
     "cordova-plugin-camera",
