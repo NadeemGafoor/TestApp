@@ -2096,6 +2096,18 @@ function completeRedemption() {
                                                                     
                                                                                        });
                                            },
+        
+          getOfferTypeData2:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
+                                               
+                                               $("#Offer-Filter2").kendoMobileListView({
+                                                                                           dataSource: dataSource,
+                                                                                           template: $("#Offer-Filter-Template2").html()
+
+                                                                    
+                                                                                       });
+                                           },
+        
                                            getCelebrationFilter:function() {
                                                var dataSource = new kendo.data.DataSource({ data: getOfferCeleberationData() });
                                                

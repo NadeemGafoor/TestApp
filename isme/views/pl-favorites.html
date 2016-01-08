@@ -1,14 +1,14 @@
 <div data-role="view"  data-title="My Favorites" data-layout="pl-back1-layout" id="myfavorite-view" data-model="preLogin">
-   
-        <div data-role="navbar" style="background-color:#7e6b6d">
 
-            <a data-role="button"  data-align="right" style="margin-right:10px">
-                Save
-            </a>
-        </div>
-     <div class="list-group">&nbsp;My Favourite Restaurants</div>
+    <div data-role="navbar" style="background-color:#434446">
 
-    <ul id="Offer-Filter1"  data-bind="value:getOfferTypeData1">
+        <a data-role="button"  data-align="right" style="margin-right:10px">
+            Save
+        </a>
+    </div>
+    <div class="list-group">&nbsp;My Favourite Restaurants</div>
+
+    <ul id="Offer-Filter2"  data-bind="value:getOfferTypeData2">
 
     </ul>
     <div class="list-group">&nbsp;My Lifestyle Interests</div>
@@ -23,19 +23,27 @@
 
 </div>
 
+<script type="text/x-kendo-template" id="Offer-Filter-Template2">
+    <label class="km-checkbox-label" >
+        ${offeritem}
+        <input type="checkbox" class="km-checkbox" id="${offerkey}"/>
+
+    </label>
+</script>
+
 <script type="text/x-kendo-template" id="Offer-Filter-Template1">
     <label class="km-checkbox-label" >
-                ${offeritem}
-                <input type="checkbox" class="km-checkbox" id="${offerkey}"/>
+        ${offeritem}
+        <input type="checkbox" class="km-checkbox" id="${offerkey}"/>
 
-            </label>
+    </label>
 </script>
 
 <script type="text/x-kendo-template" id="CuisineFilter-Template1">
-  <label class="km-checkbox-label" >
-                ${cuisineitem}
-                <input type="checkbox" class="km-checkbox" id="${cuisinekey}"/>
+    <label class="km-checkbox-label" >
+        ${cuisineitem}
+        <input type="checkbox" class="km-checkbox" id="${cuisinekey}"/>
 
-            </label>
+    </label>
 </script>
 
