@@ -2368,5 +2368,8 @@ tile-frame-inner
     border-radius: 50px;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
+      -webkit-border: #fff solid 0px;
+    -moz-border: #fff solid 0px;
+    border: #fff solid 0px;
 }
 
