@@ -2301,7 +2301,7 @@ tile-frame-inner
     color: #fff;
 } 
 
-.spin-div
+#mvwait .spin-div
 {
     position: relative;
     float: none;
@@ -2310,7 +2310,7 @@ tile-frame-inner
     background-color: transparent !important;
 }
 
-.spin-div1
+#mvwait .spin-div1
 {
     margin: auto;
 }
