@@ -2301,22 +2301,17 @@ tile-frame-inner
     color: #fff;
 } 
 
-#mvwait .spin-div
+.spin-div
 {
     position: relative;
     float: none;
     display: block;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.1) !important;
+    background-color: transparent !important;
 }
 
-#mvwait .spin-div1
+.spin-div1
 {
-    position: relative;
-    float: none;
-    display: block;
-    top: 47%;
-    left: 47%; 
     margin: auto;
 }
 
