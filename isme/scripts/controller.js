@@ -245,6 +245,19 @@ function enterPinForRedemption() {
     $("#modalviewenterpin").data("kendoMobileModalView").open(); 
 }
 
+function openEnterModalPassword() {
+    $("#modalviewpassword").data("kendoMobileModalView").open(); 
+}
+
+function closeEnterModalPassword() {
+    $("#modalviewpassword").data("kendoMobileModalView").close(); 
+}
+
+function closeEnterModalPasswordandEnterPIN(){
+     $("#modalviewpassword").data("kendoMobileModalView").close();
+    setPinForEnrollment();
+}
+
 function closeEnterPinForRedemption() {
     $("#modalviewenterpin").data("kendoMobileModalView").close();
 }
@@ -476,6 +489,22 @@ function loadOfferDetail() {
                                                        'href': '#views/pl-offerdetail.html'
                                                    });
         window.localStorage.setItem("appopen", "11");   
+    }
+}
+
+
+function loadOfferDetaila() {  
+    if (window.localStorage.getItem("appopen") != "11a") {
+        window.plugins.nativepagetransitions.slide({
+                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                       'direction': 'up',
+                                                       'href': '#views/offerdetail.html'
+                                                   });
+        window.localStorage.setItem("appopen", "11a");   
     }
 }
 

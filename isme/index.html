@@ -695,8 +695,8 @@
                 </a>
             </div>
         </div>
-        
-          <div data-role="modalview" id="modalviewofferfilter" style="height:60%;width:90%;border-radius:5px;" data-model="preLogin">
+
+        <div data-role="modalview" id="modalviewofferfilter" style="height:60%;width:90%;border-radius:5px;" data-model="preLogin">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span>Reward Filters</span>
@@ -706,34 +706,33 @@
                 </div>
             </div>
             <div class="list-group">&nbsp;Location</div>
-             <div class="filter-item-holder">
+            <div class="filter-item-holder">
                 <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Locations Near Me</div>
                 <div class="list-group-data-item-1 lheight" id="restaurantType">
                     <input type="checkbox" class="km-checkbox"/>
                 </div>
             </div>
             <div class="list-group">&nbsp;Celebration Type</div>
-           <div class="filter-item-holder">
+            <div class="filter-item-holder">
                 <a data-click="loadCeleberationTypeView" data-role="button">
                     <div class="list-group-data-item">Select Celebration Type...</div>
                     <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
                 </a>
             </div>
-              <div class="list-group">&nbsp;Cuisine Type</div>
-  <div class="filter-item-holder">
+            <div class="list-group">&nbsp;Cuisine Type</div>
+            <div class="filter-item-holder">
                 <a data-click="loadCuisineView" data-role="button">
                     <div class="list-group-data-item">Select Cuisine...</div>
                     <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
                 </a>
             </div>
-              <div class="list-group">&nbsp;Offer Type</div>            
-              <div class="filter-item-holder">
+            <div class="list-group">&nbsp;Offer Type</div>
+            <div class="filter-item-holder">
                 <a data-click="loadOfferView" data-role="button">
                     <div class="list-group-data-item">Select Offer Type...</div>
                     <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
                 </a>
             </div>
-          
 
         </div>
 
@@ -746,25 +745,20 @@
                     </a>
                 </div>
             </div>
-         <div class="filter-item-holder" style="background-color:#ccc">
+            <div class="filter-item-holder" style="background-color:#ccc">
                 <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Select All</div>
                 <div class="list-group-data-item-1 lheight" id="restaurantType">
                     <input type="checkbox" class="km-checkbox"/>
                 </div>
             </div>
-            
+
             <ul id="Type-Filter" data-bind="value:getRestTypeFilter">
 
             </ul>
 
         </div>
 
-    
-
-      
-        
-        
-            <div data-role="modalview" id="modalviewcuisine" data-title=""  style="height:80%;width:90%;border-radius:5px" data-model="preLogin">
+        <div data-role="modalview" id="modalviewcuisine" data-title=""  style="height:80%;width:90%;border-radius:5px" data-model="preLogin">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span >Select Cuisine</span>
@@ -773,7 +767,7 @@
                     </a>
                 </div>
             </div>
-                <div class="filter-item-holder" style="background-color:#ccc">
+            <div class="filter-item-holder" style="background-color:#ccc">
                 <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Select All</div>
                 <div class="list-group-data-item-1 lheight" id="restaurantType">
                     <input type="checkbox" class="km-checkbox"/>
@@ -782,12 +776,10 @@
             <ul id="Cuisine-Filter"  data-bind="value:getRestCuisineFilter" >
 
             </ul>
-         
 
         </div>
-        
-        
-         <div data-role="modalview" id="modalviewoffertype" data-title=""  style="height:80%;width:90%;border-radius:5px;background-color:#fff" data-model="preLogin">
+
+        <div data-role="modalview" id="modalviewoffertype" data-title=""  style="height:80%;width:90%;border-radius:5px;background-color:#fff" data-model="preLogin">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span >Offer Type</span>
@@ -796,7 +788,7 @@
                     </a>
                 </div>
             </div>
-                <div class="filter-item-holder" style="background-color:#ccc">
+            <div class="filter-item-holder" style="background-color:#ccc">
                 <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Select All</div>
                 <div class="list-group-data-item-1 lheight" id="restaurantType">
                     <input type="checkbox" class="km-checkbox"/>
@@ -804,15 +796,8 @@
             </div>
             <ul id="Offer-Filter"  data-bind="value:getOfferTypeData" >
             </ul>
-          
+
         </div>
-        
-        
-        
-        
-        
-        
-        
 
         <div data-role="modalview" id="modalviewceleberationtype" data-title=""  style="height:80%;width:90%;border-radius:5px;" data-model="preLogin">
             <div data-role="header">
@@ -823,7 +808,7 @@
                     </a>
                 </div>
             </div>
-                <div class="filter-item-holder" style="background-color:#ccc">
+            <div class="filter-item-holder" style="background-color:#ccc">
                 <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Select All</div>
                 <div class="list-group-data-item-1 lheight" id="restaurantType">
                     <input type="checkbox" class="km-checkbox"/>
@@ -831,7 +816,7 @@
             </div>
             <ul id="Celebration-Filter"  data-bind="value:getCelebrationFilter" >
             </ul>
-          
+
         </div>
 
         <div data-role="modalview" id="modalviewmap" data-title="Map"  style="height:100%;width:100%" data-model="preLogin" data-show="getLocationO">
@@ -997,6 +982,32 @@
             <div style="height:10px">&nbsp;</div>
         </div>
 
+        <div data-role="modalview" id="modalviewpassword" style="height:70%;width:80%;border-radius:5px" data-model="postLogin" data-title="Enter isme Password">
+            <div data-role="header">
+                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                    <span data-role="view-title"></span>
+
+                    <a data-click="closeEnterModalPassword" data-role="button" data-align="right">
+                        <i class="fa fa-times-circle fa-2x" style="margin:auto;color:#fff"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="home-page-holder"></div>
+            <div class="input-frame" style="border-bottom:2px solid #000">
+                <input type="password" id="password" data-bind="value: password" placeholder="Enter isme Password" />
+            </div>
+            <div class="home-page-holder">
+            </div>
+            <div class="button-frame-inline">
+                <a data-role="button" style="background-color:#000;color:#fff" data-click="closeEnterModalPasswordandEnterPIN">Continue</a>
+            </div>
+            <div class="home-page-holder"></div>
+            <div class="fulljustify cblack">
+                After your Password verification is successful, you can change your 4 digit PIN
+            </div>
+            <div style="height:10px">&nbsp;</div>
+        </div>
+
         <div data-role="modalview" id="modalviewstaffpin" style="height:70%;width:80%" data-model="postLogin" data-title="Enter Staff Identification">
             <div data-role="header">
                 <div data-role="navbar">
@@ -1068,7 +1079,7 @@
         </script>
 
         <script type="text/x-kendo-template" id="Offer-Filter-Template">
-           <label class="km-checkbox-label" >
+            <label class="km-checkbox-label" >
                 ${offeritem}
                 <input type="checkbox" class="km-checkbox" id="${offerkey}"/>
 
@@ -1177,7 +1188,7 @@
         background-color: transparent !important;
     }
     
-    #modalviewceleberationtype .km-content, #modalviewcountry .km-content, #modalviewofferfilter .km-content, #modalviewfilter .km-content, #modalviewtype .km-content, #modalviewcuisine .km-content, #modalviewoffertype .km-content
+    #modalviewceleberationtype .km-content, #modalviewcountry .km-content, #modalviewofferfilter .km-content, #modalviewfilter .km-content, #modalviewtype .km-content, #modalviewcuisine .km-content, #modalviewoffertype .km-content, #modalviewpassword .km-content
     {
         background-color: #fff;
     }
@@ -1186,7 +1197,6 @@
     {
         background-color: transparent !important;
     }
-    
  
     #modalviewstar .km-content
     {
@@ -1222,11 +1232,10 @@
         border: 0px !important;
     }
     
-      .mymenu2 a,.cardmenu a
+    .mymenu2 a, .cardmenu a
     {
-     
+    
         background-color: transparent !important;
-     
     }
     
     .cardmenu
@@ -1281,5 +1290,5 @@
     {
         background-color: rgba(0, 0, 0, 0.5) !important;
     }
-    </style>
+</style>
 

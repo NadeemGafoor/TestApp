@@ -10,9 +10,8 @@ hr { background-color: #b6b2b4; height: 1px; border: 0; }
 a
 {
     text-decoration: none;
-    color:#fff;
+    color: #fff;
 }
-
 
 .km-ios7 .km-listview
 {
@@ -38,7 +37,7 @@ a
     border: none;
     height: 3em;
     line-height: 3em;
-    color:#fff
+    color: #fff
 }
 
 .km-navbar a:active
@@ -75,10 +74,10 @@ a
     font-size: 1em;
 }
 
-.km-header{
-  box-shadow: 0px 1px 5px #666365;
+.km-header
+{
+    box-shadow: 0px 1px 5px #666365;
 }
-
 
 ul a:active
 {
@@ -91,13 +90,13 @@ a:active
     background-color: transparent !important;
     color: #fff;
 }
-#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content, #pl-myvoucherdetail-theme .km-content, #pl-benefit-theme .km-content, #mymessagelist-theme .km-content, #messageitem-theme .km-content, #pl-setting-theme .km-content,#pl-home-view .km-content,
+#benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #branddetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content, #pl-myvoucherdetail-theme .km-content, #pl-benefit-theme .km-content, #mymessagelist-theme .km-content, #messageitem-theme .km-content, #pl-setting-theme .km-content, #pl-home-view .km-content,
 #history-theme .km-content, #historyitem-theme .km-content, #modalviewhistoryfilter .km-content, #myfavorite-view .km-content, #pl-confirmpage-view .km-content, #pl-customerservice-theme .km-content, #enrolmentpage-view .km-content, #pl-confirmredemption-view .km-content
 {
     background-color: #fff;
 }
 
-#faq-theme .km-content, #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #aboutisme-theme .km-content,  #pl-termsconditions-theme .km-content, #pl-aboutisme-theme .km-content
+#faq-theme .km-content, #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #aboutisme-theme .km-content, #pl-termsconditions-theme .km-content, #pl-aboutisme-theme .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/640x960_bg.png) no-repeat center center;
     background-size: cover;
@@ -114,7 +113,6 @@ a:active
     background-size: cover;
     -webkit-background-size: cover;
 }
-
 
 #liesurelist-theme .km-content,
 #pl-liesurelist-theme .km-content
@@ -425,7 +423,6 @@ img
     text-align: center;
 }
 
-
 .button-group
 {
     background-color: #ccc;
@@ -508,7 +505,7 @@ img
     width: 100%;
     padding-left: 15%;
     color: #fff;
-     border-bottom:2px solid #fff;
+    border-bottom: 2px solid #fff;
 }
 
 .input-frame-enrol 
@@ -517,7 +514,7 @@ img
     line-height: 1em;
     width: 100%;
     color: #fff;
-    border-bottom:2px solid #fff;
+    border-bottom: 2px solid #fff;
 }
 
 .input-frame-enrol label 
@@ -551,7 +548,7 @@ img
     line-height: 1em;
     background-color: transparent !important;
     color: #000;
-    z-index:0;
+    z-index: 0;
 }
 
 #enrol-theme .input-frame-enrol input,
@@ -566,7 +563,8 @@ img
 #modalviewpin .input-frame input,
 #modalviewrepin .input-frame input,
 #modalviewenterpin .input-frame input,
-#modalviewstaffpin .input-frame input
+#modalviewstaffpin .input-frame input,
+#modalviewpassword .input-frame input
 {
     position: relative;
     float: none;
@@ -658,7 +656,6 @@ img
     border-radius: 100px;
 }
 
-
 .button-frame
 {
     height: 30px;
@@ -670,8 +667,8 @@ img
 
 .button-frame-inline .km-button
 {
-    background-color:#888888;
-    color:#fff;
+    background-color: #888888;
+    color: #fff;
     line-height: 30px;
     width: 80%;
     display: block;
@@ -688,8 +685,8 @@ img
 
 .invert .km-button
 {
-    background-color:rgba(0,0,0,.5);
-    color:#fff;
+    background-color: rgba(0, 0, 0, .5);
+    color: #fff;
 }
 
 .button-frame .km-button
@@ -805,7 +802,6 @@ img
     line-height: 3em;
     width: 100%;
     float: none;
-
 }
 
 .switch-frame-voucher
@@ -827,7 +823,7 @@ img
     position: relative;
     width: 70%;
     height: 3em;
-    line-height:3em;
+    line-height: 3em;
     float: none;
     left: 15%;
 }
@@ -881,7 +877,7 @@ img
     white-space: -o-pre-wrap; /* Opera 7 */    
     text-align: justify !important;
     text-justify: inter-word;
-    color:#000;
+    color: #000;
 }
 
 .gen-text
@@ -1830,74 +1826,67 @@ tile-frame-inner
     -webkit-background-size: 100%;
 }
 
-
 .voucher-text
 {
-    position:relative;
-    float:none;
-    width:95%;
+    position: relative;
+    float: none;
+    width: 95%;
     height: 73%;
     font-size: 1em;
     line-height: 25px;
     color: #fff;
-  text-align: justify !important;
+    text-align: justify !important;
     text-justify: inter-word;
-    margin-left:2%; 
+    margin-left: 2%; 
 }
 
 .expiry-text
 {
-    position:relative;
-    float:left;
-    width:48%;
-    height: 25px;
-    line-height:25px;
+    position: relative;
+    float: left;
+    width: 48%;
     color: #fff;
-    text-align: left; 
-    margin-left:2%;
-    margin-top:0px;
-    background-color:#000;
-    font-size:.9em;
+    text-align: center; 
+    margin-left: 2%;
+    margin-top: 0px;
+    font-size: .9em;
+    height: 25px !important;
+    line-height: 25px !important;
 }
 
 .detail-text
 {
-    position:relative;
-    float:right;
-    width:48%;
-    height: 25%;
+    position: relative;
+    float: left;
+    width: 48%;
+    height: 25px;
     line-height: 25px;
-    color:#fff;
-    background-color:#000;
-    margin-left:2%;
-    margin-top:0px;
-    font-size:.9em;
-    }
+    color: #fff;
+    margin-left: 2%;
+    margin-top: 0px;
+}
 
 .detail-text-button
- {
-         font-size:.9em;
-     position:relative;
-     float:right;
-        display:block;
-        width: 100%;
-        background-color: #000 !important;
-        color: #fff !important;
-        border: 0px !important;
-     text-align:center;
-     line-height:25px;
-     margin:0 auto;
-    }
-
+{
+    display: block;
+    width: 100%;
+    background-color: transparent !important;
+    color: #fff !important;
+    border: 0px !important;
+    text-align: left;
+    height:100%;
+    line-height:5px;
+}
 
 .general-text-line
 {
     width: 100%;
     font-size: 1.2em;
-    text-align: center; 
+    text-align: left; 
     height: 25px;
     line-height: 25px;
-    display:block;
+    display: block;
+    margin-left:15%;
 }
 
 .class-benefit
@@ -1933,9 +1922,9 @@ tile-frame-inner
 
 .class-card-div
 {
-    height:200px;
-    margin:40px auto;
-    display:block;
+    height: 200px;
+    margin: 40px auto;
+    display: block;
     width: 100%;
     background-color: #fff;
 }
@@ -1983,7 +1972,6 @@ tile-frame-inner
     float: none;
     width: 100%;
     background-color: rgba(0, 0, 0, 1);
-
 }
 
 .share-menu-line-2-c
@@ -1991,57 +1979,55 @@ tile-frame-inner
     position: relative;
     float: none;
     width: 100%;
-    background-color:#fff;
-    display:block;
-    margin:auto;
-      box-shadow: 0px 1px 5px #666365;
-    z-index:999;
+    background-color: #fff;
+    display: block;
+    margin: auto;
+    box-shadow: 0px 1px 5px #666365;
+    z-index: 999;
 }
 
 .share-menu-line-3
 {
-    height:25px;
+    height: 25px;
     position: relative;
     float: none;
     width: 100%;
-    background-color:#fff;
-    color:#000;
-    display:block;
-  box-shadow: -1px 2px 2px #666365;
-    border:0px;
+    background-color: #fff;
+    color: #000;
+    display: block;
+    box-shadow: -1px 2px 2px #666365;
+    border: 0px;
 }
 
-.share-menu-line-3 a,.share-menu-line-2-c a
+.share-menu-line-3 a, .share-menu-line-2-c a
 {
-    background-color:transparent !important;
- 
+    background-color: transparent !important;
 }
 
-.share-menu-line-4{
-   height:25px;
+.share-menu-line-4
+{
+    height: 25px;
     position: relative;
     float: none;
     width: 100%;
-    background-color:#fff;
-    color:#000;
-    display:block;
+    background-color: #fff;
+    color: #000;
+    display: block;
 }
 
 .share-menu-line-3-a
 {
-    width:32%;
-    line-height:25px;
+    width: 32%;
+    line-height: 25px;
     position: relative;
     float: left;
-    background-color:transparent !important;
-    color:#000;
-    font-weight:bold; 
-    font-size:1.1em;
-    display:block;
-    margin:-5px 2px auto 2px;
-
+    background-color: transparent !important;
+    color: #000;
+    font-weight: bold; 
+    font-size: 1.1em;
+    display: block;
+    margin: -5px 2px auto 2px;
 }
-
 
 .share-menu-line-2 .km-button
 {
@@ -2079,18 +2065,19 @@ tile-frame-inner
 .list-group
 {
     height: 40px;
-    line-height:40px;
+    line-height: 40px;
     background-color: #ccc;
     color: #000;
     font-size: 1em;
     font-weight: bold;
 }    
 
-.filter-item-holder{
+.filter-item-holder
+{
     
     width: 100%;
-    height:30px;
-    background-color:#fff;
+    height: 30px;
+    background-color: #fff;
 }
 
 .list-group-data-item
@@ -2100,11 +2087,12 @@ tile-frame-inner
     width: 80%;
     color: #000;
     font-size: 1em;
-    height:30px;    
+    height: 30px; 
 }
 
-.lheight{
-    line-height:40px;
+.lheight
+{
+    line-height: 40px;
 }
 
 .list-group-data-item-1
@@ -2114,8 +2102,8 @@ tile-frame-inner
     width: 20%;
     color: #000;
     font-size: 1em;
-    height:30px;    
-    text-align:center; 
+    height: 30px; 
+    text-align: center; 
 }
 
 .filter-item-holder .km-button
@@ -2204,7 +2192,7 @@ tile-frame-inner
     margin-left: auto;
     top: 43px; 
     background-color: #fff;
-    border:none;
+    border: none;
 }
 
 .progress-bar-holder
@@ -2241,18 +2229,20 @@ tile-frame-inner
     text-align: left;
 }
 
-.a25-percent{
-    margin-left:25%;
-    width:75%;
+.a25-percent
+{
+    margin-left: 25%;
+    width: 75%;
 }
 
-
-.cwhite{
-    color:#fff;
+.cwhite
+{
+    color: #fff;
 }
 
-.cblack{
-    color:#000;
+.cblack
+{
+    color: #000;
 }
 
 .hanging-icon
@@ -2296,24 +2286,24 @@ tile-frame-inner
     margin: auto;
 }
 
-.height-80{
-    height:80px;
+.height-80
+{
+    height: 80px;
 }
 
-.height-80 .km-button{
-    background-color:rgba(255,255,255,.2);
+.height-80 .km-button
+{
+    background-color: rgba(255, 255, 255, .2);
 }
 
-  .a-group .km-button
-    {
-        line-height:25px;
-        height:25px;
-        -webkit-border: #fff solid 0px;
-        -moz-border: #fff solid 0px;
-        border: #fff solid 0px;
-   
-    }
-
+.a-group .km-button
+{
+    line-height: 25px;
+    height: 25px;
+    -webkit-border: #fff solid 0px;
+    -moz-border: #fff solid 0px;
+    border: #fff solid 0px;
+}
 
 .photo1 { background: url(../images/001.png) no-repeat center center; }
 .photo2 { background: url(../images/002.png) no-repeat center center; }
@@ -2322,17 +2312,18 @@ tile-frame-inner
 .photo5 { background: url(../images/005.png) no-repeat center center; }
 .photo6 { background: url(../images/006.png) no-repeat center center; }
 
- .filler
-    {
-        height: 20px;
-    }
-
-.km-checkbox{
-    background-color:#ccc !important;
-    border:1px solid #000 !important;
+.filler
+{
+    height: 20px;
 }
 
-.km-checkbox-label{
-    background-color:transparent !important;
+.km-checkbox
+{
+    background-color: #ccc !important;
+    border: 1px solid #000 !important;
 }
 
+.km-checkbox-label
+{
+    background-color: transparent !important;
+}
