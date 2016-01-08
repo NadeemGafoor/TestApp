@@ -1836,7 +1836,7 @@ tile-frame-inner
     position:relative;
     float:none;
     width:95%;
-    height: 50%;
+    height: 73%;
     font-size: 1em;
     line-height: 25px;
     color: #fff;
@@ -1848,27 +1848,47 @@ tile-frame-inner
 .expiry-text
 {
     position:relative;
-    float:none;
-    width:95%;
-    height: 25%;
-    line-height: 25px;
-    font-size: .9em;
+    float:left;
+    width:48%;
+    height: 25px;
+    line-height:25px;
     color: #fff;
     text-align: left; 
-    margin-left:2%; 
+    margin-left:2%;
+    margin-top:0px;
+    background-color:#000;
+    font-size:.9em;
 }
 
 .detail-text
 {
     position:relative;
-    float:none;
-    width:95%;
+    float:right;
+    width:48%;
     height: 25%;
     line-height: 25px;
-    font-size: .9em;
-    color: #fff;
-    text-align: left; 
-}
+    color:#fff;
+    background-color:#000;
+    margin-left:2%;
+    margin-top:0px;
+    font-size:.9em;
+    }
+
+.detail-text-button
+ {
+         font-size:.9em;
+     position:relative;
+     float:right;
+        display:block;
+        width: 100%;
+        background-color: #000 !important;
+        color: #fff !important;
+        border: 0px !important;
+     text-align:center;
+     line-height:25px;
+     margin:0 auto;
+    }
+
 
 .general-text-line
 {
