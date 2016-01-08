@@ -2301,11 +2301,13 @@ tile-frame-inner
 
 #mvwait .spin-div
 {
+    height:50px;
+    width:50px;
     position: relative;
     float: none;
     display: block;
     background-color: transparent !important;
-    margin:auto;
+    margin:60% auto;
 }  
 
 
