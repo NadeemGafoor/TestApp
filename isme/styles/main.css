@@ -2208,12 +2208,13 @@ tile-frame-inner
 
 .profile-image-change-button
 {
-    height: 30px;
-    margin: 5px auto; 
+    margin:auto; 
     position: relative;
-    float: none;
+    float: left;
     display: block;
     text-align: center;
+    width:50%;
+    
 }
 
 .sharehead, .cardhead

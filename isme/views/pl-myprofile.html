@@ -5,11 +5,8 @@
             <img src=""  id="profile-picture-1" class="class-img">
         </div>
         <div class="profile-image-change-button">
-            <a data-role="button" data-bind="events: { click: addImage }" class="btn btn-default btn-lg">
-                <i class="fa fa-camera"></i> Take a Picture
-            </a>
-               <a data-role="button" data-bind="events: { click: getImage }" class="btn btn-default btn-lg">
-                <i class="fa fa-file-image-o"></i> Pick from Album
+            <a data-role="button" data-rel="actionsheet" href="#actionsheet" lass="btn btn-default btn-sm">
+                <i class="fa fa-camera"></i> Edit
             </a>
         </div>
 
@@ -29,7 +26,14 @@
             </a>
         </div>
     </div>
-  
+    <ul id="actionsheet" data-role="actionsheet" data-cancel="Close" data-popup='{ "direction": "left" }' data-type="phone">
+        <li>
+            <a data-role="button" data-bind="events: { click: addImage }">Take a Picture</a>
+        </li>
+        <li>
+            <a data-role="button" data-bind="events: { click: getImage }">Pick from Album</a>
+        </li>
+    </ul>
 </div>
 
 </div>
