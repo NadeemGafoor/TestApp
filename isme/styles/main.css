@@ -2305,8 +2305,8 @@ tile-frame-inner
     float: none;
     display: block;
     background-color: transparent !important;
-    margin: 45% auto;
-}
+    margin:auto;
+}  
 
 
 .height-80
