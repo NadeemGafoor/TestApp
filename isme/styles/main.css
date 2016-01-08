@@ -1950,7 +1950,7 @@ tile-frame-inner
 .class-share-div
 {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #000;
 }
 
 .class-card-div
