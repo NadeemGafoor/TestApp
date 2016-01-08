@@ -264,6 +264,7 @@ declare module kendo {
         tagName?: string;
         wrap?: boolean;
         model?: Object;
+        evalTemplate?: boolean;
         init?: (e: ViewEvent) => void;
         show?: (e: ViewEvent) => void;
         hide?: (e: ViewEvent) => void;
@@ -1366,6 +1367,17 @@ declare module kendo.ui {
     interface GridColumn {
         editor?(container: JQuery, options: GridColumnEditorOptions): void;
     }
+
+    interface TreeListEditorOptions {
+        field?: string;
+        format?: string;
+        model?: kendo.data.Model;
+        values?: any[];
+    }
+
+    interface TreeListColumn {
+        editor?(container: JQuery, options: TreeListEditorOptions): void;
+    }
 }
 
 declare module kendo.mobile {
@@ -2267,17 +2279,17 @@ Inherited from Element.visible
     interface LayoutOptions {
         name?: string;
         /**
-        Specifies the alignment of the content.
+        Specifies the alignment of the content. The supported values are:
         @member {string}
         */
         alignContent?: string;
         /**
-        Specifies the alignment of the items based.
+        Specifies the alignment of the items based on the largest one. The supported values are:
         @member {string}
         */
         alignItems?: string;
         /**
-        Specifies how should the content be justified.
+        Specifies how should the content be justified. The supported values are:
         @member {string}
         */
         justifyContent?: string;
@@ -3111,9 +3123,9 @@ Inherited from Gradient.removeStop
         /**
         The center of the gradient.Coordinates are relative to the shape bounding box.
 For example [0, 0] is top left and [1, 1] is bottom right.
-        @member {any}
+        @member {any|kendo.geometry.Point}
         */
-        center?: any;
+        center?: any|kendo.geometry.Point;
         /**
         The radius of the radial gradient relative to the shape bounding box.
         @member {number}
@@ -4825,7 +4837,7 @@ If no culture is found the default one is used.
         */
         htmlEncode(value: string): string;
         function /**
-        Parses as a formatted string as a Date.
+        Parses as a formatted string as a Date. Also see Date Parsing
         @method
         @param value - The string which should be parsed as Date.
         @param formats - The format(s) that will be used to parse the date. By default all standard date formats of the current culture are used.
@@ -4834,7 +4846,7 @@ If no culture is found the default one is used.
         */
         parseDate(value: string, formats?: string, culture?: string): Date;
         function /**
-        Parses as a formatted string as a Date.
+        Parses as a formatted string as a Date. Also see Date Parsing
         @method
         @param value - The string which should be parsed as Date.
         @param formats - The format(s) that will be used to parse the date. By default all standard date formats of the current culture are used.
@@ -5006,19 +5018,19 @@ declare module kendo.mobile.ui {
     interface ActionSheetPopup {
         /**
         The direction to which the popup will expand, relative to the target that opened it.
-        @member {any}
+        @member {number|string}
         */
-        direction?: any;
+        direction?: number|string;
         /**
         The height of the popup in pixels.
-        @member {any}
+        @member {number|string}
         */
-        height?: any;
+        height?: number|string;
         /**
         The width of the popup in pixels.
-        @member {any}
+        @member {number|string}
         */
-        width?: any;
+        width?: number|string;
     }
 
     interface ActionSheetOptions {
@@ -5793,9 +5805,9 @@ If this is not case the field must be defined.
         autoBind?: boolean;
         /**
         Instance of DataSource or the data that the mobile ListView will be bound to.
-        @member {any}
+        @member {kendo.data.DataSource|any}
         */
-        dataSource?: any;
+        dataSource?: kendo.data.DataSource|any;
         /**
         If set to true, the listview gets the next page of data when the user scrolls near the bottom of the view.
         @member {boolean}
@@ -5809,9 +5821,9 @@ Applicable only when the type is set to group, or when binding to grouped DataSo
         fixedHeaders?: boolean;
         /**
         The header item template (applicable when the type is set to group).
-        @member {any}
+        @member {string|Function}
         */
-        headerTemplate?: any;
+        headerTemplate?: string|Function;
         /**
         If set to true, a button is rendered at the bottom of the listview. Tapping it fetches and displays the items from the next page of the DataSource.
         @member {boolean}
@@ -5840,9 +5852,9 @@ Previously loaded pages in the DataSource are also discarded.
         style?: string;
         /**
         The item template.
-        @member {any}
+        @member {string|Function}
         */
-        template?: any;
+        template?: string|Function;
         /**
         The type of the control. Can be either flat (default) or group. Determined automatically in databound mode.
         @member {string}
@@ -6257,14 +6269,14 @@ Note: The dataItem must be from a non-primitive type (Object).
     interface PopOverPopup {
         /**
         The height of the popup in pixels.
-        @member {any}
+        @member {number|string}
         */
-        height?: any;
+        height?: number|string;
         /**
         The width of the popup in pixels.
-        @member {any}
+        @member {number|string}
         */
-        width?: any;
+        width?: number|string;
     }
 
     interface PopOverOptions {
@@ -6391,14 +6403,14 @@ Note: The dataItem must be from a non-primitive type (Object).
         bounceVelocityThreshold?: number;
         /**
         The height of the ScrollView content. Supports 100% if the ScrollView is embedded in a stretched view and the ScrollView element is an immediate child of the view element.
-        @member {any}
+        @member {number|string}
         */
-        contentHeight?: any;
+        contentHeight?: number|string;
         /**
         Instance of DataSource that the mobile ScrollView will be bound to. If DataSource is set, the widget will operate in data bound mode.
-        @member {any}
+        @member {kendo.data.DataSource|any}
         */
-        dataSource?: any;
+        dataSource?: kendo.data.DataSource|any;
         /**
         The milliseconds that take the ScrollView to snap to the current page after released.
         @member {number}
@@ -7596,9 +7608,9 @@ frozenRows instead.
         verticalAlign?: string;
         /**
         The value of the cell. Numbers and dates will be formatted as strings. String values are HTML encoded.
-        @member {any}
+        @member {Date|number|string|boolean}
         */
-        value?: any;
+        value?: Date|number|string|boolean;
     }
 
     interface WorkbookSheetRow {
@@ -8515,17 +8527,17 @@ Inherited from Element.visible
     interface LayoutOptions {
         name?: string;
         /**
-        Specifies the alignment of the content.
+        Specifies the alignment of the content. The supported values are:
         @member {string}
         */
         alignContent?: string;
         /**
-        Specifies the alignment of the items based.
+        Specifies the alignment of the items based on the largest one. The supported values are:
         @member {string}
         */
         alignItems?: string;
         /**
-        Specifies how should the content be justified.
+        Specifies how should the content be justified. The supported values are:
         @member {string}
         */
         justifyContent?: string;
@@ -9359,9 +9371,9 @@ Inherited from Gradient.removeStop
         /**
         The center of the gradient.Coordinates are relative to the shape bounding box.
 For example [0, 0] is top left and [1, 1] is bottom right.
-        @member {any}
+        @member {any|kendo.geometry.Point}
         */
-        center?: any;
+        center?: any|kendo.geometry.Point;
         /**
         The radius of the radial gradient relative to the shape bounding box.
         @member {number}

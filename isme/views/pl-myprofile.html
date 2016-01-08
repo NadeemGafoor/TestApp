@@ -1,34 +1,38 @@
 <div data-role="view"  data-title="My Profile" data-layout="pl-back1-layout" id="pl-myprofile-view" data-model="postLogin">
 
-        <div class="profile-image-holder">
-            <div class="profile-image"><img src=""  id="profile-picture-1" class="class-img"></div>
-            <div class="profile-image-change-button">
-                 <a data-rel="actionsheet" href="#actionsheet1" class="btn btn-sm">
-                    <i class="fa fa-camera"></i> Edit
-                </a>
-            </div>
+    <div class="profile-image-holder">
+        <div class="profile-image">
+            <img src=""  id="profile-picture-1" class="class-img">
         </div>
-        <div class="profile-data-holder" id="read-profile" style="display:block">
-            <div class="general-text-line" style="color:#000">Name :RICARDO MANRIQUEZ</div>
-            <div class="general-text-line" style="color:#000">Birthdate :01/01/65</div>
-            <div class="general-text-line" style="color:#000">Nationality :Unspecified</div>
-            <div class="general-text-line" style="color:#000">Emirates :Dubai</div>
-            <div class="general-text-line" style="color:#000">isme Member :9704213568</div>
-            <div class="general-text-line" style="color:#000">Member Since :01/01/2016 </div>
-            <div class="general-text-line" style="color:#000">Expiry Since :31/12/2016</div>
-            <div class="general-text-line" style="color:#000">Sirius Member:999999999</div>
-            <div class="general-text-line" style="color:#000">
-                <a href="views/pl-setting.html" data-transition="slide:up">
-                    <i class="fa fa-pencil-square-o fa-lg"></i>
-                </a>
-            </div>
+        <div class="profile-image-change-button">
+            <a data-role="button" data-rel="actionsheet" href="#actionsheet">
+                <i class="fa fa-camera"></i> Edit
+            </a>
         </div>
-    <ul id="actionsheet1" data-role="actionsheet" data-cancel="Close">
-    <li><a style="color:#000">Take a Picture</a></li>
-    <li><a style="color:#000">Get from Folder</a></li>
-  </ul>
-    </div>
 
-   
-    
+    </div>
+    <div class="profile-data-holder" id="read-profile" style="display:block">
+        <div class="general-text-line" style="color:#000">Name :RICARDO MANRIQUEZ</div>
+        <div class="general-text-line" style="color:#000">Birthdate :01/01/65</div>
+        <div class="general-text-line" style="color:#000">Nationality :Unspecified</div>
+        <div class="general-text-line" style="color:#000">Emirates :Dubai</div>
+        <div class="general-text-line" style="color:#000">isme Member :9704213568</div>
+        <div class="general-text-line" style="color:#000">Member Since :01/01/2016 </div>
+        <div class="general-text-line" style="color:#000">Expiry Since :31/12/2016</div>
+        <div class="general-text-line" style="color:#000">Sirius Member:999999999</div>
+        <div class="general-text-line" style="color:#000">
+            <a href="views/pl-setting.html" data-transition="slide:up">
+                <i class="fa fa-pencil-square-o fa-lg"></i>
+            </a>
+        </div>
+    </div>
+    <ul id="actionsheet" data-role="actionsheet" data-cancel="Close">
+        <li>
+            <a>Foo</a>
+        </li>
+        <li>
+            <a>Bar</a>
+        </li>
+    </ul>
+</div>
 
