@@ -233,6 +233,14 @@ function closeResetPinForEnrollment() {
     $("#modalviewrepin").data("kendoMobileModalView").close();
 }
 
+function loadFAQView() {
+    $("#modalviewfaq").data("kendoMobileModalView").open(); 
+}
+
+function closeFAQView() {
+    $("#modalviewfaq").data("kendoMobileModalView").close(); 
+}
+
 function enterPinForRedemption() {
     $("#modalviewenterpin").data("kendoMobileModalView").open(); 
 }
@@ -2156,7 +2164,22 @@ function completeRedemption() {
 
                                                                     
                                                                                             });
+                                           },
+        
+        
+        
+               getFAQFilter:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getFAQData() });
+                                               
+                                               $("#FAQ-Filter").kendoMobileListView({
+                                                                                                dataSource: dataSource,
+                                                                                                template: $("#FAQ-Template").html()
+
+                                                                    
+                                                                                            });
                                            }
+        
+        
                                                                                      
                                        });
     
@@ -4094,6 +4117,17 @@ function completeRedemption() {
         data.push({historykey: "5",historyitem:"Redeem Voucher"});    
         data.push({historykey: "6",historyitem:"Renew Membership"});         
         data.push({historykey: "7",historyitem:"Other Transactions"});
+  
+        return data;
+    }
+    
+    
+       function getFAQData() {
+        var data = [];
+        data.push({historykey: "1",historyitem:"About isme by Jumeirah"});
+        data.push({historykey: "2",historyitem:"Membership & Validity"});
+        data.push({historykey: "3",historyitem:"Programme Benefits"});
+        data.push({historykey: "4",historyitem:"Tier Privilege"});
   
         return data;
     }
