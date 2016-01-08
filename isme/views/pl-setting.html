@@ -1,22 +1,32 @@
-<div data-role="view" data-title="My Settings" data-layout="pl-back1-layout" id="pl-setting-theme" data-model="postLogin">
+<div data-role="view" data-title="My Settings" data-layout="pl-back1-layout" id="pl-setting-theme" data-model="postLogin" >
 
     <div data-role="navbar" style="background-color:#7e6b6d;z-index:-1000">
 
-            <a data-transition="slide"   data-role="button"  data-align="right" style="margin-right:10px">
-                Save
-            </a>
-        </div>
+        <a data-transition="slide"   data-role="button"  data-align="right" style="margin-right:10px">
+            Save
+        </a>
+    </div>
 
     <ul data-role="listview">
-
         <li>
-            <div class="input-frame-enrol ">
-                <input type="text" id="emailid" placeholder="Email *" style="z-index:10"/>
+            <div class="button-frame-inline">
+                <a data-transition="slide" data-role="button" class="button-login" >Change PIN</a>
             </div>
         </li>
         <li>
-            <div class="input-frame-enrol ">
-                <input type="number" id="mobile" placeholder="Mobile (Eg:+9715XXXXXXXX) *" style="z-index:10"/>
+            <div class="button-frame-inline">
+                <a data-transition="slide" data-role="button" class="button-loginwithfacebook">Link Facebook</a>
+            </div>
+        </li>
+        
+        <li>
+            <div class="input-frame-enrol">
+                <input type="text" id="emailid" placeholder="Email *"/>
+            </div>
+        </li>
+        <li>
+            <div class="input-frame-enrol">
+                <input type="number" id="mobile" placeholder="Mobile (Eg:+9715XXXXXXXX) *"/>
             </div>
         </li>
         <li>
@@ -28,7 +38,7 @@
         </li>
         <li>
             <div class="input-frame-enrol ">
-                <input type="number" id="siriusnumber" placeholder="Sirius Member ID (if any)" style="z-index:10"/>
+                <input type="number" id="siriusnumber" placeholder="Sirius Member ID (if any)"/>
             </div>
         </li>
         <li>
@@ -57,22 +67,8 @@
             </div>
         </li>
         <div>
-            <li>
-                <div class="button-frame-inline">
-                    <a data-transition="slide" data-role="button" class="button-login" >Change PIN</a>
-                </div>
-            </li>
-            <li>
-                <div class="button-frame-inline">
-                    <a data-transition="slide" data-role="button" class="button-loginwithfacebook">Link Facebook</a>
-                </div>
-            </li>
+
         </div>
-         <div>
-        <li>
-            
-        </li>
-             </div>
     </ul>
 
 </div>
@@ -82,7 +78,6 @@
     {
         border-bottom: 2px solid #000;
     }
-   
     
     #pl-setting-theme .button-login
     {
@@ -106,5 +101,5 @@
         color: #000;
         margin-left: 2%;
     }
-    </style>
+</style>
 
