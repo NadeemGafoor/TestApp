@@ -1917,7 +1917,7 @@ tile-frame-inner
 .general-text-line
 {
     width: 100%;
-    font-size: 1.2em;
+    font-size: 1em;
     text-align: left; 
     height: 25px;
     line-height: 25px;
@@ -2208,13 +2208,13 @@ tile-frame-inner
 
 .profile-image-change-button
 {
-    margin:auto; 
+    height:30px;
+    margin:5px auto; 
     position: relative;
-    float: left;
+    float: none;
     display: block;
     text-align: center;
-    width:50%;
-    
+   
 }
 
 .sharehead, .cardhead
