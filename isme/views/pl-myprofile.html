@@ -1,9 +1,9 @@
 <div data-role="view"  data-title="My Profile" data-layout="pl-back1-layout" id="pl-myprofile-view" data-model="postLogin">
 
         <div class="profile-image-holder">
-            <div class="profile-image"><img src=""  id="profile-picture-1" style="height:85px;width:85px;border:0px solid #fff;border-radius: 50px;"></div>
+            <div class="profile-image"><img src=""  id="profile-picture-1" class="class-img"></div>
             <div class="profile-image-change-button">
-                 <a data-role="button" data-rel="actionsheet" href="#actionsheet" class="btn btn-sm" data-actionsheet-context="1">
+                 <a data-rel="actionsheet" href="#actionsheet1" class="btn btn-sm">
                     <i class="fa fa-camera"></i> Edit
                 </a>
             </div>
@@ -23,9 +23,9 @@
                 </a>
             </div>
         </div>
-    <ul id="actionsheet" data-role="actionsheet" data-cancel="Close">
-    <li><a style="color:#000" data-role="button" data-bind="events: { click: addImage }">Take a Picture</a></li>
-    <li><a style="color:#000" data-role="button" data-bind="events: { click: getImage }">Get from Folder</a></li>
+    <ul id="actionsheet1" data-role="actionsheet" data-cancel="Close">
+    <li><a style="color:#000">Take a Picture</a></li>
+    <li><a style="color:#000">Get from Folder</a></li>
   </ul>
     </div>
 

@@ -2359,3 +2359,14 @@ tile-frame-inner
 {
     background-color: transparent !important;
 }
+
+
+.class-img{
+    height:85px;
+    width:85px;
+    border:0px solid #fff;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+}
+
