@@ -94,10 +94,10 @@ function faceBookClick() {
 }
 
 function twitterClick() {
-    window.plugins.socialsharing.shareViaTwitter(window.localStorage.getItem("social_shortmsg") + "\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"));
+    window.plugins.socialsharing.shareViaTwitter(window.localStorage.getItem("social_shortmsg"));
 }
 
-function whatsappClick() {
+function whatsAppClick() {
     window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("social_shortmsg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
     })
