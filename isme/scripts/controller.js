@@ -793,7 +793,7 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-    var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalJumeirah";
+    var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
     //var gurl = "https://appapi.exclusiveu.in/mobilePortal";
     var merchant = "JUMEI02000";
     //var merchant = "IHGDI09999"; 
@@ -1389,6 +1389,7 @@ function completeRedemption() {
                                            },
                                            varInit
                                            : function() {
+                                               alert("hello");
                                                showSpin();
                                                //document.getElementById("flagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center"; 
                                                //checklocation();
@@ -1409,6 +1410,7 @@ function completeRedemption() {
                                                    window.localStorage.setItem("appad_location_short", appad_location_short);
                                                    window.localStorage.setItem("brandcode", "");
                                                    window.localStorage.setItem("explorefilter", "");
+                                                   window.localStorage.setItem("faqcategory", "");
                                                    $.ajax({ 
                                                               type: "POST",
                                                               cache:false,
@@ -1444,13 +1446,13 @@ function completeRedemption() {
                                                                   }else if (getData.statuscode === "047") {
                                                                       $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
                                                                   } else {
-                                                                      navigator.notification.alert("2222222Platform Error, Services may not be available. " + getData.statusText, function() {
+                                                                      navigator.notification.alert("Platform Error, Services may not be available. " + getData.statusText, function() {
                                                                       }, "isme by Jumeirah", "Dismiss")          
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               },
                                                               error: function (errormsg) {
-                                                                  navigator.notification.alert("111111111111Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                                  navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                   }, "isme by Jumeirah", "Dismiss")
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -2116,12 +2118,12 @@ function completeRedemption() {
                                                               url: gurl + "/faqlist.aspx",
                                                               contentType: "application/json; charset=utf-8",
                                                               data: JSON.stringify({
-                                                                                       merchantcode :merchant,mdevice:mdevicestat
+                                                                                       merchantcode :merchant,mdevice:mdevicestat,category:window.localStorage.getItem("faqcategory")
                                                                                    }),
                                                               success: function (data) { 
                                                                   var getData = JSON.parse(data);
                                                                   alert(getData);                                                             
-                                                                  if (getData.statuscode === "000") {
+                                                                  if (getData.statuscode === "000") {  
                                                                       //fill the outlet template
                                                                       if (getData.faqlist.length > 0) {
                                                                           $("#faqlist-all").kendoMobileListView({
