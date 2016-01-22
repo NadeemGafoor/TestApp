@@ -1339,6 +1339,7 @@ function completeRedemption() {
                                            },
                                            rewardList
                                            : function (e) {
+                                               showSpin();
                                                offercode = "";
                                                offertype = "1";
                                                
@@ -1354,6 +1355,7 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
+                                                              alert(getData.statuscode);
                                                               if (getData.statuscode == "000") {
                                                                   if (getData.offerlist.length > 0) {
                                                                       //fill the outlet template
@@ -2369,8 +2371,9 @@ function completeRedemption() {
                                             msgsequence:"",
           rewardList
                                            : function (e) {
+                                               showSpin();
                                                offercode = "";
-                                               offertype = "1";
+                                               offertype = "3";  
                                                
                                                $.ajax({ 
                                                           type: "POST",
@@ -2394,18 +2397,18 @@ function completeRedemption() {
                                                                                                                 });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("No offers currently exist", function() {
+                                                                      navigator.notification.alert("No Reward List currently exist", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get offer list." + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Cannot get Reward List." + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get offer list.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
