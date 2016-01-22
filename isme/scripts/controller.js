@@ -97,8 +97,8 @@ function twitterClick() {
     window.plugins.socialsharing.shareViaTwitter(window.localStorage.getItem("social_shortmsg"));
 }
 
-function whatsAppClick() {
-    window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("social_shortmsg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), function () {
+function whatsappClick() {
+    window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("social_shortmsg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" ,"", window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
     })
 }
@@ -107,7 +107,7 @@ function emailClick() {
     window.plugins.socialsharing.shareViaEmail(
         window.localStorage.getItem("social_message") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
         window.localStorage.getItem("social_shortmsg"), null, null, null, // TO: must be null or an array
-        null, // FILES: can be null, a string, or an array
+        [window.localStorage.getItem("share_image")], // FILES: can be null, a string, or an array
         function (msg) {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
         function (msg) {
@@ -122,19 +122,11 @@ function getLocation5() {
 }
 
 function mapInitialize() {
-    var lat = "";
-    var lon = "";
-    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-        lat = position.coords.latitude;                                  
-        lon = position.coords.longitude;
-    }
-                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                 lat = window.localStorage.getItem("lat");
-                                                 lon = window.localStorage.getItem("lon");
-                                             });
+
+  
     var latlng = new google.maps.LatLng(
-        lat,
-        lon);
+        window.localStorage.getItem("lat"),
+        window.localStorage.getItem("lont"))
     //  if (!initialized) {
     var mapOptions = {
         sensor: true,
@@ -191,9 +183,9 @@ function onSelectTabStrip1(e) {
 
 function supportEmailA() {
     window.plugins.socialsharing.shareViaEmail(
-        "sharingSocialView.social_message" + "\n\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email" + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
-        "sharingSocialView.social_shortmsg", null, null, null, // TO: must be null or an array
-        null, // FILES: can be null, a string, or an array
+         "\n\n"+ window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
+        window.localStorage.getItem("social_subject"), window.localStorage.getItem("social_email"), null, null, // TO: must be null or an array
+        window.localStorage.getItem("share_image"), // FILES: can be null, a string, or an array
         function (msg) {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
         function (msg) {
@@ -835,7 +827,7 @@ function completeRedemption() {
     var minor = "";
     var appad_location = "http://isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";    
-    var share_image = "http://exclusiveu.dynns.com:8088/mobileportal/images/ihg_logo.png";
+    var share_image = "http://exclusiveu.dynns.com:8088/mobileportalServiceJumeirah/images/large_logo_placeholder.png";
     var flag_image = "http://exclusiveu.dynns.com:8088/mobileportal/flagimages/";
     //var notification_image = "https://appapi.exclusiveu.in/mobileportal/images/36x36_icon.png";    
     //var share_image = "https://appapi.exclusiveu.in/mobileportal/images/ihg_logo.png";
@@ -1110,7 +1102,8 @@ function completeRedemption() {
                                                             
                                                                   window.localStorage.setItem("social_message", getData.shortdes + "\n\n" + getData.shortdes1 + "\n\n" + getData.longdes);
                                                                   window.localStorage.setItem("social_image", getData.imageurll); 
-                                                                 
+                                                                   window.localStorage.setItem("lat", lat);
+                                                                   window.localStorage.setItem("lon", lon);
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Cannot get Brand Item " + getData.statusdesc, function() {
@@ -1464,6 +1457,7 @@ function completeRedemption() {
                                                    window.localStorage.setItem("social_email", supportemail + "  \n");
                                                    window.localStorage.setItem("social_telephone", customercaretelephone);                   
                                                    window.localStorage.setItem("social_subject", emailsubject);
+                                                   window.localStorage.setItem("share_image", share_image);
                                                    window.localStorage.setItem("brandcode", "");
                                                    window.localStorage.setItem("faqcategory", "");
                                                    $.ajax({ 
