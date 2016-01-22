@@ -707,6 +707,12 @@ img
     border-radius: 35px;
 }
 
+.button-frame-inline-long .km-button
+{
+    width: 96%;
+    margin-left: 2%;
+}
+
 .button-frame-inline-modal .km-button
 {
     background-color: #000;
@@ -2332,6 +2338,8 @@ tile-frame-inner
 .height-80
 {
     height: 80px;
+      position:relative;
+    float:none;
   
 }
 

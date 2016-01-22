@@ -1046,6 +1046,7 @@ function completeRedemption() {
         
                                            showAllOutlet
                                            : function (e) {
+                                               showSpin(); 
                                                    window.localStorage.setItem("brandcode",e.view.params.brand);
                                                    window.localStorage.setItem("brandcode",e.view.params.category);
                                                $.ajax({ 
@@ -1056,7 +1057,7 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,itemfilter:window.localStorage.getItem("itemfilter"),outletcode:""
+                                                                                   merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:""
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
