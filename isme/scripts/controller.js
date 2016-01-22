@@ -503,7 +503,7 @@ function loadHistoryDetail() {
     }
 }
 
-function loadOfferDetail() {  
+function loadOfferDetail(e) {  
     doOneBack();
     if (window.localStorage.getItem("appopen") != "11") {
         window.plugins.nativepagetransitions.slide({
@@ -513,13 +513,13 @@ function loadOfferDetail() {
                                                        "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                        'direction': 'up',
-                                                       'href': '#views/pl-offerdetail.html'
+                                                       'href': '#views/pl-offerdetail.html?cpn=' + e
                                                    });
         window.localStorage.setItem("appopen", "11");   
     }
 }
 
-function loadOfferDetaila() {   
+function loadOfferDetaila(e) {   
     window.plugins.nativepagetransitions.slide({
                                                    "duration"         :  500, // in milliseconds (ms), default 400
                                                    "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -527,7 +527,7 @@ function loadOfferDetaila() {
                                                    "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                    'direction': 'up',
-                                                   'href': '#views/offerdetail.html'
+                                                   'href': '#views/offerdetail.html?cpn=' + e
                                                });
 }
 
@@ -1337,57 +1337,49 @@ function completeRedemption() {
                                                           }
                                                       });
                                            },
-                                           offerlist
+                                           rewardList
                                            : function (e) {
-                                               y = e.view.params.geo;
-                                        
-                                               showSpin();
-        
-                                               navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                   lat = position.coords.latitude;                                  
-                                                   lon = position.coords.longitude
-                                                   var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
-           
-                                                   $.getJSON(geocodingAPI, function (json) {
-                                                       if (json.status === "OK") {
-                                                           //Check result 0
-                                                           var result = json.results[0];
-                                                           for (var i = 0, len = result.address_components.length; i < len; i++) {
-                                                               var ac = result.address_components[i];
-                                                               if (ac.types.indexOf("locality") >= 0) {
-                                                                   geocity = ac.long_name;
-                                                               }
-	                          
-                                                               if (ac.types.indexOf("country") >= 0) {
-                                                                   geocountry = ac.long_name;
-                                                               }
-                                                           }
-                                                           
-                                                           if (y==="1") {
-                                                               geocity = "";
-                                                           }
-                                                           listOffer();
-                                                       }
-                                                   });
-                                               }
-                                                                                        , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                            //  if (err.code == "1") {
-                                                                                            //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                            //  } else if (err.code == "2") {
-                                                                                            //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                            //  }
-                                                                                            gpsError();
-                                                                                            if (y==="1") {
-                                                                                                geocity = "";
-                                                                                            }else {
-                                                                                                geocity = city;
-                                                                                            }
-                                                                                            lat = window.localStorage.getItem("lat");
-                                                                                            lon = window.localStorage.getItem("lon");
-                                                                                            geocountry = country;
-                                                                                          
-                                                                                            listOffer();
-                                                                                        });
+                                               offercode = "";
+                                               offertype = "1";
+                                               
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/offerList.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") {
+                                                                  if (getData.offerlist.length > 0) {
+                                                                      //fill the outlet template
+                                                                      $("#offer-list-view").kendoMobileListView({
+                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
+                                                                                                                    template: $("#offerListTemplate").html()
+                                                                                                                    
+                                                                                                                });
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("No Offers currently exist", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get Offer List." + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
                                            },
         
                                            offeritem
@@ -2375,58 +2367,102 @@ function completeRedemption() {
                                             couponname:"",
                                             couponcategory:"",
                                             msgsequence:"",
-         showOutletItem
+          rewardList
                                            : function (e) {
-                                               showSpin();
-                                               outletcode = e.view.params.od;
+                                               offercode = "";
+                                               offertype = "1";
+                                               
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
-                                                          timeout:20000,                                                      
-                                                          url: gurl + "/outletlist.aspx",
+                                                          timeout:20000,
+                                                          url: gurl + "/offerList.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,brandcode:"",outletcode:outletcode,mdevice:mdevicestat
+                                                                                   merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-
                                                               if (getData.statuscode == "000") {
-                                                                  m = getData.outletlist[0].geolocation.split(",");  
-                                                                                                                                                                                                                                   
-                                                                  lat = m[0];
-                                                                  lon = m[1];
-                                                                  document.getElementById("outlet-detail-div").style.display = "block";
-                                                                  document.getElementById("pl-detail-title").innerHTML = getData.outletlist[0].outletname;
-                                                                  
-                                                                  document.getElementById("outletimage").src = getData.outletlist[0].imageurll;
-                                                                  document.getElementById("outlet-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
-                                                                  document.getElementById("outlet-long-1").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
-                                                                  
-                                                                  window.localStorage.setItem("social_email", getData.outletlist[0].emailid + "  \n");
-                                                                  window.localStorage.setItem("social_telephone", getData.outletlist[0].telephone);                   
-                                                                  window.localStorage.setItem("social_shortmsg", getData.outletlist[0].outletshort);
-                                                            
-                                                                  window.localStorage.setItem("social_message", getData.outletlist[0].outletlong + "\n\n");
-                                                                  window.localStorage.setItem("social_image", getData.outletlist[0].imageurll); 
-                                                                  window.localStorage.setItem("lat", lat);
-                                                                  window.localStorage.setItem("lon", lon);
-                                                              
-                                                                  hideSpin(); //hide loading popup
+                                                                  if (getData.offerlist.length > 0) {
+                                                                      //fill the outlet template
+                                                                      $("#pl-offer-list-view").kendoMobileListView({
+                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
+                                                                                                                    template: $("#pl-offerListTemplate").html()
+                                                                                                                    
+                                                                                                                });
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("No offers currently exist", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get location " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Cannot get offer list." + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
-                                                          error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get location. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get offer list.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
                                            },
+                                            showOutletItem
+                                            : function (e) {
+                                                showSpin();
+                                                outletcode = e.view.params.od;
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,                                                      
+                                                           url: gurl + "/outletlist.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,brandcode:"",outletcode:outletcode,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+
+                                                               if (getData.statuscode == "000") {
+                                                                   m = getData.outletlist[0].geolocation.split(",");  
+                                                                                                                                                                                                                                   
+                                                                   lat = m[0];
+                                                                   lon = m[1];
+                                                                   document.getElementById("outlet-detail-div").style.display = "block";
+                                                                   document.getElementById("pl-detail-title").innerHTML = getData.outletlist[0].outletname;
+                                                                  
+                                                                   document.getElementById("outletimage").src = getData.outletlist[0].imageurll;
+                                                                   document.getElementById("outlet-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
+                                                                   document.getElementById("outlet-long-1").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
+                                                                  
+                                                                   window.localStorage.setItem("social_email", getData.outletlist[0].emailid + "  \n");
+                                                                   window.localStorage.setItem("social_telephone", getData.outletlist[0].telephone);                   
+                                                                   window.localStorage.setItem("social_shortmsg", getData.outletlist[0].outletshort);
+                                                            
+                                                                   window.localStorage.setItem("social_message", getData.outletlist[0].outletlong + "\n\n");
+                                                                   window.localStorage.setItem("social_image", getData.outletlist[0].imageurll); 
+                                                                   window.localStorage.setItem("lat", lat);
+                                                                   window.localStorage.setItem("lon", lon);
+                                                              
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot get location " + getData.statusdesc, function() {
+                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (error) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get location. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
         
                                             propertyList
                                             : function () {
@@ -3783,61 +3819,7 @@ function completeRedemption() {
                    }
                });
     }
-    
-    function listOffer() {
-        offercode = "";
-        offertype = "1";
-                                               
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/offerListGeo.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat,city:geocity,country:geocountry,lat:lat,lon:lon
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                       if (getData.statuscode == "000") {
-                           if (getData.offerlist.length > 0) {
-                               //fill the outlet template
-                               $("#offer-list-view").kendoMobileListView({
-                                                                             dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
-                                                                             template: $("#offerListTemplate").html(),
-                                                                          
-                                                                             filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Offer Name",                                         
-                                       field: "itemname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 10
-                                   }
-                                                                                                                    
-                                                                         });
-                               hideSpin(); //hide loading popup
-                           }else {
-                               navigator.notification.alert("No Offers currently exist", function() {
-                               }, "isme by Jumeirah", "Dismiss")    
-                               hideSpin(); //hide loading popup
-                           }
-                       }else {
-                           navigator.notification.alert("Cannot get Offer List." + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
-                           hideSpin(); //hide loading popup
-                       }
-                   },
-                   error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
-                       hideSpin(); //hide loading popup
-                   }
-               });
-    }
-    
+   
     function pllistOffer() {
         offercode = "";
         offertype = "1";
