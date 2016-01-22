@@ -105,8 +105,8 @@ function whatsappClick() {
 
 function emailClick() {
     window.plugins.socialsharing.shareViaEmail(
-        "sharingSocialView.social_message" + "\n\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email" + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
-        "sharingSocialView.social_shortmsg", null, null, null, // TO: must be null or an array
+        window.localStorage.getItem("social_message") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
+        window.localStorage.getItem("social_shortmsg"), null, null, null, // TO: must be null or an array
         null, // FILES: can be null, a string, or an array
         function (msg) {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
@@ -846,6 +846,7 @@ function completeRedemption() {
     var customercaretelephone = "0097149999999";
     var cardimage = "";
     var supportemail = "isme@jumeirah.com";
+    var emailsubject = "isme By Jumeirah";
     //// function onSuccess(acceleration) {
     // alert('Acceleration X: ' + acceleration.x + '\n' +
     //     'Acceleration Y: ' + acceleration.y + '\n' +
@@ -1107,10 +1108,10 @@ function completeRedemption() {
                                                                   document.getElementById("property-short-2").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                   document.getElementById("property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
                                              
-                                                                  window.localStorage.setItem("social_shortmsg", "Checkout " + getData.shortdes + "  \n");
-                                                                  window.localStorage.setItem("social_header", getData.hotelname);
+                                                                  window.localStorage.setItem("social_email", social_email + "  \n");
+                                                                  window.localStorage.setItem("social_telephone", getData.hotelname);
                                                                                 
-                                                                  window.localStorage.setItem("social_subject", getData.shortdes);
+                                                                  window.localStorage.setItem("social_subject", emailsubject);
                                                                   window.localStorage.setItem("social_message", getData.longdes);
                                                                   window.localStorage.setItem("social_image", getData.imageurll); 
                                                                  
@@ -1464,6 +1465,11 @@ function completeRedemption() {
                                                    window.localStorage.setItem("merchant", merchant);
                                                    window.localStorage.setItem("appad_location", appad_location);
                                                    window.localStorage.setItem("appad_location_short", appad_location_short);
+                                                   
+                                                   window.localStorage.setItem("appad_location_short", appad_location_short);
+                                                   window.localStorage.setItem("appad_location_short", appad_location_short);
+                                                   
+                                                   
                                                    window.localStorage.setItem("brandcode", "");
                                                    window.localStorage.setItem("faqcategory", "");
                                                    $.ajax({ 
