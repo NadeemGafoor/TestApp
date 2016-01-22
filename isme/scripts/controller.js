@@ -519,17 +519,6 @@ function loadOfferDetail(e) {
     }
 }
 
-function loadOfferDetaila(e) {   
-    window.plugins.nativepagetransitions.slide({
-                                                   "duration"         :  500, // in milliseconds (ms), default 400
-                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                   "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                   'direction': 'up',
-                                                   'href': '#views/offerdetail.html?cpn=' + e
-                                               });
-}
 
 function loadOutletDetail() {
     doOneBack();
@@ -1337,7 +1326,7 @@ function completeRedemption() {
                                                           }
                                                       });
                                            },
-                                           rewardList
+                                           rewardList   
                                            : function (e) {
                                                showSpin();
                                                offercode = "";
@@ -1355,7 +1344,7 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                              alert(getData.statuscode);
+                                                              
                                                               if (getData.statuscode == "000") {
                                                                   if (getData.offerlist.length > 0) {
                                                                       //fill the outlet template
@@ -1366,18 +1355,18 @@ function completeRedemption() {
                                                                                                                 });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("No Offers currently exist", function() {
+                                                                      navigator.notification.alert("No Reward List currently exist", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get Offer List." + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Cannot get Reward List" + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2369,51 +2358,51 @@ function completeRedemption() {
                                             couponname:"",
                                             couponcategory:"",
                                             msgsequence:"",
-          rewardList
-                                           : function (e) {
-                                               showSpin();
-                                               offercode = "";
-                                               offertype = "3";  
+                                            rewardList
+                                            : function (e) {
+                                                showSpin();
+                                                offercode = "";
+                                                offertype = "3";  
                                                
-                                               $.ajax({ 
-                                                          type: "POST",
-                                                          cache:false,
-                                                          async:true,
-                                                          timeout:20000,
-                                                          url: gurl + "/offerList.aspx",
-                                                          contentType: "application/json; charset=utf-8",
-                                                          data: JSON.stringify({
-                                                                                   merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
-                                                                               }),
-                                                          success: function (data) { 
-                                                              var getData = JSON.parse(data);
-                                                              if (getData.statuscode == "000") {
-                                                                  if (getData.offerlist.length > 0) {
-                                                                      //fill the outlet template
-                                                                      $("#pl-offer-list-view").kendoMobileListView({
-                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
-                                                                                                                    template: $("#pl-offerListTemplate").html()
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/offerList.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   if (getData.offerlist.length > 0) {
+                                                                       //fill the outlet template
+                                                                       $("#pl-offer-list-view").kendoMobileListView({
+                                                                                                                        dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
+                                                                                                                        template: $("#pl-offerListTemplate").html()
                                                                                                                     
-                                                                                                                });
-                                                                      hideSpin(); //hide loading popup
-                                                                  }else {
-                                                                      navigator.notification.alert("No Reward List currently exist", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
-                                                                      hideSpin(); //hide loading popup
-                                                                  }
-                                                              }else {
-                                                                  navigator.notification.alert("Cannot get Reward List." + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
-                                                                  hideSpin(); //hide loading popup
-                                                              }
-                                                          },
-                                                          error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
-                                                              hideSpin(); //hide loading popup
-                                                          }
-                                                      });
-                                           },
+                                                                                                                    });
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("No Reward List currently exist", function() {
+                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot get Reward List." + getData.statusdesc, function() {
+                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Reward List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
                                             showOutletItem
                                             : function (e) {
                                                 showSpin();
