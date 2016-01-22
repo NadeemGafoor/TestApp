@@ -1096,50 +1096,39 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,brandcode:brandcode,outletcode:outletcode,mdevice:mdevicestat
+                                                                                   merchantcode :merchant,brandcode: window.localStorage.getItem("brandcode"),mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
 
                                                               if (getData.statuscode == "000") {
-                                                                  m = getData.outletlist[0].geolocation.split(",");  
+                                                                  m = getData.geolocation.split(",");  
                                                                                                                                                                                                                                    
                                                                   lat = m[0];
                                                                   lon = m[1];
                                                                   
                                                                   document.getElementById("property-detail-div").style.display = "block";
-                                                                  //document.getElementById("outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
-                                                                  //document.getElementById("outlet-image-large").style.backgroundSize = "cover";
-                                                                  //document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
-                                                                  document.getElementById("outletimage").src = getData.outletlist[0].imageurll;
-                                                                  document.getElementById("ooutlet-short").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
-                                                                  document.getElementById("ooutlet-long").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
-                                                                  // document.getElementById("outlet-review").innerHTML = getData.outletlist[0].reviewcount + " Review(s)";
-                                                                  // document.getElementById("outlet-star").innerHTML = getData.outletlist[0].staraverage + " Star(s)";
+                                                                  document.getElementById("detail-title").innerHTML = getData.hotelname;
+                                                                  document.getElementById("brandimage").src = getData.imageurll;
+                                                                  document.getElementById("property-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes + "</pre>";
+                                                                  document.getElementById("property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
                                              
-                                                                  sharingSocialView.set("social_shortmsg", "Checkout " + getData.outletlist[0].outletname + "  \n");
-                                                                  sharingSocialView.set("social_header", getData.outletlist[0].outletname);
+                                                                  window.localStorage.setItem("social_shortmsg", "Checkout " + getData.shortdes + "  \n");
+                                                                  window.localStorage.setItem("social_header", getData.hotelname);
                                                                                 
-                                                                  sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
-                                                                  sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
-                                                                  sharingSocialView.set("social_image", share_image); 
-                                                                  sharingSocialView.set("social_telephone", "Telephone : " + getData.outletlist[0].telephone);    
-                                                                  sharingSocialView.set("social_email", "Email : " + getData.outletlist[0].emailid);      
-                                                                  preLogin.set("outlettelephone", getData.outletlist[0].telephone);
-                                                                  preLogin.set("outletemailid", getData.outletlist[0].emailid);
-                                                                     
-                                                                  shareCustomer = customer;
-                                                                  shareProductCode = getData.outletlist[0].outletcode;
-                                                                  shareProductType = "1"; //outlet review
+                                                                  window.localStorage.setItem("social_subject", getData.shortdes);
+                                                                  window.localStorage.setItem("social_message", getData.longdes);
+                                                                  window.localStorage.setItem("social_image", getData.imageurll); 
+                                                                 
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get Restaurant List " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Cannot get Brand Item " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Restaurant List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Brand Item. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
