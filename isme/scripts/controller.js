@@ -28,7 +28,7 @@ function loadDiscover() {
 }
 
 function loadExplore() {
-     window.setTimeout(window.plugins.nativepagetransitions.slide({
+    window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                      "duration"         :  500, // in milliseconds (ms), default 400
                                                                      "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
                                                                      "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
@@ -38,7 +38,6 @@ function loadExplore() {
                                                                      'href': '#views/explorelist.html'
                                                                  }), 500);
 }
-
 
 function loadBenefits() {
     window.setTimeout(window.plugins.nativepagetransitions.slide({
@@ -501,18 +500,16 @@ function loadOfferDetail() {
 }
 
 function loadOfferDetaila() {   
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                       'direction': 'up',
-                                                       'href': '#views/offerdetail.html'
-                                                   });
-
-    }
-
+                                                   'direction': 'up',
+                                                   'href': '#views/offerdetail.html'
+                                               });
+}
 
 function loadOutletDetail() {
     doOneBack();
@@ -799,7 +796,7 @@ function completeRedemption() {
     var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalJumeirah";
     //var gurl = "https://appapi.exclusiveu.in/mobilePortal";
     var merchant = "JUMEI02000";
-    //var merchant = "IHGDI09999";
+    //var merchant = "IHGDI09999"; 
     var customer = "9999999999";
     var customername = "Guest";
     var password = "";
@@ -1191,9 +1188,9 @@ function completeRedemption() {
                                                       });
                                            },
         
-            propertyList
+                                           propertyList
                                            : function () {
-                                               window.localStorage.setItem("brandcode")="";
+                                               window.localStorage.setItem("brandcode") = "";
                                                showSpin();
                                                 
                                                $.ajax({ 
@@ -1208,14 +1205,15 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
+                                                              alert(getData);
                                                               if (getData.statuscode == "000") {
                                                                   if (getData.offerlist.length > 0) {
                                                                       //fill the outlet template
-                                                                      $("#outlet-offer").kendoMobileListView({
-                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
-                                                                                                                 template: $("#outletOfferTemplate").html()
+                                                                      $("#property-list").kendoMobileListView({
+                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.propertylist}),
+                                                                                                                  template: $("#explorelisttemplate").html()
                                                                                                                     
-                                                                                                             });
+                                                                                                              });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       navigator.notification.alert("No Property Data Available", function() {
@@ -2109,7 +2107,45 @@ function completeRedemption() {
                                            },
                                            getfaq
                                            : function () {
-                                               httpFAQ();
+                                                   showSpin(); //show loading popup
+                                                   $.ajax({ 
+                                                              type: "POST",
+                                                              cache:false,
+                                                              async:true,
+                                                              timeout:20000,
+                                                              url: gurl + "/faqlist.aspx",
+                                                              contentType: "application/json; charset=utf-8",
+                                                              data: JSON.stringify({
+                                                                                       merchantcode :merchant,mdevice:mdevicestat
+                                                                                   }),
+                                                              success: function (data) { 
+                                                                  var getData = JSON.parse(data);
+                                                                  alert(getData);                                                             
+                                                                  if (getData.statuscode === "000") {
+                                                                      //fill the outlet template
+                                                                      if (getData.faqlist.length > 0) {
+                                                                          $("#faqlist-all").kendoMobileListView({
+                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                    template: $("#faqTemplate").html()
+                                                                                                                });
+                                                                          showSpin(); //hide loading popup
+                                                                      }else {
+                                                                          navigator.notification.alert("No FAQ exists for the selected Program", function() {
+                                                                          }, "isme by Jumeirah", "Dismiss")    
+                                                                          showSpin(); //hide loading popup
+                                                                      }
+                                                                  }else {
+                                                                      navigator.notification.alert("Cannot get FAQ list " + getData.statusdesc, function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")          
+                                                                      showSpin(); //hide loading popup
+                                                                  }
+                                                              },
+                                                              error: function (error) {
+                                                                  navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")
+                                                                  showSpin(); //hide loading popup                                          
+                                                              }
+                                                          });
                                            },
         
                                            getAddRestFilter:function() {
@@ -3283,7 +3319,9 @@ function completeRedemption() {
     }
     
     function hideSpin() {
-      mvhide();
+        window.setTimeout(function() {
+            $("#mvwait").data("kendoMobileModalView").close();
+        }, 1000); 
     }
          
     function showSpin() {
@@ -3292,7 +3330,7 @@ function completeRedemption() {
             }, "isme by Jumeirah", "Dismiss");  
             //        //$("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
         } else {
-            mvshow();
+            $("#mvwait").data("kendoMobileModalView").open();
         }
     }
     
@@ -3904,48 +3942,6 @@ function completeRedemption() {
                                                  });
         hideSpin(); 
     }
-    
-    function httpFAQ() {
-        movshow(); //show loading popup
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/faqlist.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                                                                                                                                
-                       if (getData.statuscode === "000") {
-                           //fill the outlet template
-                           if (getData.faqlist.length > 0) {
-                               $("#faqlist-all").kendoMobileListView({
-                                                                         dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                         template: $("#faqTemplate").html()
-                                                                     });
-                               movhide(); //hide loading popup
-                           }else {
-                               navigator.notification.alert("No FAQ exists for the selected Program", function() {
-                               }, "isme by Jumeirah", "Dismiss")    
-                               movhide(); //hide loading popup
-                           }
-                       }else {
-                           navigator.notification.alert("Cannot get FAQ list " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
-                           movhide(); //hide loading popup
-                       }
-                   },
-                   error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
-                       movhide(); //hide loading popup                                          
-                   }
-               });
-    }
         
     function fdidEntera(data) {
         var json = JSON.stringify(data);
@@ -4174,7 +4170,7 @@ function completeRedemption() {
         return data;
     }
     
-      function movhide() {
+    function movhide() {
         window.setTimeout(function() {
             $("#mvwait").data("kendoMobileModalView").close();
         }, 1000); 
