@@ -134,27 +134,23 @@ function emailClick() {
 function getLocation5() {
     $("#modalviewmap").data("kendoMobileModalView").open();
     document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
-    for (i=0;i<=1;i++){
-    document.getElementById("map_canvas1").innerHTML="";  
+    for (i=0;i <= 1;i++) {
+        document.getElementById("map_canvas1").innerHTML = "";  
         mapInitialize();
-      
-        }
-
+    }
 }
 
 function mapInitialize() {
-  //  navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-   //     lat = position.coords.latitude;                                  
-   //     lon = position.coords.longitude;
-
-//    }
- //                                            , function onErrorShowMap(error) { 
-   //                                              lat = window.localStorage.getItem("lat");
-     //                                            lon = window.localStorage.getItem("lon");
-       //                                      }); 
-    
-        lat = window.localStorage.getItem("lat");
-        lon = window.localStorage.getItem("lon");
+    //  navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+    //     lat = position.coords.latitude;                                  
+    //     lon = position.coords.longitude;
+    //    }
+    //                                            , function onErrorShowMap(error) { 
+    //                                              lat = window.localStorage.getItem("lat");
+    //                                            lon = window.localStorage.getItem("lon");
+    //                                      }); 
+    lat = window.localStorage.getItem("lat");
+    lon = window.localStorage.getItem("lon");
     
     var latlng = new google.maps.LatLng(
         lat,
@@ -176,14 +172,13 @@ function mapInitialize() {
         document.getElementById("map_canvas1"),
         mapOptions
         );
-    
         
     var marker = new google.maps.Marker({
                                             position: latlng,
                                             map: map
                                         });
     
-  markers.push(marker);
+    markers.push(marker);
     marker.setMap(map);     
     marker.setVisible(true);
     map.setCenter(marker.position);  
@@ -199,8 +194,8 @@ function onSelectTabStrip(e) {
     } else {
         customerCare();
     }
- var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
-  var currentItem = tabstrip.currentItem();
+    var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
+    var currentItem = tabstrip.currentItem();
 }
 
 function onSelectTabStrip1(e) {
@@ -210,8 +205,8 @@ function onSelectTabStrip1(e) {
     } else {
         customerCare();
     }
-       var tabstrip = app.view().footer.find(".km-tabstrip").data("kendoMobileTabStrip");
-  tabstrip.clear();
+    var tabstrip = app.view().footer.find(".km-tabstrip").data("kendoMobileTabStrip");
+    tabstrip.clear();
 }
 
 function supportEmailA() {
@@ -1051,58 +1046,56 @@ function completeRedemption() {
         
                                            showAllOutlet
                                            : function (e) {
-                                               y = e.view.params.geo;
-                                               outletcode = "";
-                                               brandcode = "";
-                                          
-                                               showSpin();
-        
-                                               navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                   lat = position.coords.latitude;                                  
-                                                   lon = position.coords.longitude;
-                                                   var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
-          
-                                                   $.getJSON(geocodingAPI, function (json) {
-                                                       if (json.status === "OK") {
-                                                           //Check result 0
-                                                           var result = json.results[0];
-                                                           for (var i = 0, len = result.address_components.length; i < len; i++) {
-                                                               var ac = result.address_components[i];
-                                                               if (ac.types.indexOf("locality") >= 0) {
-                                                                   geocity = ac.long_name;
-                                                               }
-	                          
-                                                               if (ac.types.indexOf("country") >= 0) {
-                                                                   geocountry = ac.long_name;
-                                                               }
-                                                           }
-                                                           
-                                                           if (y==="1") {
-                                                               geocity = "";
-                                                           }
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/outletlistGeo.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,city:geocity,country:geocountry,lat:window.localStorage.getItem("lat"),lon:window.localStorage.getItem("lon")
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
                                                             
-                                                           listOutlet();
-                                                       }
-                                                   });
-                                               }
-                                                                                        , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                            //  if (err.code == "1") {
-                                                                                            //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                            //  } else if (err.code == "2") {
-                                                                                            //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                            //  }
-                                                                                            gpsError();
-                                                                                            if (y==="1") {
-                                                                                                geocity = "";
-                                                                                            }else {
-                                                                                                geocity = city;
-                                                                                            }
-                                                                                            geocountry = country;
-                                                                                          
-                                                                                            lat = window.localStorage.getItem("lat");
-                                                                                            lon = window.localStorage.getItem("lon");
-                                                                                            listOutlet();
-                                                                                        });
+                                                              if (getData.statuscode == "000") {
+                                                                  if (getData.outletlist.length > 0) {
+                                                                      //fill the outlet template
+                                                                      $("#outletlist-all").kendoMobileListView({
+                                                                             
+                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                                   template: $("#outletListAllTemplate").html(),
+                                                                          
+                                                                                                                   filterable: {
+                                                                              autoFilter: true,
+                                                                              placeholder:"Search By Restaurant Name",                                         
+                                                                              field: "outletname",
+                                                                              operator: "contains",
+                                                                              serverPaging: true,
+                                                                              serverSorting: true,
+                                                                              pageSize: 10
+                                                                          }
+                                                                                                                    
+                                                                                                               });
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("No Restaurant exists for the selected property", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get Restaurant List." + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });                  
                                            },
         
                                            showPropertyItem  
@@ -1523,9 +1516,7 @@ function completeRedemption() {
                                                                       appad_location_short = getData.appad_location_short; 
                                                                       window.localStorage.setItem("appad_location", appad_location);
                                                                       window.localStorage.setItem("appad_location_short", appad_location_short);
-                                                                      window.localStorage.setItem("lat", lat);
-                                                                      window.localStorage.setItem("lon", lon);
-                                                                      //alert(googleapikey);
+                                                                     //alert(googleapikey);
                                                                       //getFlag(country); //Get Flag
                                                                       getCountry();
                                                                       hideSpin(); //hide loading popup
@@ -3459,59 +3450,6 @@ function completeRedemption() {
         }
        
         return true;
-    }
-    
-    function listOutlet() {
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/outletlistGeo.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat,city:geocity,country:geocountry,lat:lat,lon:lon
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                                                            
-                       if (getData.statuscode == "000") {
-                           if (getData.outletlist.length > 0) {
-                               //fill the outlet template
-                               $("#outletlist-all").kendoMobileListView({
-                                                                             
-                                                                            dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                            template: $("#outletListAllTemplate").html(),
-                                                                          
-                                                                            filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Restaurant Name",                                         
-                                       field: "outletname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 10
-                                   }
-                                                                                                                    
-                                                                        });
-                               hideSpin(); //hide loading popup
-                           }else {
-                               navigator.notification.alert("No Restaurant exists for the selected property", function() {
-                               }, "isme by Jumeirah", "Dismiss")    
-                               hideSpin(); //hide loading popup
-                           }
-                       }else {
-                           navigator.notification.alert("Cannot get Restaurant List." + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
-                           hideSpin(); //hide loading popup
-                       }
-                   },
-                   error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
-                       hideSpin(); //hide loading popup
-                   }
-               });
     }
     
     function pllistOutlet() {
