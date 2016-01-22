@@ -84,7 +84,7 @@ a
 
 
 #benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content, #pl-myvoucherdetail-theme .km-content, #pl-benefit-theme .km-content, #mymessagelist-theme .km-content, #messageitem-theme .km-content, #pl-setting-theme .km-content, #pl-home-view .km-content,
-#history-theme .km-content, #historyitem-theme .km-content, #modalviewhistoryfilter .km-content, #myfavorite-view .km-content, #pl-confirmpage-view .km-content, #pl-customerservice-theme .km-content, #enrolmentpage-view .km-content, #pl-confirmredemption-view .km-content, #modalviewfaq .km-content
+#history-theme .km-content, #historyitem-theme .km-content, #modalviewhistoryfilter .km-content, #myfavorite-view .km-content, #pl-confirmpage-view .km-content, #pl-customerservice-theme .km-content, #enrolmentpage-view .km-content, #pl-confirmredemption-view .km-content, #modalviewfaq .km-content,#branddetail-theme .km-content
 {
     background-color: #fff;
 }
@@ -148,7 +148,7 @@ a
     color: #fff;
 }
 
-#explorelist-view .km-content,#pl-explorelist-view .km-content,#branddetail-theme .km-content
+#explorelist-view .km-content,#pl-explorelist-view .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/discover_bg.png) no-repeat center center;
     background-size: cover;
@@ -220,6 +220,7 @@ ul
 li
 {
     padding: 0px;
+    margin:0px;
     border-top: 0 solid #fff !important;
     border-bottom: 0 solid #fff !important;
     font-size: 1em;
@@ -1182,7 +1183,8 @@ li
     white-space: pre-line;
     text-align: justify;
     font-size: 1em;
-    color: #fff;
+    color: #000;
+        margin:0px;
 }
 
 .fulljustifyblack
@@ -1215,8 +1217,9 @@ li
     padding-left: .1em;
     padding-right: .3em;
     white-space: pre-line;
-    text-align: center;
-    color: #fff;
+    text-align: justify;
+    color: #000;
+    margin:0px;
 }
 
 .km-listview-link::after
@@ -1849,8 +1852,10 @@ tile-frame-inner
     color: #fff;
     font-size: 1em;
     text-align: center; 
-    margin: 3px 3px 3px 3px;
+    margin: 3px;
     padding-top: 8%;
+      border-radius: 5px !important;
+    -webkit-border-radius: 5px  !important;
 }
 
 .discover-back-part-a1

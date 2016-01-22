@@ -1083,7 +1083,6 @@ function completeRedemption() {
                                            : function (e) {
                                                showSpin();
                                                window.localStorage.setItem("brandcode", e.view.params.od);
-                                               alert(window.localStorage.getItem("brandcode"));
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1096,17 +1095,16 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                              alert(getData.statuscode);
                                                               if (getData.statuscode == "000") {
                                                                   m = getData.geolocation.split(",");  
                                                                                                                                                                                                                                    
                                                                   lat = m[0];
                                                                   lon = m[1];
-                                                                  alert(getData.imageurll);
                                                                   document.getElementById("property-detail-div").style.display = "block";
                                                                   document.getElementById("detail-title").innerHTML = getData.hotelname;
                                                                   document.getElementById("brandimage").src = getData.imageurll;
                                                                   document.getElementById("property-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes + "</pre>";
+                                                                  document.getElementById("property-short-2").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                   document.getElementById("property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
                                              
                                                                   window.localStorage.setItem("social_shortmsg", "Checkout " + getData.shortdes + "  \n");
