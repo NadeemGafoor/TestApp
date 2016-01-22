@@ -2398,7 +2398,7 @@ function completeRedemption() {
                                                                   lat = m[0];
                                                                   lon = m[1];
                                                                   document.getElementById("outlet-detail-div").style.display = "block";
-                                                                  document.getElementById("detail-title").innerHTML = getData.outletlist[0].outletname;
+                                                                  document.getElementById("pl-detail-title").innerHTML = getData.outletlist[0].outletname;
                                                                   
                                                                   document.getElementById("outletimage").src = getData.outletlist[0].imageurll;
                                                                   document.getElementById("outlet-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
@@ -2591,7 +2591,7 @@ function completeRedemption() {
                                                                    lat = m[0];
                                                                    lon = m[1];
                                                                    document.getElementById("property-detail-div").style.display = "block";
-                                                                   document.getElementById("detail-title").innerHTML = getData.hotelname;
+                                                                   document.getElementById("pl-detail-title").innerHTML = getData.hotelname;
                                                                    document.getElementById("brandimage").src = getData.imageurll;
                                                                    document.getElementById("property-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes + "</pre>";
                                                                    document.getElementById("property-short-2").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes1 + "</pre>";                                                                  

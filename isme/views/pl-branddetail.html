@@ -1,33 +1,31 @@
-<div data-role="view"  data-title="Burj Al Arab"  data-layout="pl-back2-layout" id="pl-branddetail-theme"  data-model="preLogin">
+<div data-role="view"  data-title="Burj Al Arab"  data-layout="pl-back2-layout" id="pl-branddetail-theme"  data-model="postLogin" data-show="postLogin..showPropertyItem" style="background-color:#fff">
   
   
-    <div class="hero-image" id="outlet-image-large">
-        <img id="outletimage" src="images/Brand1.png" class="img-hero"/>
+    <ul data-role="listview"    style="margin-top:5px;display:none;background-color:#fff" id="property-detail-div" >
+        <div class="hero-image">
+            <img id="brandimage" src="images\large_logo_placeholder.png" class="img-hero"/>
 
-    </div>
+        </div>
 
-    <ul data-role="listview"    style="margin-top:0px" id="outlet-detail-div" >
         <div style="width:100%">
-            <a href="views/outletlist.html"  data-transition="slide:up" >
-                <div class="discover-back-part-a discover-back-part-a1">
+            <a href="views/pl-outletlist.html"  data-transition="slide:up" >
+                <div class="discover-back-part-a discover-back-part-a1" style="margin-left:0px">
                     View<br>Restaurants
                 </div>
             </a>
-            <a href="views/liesurelist.html" data-transition="slide:up">
-                <div class="discover-back-part-a discover-back-part-a2">
+
+            <a href="views/pl-leisurelist.html" data-transition="slide:up">
+                <div class="discover-back-part-a discover-back-part-a2" style="margin-left:4%">
                     View<br>Spa
                 </div>
             </a>
         </div>
-        <div id="ooutlet-long" class="fulljustifyblack">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-
-            Doloremque laudantium, totam rem aperiam. eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
-
-        </div>
-
+          <li>  <div id="property-short-1"></div></li>
+            <li><div id="property-short-2"></div>        </li>
+            <li><div id="property-long-1"> 
+            </div></li>
+        <div></div>
     </ul>
-  
 </div>
 
 
