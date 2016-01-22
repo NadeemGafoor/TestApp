@@ -1079,28 +1079,24 @@ function completeRedemption() {
                                                                                         });
                                            },
         
-        
-        
-        
-        
-        
-        showPropertyItem
+                                           showPropertyItem
                                            : function (e) {
                                                showSpin();
-                                                window.localStorage.setItem("brandcode",e.view.params.od);
+                                               window.localStorage.setItem("brandcode", e.view.params.od);
+                                               alert(window.localStorage.getItem("brandcode"));
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
                                                           timeout:20000,                                                      
-                                                          url: gurl + "/outletlist.aspx",
+                                                          url: gurl + "/propertyitem.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
                                                                                    merchantcode :merchant,brandcode: window.localStorage.getItem("brandcode"),mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-
+                                                              alert(getData.status );
                                                               if (getData.statuscode == "000") {
                                                                   m = getData.geolocation.split(",");  
                                                                                                                                                                                                                                    
@@ -1253,7 +1249,7 @@ function completeRedemption() {
         
                                            propertyList
                                            : function () {
-                                               window.localStorage.setItem("brandcode","");
+                                               window.localStorage.setItem("brandcode", "");
                                                showSpin();
                                                 
                                                $.ajax({ 
@@ -2170,45 +2166,45 @@ function completeRedemption() {
                                            },
                                            getfaq
                                            : function () {
-                                                   showSpin(); //show loading popup
-                                                   $.ajax({ 
-                                                              type: "POST",
-                                                              cache:false,
-                                                              async:true,
-                                                              timeout:20000,
-                                                              url: gurl + "/faqlist.aspx",
-                                                              contentType: "application/json; charset=utf-8",
-                                                              data: JSON.stringify({
-                                                                                       merchantcode :merchant,mdevice:mdevicestat,category:window.localStorage.getItem("faqcategory")
-                                                                                   }),
-                                                              success: function (data) { 
-                                                                  var getData = JSON.parse(data);
+                                               showSpin(); //show loading popup
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/faqlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,mdevice:mdevicestat,category:window.localStorage.getItem("faqcategory")
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
                                                                                                                 
-                                                                  if (getData.statuscode === "000") {  
-                                                                      //fill the outlet template
-                                                                      if (getData.faqlist.length > 0) {
-                                                                          $("#faqlist-all").kendoMobileListView({
-                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                    template: $("#faqTemplate").html()
-                                                                                                                });
-                                                                          hideSpin(); //hide loading popup
-                                                                      }else {
-                                                                          navigator.notification.alert("No FAQ exists for the selected Program", function() {
-                                                                          }, "isme by Jumeirah", "Dismiss")    
-                                                                          hideSpin(); //hide loading popup
-                                                                      }
+                                                              if (getData.statuscode === "000") {  
+                                                                  //fill the outlet template
+                                                                  if (getData.faqlist.length > 0) {
+                                                                      $("#faqlist-all").kendoMobileListView({
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#faqTemplate").html()
+                                                                                                            });
+                                                                      hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("Cannot get FAQ list " + getData.statusdesc, function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")          
+                                                                      navigator.notification.alert("No FAQ exists for the selected Program", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
-                                                              },
-                                                              error: function (error) {
-                                                                  navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")
-                                                                  hideSpin(); //hide loading popup                                          
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get FAQ list " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
                                                               }
-                                                          });
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup                                          
+                                                          }
+                                                      });
                                            },
         
                                            getAddRestFilter:function() {
