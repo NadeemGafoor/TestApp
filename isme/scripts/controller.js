@@ -1046,15 +1046,17 @@ function completeRedemption() {
         
                                            showAllOutlet
                                            : function (e) {
+                                                   window.localStorage.setItem("brandcode",e.view.params.brand);
+                                                   window.localStorage.setItem("brandcode",e.view.params.category);
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
                                                           timeout:20000,
-                                                          url: gurl + "/outletlistGeo.aspx",
+                                                          url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,city:geocity,country:geocountry,lat:window.localStorage.getItem("lat"),lon:window.localStorage.getItem("lon")
+                                                                                   merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,itemfilter:window.localStorage.getItem("itemfilter"),outletcode:""
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
@@ -1062,36 +1064,27 @@ function completeRedemption() {
                                                               if (getData.statuscode == "000") {
                                                                   if (getData.outletlist.length > 0) {
                                                                       //fill the outlet template
-                                                                      $("#outletlist-all").kendoMobileListView({
+                                                                      $("#outlet-list").kendoMobileListView({
                                                                              
                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                                   template: $("#outletListAllTemplate").html(),
-                                                                          
-                                                                                                                   filterable: {
-                                                                              autoFilter: true,
-                                                                              placeholder:"Search By Restaurant Name",                                         
-                                                                              field: "outletname",
-                                                                              operator: "contains",
-                                                                              serverPaging: true,
-                                                                              serverSorting: true,
-                                                                              pageSize: 10
-                                                                          }
+                                                                                                                   template: $("#outletTemplate").html()
+                                                                         
                                                                                                                     
                                                                                                                });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("No Restaurant exists for the selected property", function() {
+                                                                      navigator.notification.alert("No locations exists for the selected property", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get Restaurant List." + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }

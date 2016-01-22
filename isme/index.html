@@ -591,12 +591,12 @@
                 </a>
             </div>
             <div class="li-div">
-                <a href="views/outletlist.html?brand=0&category=0" data-transition="slide">
+                <a href="views/outletlist.html?brand=&category=0" data-transition="slide">
                     &nbsp;&nbsp;Bars & Dining
                 </a>
             </div>
             <div class="li-div">
-                <a href="views/outletlist.html?brand=0&category=1" data-transition="slide">
+                <a href="views/leisurelist.html?brand=&category=1" data-transition="slide">
                     &nbsp;&nbsp;Spas & Theme Park
                 </a>
             </div>
@@ -652,12 +652,12 @@
                 </a>
             </div>
             <div class="li-div">
-                <a href="views/pl-outletlist.html?brand=0&category=0" data-transition="slide">
+                <a href="views/pl-outletlist.html?brand=&category=0" data-transition="slide">
                     &nbsp;&nbsp;Bars & Dining
                 </a>
             </div>
             <div class="li-div">
-                <a href="views/pl-outletlist.html?brand=0&category=1" data-transition="slide">
+                <a href="views/pl-leisurelist.html?brand=&category=1" data-transition="slide">
                     &nbsp;&nbsp;Spas & Theme Park
                 </a>
             </div>
@@ -1207,13 +1207,13 @@
         
         <script type="text/x-kendo-template" id="explorelisttemplate">
             
-               <a>
+            <a>
                 <div class="button-frame-inline height-80">
                     <a  href="views/branddetail.html?od=${brandcode}" data-transition="slide:up" id="mobile-button1" data-role="button" >${msgtitle}</a>
                 </div>
             </a>
   
-</script>
+        </script>
         
         <script type="text/x-kendo-template" id="faqTemplate">
         <div class="faq1" >
@@ -1224,11 +1224,13 @@
         
         
           <script type="text/x-kendo-template" id="outletTemplate">
-        <div class="faq1" >
-                <div class="faqq">${question}<br><span style="font-weight:bold">${answer}</span></div>
-            </div>
+          <div class="button-frame-inline height-80">
+                    <a  href="views/outletdetail.html?od=${outletcode}" data-transition="slide:up" id="mobile-button1" data-role="button" >${outletname}</a>
+                </div>
 
 </script>
+        
+        
 
        
 
