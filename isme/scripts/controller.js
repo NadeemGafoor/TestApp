@@ -1,18 +1,18 @@
-  function hideSpin() {
-        window.setTimeout(function() {
-            $("#mvwait").data("kendoMobileModalView").close();
-        }, 1000); 
-    }
+function hideSpin() {
+    window.setTimeout(function() {
+        $("#mvwait").data("kendoMobileModalView").close();
+    }, 1000); 
+}
          
-    function showSpin() {
-        if (!checkConnectionBool()) {
-            navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.", function() {
-            }, "isme by Jumeirah", "Dismiss");  
-            //        //$("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
-        } else {
-            $("#mvwait").data("kendoMobileModalView").open();
-        }
+function showSpin() {
+    if (!checkConnectionBool()) {
+        navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.", function() {
+        }, "isme by Jumeirah", "Dismiss");  
+        //        //$("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
+    } else {
+        $("#mvwait").data("kendoMobileModalView").open();
     }
+}
 
 function showConfirm() {
     navigator.notification.confirm(
@@ -134,21 +134,27 @@ function emailClick() {
 function getLocation5() {
     $("#modalviewmap").data("kendoMobileModalView").open();
     document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
-    mapInitialize();
+    for (i=0;i<=1;i++){
+    document.getElementById("map_canvas1").innerHTML="";  
+        mapInitialize();
+      
+        }
+
 }
 
 function mapInitialize() {
-    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-        lat = position.coords.latitude;                                  
-        lon = position.coords.longitude;
+  //  navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+   //     lat = position.coords.latitude;                                  
+   //     lon = position.coords.longitude;
+
+//    }
+ //                                            , function onErrorShowMap(error) { 
+   //                                              lat = window.localStorage.getItem("lat");
+     //                                            lon = window.localStorage.getItem("lon");
+       //                                      }); 
+    
         lat = window.localStorage.getItem("lat");
         lon = window.localStorage.getItem("lon");
-        
-    }
-                                             , function onErrorShowMap(error) { 
-                                                 lat = window.localStorage.getItem("lat");
-                                                 lon = window.localStorage.getItem("lon");
-                                             });   
     
     var latlng = new google.maps.LatLng(
         lat,
@@ -171,12 +177,15 @@ function mapInitialize() {
         mapOptions
         );
     
+        
     var marker = new google.maps.Marker({
                                             position: latlng,
                                             map: map
                                         });
+    
+  markers.push(marker);
+    marker.setMap(map);     
     marker.setVisible(true);
-    marker.setMap(map); 
     map.setCenter(marker.position);  
     google.maps.event.trigger(map, 'resize');
 }
@@ -190,6 +199,8 @@ function onSelectTabStrip(e) {
     } else {
         customerCare();
     }
+    var tabstrip = app.view().footer.find(".km-tabstrip").data("kendoMobileTabStrip");
+  tabstrip.clear();
 }
 
 function onSelectTabStrip1(e) {
@@ -202,6 +213,8 @@ function onSelectTabStrip1(e) {
 }
 
 function supportEmailA() {
+    alert("aaa");
+
     window.plugins.socialsharing.shareViaEmail(
         "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
         window.localStorage.getItem("social_subject"), window.localStorage.getItem("social_email"), null, null, // TO: must be null or an array
@@ -1096,6 +1109,7 @@ function completeRedemption() {
                                            : function (e) {
                                                showSpin();
                                                window.localStorage.setItem("brandcode", e.view.params.od);
+                                            
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1122,7 +1136,9 @@ function completeRedemption() {
                                                             
                                                                   window.localStorage.setItem("social_message", getData.shortdes + "\n\n" + getData.shortdes1 + "\n\n" + getData.longdes);
                                                                   window.localStorage.setItem("social_image", getData.imageurll); 
-                                                                 
+                                                                  window.localStorage.setItem("lat", lat);
+                                                                  window.localStorage.setItem("lon", lon);
+                                                              
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Cannot get Brand Item " + getData.statusdesc, function() {
