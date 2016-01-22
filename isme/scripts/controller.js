@@ -1079,7 +1079,7 @@ function completeRedemption() {
                                                                                         });
                                            },
         
-                                           showPropertyItem
+                                           showPropertyItem  
                                            : function (e) {
                                                showSpin();
                                                window.localStorage.setItem("brandcode", e.view.params.od);
@@ -1096,13 +1096,13 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                              alert(getData.status );
+                                                              alert(getData.statuscode);
                                                               if (getData.statuscode == "000") {
                                                                   m = getData.geolocation.split(",");  
                                                                                                                                                                                                                                    
                                                                   lat = m[0];
                                                                   lon = m[1];
-                                                                  
+                                                                  alert(getData.imageurll);
                                                                   document.getElementById("property-detail-div").style.display = "block";
                                                                   document.getElementById("detail-title").innerHTML = getData.hotelname;
                                                                   document.getElementById("brandimage").src = getData.imageurll;
