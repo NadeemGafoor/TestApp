@@ -1048,7 +1048,7 @@ function completeRedemption() {
                                            : function (e) {
                                                showSpin(); 
                                                    window.localStorage.setItem("brandcode",e.view.params.brand);
-                                                   window.localStorage.setItem("brandcode",e.view.params.category);
+                                                   window.localStorage.setItem("category",e.view.params.category);
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1062,15 +1062,59 @@ function completeRedemption() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                             
-                                                              if (getData.statuscode == "000") {
+                                                              if (getData.statuscode === "000") {
                                                                   if (getData.outletlist.length > 0) {
                                                                       //fill the outlet template
                                                                       $("#outlet-list").kendoMobileListView({
                                                                              
                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                                    template: $("#outletTemplate").html()
-                                                                         
-                                                                                                                    
+                                                                                                               });
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });                  
+                                           },
+        
+         showAllLeisure
+                                           : function (e) {
+                                               showSpin(); 
+                                                   window.localStorage.setItem("brandcode",e.view.params.brand);
+                                                   window.localStorage.setItem("category",e.view.params.category);
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/outletlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:""
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                            
+                                                              if (getData.statuscode === "000") {
+                                                                  if (getData.outletlist.length > 0) {
+                                                                      //fill the outlet template
+                                                                      $("#leisure-list").kendoMobileListView({
+                                                                             
+                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                                   template: $("#leisureTemplate").html()
                                                                                                                });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
@@ -1510,9 +1554,6 @@ function completeRedemption() {
                                                                       appad_location_short = getData.appad_location_short; 
                                                                       window.localStorage.setItem("appad_location", appad_location);
                                                                       window.localStorage.setItem("appad_location_short", appad_location_short);
-                                                                     //alert(googleapikey);
-                                                                      //getFlag(country); //Get Flag
-                                                                      getCountry();
                                                                       hideSpin(); //hide loading popup
                                                                   }else if (getData.statuscode === "047") {
                                                                       $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
@@ -2343,6 +2384,207 @@ function completeRedemption() {
                                             couponname:"",
                                             couponcategory:"",
                                             msgsequence:"",
+        
+                propertyList
+                                           : function () {
+                                               window.localStorage.setItem("brandcode", "");
+                                               showSpin();
+                                                
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/propertyList.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                      
+                                                              if (getData.statuscode == "000") {
+                                                                  if (getData.propertylist.length > 0) {
+                                                                      //fill the outlet template
+                                                                      $("#pl-property-list").kendoMobileListView({
+                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.propertylist}),
+                                                                                                                  template: $("#pl-explorelisttemplate").html()
+                                                                                                                    
+                                                                                                              });
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("No Property Data Available", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get Property Data " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Property Data.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
+        
+        
+        
+                showAllOutlet
+                                           : function (e) {
+                                               showSpin(); 
+                                                   window.localStorage.setItem("brandcode",e.view.params.brand);
+                                                   window.localStorage.setItem("category",e.view.params.category);
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/outletlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:""
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                            
+                                                              if (getData.statuscode === "000") {
+                                                                  if (getData.outletlist.length > 0) {
+                                                                      //fill the outlet template
+                                                                      $("#pl-outlet-list").kendoMobileListView({
+                                                                             
+                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                                   template: $("#pl-outletTemplate").html()
+                                                                                                               });
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });                  
+                                           },
+        
+         showAllLeisure
+                                           : function (e) {
+                                               showSpin(); 
+                                                   window.localStorage.setItem("brandcode",e.view.params.brand);
+                                                   window.localStorage.setItem("category",e.view.params.category);
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/outletlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:""
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                            
+                                                              if (getData.statuscode === "000") {
+                                                                  if (getData.outletlist.length > 0) {
+                                                                      //fill the outlet template
+                                                                      $("#pl-leisure-list").kendoMobileListView({
+                                                                             
+                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                                   template: $("#pl-leisureTemplate").html()
+                                                                                                               });
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });                  
+                                           },
+        
+                                           showPropertyItem  
+                                           : function (e) {
+                                               showSpin();
+                                               window.localStorage.setItem("brandcode", e.view.params.od);
+                                            
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,                                                      
+                                                          url: gurl + "/propertyitem.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,brandcode: window.localStorage.getItem("brandcode"),mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") {
+                                                                  m = getData.geolocation.split(",");  
+                                                                                                                                                                                                                                   
+                                                                  lat = m[0];
+                                                                  lon = m[1];
+                                                                  document.getElementById("property-detail-div").style.display = "block";
+                                                                  document.getElementById("detail-title").innerHTML = getData.hotelname;
+                                                                  document.getElementById("brandimage").src = getData.imageurll;
+                                                                  document.getElementById("property-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes + "</pre>";
+                                                                  document.getElementById("property-short-2").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes1 + "</pre>";                                                                  
+                                                                  document.getElementById("property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
+                                                            
+                                                                  window.localStorage.setItem("social_message", getData.shortdes + "\n\n" + getData.shortdes1 + "\n\n" + getData.longdes);
+                                                                  window.localStorage.setItem("social_image", getData.imageurll); 
+                                                                  window.localStorage.setItem("lat", lat);
+                                                                  window.localStorage.setItem("lon", lon);
+                                                              
+                                                                  hideSpin(); //hide loading popup
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get Brand Item " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Brand Item. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
                                             toggleDD:function() {
                                                 if (document.getElementById("profile-autolocation").checked) {
                                                     document.getElementById("selCountry").disabled = true;
