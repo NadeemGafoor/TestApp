@@ -1,3 +1,19 @@
+  function hideSpin() {
+        window.setTimeout(function() {
+            $("#mvwait").data("kendoMobileModalView").close();
+        }, 1000); 
+    }
+         
+    function showSpin() {
+        if (!checkConnectionBool()) {
+            navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.", function() {
+            }, "isme by Jumeirah", "Dismiss");  
+            //        //$("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
+        } else {
+            $("#mvwait").data("kendoMobileModalView").open();
+        }
+    }
+
 function showConfirm() {
     navigator.notification.confirm(
         'Please enrol or login to activate this reward.', // message
@@ -118,52 +134,51 @@ function emailClick() {
 function getLocation5() {
     $("#modalviewmap").data("kendoMobileModalView").open();
     document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
-    setTimeout(mapInitialize, 2000);
+    mapInitialize();
 }
 
 function mapInitialize() {
     navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+        lat = position.coords.latitude;                                  
+        lon = position.coords.longitude;
         lat = window.localStorage.getItem("lat");
         lon = window.localStorage.getItem("lon");
+        
     }
-                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                             , function onErrorShowMap(error) { 
                                                  lat = window.localStorage.getItem("lat");
                                                  lon = window.localStorage.getItem("lon");
-                                             });
+                                             });   
+    
     var latlng = new google.maps.LatLng(
-        lat, lon)
-    //  if (!initialized) {
+        lat,
+        lon);
+    
     var mapOptions = {
         sensor: true,
         center: latlng,
         panControl: false,
         zoomControl: true,
-        zoom: 16,
+        zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         streetViewControl: false,
         mapTypeControl: true,
- 
-    };
- 
+    
+    }; 
+    
     var map = new google.maps.Map(
-        document.getElementById('map_canvas1'),
+        document.getElementById("map_canvas1"),
         mapOptions
         );
-            
-    initialized = true;
-    //}
- 
+    
     var marker = new google.maps.Marker({
                                             position: latlng,
                                             map: map
                                         });
-                                       
-    google.maps.event.addListenerOnce(map, 'idle', function() {
-        google.maps.event.trigger(map, 'resize');
-        map.setCenter(latlng);  
-    });
     marker.setVisible(true);
     marker.setMap(map); 
+    map.setCenter(marker.position);  
+    google.maps.event.trigger(map, 'resize');
 }
 
 function onSelectTabStrip(e) {
