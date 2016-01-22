@@ -1852,7 +1852,7 @@ tile-frame-inner
     color: #fff;
     font-size: 1em;
     text-align: center; 
-    margin: 3px;
+    margin: 3px auto 3px auto;
     padding-top: 8%;
       border-radius: 5px !important;
     -webkit-border-radius: 5px  !important;
