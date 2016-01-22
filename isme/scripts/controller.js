@@ -796,9 +796,9 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-    var gurl = "http://exclusiveu.dynns.com:8088/mobilePortal";
+    var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalJumeirah";
     //var gurl = "https://appapi.exclusiveu.in/mobilePortal";
-    var merchant = "INTER09705";
+    var merchant = "JUMEI02000";
     //var merchant = "IHGDI09999";
     var customer = "9999999999";
     var customername = "Guest";
@@ -828,33 +828,26 @@ function completeRedemption() {
     var outletcode = "";
     var brandcode = "";
     var benefitcode = "";
-    var initialized = false;
     var m = [];  
     var offertype = "1"; //prelogin ofer
     var offercode = ""; //All Offers default
     var couponnumber = "";
     var newimage = "";
-    var rc = "";
-    var rn = "";
-    var cn = "";
-    var sr = "";
-    
     var uuid = "";
     var identifier = "";
     var major = "";
     var minor = "";
-    
-    var appad_location = "http://www.ihgdiningrewards.com";
-    var appad_location_short = "http://www.ihgdiningrewards.com";    
+    var appad_location = "http://isme.jumeirah.com";
+    var appad_location_short = "isme.jumeirah.com";    
     var share_image = "http://exclusiveu.dynns.com:8088/mobileportal/images/ihg_logo.png";
     var flag_image = "http://exclusiveu.dynns.com:8088/mobileportal/flagimages/";
     //var notification_image = "https://appapi.exclusiveu.in/mobileportal/images/36x36_icon.png";    
     //var share_image = "https://appapi.exclusiveu.in/mobileportal/images/ihg_logo.png";
     //var flag_image = "https://appapi.exclusiveu.in/mobileportal/flagimages/";
     var short_msg = "Check out the isme by Jumeirah at ";
-    var offertelephone = "0097142766186";
-    var enrollmenttelephone = "0097142766213";
-    var customercaretelephone = "0097142766186";
+    var offertelephone = "0097149999999";
+    var enrollmenttelephone = "0097149999999";
+    var customercaretelephone = "0097149999999";
     var cardimage = "";
     var supportemail = "isme@jumeirah.com";
     //// function onSuccess(acceleration) {
@@ -935,7 +928,7 @@ function completeRedemption() {
     function mvhide() {
         window.setTimeout(function() {
             $("#mvwait").data("kendoMobileModalView").close();
-        }, 3000); 
+        }, 1000); 
     }
     
     function mvshow() {
@@ -1198,6 +1191,50 @@ function completeRedemption() {
                                                       });
                                            },
         
+            propertyList
+                                           : function () {
+                                               window.localStorage.setItem("brandcode")="";
+                                               showSpin();
+                                                
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/propertyList.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,brandcode:window.localStorage.getItem("brandcode"),explorefilter:window.localStorage.getItem("explorefilter"),mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") {
+                                                                  if (getData.offerlist.length > 0) {
+                                                                      //fill the outlet template
+                                                                      $("#outlet-offer").kendoMobileListView({
+                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
+                                                                                                                 template: $("#outletOfferTemplate").html()
+                                                                                                                    
+                                                                                                             });
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("No Property Data Available", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get Property Data " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Property Data.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
                                            offerlist
                                            : function (e) {
                                                y = e.view.params.geo;
@@ -1370,9 +1407,10 @@ function completeRedemption() {
                                                    preLogin.set("segmentcode", segmentcode);
                                                    window.localStorage.setItem("mdevicestat", mdevicestat);
                                                    window.localStorage.setItem("merchant", merchant);
-                                               
                                                    window.localStorage.setItem("appad_location", appad_location);
                                                    window.localStorage.setItem("appad_location_short", appad_location_short);
+                                                   window.localStorage.setItem("brandcode", "");
+                                                   window.localStorage.setItem("explorefilter", "");
                                                    $.ajax({ 
                                                               type: "POST",
                                                               cache:false,
@@ -3245,9 +3283,7 @@ function completeRedemption() {
     }
     
     function hideSpin() {
-        setTimeout(function() {
-            window.plugins.spinnerDialog.hide();
-        }, 2000);  //hide Loading Popup
+      mvhide();
     }
          
     function showSpin() {
@@ -3256,7 +3292,7 @@ function completeRedemption() {
             }, "isme by Jumeirah", "Dismiss");  
             //        //$("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
         } else {
-            window.plugins.spinnerDialog.show(null, null, true); //show loading popup
+            mvshow();
         }
     }
     
