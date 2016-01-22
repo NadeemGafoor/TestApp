@@ -199,8 +199,8 @@ function onSelectTabStrip(e) {
     } else {
         customerCare();
     }
-    var tabstrip = app.view().footer.find(".km-tabstrip").data("kendoMobileTabStrip");
-  tabstrip.clear();
+ var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
+  var currentItem = tabstrip.currentItem();
 }
 
 function onSelectTabStrip1(e) {
@@ -210,11 +210,11 @@ function onSelectTabStrip1(e) {
     } else {
         customerCare();
     }
+       var tabstrip = app.view().footer.find(".km-tabstrip").data("kendoMobileTabStrip");
+  tabstrip.clear();
 }
 
 function supportEmailA() {
-    alert("aaa");
-
     window.plugins.socialsharing.shareViaEmail(
         "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
         window.localStorage.getItem("social_subject"), window.localStorage.getItem("social_email"), null, null, // TO: must be null or an array
