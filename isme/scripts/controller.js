@@ -1107,12 +1107,8 @@ function completeRedemption() {
                                                                   document.getElementById("property-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes + "</pre>";
                                                                   document.getElementById("property-short-2").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                   document.getElementById("property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
-                                             
-                                                                  window.localStorage.setItem("social_email", social_email + "  \n");
-                                                                  window.localStorage.setItem("social_telephone", getData.hotelname);
-                                                                                
-                                                                  window.localStorage.setItem("social_subject", emailsubject);
-                                                                  window.localStorage.setItem("social_message", getData.longdes);
+                                                            
+                                                                  window.localStorage.setItem("social_message", getData.shortdes + "\n\n" + getData.shortdes1 + "\n\n" + getData.longdes);
                                                                   window.localStorage.setItem("social_image", getData.imageurll); 
                                                                  
                                                                   hideSpin(); //hide loading popup
@@ -1465,11 +1461,9 @@ function completeRedemption() {
                                                    window.localStorage.setItem("merchant", merchant);
                                                    window.localStorage.setItem("appad_location", appad_location);
                                                    window.localStorage.setItem("appad_location_short", appad_location_short);
-                                                   
-                                                   window.localStorage.setItem("appad_location_short", appad_location_short);
-                                                   window.localStorage.setItem("appad_location_short", appad_location_short);
-                                                   
-                                                   
+                                                   window.localStorage.setItem("social_email", supportemail + "  \n");
+                                                   window.localStorage.setItem("social_telephone", customercaretelephone);                   
+                                                   window.localStorage.setItem("social_subject", emailsubject);
                                                    window.localStorage.setItem("brandcode", "");
                                                    window.localStorage.setItem("faqcategory", "");
                                                    $.ajax({ 
