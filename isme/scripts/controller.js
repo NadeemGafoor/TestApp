@@ -88,17 +88,17 @@ function loadEnrol() {
 }
 
 function faceBookClick() {
-    window.plugins.socialsharing.shareViaFacebook(null, window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"), function () {
+    window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("social_message") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
     });
 }
 
 function twitterClick() {
-    window.plugins.socialsharing.shareViaTwitter("sharingSocialView.social_shortmsg" + "\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email", null, "Download the Mobile App at " + window.localStorage.getItem("appad_location"));
+    window.plugins.socialsharing.shareViaTwitter(window.localStorage.getItem("social_shortmsg") + "\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"));
 }
 
 function whatsappClick() {
-    window.plugins.socialsharing.shareViaWhatsApp("sharingSocialView.social_shortmsg" + "\n" + "sharingSocialView.social_telephone" + "\n" + "sharingSocialView.social_email", null, "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), function () {
+    window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("social_shortmsg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
     })
 }
@@ -560,7 +560,7 @@ function loadMyProfile() {
     }
 }
 
-function loadMyReward() {
+function loadMyReward() {  
     plHomeClick();  
 
     if (window.localStorage.getItem("appopen") != "2") {
