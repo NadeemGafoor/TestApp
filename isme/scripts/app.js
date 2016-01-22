@@ -1,6 +1,5 @@
 // This is your Telerik Backend Services API key.
-//var bsApiKey = '6LEEprHEujIskeua';
-var bsApiKey = 'oDrMvNSac4JXOWS2';
+var bsApiKey = 'izjzoyefb53dfr5t';  
 
 // This is the scheme (http or https) to use for accessing the Telerik Backend Services REST API.
 var bsScheme = 'http';

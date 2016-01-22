@@ -785,7 +785,6 @@ function completeRedemption() {
     var gpsErrorShow = "";
     var gpsErrorShowApp = "";
     var magicnumber = "";
-    var flagurl = "";
     var googleapikey = "";
     var firsttime = "";
     var mdevice = "";
@@ -1080,6 +1079,81 @@ function completeRedemption() {
                                                                                         });
                                            },
         
+        
+        
+        
+        
+        
+        showPropertyItem
+                                           : function (e) {
+                                               showSpin();
+                                                window.localStorage.setItem("brandcode",e.view.params.od);
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,                                                      
+                                                          url: gurl + "/outletlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,brandcode:brandcode,outletcode:outletcode,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+
+                                                              if (getData.statuscode == "000") {
+                                                                  m = getData.outletlist[0].geolocation.split(",");  
+                                                                                                                                                                                                                                   
+                                                                  lat = m[0];
+                                                                  lon = m[1];
+                                                                  
+                                                                  document.getElementById("property-detail-div").style.display = "block";
+                                                                  //document.getElementById("outlet-image-large").style.background = "url(" + getData.outletlist[0].imageurll + ") no-repeat center center";
+                                                                  //document.getElementById("outlet-image-large").style.backgroundSize = "cover";
+                                                                  //document.getElementById("item-title").innerHTML = getData.outletlist[0].outletname;
+                                                                  document.getElementById("outletimage").src = getData.outletlist[0].imageurll;
+                                                                  document.getElementById("ooutlet-short").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
+                                                                  document.getElementById("ooutlet-long").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
+                                                                  // document.getElementById("outlet-review").innerHTML = getData.outletlist[0].reviewcount + " Review(s)";
+                                                                  // document.getElementById("outlet-star").innerHTML = getData.outletlist[0].staraverage + " Star(s)";
+                                             
+                                                                  sharingSocialView.set("social_shortmsg", "Checkout " + getData.outletlist[0].outletname + "  \n");
+                                                                  sharingSocialView.set("social_header", getData.outletlist[0].outletname);
+                                                                                
+                                                                  sharingSocialView.set("social_subject", getData.outletlist[0].outletshort);
+                                                                  sharingSocialView.set("social_message", getData.outletlist[0].outletlong);
+                                                                  sharingSocialView.set("social_image", share_image); 
+                                                                  sharingSocialView.set("social_telephone", "Telephone : " + getData.outletlist[0].telephone);    
+                                                                  sharingSocialView.set("social_email", "Email : " + getData.outletlist[0].emailid);      
+                                                                  preLogin.set("outlettelephone", getData.outletlist[0].telephone);
+                                                                  preLogin.set("outletemailid", getData.outletlist[0].emailid);
+                                                                     
+                                                                  shareCustomer = customer;
+                                                                  shareProductCode = getData.outletlist[0].outletcode;
+                                                                  shareProductType = "1"; //outlet review
+                                                                  hideSpin(); //hide loading popup
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get Restaurant List " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Restaurant List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
+        
+        
+        
+        
+        
+        
+        
+        
+        
                                            showOutletItem
                                            : function (e) {
                                                showSpin();
@@ -1190,7 +1264,7 @@ function completeRedemption() {
         
                                            propertyList
                                            : function () {
-                                               window.localStorage.setItem("brandcode") = "";
+                                               window.localStorage.setItem("brandcode","");
                                                showSpin();
                                                 
                                                $.ajax({ 
@@ -1201,13 +1275,13 @@ function completeRedemption() {
                                                           url: gurl + "/propertyList.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,brandcode:window.localStorage.getItem("brandcode"),explorefilter:window.localStorage.getItem("explorefilter"),mdevice:mdevicestat
+                                                                                   merchantcode :merchant,brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                              alert(getData);
+                                                      
                                                               if (getData.statuscode == "000") {
-                                                                  if (getData.offerlist.length > 0) {
+                                                                  if (getData.propertylist.length > 0) {
                                                                       //fill the outlet template
                                                                       $("#property-list").kendoMobileListView({
                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.propertylist}),
@@ -1389,7 +1463,6 @@ function completeRedemption() {
                                            },
                                            varInit
                                            : function() {
-                                               alert("hello");
                                                showSpin();
                                                //document.getElementById("flagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center"; 
                                                //checklocation();
@@ -1409,7 +1482,6 @@ function completeRedemption() {
                                                    window.localStorage.setItem("appad_location", appad_location);
                                                    window.localStorage.setItem("appad_location_short", appad_location_short);
                                                    window.localStorage.setItem("brandcode", "");
-                                                   window.localStorage.setItem("explorefilter", "");
                                                    window.localStorage.setItem("faqcategory", "");
                                                    $.ajax({ 
                                                               type: "POST",
@@ -1419,7 +1491,7 @@ function completeRedemption() {
                                                               url: gurl + "/initAccess.aspx",
                                                               contentType: "application/json; charset=utf-8",
                                                               data: JSON.stringify({
-                                                                                       merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat
+                                                                                       merchantcode :merchant,mdevice:mdevicestat
                                                                                    }),
                                                               success: function (data) { 
                                                                   var getData = JSON.parse(data);
@@ -1499,7 +1571,7 @@ function completeRedemption() {
                                                                   url: gurl + "/propertyList.aspx",
                                                                   contentType: "application/json; charset=utf-8",
                                                                   data: JSON.stringify({
-                                                                                           merchantcode: merchant, mdevice: mdevicestat
+                                                                                           merchantcode: merchant, mdevice: mdevicestat,brandcode:window.localStorage.getItem("brandcode")
                                                                                        }),
                                                                   success: function (data) {
                                                                       var getData = JSON.parse(data);
@@ -2122,7 +2194,7 @@ function completeRedemption() {
                                                                                    }),
                                                               success: function (data) { 
                                                                   var getData = JSON.parse(data);
-                                                                  alert(getData);                                                             
+                                                                                                                
                                                                   if (getData.statuscode === "000") {  
                                                                       //fill the outlet template
                                                                       if (getData.faqlist.length > 0) {
@@ -2130,22 +2202,22 @@ function completeRedemption() {
                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
                                                                                                                     template: $("#faqTemplate").html()
                                                                                                                 });
-                                                                          showSpin(); //hide loading popup
+                                                                          hideSpin(); //hide loading popup
                                                                       }else {
                                                                           navigator.notification.alert("No FAQ exists for the selected Program", function() {
                                                                           }, "isme by Jumeirah", "Dismiss")    
-                                                                          showSpin(); //hide loading popup
+                                                                          hideSpin(); //hide loading popup
                                                                       }
                                                                   }else {
                                                                       navigator.notification.alert("Cannot get FAQ list " + getData.statusdesc, function() {
                                                                       }, "isme by Jumeirah", "Dismiss")          
-                                                                      showSpin(); //hide loading popup
+                                                                      hideSpin(); //hide loading popup
                                                                   }
                                                               },
                                                               error: function (error) {
                                                                   navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                   }, "isme by Jumeirah", "Dismiss")
-                                                                  showSpin(); //hide loading popup                                          
+                                                                  hideSpin(); //hide loading popup                                          
                                                               }
                                                           });
                                            },
@@ -3897,7 +3969,7 @@ function completeRedemption() {
                        url: gurl + "/propertyList.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode: merchant, mdevice: mdevicestat
+                                                merchantcode: merchant, mdevice: mdevicestat,brandcode:window.localStorage.getItem("brandcode")
                                             }),
                        success: function (data) {
                            var getData = JSON.parse(data);
