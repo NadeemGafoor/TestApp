@@ -2375,6 +2375,58 @@ function completeRedemption() {
                                             couponname:"",
                                             couponcategory:"",
                                             msgsequence:"",
+         showOutletItem
+                                           : function (e) {
+                                               showSpin();
+                                               outletcode = e.view.params.od;
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,                                                      
+                                                          url: gurl + "/outletlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,brandcode:"",outletcode:outletcode,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+
+                                                              if (getData.statuscode == "000") {
+                                                                  m = getData.outletlist[0].geolocation.split(",");  
+                                                                                                                                                                                                                                   
+                                                                  lat = m[0];
+                                                                  lon = m[1];
+                                                                  document.getElementById("outlet-detail-div").style.display = "block";
+                                                                  document.getElementById("detail-title").innerHTML = getData.outletlist[0].outletname;
+                                                                  
+                                                                  document.getElementById("outletimage").src = getData.outletlist[0].imageurll;
+                                                                  document.getElementById("outlet-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
+                                                                  document.getElementById("outlet-long-1").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
+                                                                  
+                                                                  window.localStorage.setItem("social_email", getData.outletlist[0].emailid + "  \n");
+                                                                  window.localStorage.setItem("social_telephone", getData.outletlist[0].telephone);                   
+                                                                  window.localStorage.setItem("social_shortmsg", getData.outletlist[0].outletshort);
+                                                            
+                                                                  window.localStorage.setItem("social_message", getData.outletlist[0].outletlong + "\n\n");
+                                                                  window.localStorage.setItem("social_image", getData.outletlist[0].imageurll); 
+                                                                  window.localStorage.setItem("lat", lat);
+                                                                  window.localStorage.setItem("lon", lon);
+                                                              
+                                                                  hideSpin(); //hide loading popup
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get location " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get location. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
         
                                             propertyList
                                             : function () {
