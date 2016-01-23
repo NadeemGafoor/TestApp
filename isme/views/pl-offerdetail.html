@@ -1,32 +1,34 @@
-<div data-role="view"   data-title="Emirates BOGOF" data-layout="pl-back2-layout" id="pl-offerdetail-theme"  data-model="preLogin" data-init="initPLOfferGroup">
+<div data-role="view"   data-title="" data-layout="pl-back2-layout" id="pl-offerdetail-theme" data-hide="doOneBack"  data-model="postLogin" data-init="initPLOfferGroup" data-show="postLogin.showOfferItem" style="background-color:#fff">
 
     <ul data-role="buttongroup" data-index="0" id="ploffertab" class="button-group a-group">
         <li>
             Details
         </li>
-        <li>
+   <li data-bind="click: showOfferOutlet">
             Locations
         </li>
 
     </ul>
-    <ul data-role="listview"    style="margin-top:0px;background-color:#fff !important" id="offer-detail-div" >
-    <div class="hero-image" id="outlet-image-large">
-        <img id="outletimage" src="images/rest3.png" class="img-hero"/>
+    <ul data-role="listview"    style="margin-top:0px;background-color:#fff !important;display:none" id="pl-offer-detail-div" >
+    <div class="hero-image">
+            <img id="pl-offerimage" src="images\large_logo_placeholder.png" class="img-hero"/>
 
-    </div>
-   
-        <div class="fulljustifyblue-bold">
-            Triple Krisflyer and bonus miles.
-            -Singapore Airlines
-        </div>
+        </div>         
 
-        <div id="ooutlet-long" class="fulljustifyblack">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-
-            Doloremque laudantium, totam rem aperiam. eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
-
-        </div>
-
+        <li>
+            <div id="pl-offer-short-1"></div>
+        </li>
+        <li>
+        
+        <li>
+            <div id="pl-offer-long-1">
+            </div>
+        </li>
+            
+             <li>
+            <div id="pl-offer-expiry" class="detail-subhead cblack">
+            </div>
+        </li>  
         <li>
             <div class="swith-frame-voucher">
                 Agree to
@@ -47,85 +49,17 @@
                 <a data-role="button"  data-click="showConfirm"  >Redeem</a>
             </div>
         </li>
+              <li>
+            <div id="pl-offer-remark">
+            </div>
+        </li>
         <div>
             <li></li>
         </div>
     </ul>
 
-    <ul data-role="listview" style="margin-top:0px;display:none" id="offer-location-div" >
-        <a>
-            <div class="button-frame-inline height-80">
-                <a id="mobile-button1" data-role="button"   >
-                    360<sup>o</sup>
-                </a>
-            </div>
-        </a>
-        <a>
-            <div class="button-frame-inline height-80">
-                <a data-transition="slide"   id="mobile-button1" data-role="button"   >AL Iwan</a>
-            </div>
-        </a>
-
-        <a>
-            <div class="button-frame-inline height-80">
-                <a     id="mobile-button1" data-role="button"   >Al Mahaara</a>
-            </div>
-        </a>
-
-        <a>
-            <div class="button-frame-inline height-80">
-                <a    id="mobile-button1" data-role="button"   >Al Muntaha</a>
-            </div>
-        </a>
-
-        <a>
-            <div class="button-frame-inline height-80">
-                <a    id="mobile-button1" data-role="button"   >Bab Al Yaam</a>
-            </div>
-        </a>
-
-        <a>
-            <div class="button-frame-inline height-80">
-                <a    id="mobile-button1" data-role="button"   >Talise</a>
-            </div>
-        </a>
-
-        <a>
-            <div class="button-frame-inline height-80">
-                <a    id="mobile-button1" data-role="button"   >
-                    360<sup>o</sup>
-                </a>
-            </div>
-        </a>
-        <a >
-            <div class="button-frame-inline height-80">
-                <a data-transition="slide"   id="mobile-button1" data-role="button"   >AL Iwan</a>
-            </div>
-        </a>
-
-        <a>
-            <div class="button-frame-inline height-80">
-                <a     id="mobile-button1" data-role="button"   >Al Mahaara</a>
-            </div>
-        </a>
-
-        <a>
-            <div class="button-frame-inline height-80">
-                <a    id="mobile-button1" data-role="button"   >Al Muntaha</a>
-            </div>
-        </a>
-
-        <a>
-            <div class="button-frame-inline height-80">
-                <a    id="mobile-button1" data-role="button"   >Bab Al Yaam</a>
-            </div>
-        </a>
-
-        <a>
-            <div class="button-frame-inline height-80">
-                <a    id="mobile-button1" data-role="button"   >Talise</a>
-            </div>
-        </a>
+    <ul data-role="listview" style="margin-top:0px;display:none" id="pl-offer-location-div" >
+   
 
     </ul>
 

@@ -14,6 +14,11 @@ function showSpin() {
     }
 }
 
+function showOutletMessage(){
+        navigator.notification.alert("Please check the Reward location details under the Bars & Dining or Leisure", function() {
+        }, "isme by Jumeirah", "Dismiss");  
+    
+}
 function showConfirm() {
     navigator.notification.confirm(
         'Please enrol or login to activate this reward.', // message
@@ -519,7 +524,6 @@ function loadOfferDetail(e) {
     }
 }
 
-
 function loadOutletDetail() {
     doOneBack();
     if (window.localStorage.getItem("appopen") != "13") {
@@ -733,6 +737,15 @@ function doOneBack() {
         elems[i].style.zIndex = -1000;
     }  
     window.localStorage.setItem("appopen", "0");  
+    
+       document.getElementById("pl-outlet-detail-div").style.display = "none";
+      document.getElementById("outlet-detail-div").style.display = "none";
+       document.getElementById("offer-detail-div").style.display = "none";
+        document.getElementById("offer-location-div").style.display = "none";
+         document.getElementById("pl-offer-detail-div").style.display = "none";
+          document.getElementById("pl-offer-location-div").style.display = "none";
+           document.getElementById("pl-property-detail-div").style.display = "none";
+            document.getElementById("property-detail-div").style.display = "none";
 }
 
 function postLoginBackOne() {
@@ -1373,9 +1386,9 @@ function completeRedemption() {
                                                       });
                                            },
         
-                                           offeritem
+                                           showOfferItem
                                            : function (e) {
-                                               offercode = e.view.params.of; //offer code for single offer inquiry
+                                               offercode = e.view.params.cpn; //offer code for single offer inquiry
                                                offertype = "2"; //single offer inquiry
                                                showSpin();
                                                $.ajax({ 
@@ -1392,88 +1405,75 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
                                                                   document.getElementById("offer-detail-div").style.display = "block";
-                                                                  //document.getElementById("offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
-                                                                  //document.getElementById("offer-image-large").style.backgroundSize = "cover";
-                                                                  //document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
+                                                                  //document.getElementById("detail-title").innerHTML = getData.outletlist[0].outletname;
                                                                   
                                                                   document.getElementById("offerimage").src = getData.offerlist[0].imageurll;
-                                                                  document.getElementById("ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + " </pre>";
-                                                                  document.getElementById("ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
-                                                                  document.getElementById("ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
-                                                                  document.getElementById("ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
-                                                                  preLogin.set("outlettelephone", offertelephone);   
-                                                                  sharingSocialView.set("social_shortmsg", "Checkout " + getData.offerlist[0].itemname + "  \n");
-                                                                  sharingSocialView.set("social_header", getData.offerlist[0].category);
-                                                                  sharingSocialView.set("social_subject", getData.offerlist[0].itemname);
-                                                                  sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);
-                                                                  sharingSocialView.set("social_image", share_image); 
-                                                                  sharingSocialView.set("social_telephone", ""); 
-                                                                  sharingSocialView.set("social_email", "");    
+                                                                  document.getElementById("offer-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
+                                                                  document.getElementById("offer-long-1").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
+                                                                  document.getElementById("offer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
+                                                                  document.getElementById("offer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
+                          
+                                                                  window.localStorage.setItem("social_shortmsg", getData.offerlist[0].itemdescription);
+                                                                  window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
+                                                                  window.localStorage.setItem("social_message", getData.offerlist[0].itemdescription + "\n\n" + "Offer Expirying on :" + getData.offerlist[0].couponexpirydate);
+                                                                  window.localStorage.setItem("social_image", getData.offerlist[0].imageurll); 
+                                                                    
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Cannot get Reward List. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
                                            },
         
-                                           oofferOutlet: 
-                                               
-                                           function () {
-                                               showSpin(); //show loading popup
-                                              
-                                               navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                   lat = position.coords.latitude;                                  
-                                                   lon = position.coords.longitude;
-                                                    
-                                                   listOfferOutlet();
-                                               }
-                                                                                        , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                            //  if (err.code == "1") {
-                                                                                            //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                            //  } else if (err.code == "2") {
-                                                                                            //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                            //  }
-                                                                                            lat = window.localStorage.getItem("lat");
-                                                                                            lon = window.localStorage.getItem("lon");
-                                                                                             
-                                                                                            listOfferOutlet();
-                                                                                        }
-                                                   );
+                                           showOfferOutlet: function() {
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/offeroutletlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,offercode:offercode,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") {
+                                                                  //fill the outlet template
+                                                                  if (getData.offeroutletlist.length > 0) {
+                                                                      $("#offer-location-div").kendoMobileListView({
+                                                                                                                       dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
+                                                                                                                       template: $("#offerOutletTemplate").html()
+                                                                                                                   });
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("There are no locations for the selected offer.", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get locations List. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get locations List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
                                            },
-        
-                                           getTermsofService:
-                                           function () {  
-                                               window.open("http://www.ihg.com/hotels/gb/en/global/customer_care/member-tc#diningrewards", "_blank", "location=yes");
-                                           },
-        
-                                           getCustomerService
-                                           : function () {  
-                                               window.open("https://www.ihg.com/hotels/gb/en/customer-care/", "_blank", "location=yes");
-                                           },
-                                           callTel
-                                           :  function () {
-                                               window.open("tel:" + preLogin.outlettelephone);
-                                           },
-                                           callTelc
-                                           :  function () {
-                                               window.open("tel:" + preLogin.enrollmenttelephone);
-                                           },
-                                         
-        
-                                           shareOutlet
-                                           :  function () {
-                                               showSpin();
-                                               $("body").data("kendoMobilePane").navigate("views/socialshare.html");  
-                                               hideSpin();
-                                           },
+                                           
+                                        
                                            varInit
                                            : function() {
                                                showSpin();
@@ -2258,7 +2258,6 @@ function completeRedemption() {
                                                                                          });
                                            },
         
-        
                                            getRestTypeFilter:function() {
                                                var dataSource = new kendo.data.DataSource({ data: getRestTypeData() });
                                                
@@ -2334,8 +2333,6 @@ function completeRedemption() {
                                                                                             });
                                            },
         
-        
-        
                                            getFAQFilter:function() {
                                                var dataSource = new kendo.data.DataSource({ data: getFAQData() });
                                                
@@ -2345,10 +2342,7 @@ function completeRedemption() {
 
                                                                     
                                                                                     });
-                                           }
-        
-        
-                                                                                     
+                                           }                                                                                     
                                        });
     
     window.postLogin = kendo.observable({ 
@@ -2358,6 +2352,102 @@ function completeRedemption() {
                                             couponname:"",
                                             couponcategory:"",
                                             msgsequence:"",
+        
+        
+        
+        
+            showOfferItem
+                                           : function (e) {
+                                               offercode = e.view.params.cpn; //offer code for single offer inquiry
+                                               offertype = "2"; //single offer inquiry
+                                               showSpin();
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/offerList.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") {
+                                                                  document.getElementById("pl-offer-detail-div").style.display = "block";
+                                                                  //document.getElementById("detail-title").innerHTML = getData.outletlist[0].outletname;
+                                                                  
+                                                                  document.getElementById("pl-offerimage").src = getData.offerlist[0].imageurll;
+                                                                  document.getElementById("pl-offer-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
+                                                                  document.getElementById("pl-offer-long-1").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
+                                                                  document.getElementById("pl-offer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
+                                                                  document.getElementById("pl-offer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
+                          
+                                                                  window.localStorage.setItem("social_shortmsg", getData.offerlist[0].itemdescription);
+                                                                  window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
+                                                                  window.localStorage.setItem("social_message", getData.offerlist[0].itemdescription + "\n\n" + "Offer Expirying on :" + getData.offerlist[0].couponexpirydate);
+                                                                  window.localStorage.setItem("social_image", getData.offerlist[0].imageurll); 
+                                                                    
+                                                                  hideSpin(); //hide loading popup
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get Reward List. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
+        
+                                           showOfferOutlet: function() {
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/offeroutletlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,offercode:offercode,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") {
+                                                                  //fill the outlet template
+                                                                  if (getData.offeroutletlist.length > 0) {
+                                                                      $("#pl-offer-location-div").kendoMobileListView({
+                                                                                                                       dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
+                                                                                                                       template: $("#plofferOutletTemplate").html()
+                                                                                                                   });
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("There are no locations for the selected Reward.", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get locations List. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get locations List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
+        
+        
+        
+        
+        
+        
                                             rewardList
                                             : function (e) {
                                                 showSpin();
@@ -3845,46 +3935,6 @@ function completeRedemption() {
                    },
                    error: function (error) {
                        navigator.notification.alert("Unknown Error, Cannot get Restaurant List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
-                       hideSpin(); //hide loading popup
-                   }
-               });
-    }
-    
-    function listOfferOutlet() {
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/offeroutletlist_Geo.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,offercode:offercode,mdevice:mdevicestat,lat:lat,lon:lon
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                       if (getData.statuscode == "000") {
-                           //fill the outlet template
-                           if (getData.offeroutletlist.length > 0) {
-                               $("#offer-outlet-list-view").kendoMobileListView({
-                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
-                                                                                    template: $("#offerOutletTemplate").html()
-                                                                                });
-                               hideSpin(); //hide loading popup
-                           }else {
-                               navigator.notification.alert("There are no Restaurant for the selected offer.", function() {
-                               }, "isme by Jumeirah", "Dismiss")    
-                               hideSpin(); //hide loading popup
-                           }
-                       }else {
-                           navigator.notification.alert("Cannot get Restaurant List. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
-                           hideSpin(); //hide loading popup
-                       }
-                   },
-                   error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
