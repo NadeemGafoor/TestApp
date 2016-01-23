@@ -2178,7 +2178,7 @@ function completeRedemption() {
         
         
         
-              savePIN
+              savePIN 
                                            : function () {
                                            
                                                if (!this.pin1 || !this.pin2) {
@@ -2187,9 +2187,7 @@ function completeRedemption() {
                                                    return;
                                                }
                                                
-                                         
-                            
-                                               if (this.pin1 != this.pin2) {
+                                                      if (this.pin1 != this.pin2) {
                                                    navigator.notification.alert("PIN Numbers do not match, re-enter", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
@@ -2211,11 +2209,11 @@ function completeRedemption() {
                                                                  
                                                                   
                                                                  
-                                                                                   merchantcode :merchant,customer:customer,token:this.pin2,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:mvalidaterequest
+                                                                                   merchantcode :merchant,customer:customer,token:this.pin2,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                              alert(getData.statuscode);
+                                         
                                                               if (getData.statuscode == "000") { //Login Successful  
                                                                   
 
@@ -2224,6 +2222,9 @@ function completeRedemption() {
                                                                   password = getData.certificate;
                                                                   window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                   window.localStorage.setItem("loggedin", "1");
+                                                                  navigator.notification.alert("PIN has been successfully set", function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")         
+                                                                  
                                                                    window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                                                                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4

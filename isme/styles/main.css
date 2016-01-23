@@ -532,7 +532,7 @@ img
     line-height: 1em;
     width: 100%;
     color: #fff;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #000;
     float:none;
     position:relative;
 }
@@ -568,6 +568,12 @@ img
     text-align:center;
     color:#fff;
  }
+
+#pl-setting-theme .input-frame-enrol-1 input
+{  
+    color:#000;
+ }
+
 
 
 
@@ -931,8 +937,8 @@ img
     height: auto;
 }
 
-#enrol-theme .input-frame-enrol select,
-#pl-setting-theme .input-frame-enrol select
+#enrol-theme .input-frame-enrol-1 select,
+#pl-setting-theme .input-frame-enrol-1 select
 {
     height: 2.5em;
     display: block;
@@ -941,7 +947,7 @@ img
     color: #fff;
 }
 
-#pl-setting-theme .input-frame-enrol select
+#pl-setting-theme .input-frame-enrol-1 select
 {
     color: #000;
 }
