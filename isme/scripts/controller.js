@@ -1952,7 +1952,7 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                             
+                                                             alert(getData.statuscode);
                                                               if (getData.statuscode == "000") { //Login Successful
                                                                   customer = getData.customerid;
                                                                   customername = getData.customername;
@@ -2394,7 +2394,7 @@ function completeRedemption() {
                                             },
         
                                             logMeOut:function () {
-                                                alert("Logout");
+                                   
                                                 showSpin();
                                                 $.ajax({ 
                                                            type: "POST",
@@ -2408,7 +2408,7 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) {
                                                                var getData = JSON.parse(data);
-                                                               alert(getData.statuscode);
+                                                   
                                                                if (getData.statuscode == "000") {
                                                                    //clear Local Storage on logout
                                                                    window.localStorage.setItem("customer", "9999999999");
