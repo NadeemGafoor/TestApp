@@ -2191,6 +2191,12 @@ function completeRedemption() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
+                                               
+                                                 if (this.pin1.length>4  || this.pin2.length>4) {
+                                                   navigator.notification.alert("PIN Number should not exceed 4 digits, re-enter", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
 
                                            
                                                showSpin();
@@ -2210,6 +2216,7 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
+                                                              alert(getData.statuscode);
                                                               if (getData.statuscode == "000") { //Login Successful  
                                                                   
 
