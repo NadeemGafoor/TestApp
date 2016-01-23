@@ -249,21 +249,12 @@ function closeSetPinForEnrollment() {
 
 function resetPinForEnrollment() {
     $("#modalviewpin").data("kendoMobileModalView").close();
-    $("#modalviewrepin").data("kendoMobileModalView").open();
+    //$("#modalviewrepin").data("kendoMobileModalView").open();
 }
 
-function closeResetPinForEnrollment() {
-    $("#modalviewrepin").data("kendoMobileModalView").close();
-}
 
-function resetPinForEnrollment() {
-    $("#modalviewpin").data("kendoMobileModalView").close();
-    $("#modalviewrepin").data("kendoMobileModalView").open();
-}
 
-function closeResetPinForEnrollment() {
-    $("#modalviewrepin").data("kendoMobileModalView").close();
-}
+
 
 function loadFAQView() {
     $("#modalviewfaq").data("kendoMobileModalView").open(); 
