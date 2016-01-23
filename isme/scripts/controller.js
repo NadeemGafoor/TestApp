@@ -241,9 +241,7 @@ function outletMessage() {
     }, "isme by Jumeirah", "Dismiss")    
 }
 
-function setPinForEnrollment() {
-    $("#modalviewpin").data("kendoMobileModalView").open();
-}
+
 
 function closeSetPinForEnrollment() {
     $("#modalviewpin").data("kendoMobileModalView").close();
@@ -287,10 +285,7 @@ function closeEnterModalPassword() {
     $("#modalviewpassword").data("kendoMobileModalView").close(); 
 }
 
-function closeEnterModalPasswordandEnterPIN() {
-    $("#modalviewpassword").data("kendoMobileModalView").close();
-    setPinForEnrollment();
-}
+
 
 function closeEnterPinForRedemption() {
     $("#modalviewenterpin").data("kendoMobileModalView").close();
@@ -2140,10 +2135,10 @@ function completeRedemption() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") { //Login Successful  
-                                                                  
-                                                                  if (getData.pinnumber>0){
+                                                    
+                                                                  if (getData.pinnumber.length>0){
                                                                       
-                                                                  
+                                                
                                                                   password = getData.certificate;
                                                                   window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                   window.localStorage.setItem("loggedin", "1");
@@ -4017,7 +4012,46 @@ function completeRedemption() {
                                                 //                           encodingType: Camera.EncodingType.PNG
                                                 //                       };
                                                 navigator.camera.getPicture(success, error, config);
-                                            }
+                                            },
+        
+        closeEnterModalPasswordandEnterPIN:function(){
+            if (!this.setpass){
+                 navigator.notification.alert("Invalid Password or Empty", function() {
+                                                                   }, "isme by Jumeirah", "Dismiss")  
+                return;
+            }
+              showSpin(); 
+                                             
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/validatePassword.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,setpass:this.setpass,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode === "000") {
+                                                                     $("#modalviewpassword").data("kendoMobileModalView").close();
+                                                                     $("#modalviewpin").data("kendoMobileModalView").open();
+                                                                   hideSpin();
+                                                               }else {
+                                                                   navigator.notification.alert("Invalid Password " + getData.statusdesc, function() {
+                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   hideSpin();
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, cannot verify password. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               hideSpin();
+                                                           }
+                                                       });
+                                                hideSpin(); //hide loading popup
+        }
         
                                         });
     

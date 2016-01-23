@@ -73,7 +73,6 @@ a
     height: 3em;
     line-height: 3em;
     font-family: Gotham-Book;
-    font-size: 1em;
 }
 
 .km-header
@@ -204,14 +203,12 @@ a
 *
 {
     font-family: "Gotham-Book";
-    font-size: 1em;
 }
 
 ul
 {
     border-top: 0  !important;
     border-bottom: 0  !important;
-    font-size: 1em !important;
     line-height: 1.3em !important;
 }
       
@@ -221,18 +218,11 @@ li
     margin:0px;
     border-top: 0 solid #fff !important;
     border-bottom: 0 solid #fff !important;
-    font-size: 1em;
 }  
-
-div
-{
-    font-size: 1em;
-}
 
 h2
 {
     font-weight: bold;
-    font-size: 1em;
     color: #000;
 }
 
@@ -243,7 +233,6 @@ h2
     width: 96%; 
     display: inline-block;
     border-radius: 5px; 
-    font-size: .9em; 
 }
 
 .km-ios7 p
@@ -397,7 +386,6 @@ img
 {
     display: block;
     color: #003566;
-    font-size: .9em;
     border: 0px;
 }
 
@@ -559,19 +547,24 @@ img
 #enrol-theme .input-frame-enrol-1 input
 {  
     display: block;
-    width: 100%;
+    width: 95%;
     height: 2em;
     line-height: 1em;
     background-color: transparent !important;
     color: #000;
     z-index: 0;
-    text-align:center;
+    text-align:left;
     color:#fff;
  }
 
 #pl-setting-theme .input-frame-enrol-1 input
 {  
     color:#000;
+ }
+
+#enrol-theme .input-frame-enrol-1
+{  
+        border-bottom: 2px solid #fff;
  }
 
 
@@ -738,7 +731,6 @@ img
     width: 80%;
     display: block;
     text-align: center;
-    font-size: 1em;
     margin-left: 10%;
     -webkit-border: #fff solid 0px;
     -moz-border: #fff solid 0px;
@@ -763,7 +755,6 @@ img
     margin: auto;
     display: block;
     text-align: center;
-    font-size: 1em;
     -webkit-border: #fff solid 1px;
     -moz-border: #fff solid 1px;
     border: #fff solid 1px;
@@ -783,7 +774,6 @@ img
     width: 80%;
     display: block;
     text-align: center;
-    font-size: 1.2em;
     margin-left: 10%;
     -webkit-border: #fff solid 1px;
     -moz-border: #fff solid 1px;
@@ -802,7 +792,6 @@ img
     vertical-align: middle;
     text-align: center;
     background-color: #003566;
-    font-size: 1em;
     margin-left: 5%;
 }
 
@@ -815,7 +804,6 @@ img
     vertical-align: middle;
     text-align: center;
     background-color: #003566;
-    font-size: 1.2em;
     margin-left: 5%;
 }
 
@@ -896,6 +884,16 @@ img
     margin-left:20%;
 }
 
+.switch-frame-1
+{
+    display:block;
+    line-height: 4em;
+    width: 100%;
+    position:relative;
+    float: none;
+    color:#fff;
+}
+
 .switch-frame-voucher
 {
     height: 4em;
@@ -905,7 +903,8 @@ img
     margin-left: 10%;
 }
 
-.switch-frame label
+.switch-frame label,
+.switch-frame-1 label
 {
     line-height: 2em;
     color: #fff;
@@ -942,7 +941,7 @@ img
 {
     height: 2.5em;
     display: block;
-    width: 90%;
+    width: 95%;
     line-height: 1.5em;
     color: #fff;
 }
@@ -974,7 +973,6 @@ img
 
 .gen-text
 {
-    font-size: .9em;
     color: #575757;
     line-height: 1.4em;
 }
@@ -1038,7 +1036,6 @@ img
     vertical-align: middle;
     text-align: center;
     background-color: #003566;
-    font-size: 1.2em;
 }
 
 pre
@@ -1073,7 +1070,6 @@ li
     background-color: #fff;
     color: #000;
     line-height: 1.2em;
-    font-size: 1em;
 }
 
 .reward-summary-1
@@ -1181,7 +1177,6 @@ li
 #pl-home-view .grad
 {
     color: #fff;
-    font-size: .9em;
     font-weight: bold;
     text-align: right;
 }  
@@ -1232,9 +1227,7 @@ li
     margin-right: 5px;
     white-space: pre-line;
     text-align: justify;
-    font-size: 1em;
     color: #000;
-        margin:0px;
 }
 
 .fulljustifyblack
@@ -1244,7 +1237,6 @@ li
     margin-right: 5px;
     white-space: pre-line;
     text-align: justify;
-    font-size: 1em;
     color: #000;
 }
 
@@ -1255,7 +1247,6 @@ li
     margin-right: 5px;
     white-space: pre-line;
     text-align: justify;
-    font-size: 1.2em;
     color: #0c0cc5;
     font-weight: bold;
 }
@@ -1289,7 +1280,6 @@ li
     height: 3em;
     line-height: 3em; 
     color: #fff;
-    font-size: .9em;
     font-weight: bold;
     text-align: center;
     background-color: #002d67;
@@ -1317,7 +1307,6 @@ li
     width: 100%;
     position: relative;
     float: none;
-    font-size: .9em;
 }
   
 .qr-image
@@ -1378,7 +1367,6 @@ li
     display: block;
     margin: auto;
     font-family: 'Georgia';
-    font-size: .9em;
     font-style: italic;
     font-weight: bold;
     color: #000;
@@ -1422,7 +1410,6 @@ li
 {
     text-align: left;
     color: #fff;
-    font-size: .9em;
     font-style: italic;
     line-height: 3em;
     width: 100%;
@@ -1528,7 +1515,6 @@ li
 .tile-frame-text
 {
     text-align: center;
-    font-size: 1em;
     font-weight: bold;
     color: #343434;
     margin-top: -20%;
@@ -1537,7 +1523,7 @@ li
 .tile-frame-text-1
 {
     text-align: center;
-    font-size: 1em;
+
     font-weight: bold;
     color: #343434;
     margin-top: -10px;
@@ -1637,14 +1623,12 @@ tile-frame-inner
 .msgfont
 {
     text-align: center;
-    font-size: 1em;
     font-weight: bold;
     color: #fff;
 }
 
 .msg-inner-frame-2 .km-button
 {
-    font-size: .9em;
     background-color: #e67e1d;
     height: 2.75em;
     line-height: 2.75em;
@@ -1709,7 +1693,6 @@ tile-frame-inner
     width: 100% !important;
     color: #000 !important;
     text-align: left !important;
-    font-size: 1.2em !important;
     font-weight: bold !important;
 }
     
@@ -1886,7 +1869,6 @@ tile-frame-inner
     display: inline;
     width: 49%;
     color: #fff;
-    font-size: 1.2em;
     text-align: center; 
     padding-top: 35%;
 }
@@ -1900,7 +1882,6 @@ tile-frame-inner
     width: 48%;
     height: 100px;
     color: #fff;
-    font-size: 1em;
     text-align: center; 
     margin: 3px auto 3px auto;
     padding-top: 8%;
@@ -1928,7 +1909,6 @@ tile-frame-inner
     float: none;
     width: 95%;
     height: 73%;
-    font-size: 1em;
     line-height: 25px;
     color: #fff;
     text-align: justify !important;
@@ -1945,7 +1925,6 @@ tile-frame-inner
     text-align: center; 
     margin-left: 2%;
     margin-top: 0px;
-    font-size: .9em;
     height: 25px !important;
     line-height: 25px !important;
 }
@@ -1977,7 +1956,6 @@ tile-frame-inner
 .general-text-line
 {
     width: 100%;
-    font-size: 1em;
     text-align: left; 
     height: 25px;
     line-height: 25px;
@@ -1992,7 +1970,6 @@ tile-frame-inner
     position: relative;
     width: 49%;
     text-align: justify;
-    font-size: .9em;
     color: #000; 
     height: auto; 
 }
@@ -2120,7 +2097,6 @@ tile-frame-inner
     background-color: transparent !important;
     color: #000;
     font-weight: bold; 
-    font-size: 1.1em;
     display: block;
     margin: -5px 2px auto 2px;
 }
@@ -2164,7 +2140,6 @@ tile-frame-inner
     line-height: 40px;
     background-color: #ccc;
     color: #000;
-    font-size: 1em;
     font-weight: bold;
 }    
 
@@ -2182,7 +2157,6 @@ tile-frame-inner
     float: left;
     width: 80%;
     color: #000;
-    font-size: 1em;
     height: 30px; 
 }
 
@@ -2197,7 +2171,7 @@ tile-frame-inner
     float: left;
     width: 20%;
     color: #000;
-    font-size: 1em;
+
     height: 30px; 
     text-align: center; 
 }
@@ -2207,7 +2181,6 @@ tile-frame-inner
     border: 0px;
     display: block;
     background-color: #fff;
-    font-size: 1em;
     width: auto;
     text-align: left;
 }
@@ -2444,5 +2417,15 @@ tile-frame-inner
 
 .view-class-white{
     background-color:#fff;
+    
+}
+
+.whitecolor{
+    color:#fff;
+}
+
+.round-pad{
+    margin-left:5px;
+    margin-right:5px;
     
 }

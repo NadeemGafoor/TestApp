@@ -29,7 +29,7 @@
             </div>
         </li>
         <li>
-            <div class="input-frame-enrol-1" style="border-bottom: 2px solid #fff;width:98%">
+            <div class="input-frame-enrol-1">
                 <select id="selCity">
                     <option value="" selected="true" data-bind="click: getCity">Select Emirate *</option>
                       <option value="First Option">Dubai</option>
@@ -49,7 +49,7 @@
             </div>
         </li>
         <li>
-            <div class="input-frame-enrol-1" style="border-bottom: 2px solid #fff;width:98%">
+            <div class="input-frame-enrol-1">
                 <select id="selCity">
                     <option value="" selected="true" data-bind="click: getCity">Select Gender *</option>
                     <option value="First Option">Male</option>
@@ -58,10 +58,10 @@
             </div>
         </li>
         <li>
-            <div class="switch-frame" >
-                <label >
+            <div class="switch-frame-1" >
+                  <label  class="whitecolor" style="color:#fff">
                     Agree to
-<a href="#modalviewterms" data-role="button" data-click="onClick">
+<a href="#modalviewterms" data-role="button" data-click="onClick" style="color:#fff;border:0px !important">
 Terms & Conditions
 </a>
                     <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
@@ -70,13 +70,13 @@ Terms & Conditions
         </li>
 
         <li>
-            <div class="button-frame-inline">
-                <a  id="mobile-button1" data-role="button" data-click="setPinForEnrollment"   >Continue</a>
+            <div class="button-frame-login">
+                <a  id="mobile-button1" data-role="button" data-click="setPinForEnrollment">Continue</a>
             </div>
         </li>
         <li>
-            <div class="button-frame-inline">
-                <a id="mobile-button1" data-role="button" class="button-loginwithfacebook">Enrol using Facebook</a>
+            <div class="button-frame-login">
+                <a id="mobile-button1" data-role="button" class="button-loginwithfacebook">Enrol on Facebook</a>
             </div>
         </li>
 
@@ -84,8 +84,8 @@ Terms & Conditions
             <div class="switch-frame-i one-line">Already have an Account?</div>
         </li>
             <li>
-                <div class="button-frame-inline">
-                    <a data-transition="slide"   id="mobile-button1" data-role="button" data-bind="click: validateUser"  >Log In</a>
+                <div class="button-frame-login">
+                    <a data-transition="slide:up" id="mobile-button1" href="views/login.html" data-role="button">Log In</a>
                 </div>
             </li>
 <div>
