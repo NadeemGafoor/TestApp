@@ -1015,6 +1015,8 @@ function completeRedemption() {
     }
     
     window.preLogin = kendo.observable({
+                                           pin1:"",
+                                           pin2:"",
                                            social_subject:"",
                                            social_message:"",
                                            social_image:share_image,
@@ -1923,6 +1925,11 @@ function completeRedemption() {
                                            :function() {
                                                preLogin.set("tokennum", "");
                                            },
+         initPin
+                                           :function() {
+                                               preLogin.set("pin1", "");
+                                               preLogin.set("pin2", "");
+                                           },
         
                                            updateRememberMe
                                            :function() {   
@@ -2166,7 +2173,92 @@ function completeRedemption() {
                                                           }
                                                       });
                                            },  
-                                           requestPasswordChangeURL:
+                                           
+        
+        
+        
+        
+              savePIN
+                                           : function () {
+                                               if (!this.pin1 || !this.pin2) {
+                                                   navigator.notification.alert("Invalid PIN Number", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
+                            
+                                               if (this.pin1 != this.pin2) {
+                                                   navigator.notification.alert("PIN Numbers do not match, re-enter", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
+
+                                           
+                                               showSpin();
+                                               
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/savePIN.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                 
+                                                                  
+                                                                 
+                                                                                   merchantcode :merchant,customer:customer,token:this.pin2,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:mvalidaterequest
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") { //Login Successful  
+                                                                  
+
+                                                                      
+                                                                  
+                                                                  password = getData.certificate;
+                                                                  window.localStorage.setItem("password", password); //Get and Store Certificate
+                                                                  window.localStorage.setItem("loggedin", "1");
+                                                                   window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                                                       'direction': 'up',
+                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                   }), 500);
+                                                                  hideSpin(); //hide loading popup
+                                  
+                                                             
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot set PIN. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")         
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Cannot set PIN.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        requestPasswordChangeURL:
                                            function () {
                                                if (!this.username1) {
                                                    navigator.notification.alert("Invalid Membership # or Empty", function() {

@@ -15,19 +15,19 @@
         <li>
             <div class="input-frame-enrol">
 
-                <input type="password" id="pin1" data-bind="value: pin1" placeholder="Enter PIN" maxlength="4"/>
+                <input type="number" id="pin1" data-bind="value: pin1" placeholder="Enter PIN" maxlength="4"/>
             </div>
         </li>
         
          <li>
             <div class="input-frame-enrol">
 
-                <input type="password" id="pin2" data-bind="value: pin2" placeholder="Re-enter PIN" maxlength="4"/>
+                <input type="number" id="pin2" data-bind="value: pin2" placeholder="Re-enter PIN" maxlength="4"/>
             </div>
         </li>
         <li>
             <div class="button-frame-inline">
-                <a data-transition="slide"   data-role="button" data-bind="click: validateToken">Set PIN</a>
+                <a data-transition="slide"   data-role="button" data-bind="click: savePIN">Set PIN</a>
             </div>
         </li>
         <li>

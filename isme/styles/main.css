@@ -81,15 +81,13 @@ a
     box-shadow: 0px 1px 5px #666365;
 }
 
-
-
 #benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content, #pl-myvoucherdetail-theme .km-content, #pl-benefit-theme .km-content, #mymessagelist-theme .km-content, #messageitem-theme .km-content, #pl-setting-theme .km-content, #pl-home-view .km-content,
 #history-theme .km-content, #historyitem-theme .km-content, #modalviewhistoryfilter .km-content, #myfavorite-view .km-content, #pl-confirmpage-view .km-content, #pl-customerservice-theme .km-content, #enrolmentpage-view .km-content, #pl-confirmredemption-view .km-content, #modalviewfaq .km-content,#branddetail-theme .km-content, #aboutisme-theme .km-content, #pl-aboutisme-theme .km-content, #pl-termsconditions-theme .km-content
 {
     background-color: #fff;
 }
 
-#faq-theme .km-content, #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #resetpassword-theme .km-content,#token-theme .km-content
+#faq-theme .km-content, #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #resetpassword-theme .km-content,#token-theme .km-content,#pin-theme .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/640x960_bg.png) no-repeat center center;
     background-size: cover;
@@ -509,7 +507,7 @@ img
 .input-frame-modal
 {
     height: 2em;
-    line-height: 2em;
+    line-height: 2em;    
     width: 60%;
     color: #fff;
     border-bottom: 2px solid #fff;
@@ -548,8 +546,9 @@ img
 #token-theme .input-frame-enrol input,
 #login-theme .input-frame-enrol input,
 #resetpassword-theme .input-frame-enrol input,
-#pl-myprofile-theme .input-frame input
-{
+#pl-myprofile-theme .input-frame input,
+#pin-theme .input-frame-enrol input
+{  
     display: block;
     width: 90%;
     height: 2em;
@@ -557,6 +556,7 @@ img
     background-color: transparent !important;
     color: #000;
     z-index: 0;
+    text-align:center;
 }
 
 #enrol-theme .input-frame-enrol input,
