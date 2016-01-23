@@ -2415,15 +2415,15 @@ function completeRedemption() {
         
                                             loadProfile
                                             :function() {
-                                                document.getElementById("profile-picture-1").src =window.localStorage.getItem("cuspict");
-                                                document.getElementById("pro-name").innerHTML =(window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)?  "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
-                                                document.getElementById("pro-birthdate").innerHTML = (window.localStorage.getItem("birthdate") != null && window.localStorage.getItem("birthdate").length > 0 ) ? "Birth date : " +  window.localStorage.getItem("birthdate") : "Birth Date : NA";
-                                                document.getElementById("pro-homecountry").innerHTML = (window.localStorage.getItem("homecountry") != null) && window.localStorage.getItem("homecountry").length > 0 ? "Nationality : " +  window.localStorage.getItem("homecountry") : "Nationality : NA";
-                                                document.getElementById("pro-residentcity").innerHTML = (window.localStorage.getItem("residentcity") != null && window.localStorage.getItem("residentcity").length > 0 ) ? "City : " +  window.localStorage.getItem("residentcity") : "City : NA";
-                                                document.getElementById("pro-number").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? "Member # : " +  window.localStorage.getItem("customer") : "Member # : NA";
-                                                document.getElementById("pro-init").innerHTML = (window.localStorage.getItem("initdate") != null && window.localStorage.getItem("initdate").length > 0) ? "Member Since : " +  window.localStorage.getItem("initdate") : "Member Since : NA";
+                                                document.getElementById("profile-picture-1").src = window.localStorage.getItem("cuspict");
+                                                document.getElementById("pro-name").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
+                                                document.getElementById("pro-birthdate").innerHTML = (window.localStorage.getItem("birthdate") != null && window.localStorage.getItem("birthdate").length > 0) ? "Birth date : " + window.localStorage.getItem("birthdate") : "Birth Date : NA";
+                                                document.getElementById("pro-homecountry").innerHTML = (window.localStorage.getItem("homecountry") != null) && window.localStorage.getItem("homecountry").length > 0 ? "Nationality : " + window.localStorage.getItem("homecountry") : "Nationality : NA";
+                                                document.getElementById("pro-residentcity").innerHTML = (window.localStorage.getItem("residentcity") != null && window.localStorage.getItem("residentcity").length > 0) ? "City : " + window.localStorage.getItem("residentcity") : "City : NA";
+                                                document.getElementById("pro-number").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? "Member # : " + window.localStorage.getItem("customer") : "Member # : NA";
+                                                document.getElementById("pro-init").innerHTML = (window.localStorage.getItem("initdate") != null && window.localStorage.getItem("initdate").length > 0) ? "Member Since : " + window.localStorage.getItem("initdate") : "Member Since : NA";
                                                 document.getElementById("pro-expiry").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
-                                                document.getElementById("pro-hotelmember").innerHTML =(window.localStorage.getItem("hotelmember") != null && window.localStorage.getItem("hotelmember").length > 0) ?  "Sirius Member : " + window.localStorage.getItem("hotelmember") : "Sirius Member : NA";
+                                                document.getElementById("pro-hotelmember").innerHTML = (window.localStorage.getItem("hotelmember") != null && window.localStorage.getItem("hotelmember").length > 0) ? "Sirius Member : " + window.localStorage.getItem("hotelmember") : "Sirius Member : NA";
                                
                                                 if (window.localStorage.getItem("segmentcode") === "1000") {
                                                     document.getElementById("pro-type").innerHTML = "Member Type : isme Member";
@@ -3840,6 +3840,7 @@ function completeRedemption() {
                                                     image.src = "data:image/png;base64," + imageData;
                                                     //image.src = imageURI;
                                                     newimage = imageData;
+                                                    saveImageFile();
                                                 };
                                                 var error = function () {
                                                     navigator.notification.alert("Unfortunately Image cannot be captured");
@@ -3873,6 +3874,7 @@ function completeRedemption() {
                                                     image.src = "data:image/png;base64," + imageData;
                                                     //image.src = imageURI;
                                                     newimage = imageData;
+                                                    saveImageFile();
                                                 };
                                                 var error = function () {
                                                     navigator.notification.alert("Unfortunately Image cannot be retrieved");
@@ -3896,9 +3898,40 @@ function completeRedemption() {
                                                 //                           encodingType: Camera.EncodingType.PNG
                                                 //                       };
                                                 navigator.camera.getPicture(success, error, config);
-                                            },
+                                            }
         
                                         });
+    
+    function saveImageFile() {
+        showSpin();      
+        newimage=document.getElementById('profile-picture-1').src;
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/updateimage.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,customerid:customer,password:password,image1:newimage,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode != "000") {
+ 
+                           navigator.notification.alert("Could not update image changes due to error  " + getData.statusdesc, function() {
+                           }, "HD Rewards", "Dismiss")          
+                           
+                       }
+                       hideSpin(); //hide loading popup
+                   },
+                   error: function (error) {
+                       navigator.notification.alert("Unknown Error, Could not update image  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "HD Rewards", "Dismiss")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
     
     function listCountry() {
         showSpin(); //show loading popup
