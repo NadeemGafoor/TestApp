@@ -902,6 +902,9 @@ function completeRedemption() {
     var outletcode = "";
     var brandcode = "";
     var benefitcode = "";
+    var homecountry="";
+    var birthdate="";
+    var residentcity="";
     var m = [];  
     var offertype = "1"; //prelogin ofer
     var offercode = ""; //All Offers default
@@ -1795,6 +1798,11 @@ function completeRedemption() {
                                                        city = window.localStorage.getItem("city");
                                                        country = window.localStorage.getItem("country");
                                                        magicnumber = window.localStorage.getItem("magicnumber");
+                                                       firstname = window.localStorage.getItem("firstname");
+                                                       birthdate = window.localStorage.getItem("birthdate");
+                                                       residentcity = window.localStorage.getItem("residentcity");
+                                                       homecountry = window.localStorage.getItem("homecountry");
+                                                       initdate = window.localStorage.getItem("initdate");
                                                        
                                                        $("body").data("kendoMobilePane").navigate("views/pl-home.html"); 
                                                    } else {
@@ -1818,6 +1826,12 @@ function completeRedemption() {
                                                        mobilenumber = ""; 
                                                        memberexpiry = "";
                                                        segmentimage = "";
+                                                        magicnumber = "";
+                                                       firstname = "";
+                                                       birthdate = "";
+                                                       residentcity = "";
+                                                       homecountry = "";
+                                                       initdate = "";
                                                    }     
                                                    var pushSettings = {
                                                        iOS: {
@@ -1923,7 +1937,7 @@ function completeRedemption() {
                                            validateUser
                                            : function () {
                                                window.localStorage.setItem("appopen", "0");   
-                                              alert("helllllo");
+                                          
                                                if (!this.username) {
                                                    navigator.notification.alert("Invalid Membership # or Empty", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
@@ -1952,7 +1966,7 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                             alert(getData.statuscode);
+                                        
                                                               if (getData.statuscode == "000") { //Login Successful
                                                                   customer = getData.customerid;
                                                                   customername = getData.customername;
@@ -1976,12 +1990,13 @@ function completeRedemption() {
                                                                   magicnumber = getData.magicnumber;
                                                                   firstname = getData.firstname;
                                                                   initdate=getData.initdate;
+                                                                  homecountry=getData.homecountry;
+                                                                  birthdate=getData.dateofbirth;
+                                                                  residentcity=getData.residentcity;
 
                                                                   //set Local Storage as cookies to retain login
                                                                   window.localStorage.setItem("customer", customer);
                                                                   window.localStorage.setItem("customername", customername);
-                                                                  window.localStorage.setItem("firstname", firstname);
-                                                                  window.localStorage.setItem("initdate", initdate);
                                                                   window.localStorage.setItem("segmentcode", segmentcode);
                                                                   window.localStorage.setItem("segmentname", segmentname);
                                                                   window.localStorage.setItem("currency", currency);
@@ -2004,6 +2019,11 @@ function completeRedemption() {
                                                                   window.localStorage.setItem("city", city);
                                                                   window.localStorage.setItem("country", country);
                                                                   window.localStorage.setItem("magicnumber", magicnumber);
+                                                                  window.localStorage.setItem("residentcity", residentcity);
+                                                                  window.localStorage.setItem("homecountry", homecountry);
+                                                                  window.localStorage.setItem("birthdate", birthdate);
+                                                                  window.localStorage.setItem("firstname", firstname);
+                                                                  window.localStorage.setItem("initdate", initdate);
                                                                  
                                                                   pushSettings = {
                                                                       iOS: {
@@ -2434,6 +2454,12 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("mversion", "");
                                                                    window.localStorage.setItem("mplatform", "");
                                                                    window.localStorage.setItem("loggedin", "");
+                                                                     window.localStorage.setItem("residentcity", "");
+                                                                  window.localStorage.setItem("homecountry", "");
+                                                                  window.localStorage.setItem("birthdate", "");
+                                                                  window.localStorage.setItem("firstname", "");
+                                                                  window.localStorage.setItem("initdate", "");
+                                                                       window.localStorage.setItem("magicnumber", magicnumber);
                                                                    outletcode = "";
                                                                    brandcode = "";
                                                                    offercode = "";
@@ -2453,6 +2479,12 @@ function completeRedemption() {
                                                                    mobilenumber = ""; 
                                                                    memberexpiry = "";
                                                                    segmentimage = "";
+                                                                   residentcity="";
+                                                                   homecountry="";
+                                                                   birthdate="";
+                                                                   firstname="";
+                                                                   initdate="";
+                                                                   magicnumber="";
                                                                    window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                                                     "duration"         :  500, // in milliseconds (ms), default 400
                                                                                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4

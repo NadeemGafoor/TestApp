@@ -4,33 +4,33 @@
             <img src=""  id="profile-picture-1" class="class-img" style="border:none">
         </div>
         <div class="profile-image-change-button">
-            <a data-role="button" data-rel="actionsheet" href="#actionsheet" class="btn btn-default btn-sm">
+            <a data-rel="actionsheet" href="#actionsheet" class="btn btn-default btn-sm">
                 <i class="fa fa-camera" style="color:#000"></i> Edit
             </a>
         </div>
 
     </div>
     <div class="profile-data-holder" id="read-profile">
-        <div class="general-text-line" style="color:#000">Name :RICARDO MANRIQUEZ</div>
-        <div class="general-text-line" style="color:#000">Birthdate :01/01/65</div>
-        <div class="general-text-line" style="color:#000">Nationality :Unspecified</div>
-        <div class="general-text-line" style="color:#000">Emirates :Dubai</div>
-        <div class="general-text-line" style="color:#000">isme Member :9704213568</div>
-        <div class="general-text-line" style="color:#000">Member Since :01/01/2016 </div>
-        <div class="general-text-line" style="color:#000">Expiry Since :31/12/2016</div>
-        <div class="general-text-line" style="color:#000">Sirius Member:999999999</div>
+        <div class="general-text-line" style="color:#000" id="pro-name">Name :RICARDO MANRIQUEZ</div>
+        <div class="general-text-line" style="color:#000" id="pro-birthdate">Birthdate :01/01/65</div>
+        <div class="general-text-line" style="color:#000" id="pro-homecountry">Nationality :Unspecified</div>
+        <div class="general-text-line" style="color:#000" id="pro-residentcity">Emirates :Dubai</div>
+        <div class="general-text-line" style="color:#000" id="pro-number">isme Member :9704213568</div>
+        <div class="general-text-line" style="color:#000" id="pro-init">Member Since :01/01/2016 </div>
+        <div class="general-text-line" style="color:#000" id="pro-expiry">Expiry Since :31/12/2016</div>
+        <div class="general-text-line" style="color:#000" id="pro-hotelmember">Sirius Member:999999999</div>
         <div class="general-text-line" style="color:#000">
             <a href="views/pl-setting.html" data-transition="slide:up">
-                <i class="fa fa-pencil-square-o fa-lg"></i>
+                <i class="fa fa-pencil-square-o fa-lg"></i>  
             </a>
         </div>
     </div>
-    <ul id="actionsheet" data-role="actionsheet" data-cancel="Close" data-popup='{ "direction": "left" }' data-type="phone">
+    <ul id="actionsheet" data-role="actionsheet" data-cancel="Close">
         <li>
-            <a data-role="button" data-bind="events: { click: addImage }">Take a Picture</a>
+            <a data-bind="click: addImage">Take a Picture</a>
         </li>
         <li>
-            <a data-role="button" data-bind="events: { click: getImage }">Pick from Album</a>
+            <a  data-bind="click: getImage">Pick from Album</a>
         </li>
     </ul>
 </div>
