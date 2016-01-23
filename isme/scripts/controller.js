@@ -738,14 +738,73 @@ function doOneBack() {
     }  
     window.localStorage.setItem("appopen", "0");  
     
-       document.getElementById("pl-outlet-detail-div").style.display = "none";
-      document.getElementById("outlet-detail-div").style.display = "none";
-       document.getElementById("offer-detail-div").style.display = "none";
-        document.getElementById("offer-location-div").style.display = "none";
-         document.getElementById("pl-offer-detail-div").style.display = "none";
-          document.getElementById("pl-offer-location-div").style.display = "none";
-           document.getElementById("pl-property-detail-div").style.display = "none";
-            document.getElementById("property-detail-div").style.display = "none";
+    
+}
+
+
+
+function plhideOutletDetail(){
+   doOneBackPre();  
+    document.getElementById("pl-outlet-detail-div").style.display = "none";
+}
+
+function plhideLeisureDetail(){
+    doOneBackPre(); 
+     document.getElementById("pl-outlet-detail-div").style.display = "none";
+}
+
+function plhideBrandDetail(){
+     doOneBackPre();
+    document.getElementById("pl-property-detail-div").style.display = "none";
+}
+
+function plhideOfferDetail(){
+     doOneBackPre();
+     document.getElementById("pl-offer-detail-div").style.display = "none";
+    document.getElementById("pl-offer-location-div").style.display = "none";
+}
+
+
+
+
+
+function doOneBackPre() {
+   
+    $(".sharehead").slideUp("slow");
+      
+    elems = document.getElementsByClassName('sharehead');
+
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.zIndex = -1000;
+    }  
+    window.localStorage.setItem("appopen", "0");  
+    
+   //  
+   //   
+   //     
+    //        
+}
+
+
+function hideOutletDetail(){
+   doOneBackPre();  
+    document.getElementById("outlet-detail-div").style.display = "none";
+}
+
+function hideLeisureDetail(){
+    doOneBackPre(); 
+     document.getElementById("outlet-detail-div").style.display = "none";
+}
+
+function hideBrandDetail(){
+     doOneBackPre();
+    document.getElementById("property-detail-div").style.display = "none";
+}
+
+function hideOfferDetail(){
+     doOneBackPre();
+     document.getElementById("offer-detail-div").style.display = "none";
+    document.getElementById("offer-location-div").style.display = "none";
 }
 
 function postLoginBackOne() {
