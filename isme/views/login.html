@@ -21,8 +21,8 @@
             </div>
         </li>
         <li>
-            <div class="switch-frame">
-                <label  class="white-color">
+            <div class="switch-frame" >
+                <label  class="white-color" style="color:#fff">
                     Remember Me
                     <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}"/>
                 </label>
@@ -30,21 +30,22 @@
         </li>
 
         <li>
-            <div class="button-frame-inline">
+            <div class="button-frame-login">
                 <a id="mobile-button1" data-role="button" data-bind="click: validateUser">Login</a>
             </div>
         </li>
 
+       
+
         <li>
+            <div class="button-frame-login">
+                <a  id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-loginwithfacebook">Login with Facebook</a>
+            </div>
+        </li>
+         <li>
             <a  data-transition="slide:up"   id="mobile-button1" href="views/resetpassword.html" style="background-color:transparent !important">
                 <div class="switch-frame one-line">RESET PASSWORD</div>
             </a>
-        </li>
-
-        <li>
-            <div class="button-frame-inline">
-                <a  id="mobile-button1" data-role="button" data-bind="click: validateUser" class="button-loginwithfacebook">Login with Facebook</a>
-            </div>
         </li>
 
         <div>

@@ -2180,11 +2180,14 @@ function completeRedemption() {
         
               savePIN
                                            : function () {
+                                           
                                                if (!this.pin1 || !this.pin2) {
                                                    navigator.notification.alert("Invalid PIN Number", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
+                                               
+                                         
                             
                                                if (this.pin1 != this.pin2) {
                                                    navigator.notification.alert("PIN Numbers do not match, re-enter", function() {
@@ -2192,11 +2195,7 @@ function completeRedemption() {
                                                    return;
                                                }
                                                
-                                                 if (this.pin1.length>4  || this.pin2.length>4) {
-                                                   navigator.notification.alert("PIN Number should not exceed 4 digits, re-enter", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
-                                                   return;
-                                               }
+                                              
 
                                            
                                                showSpin();

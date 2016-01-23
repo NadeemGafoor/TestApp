@@ -518,9 +518,23 @@ img
 {
     height: 2em;
     line-height: 1em;
+    width: 50%;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    float:none;
+    position:relative;
+    margin-left:25%;
+}
+
+.input-frame-enrol-1 
+{
+    height: 2em;
+    line-height: 1em;
     width: 100%;
     color: #fff;
     border-bottom: 2px solid #fff;
+    float:none;
+    position:relative;
 }
 
 .input-frame-enrol label 
@@ -541,8 +555,22 @@ img
     color: #fff;
 }
 
-#pl-setting-theme .input-frame-enrol input,
-#enrol-theme .input-frame-enrol input,
+#pl-setting-theme .input-frame-enrol-1 input,
+#enrol-theme .input-frame-enrol-1 input
+{  
+    display: block;
+    width: 100%;
+    height: 2em;
+    line-height: 1em;
+    background-color: transparent !important;
+    color: #000;
+    z-index: 0;
+    text-align:center;
+    color:#fff;
+ }
+
+
+
 #token-theme .input-frame-enrol input,
 #login-theme .input-frame-enrol input,
 #resetpassword-theme .input-frame-enrol input,
@@ -550,23 +578,18 @@ img
 #pin-theme .input-frame-enrol input
 {  
     display: block;
-    width: 90%;
+    width: 100%;
     height: 2em;
     line-height: 1em;
     background-color: transparent !important;
     color: #000;
     z-index: 0;
     text-align:center;
-}
+       color: #fff;
+    letter-spacing:2px;
+ }
 
-#enrol-theme .input-frame-enrol input,
-#token-theme .input-frame-enrol input,
-#login-theme .input-frame-enrol input,
-#resetpassword-theme .input-frame-enrol input
 
-{
-    color: #fff;
-}
 
 #modalviewpin .input-frame-modal input,
 #modalviewrepin .input-frame-modal input,
@@ -603,6 +626,16 @@ img
     width: 100%;
     position: relative;
     float: none;
+}
+
+.button-frame-login
+{
+
+    line-height: 40px;
+    width: 70%;
+    position: relative;
+    float: none;
+    margin-left:15%;
 }
 
 .button-frame-inline-modal
@@ -690,7 +723,8 @@ img
     float: none;
 }
 
-.button-frame-inline .km-button
+.button-frame-inline .km-button,
+.button-frame-login .km-button
 {
     background-color: rgba(0,0,0,1);
     color: #fff;
@@ -847,10 +881,13 @@ img
 
 .switch-frame
 {
-    line-height: 3em;
-    width: 100%;
+    display:block;
+    line-height: 4em;
+    width: 60%;
+    position:relative;
     float: none;
     color:#fff;
+    margin-left:20%;
 }
 
 .switch-frame-voucher
