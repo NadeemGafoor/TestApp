@@ -905,6 +905,7 @@ function completeRedemption() {
     var homecountry = "";
     var birthdate = "";
     var residentcity = "";
+    var pinnumber="";
     var m = [];  
     var offertype = "1"; //prelogin ofer
     var offercode = ""; //All Offers default
@@ -1993,6 +1994,7 @@ function completeRedemption() {
                                                                   homecountry = getData.homecountry;
                                                                   birthdate = getData.dateofbirth;
                                                                   residentcity = getData.residentcity;
+                                                                  pinnumber = getData.pinnumber;
 
                                                                   //set Local Storage as cookies to retain login
                                                                   window.localStorage.setItem("customer", customer);
@@ -2068,7 +2070,9 @@ function completeRedemption() {
                                                                    
                                                                   if ((getData.deviceinfo.length === 0)) {
                                                                       $("body").data("kendoMobilePane").navigate("views/tokenpage.html");      
-                                                                  }else {
+                                                                  }else if (pinnumber.length===0) {
+                                                                      $("body").data("kendoMobilePane").navigate("views/setpin.html");                                                                            
+                                                                  }else{
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password);
                                                                       window.localStorage.setItem("loggedin", "1");
@@ -2129,11 +2133,26 @@ function completeRedemption() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") { //Login Successful  
+                                                                  
+                                                                  if (getData.pinnumber>0){
+                                                                      
+                                                                  
                                                                   password = getData.certificate;
                                                                   window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                   window.localStorage.setItem("loggedin", "1");
-                                                                  $("body").data("kendoMobilePane").navigate("views/pl-myprofile.html");  
+                                                                   window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                                                       'direction': 'up',
+                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                   }), 500);
                                                                   hideSpin(); //hide loading popup
+                                                                  }else{
+                                                                       $("body").data("kendoMobilePane").navigate("views/setpin.html");  
+                                                                  }
                                                               }else {
                                                                   navigator.notification.alert("Cannot Login. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")         
@@ -2415,6 +2434,7 @@ function completeRedemption() {
         
                                             loadProfile
                                             :function() {
+                               
                                                 document.getElementById("profile-picture-1").src = window.localStorage.getItem("cuspict");
                                                 document.getElementById("pro-name").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
                                                 document.getElementById("pro-birthdate").innerHTML = (window.localStorage.getItem("birthdate") != null && window.localStorage.getItem("birthdate").length > 0) ? "Birth date : " + window.localStorage.getItem("birthdate") : "Birth Date : NA";
@@ -3840,7 +3860,7 @@ function completeRedemption() {
                                                     image.src = "data:image/png;base64," + imageData;
                                                     //image.src = imageURI;
                                                     newimage = imageData;
-                                                    saveImageFile();
+                                                    saveImageFile(imageData);
                                                 };
                                                 var error = function () {
                                                     navigator.notification.alert("Unfortunately Image cannot be captured");
@@ -3874,7 +3894,7 @@ function completeRedemption() {
                                                     image.src = "data:image/png;base64," + imageData;
                                                     //image.src = imageURI;
                                                     newimage = imageData;
-                                                    saveImageFile();
+                                                    saveImageFile(imageData);
                                                 };
                                                 var error = function () {
                                                     navigator.notification.alert("Unfortunately Image cannot be retrieved");
@@ -3902,9 +3922,9 @@ function completeRedemption() {
         
                                         });
     
-    function saveImageFile() {
+    function saveImageFile(e) {
         showSpin();      
-        newimage=document.getElementById('profile-picture-1').src;
+        
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -3913,7 +3933,7 @@ function completeRedemption() {
                    url: gurl + "/updateimage.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,customerid:customer,password:password,image1:newimage,mdevice:mdevicestat
+                                            merchantcode :merchant,customerid:customer,password:password,image1:e,mdevice:mdevicestat
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);

@@ -1,4 +1,4 @@
-<div data-role="view" data-title="Token Validation" data-layout="back-layout" id="token-theme" data-model="preLogin" data-show="preLogin.initToken">
+<div data-role="view" data-title="Set PIN" data-layout="back-layout" id="pin-theme" data-model="preLogin" data-show="preLogin.initPin">
 
     <div data-role="header">
         <div data-role="navbar">
@@ -8,19 +8,26 @@
 
     <div class="reward-summary-a">
         <div class="reward-summary-1">
-            <pre class="fulljustify" style="color:#fff">Please enter the activation token number you have received on your email address. We ensure that your account is secured. You are getting this screen because you are signing in on a different device.</pre>
+            <pre class="fulljustify" style="color:#fff">Enter a 4 digit PIN to be used for validating discounts and redeeming vouchers on the mobile</pre>
         </div>
     </div>
     <ul data-role="listview" dta-style="inset" style="background-color:#fff">
         <li>
             <div class="input-frame-enrol">
 
-                <input type="password" id="tokennum" data-bind="value: tokennum" placeholder="Toekn Number"/>
+                <input type="password" id="pin1" data-bind="value: pin1" placeholder="Enter PIN" maxlength="4"/>
+            </div>
+        </li>
+        
+         <li>
+            <div class="input-frame-enrol">
+
+                <input type="password" id="pin2" data-bind="value: pin2" placeholder="Re-enter PIN" maxlength="4"/>
             </div>
         </li>
         <li>
             <div class="button-frame-inline">
-                <a data-transition="slide"   data-role="button" data-bind="click: validateToken">Validate</a>
+                <a data-transition="slide"   data-role="button" data-bind="click: validateToken">Set PIN</a>
             </div>
         </li>
         <li>
