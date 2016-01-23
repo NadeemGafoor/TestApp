@@ -1923,7 +1923,7 @@ function completeRedemption() {
                                            validateUser
                                            : function () {
                                                window.localStorage.setItem("appopen", "0");   
-                                              
+                                              alert("helllllo");
                                                if (!this.username) {
                                                    navigator.notification.alert("Invalid Membership # or Empty", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
