@@ -889,6 +889,8 @@ function completeRedemption() {
     var pushoffer = "";
     var remindexpiry = "";
     var showprofile = "";
+    var firstname = "";
+    var initdate="";
     var lat = "";
     var lon = "";
     var city = "";
@@ -1794,22 +1796,7 @@ function completeRedemption() {
                                                        country = window.localStorage.getItem("country");
                                                        magicnumber = window.localStorage.getItem("magicnumber");
                                                        
-                                                       
-                                                       
-                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                     "duration"         :  500, // in milliseconds (ms), default 400
-                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                     'direction': 'up',
-                                                                     'href': '#views/pl-home.html'
-                                                                 }), 500);
-                                                       
-                                                       
-                                                       
-                                                       
-                                                       
+                                                       $("body").data("kendoMobilePane").navigate("views/pl-home.html"); 
                                                    } else {
                                                        outletcode = "";
                                                        brandcode = "";
@@ -1965,7 +1952,7 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                     
+                                                             
                                                               if (getData.statuscode == "000") { //Login Successful
                                                                   customer = getData.customerid;
                                                                   customername = getData.customername;
@@ -1987,10 +1974,14 @@ function completeRedemption() {
                                                                   city = getData.city;
                                                                   country = getData.country;
                                                                   magicnumber = getData.magicnumber;
+                                                                  firstname = getData.firstname;
+                                                                  initdate=getData.initdate;
 
                                                                   //set Local Storage as cookies to retain login
                                                                   window.localStorage.setItem("customer", customer);
                                                                   window.localStorage.setItem("customername", customername);
+                                                                  window.localStorage.setItem("firstname", firstname);
+                                                                  window.localStorage.setItem("initdate", initdate);
                                                                   window.localStorage.setItem("segmentcode", segmentcode);
                                                                   window.localStorage.setItem("segmentname", segmentname);
                                                                   window.localStorage.setItem("currency", currency);
@@ -2388,89 +2379,104 @@ function completeRedemption() {
                                             couponcategory:"",
                                             msgsequence:"",
         
-        logMeOut:function () {
-    
-    showSpin();
-    $.ajax({ 
-               type: "POST",
-               cache:false,
-               async:true,
-               timeout:20000,
-               url: gurl + "/logmeout.aspx",
-               contentType: "application/json; charset=utf-8",
-               data: JSON.stringify({
-                                        merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mdevice:window.localStorage.getItem("mdevicestat")
-                                    }),
-               success: function (data) {
-                   var getData = JSON.parse(data);
-                   alert(getData.statuscode);
-                   if (getData.statuscode == "000") {
-                       //clear Local Storage on logout
-                       window.localStorage.setItem("customer", "9999999999");
-                       window.localStorage.setItem("customername", "Guest");
-                       window.localStorage.setItem("segmentcode", "");
-                       window.localStorage.setItem("segmentname", "");
-                       window.localStorage.setItem("currency", "");
-                       window.localStorage.setItem("nationality", "");
-                       window.localStorage.setItem("pointvalue", "");
-                       window.localStorage.setItem("cuspict", "");
-                       window.localStorage.setItem("cusqr", "");
-                       window.localStorage.setItem("emailid", "");
-                       window.localStorage.setItem("mobilenumber", "");                                                                    
-                       window.localStorage.setItem("memberexpiry", ""); 
-                       window.localStorage.setItem("segmentimage", ""); 
-                       window.localStorage.setItem("pushoffer", "");
-                       window.localStorage.setItem("remindexpiry", "");
-                       window.localStorage.setItem("showprofile", "");
-                       window.localStorage.setItem("password", "");
-                       window.localStorage.setItem("mdevice", "");
-                       window.localStorage.setItem("muuid", "");
-                       window.localStorage.setItem("mversion", "");
-                       window.localStorage.setItem("mplatform", "");
-                       window.localStorage.setItem("loggedin", "");
-                       outletcode = "";
-                       brandcode = "";
-                       offercode = "";
-                       benefitcode = "";
-                       offertype = "1";
-                       password = "";
-                       customer = "9999999999";
-                       customername = "Guest";
-                       segmentcode = "";
-                       segmentname = "";
-                       currency = "";
-                       nationality = "";
-                       pointvalue = "";
-                       cuspict = "";
-                       cusqr = "";
-                       emailid = "";
-                       mobilenumber = ""; 
-                       memberexpiry = "";
-                       segmentimage = "";
-                       window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                                        "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                        "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                        "androiddelay"     :  150, // same as above but for Android, default 70
+                                            loadPLDetails
+                                            :function() {
+                                                document.getElementById("main-title").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
+                                                document.getElementById("profile-name").innerHTML = window.localStorage.getItem("customername");
+                                                document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
+                                                document.getElementById("profile-init").innerHTML = "Member Since " + window.localStorage.getItem("initdate");
+                               
+                                               if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                    document.getElementById("profile-type").innerHTML = "isme Member";
+                                                }else{
+                                                    document.getElementById("profile-type").innerHTML = "isme elite Member";
+                                                }
+                                            },
+        
+                                            logMeOut:function () {
+                                                alert("Logout");
+                                                showSpin();
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/logmeout.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mdevice:window.localStorage.getItem("mdevicestat")
+                                                                                }),
+                                                           success: function (data) {
+                                                               var getData = JSON.parse(data);
+                                                               alert(getData.statuscode);
+                                                               if (getData.statuscode == "000") {
+                                                                   //clear Local Storage on logout
+                                                                   window.localStorage.setItem("customer", "9999999999");
+                                                                   window.localStorage.setItem("firstname", "");
+                                                                   window.localStorage.setItem("customername", "Guest");
+                                                                   window.localStorage.setItem("segmentcode", "");
+                                                                   window.localStorage.setItem("segmentname", "");
+                                                                   window.localStorage.setItem("currency", "");
+                                                                   window.localStorage.setItem("nationality", "");
+                                                                   window.localStorage.setItem("pointvalue", "");
+                                                                   window.localStorage.setItem("cuspict", "");
+                                                                   window.localStorage.setItem("cusqr", "");
+                                                                   window.localStorage.setItem("emailid", "");
+                                                                   window.localStorage.setItem("mobilenumber", "");                                                                    
+                                                                   window.localStorage.setItem("memberexpiry", ""); 
+                                                                   window.localStorage.setItem("segmentimage", ""); 
+                                                                   window.localStorage.setItem("pushoffer", "");
+                                                                   window.localStorage.setItem("remindexpiry", "");
+                                                                   window.localStorage.setItem("showprofile", "");
+                                                                   window.localStorage.setItem("password", "");
+                                                                   window.localStorage.setItem("mdevice", "");
+                                                                   window.localStorage.setItem("muuid", "");
+                                                                   window.localStorage.setItem("mversion", "");
+                                                                   window.localStorage.setItem("mplatform", "");
+                                                                   window.localStorage.setItem("loggedin", "");
+                                                                   outletcode = "";
+                                                                   brandcode = "";
+                                                                   offercode = "";
+                                                                   benefitcode = "";
+                                                                   offertype = "1";
+                                                                   password = "";
+                                                                   customer = "9999999999";
+                                                                   customername = "Guest";
+                                                                   segmentcode = "";
+                                                                   segmentname = "";
+                                                                   currency = "";
+                                                                   nationality = "";
+                                                                   pointvalue = "";
+                                                                   cuspict = "";
+                                                                   cusqr = "";
+                                                                   emailid = "";
+                                                                   mobilenumber = ""; 
+                                                                   memberexpiry = "";
+                                                                   segmentimage = "";
+                                                                   window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                    "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                    "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                    "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                    "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                                                        'direction': 'right',
-                                                                                        'href': '#views/home.html'
-                                                                                    }), 500);  
-                       hideSpin(); //hide loading popup
-                   }else {
-                       navigator.notification.alert("Cannot Logout. " + getData.statusdesc, function() {
-                       }, "isme by Jumeirah", "Dismiss")          
-                       hideSpin(); //hide loading popup
-                   }
-               },
-               error: function (errormsg) {
-                   navigator.notification.alert("Unknown Error, Cannot Logout. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                   }, "isme by Jumeirah", "Dismiss")
-                   hideSpin(); //hide loading popup
-               }
-           });
-    // }   
-},
+                                                                                                                                    'direction': 'right',
+                                                                                                                                    'href': '#views/home.html'
+                                                                                                                                }), 500);  
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot Logout. " + getData.statusdesc, function() {
+                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot Logout. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                                // }   
+                                            },
         
                                             varInit
                                             : function() {

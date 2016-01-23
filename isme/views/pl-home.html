@@ -1,11 +1,11 @@
 <!--Explore View-->
-<div data-role="view" data-title="Hello, Ricardo!" data-layout="pl-main-layout" id="pl-home-view" data-model="postLogin" data-stretch="true">
+<div data-role="view" data-title="" data-layout="pl-main-layout" id="pl-home-view" data-model="postLogin" data-show="postLogin.loadPLDetails">
         <div>
         <div data-role="navbar" style="background-color:transparent !important">
             <a  data-role="button" data-align="left" data-rel="drawer"  data-click-on="down" href="#appdrawer" data-click="doOneBack">
                 <i class="fa fa-reorder fa-lg cblack"></i>
             </a>
-            <span data-role="view-title" style="color:#000"></span>
+            <span data-role="view-title" style="color:#000" id="main-title"></span>
         </div>
         <div class="pl-logo-top">
             <div class="pl-logo-image-holder"></div>
@@ -16,10 +16,10 @@
             </div>
             <div class="home-page-holder" style="height:30px"></div>
             <div class="home-page-holder">
-                <div class="general-text-line cblack">RICARDO MANRIQUEZ</div>
-                <div class="general-text-line cblack">9704213568</div>
-                <div class="general-text-line cblack">isme Member</div>
-                <div class="general-text-line cblack">Member Since 01/01/2015</div>
+                <div class="general-text-line cblack" id="profile-name"></div>
+                <div class="general-text-line cblack" id="profile-number"></div>
+                <div class="general-text-line cblack" id="profile-type"></div>
+                <div class="general-text-line cblack" id="profile-init"></div>
             </div>
         </div>
         <div class="button-frame-inline">
