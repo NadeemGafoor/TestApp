@@ -741,6 +741,12 @@ function doOneBack() {
     
 }
 
+function hideBenefitDetail(){
+
+    
+    document.getElementById("pbenefit-detail-view").style.display = "none";
+    document.getElementById("pbenefit-detail-view-1").style.display = "none";
+}
 
 
 function plhideOutletDetail(){
@@ -2468,6 +2474,57 @@ function completeRedemption() {
                                             couponname:"",
                                             couponcategory:"",
                                             msgsequence:"",
+        
+              benefitdetail
+                                           : function (e) { 
+                                               
+                                               benefitcode = "1000"; 
+                                               showSpin(); //show loading popup
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/benefitlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,benefitcode:benefitcode,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") {
+                                                                  //fill the outlet template
+                                                                                     alert(getData.statuscode);
+                                                                  if (getData.benefitlist.length > 0) {
+                                                                      document.getElementById("benefit-detail-view").style.display = "block";
+                                                                      document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].titlename;
+                                                                      document.getElementById("benefit-text6").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
+                                                                 window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
+                                                            
+                                                                  window.localStorage.setItem("social_message", "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>");
+                                                                  window.localStorage.setItem("social_image", getData.benefitlist[0].imageurll); 
+                                                                      
+                                                                      
+
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("There are no Benefits for the selected Program", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get Benefit details. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup                                          
+                                                          }
+                                                      });
+                                           },
         
         
         
