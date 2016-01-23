@@ -2552,7 +2552,7 @@ function completeRedemption() {
                                                            success: function (data) {
                                                                var getData = JSON.parse(data);
                                                    
-                                                               if (getData.statuscode == "000") {
+
                                                                    //clear Local Storage on logout
                                                                    window.localStorage.setItem("customer", "9999999999");
                                                                    window.localStorage.setItem("firstname", "");
@@ -2618,11 +2618,7 @@ function completeRedemption() {
                                                                                                                                     'href': '#views/home.html'
                                                                                                                                 }), 500);  
                                                                    hideSpin(); //hide loading popup
-                                                               }else {
-                                                                   navigator.notification.alert("Cannot Logout. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
+                                                            
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot Logout. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
@@ -4030,7 +4026,7 @@ function completeRedemption() {
                                                                      $("#modalviewpin").data("kendoMobileModalView").open();
                                                                    hideSpin();
                                                                }else {
-                                                                   navigator.notification.alert("Invalid Password " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Error setting PIN " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin();
                                                                }

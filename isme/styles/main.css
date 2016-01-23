@@ -561,7 +561,7 @@ img
 {  
     color:#000;
  }
-
+  
 #enrol-theme .input-frame-enrol-1
 {  
         border-bottom: 2px solid #fff;
@@ -604,6 +604,8 @@ img
     background-color: transparent !important;
     color: #fff;
     text-align: center;
+    font-size:1em;
+    letter-spacing:2px;
 }
 
 #pl-myvoucherdetail-theme .switch-frame-voucher 
