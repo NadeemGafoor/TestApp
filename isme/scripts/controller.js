@@ -1085,7 +1085,7 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
-                                                                                     alert(getData.statuscode);
+
                                                                   if (getData.benefitlist.length > 0) {
                                                                       document.getElementById("benefit-detail-view").style.display = "block";
                                                                       document.getElementById("benefit-text3").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
@@ -2475,10 +2475,10 @@ function completeRedemption() {
                                             couponcategory:"",
                                             msgsequence:"",
         
-              benefitdetail
+              benefitdetail  
                                            : function (e) { 
                                                
-                                               benefitcode = "1000"; 
+                                               benefitcode = "1001"; 
                                                showSpin(); //show loading popup
                                                $.ajax({ 
                                                           type: "POST",
@@ -2494,9 +2494,8 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
-                                                                                     alert(getData.statuscode);
                                                                   if (getData.benefitlist.length > 0) {
-                                                                      document.getElementById("benefit-detail-view").style.display = "block";
+                                                                      document.getElementById("pl-benefit-detail-view").style.display = "block";
                                                                       document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].titlename;
                                                                       document.getElementById("benefit-text6").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                                                                  window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
