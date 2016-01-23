@@ -1,50 +1,35 @@
-<div data-role="view"  data-title="Program Benefits" data-layout="back3-layout" id="benefit-theme" data-init="initButtonGroup" data-model="preLogin" data-show="preLogin.benefitDetail">
+<div data-role="view"  data-title="Program Benefits" data-layout="back3-layout" id="benefit-theme" data-init="initButtonGroup" data-model="preLogin" data-show="preLogin.benefitdetail"  data-hide="plhideBenefitDetail">
     <ul data-role="buttongroup" data-index="0" id="benefitdetailtab" class="button-group a-group">
         <li>
             isme
         </li>
-        <li>
-            isme Elite
+        <li data-bind="click: benefitdetail1">
+            isme elite
         </li>
 
     </ul>
-    <ul data-role="listview"   style="background-color:#fff;margin-top:0px" id="isme">
+    <ul data-role="listview"   style="background-color:#fff;margin-top:0px;display:none" id="benefit-detail-view">
 
-        <div class="gen-para">
-<span class="bold">Benefits</span>
--10% discount on best available room rates at any Hotel in UAE.
--10% discount on spa treatments
--10% discount on dining & bars
--10% discount on wild wadi<br><br><span class="bold ">Welcome Vouchers (Valid for 3 months only)</span>
--Buy One Get One Free 60 Minutes Massage at Talise SPA, Jumeirah Etihad Towers.
--Buy One Get One Free dinner at any casual dining Restaurant at Jumeirah Group Restaurants (Food Only).<br><br>
-<span class="bold">Rewards</span>
--Spend AED 3000 and get a complimentary dessert for 2 guests at any of Jumeirah Group REstaurants.<br><br>
-</div>
-<div>
-             <li>
+ <li>
+            <div id="benefit-text3"></div>
+        </li>
+
+        <div>
+            <li>
                 <div class="button-frame-inline">
-                    <a data-transition="slide:up"   id="mobile-button1" data-role="button" href="views/enrol.html"  >Enrol</a>
+                    <a data-transition="slide:up"   id="mobile-button1" data-role="button" href="views/enrol.html">Enrol</a>
                 </div>
             </li>
-    </div>
+        </div>
     </ul>
 
-    <ul data-role="listview"   style="background-color:#fff;margin-top:0px;display:none" id="isme-elite">
-        <div class="gen-para">
-<span class="bold">Benefits</span>
--25% discount on best available room rates at any Hotel in UAE.
--25% discount on spa treatments
--25% discount on dining & bars
--25% discount on wild wadi<br><br><span class="bold ">Welcome Vouchers (Valid for 3 months only)</span>
--Buy One Get One Free 60 Minutes Massage at Talise SPA, Jumeirah Etihad Towers.
--Buy One Get One Free dinner at any casual dining Restaurant at Jumeirah Group Restaurants (Food Only).<br><br>
-<span class="bold">Rewards</span>
--Spend AED 3000 and get a complimentary dessert for 2 guests at any of Jumeirah Group REstaurants.<br><br>
-</div>
+    <ul data-role="listview"   style="background-color:#fff;margin-top:0px;display:none" id="benefit-detail-view-1">
+      
+        <li>
+            <div id="benefit-text5"></div>
+        </li>
 
     </ul>
-   
 
 </div>
 
@@ -53,15 +38,13 @@
         var listviews = this.element.find("ul.km-listview");
 
         $("#benefitdetailtab").kendoMobileButtonGroup({
-                                                  select: function (e) {
-                                                      listviews.hide()
-                                                          .eq(e.index)
-                                                          .show();
-                                                  },
-                                                  index: 0
-                                              });
+                                                          select: function (e) {
+                                                              listviews.hide()
+                                                                  .eq(e.index)
+                                                                  .show();
+                                                          },
+                                                          index: 0
+                                                      });
     }  
 </script>
-
-
 
