@@ -1793,7 +1793,23 @@ function completeRedemption() {
                                                        city = window.localStorage.getItem("city");
                                                        country = window.localStorage.getItem("country");
                                                        magicnumber = window.localStorage.getItem("magicnumber");
-                                                       $("body").data("kendoMobilePane").navigate("views/pl-myprofile.html"); 
+                                                       
+                                                       
+                                                       
+                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'up',
+                                                                     'href': '#views/pl-home.html'
+                                                                 }), 500);
+                                                       
+                                                       
+                                                       
+                                                       
+                                                       
                                                    } else {
                                                        outletcode = "";
                                                        brandcode = "";
