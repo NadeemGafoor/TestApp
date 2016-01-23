@@ -1,4 +1,4 @@
-<div data-role="view" data-layout="back-layout" data-title="Sign In" id="login-theme" data-model="preLogin" data-after-show="preLogin.showLogin">
+<div data-role="view" data-layout="back-layout" data-title="Sign In" id="login-theme" data-model="postLogin" data-show="postLogin.loginInit" data-init="postLogin.varInit">
 
     <div data-role="header">
         <div data-role="navbar">
@@ -24,14 +24,14 @@
             <div class="switch-frame">
                 <label  class="white-color">
                     Remember Me
-                    <input data-role="switch" name="showprofile" id="profile-autolocation" type="checkbox" checked="false"/>
+                    <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}"/>
                 </label>
             </div>
         </li>
 
         <li>
             <div class="button-frame-inline">
-                <a id="mobile-button1" data-role="button" data-bind="click: validateUser"  >Login</a>
+                <a id="mobile-button1" data-role="button" data-bind="click: validateUser">Login</a>
             </div>
         </li>
 
