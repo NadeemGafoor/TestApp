@@ -949,7 +949,7 @@
             </ul>
         </div>
 
-        <div data-role="modalview" id="modalviewpin" style="height:70%;width:80%;border-radius:5px" data-model="postLogin" data-title="Create isme PIN">
+      <div data-role="modalview" id="modalviewpin" style="height:70%;width:80%;border-radius:5px" data-model="postLogin" data-title="Create PIN">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span data-role="view-title"></span>
@@ -961,27 +961,25 @@
             </div>
             <div class="home-page-holder"></div>
             <div class="input-frame-modal"  >
-                <input type="number" id="newpin" data-bind="value: newpin" placeholder="Enter 4 digit PIN"/>
+                <input type="number" id="newpin1" data-bind="value: newpin1" placeholder="Enter 4 digit PIN"/>
             </div>
                        <div class="home-page-holder">&nbsp;</div>
             <div class="input-frame-modal"  >
-                <input type="number" id="newpin1" data-bind="value: newpin1" placeholder="Re-enter 4 digit PIN"/>
+                <input type="number" id="newpin2" data-bind="value: newpin2" placeholder="Re-enter 4 digit PIN"/>
             </div>
 
             <div class="home-page-holder"></div>
             <div class="button-frame-inline-modal">
-                <a data-role="button" data-bind="click:resetPinForEnrollment">Set PIN</a>
+                <a data-role="button" data-bind="click:plsavePIN">Set PIN</a>
             </div>
-            <div class="home-page-holder"></div>
             <div class="fulljustify whitecolor" >
                 You will be using this PIN to activate Vouchers to your Wallet and redeeming Vouchers at Restaurants
             </div>
             <div style="height:10px">&nbsp;</div>
         </div>
 
-       
 
-        <div data-role="modalview" id="modalviewenterpin" style="height:70%;width:80%;border-radius:5px;" data-model="postLogin" data-title="Enter isme PIN">
+ <div data-role="modalview" id="modalviewenterpin" style="height:70%;width:80%;border-radius:5px;" data-model="postLogin" data-title="Member PIN">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span data-role="view-title"></span>
@@ -993,11 +991,11 @@
             </div>
             <div class="home-page-holder"></div>
             <div class="input-frame-modal"  >
-                <input type="password" id="password" data-bind="value: password" placeholder="Enter 4 digit PIN"/>
+                <input type="password" id="srpin1" data-bind="value: srpin1" placeholder="Enter 4 digit PIN"/>
             </div>
             <div class="home-page-holder"></div>
             <div class="button-frame-inline-modal">
-                <a data-role="button"  data-click="enterStaffPinForRedemption">Continue</a>
+                <a data-role="button"  data-bind="click:validateredemptionpin">Continue</a>
             </div>
             <div class="home-page-holder"></div>
             <div class="fulljustify">
@@ -1005,6 +1003,35 @@
             </div>
             <div style="height:10px">&nbsp;</div>
         </div>
+
+
+
+
+  <div data-role="modalview" id="modalviewstaffpin" style="height:70%;width:80%;border-radius:5px;" data-model="postLogin" data-title="Staff PIN">
+            <div data-role="header">
+                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                    <span data-role="view-title"></span>
+
+                    <a data-click="closeStaffPinForRedemption" data-role="button" data-align="right">
+                        <i class="fa fa-times-circle fa-lg" style="color:#fff"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="home-page-holder"></div>
+            <div class="input-frame-modal"  >
+                <input type="password" id="depin1" data-bind="value: depin1" placeholder="Enter Staff PIN"/>
+            </div>
+            <div class="home-page-holder"></div>
+            <div class="button-frame-inline-modal">
+                <a data-role="button" data-bind="click:completeRedemptionDiscount">Confirm</a>
+            </div>
+            <div class="home-page-holder"></div>
+            <div class="fulljustify">
+                The Hotel staff should enter his/her identification number to process the transaction at their Restaurant
+            </div>
+            <div style="height:10px">&nbsp;</div>
+        </div>
+
 
         <div data-role="modalview" id="modalviewpassword" style="height:70%;width:80%;border-radius:5px" data-model="postLogin" data-title="Enter isme Password">
             <div data-role="header">
@@ -1032,31 +1059,7 @@
             <div style="height:10px">&nbsp;</div>
         </div>
 
-        <div data-role="modalview" id="modalviewstaffpin" style="height:70%;width:80%;border-radius:5px;" data-model="postLogin" data-title="Enter Staff Identification">
-            <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
-                    <span data-role="view-title"></span>
-
-                    <a data-click="closeStaffPinForRedemption" data-role="button" data-align="right">
-                        <i class="fa fa-times-circle fa-lg" style="color:#fff"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="home-page-holder"></div>
-            <div class="input-frame-modal"  >
-                <input type="password" id="password" data-bind="value: password" placeholder="Enter Staff Identification"/>
-            </div>
-            <div class="home-page-holder"></div>
-            <div class="button-frame-inline-modal">
-                <a data-role="button" data-click="completeRedemption">Continue</a>
-            </div>
-            <div class="home-page-holder"></div>
-            <div class="fulljustify">
-                The Hotel staff should enter his/her identification number to process the transaction at their Restaurant
-            </div>
-            <div style="height:10px">&nbsp;</div>
-        </div>
-
+    
         <div data-role="modalview" id="modalviewterms" style="width: 90%;height:80%;">
             <div data-role="header">
                 <div data-role="navbar">

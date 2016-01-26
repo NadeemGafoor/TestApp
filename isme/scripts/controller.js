@@ -282,10 +282,10 @@ function closeEnterPinForRedemption() {
     $("#modalviewenterpin").data("kendoMobileModalView").close();
 }
 
-function enterStaffPinForRedemption() {
-    $("#modalviewenterpin").data("kendoMobileModalView").close();
-    $("#modalviewstaffpin").data("kendoMobileModalView").open();
-}
+//function enterStaffPinForRedemption() {
+ //   $("#modalviewenterpin").data("kendoMobileModalView").close();
+ //   $("#modalviewstaffpin").data("kendoMobileModalView").open();
+//}
 
 function closeStaffPinForRedemption() {
     $("#modalviewstaffpin").data("kendoMobileModalView").close();
@@ -4039,8 +4039,231 @@ function completeRedemption() {
                                                        });
                                                 hideSpin(); //hide loading popup
         }
+        ,
+                                            plsavePIN 
+                                            : function () {
+                                                if (!this.newpin1 || !this.newpin2) {
+                                                    navigator.notification.alert("Invalid PIN Number", function() {
+                                                    }, "Club Epicure", "Dismiss");
+                                                    return;
+                                                }
+                                               
+                                                if (this.newpin1 != this.newpin2) {
+                                                    navigator.notification.alert("PIN Numbers do not match, re-enter", function() {
+                                                    }, "Club Epicure", "Dismiss");
+                                                    return;
+                                                }
+                                           
+                                                showSpin();
+                                                createPIN(this.newpin2, "1");
+                                                postLogin.set("newpin1", "");
+                                                postLogin.set("newpin2", ""); 
+                                            },
+        
+                                            validateredemptionpin
+                                            : function () {
+                                                if (!this.srpin1) {
+                                                    navigator.notification.alert("Invalid Redemption PIN or Empty", function() {
+                                                    }, "HD Rewards", "Dismiss");
+                                                    return;
+                                                }
+                                                showSpin();
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/validateVoucherRedemptionCredential.aspx", 
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,mdevice:mdevicestat,password:window.localStorage.getItem("password"),customer:customer,pin:this.srpin1
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode === "000") { //Login Successful
+                                                                    postLogin.set("srpin1","");
+                                                                   $("#modalviewenterpin").data("kendoMobileModalView").close();
+                                                                   $("#modalviewstaffpin").data("kendoMobileModalView").open();  
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Invalid Redemption PIN", function() {
+                                                                   }, "HD Rewards", "Dismiss")         
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error. Cannot verify Redemption PIN [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "HD Rewards", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+        
+                                            validateandredeem
+                                            : function () {
+                                                if (!this.epin1) {
+                                                    navigator.notification.alert("Invalid or Empty Restaurant Staff Identifier", function() {
+                                                    }, "HD Rewards", "Dismiss");
+                                                    return;
+                                                }
+                                                writeSpin();
+                                             
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/voucherRedemption.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,couponcode:window.localStorage.getItem("selfredeemVouchernumber"),emppin:this.epin1,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode === "000") {
+                                                                   window.localStorage.setItem("self-vouchernumber", getData.couponcode);
+                                                                   window.localStorage.setItem("self-vouchername", getData.couponname);
+                                                                   window.localStorage.setItem("self-authorization", getData.transactionref);
+                                                                   window.localStorage.setItem("self-outletname", getData.outletname);
+                                                                   $("body").data().kendoMobilePane.navigate("views/pl-selfredeemconfirm.html");  
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Unable to Redeem Voucher! " + getData.statusdesc, function() {
+                                                                   }, "HD Rewards", "Dismiss")      
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("System Error, unable to Redeem Voucher  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "HD Rewards", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+        
+                                            completeRedemptionDiscount
+                                            : function () {
+                                                if (!this.depin1) {
+                                                    navigator.notification.alert("Invalid or Empty Restaurant Staff PIN", function() {
+                                                    }, "HD Rewards", "Dismiss");
+                                                    return;
+                                                }
+                                                showSpin();
+                                             
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/discountRedemption.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,emppin:this.depin1,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode === "000") {
+                                                                   postLogin.set("srpin1","");
+                                                                   postLogin.set("depin1","");
+                                                                   window.localStorage.setItem("self-vouchernumber", getData.customerid);
+                                                                   window.localStorage.setItem("self-vouchername", getData.segment);
+                                                                   window.localStorage.setItem("self-authorization", getData.transactionref);
+                                                                   window.localStorage.setItem("self-outletname", getData.outletname);
+                                                                   $("#modalviewstaffpin").data("kendoMobileModalView").close();
+                                                                   window.plugins.nativepagetransitions.slide({
+                                                                                                                  "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                  "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                  "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                  "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                                  'direction': 'up',
+                                                                                                                  'href': '#views/pl-confirmDiscount.html'
+                                                                                                              });
+
+                                                              
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Unable to Validate Discount ! " + getData.statusdesc, function() {
+                                                                   }, "HD Rewards", "Dismiss")      
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("System Error, unable to Validate Discount  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "HD Rewards", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+        
+        
+           discountRedeemConfirm
+                                            : function () {
+                                                 document.getElementById("discount-1").innerHTML=window.localStorage.getItem("self-authorization");
+                                                 document.getElementById("discount-2").innerHTML=window.localStorage.getItem("self-outletname");
+                                                 document.getElementById("discount-3").innerHTML=window.localStorage.getItem("self-vouchername");
+}        
+        
+        
+        
+        
+        
         
                                         });
+    
+    
+       function createPIN(x, y) {
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/savePIN.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                                                 
+                                                                  
+                                                                 
+                                            merchantcode :merchant,customer:customer,token:x,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                                         
+                       if (getData.statuscode == "000") { //Login Successful  
+                           password = getData.certificate;
+                           window.localStorage.setItem("password", password); //Get and Store Certificate
+                           window.localStorage.setItem("loggedin", "1");
+                           navigator.notification.alert("PIN has been successfully set", function() {
+                           }, "Club Epicure", "Dismiss")         
+                           if (y === "0") {
+                               window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                'direction': 'up',
+                                                                                                'href': '#views/pl-home.html'
+                                                                                            }), 500);
+                               hideSpin(); //hide loading popup
+                           }else {
+                               $("#modalviewpin").data("kendoMobileModalView").close();
+                               hideSpin();
+                           }
+                       }else {
+                           navigator.notification.alert("Cannot set PIN. " + getData.statusdesc, function() {
+                           }, "Club Epicure", "Dismiss")         
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot set PIN.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "Club Epicure", "Dismiss")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
+    
     
     function saveImageFile(e) {
         showSpin();      
