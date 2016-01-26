@@ -241,8 +241,6 @@ function outletMessage() {
     }, "isme by Jumeirah", "Dismiss")    
 }
 
-
-
 function closeSetPinForEnrollment() {
     $("#modalviewpin").data("kendoMobileModalView").close();
 }
@@ -251,10 +249,6 @@ function resetPinForEnrollment() {
     $("#modalviewpin").data("kendoMobileModalView").close();
     //$("#modalviewrepin").data("kendoMobileModalView").open();
 }
-
-
-
-
 
 function loadFAQView() {
     $("#modalviewfaq").data("kendoMobileModalView").open(); 
@@ -276,15 +270,13 @@ function closeEnterModalPassword() {
     $("#modalviewpassword").data("kendoMobileModalView").close(); 
 }
 
-
-
 function closeEnterPinForRedemption() {
     $("#modalviewenterpin").data("kendoMobileModalView").close();
 }
 
 //function enterStaffPinForRedemption() {
- //   $("#modalviewenterpin").data("kendoMobileModalView").close();
- //   $("#modalviewstaffpin").data("kendoMobileModalView").open();
+//   $("#modalviewenterpin").data("kendoMobileModalView").close();
+//   $("#modalviewstaffpin").data("kendoMobileModalView").open();
 //}
 
 function closeStaffPinForRedemption() {
@@ -891,7 +883,7 @@ function completeRedemption() {
     var homecountry = "";
     var birthdate = "";
     var residentcity = "";
-    var pinnumber="";
+    var pinnumber = "";
     var m = [];  
     var offertype = "1"; //prelogin ofer
     var offercode = ""; //All Offers default
@@ -1911,7 +1903,7 @@ function completeRedemption() {
                                            :function() {
                                                preLogin.set("tokennum", "");
                                            },
-         initPin
+                                           initPin
                                            :function() {
                                                preLogin.set("pin1", "");
                                                preLogin.set("pin2", "");
@@ -2065,7 +2057,7 @@ function completeRedemption() {
                                                                       $("body").data("kendoMobilePane").navigate("views/tokenpage.html");      
                                                                   }else if (pinnumber.length===0) {
                                                                       $("body").data("kendoMobilePane").navigate("views/setpin.html");                                                                            
-                                                                  }else{
+                                                                  }else {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password);
                                                                       window.localStorage.setItem("loggedin", "1");
@@ -2126,14 +2118,11 @@ function completeRedemption() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") { //Login Successful  
-                                                    
-                                                                  if (getData.pinnumber.length>0){
-                                                                      
-                                                
-                                                                  password = getData.certificate;
-                                                                  window.localStorage.setItem("password", password); //Get and Store Certificate
-                                                                  window.localStorage.setItem("loggedin", "1");
-                                                                   window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                  if (getData.pinnumber.length > 0) {
+                                                                      password = getData.certificate;
+                                                                      window.localStorage.setItem("password", password); //Get and Store Certificate
+                                                                      window.localStorage.setItem("loggedin", "1");
+                                                                      window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                                                                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
                                                                                                                                        "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
@@ -2142,9 +2131,9 @@ function completeRedemption() {
                                                                                                                                        'direction': 'up',
                                                                                                                                        'href': '#views/pl-home.html'
                                                                                                                                    }), 500);
-                                                                  hideSpin(); //hide loading popup
-                                                                  }else{
-                                                                       $("body").data("kendoMobilePane").navigate("views/setpin.html");  
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      $("body").data("kendoMobilePane").navigate("views/setpin.html");  
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("Cannot Login. " + getData.statusdesc, function() {
@@ -2164,23 +2153,19 @@ function completeRedemption() {
         
         
         
-              savePIN 
+                                           savePIN 
                                            : function () {
-                                           
                                                if (!this.pin1 || !this.pin2) {
                                                    navigator.notification.alert("Invalid PIN Number", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
                                                
-                                                      if (this.pin1 != this.pin2) {
+                                               if (this.pin1 != this.pin2) {
                                                    navigator.notification.alert("PIN Numbers do not match, re-enter", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
-                                               
-                                              
-
                                            
                                                showSpin();
                                                
@@ -2201,28 +2186,22 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                          
                                                               if (getData.statuscode == "000") { //Login Successful  
-                                                                  
-
-                                                                      
-                                                                  
                                                                   password = getData.certificate;
                                                                   window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                   window.localStorage.setItem("loggedin", "1");
                                                                   navigator.notification.alert("PIN has been successfully set", function() {
                                                                   }, "isme by Jumeirah", "Dismiss")         
                                                                   
-                                                                   window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+                                                                  window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                                                                                                       'direction': 'up',
-                                                                                                                                       'href': '#views/pl-home.html'
-                                                                                                                                   }), 500);
+                                                                                                                                   'direction': 'up',
+                                                                                                                                   'href': '#views/pl-home.html'
+                                                                                                                               }), 500);
                                                                   hideSpin(); //hide loading popup
-                                  
-                                                             
                                                               }else {
                                                                   navigator.notification.alert("Cannot set PIN. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")         
@@ -2251,7 +2230,7 @@ function completeRedemption() {
         
         
         
-        requestPasswordChangeURL:
+                                           requestPasswordChangeURL:
                                            function () {
                                                if (!this.username1) {
                                                    navigator.notification.alert("Invalid Membership # or Empty", function() {
@@ -2502,6 +2481,10 @@ function completeRedemption() {
                                             couponname:"",
                                             couponcategory:"",
                                             msgsequence:"",
+                                            emailid1:"",
+                                            mobile1:"",
+                                            date1:"",
+                                            hotelnumber1:"",
         
                                             loadPLDetails
                                             :function() {
@@ -2519,7 +2502,6 @@ function completeRedemption() {
         
                                             loadProfile
                                             :function() {
-                               
                                                 document.getElementById("profile-picture-1").src = window.localStorage.getItem("cuspict");
                                                 document.getElementById("pro-name").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
                                                 document.getElementById("pro-birthdate").innerHTML = (window.localStorage.getItem("birthdate") != null && window.localStorage.getItem("birthdate").length > 0) ? "Birth date : " + window.localStorage.getItem("birthdate") : "Birth Date : NA";
@@ -2551,74 +2533,72 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) {
                                                                var getData = JSON.parse(data);
-                                                   
 
-                                                                   //clear Local Storage on logout
-                                                                   window.localStorage.setItem("customer", "9999999999");
-                                                                   window.localStorage.setItem("firstname", "");
-                                                                   window.localStorage.setItem("customername", "Guest");
-                                                                   window.localStorage.setItem("segmentcode", "");
-                                                                   window.localStorage.setItem("segmentname", "");
-                                                                   window.localStorage.setItem("currency", "");
-                                                                   window.localStorage.setItem("nationality", "");
-                                                                   window.localStorage.setItem("pointvalue", "");
-                                                                   window.localStorage.setItem("cuspict", "");
-                                                                   window.localStorage.setItem("cusqr", "");
-                                                                   window.localStorage.setItem("emailid", "");
-                                                                   window.localStorage.setItem("mobilenumber", "");                                                                    
-                                                                   window.localStorage.setItem("memberexpiry", ""); 
-                                                                   window.localStorage.setItem("segmentimage", ""); 
-                                                                   window.localStorage.setItem("pushoffer", "");
-                                                                   window.localStorage.setItem("remindexpiry", "");
-                                                                   window.localStorage.setItem("showprofile", "");
-                                                                   window.localStorage.setItem("password", "");
-                                                                   window.localStorage.setItem("mdevice", "");
-                                                                   window.localStorage.setItem("muuid", "");
-                                                                   window.localStorage.setItem("mversion", "");
-                                                                   window.localStorage.setItem("mplatform", "");
-                                                                   window.localStorage.setItem("loggedin", "");
-                                                                   window.localStorage.setItem("residentcity", "");
-                                                                   window.localStorage.setItem("homecountry", "");
-                                                                   window.localStorage.setItem("birthdate", "");
-                                                                   window.localStorage.setItem("firstname", "");
-                                                                   window.localStorage.setItem("initdate", "");
-                                                                   window.localStorage.setItem("magicnumber", magicnumber);
-                                                                   outletcode = "";
-                                                                   brandcode = "";
-                                                                   offercode = "";
-                                                                   benefitcode = "";
-                                                                   offertype = "1";
-                                                                   password = "";
-                                                                   customer = "9999999999";
-                                                                   customername = "Guest";
-                                                                   segmentcode = "";
-                                                                   segmentname = "";
-                                                                   currency = "";
-                                                                   nationality = "";
-                                                                   pointvalue = "";
-                                                                   cuspict = "";
-                                                                   cusqr = "";
-                                                                   emailid = "";
-                                                                   mobilenumber = ""; 
-                                                                   memberexpiry = "";
-                                                                   segmentimage = "";
-                                                                   residentcity = "";
-                                                                   homecountry = "";
-                                                                   birthdate = "";
-                                                                   firstname = "";
-                                                                   initdate = "";
-                                                                   magicnumber = "";
-                                                                   window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                                                                                    "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                                                    "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                                                    "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                                                    "androiddelay"     :  150, // same as above but for Android, default 70
+                                                               //clear Local Storage on logout
+                                                               window.localStorage.setItem("customer", "9999999999");
+                                                               window.localStorage.setItem("firstname", "");
+                                                               window.localStorage.setItem("customername", "Guest");
+                                                               window.localStorage.setItem("segmentcode", "");
+                                                               window.localStorage.setItem("segmentname", "");
+                                                               window.localStorage.setItem("currency", "");
+                                                               window.localStorage.setItem("nationality", "");
+                                                               window.localStorage.setItem("pointvalue", "");
+                                                               window.localStorage.setItem("cuspict", "");
+                                                               window.localStorage.setItem("cusqr", "");
+                                                               window.localStorage.setItem("emailid", "");
+                                                               window.localStorage.setItem("mobilenumber", "");                                                                    
+                                                               window.localStorage.setItem("memberexpiry", ""); 
+                                                               window.localStorage.setItem("segmentimage", ""); 
+                                                               window.localStorage.setItem("pushoffer", "");
+                                                               window.localStorage.setItem("remindexpiry", "");
+                                                               window.localStorage.setItem("showprofile", "");
+                                                               window.localStorage.setItem("password", "");
+                                                               window.localStorage.setItem("mdevice", "");
+                                                               window.localStorage.setItem("muuid", "");
+                                                               window.localStorage.setItem("mversion", "");
+                                                               window.localStorage.setItem("mplatform", "");
+                                                               window.localStorage.setItem("loggedin", "");
+                                                               window.localStorage.setItem("residentcity", "");
+                                                               window.localStorage.setItem("homecountry", "");
+                                                               window.localStorage.setItem("birthdate", "");
+                                                               window.localStorage.setItem("firstname", "");
+                                                               window.localStorage.setItem("initdate", "");
+                                                               window.localStorage.setItem("magicnumber", magicnumber);
+                                                               outletcode = "";
+                                                               brandcode = "";
+                                                               offercode = "";
+                                                               benefitcode = "";
+                                                               offertype = "1";
+                                                               password = "";
+                                                               customer = "9999999999";
+                                                               customername = "Guest";
+                                                               segmentcode = "";
+                                                               segmentname = "";
+                                                               currency = "";
+                                                               nationality = "";
+                                                               pointvalue = "";
+                                                               cuspict = "";
+                                                               cusqr = "";
+                                                               emailid = "";
+                                                               mobilenumber = ""; 
+                                                               memberexpiry = "";
+                                                               segmentimage = "";
+                                                               residentcity = "";
+                                                               homecountry = "";
+                                                               birthdate = "";
+                                                               firstname = "";
+                                                               initdate = "";
+                                                               magicnumber = "";
+                                                               window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                                                                                                    'direction': 'right',
-                                                                                                                                    'href': '#views/home.html'
-                                                                                                                                }), 500);  
-                                                                   hideSpin(); //hide loading popup
-                                                            
+                                                                                                                                'direction': 'right',
+                                                                                                                                'href': '#views/home.html'
+                                                                                                                            }), 500);  
+                                                               hideSpin(); //hide loading popup
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot Logout. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
@@ -3735,7 +3715,13 @@ function completeRedemption() {
                                                 showSpin(); 
                                                 listCountry();
                                                 listCity(country);  
-                                                document.getElementById("setting-view").style.display = "block";
+                                                document.getElementById("pl-setting-theme").style.display = "block";
+                                                postLogin.set("emailid1", window.localStorage.getItem("emailid"));
+                                                postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
+                                                postLogin.set("date1", window.localStorage.getItem("birthdate"));
+                                                postLogin.set("hotelnumber1", window.localStorage.getItem("hotelmember"));
+                                                document.getElementById("selCountry").value = homecountry;
+                                                document.getElementById("selCity").value = residentcity;
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
                                                 }else {
@@ -3750,14 +3736,8 @@ function completeRedemption() {
                                                   
                                                 if (autolocation == "1") {
                                                     $("#profile-autolocation").data("kendoMobileSwitch").check(true);
-                                                    document.getElementById("selCountry").style.color = "#ccc";
-                                                    document.getElementById("selCity").style.color = "#ccc";
                                                 }else {
                                                     $("#profile-autolocation").data("kendoMobileSwitch").check(false);
-                                                    document.getElementById("selCountry").value = country;
-                                                    document.getElementById("selCity").value = city;
-                                                    document.getElementById("selCountry").style.color = "#575757";
-                                                    document.getElementById("selCity").style.color = "#575757";
                                                 }
                                                 hideSpin();
                                             },
@@ -4001,13 +3981,13 @@ function completeRedemption() {
                                                 navigator.camera.getPicture(success, error, config);
                                             },
         
-        closeEnterModalPasswordandEnterPIN:function(){
-            if (!this.setpass){
-                 navigator.notification.alert("Invalid Password or Empty", function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")  
-                return;
-            }
-              showSpin(); 
+                                            closeEnterModalPasswordandEnterPIN:function() {
+                                                if (!this.setpass) {
+                                                    navigator.notification.alert("Invalid Password or Empty", function() {
+                                                    }, "isme by Jumeirah", "Dismiss")  
+                                                    return;
+                                                }
+                                                showSpin(); 
                                              
                                                 $.ajax({ 
                                                            type: "POST",
@@ -4022,8 +4002,8 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode === "000") {
-                                                                     $("#modalviewpassword").data("kendoMobileModalView").close();
-                                                                     $("#modalviewpin").data("kendoMobileModalView").open();
+                                                                   $("#modalviewpassword").data("kendoMobileModalView").close();
+                                                                   $("#modalviewpin").data("kendoMobileModalView").open();
                                                                    hideSpin();
                                                                }else {
                                                                    navigator.notification.alert("Error setting PIN " + getData.statusdesc, function() {
@@ -4038,8 +4018,8 @@ function completeRedemption() {
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
-        }
-        ,
+                                            }
+                                            ,
                                             plsavePIN 
                                             : function () {
                                                 if (!this.newpin1 || !this.newpin2) {
@@ -4081,7 +4061,7 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode === "000") { //Login Successful
-                                                                    postLogin.set("srpin1","");
+                                                                   postLogin.set("srpin1", "");
                                                                    $("#modalviewenterpin").data("kendoMobileModalView").close();
                                                                    $("#modalviewstaffpin").data("kendoMobileModalView").open();  
                                                                    hideSpin(); //hide loading popup
@@ -4163,8 +4143,8 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode === "000") {
-                                                                   postLogin.set("srpin1","");
-                                                                   postLogin.set("depin1","");
+                                                                   postLogin.set("srpin1", "");
+                                                                   postLogin.set("depin1", "");
                                                                    window.localStorage.setItem("self-vouchernumber", getData.customerid);
                                                                    window.localStorage.setItem("self-vouchername", getData.segment);
                                                                    window.localStorage.setItem("self-authorization", getData.transactionref);
@@ -4179,7 +4159,6 @@ function completeRedemption() {
                                                                                                                   'direction': 'up',
                                                                                                                   'href': '#views/pl-confirmDiscount.html'
                                                                                                               });
-
                                                               
                                                                    hideSpin(); //hide loading popup
                                                                }else {
@@ -4197,12 +4176,12 @@ function completeRedemption() {
                                             },
         
         
-           discountRedeemConfirm
+                                            discountRedeemConfirm
                                             : function () {
-                                                 document.getElementById("discount-1").innerHTML=window.localStorage.getItem("self-authorization");
-                                                 document.getElementById("discount-2").innerHTML=window.localStorage.getItem("self-outletname");
-                                                 document.getElementById("discount-3").innerHTML=window.localStorage.getItem("self-vouchername");
-}        
+                                                document.getElementById("discount-1").innerHTML = window.localStorage.getItem("self-authorization");
+                                                document.getElementById("discount-2").innerHTML = window.localStorage.getItem("self-outletname");
+                                                document.getElementById("discount-3").innerHTML = window.localStorage.getItem("self-vouchername");
+                                            }        
         
         
         
@@ -4211,8 +4190,7 @@ function completeRedemption() {
         
                                         });
     
-    
-       function createPIN(x, y) {
+    function createPIN(x, y) {
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -4264,7 +4242,6 @@ function completeRedemption() {
                });
     }
     
-    
     function saveImageFile(e) {
         showSpin();      
         
@@ -4281,10 +4258,8 @@ function completeRedemption() {
                    success: function (data) { 
                        var getData = JSON.parse(data);
                        if (getData.statuscode != "000") {
- 
                            navigator.notification.alert("Could not update image changes due to error  " + getData.statusdesc, function() {
                            }, "HD Rewards", "Dismiss")          
-                           
                        }
                        hideSpin(); //hide loading popup
                    },
