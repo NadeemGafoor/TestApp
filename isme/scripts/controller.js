@@ -2485,6 +2485,11 @@ function completeRedemption() {
                                             mobile1:"",
                                             date1:"",
                                             hotelnumber1:"",
+                                            newpin1:"",
+                                            newpin2:"",
+                                            srpin1:"",
+                                            depin1:"",
+                                            setpass:"",
         
                                             loadPLDetails
                                             :function() {
@@ -4002,6 +4007,7 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode === "000") {
+                                                                   postLogin.set("setpass","");
                                                                    $("#modalviewpassword").data("kendoMobileModalView").close();
                                                                    $("#modalviewpin").data("kendoMobileModalView").open();
                                                                    hideSpin();
