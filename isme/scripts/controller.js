@@ -948,12 +948,13 @@ function completeRedemption() {
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
                                            showConfirmation:function() {
-                                               document.getElementById("confirm-memberid").innerHTML = window.localStorage.get("newmemberid");
-                                               document.getElementById("confirm-membername").innerHTML = window.localStorage.get("newmembername");
-                                               document.getElementById("confirm-segment").innerHTML = window.localStorage.get("newmembersegment"); 
-                                               window.localStorage.set("newmemberid", "");
-                                               window.localStorage.set("newmembername", "");
-                                               window.localStorage.set("newmembersegment", "");
+                                               alert(window.localStorage.getItem("newmemberid"));
+                                               document.getElementById("confirm-memberid").innerHTML = window.localStorage.getItem("newmemberid");
+                                               document.getElementById("confirm-membername").innerHTML = window.localStorage.getItem("newmembername");
+                                               document.getElementById("confirm-segment").innerHTML = window.localStorage.getItem("newmembersegment"); 
+                                               window.localStorage.setItem("newmemberid", "");
+                                               window.localStorage.setItem("newmembername", "");
+                                               window.localStorage.setItem("newmembersegment", "");
                                            },
         
                                            showEnrol:function() {
@@ -5170,13 +5171,13 @@ function completeRedemption() {
         showSpin();
         var emirate = document.getElementById("selEmirate").value;
         var gender = document.getElementById("selGender").value;
-        alert(emirate);          
-        alert(gender);          
-        alert(this.firstname.value);          
-        alert(this.lastname.value);          
-        alert(this.mobile.value);          
-        alert(this.emailid.value);          
-         alert(this.siriusnumber.value);          
+     //   alert(emirate);          
+     //   alert(gender);          
+     //   alert(this.firstname.value);          
+     //   alert(this.lastname.value);          
+     //   alert(this.mobile.value);          
+     //   alert(this.emailid.value);          
+     //    alert(this.siriusnumber.value);          
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -5185,16 +5186,18 @@ function completeRedemption() {
                    url: gurl + "/firsttime.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,firstname:this.firstname.value,lastname:this.lastname.value,mobile:this.mobile.value,emailid:this.emailid.value,emirate:emirate,gender:gender,siriusmember:this.siriusnumber.value,mdevice:mdevicestat,segment:"1000"
+                                            merchantcode :window.localStorage.getItem("merchant"),firstname:this.firstname.value,lastname:this.lastname.value,mobile:this.mobile.value,emailid:this.emailid.value,emirate:emirate,gender:gender,siriusmember:this.siriusnumber.value,mdevice:mdevicestat,segment:"1000"
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
-                                           alert(getData.statuscode);          
+                                        
                        if (getData.statuscode === "000") {
-                           window.localStorage.set("newmemberid", getData.memberid);
-                           window.localStorage.set("newmembername", getData.membername);
-                           window.localStorage.set("newmembersegment", getData.membersegment);
-                                                                   
+                            
+                           window.localStorage.setItem("newmemberid", getData.customerid);
+       
+                           window.localStorage.setItem("newmembername", getData.customername);
+                           window.localStorage.setItem("newmembersegment", getData.segment);
+                                                                             
                            window.plugins.nativepagetransitions.slide({
                                                                           "duration"         :  500, // in milliseconds (ms), default 400
                                                                           "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -5202,7 +5205,7 @@ function completeRedemption() {
                                                                           "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                                           'direction': 'up',
-                                                                          'href': '#views/confirmEnrol.html'
+                                                                          'href': '#views/confirmEnrollment.html'
                                                                       });
                                                               
                            hideSpin(); //hide loading popup
