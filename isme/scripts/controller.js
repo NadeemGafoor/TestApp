@@ -1,5 +1,7 @@
-
-
+function faceBookErr() {
+    navigator.notification.alert("Error Accessing your facebook account, please make sure you have facebook installed", function() {
+    }, "Club Epicure", "Dismiss");    
+}
 function hideSpin() {
     window.setTimeout(function() {
         $("#mvwait").data("kendoMobileModalView").close();
@@ -945,11 +947,78 @@ function completeRedemption() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
-                                           showEnrol:function(){
-                                                 showSpin();
-                                                // kendo.mobile.application.showLoading(); //show loading popup
-                                                listCity("UAE",document.getElementById("selEmirate"));
-                                                hideSpin(); //hide loading popup
+                                           showEnrol:function() {
+                                               showSpin();
+                                               // kendo.mobile.application.showLoading(); //show loading popup
+                                               listCity("UAE", document.getElementById("selEmirate"));
+                                               hideSpin(); //hide loading popup
+                                           },
+        
+                                           confirmEnrol:function() {
+                                               if (!this.firstname) {
+                                                   navigator.notification.alert("First Name is required.  Re-enter", function() {
+                                                   }, "Club Epicure", "Dismiss")
+                                                   return;
+                                               }
+                                               
+                                               if (!this.lastname) {
+                                                   navigator.notification.alert("Last Name is required.  Re-enter", function() {
+                                                   }, "Club Epicure", "Dismiss")
+                                                   return;
+                                               }
+                                               
+                                               if (!this.emailid) {
+                                                   navigator.notification.alert("Email is required.  Re-enter", function() {
+                                                   }, "Club Epicure", "Dismiss")
+                                                   return;
+                                               }
+                                                
+                                               if (!this.mobile) {
+                                                   navigator.notification.alert("Mobile Number is required.  Re-enter", function() {
+                                                   }, "Club Epicure", "Dismiss")
+                                                   return;
+                                               }
+                                           
+                                               if (document.getElementById("selEmirate").value == "") {
+                                                   navigator.notification.alert("Select Resident City", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return; 
+                                               }
+                                               
+                                               if (document.getElementById("selGender").value == "") {
+                                                   navigator.notification.alert("Select Gender", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return; 
+                                               }
+                                               
+                                                if (!document.getElementById("enrol-tandc-accept").checked) {
+                                                    navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
+                                                    }, "Club Epicure", "Dismiss");
+                                                    return;
+                                                }
+                                               
+                                               navigator.notification.confirm(
+                                                   'We are about to create a new isme membership for you. Click OK to proceed.', // message
+                                                   onConfirm, // callback to invoke with index of button pressed
+                                                   'isme by Jumeirah', // title
+                                                   'OK,Return for Correction'          // buttonLabels
+                                                   );
+                                               var onConfirm = function(buttonIndex) {
+                                                   if (buttonIndex===1) {
+                                                       doExecute();
+                                                   } else {
+                                                       doExit();
+                                                   }
+                                               }   
+                                                
+                                               var doExecute = function() {
+                                                   alert("Execute");
+                                               }
+                                                
+                                               var doExit = function() {
+                                                   alert("Return");
+                                                   return;
+                                               }
                                            },
                                                                  
                                            showBrandPage
@@ -957,7 +1026,8 @@ function completeRedemption() {
                                                // alert("Hello");
                                                $("body").data("kendoMobilePane").navigate("views/brandpage.html");  
                                            } ,   
-                                           loadDrawer:function() {
+                                           loadDrawer
+                                           :function() {
                                                window.plugins.nativepagetransitions.slide({
                                                                                               // the defaults for direction, duration, etc are all fine
                                                                                               "href" : "#appdrawerN"
@@ -1199,14 +1269,6 @@ function completeRedemption() {
                                                       });
                                            },
         
-        
-        
-        
-        
-        
-        
-        
-        
                                            showOutletItem
                                            : function (e) {
                                                showSpin();
@@ -1446,7 +1508,8 @@ function completeRedemption() {
                                                       });
                                            },
         
-                                           showOfferOutlet: function() {
+                                           showOfferOutlet
+                                           : function() {
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1485,7 +1548,6 @@ function completeRedemption() {
                                                           }
                                                       });
                                            },
-                                           
                                         
                                            varInit
                                            : function() {
@@ -1803,7 +1865,6 @@ function completeRedemption() {
                                                hideSpin();
                                                return;
                                            },
-        
                                           
                                            loginInit
                                            :function() {
@@ -2071,10 +2132,6 @@ function completeRedemption() {
                                                           }
                                                       });
                                            },  
-                                           
-        
-        
-        
         
                                            savePIN 
                                            : function () {
@@ -2231,7 +2288,8 @@ function completeRedemption() {
                                                       });
                                            },
         
-                                           getAddRestFilter:function() {
+                                           getAddRestFilter
+                                           :function() {
                                                var dataSource = new kendo.data.DataSource({ data: getRestAddData() });
                                                
                                                $("#add-Rest-Filter").kendoMobileListView({
@@ -2242,7 +2300,8 @@ function completeRedemption() {
                                                                                          });
                                            },
         
-                                           getLocationFilter:function() {
+                                           getLocationFilter
+                                           :function() {
                                                var dataSource = new kendo.data.DataSource({ data: getRestLocationData() });
                                                
                                                $("#Location-Filter").kendoMobileListView({
@@ -2253,7 +2312,8 @@ function completeRedemption() {
                                                                                          });
                                            },
         
-                                           getRestTypeFilter:function() {
+                                           getRestTypeFilter
+                                           :function() {
                                                var dataSource = new kendo.data.DataSource({ data: getRestTypeData() });
                                                
                                                $("#Type-Filter").kendoMobileListView({
@@ -2264,7 +2324,8 @@ function completeRedemption() {
                                                                                      });
                                            },
         
-                                           getRestCuisineFilter:function() {
+                                           getRestCuisineFilter
+                                           :function() {
                                                var dataSource = new kendo.data.DataSource({ data: getRestCuisineData() });
                                                
                                                $("#Cuisine-Filter").kendoMobileListView({
@@ -2274,7 +2335,8 @@ function completeRedemption() {
                                                                     
                                                                                         });
                                            },
-                                           getRestCuisineFilter1:function() {
+                                           getRestCuisineFilter1
+                                           :function() {
                                                var dataSource = new kendo.data.DataSource({ data: getRestCuisineData() });
                                                
                                                $("#Cuisine-Filter1").kendoMobileListView({
@@ -2285,7 +2347,8 @@ function completeRedemption() {
                                                                                          });
                                            },
         
-                                           getOfferTypeData:function() {
+                                           getOfferTypeData
+                                           :function() {
                                                var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
                                                
                                                $("#Offer-Filter").kendoMobileListView({
@@ -2295,7 +2358,8 @@ function completeRedemption() {
                                                                     
                                                                                       });
                                            },
-                                           getOfferTypeData1:function() {
+                                           getOfferTypeData1
+                                           :function() {
                                                var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
                                                
                                                $("#Offer-Filter1").kendoMobileListView({
@@ -2306,7 +2370,8 @@ function completeRedemption() {
                                                                                        });
                                            },
         
-                                           getOfferTypeData2:function() {
+                                           getOfferTypeData2
+                                           :function() {
                                                var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
                                                
                                                $("#Offer-Filter2").kendoMobileListView({
@@ -2317,7 +2382,8 @@ function completeRedemption() {
                                                                                        });
                                            },
         
-                                           getCelebrationFilter:function() {
+                                           getCelebrationFilter
+                                           :function() {
                                                var dataSource = new kendo.data.DataSource({ data: getOfferCeleberationData() });
                                                
                                                $("#Celebration-Filter").kendoMobileListView({
@@ -2328,7 +2394,8 @@ function completeRedemption() {
                                                                                             });
                                            },
         
-                                           getFAQFilter:function() {
+                                           getFAQFilter
+                                           :function() {
                                                var dataSource = new kendo.data.DataSource({ data: getFAQData() });
                                                
                                                $("#FAQ-Filter").kendoMobileListView({
@@ -3392,7 +3459,7 @@ function completeRedemption() {
                                                 // kendo.mobile.application.showLoading(); //show loading popup
                                                 var e = document.getElementById("selCountry");
                                                 var str = e.options[e.selectedIndex].value;
-                                                listCity(str,document.getElementById("selCity"));
+                                                listCity(str, document.getElementById("selCity"));
                                                 hideSpin(); //hide loading popup
                                             },
         
@@ -3482,7 +3549,6 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
                                                      
                                                                if (getData.statuscode == "000") {
-                                                            
                                                                    window.localStorage.setItem("autolocation", autolocation);
                                                                    window.localStorage.setItem("pushoffer", pushoffer);
                                                                    window.localStorage.setItem("remindexpiry", remindexpiry);
@@ -4334,7 +4400,7 @@ function completeRedemption() {
                });
     }
     
-    function listCity(e,y) {
+    function listCity(e, y) {
         t = e;
         showSpin(); //show loading popup
                                                   
