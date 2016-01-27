@@ -979,47 +979,32 @@ function completeRedemption() {
                                                    return;
                                                }
                                            
-                                               if (document.getElementById("selEmirate").value == "") {
+                                               if (document.getElementById("selEmirate").value === "") {
                                                    navigator.notification.alert("Select Resident City", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return; 
                                                }
                                                
-                                               if (document.getElementById("selGender").value == "") {
+                                               if (document.getElementById("selGender").value === "") {
                                                    navigator.notification.alert("Select Gender", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return; 
                                                }
                                                
-                                                if (!document.getElementById("enrol-tandc-accept").checked) {
-                                                    navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
-                                                    }, "Club Epicure", "Dismiss");
-                                                    return;
-                                                }
+                                               if (!document.getElementById("enrol-tandc-accept").checked) {
+                                                   navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
+                                                   }, "Club Epicure", "Dismiss");
+                                                   return;
+                                               }
                                                
                                                navigator.notification.confirm(
                                                    'We are about to create a new isme membership for you. Click OK to proceed.', // message
-                                                   onConfirm, // callback to invoke with index of button pressed
+                                                   onConfirm1, // callback to invoke with index of button pressed
                                                    'isme by Jumeirah', // title
                                                    'OK,Return for Correction'          // buttonLabels
                                                    );
-                                               var onConfirm = function(buttonIndex) {
-                                                   if (buttonIndex===1) {
-                                                       doExecute();
-                                                   } else {
-                                                       doExit();
-                                                   }
-                                               }   
-                                                
-                                               var doExecute = function() {
-                                                   alert("Execute");
-                                               }
-                                                
-                                               var doExit = function() {
-                                                   alert("Return");
-                                                   return;
-                                               }
                                            },
+        
                                                                  
                                            showBrandPage
                                            : function () {
@@ -5163,6 +5148,64 @@ function completeRedemption() {
         document.getElementById("number-back2").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back2").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
         document.getElementById("segment-back2").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
+    }
+  
+    function onConfirm1 (buttonIndex) {
+        if (buttonIndex===1) {
+            doExecute();
+        } else {
+            doExit();
+        }
+    }
+    function doExecute() {
+        var emirate = document.getElementById("selEmirate").value;
+        var gender  = document.getElementById("selGender").value;
+          $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/firsttime.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,firstname:this.firstname,lastname:this.lastname,mobile:this.mobile,emailid:this.emailid,emirate:emirate,gender:gender,siriusmember:this.siriusmember,mdevice:mdevicestat,segment:"1000"
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                     
+                                                               if (getData.statuscode === "000") {
+                                                                   window.localStorage.set("newmemberid",getData.memberid);
+                                                                   window.localStorage.set("newmemberid",getData.membername);
+                                                                   window.localStorage.set("newmemberid",getData.membersegment);
+                                                                   
+                                                                     window.plugins.nativepagetransitions.slide({
+                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                       'direction': 'up',
+                                                       'href': '#views/confirmEnrol.html'
+                                                   });
+                                                               
+                                                              
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Could not complete enrollment due to an error.  " + getData.statusdesc + ". Please try again.", function() {
+                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (error) {
+                                                               navigator.notification.alert("Unknown Error, Could not complete enrollment.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                                hideSpin(); //hide loading popup
+    }
+    function doExit() {
+        return;
     }
 }
     )(window);
