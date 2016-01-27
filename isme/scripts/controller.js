@@ -5167,8 +5167,16 @@ function completeRedemption() {
         }
     }
     function doExecute() {
+        showSpin();
         var emirate = document.getElementById("selEmirate").value;
         var gender = document.getElementById("selGender").value;
+        alert(emirate);          
+        alert(gender);          
+        alert(this.firstname.value);          
+        alert(this.lastname.value);          
+        alert(this.mobile.value);          
+        alert(this.emailid.value);          
+         alert(this.siriusnumber.value);          
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -5177,11 +5185,11 @@ function completeRedemption() {
                    url: gurl + "/firsttime.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,firstname:this.firstname,lastname:this.lastname,mobile:this.mobile,emailid:this.emailid,emirate:emirate,gender:gender,siriusmember:this.siriusmember,mdevice:mdevicestat,segment:"1000"
+                                            merchantcode :merchant,firstname:this.firstname.value,lastname:this.lastname.value,mobile:this.mobile.value,emailid:this.emailid.value,emirate:emirate,gender:gender,siriusmember:this.siriusnumber.value,mdevice:mdevicestat,segment:"1000"
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
-                                                     
+                                           alert(getData.statuscode);          
                        if (getData.statuscode === "000") {
                            window.localStorage.set("newmemberid", getData.memberid);
                            window.localStorage.set("newmembername", getData.membername);
