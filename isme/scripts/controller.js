@@ -945,9 +945,13 @@ function completeRedemption() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
-                                         
-
-                                                             
+                                           showEnrol:function(){
+                                                 showSpin();
+                                                // kendo.mobile.application.showLoading(); //show loading popup
+                                                listCity("UAE",document.getElementById("selEmirate"));
+                                                hideSpin(); //hide loading popup
+                                           },
+                                                                 
                                            showBrandPage
                                            : function () {
                                                // alert("Hello");
@@ -3388,7 +3392,7 @@ function completeRedemption() {
                                                 // kendo.mobile.application.showLoading(); //show loading popup
                                                 var e = document.getElementById("selCountry");
                                                 var str = e.options[e.selectedIndex].value;
-                                                listCity(str);
+                                                listCity(str,document.getElementById("selCity"));
                                                 hideSpin(); //hide loading popup
                                             },
         
@@ -4330,7 +4334,7 @@ function completeRedemption() {
                });
     }
     
-    function listCity(e) {
+    function listCity(e,y) {
         t = e;
         showSpin(); //show loading popup
                                                   
@@ -4349,7 +4353,7 @@ function completeRedemption() {
                        if (getData.statuscode == "000") {
                            //fill the outlet template
                            for (var i = 0;i < getData.citylist.length;i++) {
-                               var x = document.getElementById("selCity");
+                               var x = y;
                                var opt = document.createElement("option");
                                opt.value = getData.citylist[i].cityname;    
                                opt.text = getData.citylist[i].citycode;

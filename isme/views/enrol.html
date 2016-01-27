@@ -30,16 +30,8 @@
         </li>
         <li>
             <div class="input-frame-enrol-1">
-                <select id="selCity">
-                    <option value="" selected="true" data-bind="click: getCity">Select Emirate *</option>
-                      <option value="First Option">Dubai</option>
-                    <option value="Second Option">Abu Dhabi</option>
-                    <option value="Second Option">Sharjah</option>
-                    <option value="Second Option">Ajman</option>
-                    <option value="Second Option">Fujairah</option>
-                    <option value="Second Option">Ras Al Akhaimah</option>
-                    <option value="Second Option">Um Al Quwain</option>
-                    
+                <select id="selEmirate">
+                    <option value="" selected="true" >Select Emirate *</option>
                 </select>
             </div>
         </li>
@@ -52,26 +44,27 @@
             <div class="input-frame-enrol-1">
                 <select id="selCity">
                     <option value="" selected="true" data-bind="click: getCity">Select Gender *</option>
-                    <option value="First Option">Male</option>
-                    <option value="Second Option">Female</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                     <option value="U">Unspecified</option>
                 </select>
             </div>
         </li>
         <li>
             <div class="switch-frame-1" >
-                  <label  class="whitecolor" style="color:#fff">
+                <label  class="whitecolor" style="color:#fff">
                     Agree to
-<a href="#modalviewterms" data-role="button" data-click="onClick" style="color:#fff;border:0px !important">
-Terms & Conditions
-</a>
-                    <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
+                    <a href="#modalviewterms" data-role="button" data-click="onClick" style="color:#fff;border:0px !important">
+                        Terms & Conditions
+                    </a>
+                    <input data-role="switch" id="enrol-tandc-accept" type="checkbox" />
                 </label>
             </div>
         </li>
 
         <li>
             <div class="button-frame-login">
-                <a  id="mobile-button1" data-role="button" data-click="setPinForEnrollment">Continue</a>
+                <a  id="mobile-button1" data-role="button" data-bind="click:confirmEnrol">Continue</a>
             </div>
         </li>
         <li>
@@ -83,19 +76,16 @@ Terms & Conditions
         <li>
             <div class="switch-frame-i one-line">Already have an Account?</div>
         </li>
-            <li>
-                <div class="button-frame-login">
-                    <a data-transition="slide:up" id="mobile-button1" href="views/login.html" data-role="button">Log In</a>
-                </div>
-            </li>
-<div>
-    <li></li>
+        <li>
+            <div class="button-frame-login">
+                <a data-transition="slide:up" id="mobile-button1" href="views/login.html" data-role="button">Log In</a>
+            </div>
+        </li>
+        <div>
+            <li></li>
+        </div>
+    </ul>
 </div>
-        </ul>
-</div>
-
-
-
 
 <style scoped>
    
@@ -113,4 +103,4 @@ Terms & Conditions
     {
         background-color: transparent !important;
     }
-    </style>
+</style>
