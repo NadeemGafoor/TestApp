@@ -3359,7 +3359,7 @@ function completeRedemption() {
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
-                                                postLogin.set("hotelnumber1", window.localStorage.getItem("hotelmember"));
+                                                postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));
                                                 document.getElementById("selCountry").value = homecountry;
                                                 document.getElementById("selCity").value = residentcity;
                                                 back1_profile();
@@ -3394,8 +3394,7 @@ function completeRedemption() {
         
                                             saveSetting:
                                             function () {
-                                                alert("TTT");
-                                                  if (!this.emailid1) {
+                                                if (!this.emailid1) {
                                                     navigator.notification.alert("Email is required.  Re-enter", function() {
                                                     }, "Club Epicure", "Dismiss")
                                                     return;
@@ -3407,20 +3406,16 @@ function completeRedemption() {
                                                     return;
                                                 }
                                              
-                                                    if (document.getElementById("selCountry").value == "") {
-                                                        navigator.notification.alert("Select Nationality", function() {
-                                                        }, "isme by Jumeirah", "Dismiss");
-                                                        return; 
-                                                    }
-                                                    if (document.getElementById("selCity").value == "") {
-                                                        navigator.notification.alert("Select Resident City", function() {
-                                                        }, "isme by Jumeirah", "Dismiss");
-                                                        return; 
-                                                    }
-                                                    
-                                                                                                       
-
-                                              
+                                                if (document.getElementById("selCountry").value == "") {
+                                                    navigator.notification.alert("Select Nationality", function() {
+                                                    }, "isme by Jumeirah", "Dismiss");
+                                                    return; 
+                                                }
+                                                if (document.getElementById("selCity").value == "") {
+                                                    navigator.notification.alert("Select Resident City", function() {
+                                                    }, "isme by Jumeirah", "Dismiss");
+                                                    return; 
+                                                }
                                                                                                 
                                                 if ((!document.getElementById("profile-pushoffer").checked) && (document.getElementById("profile-remindexpiry").checked)) {
                                                     navigator.notification.alert("Please enable Push Notification to receive reminders for expirying vouchers", function() {
@@ -3444,24 +3439,29 @@ function completeRedemption() {
                                                     autolocation1 = "1";
                                                 }else {
                                                     autolocation1 = "";
-                                                }      
-                                                homecountry = document.getElementById("selCountry").value;
-                                                residentcity = document.getElementById("selCity").value;
-                                                   emailid=emailid1;
-                                            mobilenumber=mobile1;
-                                            birthdate=date1;
-                                            magicnumber=hotelnumber1;
-                                            homecountry=homecountry1;
-                                            residentcity=residentcity1;  
-                                                
-                                                  alert(homecountry);
-                                                alert(residentcity);
-                                                   alert(emailid);
-                                            alert(mobilenumber);
-                                            alert(birthdate);
-                                            alert(magicnumber);
-                                            alert(homecountry);
-                                            alert(residentcity);
+                                                }   
+                                                if (document.getElementById("selCountry").value != "") {
+                                                    homecountry1 = document.getElementById("selCountry").value;
+                                                }else {
+                                                    homecountry1 = ""
+                                                }
+                                                if (document.getElementById("selCity").value != "") {
+                                                    residentcity1 = document.getElementById("selCity").value;
+                                                }else {
+                                                    residentcity1 = "";
+                                                }
+                                                mdate = new Date();
+                                                mdate = this.date1;
+                                                emailid = this.emailid1;
+                                                mobilenumber = this.mobile1;                                             
+                                                magicnumber = this.hotelnumber1;
+                                                homecountry = homecountry1;
+                                                residentcity = residentcity1;  
+                                                pushoffer = pushoffer1;
+                                                remindexpiry = remindexpiry1;
+                                                autolocation = autolocation1;
+                                                country = homecountry1;
+                                                city = residentcity1;
                                                 showSpin();                                                  
                                    
                                                 $.ajax({ 
@@ -3472,21 +3472,24 @@ function completeRedemption() {
                                                            url: gurl + "/updateprofile_isme.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,mobile:mobilenumber,emailid:emailid,pushoffer:pushoffer1,remindexpiry:remindexpiry1,showprofile:showprofile,image1:newimage,mdevice:mdevicestat,autolocation:autolocation1,city:residentcity,country:homecountry,birthdate:birthdate,magicnumber:magicnumber
+                                                                                    merchantcode :merchant,customerid:customer,password:password,mobile:mobilenumber,emailid:emailid,pushoffer:pushoffer1,remindexpiry:remindexpiry1,showprofile:showprofile,image1:newimage,mdevice:mdevicestat,autolocation:autolocation1,city:residentcity,country:homecountry,birthdate:mdate,magicnumber:magicnumber
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
+                                                     
                                                                if (getData.statuscode == "000") {
-                                                                   pushoffer = pushoffer1;
-                                                                   remindexpiry = remindexpiry1;
-                                                                   autolocation = autolocation1;
-                                                                   country = country1;
-                                                                   city = city1;
+                                                            
                                                                    window.localStorage.setItem("autolocation", autolocation);
                                                                    window.localStorage.setItem("pushoffer", pushoffer);
                                                                    window.localStorage.setItem("remindexpiry", remindexpiry);
-                                                                   window.localStorage.setItem("city", city);
-                                                                   window.localStorage.setItem("country", country);  
+                                                                   window.localStorage.setItem("residentcity", residentcity);
+                                                                   window.localStorage.setItem("homecountry", homecountry);  
+                                                                   window.localStorage.setItem("emailid", emailid);
+                                                                   window.localStorage.setItem("mobilenumber", mobilenumber);  
+                                                                   window.localStorage.setItem("birthdate", mdate);  
+                                                                   window.localStorage.setItem("magicnumber", magicnumber); 
+                                                                   window.localStorage.setItem("hotelmember", magicnumber); 
+                                                                
                                                                    pushSettings = {
                                                                        iOS: {
                                                                            badge: "true",
@@ -3510,7 +3513,7 @@ function completeRedemption() {
                                                                            devicecode:muuid
                                                                        }
                                                                    };
-                                                                                                                                       
+                                                                                                                            
                                                                    if (pushoffer == "1") {
                                                                        //If already registered than update registration
                                                                        currentDevice.getRegistration(function() {
@@ -5079,7 +5082,7 @@ function completeRedemption() {
     }
     
     function back1_profile() {
-        document.getElementById("name-back1").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)?  window.localStorage.getItem("customername") :"NA" ;
+        document.getElementById("name-back1").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back1").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back1").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
         document.getElementById("segment-back1").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
