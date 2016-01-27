@@ -2290,7 +2290,7 @@ tile-frame-inner
     background-color: #17ae2f;
     border-radius: 5px;
     height: 20px;
-    width: 30%; 
+    width: 1%; 
 }
 
 .progress-bar-amount-holder
@@ -2305,9 +2305,9 @@ tile-frame-inner
     text-align: left;
 }
 
-.a25-percent
+.a0-percent
 {
-    margin-left: 25%;
+    margin-left: 5%;
 }
 
 .cwhite
