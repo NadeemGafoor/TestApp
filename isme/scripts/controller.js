@@ -921,77 +921,9 @@ function completeRedemption() {
     //var options = { frequency: 1000 };  // Update every 3 seconds
     // Listen for the event and wire it to our callback function
        
-    window.sharingView = kendo.observable({
-                                                                                     
-                                              mysubmitShare: function () {
-                                                  if (ctr === 0) { 
-                                                      navigator.notification.alert("Rate 1 to 5", function() {
-                                                      }, "isme by Jumeirah", "Dismiss")   
-                                                      return;
-                                                  }
-                                                  
-                                                  if (this.txtremarks.length > 256) { 
-                                                      navigator.notification.alert("Remarks should be less than 256 characters", function() {
-                                                      }, "isme by Jumeirah", "Dismiss")   
-                                                      return;
-                                                  }
-                                                  //kendo.mobile.application.showLoading(); //show loading popup
-                                                  showSpin();
+     
 
-                                                  $.ajax({
-                                                             type: "POST",
-                                                             url: gurl + "/addRating.aspx",
-                                                             contentType: "application/json; charset=utf-8",
-                                                             data: JSON.stringify({
-                                                                                      merchantcode :merchant,customerid:shareCustomer,producttype:shareProductType,productcode:shareProductCode,notes:this.txtremarks,rating:ctr
-                                                                                  }),
-                                                             success: function (data) {
-                                                                 var getData = JSON.parse(data);
-                                                                 window.plugins.spinnerDialog.hide();
-                                                                 if (getData.statuscode == "000") {
-                                                                     navigator.notification.alert("Thank You very much for Rating  " + getData.producttype, function() {
-                                                                     }, "isme by Jumeirah", "Dismiss");   
-                                                                 }else {
-                                                                     navigator.notification.alert("Unknown Error, Cannot Publish Rating", function() {
-                                                                     }, "isme by Jumeirah", "Dismiss");   
-                                                                 }
-                                                             },
-                                                             error: function (errormsg) {
-                                                                 navigator.notification.alert("Unknown Error, Cannot Publish Rating!. Try after sometime")
-                                                                 // kendo.mobile.application.hideLoading(); //hide loading popup
-                                                                 window.plugins.spinnerDialog.hide();
-                                                             }
-                                                         });
-                                                  $("#modalviewstar").data("kendoMobileModalView").close();
-                                              },
-                                              starCounter: function(e) {                                    
-                                                  for (var i = 1;i <= 5;i++) {
-                                                      document.getElementById("d" + i).className = "detail-rate";
-                                                  }
-                                                  ctr = 0;
-                                                  var y = $(e.target).data('parameter');
-
-                                                  for (i = 1;i <= y;i++) {
-                                                      document.getElementById("d" + i).className = "detail-rate-tap";
-                                                  }
-                                                  ctr = y;
-                                              },
-                                              viewInit:    function(e) {
-                                                  document.getElementById("txtReview").value = "";
-                                                  ctr = 0;
-                                              }
-                                          });  
-
-    function mvhide() {
-        window.setTimeout(function() {
-            $("#mvwait").data("kendoMobileModalView").close();
-        }, 1000); 
-    }
-    
-    function mvshow() {
-        $("#mvwait").data("kendoMobileModalView").open();
-    }
-    
+       
     window.preLogin = kendo.observable({
                                            pin1:"",
                                            pin2:"",
@@ -1016,18 +948,7 @@ function completeRedemption() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
-                                           showDiscoveryList:function() {
-                                               mvshow();
-                                               mvhide();
-                                           },
-                                           showLogin:function() {
-                                               mvshow();
-                                               mvhide();
-                                           },
-                                           showEnrol:function() {
-                                               mvshow();
-                                               mvhide();
-                                           },
+                                         
 
                                                              
                                            showBrandPage
@@ -2157,79 +2078,22 @@ function completeRedemption() {
                                            : function () {
                                                if (!this.pin1 || !this.pin2) {
                                                    navigator.notification.alert("Invalid PIN Number", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "Club Epicure", "Dismiss");
                                                    return;
                                                }
                                                
                                                if (this.pin1 != this.pin2) {
                                                    navigator.notification.alert("PIN Numbers do not match, re-enter", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "Club Epicure", "Dismiss");
                                                    return;
                                                }
                                            
                                                showSpin();
-                                               
-                                               $.ajax({ 
-                                                          type: "POST",
-                                                          cache:false,
-                                                          async:true,
-                                                          timeout:20000,
-                                                          url: gurl + "/savePIN.aspx",
-                                                          contentType: "application/json; charset=utf-8",
-                                                          data: JSON.stringify({
-                                                                 
-                                                                  
-                                                                 
-                                                                                   merchantcode :merchant,customer:customer,token:this.pin2,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
-                                                                               }),
-                                                          success: function (data) { 
-                                                              var getData = JSON.parse(data);
-                                         
-                                                              if (getData.statuscode == "000") { //Login Successful  
-                                                                  password = getData.certificate;
-                                                                  window.localStorage.setItem("password", password); //Get and Store Certificate
-                                                                  window.localStorage.setItem("loggedin", "1");
-                                                                  navigator.notification.alert("PIN has been successfully set", function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")         
-                                                                  
-                                                                  window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                                                                                   "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                                                   "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                                                                                   'direction': 'up',
-                                                                                                                                   'href': '#views/pl-home.html'
-                                                                                                                               }), 500);
-                                                                  hideSpin(); //hide loading popup
-                                                              }else {
-                                                                  navigator.notification.alert("Cannot set PIN. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")         
-                                                                  hideSpin(); //hide loading popup
-                                                              }
-                                                          },
-                                                          error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot set PIN.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
-                                                              hideSpin(); //hide loading popup
-                                                          }
-                                                      });
+                                               createPIN(this.pin2, "0");
+                                               preLogin.set("pin1", "");
+                                               preLogin.set("pin2", ""); 
                                            },
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    
                                            requestPasswordChangeURL:
                                            function () {
                                                if (!this.username1) {
@@ -2719,7 +2583,7 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
                                                                    window.localStorage.setItem("social_message", getData.offerlist[0].itemdescription + "\n\n" + "Offer Expirying on :" + getData.offerlist[0].couponexpirydate);
                                                                    window.localStorage.setItem("social_image", getData.offerlist[0].imageurll); 
-                                                                    
+                                                                      $("#pl-tandc-accept").data("kendoMobileSwitch").check(false);
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get Reward List. " + getData.statusdesc, function() {
@@ -3224,79 +3088,6 @@ function completeRedemption() {
                                                        });
                                                 hideSpin(); //hide loading popup
                                             },
-                                            plshowAllOutlet: function (e) {
-                                                y = e.view.params.geo;
-                                                outletcode = "";
-                                                brandcode = "";
-                                          
-                                                showSpin();
-                                                
-                                                if (autolocation==="1") { //Check whether auto location enabled
-                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                        lat = position.coords.latitude;                                  
-                                                        lon = position.coords.longitude
-                                                        var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
-          
-                                                        $.getJSON(geocodingAPI, function (json) {
-                                                            if (json.status === "OK") {
-                                                                //Check result 0
-                                                                var result = json.results[0];
-                                                                for (var i = 0, len = result.address_components.length; i < len; i++) {
-                                                                    var ac = result.address_components[i];
-                                                                    if (ac.types.indexOf("locality") >= 0) {
-                                                                        geocity = ac.long_name;
-                                                                    }
-	                          
-                                                                    if (ac.types.indexOf("country") >= 0) {
-                                                                        geocountry = ac.long_name;
-                                                                    }
-                                                                }
-                                                           
-                                                                if (y==="1") {
-                                                                    geocity = "";
-                                                                }
-                                   
-                                                                pllistOutlet();
-                                                                hideSpin();
-                                                            }
-                                                        });
-                                                    }
-                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                                 //  if (err.code == "1") {
-                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                 //  } else if (err.code == "2") {
-                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                                 //  }
-                                                                                                 gpsError();
-                                                                                                 if (y==="1") {
-                                                                                                     geocity = "";
-                                                                                                 }else {
-                                                                                                     geocity = city;
-                                                                                                 }
-                                                                                                 lat = window.localStorage.getItem("lat");
-                                                                                                 lon = window.localStorage.getItem("lon");
-                                                                                                 geocountry = country;
-                                                                                               
-                                                                                                 pllistOutlet();
-                                                                                                 hideSpin();
-                                                                                             });
-                                                }else {
-                                                    if (y==="1") {
-                                                        geocity = "";
-                                                    }else {
-                                                        geocity = city;
-                                                    }
-                                                    lat = window.localStorage.getItem("lat");
-                                                    lon = window.localStorage.getItem("lon");
-                                                    geocountry = country;
-                                                
-                                                    pllistOutlet();
-                                                    hideSpin();
-                                                }
-                                            } ,
-        
-                                
-        
 
                                             showOutletOffer
                                             : function () {
@@ -3343,167 +3134,7 @@ function completeRedemption() {
                                                            }
                                                        });
                                             },
-                                            callTel:  function () {
-                                                window.open("tel:" + postLogin.outlettelephone);
-                                            },
-                                            shareOutlet:  function () {
-                                                showSpin();
-                                                $("body").data("kendoMobilePane").navigate("views/pl-socialshare.html");  
-                                                hideSpin();
-                                            },
-        
-                                    
-                                            plofferlist: function (e) {
-                                                y = e.view.params.geo;
-                                        
-                                                showSpin();
-                                                
-                                                if (autolocation==="1") {
-                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                        lat = position.coords.latitude;                                  
-                                                        lon = position.coords.longitude
-                                                        var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
-                                                         
-                                                        $.getJSON(geocodingAPI, function (json) {
-                                                            if (json.status === "OK") {
-                                                                //Check result 0
-                                                                var result = json.results[0];
-                                                                for (var i = 0, len = result.address_components.length; i < len; i++) {
-                                                                    var ac = result.address_components[i];
-                                                                    if (ac.types.indexOf("locality") >= 0) {
-                                                                        geocity = ac.long_name;
-                                                                    }
-	                          
-                                                                    if (ac.types.indexOf("country") >= 0) {
-                                                                        geocountry = ac.long_name;
-                                                                    }
-                                                                }
-                                                           
-                                                                if (y==="1") {
-                                                                    geocity = "";
-                                                                }
-                                                                pllistOffer();
-                                                                hideSpin();
-                                                            }
-                                                        });
-                                                    }
-                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                                 //  if (err.code == "1") {
-                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                 //  } else if (err.code == "2") {
-                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                                 //  }
-                                                                                                 gpsError();
-                                                                                                 if (y==="1") {
-                                                                                                     geocity = "";
-                                                                                                 }else {
-                                                                                                     geocity = city;
-                                                                                                 }
-                                                                                                 lat = window.localStorage.getItem("lat");
-                                                                                                 lon = window.localStorage.getItem("lon");
-                                                                                                 geocountry = country;
-                                                                               
-                                                                                                 pllistOffer();
-                                                                                                 hideSpin();
-                                                                                             });
-                                                }else {
-                                                    if (y==="1") {
-                                                        geocity = "";
-                                                    }else {
-                                                        geocity = city;
-                                                    }
-                                                    lat = window.localStorage.getItem("lat");
-                                                    lon = window.localStorage.getItem("lon");
-                                                    geocountry = country;
-                           
-                                                    pllistOffer();
-                                                    hideSpin();
-                                                }
-                                            },
-                                                
-                                            
-        
-                                        
-        
-                                            plofferitem
-                                            : function (e) {
-                                                offercode = e.view.params.of; //offer code for single offer inquiry
-                                                offertype = "2"; //single offer inquiry
-                                                showSpin();
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/offerList.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode == "000") {
-                                                                   document.getElementById("pl-offerdetail-div").style.display = "block";
-                                                                   //document.getElementById("pl-offer-image-large").style.background = "url(" + getData.offerlist[0].imageurll + ") no-repeat center center";
-                                                                   //document.getElementById("pl-offer-image-large").style.backgroundSize = "cover";
-                                                                   //document.getElementById("item-title").innerHTML = getData.offerlist[0].category;
-                                                                   document.getElementById("plofferimage").src = getData.offerlist[0].imageurll;  
-
-                                                                   document.getElementById("pl-ooffer-shortname").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + " </pre>";
-                                                                   document.getElementById("pl-ooffer-description").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
-                                                                   document.getElementById("pl-ooffer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
-                                                                   document.getElementById("pl-ooffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
-                                                                   postLogin.set("outlettelephone", offertelephone);
-                                                                   sharingSocialView.set("social_shortmsg", "Checkout " + getData.offerlist[0].itemname + "  \n");
-                                                                   sharingSocialView.set("social_header", getData.offerlist[0].category);
-                                                                   sharingSocialView.set("social_subject", getData.offerlist[0].itemname);
-                                                                   sharingSocialView.set("social_message", getData.offerlist[0].itemdescription);
-                                                                   sharingSocialView.set("social_image", share_image); 
-                                                                   sharingSocialView.set("social_telephone", ""); 
-                                                                   sharingSocialView.set("social_email", "");   
-                                                                   hideSpin(); //hide loading popup
-                                                               }else {
-                                                                   navigator.notification.alert("Cannot get Offer item. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer item.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
-                                            },
-        
-                                            oofferOutlet
-                                            : function () {
-                                                showSpin(); //show loading popup
-                                                
-                                                if (autolocation==="1") { 
-                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                        lat = position.coords.latitude;                                  
-                                                        lon = position.coords.longitude;
- 
-                                                        pllistOfferOutlet();
-                                                    }
-                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                                 //  if (err.code == "1") {
-                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                 //  } else if (err.code == "2") {
-                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                                 //  }
-                                                                                                 lat = window.localStorage.getItem("lat");
-                                                                                                 lon = window.localStorage.getItem("lon");
-                                                                                                  
-                                                                                                 pllistOfferOutlet();
-                                                                                             });
-                                                }else {
-                                                    lat = window.localStorage.getItem("lat");
-                                                    lon = window.localStorage.getItem("lon");
-                                                    pllistOfferOutlet();
-                                                }
-                                            },
+                         
                                            
                                             activateoffer
                                             : function (e) {
@@ -3512,7 +3143,7 @@ function completeRedemption() {
                                                     }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
-                                                writeSpin();
+                                                showSpin();
                                                 
                                                 $.ajax({ 
                                                            type: "POST",
@@ -4092,7 +3723,7 @@ function completeRedemption() {
                                                     }, "HD Rewards", "Dismiss");
                                                     return;
                                                 }
-                                                writeSpin();
+                                                showSpin();
                                              
                                                 $.ajax({ 
                                                            type: "POST",
@@ -4111,7 +3742,16 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("self-vouchername", getData.couponname);
                                                                    window.localStorage.setItem("self-authorization", getData.transactionref);
                                                                    window.localStorage.setItem("self-outletname", getData.outletname);
-                                                                   $("body").data().kendoMobilePane.navigate("views/pl-selfredeemconfirm.html");  
+                                                                      window.plugins.nativepagetransitions.slide({
+                                                                                                                  "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                  "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                  "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                  "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                                  'direction': 'up',
+                                                                                                                  'href': '#views/pl-selfredeemconfirm.html'
+                                                                                                              });
+                                             
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Unable to Redeem Voucher! " + getData.statusdesc, function() {
@@ -4187,14 +3827,346 @@ function completeRedemption() {
                                                 document.getElementById("discount-1").innerHTML = window.localStorage.getItem("self-authorization");
                                                 document.getElementById("discount-2").innerHTML = window.localStorage.getItem("self-outletname");
                                                 document.getElementById("discount-3").innerHTML = window.localStorage.getItem("self-vouchername");
-                                            }        
+                                            },
+                                            selfRedeemConfirm
+                                            : function () {
+                                                showSpin();                                                  
+                                                document.getElementById("vouchernumber").innerHTML = window.localStorage.getItem("self-vouchernumber");
+                                                document.getElementById("vouchername").innerHTML = window.localStorage.getItem("self-vouchername");
+                                                document.getElementById("outletname").innerHTML = window.localStorage.getItem("self-outletname");
+                                                document.getElementById("authcode").innerHTML = window.localStorage.getItem("self-authorization");
+                                                window.localStorage.setItem("self-vouchernumber", "");
+                                                window.localStorage.setItem("self-vouchername", "");
+                                                window.localStorage.setItem("self-authorization", "");
+                                                window.localStorage.setItem("self-outletname", "");
+                                                window.localStorage.setItem("selfredeemVouchernumber", "");
+                                                window.localStorage.setItem("redeemoffer", "")
+                                                hideSpin(); //hide loading popup
+                                            },
+                                            resetPIN:function() {
+                                                postLogin.set("srpin1", "");
+                                                postLogin.set("depin1", "");
+                                            },
+                                            getSummary
+                                            : function () {
+                                                showSpin();
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/summaryReport.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   document.getElementById("wallet-div").style.display = "block";
+                                                                   //document.getElementById("summary-1").innerHTML = getData.cashbackbalance;
+                                                                   document.getElementById("summary-2").innerHTML = getData.vouchercount;
+                                                                   document.getElementById("summary-3").innerHTML = getData.vouchercountexpiry;
+                                                                   document.getElementById("summary-4").innerHTML = getData.spendbalance;
+                                                                   // document.getElementById("summary-5").innerHTML = getData.referralbalance;
+                                                                   // document.getElementById("summary-6").innerHTML = getData.rewardpointbalance;
+                                                                   // document.getElementById("summary-7").innerHTML = getData.tierpointbalance;
+                                                                     
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc, function() {
+                                                                   }, "HD Rewards", "Dismiss")          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "HD Rewards", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
         
+                                            mywalletofferlist
+                                            : function () {
+                                                showSpin();
+                                                
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/mywalletvouchers.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   if (getData.mywalletvouchers.length > 0) {
+                                                                       $("#mywallet-voucher-list").kendoMobileListView({
+                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                                                                                           template: $("#mywallet-voucherlist-Template").html()
+                                                                                                                           // endlessScroll:true
+                                                                                                                       });
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("No Vouchers available in Wallet", function() {
+                                                                       }, "HD Rewards", "Dismiss")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot retrieve Wallet  " + getData.statusdesc, function() {
+                                                                   }, "HD Rewards", "Dismiss")          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "HD Rewards", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
         
-        
-        
-        
-        
+                                            mywalletofferdetail
+                                            : function (e) {
+                                                couponnumber = e.view.params.cpn;
+                                                showSpin();
+                                                
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/mywalletvoucherdetail.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,couponnumber:couponnumber,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode === "000") {
+                                                                   if (getData.myvoucherdetail.length > 0) {
+                                                                       document.getElementById("wallet-voucher-div").style.display = "block";
+                                                                       window.localStorage.setItem("selfredeemVouchernumber", getData.myvoucherdetail[0].itemcode);
+                                                                       document.getElementById("myvoucherdetaila").src = getData.myvoucherdetail[0].imageurll;                                                                
+                                                                       document.getElementById("voucher-number").innerHTML = getData.myvoucherdetail[0].itemcode;
+                                                                       document.getElementById("voucher-name").innerHTML = getData.myvoucherdetail[0].itemname;
+                                                                       document.getElementById("voucher-expiry").innerHTML = getData.myvoucherdetail[0].couponexpirydate;
+                                                                       document.getElementById("myoffer-description").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].itemdescription + "</pre>";
+                                                                       document.getElementById("myoffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].remark + "</pre>";
+                                                            
+                                                                       document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
+                                                                       window.localStorage.setItem("selfredeem", "M");
+                                                                       offercode = getData.myvoucherdetail[0].couponcode;
+                                                                       $("#wallet-tandc").data("kendoMobileSwitch").check(false);    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("No Vouchers available in Wallet", function() {
+                                                                       }, "HD Rewards", "Dismiss")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot retrieve Wallet " + getData.statusdesc, function() {
+                                                                   }, "HD Rewards", "Dismiss")          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "HD Rewards", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+                                            myhistorylist
+                                            : function () {
+                                                var t = document.getElementById("selCountry").value;
+                                                showSpin();
+                                             
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/archivehistory.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat,mexcl:"1"
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   if (getData.historylist.length > 0) {
+                                                                       $("#pl-history-list").kendoMobileListView({
+                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.historylist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                                                                                     template: $("#pl-historyListTemplate").html()
+                                                                                                                     //endlessScroll: true
+                                                                                                                      
+                                                                                                                 });
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("No transaction history available for your membership", function() {
+                                                                       }, "HD Rewards", "Dismiss")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot get history " + getData.statusdesc, function() {
+                                                                   }, "HD Rewards", "Dismiss")          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get history  [" + errormsg.responseText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "HD Rewards", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            }
+       
                                         });
+    
+    
+      function redeemDiscount() {
+        showSpin();
+                                             
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/discountRedemption.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,customerid:customer,password:password,emppin:this.depin1.value,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode === "000") {
+                           postLogin.set("srpin1", "");
+                           postLogin.set("depin1", "");
+                           window.localStorage.setItem("self-vouchernumber", getData.customerid);
+                           window.localStorage.setItem("self-vouchername", getData.segment);
+                           window.localStorage.setItem("self-authorization", getData.transactionref);
+                           window.localStorage.setItem("self-outletname", getData.outletname);
+                           postLogin.set("depin1", "");
+                           window.plugins.nativepagetransitions.slide({
+                                                                          "duration"         :  500, // in milliseconds (ms), default 400
+                                                                          "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                          "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                          "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                          'direction': 'up',
+                                                                          'href': '#views/pl-confirmDiscount.html'
+                                                                      });
+                                                              
+                           hideSpin(); //hide loading popup
+                       }else {
+                           navigator.notification.alert("Unable to Validate Discount ! " + getData.statusdesc, function() {
+                           }, "HD Rewards", "Dismiss")      
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("System Error, unable to Validate Discount  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "HD Rewards", "Dismiss")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
+    
+    function activateRedeemVoucher() {
+        showSpin();
+                                          
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/activateVoucherRedemption.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,customerid:customer,password:password,couponcode:"",emppin:this.depin1.value,mdevice:mdevicestat,offercode:window.localStorage.getItem("redeemoffer")   
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode === "000") {
+                           window.localStorage.setItem("self-vouchernumber", getData.couponcode);
+                           window.localStorage.setItem("self-vouchername", getData.couponname);
+                           window.localStorage.setItem("self-authorization", getData.transactionref);
+                           window.localStorage.setItem("self-outletname", getData.outletname);
+                           postLogin.set("depin1", "");
+                           window.plugins.nativepagetransitions.slide({
+                                                                          "duration"         :  500, // in milliseconds (ms), default 400
+                                                                          "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                          "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                          "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                          'direction': 'up',
+                                                                          'href': '#views/pl-confirmVoucher.html'
+                                                                      });
+                           hideSpin(); //hide loading popup
+                       }else {
+                           navigator.notification.alert("Unable to Redeem Voucher! " + getData.statusdesc, function() {
+                           }, "HD Rewards", "Dismiss")      
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("System Error, unable to Redeem Voucher  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "HD Rewards", "Dismiss")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
+    
+    function redeemVoucher() {
+        showSpin();
+                              
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/VoucherRedemption.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,customerid:customer,password:password,couponcode:window.localStorage.getItem("selfredeemVouchernumber"),emppin:this.depin1.value,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode === "000") {
+                           window.localStorage.setItem("self-vouchernumber", getData.couponcode);
+                           window.localStorage.setItem("self-vouchername", getData.couponname);
+                           window.localStorage.setItem("self-authorization", getData.transactionref);
+                           window.localStorage.setItem("self-outletname", getData.outletname);
+                           postLogin.set("depin1", "");
+                           window.plugins.nativepagetransitions.slide({
+                                                                          "duration"         :  500, // in milliseconds (ms), default 400
+                                                                          "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                          "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                          "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                          'direction': 'up',
+                                                                          'href': '#views/pl-confirmVoucher.html'
+                                                                      });
+                           hideSpin(); //hide loading popup
+                       }else {
+                           navigator.notification.alert("Unable to Redeem Voucher! " + getData.statusdesc, function() {
+                           }, "HD Rewards", "Dismiss")      
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("System Error, unable to Redeem Voucher  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "HD Rewards", "Dismiss")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
+    
     
     function createPIN(x, y) {
         $.ajax({ 
@@ -4375,15 +4347,6 @@ function completeRedemption() {
         }
     }
     
-    function writeSpin() {
-        if (!checkConnectionBool()) {
-            navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.", function() {
-            }, "isme by Jumeirah", "Dismiss");              
-            //        $("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
-        } else {
-            window.plugins.spinnerDialog.show(null, null, true); //show loading popup
-        }
-    }
     
     function checkConnectionBool () {
         var networkState = navigator.connection.type;
