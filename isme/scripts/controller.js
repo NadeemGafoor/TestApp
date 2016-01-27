@@ -921,9 +921,6 @@ function completeRedemption() {
     //var options = { frequency: 1000 };  // Update every 3 seconds
     // Listen for the event and wire it to our callback function
        
-     
-
-       
     window.preLogin = kendo.observable({
                                            pin1:"",
                                            pin2:"",
@@ -2380,7 +2377,7 @@ function completeRedemption() {
                                                 document.getElementById("pro-init").innerHTML = (window.localStorage.getItem("initdate") != null && window.localStorage.getItem("initdate").length > 0) ? "Member Since : " + window.localStorage.getItem("initdate") : "Member Since : NA";
                                                 document.getElementById("pro-expiry").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
                                                 document.getElementById("pro-hotelmember").innerHTML = (window.localStorage.getItem("hotelmember") != null && window.localStorage.getItem("hotelmember").length > 0) ? "Sirius Member : " + window.localStorage.getItem("hotelmember") : "Sirius Member : NA";
-                               
+                                                back1_profile();
                                                 if (window.localStorage.getItem("segmentcode") === "1000") {
                                                     document.getElementById("pro-type").innerHTML = "Member Type : isme Member";
                                                 }else {
@@ -2583,7 +2580,8 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
                                                                    window.localStorage.setItem("social_message", getData.offerlist[0].itemdescription + "\n\n" + "Offer Expirying on :" + getData.offerlist[0].couponexpirydate);
                                                                    window.localStorage.setItem("social_image", getData.offerlist[0].imageurll); 
-                                                                      $("#pl-tandc-accept").data("kendoMobileSwitch").check(false);
+                                                                   back2_profile();
+                                                                   $("#pl-tandc-accept").data("kendoMobileSwitch").check(false);
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get Reward List. " + getData.statusdesc, function() {
@@ -2649,7 +2647,7 @@ function completeRedemption() {
                                                 showSpin();
                                                 offercode = "";
                                                 offertype = "3";  
-                                               
+                                               back_profile();
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -2726,7 +2724,7 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("social_image", getData.outletlist[0].imageurll); 
                                                                    window.localStorage.setItem("lat", lat);
                                                                    window.localStorage.setItem("lon", lon);
-                                                              
+                                                              back2_profile();
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get location " + getData.statusdesc, function() {
@@ -2745,6 +2743,7 @@ function completeRedemption() {
                                             propertyList
                                             : function () {
                                                 window.localStorage.setItem("brandcode", "");
+                                                back_profile();
                                                 showSpin();
                                                 
                                                 $.ajax({ 
@@ -2795,6 +2794,7 @@ function completeRedemption() {
                                                 showSpin(); 
                                                 window.localStorage.setItem("brandcode", e.view.params.brand);
                                                 window.localStorage.setItem("category", e.view.params.category);
+                                                back_profile();
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -2841,6 +2841,7 @@ function completeRedemption() {
                                                 showSpin(); 
                                                 window.localStorage.setItem("brandcode", e.view.params.brand);
                                                 window.localStorage.setItem("category", e.view.params.category);
+                                                back_profile();
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -2915,7 +2916,7 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("social_image", getData.imageurll); 
                                                                    window.localStorage.setItem("lat", lat);
                                                                    window.localStorage.setItem("lon", lon);
-                                                              
+                                                              back2_profile();
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get Brand Item " + getData.statusdesc, function() {
@@ -3358,6 +3359,7 @@ function completeRedemption() {
                                                 postLogin.set("hotelnumber1", window.localStorage.getItem("hotelmember"));
                                                 document.getElementById("selCountry").value = homecountry;
                                                 document.getElementById("selCity").value = residentcity;
+                                                back1_profile();
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
                                                 }else {
@@ -3638,7 +3640,7 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode === "000") {
-                                                                   postLogin.set("setpass","");
+                                                                   postLogin.set("setpass", "");
                                                                    $("#modalviewpassword").data("kendoMobileModalView").close();
                                                                    $("#modalviewpin").data("kendoMobileModalView").open();
                                                                    hideSpin();
@@ -3742,7 +3744,7 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("self-vouchername", getData.couponname);
                                                                    window.localStorage.setItem("self-authorization", getData.transactionref);
                                                                    window.localStorage.setItem("self-outletname", getData.outletname);
-                                                                      window.plugins.nativepagetransitions.slide({
+                                                                   window.plugins.nativepagetransitions.slide({
                                                                                                                   "duration"         :  500, // in milliseconds (ms), default 400
                                                                                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
                                                                                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
@@ -4024,12 +4026,15 @@ function completeRedemption() {
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
-                                            }
+                                            },
+          showCard
+                                            : function () {
+                                                back_profile();
+                                                }
        
                                         });
     
-    
-      function redeemDiscount() {
+    function redeemDiscount() {
         showSpin();
                                              
         $.ajax({ 
@@ -4166,7 +4171,6 @@ function completeRedemption() {
                    }
                });
     }
-    
     
     function createPIN(x, y) {
         $.ajax({ 
@@ -4346,7 +4350,6 @@ function completeRedemption() {
             $("#mvwait").data("kendoMobileModalView").open();
         }
     }
-    
     
     function checkConnectionBool () {
         var networkState = navigator.connection.type;
@@ -5035,6 +5038,29 @@ function completeRedemption() {
     
     function movshow() {
         $("#mvwait").data("kendoMobileModalView").open();
+    }
+    
+    function back_profile() {
+        document.getElementById("name-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
+        document.getElementById("number-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? "Member # : " + window.localStorage.getItem("customer") : "Member # : NA";
+        document.getElementById("expiry-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+        document.getElementById("segment-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
+    }
+    
+    function back1_profile() {
+        document.getElementById("name-back1").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
+        document.getElementById("number-back1").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? "Member # : " + window.localStorage.getItem("customer") : "Member # : NA";
+        document.getElementById("expiry-back1").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+        document.getElementById("segment-back1").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
+
+    }
+    
+    function back2_profile() {
+                document.getElementById("name-back2").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
+        document.getElementById("number-back2").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? "Member # : " + window.localStorage.getItem("customer") : "Member # : NA";
+        document.getElementById("expiry-back2").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+        document.getElementById("segment-back2").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
+
     }
 }
     )(window);
