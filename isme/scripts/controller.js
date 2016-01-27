@@ -947,6 +947,15 @@ function completeRedemption() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
+                                           showConfirmation:function() {
+                                               document.getElementById("confirm-memberid").innerHTML = window.localStorage.get("newmemberid");
+                                               document.getElementById("confirm-membername").innerHTML = window.localStorage.get("newmembername");
+                                               document.getElementById("confirm-segment").innerHTML = window.localStorage.get("newmembersegment"); 
+                                               window.localStorage.set("newmemberid", "");
+                                               window.localStorage.set("newmembername", "");
+                                               window.localStorage.set("newmembersegment", "");
+                                           },
+        
                                            showEnrol:function() {
                                                showSpin();
                                                // kendo.mobile.application.showLoading(); //show loading popup
@@ -5159,50 +5168,49 @@ function completeRedemption() {
     }
     function doExecute() {
         var emirate = document.getElementById("selEmirate").value;
-        var gender  = document.getElementById("selGender").value;
-          $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/firsttime.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,firstname:this.firstname,lastname:this.lastname,mobile:this.mobile,emailid:this.emailid,emirate:emirate,gender:gender,siriusmember:this.siriusmember,mdevice:mdevicestat,segment:"1000"
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
+        var gender = document.getElementById("selGender").value;
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/firsttime.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,firstname:this.firstname,lastname:this.lastname,mobile:this.mobile,emailid:this.emailid,emirate:emirate,gender:gender,siriusmember:this.siriusmember,mdevice:mdevicestat,segment:"1000"
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
                                                      
-                                                               if (getData.statuscode === "000") {
-                                                                   window.localStorage.set("newmemberid",getData.memberid);
-                                                                   window.localStorage.set("newmemberid",getData.membername);
-                                                                   window.localStorage.set("newmemberid",getData.membersegment);
+                       if (getData.statuscode === "000") {
+                           window.localStorage.set("newmemberid", getData.memberid);
+                           window.localStorage.set("newmembername", getData.membername);
+                           window.localStorage.set("newmembersegment", getData.membersegment);
                                                                    
-                                                                     window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+                           window.plugins.nativepagetransitions.slide({
+                                                                          "duration"         :  500, // in milliseconds (ms), default 400
+                                                                          "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                          "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                          "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                       'direction': 'up',
-                                                       'href': '#views/confirmEnrol.html'
-                                                   });
-                                                               
+                                                                          'direction': 'up',
+                                                                          'href': '#views/confirmEnrol.html'
+                                                                      });
                                                               
-                                                                   hideSpin(); //hide loading popup
-                                                               }else {
-                                                                   navigator.notification.alert("Could not complete enrollment due to an error.  " + getData.statusdesc + ". Please try again.", function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Could not complete enrollment.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
-                                                hideSpin(); //hide loading popup
+                           hideSpin(); //hide loading popup
+                       }else {
+                           navigator.notification.alert("Could not complete enrollment due to an error.  " + getData.statusdesc + ". Please try again.", function() {
+                           }, "isme by Jumeirah", "Dismiss")          
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (error) {
+                       navigator.notification.alert("Unknown Error, Could not complete enrollment.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "isme by Jumeirah", "Dismiss")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+        hideSpin(); //hide loading popup
     }
     function doExit() {
         return;
