@@ -3220,7 +3220,7 @@ function completeRedemption() {
                                            
                                             activateoffer
                                             : function (e) {
-                                                if (!document.getElementById("pl-andc-accept").checked) {
+                                                if (!document.getElementById("pl-tandc-accept").checked) {
                                                     navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
                                                     }, "isme by Jumeirah", "Dismiss");
                                                     return;
