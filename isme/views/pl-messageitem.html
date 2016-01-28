@@ -1,22 +1,28 @@
-<div data-role="view" data-title="Message Detail" data-layout="pl-back1-layout" id="messageitem-theme">
-
-
-    <div data-role="navbar" style="background-color:#7e6b6d">
-        <a data-transition="slide"   data-role="button"  data-align="right" style="border:0px solid #000 !important">
-            <i class="fa fa-trash fa-lg" style="color:#fff"></i>
-        </a>
-    </div>
-    <ul data-role="listview" id="pl-messageitem-list">
-        <div class="li-alignment-div">
-            <li>
-
-                <div class="msg-outer-frame" style="height:auto" >
-                    <div class="msg-date-frame-line">Redeem Voucher - 10 DEC</div>
-                    <div class="msg-narration-frame" id="msgnarration" style="width:100%">Free BOGF offer from Jumeirah Latitude. Free BOGF offer from Jumeirah Latitude. Free BOGF offer from Jumeirah Latitude. Free BOGF offer from Jumeirah Latitude. </div>
-                </div>
-
-            </li>
+<div data-role="view" data-title="Message Detail" data-layout="pl-back5-layout" id="messageitem-theme" data-show="postLogin.mymessageitem">
+   <div data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title"></span>
+              <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff"></a>
+             <a data-transition="slide"   data-role="button"  data-bind="click: deleteMessage" data-align="right" >
+                <i class="fa fa-trash fa-lg" style="color:#fff"></i></a>
         </div>
+    </div>
+
+       <ul data-role="listview" style="margin-top:10px;display:none" id="pl-messageitem-list">
+        <li>
+
+            <div class="msg-outer-frame" style="height:10em" >
+                <div class="msg-date-frame-outer">
+                 
+                        <div class="msg-date-frame-inner-1"><div class="msg-date-text  msgfont" id="msgday"></div></div>
+
+                     <div class="msg-date-frame-inner-2"><div class="msg-date-text  msgfont" id="msgmonth"></div></div>
+                </div>
+                <div class="msg-narration-frame" id="msgnarration" style="width:75%"></div>
+         
+            </div>
+
+        </li>
     </ul>
 </div>
 
