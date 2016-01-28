@@ -1409,10 +1409,10 @@
         </script>
 
         <script type="text/x-kendo-template" id="pl-messageListTemplate">
-          <a data-transition="slide:up"   href="views/pl-messageitem.html?mi=${sequence}" data-role="button" >
+          <a data-transition="slide:up"   href="views/pl-messageitem.html?mi=${sequence}" data-role="button" style="border:none;background:transparent !important">
             <div class="msg-outer-frame" >
-                <div class="msg-date-frame-line">${mday}  ${mmonth}C</div>
-                <div class="msg-narration-frame">
+                <div class="msg-date-frame-line">${mday}  ${mmonth}</div>
+                <div class="msg-narration-frame" style="width:90%">
                     ${narration120}&nbsp;
                 </div>
                 <div class="msg-action-frame-outer">

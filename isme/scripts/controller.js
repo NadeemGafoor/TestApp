@@ -3069,108 +3069,9 @@ function completeRedemption() {
                                                 document.getElementById("mycardid").innerHTML = customer.substring(0, 3) + " " + customer.substring(3, 6) + " " + customer.substring(6, 9);
                                                 document.getElementById("mycardexpiry").innerHTML = "EXP. " + memberexpiry;
                                                 //  document.getElementById("mycardimage").style.backgroundSize = "cover";
-                                            },
-          
-                                            mymessagelist
-                                            : function () {
-                                                t = "";
-                                                // alert(merchant);
-                                                // alert(customer);
-                                                // alert(password);
-                                                // alert(mdevicestat);
-                                                showSpin();
-                                             
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/archivehistory.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                        
-                                                               if (getData.statuscode == "000") {
-                                                                   if (getData.historylist.length > 0) {
-                                                                       $("#pl-message-list").kendoMobileListView({
-                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.historylist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                                                     template: $("#pl-messsageListTemplate").html(),
-                                                                           
-                                                                                                                     filterable: {
-                                                                               autoFilter: true,
-                                                                               placeholder:"Search By Message",                                         
-                                                                               field: "narration",
-                                                                               operator: "contains"
-                                                                           }
-                                                                                                                     //endlessScroll: true
-                                                                                                                      
-                                                                                                                 });
-                                                                   }else {
-                                                                       navigator.notification.alert("No message history for your Membership", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Cannot get message history. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
-                                                               }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get message history.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
-                                                           }
-                                                       });
-                                                hideSpin(); //hide loading popup
-                                            },
+                                            }
         
-                                            mymessageitem
-                                            : function (e) {
-                                                t = e.view.params.mi;
-                                                showSpin(); 
-                                                // alert(merchant);
-                                                // alert(customer);
-                                                // alert(password);
-                                                // alert(mdevicestat);
-                                                // showSpin();
-                                             
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/messageitem.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                  
-                                                               if (getData.statuscode == "000") {
-                                                                   if (getData.messageitem.length > 0) {
-                                                                       document.getElementById("pl-messageitem-list").style.display = "block";
-                                                                       document.getElementById("msgnarration").innerHTML = getData.messageitem[0].narration;
-                                                                       document.getElementById("msgmonth").innerHTML = getData.messageitem[0].mmonth;
-                                                                       document.getElementById("msgday").innerHTML = getData.messageitem[0].mday;
-                                                                       postLogin.set("msgsequence", getData.messageitem[0].sequence);
-                                                                   }else {
-                                                                       navigator.notification.alert("No message available for your Membership", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Cannot get message item. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
-                                                               }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get message item.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
-                                                           }
-                                                       });
-                                                hideSpin(); //hide loading popup
-                                            },
+                                         ,
 
                                             showOutletOffer
                                             : function () {
@@ -4061,7 +3962,7 @@ function completeRedemption() {
                                                 // alert(password);
                                                 // alert(mdevicestat);
                                                 showSpin();
-                                             
+                                                back1_profile();
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4076,10 +3977,11 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
                                         
                                                                if (getData.statuscode == "000") {
+                                                                  
                                                                    if (getData.historylist.length > 0) {
-                                                                       $("#pl-history-list").kendoMobileListView({
+                                                                       $("#pl-message-list").kendoMobileListView({
                                                                                                                      dataSource: kendo.data.DataSource.create({data: getData.historylist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                                                     template: $("#pl-historyListTemplate").html(),
+                                                                                                                     template: $("#pl-messageListTemplate").html(),
                                                                            
                                                                                                                      filterable: {
                                                                                autoFilter: true,
@@ -4134,8 +4036,7 @@ function completeRedemption() {
                                                                    if (getData.messageitem.length > 0) {
                                                                        document.getElementById("pl-messageitem-list").style.display = "block";
                                                                        document.getElementById("msgnarration").innerHTML = getData.messageitem[0].narration;
-                                                                       document.getElementById("msgmonth").innerHTML = getData.messageitem[0].mmonth;
-                                                                       document.getElementById("msgday").innerHTML = getData.messageitem[0].mday;
+                                                                       document.getElementById("msgday").innerHTML = getData.messageitem[0].mday + " " + getData.messageitem[0].mmonth;
                                                                        postLogin.set("msgsequence", getData.messageitem[0].sequence);
                                                                    }else {
                                                                        navigator.notification.alert("No message available for your Membership", function() {

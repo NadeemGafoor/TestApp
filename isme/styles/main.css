@@ -1643,6 +1643,7 @@ tile-frame-inner
     margin: 5px;
     text-align: justify;
     color: #000;
+    font-size:90%;
 }
 
 .msg-action-frame-outer
@@ -1655,14 +1656,11 @@ tile-frame-inner
 
 .msg-action-frame-inner-1
 {
-    height: 3em;
-    position: relative;
-    float: none;
+    height: auto;
     width: 100%;
     display: block;
-    text-align: right;
-    margin-left: .5em;
-}
+    margin: 20px  auto auto 5px;
+    }
 
 .msg-action-frame-inner-2
 {
@@ -2439,4 +2437,9 @@ tile-frame-inner
 .border-bot{
     border-bottom:1px #ccc solid;
     width:100%;
+}
+
+.padder{
+    width:80%;
+    margin-left:10%;
 }

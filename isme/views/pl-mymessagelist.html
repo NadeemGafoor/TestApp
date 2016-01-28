@@ -1,14 +1,16 @@
-<div data-role="view" data-title="My Messages" data-layout="pl-back5-layout" id="mymessagelist-theme" data-model="postLogin" data-show="postLogin.mymessagelist">
-    <div data-role="header">
-        <div data-role="navbar">
-            <span data-role="view-title"></span>
-              <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff"></a>
-        </div>
-    </div>
+<div data-role="view" data-title="My Messages" data-layout="pl-back1-layout" id="mymessagelist-theme" data-model="postLogin" data-show="postLogin.mymessagelist" data-hide="destroyListView">
+    
     <ul data-role="listview" id="pl-message-list">
        
     </ul>
 
 </div>
+<script>
 
-
+function destroyListView() {
+    var listView = $("#pl-message-list").data("kendoMobileListView");
+    // detach events
+    listView.destroy();
+}
+    
+    </script>

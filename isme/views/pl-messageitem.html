@@ -9,30 +9,16 @@
     </div>
 
        <ul data-role="listview" style="margin-top:10px;display:none" id="pl-messageitem-list">
-        <li>
+           
+              <div class="msg-outer-frame-a padder" >
+                <div class="msg-date-frame-line" id="msgday"></div>
+                <div class="msg-narration-frame" id="msgnarration">
+                    ${narration}
 
-            <div class="msg-outer-frame" style="height:10em" >
-                <div class="msg-date-frame-outer">
-                 
-                        <div class="msg-date-frame-inner-1"><div class="msg-date-text  msgfont" id="msgday"></div></div>
-
-                     <div class="msg-date-frame-inner-2"><div class="msg-date-text  msgfont" id="msgmonth"></div></div>
                 </div>
-                <div class="msg-narration-frame" id="msgnarration" style="width:75%"></div>
-         
+            <div class="border-bot"></div>
             </div>
-
-        </li>
+       
     </ul>
 </div>
 
-<style scope>
-     
-     
-   #messageitem-theme .li-alignment-div
-    {
-        width: 90%;
-        margin-left: 5%; 
-        line-height: 1.5em;
-    }
-    </style>
