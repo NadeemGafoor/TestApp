@@ -5051,6 +5051,7 @@ function completeRedemption() {
     }
     
     function back_profile() {
+        alert(window.localStorage.getItem("memberexpiry"));
         window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -5059,6 +5060,7 @@ function completeRedemption() {
     }
     
     function back1_profile() {
+                alert(window.localStorage.getItem("memberexpiry"));
         window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back1").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back1").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -5067,6 +5069,7 @@ function completeRedemption() {
     }
     
     function back2_profile() {
+                alert(window.localStorage.getItem("memberexpiry"));
         window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back2").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back2").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
