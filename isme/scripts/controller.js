@@ -5194,7 +5194,8 @@ function completeRedemption() {
         document.getElementById("expiry-back2").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
         document.getElementById("segment-back2").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
     }
-  
+    
+     
     function onConfirm1 (buttonIndex) {
         if (buttonIndex===1) {
             doExecute();
