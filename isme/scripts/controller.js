@@ -5151,15 +5151,6 @@ function completeRedemption() {
         return data;
     }
     
-    function movhide() {
-        window.setTimeout(function() {
-            $("#mvwait").data("kendoMobileModalView").close();
-        }, 1000); 
-    }
-    
-    function movshow() {
-        $("#mvwait").data("kendoMobileModalView").open();
-    }
     
     function back_profile() {
           window.localStorage.setItem("selfredeem", "D"); 
@@ -5170,7 +5161,7 @@ function completeRedemption() {
     }
     
     function back1_profile() {
-          window.localStorage.setItem("selfredeem", "D"); 
+        window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back1").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back1").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back1").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
