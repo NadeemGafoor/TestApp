@@ -1,9 +1,9 @@
-<div data-role="view" data-title="Message Detail" data-layout="pl-back5-layout" id="messageitem-theme" data-show="postLogin.mymessageitem" data-hide="doOneBack">
+<div data-role="view" data-title="Message Detail" data-layout="pl-back5-layout" id="messageitem-theme" data-show="postLogin.mymessageitem" data-hide="doOneBack" data-model="postLogin">
    <div data-role="header">
         <div data-role="navbar">
             <span data-role="view-title"></span>
-              <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff"></a>
-             <a data-transition="slide"   data-role="button"  data-bind="click: deleteMessage" data-align="right" >
+              <a  data-role="button" data-align="left" data-icon="back" data-transition="slide:left" href="views/pl-mymessagelist.html"></a>
+             <a  data-role="button"  data-bind="click: deleteMessage" data-align="right" >
                 <i class="fa fa-trash fa-lg" style="color:#fff"></i></a>
         </div>
     </div>

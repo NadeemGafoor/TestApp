@@ -2433,6 +2433,7 @@ function completeRedemption() {
                                             srpin1:"",
                                             depin1:"",
                                             setpass:"",
+         msgsequence:"",
         
                                             loadPLDetails
                                             :function() {
@@ -3324,39 +3325,6 @@ function completeRedemption() {
                                                     myOfferListOutlet();
                                                 }
                                             },
-                                            deleteMessage
-                                            :
-                                            function () {
-                                                t = postLogin.msgsequence;
-         
-                                                showSpin(); 
-                                             
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/messagedelete.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode == "000") {
-                                                                   $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");  
-                                                               }else {
-                                                                   navigator.notification.alert("Cannot delete message. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
-                                                               }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot delete message. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
-                                                           }
-                                                       });
-                                                hideSpin(); //hide loading popup
-                                            },
         
                                             editsettingdata
                                             :function() {
@@ -3981,14 +3949,7 @@ function completeRedemption() {
                                                                    if (getData.historylist.length > 0) {
                                                                        $("#pl-message-list").kendoMobileListView({
                                                                                                                      dataSource: kendo.data.DataSource.create({data: getData.historylist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                                                     template: $("#pl-messageListTemplate").html(),
-                                                                           
-                                                                                                                     filterable: {
-                                                                               autoFilter: true,
-                                                                               placeholder:"Search By Message",                                         
-                                                                               field: "narration",
-                                                                               operator: "contains"
-                                                                           }
+                                                                                                                     template: $("#pl-messageListTemplate").html()
                                                                                                                      //endlessScroll: true
                                                                                                                       
                                                                                                                  });
@@ -4007,9 +3968,6 @@ function completeRedemption() {
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
-                                            },
-         destroymymessages:function() {
-                                                $("#mymessagelist-theme").remove();
                                             },
         
                                             mymessageitem
@@ -4057,6 +4015,39 @@ function completeRedemption() {
                                                        });
                                                 hideSpin(); //hide loading popup
                                             },
+                                            deleteMessage
+                                            :
+                                            function () {
+                                                t = postLogin.msgsequence;
+                                              
+                                                showSpin(); 
+                                             
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/messagedelete.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");  
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot delete message. " + getData.statusdesc, function() {
+                                                                   }, "IHG® Dining Rewards", "Dismiss")          
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot delete message. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "IHG® Dining Rewards", "Dismiss")
+                                                           }
+                                                       });
+                                                hideSpin(); //hide loading popup
+                                            }
        
                                         });
     
