@@ -3371,7 +3371,7 @@ function completeRedemption() {
                                                                        document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
                                                                        window.localStorage.setItem("selfredeem", "M");
                                                                        offercode = getData.myvoucherdetail[0].couponcode;
-                                                                       back_profile();
+                                                                       back2_profile();
                                                                        $("#wallet-tandc").data("kendoMobileSwitch").check(false);    
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
