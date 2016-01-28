@@ -1397,22 +1397,22 @@
         </script>
 
         <script type="text/x-kendo-template" id="pl-historyListTemplate">
-            <div class="msg-outer-frame-a" style="width:100%" >
+            <div class="msg-outer-frame-a">
                 <div class="msg-date-frame-line">${transactiontype} - ${transactiondate}</div>
                 <div class="msg-narration-frame">
                     ${narration}
 
                 </div>
-
+            <div class="border-bot"></div>
             </div>
-            <hr/>
+           
         </script>
 
         <script type="text/x-kendo-template" id="pl-messageListTemplate">
           <a data-transition="slide:up"   href="views/pl-messageitem.html?mi=${sequence}" data-role="button" >
             <div class="msg-outer-frame" >
                 <div class="msg-date-frame-line">${mday}  ${mmonth}C</div>
-                <div class="msg-narration-frame" style="margin-top:.2em">
+                <div class="msg-narration-frame">
                     ${narration120}&nbsp;
                 </div>
                 <div class="msg-action-frame-outer">
@@ -1420,9 +1420,9 @@
                         <i class="fa fa-circle fa-lg dotcolor"></i>
                     </div>
                 </div>
+            <div class="border-bot"></div>
             </div>
         </a>
-            <hr/>
         </script>
 
     </body>
