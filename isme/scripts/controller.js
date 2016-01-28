@@ -1000,11 +1000,11 @@ function completeRedemption() {
                                                    return;
                                                }
                                                
-                                               if (this.mobile.value.substring(0,0)==="0") {
-                                                   navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
-                                                   }, "Club Epicure", "Dismiss");
-                                                   return;
-                                               }
+                                            //   if (this.mobile.value.substring(0,0)==="0") {
+                                            //       navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
+                                            //       }, "Club Epicure", "Dismiss");
+                                            //       return;
+                                             //  }
                                                
                                                
                                                if (document.getElementById("selGender").value === "") {
@@ -3500,11 +3500,11 @@ function completeRedemption() {
                                                    return;
                                                }
                                                
-                                               if (this.mobile1.value.substring(0,0)==="0") {
-                                                   navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
-                                                   }, "Club Epicure", "Dismiss");
-                                                   return;
-                                               }
+                                            //   if (this.mobile1.value.substring(0,0)==="0") {
+                                            //       navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
+                                            //       }, "Club Epicure", "Dismiss");
+                                            //       return;
+                                            //   }
                                                
                                              
                                                 if (document.getElementById("selCountry").value == "") {
