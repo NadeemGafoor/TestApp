@@ -4053,57 +4053,7 @@ function completeRedemption() {
                                                        });
                                             },
         
-                                            mywalletofferdetail
-                                            : function (e) {
-                                                couponnumber = e.view.params.cpn;
-                                                showSpin();
-                                                
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/mywalletvoucherdetail.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,couponnumber:couponnumber,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode === "000") {
-                                                                   if (getData.myvoucherdetail.length > 0) {
-                                                                       document.getElementById("wallet-voucher-div").style.display = "block";
-                                                                       window.localStorage.setItem("selfredeemVouchernumber", getData.myvoucherdetail[0].itemcode);
-                                                                       document.getElementById("myvoucherdetaila").src = getData.myvoucherdetail[0].imageurll;                                                                
-                                                                       document.getElementById("voucher-number").innerHTML = getData.myvoucherdetail[0].itemcode;
-                                                                       document.getElementById("voucher-name").innerHTML = getData.myvoucherdetail[0].itemname;
-                                                                       document.getElementById("voucher-expiry").innerHTML = getData.myvoucherdetail[0].couponexpirydate;
-                                                                       document.getElementById("myoffer-description").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].itemdescription + "</pre>";
-                                                                       document.getElementById("myoffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].remark + "</pre>";
-                                                            
-                                                                       document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
-                                                                       window.localStorage.setItem("selfredeem", "M");
-                                                                       offercode = getData.myvoucherdetail[0].couponcode;
-                                                                       $("#wallet-tandc").data("kendoMobileSwitch").check(false);    
-                                                                       hideSpin(); //hide loading popup
-                                                                   }else {
-                                                                       navigator.notification.alert("No Vouchers available in Wallet", function() {
-                                                                       }, "HD Rewards", "Dismiss")    
-                                                                       hideSpin(); //hide loading popup
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Cannot retrieve Wallet " + getData.statusdesc, function() {
-                                                                   }, "HD Rewards", "Dismiss")          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "HD Rewards", "Dismiss")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
-                                            },
+                                         
                                             myhistorylist
                                             : function () {
                                                 var t = "";//document.getElementById("selCountry").value;
