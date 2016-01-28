@@ -1313,9 +1313,9 @@ li
   
 .qr-image
 {
-    background: url(../images/qr.png) no-repeat center center;
-    height: 125px;
-    width: 125px; 
+  
+    height: 150px;
+    width: 150px; 
     background-size: 100%;
     margin: .5em auto;
     display: block;
@@ -1324,7 +1324,7 @@ li
     
 .qr-image-sep
 {
-    height: 125px;
+    height: 150px;
     position: relative; 
     float: none;
 }

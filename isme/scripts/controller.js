@@ -261,6 +261,7 @@ function closeFAQView() {
 }
 
 function enterPinForRedemption() {
+      window.localStorage.setItem("selfredeem", "D"); 
     $("#modalviewenterpin").data("kendoMobileModalView").open(); 
 }
 
@@ -3286,7 +3287,7 @@ function completeRedemption() {
                                                     }, "Club Epicure", "Dismiss");
                                                     return;
                                                 }
-                                                window.localStorage.setItem("selfredeem", "V"); 
+                                                window.localStorage.setItem("selfredeem", "M"); 
                                                 $("#modalviewenterpin").data("kendoMobileModalView").open(); 
                                             },
         
@@ -3344,7 +3345,7 @@ function completeRedemption() {
                                             : function (e) {
                                                 couponnumber = e.view.params.cpn;
                                                 showSpin();
-                                                
+                                                   back2_profile();
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3371,7 +3372,7 @@ function completeRedemption() {
                                                                        document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
                                                                        window.localStorage.setItem("selfredeem", "M");
                                                                        offercode = getData.myvoucherdetail[0].couponcode;
-                                                                       back2_profile();
+                                                                    
                                                                        $("#wallet-tandc").data("kendoMobileSwitch").check(false);    
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
@@ -4150,8 +4151,7 @@ function completeRedemption() {
     }
     
     function redeemVoucher() {
-        showSpin();
-                              
+       
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -4177,7 +4177,7 @@ function completeRedemption() {
                                                                           "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                                           'direction': 'up',
-                                                                          'href': '#views/pl-confirmVoucher.html'
+                                                                          'href': '#views/pl-confirmvoucher.html'
                                                                       });
                            hideSpin(); //hide loading popup
                        }else {
