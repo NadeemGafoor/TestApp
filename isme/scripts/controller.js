@@ -2874,7 +2874,7 @@ function completeRedemption() {
                                             showAllOutlet
                                             : function (e) {
                                                 showSpin(); 
-                                                window.localStorage.setItem("brandcode", e.view.params.brand);
+                                                //window.localStorage.setItem("brandcode", e.view.params.brand);
                                                 window.localStorage.setItem("category", e.view.params.category);
                                                 back_profile();
                                                 $.ajax({ 
@@ -2889,7 +2889,7 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
-                                                            
+                                                               window.localStorage.setItem("brandcode","");
                                                                if (getData.statuscode === "000") {
                                                                    if (getData.outletlist.length > 0) {
                                                                        //fill the outlet template
@@ -2921,7 +2921,7 @@ function completeRedemption() {
                                             showAllLeisure
                                             : function (e) {
                                                 showSpin(); 
-                                                window.localStorage.setItem("brandcode", e.view.params.brand);
+                                                //window.localStorage.setItem("brandcode", e.view.params.brand);
                                                 window.localStorage.setItem("category", e.view.params.category);
                                                 back_profile();
                                                 $.ajax({ 
@@ -2936,7 +2936,7 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
-                                                            
+                                                                                                                           window.localStorage.setItem("brandcode","");
                                                                if (getData.statuscode === "000") {
                                                                    if (getData.outletlist.length > 0) {
                                                                        //fill the outlet template
