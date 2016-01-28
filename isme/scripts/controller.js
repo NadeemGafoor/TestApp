@@ -3095,9 +3095,9 @@ function completeRedemption() {
                                         
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.historylist.length > 0) {
-                                                                       $("#pl-history-list").kendoMobileListView({
+                                                                       $("#pl-message-list").kendoMobileListView({
                                                                                                                      dataSource: kendo.data.DataSource.create({data: getData.historylist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                                                     template: $("#pl-historyListTemplate").html(),
+                                                                                                                     template: $("#pl-messsageListTemplate").html(),
                                                                            
                                                                                                                      filterable: {
                                                                                autoFilter: true,
