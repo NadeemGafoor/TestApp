@@ -1456,6 +1456,7 @@ li
     position: relative;
     float: left;
     color: #000;
+    font-size:80%
 }
     
 .mycard-detail-holder-data
@@ -1464,10 +1465,10 @@ li
     width: 60%;
     height: 1.5em;
     line-height: 1.5em;
-    font-weight: bold;
-    position: relative;
+     position: relative;
     float: left;
     color: #000; 
+       font-size:80%
 }
 
 #mycardimage .mycard-name
