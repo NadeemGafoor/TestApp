@@ -3269,6 +3269,25 @@ function completeRedemption() {
                                                            }
                                                        });
                                             }, 
+           activateAndRedeem
+                                            : function () {
+                                                if (!document.getElementById("pl-tandc-accept").checked) {
+                                                    navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
+                                                    }, "Club Epicure", "Dismiss");
+                                                    return;
+                                                }
+                                                $("#modalviewenterpin").data("kendoMobileModalView").open(); 
+                                            },
+                                            walletRedeem
+                                            : function () {
+                                                if (!document.getElementById("wallet-tandc").checked) {
+                                                    navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
+                                                    }, "Club Epicure", "Dismiss");
+                                                    return;
+                                                }
+                                                $("#modalviewenterpin").data("kendoMobileModalView").open(); 
+                                            },
+        
         
                                             confirmIssueResponse
                                             :function() {
