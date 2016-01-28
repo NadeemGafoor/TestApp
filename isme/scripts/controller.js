@@ -1141,7 +1141,7 @@ function completeRedemption() {
                                                showSpin(); 
                                                //window.localStorage.setItem("brandcode", e.view.params.brand);
                                                window.localStorage.setItem("category", e.view.params.category);
-                                               alert(window.localStorage.getItem("brandcode"));
+                                               //alert(window.localStorage.getItem("brandcode"));
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1156,19 +1156,18 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                             
                                                               if (getData.statuscode === "000") {
-                                                                  if (getData.outletlist.length > 0) {
-                                                                      //fill the outlet template
+                                                                  if (getData.outletlist.length = 0) {
+                                                              
+                                                                      navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                                    //fill the outlet template
                                                                       $("#outlet-list").kendoMobileListView({
                                                                              
                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                                 template: $("#outletTemplate").html()
                                                                                                             });
-                                                                      hideSpin(); //hide loading popup
-                                                                  }else {
-                                                                      navigator.notification.alert("No locations exists for the selected property", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
-                                                                      hideSpin(); //hide loading popup
-                                                                  }
                                                               }else {
                                                                   navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -1188,7 +1187,7 @@ function completeRedemption() {
                                                showSpin(); 
                                                //window.localStorage.setItem("brandcode", e.view.params.brand);
                                                window.localStorage.setItem("category", e.view.params.category);
-                                               alert(window.localStorage.getItem("brandcode"));
+                                               //alert(window.localStorage.getItem("brandcode"));
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1203,19 +1202,18 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                             
                                                               if (getData.statuscode === "000") {
-                                                                  if (getData.outletlist.length > 0) {
+                                                                  if (getData.outletlist.length = 0) {
+
+                                                                      navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
                                                                       //fill the outlet template
                                                                       $("#leisure-list").kendoMobileListView({
                                                                              
                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                                  template: $("#leisureTemplate").html()
                                                                                                              });
-                                                                      hideSpin(); //hide loading popup
-                                                                  }else {
-                                                                      navigator.notification.alert("No locations exists for the selected property", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
-                                                                      hideSpin(); //hide loading popup
-                                                                  }
                                                               }else {
                                                                   navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -2878,7 +2876,7 @@ function completeRedemption() {
                                                 showSpin(); 
                                                 //window.localStorage.setItem("brandcode", e.view.params.brand);
                                                 window.localStorage.setItem("category", e.view.params.category);
-                                                alert(window.localStorage.getItem("brandcode"));
+                                                //alert(window.localStorage.getItem("brandcode"));
                                                 back_profile();
                                                 $.ajax({ 
                                                            type: "POST",
@@ -2894,19 +2892,19 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
                                                                window.localStorage.setItem("brandcode","");
                                                                if (getData.statuscode === "000") {
-                                                                   if (getData.outletlist.length > 0) {
-                                                                       //fill the outlet template
+                                                                   if (getData.outletlist.length = 0) {
+                                       
+                                                                       navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                                        //fill the outlet template
                                                                        $("#pl-outlet-list").kendoMobileListView({
                                                                              
                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                                     template: $("#pl-outletTemplate").html()
                                                                                                                 });
                                                                        hideSpin(); //hide loading popup
-                                                                   }else {
-                                                                       navigator.notification.alert("No locations exists for the selected property", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
-                                                                       hideSpin(); //hide loading popup
-                                                                   }
                                                                }else {
                                                                    navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
@@ -2942,19 +2940,19 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
                                                                                                                            window.localStorage.setItem("brandcode","");
                                                                if (getData.statuscode === "000") {
-                                                                   if (getData.outletlist.length > 0) {
-                                                                       //fill the outlet template
+                                                                   if (getData.outletlist.length = 0) {
+                                                     
+                                                                       navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                                     //fill the outlet template
                                                                        $("#pl-leisure-list").kendoMobileListView({
                                                                              
                                                                                                                      dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                                      template: $("#pl-leisureTemplate").html()
                                                                                                                  });
                                                                        hideSpin(); //hide loading popup
-                                                                   }else {
-                                                                       navigator.notification.alert("No locations exists for the selected property", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
-                                                                       hideSpin(); //hide loading popup
-                                                                   }
                                                                }else {
                                                                    navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          

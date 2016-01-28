@@ -1103,18 +1103,6 @@ li
     margin-right: 5px;
 }
 
-[class^="icon-"]:before, [class*=" icon-"]:before
-{
-    font-family: "fontello";
-    font-style: normal;
-    font-weight: normal;
-    speak: none;
-    color: #85aaef;
-    display: inline-block;
-    text-decoration: inherit;
-
-    font-size: 2em;
-}
 
 #pl-home-view .name-plate
 {
@@ -1456,7 +1444,7 @@ li
     position: relative;
     float: left;
     color: #000;
-    font-size:80%
+    font-size:90%
 }
     
 .mycard-detail-holder-data
@@ -1468,7 +1456,7 @@ li
      position: relative;
     float: left;
     color: #000; 
-       font-size:80%
+       font-size:90%
 }
 
 #mycardimage .mycard-name
@@ -2302,7 +2290,7 @@ tile-frame-inner
     border-radius: 5px;
     height: 25px;
     line-height: 25px;
-    font-size: .8em;
+    font-size: 80%;
     text-align: left;
 }
 
