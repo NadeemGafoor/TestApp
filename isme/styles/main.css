@@ -1905,6 +1905,7 @@ tile-frame-inner
     text-align: justify !important;
     text-justify: inter-word;
     margin-left: 2%; 
+    font-size:90%;
 }
 
 .expiry-text
@@ -1918,6 +1919,7 @@ tile-frame-inner
     margin-top: 0px;
     height: 25px !important;
     line-height: 25px !important;
+    font-size:90%;
 }
 
 .detail-text
@@ -1942,6 +1944,7 @@ tile-frame-inner
     text-align: left;
     height: 100%;
     line-height: 5px;
+    font-size:90%
 }
 
 .general-text-line

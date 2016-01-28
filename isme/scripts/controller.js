@@ -261,7 +261,7 @@ function closeFAQView() {
 }
 
 function enterPinForRedemption() {
-      window.localStorage.setItem("selfredeem", "D"); 
+    window.localStorage.setItem("selfredeem", "D"); 
     $("#modalviewenterpin").data("kendoMobileModalView").open(); 
 }
 
@@ -949,7 +949,6 @@ function completeRedemption() {
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
                                            showConfirmation:function() {
-                                             
                                                document.getElementById("confirm-memberid").innerHTML = window.localStorage.getItem("newmemberid");
                                                document.getElementById("confirm-membername").innerHTML = window.localStorage.getItem("newmembername");
                                                document.getElementById("confirm-segment").innerHTML = window.localStorage.getItem("newmembersegment"); 
@@ -995,18 +994,17 @@ function completeRedemption() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return; 
                                                }
-                                                    if (this.emailid != this.emailida) {
+                                               if (this.emailid != this.emailida) {
                                                    navigator.notification.alert("Email ID do not match, re-enter", function() {
                                                    }, "Club Epicure", "Dismiss");
                                                    return;
                                                }
                                                
-                                            //   if (this.mobile.value.substring(0,0)==="0") {
-                                            //       navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
-                                            //       }, "Club Epicure", "Dismiss");
-                                            //       return;
-                                             //  }
-                                               
+                                               //   if (this.mobile.value.substring(0,0)==="0") {
+                                               //       navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
+                                               //       }, "Club Epicure", "Dismiss");
+                                               //       return;
+                                               //  }
                                                
                                                if (document.getElementById("selGender").value === "") {
                                                    navigator.notification.alert("Select Gender", function() {
@@ -1156,18 +1154,19 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                             
                                                               if (getData.statuscode === "000") {
-                                                                  if (getData.outletlist.length = 0) {
-                                                              
+                                                      
+                                                                   //fill the outlet template
+                                                                  $("#outlet-list").kendoMobileListView({
+                                                                             
+                                                                                                            dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                            template: $("#outletTemplate").html()
+                                                                                                        });
+                                                                   hideSpin(); //hide loading popup
+                                                                  if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("No locations exists for the selected property", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
-                                                                    //fill the outlet template
-                                                                      $("#outlet-list").kendoMobileListView({
-                                                                             
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                                template: $("#outletTemplate").html()
-                                                                                                            });
                                                               }else {
                                                                   navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -1202,18 +1201,19 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                             
                                                               if (getData.statuscode === "000") {
-                                                                  if (getData.outletlist.length = 0) {
-
+                                                                     $("#leisure-list").kendoMobileListView({
+                                                                             
+                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                             template: $("#leisureTemplate").html()
+                                                                                                         });
+                                                                      hideSpin(); //hide loading popup
+                                                                  if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("No locations exists for the selected property", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
-                                                                      //fill the outlet template
-                                                                      $("#leisure-list").kendoMobileListView({
-                                                                             
-                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                                 template: $("#leisureTemplate").html()
-                                                                                                             });
+                                                                  //fill the outlet template
+                                                               
                                                               }else {
                                                                   navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -2436,7 +2436,7 @@ function completeRedemption() {
         
                                             loadPLDetails
                                             :function() {
-                                                 window.localStorage.setItem("selfredeem", ""); 
+                                                window.localStorage.setItem("selfredeem", ""); 
                                                 document.getElementById("main-title").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
                                                 document.getElementById("profile-name").innerHTML = window.localStorage.getItem("customername");
                                                 document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
@@ -2662,7 +2662,7 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
                                                                    window.localStorage.setItem("social_message", getData.offerlist[0].itemdescription + "\n\n" + "Offer Expirying on :" + getData.offerlist[0].couponexpirydate);
                                                                    window.localStorage.setItem("social_image", getData.offerlist[0].imageurll);
-                                                                     window.localStorage.setItem("redeemoffer", getData.offerlist[0].itemcode); 
+                                                                   window.localStorage.setItem("redeemoffer", getData.offerlist[0].itemcode); 
                                                                    $("#pl-tandc-accept").data("kendoMobileSwitch").check(false);
                                                                    hideSpin(); //hide loading popup
                                                                }else {
@@ -2842,15 +2842,14 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
                                                       
                                                                if (getData.statuscode == "000") {
-                                                                   if (getData.propertylist.length > 0) {
-                                                                       //fill the outlet template
+                                                                     //fill the outlet template
                                                                        $("#pl-property-list").kendoMobileListView({
                                                                                                                       dataSource: kendo.data.DataSource.create({data: getData.propertylist}),
                                                                                                                       template: $("#pl-explorelisttemplate").html()
                                                                                                                     
                                                                                                                   });
                                                                        hideSpin(); //hide loading popup
-                                                                   }else {
+                                                                   if (getData.propertylist.length === 0) {
                                                                        navigator.notification.alert("No Property Data Available", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
@@ -2890,21 +2889,21 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
-                                                               window.localStorage.setItem("brandcode","");
+                                                               window.localStorage.setItem("brandcode", "");
                                                                if (getData.statuscode === "000") {
-                                                                   if (getData.outletlist.length = 0) {
-                                       
+                                                                     //fill the outlet template
+                                                                   $("#pl-outlet-list").kendoMobileListView({
+                                                                             
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                                template: $("#pl-outletTemplate").html()
+                                                                                                            });
+                                                                   hideSpin(); //hide loading popup
+                                                                   if (getData.outletlist.length === 0) {
                                                                        navigator.notification.alert("No locations exists for the selected property", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
-                                                                        //fill the outlet template
-                                                                       $("#pl-outlet-list").kendoMobileListView({
-                                                                             
-                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                                    template: $("#pl-outletTemplate").html()
-                                                                                                                });
-                                                                       hideSpin(); //hide loading popup
+                                                                 
                                                                }else {
                                                                    navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
@@ -2938,21 +2937,20 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
-                                                                                                                           window.localStorage.setItem("brandcode","");
+                                                               window.localStorage.setItem("brandcode", "");
                                                                if (getData.statuscode === "000") {
                                                                    if (getData.outletlist.length = 0) {
-                                                     
                                                                        navigator.notification.alert("No locations exists for the selected property", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
-                                                                     //fill the outlet template
-                                                                       $("#pl-leisure-list").kendoMobileListView({
+                                                                   //fill the outlet template
+                                                                   $("#pl-leisure-list").kendoMobileListView({
                                                                              
-                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                                     template: $("#pl-leisureTemplate").html()
-                                                                                                                 });
-                                                                       hideSpin(); //hide loading popup
+                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                                 template: $("#pl-leisureTemplate").html()
+                                                                                                             });
+                                                                   hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
@@ -3248,15 +3246,15 @@ function completeRedemption() {
                                                                    postLogin.set("couponname", getData.couponname);                
                                                                    postLogin.set("couponcategory", getData.couponcategory);   
                                                                    
-                                                                      window.plugins.nativepagetransitions.slide({
-                                                                          "duration"         :  500, // in milliseconds (ms), default 400
-                                                                          "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                          "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                          "androiddelay"     :  150, // same as above but for Android, default 70
+                                                                   window.plugins.nativepagetransitions.slide({
+                                                                                                                  "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                  "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                  "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                  "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                                          'direction': 'up',
-                                                                          'href': '#views/pl-confirmpage.html'
-                                                                      });
+                                                                                                                  'direction': 'up',
+                                                                                                                  'href': '#views/pl-confirmpage.html'
+                                                                                                              });
                                                                    
                                                                    hideSpin(); //hide loading popup
                                                                }else {
@@ -3272,14 +3270,14 @@ function completeRedemption() {
                                                            }
                                                        });
                                             }, 
-           activateAndRedeem
+                                            activateAndRedeem
                                             : function () {
                                                 if (!document.getElementById("pl-tandc-accept").checked) {
                                                     navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
                                                     }, "Club Epicure", "Dismiss");
                                                     return;
                                                 }
-                                                 window.localStorage.setItem("selfredeem", "V"); 
+                                                window.localStorage.setItem("selfredeem", "V"); 
                                                 $("#modalviewenterpin").data("kendoMobileModalView").open(); 
                                             },
                                             walletRedeem
@@ -3343,11 +3341,11 @@ function completeRedemption() {
                                                        });
                                             },
         
-                                       mywalletofferdetail
+                                            mywalletofferdetail
                                             : function (e) {
                                                 couponnumber = e.view.params.cpn;
                                                 showSpin();
-                                                   back2_profile();
+                                                back2_profile();
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3463,7 +3461,7 @@ function completeRedemption() {
                                             :function() {
                                                 showSpin(); 
                                                 listCountry();
-                                                listCity("UAE",document.getElementById("selCity"));  
+                                                listCity("UAE", document.getElementById("selCity"));  
                                                 // alert(window.localStorage.getItem("birthdate"));
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
@@ -3515,18 +3513,17 @@ function completeRedemption() {
                                                     return;
                                                 }
                                                 
-                                                     if (this.emailid1 != this.emailid2) {
-                                                   navigator.notification.alert("Email ID do not match, re-enter", function() {
-                                                   }, "Club Epicure", "Dismiss");
-                                                   return;
-                                               }
+                                                if (this.emailid1 != this.emailid2) {
+                                                    navigator.notification.alert("Email ID do not match, re-enter", function() {
+                                                    }, "Club Epicure", "Dismiss");
+                                                    return;
+                                                }
                                                
-                                            //   if (this.mobile1.value.substring(0,0)==="0") {
-                                            //       navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
-                                            //       }, "Club Epicure", "Dismiss");
-                                            //       return;
-                                            //   }
-                                               
+                                                //   if (this.mobile1.value.substring(0,0)==="0") {
+                                                //       navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
+                                                //       }, "Club Epicure", "Dismiss");
+                                                //       return;
+                                                //   }
                                              
                                                 if (document.getElementById("selCountry").value == "") {
                                                     navigator.notification.alert("Select Nationality", function() {
@@ -3875,7 +3872,7 @@ function completeRedemption() {
         
                                          
         
-                                          completeRedemptionDiscount
+                                            completeRedemptionDiscount
                                             : function () {
                                                 if (!this.depin1) {
                                                     navigator.notification.alert("Invalid or Empty Restaurant Staff PIN", function() {
@@ -4012,7 +4009,7 @@ function completeRedemption() {
                                             : function () {
                                                 var t = "";//document.getElementById("selCountry").value;
                                                 showSpin();
-                                                 back1_profile();
+                                                back1_profile();
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4153,7 +4150,6 @@ function completeRedemption() {
     }
     
     function redeemVoucher() {
-       
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -5054,9 +5050,8 @@ function completeRedemption() {
         return data;
     }
     
-    
     function back_profile() {
-          window.localStorage.setItem("selfredeem", "D"); 
+        window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
@@ -5072,13 +5067,12 @@ function completeRedemption() {
     }
     
     function back2_profile() {
-          window.localStorage.setItem("selfredeem", "D"); 
+        window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back2").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back2").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back2").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
         document.getElementById("segment-back2").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
     }
-    
      
     function onConfirm1 (buttonIndex) {
         if (buttonIndex===1) {
@@ -5091,13 +5085,13 @@ function completeRedemption() {
         showSpin();
         var emirate = document.getElementById("selEmirate").value;
         var gender = document.getElementById("selGender").value;
-     //   alert(emirate);          
-     //   alert(gender);          
-     //   alert(this.firstname.value);          
-     //   alert(this.lastname.value);          
-     //   alert(this.mobile.value);          
-     //   alert(this.emailid.value);          
-     //    alert(this.siriusnumber.value);          
+        //   alert(emirate);          
+        //   alert(gender);          
+        //   alert(this.firstname.value);          
+        //   alert(this.lastname.value);          
+        //   alert(this.mobile.value);          
+        //   alert(this.emailid.value);          
+        //    alert(this.siriusnumber.value);          
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -5112,7 +5106,6 @@ function completeRedemption() {
                        var getData = JSON.parse(data);
                                         
                        if (getData.statuscode === "000") {
-                            
                            window.localStorage.setItem("newmemberid", getData.customerid);
        
                            window.localStorage.setItem("newmembername", getData.customername);
