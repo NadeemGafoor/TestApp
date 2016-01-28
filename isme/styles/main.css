@@ -585,7 +585,7 @@ img
     z-index: 0;
     text-align:center;
        color: #fff;
-    letter-spacing:2px;
+
  }
 
 
@@ -605,7 +605,6 @@ img
     color: #fff;
     text-align: center;
     font-size:1em;
-    letter-spacing:2px;
 }
 
 #pl-myvoucherdetail-theme .switch-frame-voucher 
@@ -708,7 +707,7 @@ img
     
  #login-theme .button-loginwithfacebook, #pl-setting-theme  .button-loginwithfacebook,#enrol-theme .button-loginwithfacebook
     {
-        background-color: rgba(13, 104, 197, 1);
+        background-color: rgba(13, 104, 197, 0.6);
         color: #fff;
     }
 
@@ -727,7 +726,7 @@ img
 .button-frame-inline .km-button,
 .button-frame-login .km-button
 {
-    background-color: rgba(0,0,0,1);
+    background-color: rgba(0,0,0,0.5);
     color: #fff;
     line-height: 30px;
     width: 80%;

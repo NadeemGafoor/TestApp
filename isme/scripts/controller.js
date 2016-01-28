@@ -948,7 +948,7 @@ function completeRedemption() {
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
                                            showConfirmation:function() {
-                                               alert(window.localStorage.getItem("newmemberid"));
+                                             
                                                document.getElementById("confirm-memberid").innerHTML = window.localStorage.getItem("newmemberid");
                                                document.getElementById("confirm-membername").innerHTML = window.localStorage.getItem("newmembername");
                                                document.getElementById("confirm-segment").innerHTML = window.localStorage.getItem("newmembersegment"); 
@@ -994,6 +994,18 @@ function completeRedemption() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return; 
                                                }
+                                                    if (this.emailid != this.emailida) {
+                                                   navigator.notification.alert("Email ID do not match, re-enter", function() {
+                                                   }, "Club Epicure", "Dismiss");
+                                                   return;
+                                               }
+                                               
+                                               if (this.mobile.value.substring(0,0)==="0") {
+                                                   navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
+                                                   }, "Club Epicure", "Dismiss");
+                                                   return;
+                                               }
+                                               
                                                
                                                if (document.getElementById("selGender").value === "") {
                                                    navigator.notification.alert("Select Gender", function() {
@@ -3420,7 +3432,7 @@ function completeRedemption() {
                                             :function() {
                                                 showSpin(); 
                                                 listCountry();
-                                                listCity(country);  
+                                                listCity("UAE",document.getElementById("selCity"));  
                                                 // alert(window.localStorage.getItem("birthdate"));
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
@@ -3471,6 +3483,19 @@ function completeRedemption() {
                                                     }, "Club Epicure", "Dismiss")
                                                     return;
                                                 }
+                                                
+                                                     if (this.emailid1 != this.emailid2) {
+                                                   navigator.notification.alert("Email ID do not match, re-enter", function() {
+                                                   }, "Club Epicure", "Dismiss");
+                                                   return;
+                                               }
+                                               
+                                               if (this.mobile1.value.substring(0,0)==="0") {
+                                                   navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
+                                                   }, "Club Epicure", "Dismiss");
+                                                   return;
+                                               }
+                                               
                                              
                                                 if (document.getElementById("selCountry").value == "") {
                                                     navigator.notification.alert("Select Nationality", function() {
