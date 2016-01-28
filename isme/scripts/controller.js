@@ -4234,7 +4234,7 @@ function completeRedemption() {
                                                                           "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                                           'direction': 'up',
-                                                                          'href': '#views/pl-confirmVoucher.html'
+                                                                          'href': '#views/pl-confirmvoucher.html'
                                                                       });
                            hideSpin(); //hide loading popup
                        }else {
