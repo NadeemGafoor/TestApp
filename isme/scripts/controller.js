@@ -2607,7 +2607,7 @@ function completeRedemption() {
                                                             
                                                                        window.localStorage.setItem("social_message", "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>");
                                                                        window.localStorage.setItem("social_image", getData.benefitlist[0].imageurll); 
-
+                                                                       back1_profile();
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("There are no Benefits for the selected Program", function() {
@@ -3300,7 +3300,7 @@ function completeRedemption() {
                                             mywalletofferlist
                                             : function () {
                                                 showSpin();
-                                                
+                                                back1_profile();
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4109,9 +4109,9 @@ function completeRedemption() {
                                             },
                                             myhistorylist
                                             : function () {
-                                                var t = document.getElementById("selCountry").value;
+                                                var t = "";//document.getElementById("selCountry").value;
                                                 showSpin();
-                                             
+                                                 back1_profile();
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
