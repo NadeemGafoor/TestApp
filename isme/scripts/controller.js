@@ -1139,8 +1139,9 @@ function completeRedemption() {
                                            showAllOutlet
                                            : function (e) {
                                                showSpin(); 
-                                               window.localStorage.setItem("brandcode", e.view.params.brand);
+                                               //window.localStorage.setItem("brandcode", e.view.params.brand);
                                                window.localStorage.setItem("category", e.view.params.category);
+                                               alert(window.localStorage.getItem("brandcode"));
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1185,8 +1186,9 @@ function completeRedemption() {
                                            showAllLeisure
                                            : function (e) {
                                                showSpin(); 
-                                               window.localStorage.setItem("brandcode", e.view.params.brand);
+                                               //window.localStorage.setItem("brandcode", e.view.params.brand);
                                                window.localStorage.setItem("category", e.view.params.category);
+                                               alert(window.localStorage.getItem("brandcode"));
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -2876,6 +2878,7 @@ function completeRedemption() {
                                                 showSpin(); 
                                                 //window.localStorage.setItem("brandcode", e.view.params.brand);
                                                 window.localStorage.setItem("category", e.view.params.category);
+                                                alert(window.localStorage.getItem("brandcode"));
                                                 back_profile();
                                                 $.ajax({ 
                                                            type: "POST",
@@ -2923,6 +2926,7 @@ function completeRedemption() {
                                                 showSpin(); 
                                                 //window.localStorage.setItem("brandcode", e.view.params.brand);
                                                 window.localStorage.setItem("category", e.view.params.category);
+                                                
                                                 back_profile();
                                                 $.ajax({ 
                                                            type: "POST",
