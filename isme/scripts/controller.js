@@ -3220,7 +3220,7 @@ function completeRedemption() {
                                            
                                             activateoffer
                                             : function (e) {
-                                                if (!document.getElementById("tandc-accept").checked) {
+                                                if (!document.getElementById("pl-andc-accept").checked) {
                                                     navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
                                                     }, "isme by Jumeirah", "Dismiss");
                                                     return;
@@ -3243,8 +3243,18 @@ function completeRedemption() {
                                                                    postLogin.set("transactionref", getData.transactionref);
                                                                    postLogin.set("couponcode", getData.couponcode);
                                                                    postLogin.set("couponname", getData.couponname);                
-                                                                   postLogin.set("couponcategory", getData.couponcategory);        
-                                                                   $("body").data("kendoMobilePane").navigate("views/pl-confirmpage.html");  
+                                                                   postLogin.set("couponcategory", getData.couponcategory);   
+                                                                   
+                                                                      window.plugins.nativepagetransitions.slide({
+                                                                          "duration"         :  500, // in milliseconds (ms), default 400
+                                                                          "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                          "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                          "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                          'direction': 'up',
+                                                                          'href': '#views/pl-confirmpage.html'
+                                                                      });
+                                                                   
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot activate offer. " + getData.statusdesc, function() {
