@@ -3377,18 +3377,18 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No Vouchers available in Wallet", function() {
-                                                                       }, "HD Rewards", "Dismiss")    
+                                                                       }, "isme By Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Cannot retrieve Wallet " + getData.statusdesc, function() {
-                                                                   }, "HD Rewards", "Dismiss")          
+                                                                   }, "isme By Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "HD Rewards", "Dismiss")
+                                                               }, "isme By Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -3835,7 +3835,7 @@ function completeRedemption() {
                                             : function () {
                                                 if (!this.srpin1) {
                                                     navigator.notification.alert("Invalid Redemption PIN or Empty", function() {
-                                                    }, "HD Rewards", "Dismiss");
+                                                    }, "isme By Jumeirah", "Dismiss");
                                                     return;
                                                 }
                                                 showSpin();
@@ -3858,13 +3858,13 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Invalid Redemption PIN", function() {
-                                                                   }, "HD Rewards", "Dismiss")         
+                                                                   }, "isme By Jumeirah", "Dismiss")         
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error. Cannot verify Redemption PIN [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "HD Rewards", "Dismiss")
+                                                               }, "isme By Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -3876,7 +3876,7 @@ function completeRedemption() {
                                             : function () {
                                                 if (!this.depin1) {
                                                     navigator.notification.alert("Invalid or Empty Restaurant Staff PIN", function() {
-                                                    }, "HD Rewards", "Dismiss");
+                                                    }, "isme By Jumeirah", "Dismiss");
                                                     return;
                                                 }
                                        
@@ -3889,7 +3889,7 @@ function completeRedemption() {
                                                     redeemVoucher();
                                                 } else {
                                                     navigator.notification.alert("Invalid Redemption Type. Contact Technical Support", function() {
-                                                    }, "HD Rewards", "Dismiss");
+                                                    }, "isme By Jumeirah", "Dismiss");
                                                     return;  
                                                 }
                                             },
@@ -3949,13 +3949,13 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc, function() {
-                                                                   }, "HD Rewards", "Dismiss")          
+                                                                   }, "isme By Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "HD Rewards", "Dismiss")
+                                                               }, "isme By Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -3987,18 +3987,18 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No Vouchers available in Wallet", function() {
-                                                                       }, "HD Rewards", "Dismiss")    
+                                                                       }, "isme By Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Cannot retrieve Wallet  " + getData.statusdesc, function() {
-                                                                   }, "HD Rewards", "Dismiss")          
+                                                                   }, "isme By Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "HD Rewards", "Dismiss")
+                                                               }, "isme By Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -4033,18 +4033,18 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No transaction history available for your membership", function() {
-                                                                       }, "HD Rewards", "Dismiss")    
+                                                                       }, "isme By Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Cannot get history " + getData.statusdesc, function() {
-                                                                   }, "HD Rewards", "Dismiss")          
+                                                                   }, "isme By Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot get history  [" + errormsg.responseText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "HD Rewards", "Dismiss")
+                                                               }, "isme By Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -4192,13 +4192,13 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Unable to Validate Discount ! " + getData.statusdesc, function() {
-                           }, "HD Rewards", "Dismiss")      
+                           }, "isme By Jumeirah", "Dismiss")      
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("System Error, unable to Validate Discount  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "HD Rewards", "Dismiss")
+                       }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -4237,13 +4237,13 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Unable to Redeem Voucher! " + getData.statusdesc, function() {
-                           }, "HD Rewards", "Dismiss")      
+                           }, "isme By Jumeirah", "Dismiss")      
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("System Error, unable to Redeem Voucher  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "HD Rewards", "Dismiss")
+                       }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -4280,13 +4280,13 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Unable to Redeem Voucher! " + getData.statusdesc, function() {
-                           }, "HD Rewards", "Dismiss")      
+                           }, "isme By Jumeirah", "Dismiss")      
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("System Error, unable to Redeem Voucher  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "HD Rewards", "Dismiss")
+                       }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -4361,13 +4361,13 @@ function completeRedemption() {
                        var getData = JSON.parse(data);
                        if (getData.statuscode != "000") {
                            navigator.notification.alert("Could not update image changes due to error  " + getData.statusdesc, function() {
-                           }, "HD Rewards", "Dismiss")          
+                           }, "isme By Jumeirah", "Dismiss")          
                        }
                        hideSpin(); //hide loading popup
                    },
                    error: function (error) {
                        navigator.notification.alert("Unknown Error, Could not update image  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "HD Rewards", "Dismiss")
+                       }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
