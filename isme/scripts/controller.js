@@ -2939,7 +2939,7 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
                                                                window.localStorage.setItem("brandcode", "");
                                                                if (getData.statuscode === "000") {
-                                                                   if (getData.outletlist.length = 0) {
+                                                                   if (getData.outletlist.length === 0) {
                                                                        navigator.notification.alert("No locations exists for the selected property", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
@@ -4018,7 +4018,7 @@ function completeRedemption() {
                                                            url: gurl + "/archivehistory.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat,mexcl:"1"
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat,mexcl:""
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4052,7 +4052,107 @@ function completeRedemption() {
                                             showCard
                                             : function () {
                                                 back_profile();
-                                            }
+                                            },
+            mymessagelist
+                                            : function () {
+                                                t = "";//Notification and other messages
+                                                // alert(merchant);
+                                                // alert(customer);
+                                                // alert(password);
+                                                // alert(mdevicestat);
+                                                showSpin();
+                                             
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/archivehistory.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat,mexcl:"1"
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                        
+                                                               if (getData.statuscode == "000") {
+                                                                   if (getData.historylist.length > 0) {
+                                                                       $("#pl-history-list").kendoMobileListView({
+                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.historylist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                                                                                     template: $("#pl-historyListTemplate").html(),
+                                                                           
+                                                                                                                     filterable: {
+                                                                               autoFilter: true,
+                                                                               placeholder:"Search By Message",                                         
+                                                                               field: "narration",
+                                                                               operator: "contains"
+                                                                           }
+                                                                                                                     //endlessScroll: true
+                                                                                                                      
+                                                                                                                 });
+                                                                   }else {
+                                                                       navigator.notification.alert("No message history for your Membership", function() {
+                                                                       }, "isme By Jumeirah", "Dismiss")    
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot get message history. " + getData.statusdesc, function() {
+                                                                   }, "isme By Jumeirah", "Dismiss")          
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get message history.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "isme By Jumeirah", "Dismiss")
+                                                           }
+                                                       });
+                                                hideSpin(); //hide loading popup
+                                            },
+        
+                                            mymessageitem
+                                            : function (e) {
+                                                t = e.view.params.mi;
+                                                showSpin(); 
+                                                // alert(merchant);
+                                                // alert(customer);
+                                                // alert(password);
+                                                // alert(mdevicestat);
+                                                // showSpin();
+                                             
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/messageitem.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                  
+                                                               if (getData.statuscode == "000") {
+                                                                   if (getData.messageitem.length > 0) {
+                                                                       document.getElementById("pl-messageitem-list").style.display = "block";
+                                                                       document.getElementById("msgnarration").innerHTML = getData.messageitem[0].narration;
+                                                                       document.getElementById("msgmonth").innerHTML = getData.messageitem[0].mmonth;
+                                                                       document.getElementById("msgday").innerHTML = getData.messageitem[0].mday;
+                                                                       postLogin.set("msgsequence", getData.messageitem[0].sequence);
+                                                                   }else {
+                                                                       navigator.notification.alert("No message available for your Membership", function() {
+                                                                       }, "isme By Jumeirah", "Dismiss")    
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot get message item. " + getData.statusdesc, function() {
+                                                                   }, "isme By Jumeirah", "Dismiss")          
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get message item.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "isme By Jumeirah", "Dismiss")
+                                                           }
+                                                       });
+                                                hideSpin(); //hide loading popup
+                                            },
        
                                         });
     
@@ -5051,31 +5151,36 @@ function completeRedemption() {
     }
     
     function back_profile() {
-        alert(window.localStorage.getItem("memberexpiry"));
+
         window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
         document.getElementById("segment-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
-        ocument.getElementById("brand-imagea").style.background = "url(images/" + brandimage + ".png) no-repeat center center";
+        document.getElementById("mycard-qr1").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";
+        document.getElementById("mycard-qr1").style.backgroundSize = "cover";
     }
     
     function back1_profile() {
-                alert(window.localStorage.getItem("memberexpiry"));
+
         window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back1").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back1").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back1").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
         document.getElementById("segment-back1").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
+        document.getElementById("mycard-qr2").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+        document.getElementById("mycard-qr2").style.backgroundSize = "cover";        
     }
     
     function back2_profile() {
-                alert(window.localStorage.getItem("memberexpiry"));
+
         window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back2").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back2").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back2").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
         document.getElementById("segment-back2").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
+        document.getElementById("mycard-qr3").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+        document.getElementById("mycard-qr3").style.backgroundSize = "cover";        
     }
      
     function onConfirm1 (buttonIndex) {

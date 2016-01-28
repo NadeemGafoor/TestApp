@@ -2,7 +2,7 @@
 <html>
     <head>
         <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/font-awesome.min.css" rel="stylesheet" />
         <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
@@ -129,20 +129,18 @@
 
                 </div>
                 <div class="cardhead" style="background-color:#fff">
-                    <div class="filler"></div>
                     <div class="class-card-div">
                         <div class="qr-image-sep">
                             <div class="qr-image" id="mycard-qr3"></div>
                         </div>
                         <div class="filler"></div>
                         <div class="home-page-holder">
-                            <div class="button-frame-inline">
+                            <div class="button-frame-login">
                                 <a data-click="enterPinForRedemption" data-role="button" >Apply Discount</a>
                             </div>
-                            <div class="filler"></div>
-                            <div class="general-text-line cblack" id="expiry-back2"></div>
-                        </div>
 
+                        </div>
+                        <div class="general-text-line-1 cblack" id="expiry-back2" ></div>
                     </div>
                     <div class="share-menu-line-2-c">
                         <a  data-click="cardClick" data-role="button" class="mymenu2">
@@ -209,12 +207,12 @@
         </div>
 
         <div data-role="layout" data-id="pl-back3-layout">
- <div data-role="header">
-        <div data-role="navbar">
-            <span data-role="view-title"></span>
-           
-        </div>
-    </div>
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+
+                </div>
+            </div>
         </div>
 
         <div data-role="layout" data-id="pl-back-layout">
@@ -231,20 +229,18 @@
                 </div>
 
                 <div class="cardhead" style="background-color:#fff">
-                    <div class="filler"></div>
                     <div class="class-card-div">
                         <div class="qr-image-sep">
                             <div class="qr-image" id="mycard-qr1"></div>
                         </div>
                         <div class="filler"></div>
                         <div class="home-page-holder">
-                            <div class="button-frame-inline">
+                            <div class="button-frame-login">
                                 <a data-click="enterPinForRedemption" data-role="button">Apply Discount</a>
                             </div>
-                            <div class="filler"></div>
-                            <div class="general-text-line cblack" id="expiry-back"></div>
-                        </div>
 
+                        </div>
+                        <div class="general-text-line-1 cblack" id="expiry-back" ></div>
                     </div>
                     <div class="share-menu-line-2-c">
                         <a  data-click="cardClick" data-role="button" class="mymenu2">
@@ -317,25 +313,22 @@
                     <a data-role="button" data-align="left"  style="color:#fff;border:0px solid #000 !important;" data-click="postLoginBack" data-icon="back">
                     </a>
                     <span data-role="view-title" id="item-title"></span>
-                     <a  data-role="button" data-click="offerFilterView" data-align="right" >
+                    <a  data-role="button" data-click="offerFilterView" data-align="right" >
                         <i class="fa fa-filter fa-lg" style="color:#fff"></i>
                     </a>
                 </div>
                 <div class="cardhead" style="background-color:#fff">
-                    <div class="filler"></div>
                     <div class="class-card-div">
                         <div class="qr-image-sep">
                             <div class="qr-image" id="mycard-qr2"></div>
                         </div>
                         <div class="filler"></div>
                         <div class="home-page-holder">
-                            <div class="button-frame-inline">
+                            <div class="button-frame-login">
                                 <a data-click="enterPinForRedemption" data-role="button"  >Apply Discount</a>
                             </div>
-                            <div class="filler"></div>
-                            <div class="general-text-line cblack" id="expiry-back1"></div>
                         </div>
-
+                        <div class="general-text-line-1 cblack" id="expiry-back1" ></div>
                     </div>
                     <div class="share-menu-line-2-c">
                         <a  data-click="cardClick" data-role="button" class="mymenu2">
@@ -620,7 +613,7 @@
                 </a>
             </div>
             <div class="li-div">
-                 <a href="views/mobilepolicy.html"  data-transition="slide">
+                <a href="views/mobilepolicy.html"  data-transition="slide">
                     &nbsp;&nbsp;Privacy Policy
                 </a>
             </div>
@@ -687,7 +680,6 @@
                     &nbsp;&nbsp;Terms & Conditions
                 </a>
             </div>
-            
 
             <footer data-role="footer">
 
@@ -960,7 +952,7 @@
             </ul>
         </div>
 
-      <div data-role="modalview" id="modalviewpin" style="height:70%;width:80%;border-radius:5px" data-model="postLogin" data-title="Create PIN">
+        <div data-role="modalview" id="modalviewpin" style="height:70%;width:80%;border-radius:5px" data-model="postLogin" data-title="Create PIN">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span data-role="view-title"></span>
@@ -974,7 +966,7 @@
             <div class="input-frame-modal"  >
                 <input type="number" id="newpin1" data-bind="value: newpin1" placeholder="Enter 4 digit PIN"/>
             </div>
-                       <div class="home-page-holder">&nbsp;</div>
+            <div class="home-page-holder">&nbsp;</div>
             <div class="input-frame-modal"  >
                 <input type="number" id="newpin2" data-bind="value: newpin2" placeholder="Re-enter 4 digit PIN"/>
             </div>
@@ -989,8 +981,7 @@
             <div style="height:10px">&nbsp;</div>
         </div>
 
-
- <div data-role="modalview" id="modalviewenterpin" style="height:70%;width:80%;border-radius:5px;" data-model="postLogin" data-title="Member PIN">
+        <div data-role="modalview" id="modalviewenterpin" style="height:70%;width:80%;border-radius:5px;" data-model="postLogin" data-title="Member PIN">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span data-role="view-title"></span>
@@ -1015,10 +1006,7 @@
             <div style="height:10px">&nbsp;</div>
         </div>
 
-
-
-
-  <div data-role="modalview" id="modalviewstaffpin" style="height:70%;width:80%;border-radius:5px;" data-model="postLogin" data-title="Staff PIN">
+        <div data-role="modalview" id="modalviewstaffpin" style="height:70%;width:80%;border-radius:5px;" data-model="postLogin" data-title="Staff PIN">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span data-role="view-title"></span>
@@ -1042,7 +1030,6 @@
             </div>
             <div style="height:10px">&nbsp;</div>
         </div>
-
 
         <div data-role="modalview" id="modalviewpassword" style="height:70%;width:80%;border-radius:5px" data-model="postLogin" data-title="Enter isme Password">
             <div data-role="header">
@@ -1070,9 +1057,8 @@
             <div style="height:10px">&nbsp;</div>
         </div>
 
-    
         <div data-role="modalview" id="modalviewterms" style="width:100%;height:100%">
-            <div data-role="header">   
+            <div data-role="header">
                 <div data-role="navbar">
                     <span>Terms & Conditions</span>
                     <a data-click="closeModalViewLogin" data-role="button" data-align="right">
@@ -1082,111 +1068,106 @@
             </div>
 
             <div class="fulljustify whitecolor" style="margin-left:5px;margin-right:5px;line-height:1.5em">
-        The terms and conditions set out below, along with the Programme Rules are referred to as the "Terms and Conditions".  Click here to read the Programme Rules for isme by Jumeirah Membership. These Terms and Conditions apply to all Members of the isme by Jumeirah Programme.  It is the responsibility of all Members to read and understand these Terms and Conditions in full. 
+                The terms and conditions set out below, along with the Programme Rules are referred to as the "Terms and Conditions". Click here to read the Programme Rules for isme by Jumeirah Membership. These Terms and Conditions apply to all Members of the isme by Jumeirah Programme. It is the responsibility of all Members to read and understand these Terms and Conditions in full.
 
-1.	General
+                1.	General
 
-1.1. The following definitions shall apply for isme and isme Elite memberships:
-•	 “Active members” refers to members who have actively used/are actively using their membership.
-•	isme by Jumeirah: is the UAE Dining and Lifestyle loyalty programme offered by the Jumeirah group.
-•	 " isme by Jumeirah", "isme" or "programme" refers to Jumeirah's dining and lifestyle loyalty rewards programme.
-•	" isme by Jumeirah app" means the downloadable mobile application operated by or on behalf of Jumeirah in connection with the isme by Jumeirah programme including, but not limited to, the iPhone and Android versions thereof.
-•	“Jumeirah" means Jumeirah International L.L.C., the entity with ultimate responsibility for isme by Jumeirah, or any other company within the same group of companies.
-•	"Member" is a person who is a member of the isme by Jumeirah programme and "Membership" shall be construed accordingly.
-•	"Privileges" are the exclusive amenities and services provided to a Member depending on the Tier of membership.
-•	"Rewards" means specified goods or services to be provided by isme by Jumeirah to a member in exchange for their spend.
-•	Tier: means membership level of the isme by Jumeirah membership,  isme or isme Elite.
-•	"Vouchers" are the e-vouchers received within the app that enable Members to redeem discounts in their chosen outlets. They are a type of Reward.
-•	"Website" refers to www.isme.jumeirah.com, a website operated by or on behalf of Jumeirah, where a Member can access details of the Programme and monitor the details of their membership.
-1.2.   isme by Jumeirah membership is issued by, and remains the sole property of Jumeirah. Membership, tiers, rewards and vouchers are offered at the sole discretion of Jumeirah. Jumeirah reserves the right to decline, to issue or to withdraw the isme by Jumeirah Membership from a Member at any time. Jumeirah further reserves the right to terminate the validity of the isme by Jumeirah membership, together with the privileges or other benefits attached thereto, at any time and for any reason (including but not limited to use of the isme by Jumeirah programme in a way that is deemed excessive or unreasonable). The withholding or termination of Membership may result in the loss of all vouchers and rewards accumulated at the time of such withdrawal or termination. 
+                1.1. The following definitions shall apply for isme and isme Elite memberships:
+                •	“Active members” refers to members who have actively used/are actively using their membership.
+                •	isme by Jumeirah: is the UAE Dining and Lifestyle loyalty programme offered by the Jumeirah group.
+                •	" isme by Jumeirah", "isme" or "programme" refers to Jumeirah's dining and lifestyle loyalty rewards programme.
+                •	" isme by Jumeirah app" means the downloadable mobile application operated by or on behalf of Jumeirah in connection with the isme by Jumeirah programme including, but not limited to, the iPhone and Android versions thereof.
+                •	“Jumeirah" means Jumeirah International L.L.C., the entity with ultimate responsibility for isme by Jumeirah, or any other company within the same group of companies.
+                •	"Member" is a person who is a member of the isme by Jumeirah programme and "Membership" shall be construed accordingly.
+                •	"Privileges" are the exclusive amenities and services provided to a Member depending on the Tier of membership.
+                •	"Rewards" means specified goods or services to be provided by isme by Jumeirah to a member in exchange for their spend.
+                •	Tier: means membership level of the isme by Jumeirah membership, isme or isme Elite.
+                •	"Vouchers" are the e-vouchers received within the app that enable Members to redeem discounts in their chosen outlets. They are a type of Reward.
+                •	"Website" refers to www.isme.jumeirah.com, a website operated by or on behalf of Jumeirah, where a Member can access details of the Programme and monitor the details of their membership.
+                1.2. isme by Jumeirah membership is issued by, and remains the sole property of Jumeirah. Membership, tiers, rewards and vouchers are offered at the sole discretion of Jumeirah. Jumeirah reserves the right to decline, to issue or to withdraw the isme by Jumeirah Membership from a Member at any time. Jumeirah further reserves the right to terminate the validity of the isme by Jumeirah membership, together with the privileges or other benefits attached thereto, at any time and for any reason (including but not limited to use of the isme by Jumeirah programme in a way that is deemed excessive or unreasonable). The withholding or termination of Membership may result in the loss of all vouchers and rewards accumulated at the time of such withdrawal or termination.
 
-1.3.  isme by Jumeirah has no predetermined termination date and shall continue until such time as Jumeirah decides to terminate the Programme with or without notice. Members shall have three (3) months from the date on which the Programme termination is announced to continue accumulating isme by Jumeirah vouchers and rewards (the "Notice Period"). Starting on the date of expiry of the Notice Period, the Member shall have a further six (6) months within which they can redeem all the vouchers and rewards they have accumulated. Any unredeemed offers during this time frame will be cancelled automatically when the programme terminates. 
+                1.3. isme by Jumeirah has no predetermined termination date and shall continue until such time as Jumeirah decides to terminate the Programme with or without notice. Members shall have three (3) months from the date on which the Programme termination is announced to continue accumulating isme by Jumeirah vouchers and rewards (the "Notice Period"). Starting on the date of expiry of the Notice Period, the Member shall have a further six (6) months within which they can redeem all the vouchers and rewards they have accumulated. Any unredeemed offers during this time frame will be cancelled automatically when the programme terminates.
 
-1.4.   Jumeirah reserves the right to amend, update, change or delete any aspect of the isme by Jumeirah programme at any time, including the Terms and Conditions and Rules of use, tiers, tier eligibility, benefits, rewards, vouchers and promotional offers, even if such changes may affect the value of the rewards or benefits already collected by the Member. It is the responsibility of each member to remain aware of any such amendments, updates or changes. Jumeirah will publish the latest Terms and Conditions on the programme’s dedicated website www.isme.jumeirah.com  and on the Mobile Application.
-If you require clarification on these Terms and Conditions, you may contact an isme by Jumeirah Customer Care Representative on 0800-isme (0800 4763). 
+                1.4. Jumeirah reserves the right to amend, update, change or delete any aspect of the isme by Jumeirah programme at any time, including the Terms and Conditions and Rules of use, tiers, tier eligibility, benefits, rewards, vouchers and promotional offers, even if such changes may affect the value of the rewards or benefits already collected by the Member. It is the responsibility of each member to remain aware of any such amendments, updates or changes. Jumeirah will publish the latest Terms and Conditions on the programme’s dedicated website www.isme.jumeirah.com and on the Mobile Application.
+                If you require clarification on these Terms and Conditions, you may contact an isme by Jumeirah Customer Care Representative on 0800-isme (0800 4763).
 
-1.5.   Jumeirah accepts no responsibility or liability for the withdrawal of any hotels from the Jumeirah portfolio and any partners from the Programme, even though such withdrawal may affect the collection of rewards available to Members.
+                1.5. Jumeirah accepts no responsibility or liability for the withdrawal of any hotels from the Jumeirah portfolio and any partners from the Programme, even though such withdrawal may affect the collection of rewards available to Members.
 
-1.6.   Jumeirah will endeavor to advise Members on matters of interest, including notifying them of changes to the Programme, rewards and other benefits. However, Jumeirah accepts no liability for requests or correspondence lost or delayed in the isme by Jumeirah Mobile Application or via electronic mail. Without prejudice to clause 1.4 above, Jumeirah is not liable for and reserves the right to correct any errors in pricing, typing or description relating to any aspect of isme by Jumeirah.
+                1.6. Jumeirah will endeavor to advise Members on matters of interest, including notifying them of changes to the Programme, rewards and other benefits. However, Jumeirah accepts no liability for requests or correspondence lost or delayed in the isme by Jumeirah Mobile Application or via electronic mail. Without prejudice to clause 1.4 above, Jumeirah is not liable for and reserves the right to correct any errors in pricing, typing or description relating to any aspect of isme by Jumeirah.
 
-1.7.   When a member telephones an isme by Jumeirah Customer Care Representative, for security reasons the isme by Jumeirah Representative will have to request personal information in order to verify the member’s identity.
+                1.7. When a member telephones an isme by Jumeirah Customer Care Representative, for security reasons the isme by Jumeirah Representative will have to request personal information in order to verify the member’s identity.
 
-1.8.   The isme Customer Care Representatives will only deal with the members to assist with any queries relating to the Member's account. 
+                1.8. The isme Customer Care Representatives will only deal with the members to assist with any queries relating to the Member's account.
 
-1.9. The sale, transfer or barter of any Rewards, Vouchers, or other isme by Jumeirah privileges is prohibited.
+                1.9. The sale, transfer or barter of any Rewards, Vouchers, or other isme by Jumeirah privileges is prohibited.
 
-1.10. Any correspondence sent to a member by electronic mail is based on the contact information provided to isme by Jumeirah member. All Members are responsible for notifying isme by Jumeirah of any changes in their contact details by either: emailing info@isme.jumeirah.com or by calling an isme by Jumeirah Customer Care Representative on 0800-isme (0800 4763). Members can also update their profile details via the isme by Jumeirah Mobile Application. Jumeirah must be notified of any change to Member’s name and all such legal or other change. Jumeirah can request that evidence of such change be provided by the member. 
+                1.10. Any correspondence sent to a member by electronic mail is based on the contact information provided to isme by Jumeirah member. All Members are responsible for notifying isme by Jumeirah of any changes in their contact details by either: emailing info@isme.jumeirah.com or by calling an isme by Jumeirah Customer Care Representative on 0800-isme (0800 4763). Members can also update their profile details via the isme by Jumeirah Mobile Application. Jumeirah must be notified of any change to Member’s name and all such legal or other change. Jumeirah can request that evidence of such change be provided by the member.
 
-1.11. The only valid interpretation of the Terms and Conditions shall be that of isme by Jumeirah or Jumeirah.
+                1.11. The only valid interpretation of the Terms and Conditions shall be that of isme by Jumeirah or Jumeirah.
 
-1.12. The use of and participation in the isme by Jumeirah programme, including, but not limited to, the collection of Rewards, Vouchers or other isme by Jumeirah benefits may be subject to fees and taxes in the relevant jurisdiction. As a result, Members will be required to pay such fees and taxes as applicable and in accordance with the existing legislation or any similar legislation that may be introduced in the future. Any tax liability, including disclosure, connected with receipt or use of the isme by Jumeirah programme is the member’s responsibility. 
-All Room Reservations including isme Elite complimentary stays and any special offers are subject to an AED 20 Tourism Dirham Fee per bedroom per night at all Jumeirah Hotels and Resorts located in Dubai. Please note that a three bedroom hotel apartment is charged as three bedrooms (i.e. AED 60 per night), a two bedroom hotel suits is charged as two bedrooms (AED 40 per night) and a junior suite with one bedroom and a living room is charged as one bedroom (AED 20 per night).
+                1.12. The use of and participation in the isme by Jumeirah programme, including, but not limited to, the collection of Rewards, Vouchers or other isme by Jumeirah benefits may be subject to fees and taxes in the relevant jurisdiction. As a result, Members will be required to pay such fees and taxes as applicable and in accordance with the existing legislation or any similar legislation that may be introduced in the future. Any tax liability, including disclosure, connected with receipt or use of the isme by Jumeirah programme is the member’s responsibility.
+                All Room Reservations including isme Elite complimentary stays and any special offers are subject to an AED 20 Tourism Dirham Fee per bedroom per night at all Jumeirah Hotels and Resorts located in Dubai. Please note that a three bedroom hotel apartment is charged as three bedrooms (i.e. AED 60 per night), a two bedroom hotel suits is charged as two bedrooms (AED 40 per night) and a junior suite with one bedroom and a living room is charged as one bedroom (AED 20 per night).
 
-1.13. These Terms and Conditions are governed by the federal laws of the United Arab Emirates and the Emirate of Dubai. In the event of any dispute, Members agree to submit to the exclusive jurisdiction of the courts of the Emirate of Dubai.
+                1.13. These Terms and Conditions are governed by the federal laws of the United Arab Emirates and the Emirate of Dubai. In the event of any dispute, Members agree to submit to the exclusive jurisdiction of the courts of the Emirate of Dubai.
 
-1.14. The isme by Jumeirah programmme is only offered in the participating hotels and outlets in the United Arab Emirates. The list of all participating hotels and outlets is determined by Jumeirah and the details of all participating properties can be found on the isme by Jumeirah Website or in the isme by Jumeirah Mobile Application. Jumeirah reserves the right to amend, update or change the list of participating hotels and outlets at any time, even if such changes may affect the rewards or benefits already collected by the Member. 
+                1.14. The isme by Jumeirah programmme is only offered in the participating hotels and outlets in the United Arab Emirates. The list of all participating hotels and outlets is determined by Jumeirah and the details of all participating properties can be found on the isme by Jumeirah Website or in the isme by Jumeirah Mobile Application. Jumeirah reserves the right to amend, update or change the list of participating hotels and outlets at any time, even if such changes may affect the rewards or benefits already collected by the Member.
 
-1.15. The isme by Jumeirah Programme, (including Vouchers, Rewards and any other goods and services given to Members) is provided to the extent permissible by any applicable law without any warranties or guarantees, including implied warranties of satisfactory quality or fitness for a particular purpose. To the extent permissible by any applicable law, Jumeirah excludes all liability and responsibility for itself and its affiliates, partners and agents for loss or damage of whatever nature (including but not limited to loss of profits or anticipated savings, wasted expenditure or attorney's fees) arising from or in connection with a member's participation in the programme.
+                1.15. The isme by Jumeirah Programme, (including Vouchers, Rewards and any other goods and services given to Members) is provided to the extent permissible by any applicable law without any warranties or guarantees, including implied warranties of satisfactory quality or fitness for a particular purpose. To the extent permissible by any applicable law, Jumeirah excludes all liability and responsibility for itself and its affiliates, partners and agents for loss or damage of whatever nature (including but not limited to loss of profits or anticipated savings, wasted expenditure or attorney's fees) arising from or in connection with a member's participation in the programme.
 
-1.16. If any provision of these Terms and Conditions is deemed unlawful, void or for any other reason unenforceable, then that provision shall be deemed severed from the Terms and Conditions and shall not affect the validity and enforceability of any other provisions.
+                1.16. If any provision of these Terms and Conditions is deemed unlawful, void or for any other reason unenforceable, then that provision shall be deemed severed from the Terms and Conditions and shall not affect the validity and enforceability of any other provisions.
 
-1.17. Jumeirah's failure to exercise or enforce any rights or provisions of the Terms and Conditions will not constitute a waiver of such rights or provisions. 
+                1.17. Jumeirah's failure to exercise or enforce any rights or provisions of the Terms and Conditions will not constitute a waiver of such rights or provisions.
 
-1.18. Nothing in these Terms and Conditions shall create a contractual relationship with, or cause of action in favour of, any third party. Any rights of any third party to enforce these Terms and Conditions under any applicable legal principle, statute or otherwise are excluded.
+                1.18. Nothing in these Terms and Conditions shall create a contractual relationship with, or cause of action in favour of, any third party. Any rights of any third party to enforce these Terms and Conditions under any applicable legal principle, statute or otherwise are excluded.
 
-1.19. General words shall not be given a restrictive interpretation by reason of their being preceded or followed by words indicating a particular class of assets, matters or things.
+                1.19. General words shall not be given a restrictive interpretation by reason of their being preceded or followed by words indicating a particular class of assets, matters or things.
 
-1.20. The language of the Terms and Conditions shall be English and any and all communications relating there to (including but not limited to any complaints or disputes) shall be conducted in the English language. 
+                1.20. The language of the Terms and Conditions shall be English and any and all communications relating there to (including but not limited to any complaints or disputes) shall be conducted in the English language.
 
-1.21. These Terms and Conditions incorporate by reference the Programme Rules and any other terms and conditions appearing on the website and the isme by Jumeirah Mobile Application from time to time and represent the entire agreement between Jumeirah and Members in relation to the isme by Jumeirah programme and supersede any previous agreement between them. Each Member acknowledges that it is not relying on any representation, warranty or other statement relating to the programme which is not set out in these Terms and Conditions. Members shall not be entitled to any remedies in respect of any representation, warranty or other statement (other than those set out in these Terms and Conditions) being false, inaccurate or incomplete unless it was made fraudulently.
+                1.21. These Terms and Conditions incorporate by reference the Programme Rules and any other terms and conditions appearing on the website and the isme by Jumeirah Mobile Application from time to time and represent the entire agreement between Jumeirah and Members in relation to the isme by Jumeirah programme and supersede any previous agreement between them. Each Member acknowledges that it is not relying on any representation, warranty or other statement relating to the programme which is not set out in these Terms and Conditions. Members shall not be entitled to any remedies in respect of any representation, warranty or other statement (other than those set out in these Terms and Conditions) being false, inaccurate or incomplete unless it was made fraudulently.
 
+                2.	Application for Membership
 
-2.	Application for Membership
+                2.1. To apply for the isme by Jumeirah membership, the enrolment form must be completed in full and submitted either via the website isme.jumeirah.com or through the isme by Jumeirah Mobile Application. Alternatively, members can join the Programme by calling this number: 0800-isme (0800 4763).
 
-2.1.  To apply for the isme by Jumeirah membership, the enrolment form must be completed in full and submitted either via the website isme.jumeirah.com or through the isme by Jumeirah Mobile Application. Alternatively, members can join the Programme by calling this number: 0800-isme (0800 4763).  
+                2.2. All information required for Membership applications must be supplied accurately and in full, or Jumeirah may reject any application if the required information is not supplied accurately and in full.
 
-2.2. All information required for Membership applications must be supplied accurately and in full, or Jumeirah may reject any application if the required information is not supplied accurately and in full. 
+                2.3. After the member is successfully enrolled into the isme by Jumeirah programme, an email will be sent to the member to confirm this. The member will be given an isme by Jumeirah membership ID, which will be used to activate the account via the isme by Jumeirah Mobile Application. All members are required to download and log in to the isme by Jumeirah Mobile Application, in order to enjoy any Rewards of the programme. Failure to do so will result in not being provided any benefits of the isme by Jumeirah Membership.
 
-2.3. After the member is successfully enrolled into the isme by Jumeirah programme, an email will be sent to the member to confirm this. The member will be given an isme by Jumeirah membership ID, which will be used to activate the account via the isme by Jumeirah Mobile Application. All members are required to download and log in to the isme by Jumeirah Mobile Application, in order to enjoy any Rewards of the programme. Failure to do so will result in not being provided any benefits of the isme by Jumeirah Membership. 
+                2.4. Physical membership cards will not be issued to any isme by Jumeirah Members, as everything is managed through the isme by Jumeirah Mobile Application.
 
-2.4. Physical membership cards will not be issued to any isme by Jumeirah Members, as everything is managed through the isme by Jumeirah Mobile Application.
+                2.5. The isme by Jumeirah account is non-transferable and may only be used by the member whose name it is under. The account within the isme by Jumeirah app can only be used by the member and, without limitation, not by the member’s relatives or friends. Members may be required to provide proof of identification at participating hotels (upon request by any Jumeirah employee) when collecting or redeeming Rewards relating to the isme by Jumeirah programme, in order for the member’s identity to be confirmed. If a member fails to provide sufficient proof of their identity upon request, Jumeirah reserves the right to refuse to provide any programme-related services relating to that member.
 
-2.5. The isme by Jumeirah account is non-transferable and may only be used by the member whose name it is under. The account within the isme by Jumeirah app can only be used by the member and, without limitation, not by the member’s relatives or friends. Members may be required to provide proof of identification at participating hotels (upon request by any Jumeirah employee) when collecting or redeeming Rewards relating to the isme by Jumeirah programme, in order for the member’s identity to be confirmed. If a member fails to provide sufficient proof of their identity upon request, Jumeirah reserves the right to refuse to provide any programme-related services relating to that member. 
+                2.6. It is the sole responsibility of the member to ensure that no person obtains unauthorised access to the member’s isme by Jumeirah membership number. The member is solely responsible for any activity linked to their membership. Each assigned isme by Jumeirah account has an exclusive membership number assigned to it.
 
-2.6. It is the sole responsibility of the member to ensure that no person obtains unauthorised access to the member’s isme by Jumeirah membership number. The member is solely responsible for any activity linked to their membership. Each assigned isme by Jumeirah account has an exclusive membership number assigned to it. 
+                2.7. isme by Jumeirah membership is available only to individuals and not to companies, partnerships, associations, tour operators/companies, groups or other entities.
 
-2.7. isme by Jumeirah membership is available only to individuals and not to companies, partnerships, associations, tour operators/companies, groups or other entities.
+                2.8. Jumeirah may refuse membership without being required to give a reason for doing so.
 
-2.8. Jumeirah may refuse membership without being required to give a reason for doing so. 
+                2.9. Members must be twenty-one (21) years of age or over.
 
-2.9. Members must be twenty-one (21) years of age or over.
+                2.10. A member of the isme by Jumeirah programme can only be issued with one isme by Jumeirah membership number at any given time. Members shall not have multiple memberships in the isme by Jumeirah programme. Any multiple memberships held by a member will be cancelled automatically by Jumeirah without notice to the member.
 
-2.10. A member of the isme by Jumeirah programme can only be issued with one isme by Jumeirah membership number at any given time. Members shall not have multiple memberships in the isme by Jumeirah programme. Any multiple memberships held by a member will be cancelled automatically by Jumeirah without notice to the member. 
+                2.11. The isme by Jumeirah Membership will not be issued to a person who is an employee of Jumeirah. Relatives of any such employees may not present an isme by Jumeirah Membership when making use of any Jumeirah employee discount.
 
-2.11.  The isme by Jumeirah Membership will not be issued to a person who is an employee of Jumeirah. Relatives of any such employees may not present an isme by Jumeirah Membership when making use of any Jumeirah employee discount.
+                2.12. Membership and any application for membership is void if prohibited by the applicable laws of the member’s or applicant’s country of residence.
 
-2.12. Membership and any application for membership is void if prohibited by the applicable laws of the member’s or applicant’s country of residence. 
+                2.13. Members may terminate their membership by submitting a written termination notice to info@isme.jumeirah.com within a maximum of fourteen (14) days from the date of their enrolment into the programme, only if no benefits and rewards have been redeemed. Once Jumeirah has received a member’s termination notice within 14 days and provided that the member has not been actively using his/her membership, the member will receive a confirmation of cancellation via electronic mail and the membership will be terminated immediately. Upon this confirmation of cancellation, the total amount of the membership fee relating to isme Elite Membership will be reimbursed to the Member within a minimum of thirty (30) days. The exact date of when the Member will receive his/her refund depends on how and when the Member’s bank processes the transaction. Any request for refunds after such date will not be accepted.
 
-2.13. Members may terminate their membership by submitting a written termination notice to info@isme.jumeirah.com within a maximum of fourteen (14) days from the date of their enrolment into the programme, only if no benefits and rewards have been redeemed. Once Jumeirah has received a member’s termination notice within 14 days and provided that the member has not been actively using his/her membership, the member will receive a confirmation of cancellation via electronic mail and the membership will be terminated immediately. Upon this confirmation of cancellation, the total amount of the membership fee relating to isme Elite Membership will be reimbursed to the Member within a minimum of thirty (30) days. The exact date of when the Member will receive his/her refund depends on how and when the Member’s bank processes the transaction. Any request for refunds after such date will not be accepted. 
+                2.14. Membership shall automatically terminate upon the death or bankruptcy of a Member. isme by Jumeirah Rewards accumulated prior to these circumstances will be immediately cancelled.
 
-2.14. Membership shall automatically terminate upon the death or bankruptcy of a Member. isme by Jumeirah Rewards accumulated prior to these circumstances will be immediately cancelled. 
+                2.15. Jumeirah reserves the right to suspend or terminate the membership of any member, if that member appears (in the sole discretion of Jumeirah) to be using the programme in a manner inconsistent with these Terms and Conditions or intent of the programme or any portion of the programme, including improper use of privileges, Rewards or Vouchers. Jumeirah also reserves the right to terminate the membership of any member if there are reasonable grounds for suspecting (in the sole discretion of Jumeirah) that the member has:
+                1.	Acted in a manner inconsistent with applicable local or federal laws or regulations;
+                2.	Breached or violated any of these Terms and Conditions;
+                3.	Engaged in any fraudulent or dishonest behavior, theft, misconduct or wrongdoing in connection with the programme;
+                4.	Engaged in any abusive, fraudulent, disruptive, inappropriate, offensive or hostile conduct, whether it be physical, verbal or written in nature, towards any Jumeirah employee or guest;
+                5.	Failed to pay any bills or accounts due to Jumeirah or any hotel within the Jumeirah portfolio.
 
-2.15. Jumeirah reserves the right to suspend or terminate the membership of any member, if that member appears (in the sole discretion of Jumeirah) to be using the programme in a manner inconsistent with these Terms and Conditions or intent of the programme or any portion of the programme, including improper use of privileges, Rewards or Vouchers. Jumeirah also reserves the right to terminate the membership of any member if there are reasonable grounds for suspecting (in the sole discretion of Jumeirah) that the member has:
-1.	Acted in a manner inconsistent with applicable local or federal laws or regulations;
-2.	Breached or violated any of these Terms and Conditions;
-3.	Engaged in any fraudulent or dishonest behavior, theft, misconduct or wrongdoing in connection with the programme;
-4.	Engaged in any abusive, fraudulent, disruptive, inappropriate, offensive or hostile conduct, whether it be physical, verbal or written in nature, towards any Jumeirah employee or guest;
-5.	Failed to pay any bills or accounts due to Jumeirah or any hotel within the Jumeirah portfolio.                                                                                                                      
+                Such terminated Membership may result in the loss or cancellation of all accumulated rewards and vouchers and benefits and the loss of any associated tier status. In addition to the termination of such Membership, Jumeirah shall have the right to take such appropriate administrative and/or legal action as it deems fit against the member, including, without limitation, criminal prosecution.
 
-Such terminated Membership may result in the loss or cancellation of all accumulated rewards and vouchers and benefits and the loss of any associated tier status. In addition to the termination of such Membership, Jumeirah shall have the right to take such appropriate administrative and/or legal action as it deems fit against the member, including, without limitation, criminal prosecution. 
+                2.16. Each member is responsible for remaining familiar with these Terms and Conditions and the spend rewards he or she has accumulated. Activity statements will be available to a member via the Mobile Application or the website as long as his or her membership is active.
 
-
-
-2.16. Each member is responsible for remaining familiar with these Terms and Conditions and the spend rewards he or she has accumulated. Activity statements will be available to a member via the Mobile Application or the website as long as his or her membership is active.
-
-
-
-End of Terms and Conditions
+                End of Terms and Conditions
 
             </div>
         </div>
@@ -1327,111 +1308,122 @@ End of Terms and Conditions
             </div>
 
         </script>
-            
+
         <script type="text/x-kendo-template" id="outletTemplate">
             <div class="button-frame-inline height-80 button-frame-inline-long">
                 <a  href="views/outletdetail.html?od=${outletcode}" data-transition="slide:up" id="mobile-button1" data-role="button" >${outletname}</a>
             </div>
 
         </script>
-            
+
         <script type="text/x-kendo-template" id="pl-outletTemplate">
             <div class="button-frame-inline height-80 button-frame-inline-long">
                 <a  href="views/pl-outletdetail.html?od=${outletcode}" data-transition="slide:up" id="mobile-button1" data-role="button" >${outletname}</a>
             </div>
 
         </script>
-            
+
         <script type="text/x-kendo-template" id="leisureTemplate">
             <div class="button-frame-inline height-80 button-frame-inline-long">
                 <a  href="views/outletdetail.html?od=${outletcode}" data-transition="slide:up" id="mobile-button1" data-role="button" >${outletname}</a>
             </div>
 
         </script>
-            
+
         <script type="text/x-kendo-template" id="pl-leisureTemplate">
             <div class="button-frame-inline height-80 button-frame-inline-long">
                 <a  href="views/pl-outletdetail.html?od=${outletcode}" data-transition="slide:up" id="mobile-button1" data-role="button" >${outletname}</a>
             </div>
 
         </script>
-        
-        
-        
-        
-        
-          <script type="text/x-kendo-template" id="offerListTemplate">
-              
-              
-               <div class="outer-frame">
-            <div class="voucher-text">${itemname}</div>
-            <div class=" detail-text">
-                <a data-role="button"  class="detail-text-button"  href="views/offerdetail.html?cpn=${itemcode}" data-transition="slide:up">
-                    View Details
-                </a>
-            </div>
-            <div class="expiry-text">Expiry: ${couponexpirydate}</div>
-        </div>
-        <hr/>
-        </script>
-        
-            <script type="text/x-kendo-template" id="offerOutletTemplate">
-            <div class="button-frame-inline height-80 button-frame-inline-long">
-                <a  data-click="showOutletMessage" id="mobile-button1" data-role="button" >${outletname}</a>
-            </div>
 
-        </script>
-        
-          <script type="text/x-kendo-template" id="pl-offerListTemplate">
+        <script type="text/x-kendo-template" id="offerListTemplate">
               
               
-               <div class="outer-frame">
-            <div class="voucher-text">${itemname}</div>
-            <div class=" detail-text">
-                <a data-role="button" href="views/pl-offerdetail.html?cpn=${itemcode}"  class="detail-text-button" data-transition="slide:up">
-                    View Details
-                </a>
+            <div class="outer-frame">
+                <div class="voucher-text">${itemname}</div>
+                <div class=" detail-text">
+                    <a data-role="button"  class="detail-text-button"  href="views/offerdetail.html?cpn=${itemcode}" data-transition="slide:up">
+                        View Details
+                    </a>
+                </div>
+                <div class="expiry-text">Expiry: ${couponexpirydate}</div>
             </div>
-            <div class="expiry-text">Expiry: ${couponexpirydate}</div>
-        </div>
-        <hr/>
-        </script>
-        
-        
-            <script type="text/x-kendo-template" id="plofferOutletTemplate">
-            <div class="button-frame-inline height-80 button-frame-inline-long">
-                <a  data-click="showOutletMessage" id="mobile-button1" data-role="button" >${outletname}</a>
-            </div>
-
-        </script>
-        
-           <script type="text/x-kendo-template" id="mywallet-voucherlist-Template">
-              
-              
-               <div class="outer-frame">
-            <div class="voucher-text">${itemname}</div>
-            <div class=" detail-text">
-                <a data-role="button"  class="detail-text-button"  href="views/pl-myvoucherdetail.html?cpn=${itemcode}" data-transition="slide:up">
-                    View Details
-                </a>
-            </div>
-            <div class="expiry-text">Expiry: ${couponexpirydate}</div>
-        </div>
-        <hr/>
-        </script>
-        
-        <script type="text/x-kendo-template" id="pl-historyListTemplate">
-         <div class="msg-outer-frame-a" style="width:100%" >
-            <div class="msg-date-frame-line">${transactiontype} - ${transactiondate}</div>
-            <div class="msg-narration-frame">
-                ${narration}
-            
-            </div>
-         
-        </div>
             <hr/>
-</script>
+        </script>
 
+        <script type="text/x-kendo-template" id="offerOutletTemplate">
+            <div class="button-frame-inline height-80 button-frame-inline-long">
+                <a  data-click="showOutletMessage" id="mobile-button1" data-role="button" >${outletname}</a>
+            </div>
+
+        </script>
+
+        <script type="text/x-kendo-template" id="pl-offerListTemplate">
+              
+              
+            <div class="outer-frame">
+                <div class="voucher-text">${itemname}</div>
+                <div class=" detail-text">
+                    <a data-role="button" href="views/pl-offerdetail.html?cpn=${itemcode}"  class="detail-text-button" data-transition="slide:up">
+                        View Details
+                    </a>
+                </div>
+                <div class="expiry-text">Expiry: ${couponexpirydate}</div>
+            </div>
+            <hr/>
+        </script>
+
+        <script type="text/x-kendo-template" id="plofferOutletTemplate">
+            <div class="button-frame-inline height-80 button-frame-inline-long">
+                <a  data-click="showOutletMessage" id="mobile-button1" data-role="button" >${outletname}</a>
+            </div>
+
+        </script>
+
+        <script type="text/x-kendo-template" id="mywallet-voucherlist-Template">
+              
+              
+            <div class="outer-frame">
+                <div class="voucher-text">${itemname}</div>
+                <div class=" detail-text">
+                    <a data-role="button"  class="detail-text-button"  href="views/pl-myvoucherdetail.html?cpn=${itemcode}" data-transition="slide:up">
+                        View Details
+                    </a>
+                </div>
+                <div class="expiry-text">Expiry: ${couponexpirydate}</div>
+            </div>
+            <hr/>
+        </script>
+
+        <script type="text/x-kendo-template" id="pl-historyListTemplate">
+            <div class="msg-outer-frame-a" style="width:100%" >
+                <div class="msg-date-frame-line">${transactiontype} - ${transactiondate}</div>
+                <div class="msg-narration-frame">
+                    ${narration}
+
+                </div>
+
+            </div>
+            <hr/>
+        </script>
+
+        <script type="text/x-kendo-template" id="pl-historyListTemplate">
+          <a data-transition="slide:up"   href="views/pl-messageitem.html?mi=${sequence}" data-role="button" >
+            <div class="msg-outer-frame" >
+                <div class="msg-date-frame-line">${mday}  ${mmonth}C</div>
+                <div class="msg-narration-frame" style="margin-top:.2em">
+                    ${narration120}&nbsp;
+                </div>
+                <div class="msg-action-frame-outer">
+                    <div class="msg-action-frame-inner-1" style="display:${readicon}">
+                        <i class="fa fa-circle fa-lg dotcolor"></i>
+                    </div>
+                </div>
+            </div>
+        </a>
+            <hr/>
+        </script>
 
     </body>
 </html>
