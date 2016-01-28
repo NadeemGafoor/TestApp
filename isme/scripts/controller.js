@@ -3285,6 +3285,7 @@ function completeRedemption() {
                                                     }, "Club Epicure", "Dismiss");
                                                     return;
                                                 }
+                                                window.localStorage.setItem("selfredeem", "V"); 
                                                 $("#modalviewenterpin").data("kendoMobileModalView").open(); 
                                             },
         
@@ -3964,6 +3965,7 @@ function completeRedemption() {
                                                 window.localStorage.setItem("self-outletname", "");
                                                 window.localStorage.setItem("selfredeemVouchernumber", "");
                                                 window.localStorage.setItem("redeemoffer", "")
+                                                window.localStorage.setItem("selfredeem", "")
                                                 hideSpin(); //hide loading popup
                                             },
                                             resetPIN:function() {
