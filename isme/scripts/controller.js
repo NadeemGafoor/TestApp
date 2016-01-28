@@ -2661,6 +2661,7 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
                                                                    window.localStorage.setItem("social_message", getData.offerlist[0].itemdescription + "\n\n" + "Offer Expirying on :" + getData.offerlist[0].couponexpirydate);
                                                                    window.localStorage.setItem("social_image", getData.offerlist[0].imageurll);
+                                                                     window.localStorage.setItem("redeemoffer", getData.offerlist[0].itemcode); 
                                                                    $("#pl-tandc-accept").data("kendoMobileSwitch").check(false);
                                                                    hideSpin(); //hide loading popup
                                                                }else {
