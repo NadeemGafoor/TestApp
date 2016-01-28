@@ -1,16 +1,9 @@
-<div data-role="view" data-title="My Messages" data-layout="pl-back1-layout" id="mymessagelist-theme" data-model="postLogin" data-show="postLogin.mymessagelist" data-hide="destroyListView">
+<div data-role="view" data-title="My Messages" data-layout="pl-back1-layout" id="mymessagelist-theme" data-model="postLogin" data-show="postLogin.mymessagelist" data-hide="postLogin.destroymymessages">
     
     <ul data-role="listview" id="pl-message-list">
        
     </ul>
 
 </div>
-<script>
 
-function destroyListView() {
-    var listView = $("#pl-message-list").data("kendoMobileListView");
-    // detach events
-    listView.destroy();
-}
-    
-    </script>
+

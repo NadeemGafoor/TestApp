@@ -4008,6 +4008,9 @@ function completeRedemption() {
                                                        });
                                                 hideSpin(); //hide loading popup
                                             },
+         destroymymessages:function() {
+                                                $("#mymessagelist-theme").remove();
+                                            },
         
                                             mymessageitem
                                             : function (e) {
