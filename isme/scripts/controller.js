@@ -3870,56 +3870,7 @@ function completeRedemption() {
                                                        });
                                             },
         
-                                            validateandredeem
-                                            : function () {
-                                                if (!this.epin1) {
-                                                    navigator.notification.alert("Invalid or Empty Restaurant Staff Identifier", function() {
-                                                    }, "HD Rewards", "Dismiss");
-                                                    return;
-                                                }
-                                                showSpin();
-                                             
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/voucherRedemption.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,couponcode:window.localStorage.getItem("selfredeemVouchernumber"),emppin:this.epin1,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode === "000") {
-                                                                   window.localStorage.setItem("self-vouchernumber", getData.couponcode);
-                                                                   window.localStorage.setItem("self-vouchername", getData.couponname);
-                                                                   window.localStorage.setItem("self-authorization", getData.transactionref);
-                                                                   window.localStorage.setItem("self-outletname", getData.outletname);
-                                                                   window.plugins.nativepagetransitions.slide({
-                                                                                                                  "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                                  "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                                  "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                                  "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                                                                  'direction': 'up',
-                                                                                                                  'href': '#views/pl-selfredeemconfirm.html'
-                                                                                                              });
-                                             
-                                                                   hideSpin(); //hide loading popup
-                                                               }else {
-                                                                   navigator.notification.alert("Unable to Redeem Voucher! " + getData.statusdesc, function() {
-                                                                   }, "HD Rewards", "Dismiss")      
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("System Error, unable to Redeem Voucher  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "HD Rewards", "Dismiss")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
-                                            },
+                                         
         
                                           completeRedemptionDiscount
                                             : function () {
