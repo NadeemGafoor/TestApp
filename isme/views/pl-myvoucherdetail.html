@@ -1,46 +1,54 @@
-<div data-role="view" data-title="My Voucher" data-layout="pl-back1-layout" id="pl-myvoucherdetail-theme" data-model="postLogin">
-   
-    
-    
-    
-    
-    <div class="hero-image" id="outlet-image-large">
+    <div data-role="view" data-title="My Voucher" data-layout="pl-back-layout" id="pl-myvoucherdetail-theme" data-model="postLogin" data-show="postLogin.mywalletofferdetail">
+
+    <ul data-role="listview" id="wallet-voucher-div" style="display:none">
+         <div class="hero-image" id="outlet-image-large">
         <img id="outletimage" src="images/Brand1.png" class="img-hero"/>
 
     </div>
-    <ul data-role="listview">
-            <li>
-            <div class="swith-frame-voucher">
-                Agree to
-                <a href="#modalviewterms" data-role="button" data-click="onClick" style="border:0px">
-                    Terms & Conditions
-                </a>
-                <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" />
-            </div>
-        </li>     <li>
-                    <div class="button-frame-inline">
-                <a  data-role="button" data-click="enterPinForRedemption"  >Redeem</a>
+        <div class="filler">
+        </div>
+        <li>
+            <div class="switch-frame whitecolor">
+                Agree to Terms & Conditions
+                <input data-role="switch"  id="wallet-tandc" type="checkbox" />
             </div>
         </li>
-
+        <li>
+            <div class="button-frame-inline">
+                <a data-role="button"  data-bind="click:walletRedeem">Redeem</a>
+            </div>
+        </li>
         <li>
             <div class="mycard-holder">
                 <div class="mycard-detail-holder-label whitecolor">Voucher #</div>
-                <div class="mycard-detail-holder-data  whitecolor" id="voucher-number">999999999</div>
-                <div class="mycard-detail-holder-label  whitecolor">Voucher Name</div>
-                <div class="mycard-detail-holder-data  whitecolor" id="voucher-name" style="height:3.6em;line-height:1.2em">Emirates Offer BOGOF to Europe Destination</div>
-                <div class="mycard-detail-holder-label  whitecolor">Expiry</div>
-                <div class="mycard-detail-holder-data  whitecolor" id="voucher-expiry">01/01/2017</div>
+                <div class="mycard-detail-holder-data1  whitecolor" id="voucher-number"></div>
+                <div class="mycard-detail-holder-label  whitecolor">Voucher</div>
+                <div class="mycard-detail-holder-data  whitecolor" id="voucher-name"></div>
+                <div class="mycard-detail-holder-label1  whitecolor">Expiry</div>
+                <div class="mycard-detail-holder-data1  whitecolor" id="voucher-expiry"></div>
             </div>
         </li>
+
+        <div class="qr-image-sep">
+            <div class="qr-image" id="qr-image-3"></div>
+        </div>
+
         <li>
-            <div class="qr-image-sep">
-                <div class="qr-image" id="qr-image-3"></div>
-            </div>
+            <div id="myoffer-description" class="whitecolor"></div>
         </li>
-   
-       
-        <li>&nbsp;</li>
+
+        <li>
+            <div id="myoffer-remark" class="whitecolor"></div>
+        </li>
+
+        <div>
+            <li>&nbsp;</li>
+        </div>
     </ul>
 </div>
-
+   
+    
+    
+    
+    
+  

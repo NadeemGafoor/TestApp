@@ -1472,7 +1472,7 @@ function completeRedemption() {
                                                offercode = e.view.params.cpn; //offer code for single offer inquiry
                                                offertype = "2"; //single offer inquiry
                                                showSpin();
-                                               back2_profile();
+                                               
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -2435,6 +2435,7 @@ function completeRedemption() {
         
                                             loadPLDetails
                                             :function() {
+                                                 window.localStorage.setItem("selfredeem", ""); 
                                                 document.getElementById("main-title").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
                                                 document.getElementById("profile-name").innerHTML = window.localStorage.getItem("customername");
                                                 document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
@@ -2634,6 +2635,7 @@ function completeRedemption() {
                                             : function (e) {
                                                 offercode = e.view.params.cpn; //offer code for single offer inquiry
                                                 offertype = "2"; //single offer inquiry
+                                                back2_profile();
                                                 showSpin();
                                                 $.ajax({ 
                                                            type: "POST",
@@ -2650,18 +2652,15 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    document.getElementById("pl-offer-detail-div").style.display = "block";
                                                                    //document.getElementById("detail-title").innerHTML = getData.outletlist[0].outletname;
-                                                                  
                                                                    document.getElementById("pl-offerimage").src = getData.offerlist[0].imageurll;
                                                                    document.getElementById("pl-offer-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
                                                                    document.getElementById("pl-offer-long-1").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                    document.getElementById("pl-offer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                    document.getElementById("pl-offer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
-                          
                                                                    window.localStorage.setItem("social_shortmsg", getData.offerlist[0].itemdescription);
                                                                    window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
                                                                    window.localStorage.setItem("social_message", getData.offerlist[0].itemdescription + "\n\n" + "Offer Expirying on :" + getData.offerlist[0].couponexpirydate);
-                                                                   window.localStorage.setItem("social_image", getData.offerlist[0].imageurll); 
-                                                                   back2_profile();
+                                                                   window.localStorage.setItem("social_image", getData.offerlist[0].imageurll);
                                                                    $("#pl-tandc-accept").data("kendoMobileSwitch").check(false);
                                                                    hideSpin(); //hide loading popup
                                                                }else {
@@ -3276,6 +3275,7 @@ function completeRedemption() {
                                                     }, "Club Epicure", "Dismiss");
                                                     return;
                                                 }
+                                                 window.localStorage.setItem("selfredeem", "V"); 
                                                 $("#modalviewenterpin").data("kendoMobileModalView").open(); 
                                             },
                                             walletRedeem
@@ -3922,58 +3922,26 @@ function completeRedemption() {
                                                        });
                                             },
         
-                                            completeRedemptionDiscount
+                                          completeRedemptionDiscount
                                             : function () {
                                                 if (!this.depin1) {
                                                     navigator.notification.alert("Invalid or Empty Restaurant Staff PIN", function() {
                                                     }, "HD Rewards", "Dismiss");
                                                     return;
                                                 }
-                                                showSpin();
-                                             
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/discountRedemption.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,emppin:this.depin1,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode === "000") {
-                                                                   postLogin.set("srpin1", "");
-                                                                   postLogin.set("depin1", "");
-                                                                   window.localStorage.setItem("self-vouchernumber", getData.customerid);
-                                                                   window.localStorage.setItem("self-vouchername", getData.segment);
-                                                                   window.localStorage.setItem("self-authorization", getData.transactionref);
-                                                                   window.localStorage.setItem("self-outletname", getData.outletname);
-                                                                   $("#modalviewstaffpin").data("kendoMobileModalView").close();
-                                                                   window.plugins.nativepagetransitions.slide({
-                                                                                                                  "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                                  "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                                  "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                                  "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                                                                  'direction': 'up',
-                                                                                                                  'href': '#views/pl-confirmDiscount.html'
-                                                                                                              });
-                                                              
-                                                                   hideSpin(); //hide loading popup
-                                                               }else {
-                                                                   navigator.notification.alert("Unable to Validate Discount ! " + getData.statusdesc, function() {
-                                                                   }, "HD Rewards", "Dismiss")      
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("System Error, unable to Validate Discount  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "HD Rewards", "Dismiss")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
+                                       
+                                                $("#modalviewstaffpin").data("kendoMobileModalView").close();
+                                                if (window.localStorage.getItem("selfredeem")==="D") {
+                                                    redeemDiscount();
+                                                } else if (window.localStorage.getItem("selfredeem")==="V") {
+                                                    activateRedeemVoucher();
+                                                } else if (window.localStorage.getItem("selfredeem")==="M") {
+                                                    redeemVoucher();
+                                                } else {
+                                                    navigator.notification.alert("Invalid Redemption Type. Contact Technical Support", function() {
+                                                    }, "HD Rewards", "Dismiss");
+                                                    return;  
+                                                }
                                             },
         
         
@@ -5194,6 +5162,7 @@ function completeRedemption() {
     }
     
     function back_profile() {
+          window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
@@ -5201,6 +5170,7 @@ function completeRedemption() {
     }
     
     function back1_profile() {
+          window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back1").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back1").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back1").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
@@ -5208,6 +5178,7 @@ function completeRedemption() {
     }
     
     function back2_profile() {
+          window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back2").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back2").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back2").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
