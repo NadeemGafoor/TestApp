@@ -2340,39 +2340,9 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
                                                                  
-                                                                   if (window.localStorage.getItem("segmentcode") != "1000") {
-                                                                       elems = document.getElementsByClassName("km-content");
-                                                               
-                                                                       for (i = 0; i < elems.length; i++) {
-                                                                     
-                                                                               
-                                                                           elems[i].style.backgroundColor = "#000";
-                                                            
-                                                                       }  
-                                                                       document.getElementsById("pl-home-id").style.backgroundColor = '#000';    
-                                                                       document.getElementById("home-drawer").style.color = "#fff";   
-                                                                       document.getElementById("main-title").style.color = "#fff";   
-                                                                       document.getElementById("main-title").style.color = "#fff";  
-                                                                       document.getElementById("pl-image-holder").style.backgroundImage = 'url("images/home_page_logo_white.png")';
-                                                                       document.getElementById("spend-amount").style.color = "#fff";     
-                                                                       document.getElementById("full-bar").style.backgroundColor = "#fff";   
-                                                                       document.getElementById("home-drawer").style.color = "#fff"; 
-                                                                       document.getElementById("profile-name").style.color = "#fff"; 
-                                                                       document.getElementById("profile-number").style.color = "#fff"; 
-                                                                       document.getElementById("profile-type").style.color = "#fff"; 
-                                                                       document.getElementById("profile-init").style.color = "#fff"; 
-                                                                   } else {
-                                                                        elems = document.getElementsByClassName("km-content");
-                                                                     
-                                                                       for (i = 0; i < elems.length; i++) {
-                                                                        
-                                                                           elems[i].style.backgroundColor = "#fff";
-                                                                      
-                                                                       }  
-                                                                       document.getElementById("pl-image-holder").style.backgroundImage = 'url("images/home_page_logo_black.png")';
-                                                                       document.getElementById("full-bar").style.backgroundColor = "#000";   
-                                                                       document.getElementById("home-drawer").style.color = "#fff"; 
-                                                                   }
+                                                                 
+                                                          
+                                                                 
                                                                    
                                                                    // document.getElementById("wallet-div").style.display = "block";
                                                                    // document.getElementById("summary-1").innerHTML = getData.cashbackbalance;
