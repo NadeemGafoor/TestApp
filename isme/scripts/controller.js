@@ -3898,11 +3898,11 @@ function completeRedemption() {
                                                        });
                                                 hideSpin(); //hide loading popup
                                             },
-        
-                                          
+           
+                                           
                                             initPref: function () {
                                                 showSpin();
-                                                back_profile();                        
+                                                back6_profile();                        
            
                                                 getLifeStylePref("#lifestyle-filter", "#lifestyle-filter-template");
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
@@ -3922,15 +3922,16 @@ function completeRedemption() {
                                                 }
                                                 
                                                 //Cuisine Type
+                                        
                                                 ul = document.getElementById("cuisinetype-filter");
-                                                items = ul.getElementsByTagName("input");
-                                                
+                                                items = ul.getElementsByTagName("input");                                             
                                                 for (i = 0; i < items.length; ++i) {
                                                     y = items[i].checked ? "1" : "0";
                                                     setMemberPreference(y, items[i].value);
                                                 }
 
                                                 //celebration Type
+                                     
                                                 ul = document.getElementById("celebrationtype-filter");
                                                 items = ul.getElementsByTagName("input");
                                                 
@@ -3947,16 +3948,15 @@ function completeRedemption() {
                                                     y = items[i].checked ? "1" : "0";
                                                     setMemberPreference(y, items[i].value);
                                                 }
-
-                                                if (window.localStorage.getItem("errorPreference") != "1")
+                                                if (window.localStorage.getItem("errorPreference") === "1") {
+                                                   
                                                     navigator.notification.alert("Preferences Saves Successfully", function() {
-                                                    }, "isme By Jumeirah", "Dismiss")      
-                      
-                                                else {
-                                                      navigator.notification.alert("ERROR : One or more preferences could not be saved!", function() {
-                                                    }, "isme By Jumeirah", "Dismiss")     
+                                                    }, "isme By Jumeirah", "Dismiss") ;    
+                                                } else {
+                                                    navigator.notification.alert("ERROR : One or more preferences could not be saved!" + window.localStorage.getItem("errorPreference"), function() {
+                                                    }, "isme By Jumeirah" , "Dismiss")  ;   
                                                 }
-                                                
+                                                window.localStorage.setItem("errorPreference", "1");
                                                 hideSpin(); //hide loading popup
                                             }
                                         
@@ -4855,6 +4855,18 @@ function completeRedemption() {
         document.getElementById("mycard-qr3").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
         document.getElementById("mycard-qr3").style.backgroundSize = "cover";        
     }
+    
+    
+       function back6_profile() {
+        window.localStorage.setItem("selfredeem", "D"); 
+        document.getElementById("name-back6").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+        document.getElementById("number-back6").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+        document.getElementById("expiry-back6").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+        document.getElementById("segment-back6").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
+        document.getElementById("mycard-qr6").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+        document.getElementById("mycard-qr6").style.backgroundSize = "cover";        
+    }
+    
      
     function onConfirm1 (buttonIndex) {
         if (buttonIndex===1) {
@@ -5097,12 +5109,19 @@ function completeRedemption() {
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
-                       if (getData.statuscode != "000") {
-                           window.localStorage.setItem("errorPreference", "1");                                      
+                       if (getData.statuscode === "000") {
+                           window.localStorage.setItem("errorPreference", "1");
+                       }else {
+                           
+                           //  navigator.notification.alert("ERROR : One or more preferences could not be saved!"  +getData.statusdesc, function() {
+                           //                           }, "isme By Jumeirah" , "Dismiss");     
+                           window.localStorage.setItem("errorPreference", getData.statusdesc);                                      
                        }
                    },
                    error: function (errormsg) {
-                       window.localStorage.setItem("errorPreference", "1");                                      
+                       // navigator.notification.alert("ERROR : One or more preferences could not be saved!"  +errormsg.statusText, function() {
+                       //                             }, "isme By Jumeirah" , "Dismiss");     
+                       window.localStorage.setItem("errorPreference", errormsg.statusText);                                      
                    }
                });
         hideSpin(); //hide loading popup
