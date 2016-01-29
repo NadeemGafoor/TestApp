@@ -5189,7 +5189,7 @@ function completeRedemption() {
                            for (var n = 0; n < getData.mypreferences.length;n++) {
                                
                                for (var i = 0; i < items.length; ++i) {
-                               alert(s + getData.mypreferences[n].prfcode + " " + items[i].value);    
+                               //alert(s + getData.mypreferences[n].prfcode + " " + items[i].value);    
                                    if (getData.mypreferences[n].prfcode === items[i].value) {
                                        items[i].checked = true;
                                        break;
