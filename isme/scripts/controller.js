@@ -2315,7 +2315,7 @@ function completeRedemption() {
                                             depin1:"",
                                             setpass:"",
                                             msgsequence:"",
-        
+                                            lifestyle:"",
                                             loadPLDetails
                                             :function() {
                                                 window.localStorage.setItem("selfredeem", ""); 
@@ -3910,17 +3910,56 @@ function completeRedemption() {
                                                 getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
                                             },
         
-                                            saveFavorite:
-                                            function() {
+                                            savePreference:function() {
+                                                //life style
+                                                showSpin();
+                                                var ul = document.getElementById("lifestyle-filter");
+                                                var items = ul.getElementsByTagName("input");
                                                 
-                                                alert("ggg");
-                                                var e = document.getElementsById("lifestyle-filter");
-
-                                              alert(e.length);
-                                                for (var i = 0; i < e.length; ++i) {
-                                                    alert(e[i]);
+                                                for (var i = 0; i < items.length; ++i) {
+                                                    y = items[i].checked ? "1" : "0";
+                                                    setMemberPreference(y, items[i].value);
                                                 }
+                                                
+                                                //Cuisine Type
+                                                ul = document.getElementById("cuisinetype-filter");
+                                                items = ul.getElementsByTagName("input");
+                                                
+                                                for (i = 0; i < items.length; ++i) {
+                                                    y = items[i].checked ? "1" : "0";
+                                                    setMemberPreference(y, items[i].value);
+                                                }
+
+                                                //celebration Type
+                                                ul = document.getElementById("celebrationtype-filter");
+                                                items = ul.getElementsByTagName("input");
+                                                
+                                                for (i = 0; i < items.length; ++i) {
+                                                    y = items[i].checked ? "1" : "0";
+                                                    setMemberPreference(y, items[i].value);
+                                                }
+
+                                                //Restaurant
+                                                ul = document.getElementById("restaurantdetail-filter");
+                                                items = ul.getElementsByTagName("input");
+                                                
+                                                for (i = 0; i < items.length; ++i) {
+                                                    y = items[i].checked ? "1" : "0";
+                                                    setMemberPreference(y, items[i].value);
+                                                }
+
+                                                if (window.localStorage.getItem("errorPreference") != "1")
+                                                    navigator.notification.alert("Preferences Saves Successfully", function() {
+                                                    }, "isme By Jumeirah", "Dismiss")      
+                      
+                                                else {
+                                                      navigator.notification.alert("ERROR : One or more preferences could not be saved!", function() {
+                                                    }, "isme By Jumeirah", "Dismiss")     
+                                                }
+                                                
+                                                hideSpin(); //hide loading popup
                                             }
+                                        
                                         });
     
     function redeemDiscount() {
@@ -5017,7 +5056,7 @@ function completeRedemption() {
                    data: JSON.stringify({
                                             merchantcode :merchant,mdevice:mdevicestat
                                         }),
-                   success: function (data) { 
+                   success: function (data) {     
                        var getData = JSON.parse(data);
                                         
                        if (getData.statuscode === "000") {
@@ -5040,6 +5079,30 @@ function completeRedemption() {
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Celebration Type List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
+                   }
+               });
+        hideSpin(); //hide loading popup
+    }
+    
+    function setMemberPreference(e, m) {
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/setMemberPreference.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,preference:e,itemcode:m,customer:customer,password:password
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode != "000") {
+                           window.localStorage.setItem("errorPreference", "1");                                      
+                       }
+                   },
+                   error: function (errormsg) {
+                       window.localStorage.setItem("errorPreference", "1");                                      
                    }
                });
         hideSpin(); //hide loading popup

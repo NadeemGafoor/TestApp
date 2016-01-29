@@ -2,7 +2,7 @@
 
     <div data-role="navbar" style="background-color:#434446">
 
-        <a data-role="button"  data-align="right" style="margin-right:10px" data-bind="click:saveFavorite">
+        <a data-role="button"  data-align="right" style="margin-right:10px" data-bind="click:savePreference">
             Save
         </a>
     </div>
@@ -32,7 +32,7 @@
 <script type="text/x-kendo-template" id="lifestyle-filter-template">
      <label class="km-checkbox-label" style="background-color: transparent !important;">
         ${desc}
-        <input type="checkbox" id="${code}"/>
+        <input type="checkbox" id="${code}" value="${code}"/>
 
     </label>
 </script>
