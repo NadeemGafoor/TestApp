@@ -3906,9 +3906,9 @@ function completeRedemption() {
                                                 back_profile();
            
                                                 getLifeStylePref();
-                                                getRestaurantDetailPref();
-                                                getCuisineTypePref();
-                                                getCelebrationTypePref();
+                                               // getRestaurantDetailPref();
+                                              //  getCuisineTypePref();
+                                              //  getCelebrationTypePref();
                                                 hideSpin();
                                             },
                                         });
@@ -5018,8 +5018,9 @@ function completeRedemption() {
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
-                       alert(getData.statuscode);
+                    
                        if (getData.statuscode === "000") {
+                           
                            if (getData.preflist.length > 0) {
                                $("lifestyle-filter").kendoMobileListView({
                                                                              dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
