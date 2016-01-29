@@ -24,10 +24,11 @@
 </div>
 
 <script type="text/x-kendo-template" id="lifestyle-filter-template">
-    <div class="list-group-data-item">${desc}</div>
-                <a class="list-group-data-item-2" data-role="button" data-click="updatePreference" id="${code}">
-                    <i class="fa fa-square-o fa-2x cblack"></i>
-                </a>
+      <label class="km-checkbox-label" style="background-color: transparent !important;">
+        ${desc}
+        <input type="checkbox" id="${code}" data-bind="checked:checkMe" value="${code}"/>
+
+    </label>
 </script>
 
 
@@ -61,6 +62,6 @@
 <script>
     
       function updatePreference(e){
-         alert(document.getElementById(this));   
+         alert(e.id);   
         }
 </script>
