@@ -3903,7 +3903,7 @@ function completeRedemption() {
                                             initPref: function () {
                                                 showSpin();
                                                 back6_profile();                        
-                                                window.localStorage.setItem("issaved","0");
+                                                window.localStorage.setItem("issaved", "0");
                                                 getLifeStylePref("#lifestyle-filter", "#lifestyle-filter-template");
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
                                                 getCuisineTypePref("#cuisinetype-filter", "#celebrationtype-template");
@@ -3911,27 +3911,28 @@ function completeRedemption() {
                                             },
         
                                             savePreference:function() {
-                                                 savePreferenceItem();
+                                                savePreferenceItem();
                                             },
-                                            checkSave:function(){
-                                                if (window.localStorage.setItem("issaved") ==="0"){
-                                                       navigator.notification.confirm(
-                                                   'You have not saved your preferences?', // message
-                                                   onConfirm2, // callback to invoke with index of button pressed
-                                                   'isme by Jumeirah', // title
-                                                   'I will set Later,Save now'          // buttonLabels
-                                                   );
-                                                
-
-                                            }else{
-                                                saveLater();
+                                            checkSave:function() {
+                                               
+                                                if (window.localStorage.getItem("issaved") ==="0") {
+                                                    navigator.notification.confirm(
+                                                        'You have not saved your preferences?', // message
+                                                        onConfirm2, // callback to invoke with index of button pressed
+                                                        'isme by Jumeirah', // title
+                                                        'I will set Later,Save now'          // buttonLabels
+                                                        );
+                                                }else {
+                                                    saveLater();
+                                                }
+                                            },
+                                            enableSave:function() {
+                                                 window.localStorage.setItem("issaved", "0");
                                             }
-        }
                                         
                                         });
     
-    
-       function onConfirm2 (buttonIndex) {
+    function onConfirm2 (buttonIndex) {
         if (buttonIndex===1) {
             saveLater();
         } else {
@@ -3940,68 +3941,66 @@ function completeRedemption() {
         }
     }
     
-    function saveLater(){
+    function saveLater() {
         window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                     "duration"         :  500, // in milliseconds (ms), default 400
-                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+                                                                         "duration"         :  500, // in milliseconds (ms), default 400
+                                                                         "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                         "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                         "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                                     'direction': 'left',
-                                                                     'href': '#views/pl-home.html'
-                                                                 }), 500);
+                                                                         'direction': 'left',
+                                                                         'href': '#views/pl-home.html'
+                                                                     }), 500);
     }
     
-    function savePreferenceItem(){
-    
-       //life style
-                                                showSpin();
-                                                var ul = document.getElementById("lifestyle-filter");
-                                                var items = ul.getElementsByTagName("input");
+    function savePreferenceItem() {
+        //life style
+        showSpin();
+        var ul = document.getElementById("lifestyle-filter");
+        var items = ul.getElementsByTagName("input");
                                                 
-                                                for (var i = 0; i < items.length; ++i) {
-                                                    y = items[i].checked ? "1" : "0";
-                                                    setMemberPreference(y, items[i].value);
-                                                }
+        for (var i = 0; i < items.length; ++i) {
+            y = items[i].checked ? "1" : "0";
+            setMemberPreference(y, items[i].value);
+        }
                                                 
-                                                //Cuisine Type
+        //Cuisine Type
                                         
-                                                ul = document.getElementById("cuisinetype-filter");
-                                                items = ul.getElementsByTagName("input");                                             
-                                                for (i = 0; i < items.length; ++i) {
-                                                    y = items[i].checked ? "1" : "0";
-                                                    setMemberPreference(y, items[i].value);
-                                                }
+        ul = document.getElementById("cuisinetype-filter");
+        items = ul.getElementsByTagName("input");                                             
+        for (i = 0; i < items.length; ++i) {
+            y = items[i].checked ? "1" : "0";
+            setMemberPreference(y, items[i].value);
+        }
 
-                                                //celebration Type
+        //celebration Type
                                      
-                                                ul = document.getElementById("celebrationtype-filter");
-                                                items = ul.getElementsByTagName("input");
+        ul = document.getElementById("celebrationtype-filter");
+        items = ul.getElementsByTagName("input");
                                                 
-                                                for (i = 0; i < items.length; ++i) {
-                                                    y = items[i].checked ? "1" : "0";
-                                                    setMemberPreference(y, items[i].value);
-                                                }
+        for (i = 0; i < items.length; ++i) {
+            y = items[i].checked ? "1" : "0";
+            setMemberPreference(y, items[i].value);
+        }
 
-                                                //Restaurant
-                                                ul = document.getElementById("restaurantdetail-filter");
-                                                items = ul.getElementsByTagName("input");
+        //Restaurant
+        ul = document.getElementById("restaurantdetail-filter");
+        items = ul.getElementsByTagName("input");
                                                 
-                                                for (i = 0; i < items.length; ++i) {
-                                                    y = items[i].checked ? "1" : "0";
-                                                    setMemberPreference(y, items[i].value);
-                                                }
-                                                if (window.localStorage.getItem("errorPreference") === "1") {
-                                                   
-                                                    navigator.notification.alert("Preferences Saves Successfully", function() {
-                                                    }, "isme By Jumeirah", "Dismiss") ;    
-                                                } else {
-                                                    navigator.notification.alert("ERROR : One or more preferences could not be saved!" + window.localStorage.getItem("errorPreference"), function() {
-                                                    }, "isme By Jumeirah" , "Dismiss")  ;   
-                                                }
-                                                window.localStorage.setItem("errorPreference", "1");
-                                                window.localStorage.setItem("issaved","1");
-                                                hideSpin(); //hide loading popup
+        for (i = 0; i < items.length; ++i) {
+            y = items[i].checked ? "1" : "0";
+            setMemberPreference(y, items[i].value);
+        }
+        if (window.localStorage.getItem("errorPreference") === "1") {
+            navigator.notification.alert("Preferences Saves Successfully", function() {
+            }, "isme By Jumeirah", "Dismiss") ;    
+        } else {
+            navigator.notification.alert("ERROR : One or more preferences could not be saved!" + window.localStorage.getItem("errorPreference"), function() {
+            }, "isme By Jumeirah" , "Dismiss") ;   
+        }
+        window.localStorage.setItem("errorPreference", "1");
+        window.localStorage.setItem("issaved", "1");
+        hideSpin(); //hide loading popup
     }
     
     function redeemDiscount() {
@@ -4898,8 +4897,7 @@ function completeRedemption() {
         document.getElementById("mycard-qr3").style.backgroundSize = "cover";        
     }
     
-    
-       function back6_profile() {
+    function back6_profile() {
         window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name6-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number6-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -4908,7 +4906,6 @@ function completeRedemption() {
         document.getElementById("mycard-qr6").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
         document.getElementById("mycard-qr6").style.backgroundSize = "cover";        
     }
-    
      
     function onConfirm1 (buttonIndex) {
         if (buttonIndex===1) {
@@ -5154,7 +5151,6 @@ function completeRedemption() {
                        if (getData.statuscode === "000") {
                            window.localStorage.setItem("errorPreference", "1");
                        }else {
-                           
                            //  navigator.notification.alert("ERROR : One or more preferences could not be saved!"  +getData.statusdesc, function() {
                            //                           }, "isme By Jumeirah" , "Dismiss");     
                            window.localStorage.setItem("errorPreference", getData.statusdesc);                                      
