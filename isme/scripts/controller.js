@@ -5197,14 +5197,15 @@ function completeRedemption() {
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
+                           document.getElementById("prefsave").style.display="none";
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
                        }, "isme By Jumeirah" , "Dismiss");     
+                       document.getElementById("prefsave").style.display="none";
                    }
                });
-        hideSpin(); //hide loading 
     }
 }
     )(window);
