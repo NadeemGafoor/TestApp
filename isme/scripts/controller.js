@@ -3903,7 +3903,7 @@ function completeRedemption() {
                                             initPref: function () {
                                                 showSpin();
                                                 back6_profile();                        
-           
+                                                window.localStorage.setItem("issaved","0");
                                                 getLifeStylePref("#lifestyle-filter", "#lifestyle-filter-template");
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
                                                 getCuisineTypePref("#cuisinetype-filter", "#celebrationtype-template");
@@ -3911,7 +3911,50 @@ function completeRedemption() {
                                             },
         
                                             savePreference:function() {
-                                                //life style
+                                                 savePreferenceItem();
+                                            },
+                                            checkSave:function(){
+                                                if (window.localStorage.setItem("issaved") ==="0"){
+                                                       navigator.notification.confirm(
+                                                   'You have not saved your preferences?', // message
+                                                   onConfirm2, // callback to invoke with index of button pressed
+                                                   'isme by Jumeirah', // title
+                                                   'I will set Later,Save now'          // buttonLabels
+                                                   );
+                                                
+
+                                            }else{
+                                                saveLater();
+                                            }
+        }
+                                        
+                                        });
+    
+    
+       function onConfirm2 (buttonIndex) {
+        if (buttonIndex===1) {
+            saveLater();
+        } else {
+            savePreferenceItem();
+            saveLater();
+        }
+    }
+    
+    function saveLater(){
+        window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'left',
+                                                                     'href': '#views/pl-home.html'
+                                                                 }), 500);
+    }
+    
+    function savePreferenceItem(){
+    
+       //life style
                                                 showSpin();
                                                 var ul = document.getElementById("lifestyle-filter");
                                                 var items = ul.getElementsByTagName("input");
@@ -3957,10 +4000,9 @@ function completeRedemption() {
                                                     }, "isme By Jumeirah" , "Dismiss")  ;   
                                                 }
                                                 window.localStorage.setItem("errorPreference", "1");
+                                                window.localStorage.setItem("issaved","1");
                                                 hideSpin(); //hide loading popup
-                                            }
-                                        
-                                        });
+    }
     
     function redeemDiscount() {
         showSpin();
@@ -4859,10 +4901,10 @@ function completeRedemption() {
     
        function back6_profile() {
         window.localStorage.setItem("selfredeem", "D"); 
-        document.getElementById("name-back6").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
-        document.getElementById("number-back6").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
-        document.getElementById("expiry-back6").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
-        document.getElementById("segment-back6").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
+        document.getElementById("name6-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+        document.getElementById("number6-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+        document.getElementById("expiry6-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+        document.getElementById("segment6-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
         document.getElementById("mycard-qr6").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
         document.getElementById("mycard-qr6").style.backgroundSize = "cover";        
     }
