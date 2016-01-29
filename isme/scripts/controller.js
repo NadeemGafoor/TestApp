@@ -3908,13 +3908,17 @@ function completeRedemption() {
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
                                                 getCuisineTypePref("#cuisinetype-filter", "#celebrationtype-template");
                                                 getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
+                                                
+                                                setAllPreference("lifestyle-filter","LS");
+                                                setAllPreference("restaurantdetail-filter","OD");
+                                                setAllPreference("cuisinetype-filter","CS");
+                                                setAllPreference("celebrationtype-filter","CB");
                                             },
         
                                             savePreference:function() {
                                                 savePreferenceItem();
                                             },
                                             checkSave:function() {
-                                               
                                                 if (window.localStorage.getItem("issaved") ==="0") {
                                                     navigator.notification.confirm(
                                                         'You have not saved your preferences?', // message
@@ -3927,7 +3931,7 @@ function completeRedemption() {
                                                 }
                                             },
                                             enableSave:function() {
-                                                 window.localStorage.setItem("issaved", "0");
+                                                window.localStorage.setItem("issaved", "0");
                                             }
                                         
                                         });
@@ -5163,6 +5167,44 @@ function completeRedemption() {
                    }
                });
         hideSpin(); //hide loading popup
+    }
+    
+    function setAllPreference(e, s) {
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/mypreferencelist.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,preferencetype:s,customer:customer,password:password
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode === "000") {
+                           var ul = document.getElementById(e);
+                           var items = ul.getElementsByTagName("input");
+              
+                           for (var n = 0; n < getData.mypreferences.length;n++) {
+                               for (var i = 0; i < items.length; ++i) {
+                                   if (getData.mypreferences[n].prfcode === items[i].value) {
+                                       items[i].checked = true;
+                                       break;
+                                   }
+                               }
+                           }
+                       }else {
+                           navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
+                           }, "isme By Jumeirah" , "Dismiss");     
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
+                       }, "isme By Jumeirah" , "Dismiss");     
+                   }
+               });
+        hideSpin(); //hide loading 
     }
 }
     )(window);
