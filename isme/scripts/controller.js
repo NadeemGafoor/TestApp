@@ -3952,7 +3952,7 @@ function completeRedemption() {
                                                 //  getCuisineTypePref();
                                                 //  getCelebrationTypePref();
                                                 hideSpin();
-                                            },
+                                            }
                                         });
     
     function redeemDiscount() {
