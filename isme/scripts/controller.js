@@ -3912,9 +3912,8 @@ function completeRedemption() {
                                   
                                             },
         
-                                            prefCheck: function (e) {
-                                                e.checked=true;
-                                              alert(e);
+                                            checkMe: function () {
+                                              alert("gggg");
            
                                                 
                                             }
