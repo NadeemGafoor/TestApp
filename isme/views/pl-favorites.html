@@ -25,7 +25,7 @@
 
 <script type="text/x-kendo-template" id="lifestyle-filter-template">
     <div class="list-group-data-item">${desc}</div>
-                <a class="list-group-data-item-2" data-role="button" data-click="updatePreference">
+                <a class="list-group-data-item-2" data-role="button" data-click="updatePreference" id="${code}">
                     <i class="fa fa-square-o fa-2x cblack"></i>
                 </a>
 </script>
@@ -54,7 +54,13 @@
 
     </label>
         
-        function updatePreference(e){
-         alert("ffff");   
+      
+</script>
+
+
+<script>
+    
+      function updatePreference(e){
+         alert(document.getElementById(this));   
         }
 </script>
