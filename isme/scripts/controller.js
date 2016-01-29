@@ -3906,7 +3906,6 @@ function completeRedemption() {
                                                 back_profile();
            
                                                 getLifeStylePref();
-                                                alert("hello");
                                                 getRestaurantDetailPref();
                                                 getCuisineTypePref();
                                                 getCelebrationTypePref();
