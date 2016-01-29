@@ -642,7 +642,6 @@ function loadHistory() {
 
 function loadFavorites() {
     plHomeClick();
-
     if (window.localStorage.getItem("appopen") != "7") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
@@ -3903,12 +3902,55 @@ function completeRedemption() {
                                           
                                             initPref: function () {
                                                 showSpin();
-                                                back_profile();
+                                                back_profile();                        
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/lifeStyleList.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);                    
+                                                               if (getData.statuscode === "000") {
+                                                                   //alert(getData.preflist[0].code);
+                                                                   if (getData.preflist.length > 0) {
+                                                                       
+                                                                       
+                                                                       
+                                                                                                                                           
+                                                                       
+                                                                       
+                                                                       
+                                                                       $("lifestyle-filter").kendoMobileListView({
+                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                                                                                     template: $("lifestyle-filter-template").html()
+                                                                                                                     //endlessScroll: true
+                                                                                                                      
+                                                                                                                 });
+                                                                   }else {
+                                                                       navigator.notification.alert("Lifestyle Preference List not available", function() {
+                                                                       }, "isme By Jumeirah", "Dismiss")    
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot get Lifestyle Preference List. " + getData.statusdesc, function() {
+                                                                   }, "isme By Jumeirah", "Dismiss")          
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Lifestyle Preference List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "isme By Jumeirah", "Dismiss")
+                                                           }
+                                                       });
+                                                hideSpin(); //hide loading popup
            
-                                                getLifeStylePref();
-                                               // getRestaurantDetailPref();
-                                              //  getCuisineTypePref();
-                                              //  getCelebrationTypePref();
+                                                // getLifeStylePref();
+                                                // getRestaurantDetailPref();
+                                                //  getCuisineTypePref();
+                                                //  getCelebrationTypePref();
                                                 hideSpin();
                                             },
                                         });
@@ -4753,136 +4795,6 @@ function completeRedemption() {
                }); 
     }
     
-    function getRestAddData() {
-        var data = [];
-        data.push({addresticon:"fa-beer",addrestkey: "1",addrestitem:"Alcohol"});
-        data.push({addresticon:"fa-spoon",addrestkey: "2",addrestitem:"Brunch"});
-        data.push({addresticon:"fa-cutlery",addrestkey: "3",addrestitem:"Buffet"});
-        data.push({addresticon:"fa-group",addrestkey: "4",addrestitem:"Group Arrangement"});
-        data.push({addresticon:"fa-check-square",addrestkey: "5",addrestitem:"Halal"});
-        data.push({addresticon:"fa-child",addrestkey: "6",addrestitem:"Kids Arrangement"});
-        data.push({addresticon:"fa-microphone",addrestkey: "7",addrestitem:"Live Entertainment"});
-        data.push({addresticon:"fa-sun-o",addrestkey: "8",addrestitem:"Outdoor Seating"});
-        data.push({addresticon:"fa-car",addrestkey: "9",addrestitem:"Parking"});        
-        data.push({addresticon:"fa-magic",addrestkey: "10",addrestitem:"Smoking Indoor"});  
-        data.push({addresticon:"fa-magic",addrestkey: "11",addrestitem:"Smoking Outdoor"});  
-        data.push({addresticon:"fa-magic",addrestkey: "12",addrestitem:"Smoking Sisha"});  
-        data.push({addresticon:"fa-car",addrestkey: "13",addrestitem:"Valet Parking"});  
-        data.push({addresticon:"fa-wheelchair",addrestkey: "14",addrestitem:"Wheelchair"});  
-        data.push({addresticon:"fa-wifi",addrestkey: "15",addrestitem:"Wifi"});  
-        
-        return data;
-    }
-    
-    function getRestLocationData() {
-        var data = [];
-        data.push({locationkey: "1",locationitem:"Abudhabi"});
-        data.push({locationkey: "2",locationitem:"Dubai"});
-        data.push({locationkey: "3",locationitem:"Sharjah"});
-        data.push({locationkey: "4",locationitem:"Ajman"});
-        data.push({locationkey: "5",locationitem:"Fujairah"});
-        data.push({locationkey: "6",locationitem:"Ras Al Khaimah"});
-        data.push({locationkey: "7",locationitem:"Um Al Quwain"});
-        return data;
-    }
-    
-    function getRestTypeData() {
-        var data = [];
-        data.push({typekey: "1",typeitem:"Award Winning"});
-        data.push({typekey: "2",typeitem:"Bar/Lounge"});
-        data.push({typekey: "3",typeitem:"Casual Dining"});
-        data.push({typekey: "4",typeitem:"Corporate/Business"});
-        data.push({typekey: "5",typeitem:"Family Dining"});
-        data.push({typekey: "6",typeitem:"OpenAir Dining"});
-        data.push({typekey: "7",typeitem:"Romantic Dining"});
-        data.push({typekey: "8",typeitem:"Scenic View"});
-        data.push({typekey: "9",typeitem:"Romantic Dining"});
-        data.push({typekey: "10",typeitem:"Spa"});
-        data.push({typekey: "11",typeitem:"Theme Park"});
-        data.push({typekey: "12",typeitem:"Night life/Night Club"});
-        data.push({typekey: "13",typeitem:"Cafe or Bistro"});
-        data.push({typekey: "14",typeitem:"Sports Bar"});
-        data.push({typekey: "15",typeitem:"Cocktail Bar"});
-        data.push({typekey: "16",typeitem:"Signature Fine Dining"});           
-           
-        return data;
-    }
-    
-    function getRestCuisineData() {
-        var data = [];
-        data.push({cuisinekey: "1",cuisineitem:"African"});
-        data.push({cuisinekey: "2",cuisineitem:"Afternoon Tea"});
-        data.push({cuisinekey: "3",cuisineitem:"Asian"});
-        data.push({cuisinekey: "4",cuisineitem:"Bar food"});
-        data.push({cuisinekey: "5",cuisineitem:"Brunch"});    
-        data.push({cuisinekey: "6",cuisineitem:"Business Lunch"});         
-        data.push({cuisinekey: "7",cuisineitem:"European"});
-        data.push({cuisinekey: "8",cuisineitem:"Healthy"});         
-        data.push({cuisinekey: "9",cuisineitem:"International"});
-        data.push({cuisinekey: "11",cuisineitem:"Latin American"});
-        data.push({cuisinekey: "12",cuisineitem:"Light Bites"});
-        data.push({cuisinekey: "13",cuisineitem:"Middle Eastern"});
-        data.push({cuisinekey: "14",cuisineitem:"Patisserie"});
-        data.push({cuisinekey: "15",cuisineitem:"Seafood"});
-        data.push({cuisinekey: "16",cuisineitem:"Steakhouse"});
-        data.push({cuisinekey: "17",cuisineitem:"Vegetarian"});
-           
-        return data;
-    }
-    
-    function getOfferTypeData() {
-        var data = [];
-        data.push({offerkey: "1",offeritem:"Art & Culture"});
-        data.push({offerkey: "2",offeritem:"Beach"});
-        data.push({offerkey: "3",offeritem:"Beauty"});
-        data.push({offerkey: "4",offeritem:"Brunch"});
-        data.push({offerkey: "5",offeritem:"Family & Kids"});    
-        data.push({offerkey: "6",offeritem:"Fashion"});         
-        data.push({offerkey: "7",offeritem:"Fine Dining"});
-        data.push({offerkey: "8",offeritem:"Football"});         
-        data.push({offerkey: "9",offeritem:"Gadgets"});
-        data.push({offerkey: "10",offeritem:"Golf"});         
-        data.push({offerkey: "11",offeritem:"Grape Tasting"});
-        data.push({offerkey: "12",offeritem:"Horse Racing"});
-        data.push({offerkey: "13",offeritem:"Leisure"});
-        data.push({offerkey: "14",offeritem:"Live music"});
-        data.push({offerkey: "15",offeritem:"Luxury Goods"});
-        data.push({offerkey: "16",offeritem:"Motor Sports"});
-        data.push({offerkey: "17",offeritem:"Networking"});
-        data.push({offerkey: "18",offeritem:"No alcohol"});
-        data.push({offerkey: "19",offeritem:"Rugby"});
-        data.push({offerkey: "20",offeritem:"Shopping"});
-        data.push({offerkey: "21",offeritem:"Signature Events"});
-        data.push({offerkey: "22",offeritem:"Spa / Fitness"});
-        data.push({offerkey: "23",offeritem:"Special Holiday Offers"});
-        data.push({offerkey: "24",offeritem:"Travel & Stay Packages"});
-        data.push({offerkey: "25",offeritem:"Watersports"});
-        data.push({offerkey: "26",offeritem:"Weight loss"});
-        data.push({offerkey: "27",offeritem:"Wellness & Wellbeing"});
-        data.push({offerkey: "27",offeritem:"Yoga"});
-           
-        return data;
-    }
-    
-    function getOfferCeleberationData() {
-        var data = [];
-        data.push({celebkey: "1",celebitem:"Birthdays"});
-        data.push({celebkey: "2",celebitem:"Corporate entertainment"});
-        data.push({celebkey: "3",celebitem:"Easter celebrations"});
-        data.push({celebkey: "4",celebitem:"Eid celebrations"});
-        data.push({celebkey: "5",celebitem:"Father`s day"});    
-        data.push({celebkey: "6",celebitem:"Festive"});         
-        data.push({celebkey: "7",celebitem:"Mothers day"});
-        data.push({celebkey: "8",celebitem:"Ramadan"});         
-        data.push({celebkey: "9",celebitem:"Thanks giving day"});
-        data.push({celebkey: "10",celebitem:"UAE National Day"});         
-        data.push({celebkey: "11",celebitem:"Valentines"});
-        data.push({celebkey: "12",celebitem:"Wedding Anniversary"});
-        data.push({celebkey: "13",celebitem:"Women`s Day"});
-           
-        return data;
-    }
-    
     function getHistoryFilterData() {
         var data = [];
         data.push({historykey: "1",historyitem:"Activate Offer"});
@@ -5003,169 +4915,5 @@ function completeRedemption() {
         return;
     }
     
-    function getLifeStylePref () {
-        showSpin();
-
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/lifeStyleList.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                    
-                       if (getData.statuscode === "000") {
-                           
-                           if (getData.preflist.length > 0) {
-                               $("lifestyle-filter").kendoMobileListView({
-                                                                             dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                             template: $("lifestylefilter-template").html()
-                                                                             //endlessScroll: true
-                                                                                                                      
-                                                                         });
-                           }else {
-                               navigator.notification.alert("Lifestyle Preference List not available", function() {
-                               }, "isme By Jumeirah", "Dismiss")    
-                           }
-                       }else {
-                           navigator.notification.alert("Cannot get Lifestyle Preference List. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")          
-                       }
-                   },
-                   error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Lifestyle Preference List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
-                   }
-               });
-        hideSpin(); //hide loading popup
-    }
-    
-    function getRestaurantDetailPref() {
-        showSpin();
-
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/restaurantDetailList.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                                        
-                       if (getData.statuscode === "000") {
-                           if (getData.preflist.length > 0) {
-                               $("restaurantdetail-filter").kendoMobileListView({
-                                                                                    dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                    template: $("restaurantdetailfilter-template").html()
-                                                                                    //endlessScroll: true
-                                                                                                                      
-                                                                                });
-                           }else {
-                               navigator.notification.alert("Restaurant Details List not available", function() {
-                               }, "isme By Jumeirah", "Dismiss")    
-                           }
-                       }else {
-                           navigator.notification.alert("Cannot get Restaurant Details List. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")          
-                       }
-                   },
-                   error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant Details List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
-                   }
-               });
-        hideSpin(); //hide loading popup
-    }
-        
-    function  getCuisineTypePref() {
-        showSpin();
-
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/cuisineTypeList.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                                                                    
-                       if (getData.statuscode === "000") {
-                           if (getData.preflist.length > 0) {
-                               $("cuisinetype-filter").kendoMobileListView({
-                                                                               dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                               template: $("cuisinetypefilter-template").html()
-                                                                               //endlessScroll: true
-                                                                                                                      
-                                                                           });
-                           }else {
-                               navigator.notification.alert("Cuisine Type List not available", function() {
-                               }, "isme By Jumeirah", "Dismiss")    
-                           }
-                       }else {
-                           navigator.notification.alert("Cannot get Cuisine Type List. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")          
-                       }
-                   },
-                   error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Cuisine Type List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
-                   }
-               });
-        hideSpin(); //hide loading popup
-    }
-    
-    function getCelebrationTypePref() {
-        showSpin();
-                                                
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/celebrationTypeList.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                                        
-                       if (getData.statuscode === "000") {
-                           if (getData.preflist.length > 0) {
-                               $("celebrationtype-filter").kendoMobileListView({
-                                                                                   dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                   template: $("cuisinetypefilter-template").html()
-                                                                                   //endlessScroll: true
-                                                                                                                      
-                                                                               });
-                           }else {
-                               navigator.notification.alert("Celebration Type List not available", function() {
-                               }, "isme By Jumeirah", "Dismiss")    
-                           }
-                       }else {
-                           navigator.notification.alert("Cannot get Celebration Type List. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")          
-                       }
-                   },
-                   error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Celebration Type List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
-                   }
-               });
-        hideSpin(); //hide loading popup
-    }
-}
+   }
     )(window);

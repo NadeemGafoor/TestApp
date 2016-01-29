@@ -1,18 +1,18 @@
-<div data-role="view"  data-title="My Favorites" data-layout="pl-back-layout" id="myfavorite-view" data-model="postLogin"  data-show="postLogin.initPref">
+<div data-role="view"  data-title="My Favorites" data-layout="pl-back-layout" id="myfavorite-view"  data-show="postLogin.initPref">
 
  
     
     <div class="list-group">&nbsp;My Lifestyle Interests</div>
-    <ul id="lifestyle-filter" >
+    <ul data-role="listview" id="lifestyle-filter" >
 
     </ul>
   
 </div>
 
-<script type="text/x-kendo-template" id="lifestylefilter-template">
+<script type="text/x-kendo-template" id="lifestyle-filter-template">
     <label class="km-checkbox-label" >
-        ${desc}
-        <input type="checkbox" class="km-checkbox" id="${code}"/>
+        ${desc1}
+        <input type="checkbox" class="km-checkbox" id="${code1}"/>
 
     </label>
 </script>
