@@ -886,6 +886,8 @@ function completeRedemption() {
     var birthdate = "";
     var residentcity = "";
     var pinnumber = "";
+    var spend=0;
+    var maxspend=0;
     var m = [];  
     var offertype = "1"; //prelogin ofer
     var offercode = ""; //All Offers default
@@ -1774,7 +1776,7 @@ function completeRedemption() {
                                                        residentcity = window.localStorage.getItem("residentcity");
                                                        homecountry = window.localStorage.getItem("homecountry");
                                                        initdate = window.localStorage.getItem("initdate");
-                                                       
+                                                       getSummary();
                                                        $("body").data("kendoMobilePane").navigate("views/pl-home.html"); 
                                                    } else {
                                                        outletcode = "";
@@ -1969,6 +1971,8 @@ function completeRedemption() {
                                                                   birthdate = getData.dateofbirth;
                                                                   residentcity = getData.residentcity;
                                                                   pinnumber = getData.pinnumber;
+                                                                  spend = getData.spend;
+                                                                  maxspend=getData.maxspend;
 
                                                                   //set Local Storage as cookies to retain login
                                                                   window.localStorage.setItem("customer", customer);
@@ -2000,7 +2004,8 @@ function completeRedemption() {
                                                                   window.localStorage.setItem("birthdate", birthdate);
                                                                   window.localStorage.setItem("firstname", firstname);
                                                                   window.localStorage.setItem("initdate", initdate);
-                                                                 
+                                                                  window.localStorage.setItem("spend", spend);
+                                                                                   window.localStorage.setItem("maxspend", maxspend);
                                                                   pushSettings = {
                                                                       iOS: {
                                                                           badge: "true",
@@ -2323,12 +2328,16 @@ function completeRedemption() {
                                                 document.getElementById("profile-name").innerHTML = window.localStorage.getItem("customername");
                                                 document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
                                                 document.getElementById("profile-init").innerHTML = "Member Since " + window.localStorage.getItem("initdate");
-                               
                                                 if (window.localStorage.getItem("segmentcode") === "1000") {
                                                     document.getElementById("profile-type").innerHTML = "isme Member";
                                                 }else {
                                                     document.getElementById("profile-type").innerHTML = "isme elite Member";
                                                 }
+                                                //Generate Spend Bar
+                                                var i=(parseInt(window.localStorage.getItem("spend"))/parseInt(window.localStorage.getItem("maxspend")))*100
+                                                document.getElementById("spend-amount").style.margin="auto auto auto " + i + "%";
+                                                document.getElementById("spend-bar").style.width= i + "%";
+                                                document.getElementById("spend-amount").innerHTML=window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend");
                                             },
         
                                             loadProfile
@@ -3908,11 +3917,9 @@ function completeRedemption() {
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
                                                 getCuisineTypePref("#cuisinetype-filter", "#celebrationtype-template");
                                                 getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
-                                                
-                                                setLifeStylePreference();                                              
-                                                setCuisineTypePreference();
-                                                setCelebrationTypePreference();
-                                                setRestaurantPreference();
+                                            },
+                                            getChecked:function() {
+                                                hideSpin();
                                             },
         
                                             savePreference:function() {
@@ -4989,6 +4996,7 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
+                               setLifeStylePreference();                                              
                            }else {
                                navigator.notification.alert("Lifestyle Preference List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -5005,7 +5013,6 @@ function completeRedemption() {
                        hideSpin(); //hide loading popup
                    }
                });
-        hideSpin(); //hide loading popup
     }
     
     function getRestaurantDetailPref(x, y) {
@@ -5032,6 +5039,7 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
+                               setRestaurantPreference();
                            }else {
                                navigator.notification.alert("Restaurant Details List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -5046,7 +5054,6 @@ function completeRedemption() {
                        }, "isme By Jumeirah", "Dismiss")
                    }
                });
-        hideSpin(); //hide loading popup
     }
         
     function getCuisineTypePref(x, y) {
@@ -5073,6 +5080,7 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
+                               setCuisineTypePreference();
                            }else {
                                navigator.notification.alert("Cuisine Type List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -5087,7 +5095,6 @@ function completeRedemption() {
                        }, "isme By Jumeirah", "Dismiss")
                    }
                });
-        hideSpin(); //hide loading popup
     }
     
     function getCelebrationTypePref(x, y) {
@@ -5114,6 +5121,7 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
+                               setCelebrationTypePreference();
                            }else {
                                navigator.notification.alert("Celebration Type List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -5128,7 +5136,6 @@ function completeRedemption() {
                        }, "isme By Jumeirah", "Dismiss")
                    }
                });
-        hideSpin(); //hide loading popup
     }
     
     function setMemberPreference(e, m) {
@@ -5158,7 +5165,6 @@ function completeRedemption() {
                        window.localStorage.setItem("errorPreference", errormsg.statusText);                                      
                    }
                });
-        hideSpin(); //hide loading popup
     }
     
     function setLifeStylePreference() {  
@@ -5177,7 +5183,7 @@ function completeRedemption() {
                        if (getData.statuscode === "000") {
                            var ul = document.getElementById("lifestyle-filter");
                            var items = ul.getElementsByTagName("input");
-                           
+                          // alert("LS" + items.length);
                            for (var n = 0; n < getData.mypreferences.length ;n++) {
                                for (var i = 0; i < items.length; ++i) {  
                                    if (getData.mypreferences[n].prfcode == items[i].value) {
@@ -5215,7 +5221,7 @@ function completeRedemption() {
                        if (getData.statuscode === "000") {
                            var ul = document.getElementById("cuisinetype-filter");
                            var items = ul.getElementsByTagName("input");
-                           
+                          // alert("CS" + items.length);
                            for (var n = 0; n < getData.mypreferences.length ;n++) {
                                for (var i = 0; i < items.length; ++i) {  
                                    if (getData.mypreferences[n].prfcode == items[i].value) {
@@ -5253,13 +5259,11 @@ function completeRedemption() {
                        if (getData.statuscode === "000") {
                            var ul = document.getElementById("celebrationtype-filter");
                            var items = ul.getElementsByTagName("input");
-                           
+                         //  alert("CB" + items.length);
                            for (var n = 0; n < getData.mypreferences.length ;n++) {
                                for (var i = 0; i < items.length; ++i) {  
                                    if (getData.mypreferences[n].prfcode == items[i].value) {
-
-                                   //alert(getData.mypreferences[n].prfcode + "  " + items[i].value);
-                                                                     
+                                       //alert(getData.mypreferences[n].prfcode + "  " + items[i].value);
                                        items[i].checked = true;
                                    }
                                }
@@ -5294,7 +5298,7 @@ function completeRedemption() {
                        if (getData.statuscode === "000") {
                            var ul = document.getElementById("restaurantdetail-filter");
                            var items = ul.getElementsByTagName("input");
-                           
+                        //   alert("RD" + items.length);
                            for (var n = 0; n < getData.mypreferences.length ;n++) {
                                for (var i = 0; i < items.length; ++i) {  
                                    if (getData.mypreferences[n].prfcode == items[i].value) {
@@ -5343,5 +5347,48 @@ function completeRedemption() {
                                                    });
         //$("body").data("kendoMobilePane").navigate("#:back");
     }
+    
+
+              
+ function  getSummary() {
+                                                  showSpin();
+                                                  $.ajax({ 
+                                                             type: "POST",
+                                                             cache:false,
+                                                             async:true,
+                                                             timeout:20000,
+                                                             url: gurl + "/summaryReport.aspx",
+                                                             contentType: "application/json; charset=utf-8",
+                                                             data: JSON.stringify({
+                                                                                      merchantcode :merchant,customerid:customer,password:password,mdevice:mdevicestat
+                                                                                  }),
+                                                             success: function (data) { 
+                                                                 var getData = JSON.parse(data);
+                                                                 if (getData.statuscode == "000") {
+                                                                     window.localStorage.setItem("spend",getData.spendbalance);
+                                                                      window.localStorage.setItem("maxspend",getData.maxspend);
+                                                                    // document.getElementById("wallet-div").style.display = "block";
+                                                                    // document.getElementById("summary-1").innerHTML = getData.cashbackbalance;
+                                                                    // document.getElementById("summary-2").innerHTML = getData.vouchercount;
+                                                                    // document.getElementById("summary-3").innerHTML = getData.vouchercountexpiry;
+                                                                    // document.getElementById("summary-4").innerHTML = getData.spendbalance;
+                                                                    // document.getElementById("summary-5").innerHTML = getData.referralbalance;
+                                                                    // document.getElementById("summary-6").innerHTML = getData.rewardpointbalance;
+                                                                    // document.getElementById("summary-7").innerHTML = getData.tierpointbalance;
+                                                                     
+                                                                     hideSpin(); //hide loading popup
+                                                                 }else {
+                                                                     navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc, function() {
+                                                                     }, "HD Rewards", "Dismiss")          
+                                                                     hideSpin(); //hide loading popup
+                                                                 }
+                                                             },
+                                                             error: function (errormsg) {
+                                                                 navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                                 }, "HD Rewards", "Dismiss")
+                                                                 hideSpin(); //hide loading popup
+                                                             }
+                                                         });
+                                              }
 }
     )(window);

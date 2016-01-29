@@ -1,4 +1,4 @@
-<div data-role="view"  data-title="My Favorites" data-layout="pl-back-layout" id="myfavorite-view"  data-show="postLogin.initPref" data-model="postLogin">
+<div data-role="view"  data-title="My Favorites" data-layout="pl-back-layout" id="myfavorite-view"  data-show="postLogin.initPref" data-model="postLogin" data-after-show="postLogin.getChecked">
  <div data-role="header">
                 <div data-role="navbar">
             <a data-role="button" data-bind="click:checkSave"  data-align="left" style="color:#fff" data-icon="back" ></a>
@@ -47,15 +47,15 @@
     </ul>
          
     <div class="list-group" >&nbsp;My Taste Type</div>
-    <ul id="cuisinetype-filter">
+    <ul data-role="listview" id="cuisinetype-filter" data-bind="click:enableSave">
     </ul>
  
     <div class="list-group" >&nbsp;My Celebration Type</div>
-    <ul id="celebrationtype-filter">
+    <ul data-role="listview" id="celebrationtype-filter" data-bind="click:enableSave">
     </ul>
     
     <div class="list-group">&nbsp;My Favourite Restaurants</div>
-    <ul id="restaurantdetail-filter" >
+    <ul data-role="listview" id="restaurantdetail-filter" data-bind="click:enableSave">
 
     </ul>
 
