@@ -3901,18 +3901,178 @@ function completeRedemption() {
                                             },
         
                                             getLifeStylePref :function() {
-                                                lifeStylePref(document.getElementById("lifestyle-filter"),"lifestylefilter-template");
+                                                  showSpin();
+
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/lifeStyleList.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                                        
+                       if (getData.statuscode === "000") {
+                           if (getData.preflist.length > 0) {
+                               $("lifestyle-filter").kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $("lifestylefilter-template").html()
+                                                            //endlessScroll: true
+                                                                                                                      
+                                                        });
+                           }else {
+                               navigator.notification.alert("Lifestyle Preference List not available", function() {
+                               }, "isme By Jumeirah", "Dismiss")    
+                           }
+                       }else {
+                           navigator.notification.alert("Cannot get Lifestyle Preference List. " + getData.statusdesc, function() {
+                           }, "isme By Jumeirah", "Dismiss")          
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot get Lifestyle Preference List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "isme By Jumeirah", "Dismiss")
+                   }
+               });
+        hideSpin(); //hide loading popup
+                                              
                                             },
                                             
                                             getRestaurantDetailPref:function() {
-                                                restaurantDetailPref(document.getElementById("restaurantdetail-filter"),"restaurantdetailfilter-template");
+                                                  showSpin();
+
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/restaurantDetailList.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                                        
+                       if (getData.statuscode === "000") {
+                           if (getData.preflist.length > 0) {
+                               $("restaurantdetail-filter").kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $("restaurantdetailfilter-template").html()
+                                                            //endlessScroll: true
+                                                                                                                      
+                                                        });
+                           }else {
+                               navigator.notification.alert("Restaurant Details List not available", function() {
+                               }, "isme By Jumeirah", "Dismiss")    
+                           }
+                       }else {
+                           navigator.notification.alert("Cannot get Restaurant Details List. " + getData.statusdesc, function() {
+                           }, "isme By Jumeirah", "Dismiss")          
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant Details List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "isme By Jumeirah", "Dismiss")
+                   }
+               });
+        hideSpin(); //hide loading popup
+                                                
+                                               
                                             },
         
                                             getCuisineTypePref:function() {
-                                                cuisineTypePref(document.getElementById("cuisinetype-filter"),"cuisinetypefilter-template");
+                                                   showSpin();
+
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/cuisineTypeList.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                                        
+                       if (getData.statuscode === "000") {
+                           if (getData.preflist.length > 0) {
+                               $("cuisinetype-filter").kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $("cuisinetypefilter-template").html()
+                                                            //endlessScroll: true
+                                                                                                                      
+                                                        });
+                           }else {
+                               navigator.notification.alert("Cuisine Type List not available", function() {
+                               }, "isme By Jumeirah", "Dismiss")    
+                           }
+                       }else {
+                           navigator.notification.alert("Cannot get Cuisine Type List. " + getData.statusdesc, function() {
+                           }, "isme By Jumeirah", "Dismiss")          
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot get Cuisine Type List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "isme By Jumeirah", "Dismiss")
+                   }
+               });
+        hideSpin(); //hide loading popup
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                              
                                             },
                                             getCelebrationTypePref:function() {
-                                                celebrationTypePref(document.getElementById("celebrationtype-filter"),"cuisinetypefilter-template");
+                                                
+                                                 showSpin();
+
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/celebrationTypeList.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                                        
+                       if (getData.statuscode === "000") {
+                           if (getData.preflist.length > 0) {
+                               $("celebrationtype-filter").kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $("cuisinetypefilter-template").html()
+                                                            //endlessScroll: true
+                                                                                                                      
+                                                        });
+                           }else {
+                               navigator.notification.alert("Celebration Type List not available", function() {
+                               }, "isme By Jumeirah", "Dismiss")    
+                           }
+                       }else {
+                           navigator.notification.alert("Cannot get Celebration Type List. " + getData.statusdesc, function() {
+                           }, "isme By Jumeirah", "Dismiss")          
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot get Celebration Type List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "isme By Jumeirah", "Dismiss")
+                   }
+               });
+        hideSpin(); //hide loading popup
+                                               
                                             },
                                         });
     
