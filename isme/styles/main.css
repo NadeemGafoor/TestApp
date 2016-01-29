@@ -2293,6 +2293,10 @@ tile-frame-inner
     border: none;
 }
 
+.pl-logo-image-holder{
+    background-image:url(../images/home_page_logo_black.png);
+}
+
 .progress-bar-holder
 {
     position: relative;
@@ -2302,6 +2306,7 @@ tile-frame-inner
     height: 20px;
     width: 90%; 
      z-index:1000;
+    background-color:#000;
 }
 
 .progress-bar-data-holder
