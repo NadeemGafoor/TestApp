@@ -5199,7 +5199,7 @@ function completeRedemption() {
                });
     }
     
-    function setCuisineTypePreference() {  
+    function setCuisineTypePreference() {    
         $.ajax({ 
                    type: "POST",
                    cache:false,
