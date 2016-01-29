@@ -1,5 +1,11 @@
 <div data-role="view"  data-title="My Favorites" data-layout="pl-back-layout" id="myfavorite-view"  data-show="postLogin.initPref" data-model="postLogin">
 
+    <div data-role="navbar" style="background-color:#434446">
+
+        <a data-role="button"  data-align="right" style="margin-right:10px" data-bind="click:saveFavorite">
+            Save
+        </a>
+    </div>
  
     
     <div class="list-group">&nbsp;My Lifestyle Interests</div>
@@ -24,10 +30,11 @@
 </div>
 
 <script type="text/x-kendo-template" id="lifestyle-filter-template">
-    <div class="list-group-data-item">${desc}</div>
-                <div class="list-group-data-item-2">
-                    <i class="fa fa-square-o fa-2x cblack"></i>
-                </div>
+     <label class="km-checkbox-label" style="background-color: transparent !important;">
+        ${desc}
+        <input type="checkbox" id="${code}"/>
+
+    </label>
 </script>
 
 

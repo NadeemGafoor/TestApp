@@ -3903,23 +3903,22 @@ function completeRedemption() {
                                             initPref: function () {
                                                 showSpin();
                                                 back_profile();                        
-                                              
            
-                                                 getLifeStylePref("#lifestyle-filter","#lifestyle-filter-template");
-                                                 getRestaurantDetailPref("#restaurantdetail-filter","#restaurantdetailfilter-template");
-                                                  getCuisineTypePref("#cuisinetype-filter","#celebrationtype-template");
-                                                  getCelebrationTypePref("#celebrationtype-filter","#celebrationtype-template");
-                                  
+                                                getLifeStylePref("#lifestyle-filter", "#lifestyle-filter-template");
+                                                getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
+                                                getCuisineTypePref("#cuisinetype-filter", "#celebrationtype-template");
+                                                getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
                                             },
         
-                                            checkMe: function () {
-                                              alert("gggg");
-           
-                                                
+                                            saveFavorite:
+                                            function() {
+                                               
+                                                elems = document.getElementsById("lifestyle-filter");
+ alert(elems.length);
+                                                for (i = 0; i < elems.length; i++) {
+                                                    alert(elems[i].value);
+                                                }
                                             }
-        
-        
-        
                                         });
     
     function redeemDiscount() {
@@ -4881,50 +4880,47 @@ function completeRedemption() {
     function doExit() {
         return;
     }
-    function getLifeStylePref(x,y){
-    
-      $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/lifeStyleList.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,mdevice:mdevicestat
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);                    
-                                                               if (getData.statuscode === "000") {
-                                                                 
-                                                                   if (getData.preflist.length > 0) {
-                                                                       
-                                                                       $(x).kendoMobileListView({
-                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                                                     template: $(y).html()
-                                                                                                                     //endlessScroll: true
+    function getLifeStylePref(x, y) {
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/lifeStyleList.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);                    
+                       if (getData.statuscode === "000") {
+                           if (getData.preflist.length > 0) {
+                               $(x).kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $(y).html()
+                                                            //endlessScroll: true
                                                                                                                       
-                                                                                                                 });
-                                                                   }else {
-                                                                       navigator.notification.alert("Lifestyle Preference List not available", function() {
-                                                                       }, "isme By Jumeirah", "Dismiss")    
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Cannot get Lifestyle Preference List. " + getData.statusdesc, function() {
-                                                                   }, "isme By Jumeirah", "Dismiss")          
-                                                               }
-                                                                hideSpin(); //hide loading popup
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Lifestyle Preference List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "isme By Jumeirah", "Dismiss")
-                                                                hideSpin(); //hide loading popup
-                                                           }
-                                                       });
-                                                hideSpin(); //hide loading popup
-        }
+                                                        });
+                           }else {
+                               navigator.notification.alert("Lifestyle Preference List not available", function() {
+                               }, "isme By Jumeirah", "Dismiss")    
+                           }
+                       }else {
+                           navigator.notification.alert("Cannot get Lifestyle Preference List. " + getData.statusdesc, function() {
+                           }, "isme By Jumeirah", "Dismiss")          
+                       }
+                       hideSpin(); //hide loading popup
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot get Lifestyle Preference List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "isme By Jumeirah", "Dismiss")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+        hideSpin(); //hide loading popup
+    }
     
-     function getRestaurantDetailPref(x,y) {
+    function getRestaurantDetailPref(x, y) {
         showSpin();
 
         $.ajax({ 
@@ -4943,11 +4939,11 @@ function completeRedemption() {
                        if (getData.statuscode === "000") {
                            if (getData.preflist.length > 0) {
                                $(x).kendoMobileListView({
-                                                                                    dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                    template: $(y).html()
-                                                                                    //endlessScroll: true
+                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $(y).html()
+                                                            //endlessScroll: true
                                                                                                                       
-                                                                                });
+                                                        });
                            }else {
                                navigator.notification.alert("Restaurant Details List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -4965,7 +4961,7 @@ function completeRedemption() {
         hideSpin(); //hide loading popup
     }
         
-    function  getCuisineTypePref(x,y) {
+    function getCuisineTypePref(x, y) {
         showSpin();
 
         $.ajax({ 
@@ -4984,11 +4980,11 @@ function completeRedemption() {
                        if (getData.statuscode === "000") {
                            if (getData.preflist.length > 0) {
                                $(x).kendoMobileListView({
-                                                                               dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                               template: $(y).html()
-                                                                               //endlessScroll: true
+                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $(y).html()
+                                                            //endlessScroll: true
                                                                                                                       
-                                                                           });
+                                                        });
                            }else {
                                navigator.notification.alert("Cuisine Type List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -5006,7 +5002,7 @@ function completeRedemption() {
         hideSpin(); //hide loading popup
     }
     
-    function getCelebrationTypePref(x,y) {
+    function getCelebrationTypePref(x, y) {
         showSpin();
                                                 
         $.ajax({ 
@@ -5025,11 +5021,11 @@ function completeRedemption() {
                        if (getData.statuscode === "000") {
                            if (getData.preflist.length > 0) {
                                $(x).kendoMobileListView({
-                                                                                   dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                   template: $(y).html()
-                                                                                   //endlessScroll: true
+                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $(y).html()
+                                                            //endlessScroll: true
                                                                                                                       
-                                                                               });
+                                                        });
                            }else {
                                navigator.notification.alert("Celebration Type List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -5046,7 +5042,5 @@ function completeRedemption() {
                });
         hideSpin(); //hide loading popup
     }
-
-    
-   }
+}
     )(window);
