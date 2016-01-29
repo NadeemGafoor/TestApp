@@ -3912,11 +3912,13 @@ function completeRedemption() {
         
                                             saveFavorite:
                                             function() {
-                                               
-                                                elems = document.getElementsById("lifestyle-filter");
- alert(elems.length);
-                                                for (i = 0; i < elems.length; i++) {
-                                                    alert(elems[i].value);
+                                                
+                                                alert("ggg");
+                                                var e = document.getElementsById("lifestyle-filter");
+
+                                              alert(e.length);
+                                                for (var i = 0; i < e.length; ++i) {
+                                                    alert(e[i]);
                                                 }
                                             }
                                         });
