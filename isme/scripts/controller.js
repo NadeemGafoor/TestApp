@@ -3909,10 +3909,10 @@ function completeRedemption() {
                                                 getCuisineTypePref("#cuisinetype-filter", "#celebrationtype-template");
                                                 getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
                                                 
-                                                setAllPreference("lifestyle-filter","LS");
-                                                setAllPreference("restaurantdetail-filter","OD");
-                                                setAllPreference("cuisinetype-filter","CS");
-                                                setAllPreference("celebrationtype-filter","CB");
+                                                setLifeStylePreference();                                              
+                                                setCuisineTypePreference();
+                                                setCelebrationTypePreference();
+                                                setRestaurantPreference();
                                             },
         
                                             savePreference:function() {
@@ -3946,15 +3946,7 @@ function completeRedemption() {
     }
     
     function saveLater() {
-        window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                         "duration"         :  500, // in milliseconds (ms), default 400
-                                                                         "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                         "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                         "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                         'direction': 'left',
-                                                                         'href': '#views/pl-home.html'
-                                                                     }), 500);
+        postLoginBack();
     }
     
     function savePreferenceItem() {
@@ -5169,7 +5161,7 @@ function completeRedemption() {
         hideSpin(); //hide loading popup
     }
     
-    function setAllPreference(e, s) {  
+    function setLifeStylePreference() {  
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -5178,36 +5170,176 @@ function completeRedemption() {
                    url: gurl + "/mypreferencelist.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,preferencetype:s,customer:customer,password:password
+                                            merchantcode :merchant,mdevice:mdevicestat,preferencetype:"LS",customer:customer,password:password
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
                        if (getData.statuscode === "000") {
-                           var ul = document.getElementById(e);
+                           var ul = document.getElementById("lifestyle-filter");
                            var items = ul.getElementsByTagName("input");
-                              
-                           for (var n = 0; n < getData.mypreferences.length;n++) {
-                               
-                               for (var i = 0; i < items.length; ++i) {
-                               //alert(s + getData.mypreferences[n].prfcode + " " + items[i].value);    
+                           
+                           for (var n = 0; n < getData.mypreferences.length ;n++) {
+                               for (var i = 0; i < items.length; ++i) {  
                                    if (getData.mypreferences[n].prfcode === items[i].value) {
                                        items[i].checked = true;
-                                       break;
                                    }
                                }
                            }
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
-                           document.getElementById("prefsave").style.display="none";
+                           document.getElementById("prefsave").style.display = "none";
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
                        }, "isme By Jumeirah" , "Dismiss");     
-                       document.getElementById("prefsave").style.display="none";
+                       document.getElementById("prefsave").style.display = "none";
                    }
                });
+    }
+    
+    function setCuisineTypePreference() {  
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/mypreferencelist.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,preferencetype:"CS",customer:customer,password:password
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode === "000") {
+                           var ul = document.getElementById("cuisinetype-filter");
+                           var items = ul.getElementsByTagName("input");
+                           
+                           for (var n = 0; n < getData.mypreferences.length ;n++) {
+                               for (var i = 0; i < items.length; ++i) {  
+                                   if (getData.mypreferences[n].prfcode === items[i].value) {
+                                       items[i].checked = true;
+                                   }
+                               }
+                           }
+                       }else {
+                           navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
+                           }, "isme By Jumeirah" , "Dismiss");     
+                           document.getElementById("prefsave").style.display = "none";
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
+                       }, "isme By Jumeirah" , "Dismiss");     
+                       document.getElementById("prefsave").style.display = "none";
+                   }
+               });
+    }
+    
+    function setCelebrationTypePreference() {  
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/mypreferencelist.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,preferencetype:"CB",customer:customer,password:password
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode === "000") {
+                           var ul = document.getElementById("celebrationtype-filter");
+                           var items = ul.getElementsByTagName("input");
+                           
+                           for (var n = 0; n < getData.mypreferences.length ;n++) {
+                               for (var i = 0; i < items.length; ++i) {  
+                                   alert(getData.mypreferences[n].prfcode + "  " + items[i].value);
+                                   if (getData.mypreferences[n].prfcode === items[i].value) {
+                                       items[i].checked = true;
+                                   }
+                               }
+                           }
+                       }else {
+                           navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
+                           }, "isme By Jumeirah" , "Dismiss");     
+                           document.getElementById("prefsave").style.display = "none";
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
+                       }, "isme By Jumeirah" , "Dismiss");     
+                       document.getElementById("prefsave").style.display = "none";
+                   }
+               });
+    }
+ 
+    function setRestaurantPreference() {  
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/mypreferencelist.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,preferencetype:"RD",customer:customer,password:password
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode === "000") {
+                           var ul = document.getElementById("restaurantdetail-filter");
+                           var items = ul.getElementsByTagName("input");
+                           
+                           for (var n = 0; n < getData.mypreferences.length ;n++) {
+                               for (var i = 0; i < items.length; ++i) {  
+                                   if (getData.mypreferences[n].prfcode === items[i].value) {
+                                       items[i].checked = true;
+                                   }
+                               }
+                           }
+                       }else {
+                           navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
+                           }, "isme By Jumeirah" , "Dismiss");     
+                           document.getElementById("prefsave").style.display = "none";
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
+                       }, "isme By Jumeirah" , "Dismiss");     
+                       document.getElementById("prefsave").style.display = "none";
+                   }
+               });
+    }
+    
+    function postLoginBack() {
+        elems = document.getElementsByClassName('cardhead');
+        for (i = 0; i < elems.length; i++) {
+            elems[i].style.display = 'none';
+        }  
+   
+        elems = document.getElementsByClassName('foot');
+        for (i = 0; i < elems.length; i++) {
+            elems[i].style.display = 'none';
+        } 
+    
+        elems = document.getElementsByClassName('mymenu1');
+
+        for (i = 0; i < elems.length; i++) {
+            elems[i].innerHTML = '<i class="fa fa-angle-up fa-2x" style="color:#fff"></i>';
+            elems[i].style.width = "100%";
+            elems[i].style.zIndex = 10000;
+            elems[i].style.textAlign = "center";
+        }
+    
+        window.localStorage.setItem("appopen", "0");   
+        window.plugins.nativepagetransitions.slide({
+                                                       'direction': 'right',
+                                                       'href': '#views/pl-home.html'
+                                                   });
+        //$("body").data("kendoMobilePane").navigate("#:back");
     }
 }
     )(window);
