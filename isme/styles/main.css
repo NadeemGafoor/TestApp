@@ -2180,6 +2180,20 @@ tile-frame-inner
     text-align: center; 
 }
 
+
+
+.list-group-data-item-2 .km-button
+{
+    color: #000;
+    height: 30px; 
+    display:block;
+    background-color:transparent !important;
+    margin-top:0px;
+    margin-right:0px;
+    border:0px;
+}
+
+
 .filter-item-holder .km-button
 {
     border: 0px;
