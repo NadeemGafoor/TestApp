@@ -79,9 +79,13 @@ a
 {
     box-shadow: 0px 1px 5px #666365;
 }
+#appdrawer .km-content,#appdrawerN .km-content
+{
+    background-color:#000;
+}
 
 #benefit-theme .km-content, #customerservice-theme .km-content, #outletdetail-theme .km-content, #offerdetail-theme .km-content, #pl-outletdetail-theme .km-content, #pl-offerdetail-theme .km-content, #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content, #pl-myvoucherdetail-theme .km-content, #pl-benefit-theme .km-content, #mymessagelist-theme .km-content, #messageitem-theme .km-content, #pl-setting-theme .km-content, #device-theme .km-content,
-#history-theme .km-content, #historyitem-theme .km-content, #modalviewhistoryfilter .km-content, #myfavorite-view .km-content, #pl-confirmpage-view .km-content, #pl-customerservice-theme .km-content, #enrolmentpage-view .km-content, #pl-confirmredemption-view .km-content, #modalviewfaq .km-content,#branddetail-theme .km-content, #aboutisme-theme .km-content, #pl-aboutisme-theme .km-content, #pl-termsconditions-theme .km-content,#pl-voucheredeem-view .km-content
+#history-theme .km-content, #historyitem-theme .km-content, #modalviewhistoryfilter .km-content, #myfavorite-view .km-content, #pl-confirmpage-view .km-content, #pl-customerservice-theme .km-content, #enrolmentpage-view .km-content, #pl-confirmredemption-view .km-content, #modalviewfaq .km-content,#branddetail-theme .km-content, #aboutisme-theme .km-content, #pl-aboutisme-theme .km-content, #pl-termsconditions-theme .km-content,#pl-voucheredeem-view .km-content,#pl-home-view .km-content
 {
     background-color: #fff;
 }
@@ -2297,6 +2301,7 @@ tile-frame-inner
     border-radius: 5px;
     height: 20px;
     width: 90%; 
+     z-index:1000;
 }
 
 .progress-bar-data-holder
@@ -2308,6 +2313,7 @@ tile-frame-inner
     border-radius: 5px;
     height: 20px;
     width: 1%; 
+    z-index:-100000;
 }
 
 .progress-bar-amount-holder

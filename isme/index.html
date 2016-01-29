@@ -29,11 +29,9 @@
     </head>
 
     <body>
-        
-        
-        
-          <div data-role="layout" data-id="pl-back6-layout">
-                       <footer data-role="footer">
+
+        <div data-role="layout" data-id="pl-back6-layout">
+            <footer data-role="footer">
                 <div class="mymenu-style">
                     <a  data-click="plHomeClick" data-role="button"  class="mymenu1" style="background:transparent !important">
                         <i class="fa fa-angle-up fa-2x" style="color:#fff" ></i>
@@ -82,26 +80,6 @@
             </footer>
 
         </div>
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
         <div data-role="layout" data-id="pl-back5-layout">
             <footer data-role="footer">
@@ -711,7 +689,7 @@
 
         </div>
 
-        <div data-role="drawer" id="appdrawer" style="width: 65%;padding-left:-10px;padding-top:-10px;background-color:#000" data-swipe-to-open-views='["pl-home-view"]' data-views='["pl-home-view"]' data-model="postLogin">
+        <div data-role="drawer" id="appdrawer" style="width: 65%;padding-left:-10px;padding-top:-10px" data-swipe-to-open-views='["pl-home-view"]' data-views='["pl-home-view"]' data-model="postLogin">
 
             <div class="li-div" style="margin-left:10px;margin-top:30px;height:140px;width:100px">
                 <img src="images/ISME_drawer.png" />
@@ -753,10 +731,10 @@
                     &nbsp;&nbsp;Terms & Conditions
                 </a>
             </div>
-
+           
             <footer data-role="footer">
 
-                <div class="li-div li-footer-div">
+                <div class="li-div li-footer-div" >
                     <a href="views/pl-faq.html"  data-transition="slide">
                         <div class="li-width" style="border-right:1px solid">FAQ</div>
                     </a>
@@ -1326,7 +1304,6 @@
 
             </label>
         </script>
-        
 
         <script type="text/x-kendo-template" id="LocationFilter-Template">
             <div class="list-group-data-header">
@@ -1477,31 +1454,31 @@
                     ${narration}
 
                 </div>
-            <div class="border-bot"></div>
+                <div class="border-bot"></div>
             </div>
            
         </script>
 
         <script type="text/x-kendo-template" id="pl-messageListTemplate">
-          <a data-transition="slide:up"   href="views/pl-messageitem.html?mi=${sequence}" style="border:none;background-color:transparent !important">
-            <div class="msg-outer-frame" >
-                <div class="msg-date-frame-line">${mday}  ${mmonth}</div>
-                <div class="msg-narration-frame" style="width:90%">
-                    ${narration120}&nbsp;
-                </div>
-                <div class="msg-action-frame-outer">
-                    <div class="msg-action-frame-inner-1" style="display:${readicon}">
-                        <i class="fa fa-circle fa-lg dotcolor"></i>
+            <a data-transition="slide:up"   href="views/pl-messageitem.html?mi=${sequence}" style="border:none;background-color:transparent !important">
+                <div class="msg-outer-frame" >
+                    <div class="msg-date-frame-line">${mday} ${mmonth}</div>
+                    <div class="msg-narration-frame" style="width:90%">
+                        ${narration120}&nbsp;
                     </div>
+                    <div class="msg-action-frame-outer">
+                        <div class="msg-action-frame-inner-1" style="display:${readicon}">
+                            <i class="fa fa-circle fa-lg dotcolor"></i>
+                        </div>
+                    </div>
+                    <div class="border-bot"></div>
                 </div>
-            <div class="border-bot"></div>
-            </div>
-        </a>
+            </a>
         </script>
 
     </body>
 </html>
-    
+
 <script>
     function closeModalViewLogin() {
         $("#modalviewterms").data("kendoMobileModalView").close();
@@ -1511,7 +1488,7 @@
         $("#modalviewterms").data("kendoMobileModalView").open();
     }
 </script>
-    
+
 <style scoped>
     #appdrawerN .li-div, #appdrawer .li-div
     {

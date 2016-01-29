@@ -2339,16 +2339,17 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
-                                                                     alert(window.localStorage.getItem("segmentcode"));
+                                                                 
                                                                    if (window.localStorage.getItem("segmentcode") != "1000") {
-                                                                         
-                                                                        elems = document.getElementsByClassName('km-content');
-    
-                                                                            for (i = 0; i < elems.length; i++) {
-                                                                                elems[i].style.backgroundColor = '#000';
-                                                                            }
-    
-                                                                       
+                                                                       elems = document.getElementsByClassName("km-content");
+                                                               
+                                                                       for (i = 0; i < elems.length; i++) {
+                                                                     
+                                                                               
+                                                                           elems[i].style.backgroundColor = "#000";
+                                                            
+                                                                       }  
+                                                                       document.getElementsById("pl-home-id").style.backgroundColor = '#000';    
                                                                        document.getElementById("home-drawer").style.color = "#fff";   
                                                                        document.getElementById("main-title").style.color = "#fff";   
                                                                        document.getElementById("main-title").style.color = "#fff";  
@@ -2360,18 +2361,17 @@ function completeRedemption() {
                                                                        document.getElementById("profile-number").style.color = "#fff"; 
                                                                        document.getElementById("profile-type").style.color = "#fff"; 
                                                                        document.getElementById("profile-init").style.color = "#fff"; 
-                                                                   }  
-                                                                   else{
-                                                                                                                                            
-                                                                        elems = document.getElementsByClassName('km-content');
-    
-                                                                            for (i = 0; i < elems.length; i++) {
-                                                                                elems[i].style.backgroundColor = '#fff';
-                                                                            }
-    
-                                                                      document.getElementById("pl-image-holder").style.backgroundImage = 'url("images/home_page_logo_black.png")';
-                                                                         document.getElementById("full-bar").style.backgroundColor = "#000";   
-                                                                         document.getElementById("home-drawer").style.color = "#fff"; 
+                                                                   } else {
+                                                                        elems = document.getElementsByClassName("km-content");
+                                                                     
+                                                                       for (i = 0; i < elems.length; i++) {
+                                                                        
+                                                                           elems[i].style.backgroundColor = "#fff";
+                                                                      
+                                                                       }  
+                                                                       document.getElementById("pl-image-holder").style.backgroundImage = 'url("images/home_page_logo_black.png")';
+                                                                       document.getElementById("full-bar").style.backgroundColor = "#000";   
+                                                                       document.getElementById("home-drawer").style.color = "#fff"; 
                                                                    }
                                                                    
                                                                    // document.getElementById("wallet-div").style.display = "block";
@@ -2399,7 +2399,7 @@ function completeRedemption() {
                                                                        i = 75;  
                                                                    }
                                                 
-                                                                   document.getElementById("spend-amount").style.margin = "auto auto auto " + i + "%";
+                                                                   document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(i+5) + "%";
                                                                    document.getElementById("spend-bar").style.width = m + "%";
                                                                    document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend");
                                                                   
