@@ -2394,17 +2394,6 @@ tile-frame-inner
     height: 20px;
 }
 
-.km-checkbox
-{
-    background-color: #ccc !important;
-    border: 1px solid #000 !important;
-}
-
-.km-checkbox-label
-{
-    background-color: transparent !important;
-}
-
 
 .class-img{
     border-radius: 50px;
