@@ -3901,18 +3901,18 @@ function completeRedemption() {
                                             },
         
                                             getLifeStylePref :function() {
-                                                lifeStylePref("lifestyle-filter","lifestylefilter-template");
+                                                lifeStylePref(document.getElementById("lifestyle-filter"),"lifestylefilter-template");
                                             },
                                             
                                             getRestaurantDetailPref:function() {
-                                                restaurantDetailPref("restaurantdetail-filter","restaurantdetailfilter-template");
+                                                restaurantDetailPref(document.getElementById("restaurantdetail-filter"),"restaurantdetailfilter-template");
                                             },
         
                                             getCuisineTypePref:function() {
-                                                cuisineTypePref("cuisinetype-filter","cuisinetypefilter-template");
+                                                cuisineTypePref(document.getElementById("cuisinetype-filter"),"cuisinetypefilter-template");
                                             },
                                             getCelebrationTypePref:function() {
-                                                celebrationTypePref();
+                                                celebrationTypePref(document.getElementById("celebrationtype-filter"),"cuisinetypefilter-template");
                                             },
                                         });
     
