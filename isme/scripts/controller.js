@@ -3997,7 +3997,7 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
-                                        
+                                                                    
                                                                if (getData.statuscode === "000") {
                                                                    if (getData.preflist.length > 0) {
                                                                        $("cuisinetype-filter").kendoMobileListView({
@@ -4024,7 +4024,7 @@ function completeRedemption() {
                                             },
                                             getCelebrationTypePref:function() {
                                                 showSpin();
-
+                                                
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4061,6 +4061,15 @@ function completeRedemption() {
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
+                                            },
+         initPref: function () {
+                                                back_profile();
+             getLifeStylePref();
+             getRestaurantDetailPref();
+             getCuisineTypePref();
+             getCelebrationTypePref();
+             
+             
                                             },
                                         });
     
