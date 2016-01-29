@@ -2395,6 +2395,12 @@ tile-frame-inner
 }
 
 
+.km-checkbox-label
+{
+    background-color: transparent !important;
+}
+
+
 .class-img{
     border-radius: 50px;
     -webkit-border-radius: 50px;
