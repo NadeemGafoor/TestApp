@@ -5235,8 +5235,8 @@ function completeRedemption() {
                        document.getElementById("prefsave").style.display = "none";
                    }
                });
-    }
-    
+    }   
+       
     function setCelebrationTypePreference() {  
         $.ajax({ 
                    type: "POST",
@@ -5256,8 +5256,10 @@ function completeRedemption() {
                            
                            for (var n = 0; n < getData.mypreferences.length ;n++) {
                                for (var i = 0; i < items.length; ++i) {  
-                                   alert(getData.mypreferences[n].prfcode + "  " + items[i].value);
                                    if (getData.mypreferences[n].prfcode === items[i].value) {
+
+                                   alert(getData.mypreferences[n].prfcode + "  " + items[i].value);
+                                                                     
                                        items[i].checked = true;
                                    }
                                }
