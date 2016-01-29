@@ -3915,7 +3915,7 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
-                                        
+                                                                alert(getData.statuscode);
                                                                if (getData.statuscode === "000") {
                                                                    if (getData.preflist.length > 0) {
                                                                        $("lifestyle-filter").kendoMobileListView({
@@ -4063,12 +4063,14 @@ function completeRedemption() {
                                                 hideSpin(); //hide loading popup
                                             },
          initPref: function () {
+             showSpin();
                                                 back_profile();
+             alert("hello");
              getLifeStylePref();
              getRestaurantDetailPref();
              getCuisineTypePref();
              getCelebrationTypePref();
-             
+                                                hideSpin();
              
                                             },
                                         });
