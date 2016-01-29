@@ -1,4 +1,4 @@
-<div data-role="view"  data-title="My Favorites" data-layout="pl-back1-layout" id="myfavorite-view" data-model="preLogin">
+<div data-role="view"  data-title="My Favorites" data-layout="pl-back1-layout" id="myfavorite-view" data-model="postLogin" >
 
     <div data-role="navbar" style="background-color:#434446">
 
@@ -6,43 +6,51 @@
             Save
         </a>
     </div>
+       <div class="list-group">&nbsp;My Lifestyle Interests</div>
+
+    <ul id="lifestyle-filter"  data-bind="value:getLifeStylePref">
+
+    </ul>
     <div class="list-group">&nbsp;My Favourite Restaurants</div>
 
-    <ul id="Offer-Filter2"  data-bind="value:getOfferTypeData2">
+    <ul id="restaurantdetail-filter"  data-bind="value:getRestaurantDetailPref">
 
     </ul>
-    <div class="list-group">&nbsp;My Lifestyle Interests</div>
+ 
+    <div class="list-group" >&nbsp;My Celebration Type</div>
 
-    <ul id="Offer-Filter1"  data-bind="value:getOfferTypeData1">
-
-    </ul>
-    <div class="list-group" >&nbsp;My Taste Preferences</div>
-
-    <ul id="Cuisine-Filter1" data-bind="value:getRestCuisineFilter1">
+    <ul id="celebrationtype-filter" data-bind="value:getCelebrationTypePref">
     </ul>
 
 </div>
 
-<script type="text/x-kendo-template" id="Offer-Filter-Template2">
+<script type="text/x-kendo-template" id="lifestylefilter-template">
     <label class="km-checkbox-label" >
-        ${offeritem}
-        <input type="checkbox" class="km-checkbox" id="${offerkey}"/>
+        ${desc}
+        <input type="checkbox" class="km-checkbox" id="${code}"/>
 
     </label>
 </script>
 
-<script type="text/x-kendo-template" id="Offer-Filter-Template1">
+<script type="text/x-kendo-template" id="restaurantdetailfilter-template">
     <label class="km-checkbox-label" >
-        ${offeritem}
-        <input type="checkbox" class="km-checkbox" id="${offerkey}"/>
+        ${desc}
+        <input type="checkbox" class="km-checkbox" id="${code}"/>
 
     </label>
 </script>
 
-<script type="text/x-kendo-template" id="CuisineFilter-Template1">
+<script type="text/x-kendo-template" id="cuisinetypefilter-template">
     <label class="km-checkbox-label" >
-        ${cuisineitem}
-        <input type="checkbox" class="km-checkbox" id="${cuisinekey}"/>
+        ${desc}
+        <input type="checkbox" class="km-checkbox" id="${code}"/>
+
+    </label>
+    </script>
+    <script type="text/x-kendo-template" id="celebrationtype-template">
+    <label class="km-checkbox-label" >
+        ${desc}
+        <input type="checkbox" class="km-checkbox" id="${code}"/>
 
     </label>
 </script>

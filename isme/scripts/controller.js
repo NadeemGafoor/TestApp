@@ -1154,14 +1154,13 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                             
                                                               if (getData.statuscode === "000") {
-                                                      
-                                                                   //fill the outlet template
+                                                                  //fill the outlet template
                                                                   $("#outlet-list").kendoMobileListView({
                                                                              
                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                             template: $("#outletTemplate").html()
                                                                                                         });
-                                                                   hideSpin(); //hide loading popup
+                                                                  hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("No locations exists for the selected property", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
@@ -1201,19 +1200,18 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                             
                                                               if (getData.statuscode === "000") {
-                                                                     $("#leisure-list").kendoMobileListView({
+                                                                  $("#leisure-list").kendoMobileListView({
                                                                              
                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                              template: $("#leisureTemplate").html()
                                                                                                          });
-                                                                      hideSpin(); //hide loading popup
+                                                                  hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("No locations exists for the selected property", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                                   //fill the outlet template
-                                                               
                                                               }else {
                                                                   navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -2294,125 +2292,9 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                           },
+                                           }
         
-                                           getAddRestFilter
-                                           :function() {
-                                               var dataSource = new kendo.data.DataSource({ data: getRestAddData() });
-                                               
-                                               $("#add-Rest-Filter").kendoMobileListView({
-                                                                                             dataSource: dataSource,
-                                                                                             template: $("#add-Rest-Filter-Template").html()
-
-                                                                    
-                                                                                         });
-                                           },
-        
-                                           getLocationFilter
-                                           :function() {
-                                               var dataSource = new kendo.data.DataSource({ data: getRestLocationData() });
-                                               
-                                               $("#Location-Filter").kendoMobileListView({
-                                                                                             dataSource: dataSource,
-                                                                                             template: $("#LocationFilter-Template").html()
-
-                                                                    
-                                                                                         });
-                                           },
-        
-                                           getRestTypeFilter
-                                           :function() {
-                                               var dataSource = new kendo.data.DataSource({ data: getRestTypeData() });
-                                               
-                                               $("#Type-Filter").kendoMobileListView({
-                                                                                         dataSource: dataSource,
-                                                                                         template: $("#TypeFilter-Template").html()
-
-                                                                    
-                                                                                     });
-                                           },
-        
-                                           getRestCuisineFilter
-                                           :function() {
-                                               var dataSource = new kendo.data.DataSource({ data: getRestCuisineData() });
-                                               
-                                               $("#Cuisine-Filter").kendoMobileListView({
-                                                                                            dataSource: dataSource,
-                                                                                            template: $("#CuisineFilter-Template").html()
-
-                                                                    
-                                                                                        });
-                                           },
-                                           getRestCuisineFilter1
-                                           :function() {
-                                               var dataSource = new kendo.data.DataSource({ data: getRestCuisineData() });
-                                               
-                                               $("#Cuisine-Filter1").kendoMobileListView({
-                                                                                             dataSource: dataSource,
-                                                                                             template: $("#CuisineFilter-Template1").html()
-
-                                                                    
-                                                                                         });
-                                           },
-        
-                                           getOfferTypeData
-                                           :function() {
-                                               var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
-                                               
-                                               $("#Offer-Filter").kendoMobileListView({
-                                                                                          dataSource: dataSource,
-                                                                                          template: $("#Offer-Filter-Template").html()
-
-                                                                    
-                                                                                      });
-                                           },
-                                           getOfferTypeData1
-                                           :function() {
-                                               var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
-                                               
-                                               $("#Offer-Filter1").kendoMobileListView({
-                                                                                           dataSource: dataSource,
-                                                                                           template: $("#Offer-Filter-Template1").html()
-
-                                                                    
-                                                                                       });
-                                           },
-        
-                                           getOfferTypeData2
-                                           :function() {
-                                               var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
-                                               
-                                               $("#Offer-Filter2").kendoMobileListView({
-                                                                                           dataSource: dataSource,
-                                                                                           template: $("#Offer-Filter-Template2").html()
-
-                                                                    
-                                                                                       });
-                                           },
-        
-                                           getCelebrationFilter
-                                           :function() {
-                                               var dataSource = new kendo.data.DataSource({ data: getOfferCeleberationData() });
-                                               
-                                               $("#Celebration-Filter").kendoMobileListView({
-                                                                                                dataSource: dataSource,
-                                                                                                template: $("#Celebration-Filter-Template").html()
-
-                                                                    
-                                                                                            });
-                                           },
-        
-                                           getFAQFilter
-                                           :function() {
-                                               var dataSource = new kendo.data.DataSource({ data: getFAQData() });
-                                               
-                                               $("#FAQ-Filter").kendoMobileListView({
-                                                                                        dataSource: dataSource,
-                                                                                        template: $("#FAQ-Template").html()
-
-                                                                    
-                                                                                    });
-                                           }                                                                                     
+                                                                                
                                        });
     
     window.postLogin = kendo.observable({ 
@@ -2433,7 +2315,7 @@ function completeRedemption() {
                                             srpin1:"",
                                             depin1:"",
                                             setpass:"",
-         msgsequence:"",
+                                            msgsequence:"",
         
                                             loadPLDetails
                                             :function() {
@@ -2630,9 +2512,6 @@ function completeRedemption() {
                                                        });
                                             },
         
-        
-        
-        
                                             showOfferItem
                                             : function (e) {
                                                 offercode = e.view.params.cpn; //offer code for single offer inquiry
@@ -2719,11 +2598,6 @@ function completeRedemption() {
                                                            }
                                                        });
                                             },
-        
-        
-        
-        
-        
         
                                             rewardList
                                             : function (e) {
@@ -2843,13 +2717,13 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
                                                       
                                                                if (getData.statuscode == "000") {
-                                                                     //fill the outlet template
-                                                                       $("#pl-property-list").kendoMobileListView({
-                                                                                                                      dataSource: kendo.data.DataSource.create({data: getData.propertylist}),
-                                                                                                                      template: $("#pl-explorelisttemplate").html()
+                                                                   //fill the outlet template
+                                                                   $("#pl-property-list").kendoMobileListView({
+                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.propertylist}),
+                                                                                                                  template: $("#pl-explorelisttemplate").html()
                                                                                                                     
-                                                                                                                  });
-                                                                       hideSpin(); //hide loading popup
+                                                                                                              });
+                                                                   hideSpin(); //hide loading popup
                                                                    if (getData.propertylist.length === 0) {
                                                                        navigator.notification.alert("No Property Data Available", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
@@ -2868,8 +2742,6 @@ function completeRedemption() {
                                                            }
                                                        });
                                             },
-        
-        
         
                                             showAllOutlet
                                             : function (e) {
@@ -2892,7 +2764,7 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
                                                                window.localStorage.setItem("brandcode", "");
                                                                if (getData.statuscode === "000") {
-                                                                     //fill the outlet template
+                                                                   //fill the outlet template
                                                                    $("#pl-outlet-list").kendoMobileListView({
                                                                              
                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
@@ -2904,7 +2776,6 @@ function completeRedemption() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
-                                                                 
                                                                }else {
                                                                    navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
@@ -3015,17 +2886,6 @@ function completeRedemption() {
                                                        });
                                             },
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
                                             toggleDD:function() {
                                                 if (document.getElementById("profile-autolocation").checked) {
                                                     document.getElementById("selCountry").disabled = true;
@@ -3072,7 +2932,7 @@ function completeRedemption() {
                                                 //  document.getElementById("mycardimage").style.backgroundSize = "cover";
                                             }
         
-                                         ,
+                                            ,
 
                                             showOutletOffer
                                             : function () {
@@ -3119,7 +2979,6 @@ function completeRedemption() {
                                                            }
                                                        });
                                             },
-                         
                                            
                                             activateoffer
                                             : function (e) {
@@ -3192,7 +3051,6 @@ function completeRedemption() {
                                                 window.localStorage.setItem("selfredeem", "M"); 
                                                 $("#modalviewenterpin").data("kendoMobileModalView").open(); 
                                             },
-        
         
                                             confirmIssueResponse
                                             :function() {
@@ -3569,7 +3427,6 @@ function completeRedemption() {
                                                 $("#History-Filter").kendoMobileListView({
                                                                                              dataSource: dataSource,
                                                                                              template: $("#History-Filter-Template").html()
-
                                                                     
                                                                                          });
                                             },
@@ -3605,7 +3462,6 @@ function completeRedemption() {
                                                 //                       };
                                                 navigator.camera.getPicture(success, error, config);
                                             },
-        
                                               
                                             getImage:
                                             function () {
@@ -3739,8 +3595,6 @@ function completeRedemption() {
                                                        });
                                             },
         
-                                         
-        
                                             completeRedemptionDiscount
                                             : function () {
                                                 if (!this.depin1) {
@@ -3762,7 +3616,6 @@ function completeRedemption() {
                                                     return;  
                                                 }
                                             },
-        
         
                                             discountRedeemConfirm
                                             : function () {
@@ -3872,7 +3725,6 @@ function completeRedemption() {
                                                            }
                                                        });
                                             },
-        
                                          
                                             myhistorylist
                                             : function () {
@@ -3922,7 +3774,7 @@ function completeRedemption() {
                                             : function () {
                                                 back_profile();
                                             },
-            mymessagelist
+                                            mymessagelist
                                             : function () {
                                                 t = "";//Notification and other messages
                                                 // alert(merchant);
@@ -3945,7 +3797,6 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
                                         
                                                                if (getData.statuscode == "000") {
-                                                                  
                                                                    if (getData.historylist.length > 0) {
                                                                        $("#pl-message-list").kendoMobileListView({
                                                                                                                      dataSource: kendo.data.DataSource.create({data: getData.historylist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
@@ -4047,8 +3898,22 @@ function completeRedemption() {
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
-                                            }
-       
+                                            },
+        
+                                            getLifeStylePref :function() {
+                                                lifeStylePref("lifestyle-filter","lifestylefilter-template");
+                                            },
+                                            
+                                            getRestaurantDetailPref:function() {
+                                                restaurantDetailPref("restaurantdetail-filter","restaurantdetailfilter-template");
+                                            },
+        
+                                            getCuisineTypePref:function() {
+                                                cuisineTypePref("cuisinetype-filter","cuisinetypefilter-template");
+                                            },
+                                            getCelebrationTypePref:function() {
+                                                celebrationTypePref();
+                                            },
                                         });
     
     function redeemDiscount() {
@@ -5046,7 +4911,6 @@ function completeRedemption() {
     }
     
     function back_profile() {
-
         window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -5057,7 +4921,6 @@ function completeRedemption() {
     }
     
     function back1_profile() {
-
         window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back1").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back1").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -5068,7 +4931,6 @@ function completeRedemption() {
     }
     
     function back2_profile() {
-
         window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back2").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back2").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -5142,6 +5004,170 @@ function completeRedemption() {
     }
     function doExit() {
         return;
+    }
+ 
+    function lifeStylePref(x, y) {
+        showSpin();
+
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/lifeStyleList.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                                        
+                       if (getData.statuscode === "000") {
+                           if (getData.preflist.length > 0) {
+                               $(x).kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $(y).html()
+                                                            //endlessScroll: true
+                                                                                                                      
+                                                        });
+                           }else {
+                               navigator.notification.alert("Lifestyle Preference List not available", function() {
+                               }, "isme By Jumeirah", "Dismiss")    
+                           }
+                       }else {
+                           navigator.notification.alert("Cannot get Lifestyle Preference List. " + getData.statusdesc, function() {
+                           }, "isme By Jumeirah", "Dismiss")          
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot get Lifestyle Preference List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "isme By Jumeirah", "Dismiss")
+                   }
+               });
+        hideSpin(); //hide loading popup
+    }
+    
+    function restaurantDetailPref(x, y) {
+        showSpin();
+
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/restaurantDetailList.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                                        
+                       if (getData.statuscode === "000") {
+                           if (getData.preflist.length > 0) {
+                               $(x).kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $(y).html()
+                                                            //endlessScroll: true
+                                                                                                                      
+                                                        });
+                           }else {
+                               navigator.notification.alert("Restaurant Details List not available", function() {
+                               }, "isme By Jumeirah", "Dismiss")    
+                           }
+                       }else {
+                           navigator.notification.alert("Cannot get Restaurant Details List. " + getData.statusdesc, function() {
+                           }, "isme By Jumeirah", "Dismiss")          
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant Details List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "isme By Jumeirah", "Dismiss")
+                   }
+               });
+        hideSpin(); //hide loading popup
+    }
+    
+    function cuisineTypePref(x, y) {
+        showSpin();
+
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/cuisineTypeList.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                                        
+                       if (getData.statuscode === "000") {
+                           if (getData.preflist.length > 0) {
+                               $(x).kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $(y).html()
+                                                            //endlessScroll: true
+                                                                                                                      
+                                                        });
+                           }else {
+                               navigator.notification.alert("Cuisine Type List not available", function() {
+                               }, "isme By Jumeirah", "Dismiss")    
+                           }
+                       }else {
+                           navigator.notification.alert("Cannot get Cuisine Type List. " + getData.statusdesc, function() {
+                           }, "isme By Jumeirah", "Dismiss")          
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot get Cuisine Type List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "isme By Jumeirah", "Dismiss")
+                   }
+               });
+        hideSpin(); //hide loading popup
+    }
+    
+    function celebrationTypePref(x, y) {
+        showSpin();
+
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/celebrationTypeList.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                                        
+                       if (getData.statuscode === "000") {
+                           if (getData.preflist.length > 0) {
+                               $(x).kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $(y).html()
+                                                            //endlessScroll: true
+                                                                                                                      
+                                                        });
+                           }else {
+                               navigator.notification.alert("Celebration Type List not available", function() {
+                               }, "isme By Jumeirah", "Dismiss")    
+                           }
+                       }else {
+                           navigator.notification.alert("Cannot get Celebration Type List. " + getData.statusdesc, function() {
+                           }, "isme By Jumeirah", "Dismiss")          
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot get Celebration Type List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "isme By Jumeirah", "Dismiss")
+                   }
+               });
+        hideSpin(); //hide loading popup
     }
 }
     )(window);
