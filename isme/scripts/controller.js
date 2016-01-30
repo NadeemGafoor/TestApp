@@ -51,6 +51,15 @@ function loadDiscover() {
                                                                  }), 500);
 }
 
+function getApplicationSignature() { 
+    
+         facebookConnectPlugin.getApplicationSignature(function(response) { 
+           console.log("Signature: " + response); 
+          alert("Signature: " + response); 
+         }); 
+     }, 
+
+
 function loadExplore() {
     window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                      "duration"         :  500, // in milliseconds (ms), default 400
@@ -1632,6 +1641,10 @@ function completeRedemption() {
                                                    //    mywatch = navigator.geolocation.watchPosition(meWatchPos, watchPosError, options);
                                                    // } else {
                                                    //Check whether GPS enabled
+                                                   //Get Facebook hash key for android
+                                                   window.facebookConnectPlugin.getApplicationSignature(function(response) {
+  alert(("App signature: " + response));   
+});
                                                    
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                        callBackError(error) ;
