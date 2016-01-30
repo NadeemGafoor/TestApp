@@ -1107,25 +1107,28 @@ function completeRedemption() {
         
                                            confirmEnrol
                                            :function() {
-                                               if (this.firstname.value.length==0) {
+                                               
+                                               if (window.localStorage.getItem("FBValidated")=="Y"){
+                                               if (!this.firstname) {
                                                    navigator.notification.alert("First Name is required.  Re-enter", function() {
                                                    }, "Club Epicure", "Dismiss")
                                                    return;
                                                }
                                                
-                                               if (this.lastname.value.length==0) {
+                                               if (!this.lastname) {
                                                    navigator.notification.alert("Last Name is required.  Re-enter", function() {
                                                    }, "Club Epicure", "Dismiss")
                                                    return;
                                                }
                                                
-                                               if (this.emailid.value.length==0) {
+                                               if (!this.emailid) {
                                                    navigator.notification.alert("Email is required.  Re-enter", function() {
                                                    }, "Club Epicure", "Dismiss")
                                                    return;
                                                }
+                                               }
                                                 
-                                               if (this.mobile.value.length==0) {
+                                               if (!this.mobile) {
                                                    navigator.notification.alert("Mobile Number is required.  Re-enter", function() {
                                                    }, "Club Epicure", "Dismiss")
                                                    return;
@@ -1136,7 +1139,7 @@ function completeRedemption() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return; 
                                                }
-                                               if (this.emailid.value != this.emailida.value) {
+                                               if (this.emailid != this.emailida) {
                                                    navigator.notification.alert("Email ID do not match, re-enter", function() {
                                                    }, "Club Epicure", "Dismiss");
                                                    return;
