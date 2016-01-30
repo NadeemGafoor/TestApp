@@ -1067,6 +1067,7 @@ function completeRedemption() {
                                                //check if Id is already exists on isme then throw error
                                                //get user data and publish on enrol page
                                                //Show a message of successful FB validation and update balance data to complete.
+                                             
                                                if (window.localStorage.getItem("FBValidated")==="Y") {
                                                    navigator.notification.alert("You have already enrolled or validated your Facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your isme membership if already enrolled.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
@@ -1075,6 +1076,7 @@ function completeRedemption() {
                                                fbCleanVariables();
                                                facebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") {
+                                                       alert("Helloooooo");
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
                                                        window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
@@ -1098,7 +1100,7 @@ function completeRedemption() {
 
                                            fbLoginD
                                            : function () { 
-                                               alert("Hello");
+
                                                facebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") {
                                                        m = JSON.parse(JSON.stringify(response));                                                       
