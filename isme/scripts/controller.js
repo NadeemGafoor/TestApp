@@ -4141,8 +4141,8 @@ function completeRedemption() {
                                                         m = JSON.parse(JSON.stringify(response));                                                       
                                                         window.localStorage.setItem("FBuserID", m.authResponse.userID);
                                                         window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
-                                                        
                                                         linkFBUserY();
+                                                        return;
                                                     } else { 
                                                         facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                                             if (response.status === "connected") { 
@@ -4180,19 +4180,25 @@ function completeRedemption() {
                        window.localStorage.setItem("FBuserID", "");
                        window.localStorage.setItem("FBAccessToken", "");
                        alert(getData.statuscode);
-                       if (getData.statuscode != "000") {
-                           navigator.notification.alert("Unable to link the Facebook User Id to your isme membership due to ", function() {
+                       if (getData.statuscode=== "000") {
+                           navigator.notification.alert("Unable to link the Facebook User Id to your isme membership due to " + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
                            hideSpin();
                            return;
+                       }else {
+                           navigator.notification.alert("Unable to link the Facebook User Id to your isme membership due to " + getData.statusdesc, function() {
+                           }, "isme By Jumeirah" , "Dismiss");     
                        }
-                   },
-                   error: function (errormsg) {
+                   }
+                   ,
+                   error
+                   : function (errormsg) {
                        navigator.notification.alert("System Error, unable to Validate Discount  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
-               });
+               }
+            );
     }
     
     function onConfirm2 (buttonIndex) {
