@@ -709,9 +709,9 @@ img
 
 
     
- #login-theme .button-loginwithfacebook, #pl-setting-theme  .button-loginwithfacebook,#enrol-theme .button-loginwithfacebook
+ #login-theme .button-loginwithfacebook, #pl-home-view  .button-loginwithfacebook,#enrol-theme .button-loginwithfacebook
     {
-        background-color: rgba(13, 104, 197, 0.6);
+        background-color: rgba(13, 104, 197, 0.8);
         color: #fff;
     }
 

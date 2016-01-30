@@ -888,6 +888,7 @@ function completeRedemption() {
     var pinnumber = "";
     var spend = 0;
     var maxspend = 0;
+    var fbid="";
     var m = [];  
     var offertype = "1"; //prelogin ofer
     var offercode = ""; //All Offers default
@@ -2196,7 +2197,7 @@ function completeRedemption() {
                                                                   pinnumber = getData.pinnumber;
                                                                   spend = getData.spend;
                                                                   maxspend = getData.maxspend;
-
+                                                                  fbid=getData.fbid;  
                                                                   //set Local Storage as cookies to retain login
                                                                   window.localStorage.setItem("customer", customer);
                                                                   window.localStorage.setItem("customername", customername);
@@ -2229,6 +2230,7 @@ function completeRedemption() {
                                                                   window.localStorage.setItem("initdate", initdate);
                                                                   window.localStorage.setItem("spend", spend);
                                                                   window.localStorage.setItem("maxspend", maxspend);
+                                                                   window.localStorage.setItem("fbid", fbid);
                                                                   pushSettings = {
                                                                       iOS: {
                                                                           badge: "true",
@@ -2566,7 +2568,9 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
-                                                                   
+                                                                   if(window.localStorage.getItem("fbid")!=""){
+                                                                       document.getElementById("fblink-show").style.display = "none";
+                                                                   }
                                                                    // document.getElementById("wallet-div").style.display = "block";
                                                                    // document.getElementById("summary-1").innerHTML = getData.cashbackbalance;
                                                                    // document.getElementById("summary-2").innerHTML = getData.vouchercount;
@@ -4147,7 +4151,7 @@ function completeRedemption() {
                                                         m = JSON.parse(JSON.stringify(response));                                                       
                                                         window.localStorage.setItem("FBuserID", m.authResponse.userID);
                                                         window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
-                                                        linkFBUserY();
+                                                        linkFBUserZ();
                                                         return;
                                                     } else { 
                                                         facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
@@ -4155,7 +4159,7 @@ function completeRedemption() {
                                                                 m = JSON.parse(JSON.stringify(response));                                                       
                                                                 window.localStorage.setItem("FBuserID", m.authResponse.userID);
                                                                 window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
-                                                                linkFBUserY();
+                                                                linkFBUserZ();
                                                             } else { 
                                                                 navigator.notification.alert("Error accessing Facebook " + response.status, function() {
                                                                 }, "isme by Jumeirah", "Dismiss");
@@ -4168,6 +4172,36 @@ function completeRedemption() {
                                          
                                         
                                         });  
+    
+     function linkFBUserZ() {  
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                  url: gurl + "/linkFBUser.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,fbuserid:window.localStorage.getItem("FBuserID"),customer:customer,password:password,fbaccesstoken:window.localStorage.getItem("FBAccessToken")
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode === "000") {
+                         //KK
+                       }else {
+                           alert(getData.statuscode);
+                           navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statuscode, function() {
+                           }, "isme By Jumeirah" , "Dismiss");     
+                          
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
+                       }, "isme By Jumeirah" , "Dismiss");     
+                       
+                   }
+               });
+    }
     
     function linkFBUserY() {
         showSpin();

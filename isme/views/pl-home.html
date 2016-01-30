@@ -1,6 +1,6 @@
 <!--Explore View-->
 <div data-role="view" data-layout="pl-main-layout" id="pl-home-view" data-model="postLogin" data-show="postLogin.getSummary" data-stretch="true" data-reload="true">
-        <div id="pl-home-id">
+        <div>
         <div data-role="navbar" style="background-color:transparent !important">
             <a  data-role="button" data-align="left" data-rel="drawer"  data-click-on="down" href="#appdrawer" data-click="doOneBack">
                 <i class="fa fa-reorder fa-lg cblack" id="home-drawer"></i>
@@ -23,8 +23,15 @@
             </div>
         </div>
         <div class="button-frame-login">
-            <a data-click="enterPinForRedemption" data-role="button"  id="discount-button">Apply Discount</a>
+            <a data-click="enterPinForRedemption" data-role="button"  id="discount-button" style="background-color:#000">Apply Discount</a>
         </div>
+         <div class="filler"></div>
+            <div class="button-frame-login" id="fblink-show">
+                <a data-transition="slide" data-role="button" class="button-loginwithfacebook" data-bind="click:fbLoginDA">Link Facebook</a>
+            </div>
+  
+
+            
             </div>
 </div>
 
