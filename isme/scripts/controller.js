@@ -4134,7 +4134,7 @@ function completeRedemption() {
                                                 window.localStorage.setItem("issaved", "0");
                                             },
         
-                                            fbLoginD
+                                            fbLoginDA
                                             : function () { 
                                                 facebookConnectPlugin.getLoginStatus(function(response) { 
                                                     if (response.status === "connected") {
@@ -4164,7 +4164,7 @@ function completeRedemption() {
                                         });
     
     function linkFBUser() {
-      //  showSpin();
+        showSpin();
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -4180,22 +4180,17 @@ function completeRedemption() {
                     //   alert("gggggg");
                        window.localStorage.setItem("FBuserID", "");
                        window.localStorage.setItem("FBAccessToken", "");
-                    //   alert(getData.statuscode);
-                       if (getData.statuscode == "000") {
-                           navigator.notification.alert("The selected Facebook User Id is successfully linked to your isme membership, you can now log into your isme membership using your facebook account.", function() {
-                           }, "isme By Jumeirah" , "Dismiss");     
-                     //      hideSpin();
-                       }else {
-                           //  alert(getData.statusdesc);
+                       alert(getData.statuscode);
+                       if (getData.statuscode != "000") {
                            navigator.notification.alert("Unable to link the Facebook User Id to your isme membership due to ", function() {
                            }, "isme By Jumeirah" , "Dismiss");     
-                      //     hideSpin();
+                           hideSpin();
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Cannot validate FB User ID with isme this time due to a server error! " + errormsg.statusText, function() {
                        }, "isme By Jumeirah" , "Dismiss");     
-                   //    hideSpin();
+                       hideSpin();
                    }
                });
     }
