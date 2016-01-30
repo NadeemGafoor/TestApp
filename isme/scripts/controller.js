@@ -1062,16 +1062,29 @@ function completeRedemption() {
                                             
                                            getFBUserData
                                            : function () {    
-                                               
-                                               facebookConnectPlugin.getLoginStatus(function(response) { 
-          if (response.status === "connected") { 
-            alert("You are logged in, details:\n\n" + JSON.stringify(response.authResponse)); 
-         } else { 
-           alert("You are not logged in"); 
-          } 
-       }); 
-
-                                         
+                                               //Check Login Status - If not logged in and user rejects then throw enrollment error
+							                                               //If not login then login - If user rejects then throw enrolment error
+							                                               //check if Id is already exists on isme then throw error
+							                                               //get user data and publish on enrol page
+							                                               //Show a message of successful FB validation and update balance data to complete.
+							                                             
+							                                               if (window.localStorage.getItem("FBValidated")==="Y") {
+							                                                   navigator.notification.alert("You have already enrolled or validated your Facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your isme membership if already enrolled.", function() {
+							                                                   }, "isme by Jumeirah", "Dismiss");
+							                                                   return;
+							                                               }
+							                                               fbCleanVariables();
+							                                               facebookConnectPlugin.getLoginStatus(function(response) { 
+							                                                   if (response.status === "connected") {
+							                                            
+							                                                       m = JSON.parse(JSON.stringify(response));                                                       
+							                                                       window.localStorage.setItem("FBuserID", m.authResponse.userID);
+							                                                       window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+							                                                       getFBUserData();
+							                                                   } else { 
+							                                                       fbLogin();
+							                                                   } 
+                                               }); 
                                            },   
         
                                            getLoginStatus
@@ -1088,16 +1101,30 @@ function completeRedemption() {
                                            fbLoginD
                                            : function () { 
 
-                                             if (!this.checkSimulator()) { 
-        facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-         if (response.status === "connected") { 
-          // contains the 'status' - bool, 'authResponse' - object with 'session_key', 'accessToken', 'expiresIn', 'userID' 
-            alert("You are: " + response.status + ", details:\n\n" + JSON.stringify(response)); 
-          } else { 
-            alert("You are not logged in"); 
-           } 
-         }); 
-       } 
+                                                 facebookConnectPlugin.getLoginStatus(function(response) { 
+					                                                          if (response.status === "connected") {
+					                                                              m = JSON.parse(JSON.stringify(response));                                                       
+					                                                              window.localStorage.setItem("FBuserID", m.authResponse.userID);
+					                                                              window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+					                                                              window.localStorage.setItem("loginmode", "FB");
+					                                                              preLogin.validateUser();
+					                                                          } else { 
+					                                                              facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+					                                                                  if (response.status === "connected") { 
+					                                                                      m = JSON.parse(JSON.stringify(response));                                                       
+					                                                                      window.localStorage.setItem("FBuserID", m.authResponse.userID);
+					                                                                      window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+					                                                                      window.localStorage.setItem("loginmode", "FB");
+					                                                                      preLogin.validateUser();
+					                                                                  } else { 
+					                                                                      navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+					                                                                      }, "isme by Jumeirah", "Dismiss");
+					                                                                      return;
+					                                                                  } 
+					                                                              }); 
+					                                                          } 
+                                               }); 
+
 
                                            }, 
 
@@ -4131,7 +4158,6 @@ function completeRedemption() {
         
                                             fbLoginDA   
                                             : function () { 
-                                     
                                                 facebookConnectPlugin.getLoginStatus(function(response) { 
                                                     if (response.status === "connected") {
                                                         m = JSON.parse(JSON.stringify(response));                                                       
@@ -4176,9 +4202,8 @@ function completeRedemption() {
                        if (getData.statuscode === "000") {
                            navigator.notification.alert("The Facebook account on this device linked successfully to the isme membership.", function() {
                            }, "isme By Jumeirah" , "Dismiss");     
-                        hideSpin();
+                           hideSpin();
                        }else {
-                           
                            navigator.notification.alert("The Facebook account in this device is already linked to another isme membership.  cannot link Facebook to this account", function() {
                            }, "isme By Jumeirah" , "Dismiss");  
                            hideSpin();
@@ -4191,8 +4216,6 @@ function completeRedemption() {
                    }
                });
     }
-    
-   
     
     function onConfirm2 (buttonIndex) {
         if (buttonIndex===1) {
