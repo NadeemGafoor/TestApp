@@ -4141,6 +4141,7 @@ function completeRedemption() {
                                                         m = JSON.parse(JSON.stringify(response));                                                       
                                                         window.localStorage.setItem("FBuserID", m.authResponse.userID);
                                                         window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+                                                        
                                                         linkFBUserY();
                                                     } else { 
                                                         facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
@@ -4160,7 +4161,39 @@ function completeRedemption() {
                                             }
                                          
                                         
-                                        });   
+                                        });  
+    
+    function linkFBUserY() {
+        showSpin();
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:false,
+                   timeout:20000,
+                   url: gurl + "/linkFBUser.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,fbuserid:window.localStorage.getItem("FBuserID"),customer:customer,password:password,fbaccesstoken:window.localStorage.getItem("FBAccessToken")
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       window.localStorage.setItem("FBuserID", "");
+                       window.localStorage.setItem("FBAccessToken", "");
+                       alert(getData.statuscode);
+                       if (getData.statuscode != "000") {
+                           navigator.notification.alert("Unable to link the Facebook User Id to your isme membership due to ", function() {
+                           }, "isme By Jumeirah" , "Dismiss");     
+                           hideSpin();
+                           return;
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("System Error, unable to Validate Discount  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "isme By Jumeirah", "Dismiss")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
     
     function onConfirm2 (buttonIndex) {
         if (buttonIndex===1) {
@@ -5569,38 +5602,6 @@ function completeRedemption() {
                                                        'href': '#views/pl-home.html'
                                                    });
         //$("body").data("kendoMobilePane").navigate("#:back");
-    }
-    
-     function linkFBUserY() {
-        showSpin();
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:false,
-                   timeout:20000,
-                   url: gurl + "/linkFBUser.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,fbuserid:window.localStorage.getItem("FBuserID"),customer:customer,password:password,fbaccesstoken:window.localStorage.getItem("FBAccessToken")
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                    //   alert("gggggg");
-                    //   window.localStorage.setItem("FBuserID", "");
-                    //   window.localStorage.setItem("FBAccessToken", "");
-                       alert(getData.statuscode);
-                       if (getData.statuscode != "000") {
-                           navigator.notification.alert("Unable to link the Facebook User Id to your isme membership due to ", function() {
-                           }, "isme By Jumeirah" , "Dismiss");     
-                           hideSpin();
-                       }
-                   },
-                   error: function (errormsg) {
-                       navigator.notification.alert("Cannot validate FB User ID with isme this time due to a server error! " + errormsg.statusText, function() {
-                       }, "isme By Jumeirah" , "Dismiss");     
-                       hideSpin();
-                   }
-               });
     }
 }
     )(window);
