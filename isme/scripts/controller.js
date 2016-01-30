@@ -1,5 +1,5 @@
-function faceBookErr() {
-    navigator.notification.alert("Error Accessing your facebook account, please make sure you have facebook installed", function() {
+function FacebookErr() {
+    navigator.notification.alert("Error Accessing your Facebook account, please make sure you have Facebook installed", function() {
     }, "Club Epicure", "Dismiss");    
 }
 function hideSpin() {
@@ -111,7 +111,7 @@ function loadEnrol() {
                                                                  }), 500);
 }
 
-function faceBookClick() {
+function FacebookClick() {
     window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("social_message") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
     });
@@ -888,7 +888,7 @@ function completeRedemption() {
     var pinnumber = "";
     var spend = 0;
     var maxspend = 0;
-    var fbid="";
+    var fbid = "";
     var m = [];  
     var offertype = "1"; //prelogin ofer
     var offercode = ""; //All Offers default
@@ -955,7 +955,7 @@ function completeRedemption() {
     
     function getFBUserData() {
         var graphPath = "me/?fields=id,email,first_name,last_name,gender,age_range,link,locale"; 
-        facebookConnectPlugin.api(graphPath, ["email","public_profile"], 
+        FacebookConnectPlugin.api(graphPath, ["email","public_profile"], 
                                   function(response) { 
                                       if (response.error) { 
                                           navigator.notification.alert("Error accessing Facebook " + response.error, function() {
@@ -985,7 +985,7 @@ function completeRedemption() {
                                               document.getElementById("selGender").value = "U";
                                           }
 
-                                          navigator.notification.alert("You have been validated successfully with your facebook account.  Please complete the missing details and continue with your subscription.", function() {
+                                          navigator.notification.alert("You have been validated successfully with your Facebook account.  Please complete the missing details and continue with your subscription.", function() {
                                           }, "isme by Jumeirah", "Dismiss");
                                       } 
                                   }); 
@@ -1002,7 +1002,7 @@ function completeRedemption() {
     }
     
     function fbLogin() {
-        facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+        FacebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
             if (response.status === "connected") { 
                 m = JSON.parse(JSON.stringify(response));                                                       
                 window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -1068,12 +1068,12 @@ function completeRedemption() {
                                                //get user data and publish on enrol page
                                                //Show a message of successful FB validation and update balance data to complete.
                                                if (window.localStorage.getItem("FBValidated")==="Y") {
-                                                   navigator.notification.alert("You have already enrolled or validated your facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your isme membership if already enrolled.", function() {
+                                                   navigator.notification.alert("You have already enrolled or validated your Facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your isme membership if already enrolled.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
                                                fbCleanVariables();
-                                               facebookConnectPlugin.getLoginStatus(function(response) { 
+                                               FacebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") {
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -1087,7 +1087,7 @@ function completeRedemption() {
         
                                            getLoginStatus
                                            : function () { 
-                                               facebookConnectPlugin.getLoginStatus(function(response) { 
+                                               FacebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") { 
                                                        alert("You are logged in, details:\n\n" + JSON.stringify(response.authResponse)); 
                                                    } else { 
@@ -1098,7 +1098,7 @@ function completeRedemption() {
 
                                            fbLoginD
                                            : function () { 
-                                               facebookConnectPlugin.getLoginStatus(function(response) { 
+                                               FacebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") {
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -1106,7 +1106,7 @@ function completeRedemption() {
                                                        window.localStorage.setItem("loginmode", "FB");
                                                        preLogin.validateUser();
                                                    } else { 
-                                                       facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                       FacebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                                            if (response.status === "connected") { 
                                                                m = JSON.parse(JSON.stringify(response));                                                       
                                                                window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -1147,7 +1147,7 @@ function completeRedemption() {
                                                if (window.localStorage.getItem("FBValidated") === "Y") {
                                                    getFBUserExists();
                                                    if (window.localStorage.getItem("FBValidated")==="N") {
-                                                       navigator.notification.alert("There is an isme membership already associated with this facebook account.  Unable to enrol using this facebook account", function() {
+                                                       navigator.notification.alert("There is an isme membership already associated with this Facebook account.  Unable to enrol using this Facebook account", function() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        clearEnrolPage();
                                                        return;
@@ -1997,6 +1997,9 @@ function completeRedemption() {
                                                        residentcity = window.localStorage.getItem("residentcity");
                                                        homecountry = window.localStorage.getItem("homecountry");
                                                        initdate = window.localStorage.getItem("initdate");
+                                                       spend = window.localStorage.getItem("spend");
+                                                       maxspend = window.localStorage.getItem("maxspend");
+                                                       fbid = window.localStorage.getItem("fbid");
 
                                                        $("body").data("kendoMobilePane").navigate("views/pl-home.html"); 
                                                    } else {
@@ -2197,7 +2200,7 @@ function completeRedemption() {
                                                                   pinnumber = getData.pinnumber;
                                                                   spend = getData.spend;
                                                                   maxspend = getData.maxspend;
-                                                                  fbid=getData.fbid;  
+                                                                  fbid = getData.fbid;  
                                                                   //set Local Storage as cookies to retain login
                                                                   window.localStorage.setItem("customer", customer);
                                                                   window.localStorage.setItem("customername", customername);
@@ -2230,7 +2233,7 @@ function completeRedemption() {
                                                                   window.localStorage.setItem("initdate", initdate);
                                                                   window.localStorage.setItem("spend", spend);
                                                                   window.localStorage.setItem("maxspend", maxspend);
-                                                                   window.localStorage.setItem("fbid", fbid);
+                                                                  window.localStorage.setItem("fbid", fbid);
                                                                   pushSettings = {
                                                                       iOS: {
                                                                           badge: "true",
@@ -2568,7 +2571,8 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
-                                                                   if(window.localStorage.getItem("fbid")!=""){
+                                                                 
+                                                                   if (window.localStorage.getItem("fbid") != "99") {
                                                                        document.getElementById("fblink-show").style.display = "none";
                                                                    }
                                                                    // document.getElementById("wallet-div").style.display = "block";
@@ -2618,7 +2622,7 @@ function completeRedemption() {
         
                                             loadProfile
                                             :function() {
-                                                 document.getElementById("back1-filter").style.display="none";
+                                                document.getElementById("back1-filter").style.display = "none";
                                                 document.getElementById("profile-picture-1").src = window.localStorage.getItem("cuspict");
                                                 document.getElementById("pro-name").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
                                                 document.getElementById("pro-birthdate").innerHTML = (window.localStorage.getItem("birthdate") != null && window.localStorage.getItem("birthdate").length > 0) ? "Birth date : " + window.localStorage.getItem("birthdate") : "Birth Date : NA";
@@ -2682,6 +2686,9 @@ function completeRedemption() {
                                                                window.localStorage.setItem("initdate", "");
                                                                window.localStorage.setItem("magicnumber", magicnumber);
                                                                window.localStorage.setItem("loginmode", "");
+                                                               window.localStorage.setItem("spend", "");
+                                                               window.localStorage.setItem("maxspend", "");
+                                                               window.localStorage.setItem("fbid", "");
                                                                fbCleanVariables();
                                                                outletcode = "";
                                                                brandcode = "";
@@ -2771,7 +2778,7 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
                                                                    if (getData.benefitlist.length > 0) {
-                                                                        document.getElementById("back1-filter").style.display="none";
+                                                                       document.getElementById("back1-filter").style.display = "none";
                                                                        document.getElementById("pl-benefit-detail-view").style.display = "block";
                                                                        document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].titlename;
                                                                        document.getElementById("benefit-text6").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
@@ -3350,7 +3357,7 @@ function completeRedemption() {
                                             : function () {
                                                 showSpin();
                                                 back1_profile();
-                                                 document.getElementById("back1-filter").style.display="none";
+                                                document.getElementById("back1-filter").style.display = "none";
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3479,7 +3486,7 @@ function completeRedemption() {
                                                 listCountry();
                                                 listCity("UAE", document.getElementById("selCity"));  
                                                 // alert(window.localStorage.getItem("birthdate"));
-                                                document.getElementById("back1-filter").style.display="none";
+                                                document.getElementById("back1-filter").style.display = "none";
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
@@ -3940,7 +3947,7 @@ function completeRedemption() {
                                                 var t = "";//document.getElementById("selCountry").value;
                                                 showSpin();
                                                 back1_profile();
-                                                 document.getElementById("back1-filter").style.display="none";
+                                                document.getElementById("back1-filter").style.display = "none";
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3993,7 +4000,7 @@ function completeRedemption() {
                                                 // alert(mdevicestat);
                                                 showSpin();
                                                 back1_profile();
-                                                 document.getElementById("back1-filter").style.display="none";
+                                                document.getElementById("back1-filter").style.display = "none";
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4146,7 +4153,8 @@ function completeRedemption() {
         
                                             fbLoginDA   
                                             : function () { 
-                                                facebookConnectPlugin.getLoginStatus(function(response) { 
+                                     
+                                                FacebookConnectPlugin.getLoginStatus(function(response) { 
                                                     if (response.status === "connected") {
                                                         m = JSON.parse(JSON.stringify(response));                                                       
                                                         window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -4154,7 +4162,7 @@ function completeRedemption() {
                                                         linkFBUserZ();
                                                         return;
                                                     } else { 
-                                                        facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                        FacebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                                             if (response.status === "connected") { 
                                                                 m = JSON.parse(JSON.stringify(response));                                                       
                                                                 window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -4173,42 +4181,12 @@ function completeRedemption() {
                                         
                                         });  
     
-     function linkFBUserZ() {  
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                  url: gurl + "/linkFBUser.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,fbuserid:window.localStorage.getItem("FBuserID"),customer:customer,password:password,fbaccesstoken:window.localStorage.getItem("FBAccessToken")
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                       if (getData.statuscode === "000") {
-                         //KK
-                       }else {
-                           alert(getData.statuscode);
-                           navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statuscode, function() {
-                           }, "isme By Jumeirah" , "Dismiss");     
-                          
-                       }
-                   },
-                   error: function (errormsg) {
-                       navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
-                       }, "isme By Jumeirah" , "Dismiss");     
-                       
-                   }
-               });
-    }
-    
-    function linkFBUserY() {
+    function linkFBUserZ() {  
         showSpin();
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:false,
+                   async:true,
                    timeout:20000,
                    url: gurl + "/linkFBUser.aspx",
                    contentType: "application/json; charset=utf-8",
@@ -4217,29 +4195,26 @@ function completeRedemption() {
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
-                       window.localStorage.setItem("FBuserID", "");
-                       window.localStorage.setItem("FBAccessToken", "");
-                       alert(getData.statuscode);
-                       if (getData.statuscode=== "000") {
-                           navigator.notification.alert("Unable to link the Facebook User Id to your isme membership due to " + getData.statusdesc, function() {
+                       if (getData.statuscode === "000") {
+                           navigator.notification.alert("The Facebook account on this device linked successfully to the isme membership.", function() {
                            }, "isme By Jumeirah" , "Dismiss");     
-                           hideSpin();
-                           return;
+                        hideSpin();
                        }else {
-                           navigator.notification.alert("Unable to link the Facebook User Id to your isme membership due to " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah" , "Dismiss");     
+                           
+                           navigator.notification.alert("The Facebook account in this device is already linked to another isme membership.  cannot link Facebook to this account", function() {
+                           }, "isme By Jumeirah" , "Dismiss");  
+                           hideSpin();
                        }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
+                       }, "isme By Jumeirah" , "Dismiss");     
+                       hideSpin();
                    }
-                   ,
-                   error
-                   : function (errormsg) {
-                       navigator.notification.alert("System Error, unable to Validate Discount  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
-                       hideSpin(); //hide loading popup
-                   }
-               }
-            );
+               });
     }
+    
+   
     
     function onConfirm2 (buttonIndex) {
         if (buttonIndex===1) {
