@@ -966,7 +966,7 @@ function completeRedemption() {
                                           window.localStorage.setItem("FBValidated", "Y");
                                           postLogin.set("firstname", FBData.first_name);
                                           postLogin.set("lastname", FBData.last_name);
-                                          postLogin.set("emailid", FBData.emailid);
+                                          postLogin.set("emailid", FBData.email);
                                           //check whether the ID exists
                                           getFBUserExists();
                                           if (window.localStorage.getItem("FBValidated")==="N") {
@@ -1127,17 +1127,15 @@ function completeRedemption() {
                                                        navigator.notification.alert("Last Name is required.  Re-enter", function() {
                                                        }, "Club Epicure", "Dismiss")
                                                        return;
-                                                   }
+                                                     }
                                                
-                                                   if (postLogin.emailid="") {
+                                                   if (postLogin.emailid=="") {
                                                        navigator.notification.alert("Email is required.  Re-enter", function() {
                                                        }, "Club Epicure", "Dismiss")
                                                        return;
                                                    }
                                                    
-                                                   alert("Reenter" + this.emailida);
-                                                   alert("Facebook " + this.emailida);
-                                                   
+                                                  
                                                    if (!this.emailida) {
                                                        navigator.notification.alert("Re-enter Email Id.  Re-enter", function() {
                                                        }, "Club Epicure", "Dismiss")
