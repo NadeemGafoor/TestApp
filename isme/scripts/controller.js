@@ -1,6 +1,6 @@
 function FacebookErr() {
     navigator.notification.alert("Error Accessing your Facebook account, please make sure you have Facebook installed", function() {
-    }, "Club Epicure", "Dismiss");    
+    }, "isme by Jumeirah", "Dismiss");    
 }
 function hideSpin() {
     window.setTimeout(function() {
@@ -1158,66 +1158,66 @@ function completeRedemption() {
                                                    //alert(postLogin.firstname);
                                                    if (postLogin.firstname == "") {
                                                        navigator.notification.alert("First Name is required.  Re-enter", function() {
-                                                       }, "Club Epicure", "Dismiss")
+                                                       }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                
                                                    if (postLogin.lastname == "") {
                                                        navigator.notification.alert("Last Name is required.  Re-enter", function() {
-                                                       }, "Club Epicure", "Dismiss")
+                                                       }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                
                                                    if (postLogin.emailid == "") {
                                                        navigator.notification.alert("Email is required.  Re-enter", function() {
-                                                       }, "Club Epicure", "Dismiss")
+                                                       }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                   
                                                    if (!this.emailida) {
                                                        navigator.notification.alert("Re-enter Email Id.  Re-enter", function() {
-                                                       }, "Club Epicure", "Dismiss")
+                                                       }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                    if (postLogin.emailid != this.emailida) {
                                                        navigator.notification.alert("Email ID do not match, re-enter", function() {
-                                                       }, "Club Epicure", "Dismiss");
+                                                       }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }
                                                } else {
                                                    if (!this.firstname) {
                                                        navigator.notification.alert("First Name is required.  Re-enter", function() {
-                                                       }, "Club Epicure", "Dismiss")
+                                                       }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                
                                                    if (!this.lastname) {
                                                        navigator.notification.alert("Last Name is required.  Re-enter", function() {
-                                                       }, "Club Epicure", "Dismiss")
+                                                       }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                
                                                    if (!this.emailid) {
                                                        navigator.notification.alert("Email is required.  Re-enter", function() {
-                                                       }, "Club Epicure", "Dismiss")
+                                                       }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                    if (!this.emailida) {
                                                        navigator.notification.alert("Re-enter Email Id.  Re-enter", function() {
-                                                       }, "Club Epicure", "Dismiss")
+                                                       }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                    
                                                    if (this.emailid != this.emailida) {
                                                        navigator.notification.alert("Email ID do not match, re-enter", function() {
-                                                       }, "Club Epicure", "Dismiss");
+                                                       }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }   
                                                }
                                                 
                                                if (!this.mobile) {
                                                    navigator.notification.alert("Mobile Number is required.  Re-enter", function() {
-                                                   }, "Club Epicure", "Dismiss")
+                                                   }, "isme by Jumeirah", "Dismiss")
                                                    return;
                                                }
                                            
@@ -1235,7 +1235,7 @@ function completeRedemption() {
                                                
                                                if (!document.getElementById("enrol-tandc-accept").checked) {
                                                    navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
-                                                   }, "Club Epicure", "Dismiss");
+                                                   }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
                                                
@@ -2381,13 +2381,13 @@ function completeRedemption() {
                                            : function () {
                                                if (!this.pin1 || !this.pin2) {
                                                    navigator.notification.alert("Invalid PIN Number", function() {
-                                                   }, "Club Epicure", "Dismiss");
+                                                   }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
                                                
                                                if (this.pin1 != this.pin2) {
                                                    navigator.notification.alert("PIN Numbers do not match, re-enter", function() {
-                                                   }, "Club Epicure", "Dismiss");
+                                                   }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
                                            
@@ -3330,7 +3330,7 @@ function completeRedemption() {
                                             : function () {
                                                 if (!document.getElementById("pl-tandc-accept").checked) {
                                                     navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
-                                                    }, "Club Epicure", "Dismiss");
+                                                    }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
                                                 window.localStorage.setItem("selfredeem", "V"); 
@@ -3340,7 +3340,7 @@ function completeRedemption() {
                                             : function () {
                                                 if (!document.getElementById("wallet-tandc").checked) {
                                                     navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
-                                                    }, "Club Epicure", "Dismiss");
+                                                    }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
                                                 window.localStorage.setItem("selfredeem", "M"); 
@@ -3527,25 +3527,25 @@ function completeRedemption() {
                                             function () {
                                                 if (!this.emailid1) {
                                                     navigator.notification.alert("Email is required.  Re-enter", function() {
-                                                    }, "Club Epicure", "Dismiss")
+                                                    }, "isme by Jumeirah", "Dismiss")
                                                     return;
                                                 }
                                                 
                                                 if (!this.mobile1) {
                                                     navigator.notification.alert("Mobile Number is required.  Re-enter", function() {
-                                                    }, "Club Epicure", "Dismiss")
+                                                    }, "isme by Jumeirah", "Dismiss")
                                                     return;
                                                 }
                                                 
                                                 if (this.emailid1 != this.emailid2) {
                                                     navigator.notification.alert("Email ID do not match, re-enter", function() {
-                                                    }, "Club Epicure", "Dismiss");
+                                                    }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
                                                
                                                 //   if (this.mobile1.value.substring(0,0)==="0") {
                                                 //       navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
-                                                //       }, "Club Epicure", "Dismiss");
+                                                //       }, "isme by Jumeirah", "Dismiss");
                                                 //       return;
                                                 //   }
                                              
@@ -3837,13 +3837,13 @@ function completeRedemption() {
                                             : function () {
                                                 if (!this.newpin1 || !this.newpin2) {
                                                     navigator.notification.alert("Invalid PIN Number", function() {
-                                                    }, "Club Epicure", "Dismiss");
+                                                    }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
                                                
                                                 if (this.newpin1 != this.newpin2) {
                                                     navigator.notification.alert("PIN Numbers do not match, re-enter", function() {
-                                                    }, "Club Epicure", "Dismiss");
+                                                    }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
                                            
@@ -4437,7 +4437,7 @@ function completeRedemption() {
                            window.localStorage.setItem("password", password); //Get and Store Certificate
                            window.localStorage.setItem("loggedin", "1");
                            navigator.notification.alert("PIN has been successfully set", function() {
-                           }, "Club Epicure", "Dismiss")         
+                           }, "isme by Jumeirah", "Dismiss")         
                            if (y === "0") {
                                window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                 "duration"         :  500, // in milliseconds (ms), default 400
@@ -4455,13 +4455,13 @@ function completeRedemption() {
                            }
                        }else {
                            navigator.notification.alert("Cannot set PIN. " + getData.statusdesc, function() {
-                           }, "Club Epicure", "Dismiss")         
+                           }, "isme by Jumeirah", "Dismiss")         
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot set PIN.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "Club Epicure", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
