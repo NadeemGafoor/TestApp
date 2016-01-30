@@ -1117,13 +1117,13 @@ function completeRedemption() {
                                                //alert(window.localStorage.getItem("FBValidated"));
                                                if (window.localStorage.getItem("FBValidated") == "Y") {
                                                    //alert(postLogin.firstname);
-                                                   if (postLogin.firstname=="") {
+                                                   if (postLogin.firstname == "") {
                                                        navigator.notification.alert("First Name is required.  Re-enter", function() {
                                                        }, "Club Epicure", "Dismiss")
                                                        return;
                                                    }
                                                
-                                                   if (postLogin.lastname=="") {
+                                                   if (postLogin.lastname == "") {
                                                        navigator.notification.alert("Last Name is required.  Re-enter", function() {
                                                        }, "Club Epicure", "Dismiss")
                                                        return;
@@ -1135,13 +1135,14 @@ function completeRedemption() {
                                                        return;
                                                    }
                                                    
+                                                   alert("Reenter" + this.emailida);
+                                                   alert("Facebook " + this.emailida);
+                                                   
                                                    if (!this.emailida) {
                                                        navigator.notification.alert("Re-enter Email Id.  Re-enter", function() {
                                                        }, "Club Epicure", "Dismiss")
                                                        return;
                                                    }
-                                                   alert("Reenter" + this.emailida);
-                                                   alert("Facebook " + this.emailida);
                                                    if (postLogin.emailid != this.emailida) {
                                                        navigator.notification.alert("Email ID do not match, re-enter", function() {
                                                        }, "Club Epicure", "Dismiss");
@@ -1189,7 +1190,6 @@ function completeRedemption() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return; 
                                                }
-                                               
                                               
                                                if (document.getElementById("selGender").value === "") {
                                                    navigator.notification.alert("Select Gender", function() {
