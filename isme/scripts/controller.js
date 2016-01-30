@@ -924,6 +924,34 @@ function completeRedemption() {
 
     //var options = { frequency: 1000 };  // Update every 3 seconds
     // Listen for the event and wire it to our callback function
+    
+    function getFBUSerData() {
+        alert("You are logged in, details:\n\n" + JSON.stringify(response.authResponse)); 
+        var graphPath = "me/?fields=id,email,first_name,last_name,gender,age_range,link,locale"; 
+        facebookConnectPlugin.api(graphPath, ["email","public_profile"], 
+                                  function(response) { 
+                                      if (response.error) { 
+                                          navigator.notification.alert("Error accessing Facebook " + response.error, function() {
+                                          }, "isme by Jumeirah", "Dismiss");
+                                      } else { 
+                                          alert(JSON.stringify(response)); 
+                                      } 
+                                  }); 
+    }
+    
+    function fbCleanVariables() {
+    }
+    
+    function fbLogin() {
+        facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+            if (response.status === "connected") { 
+                getFBUSerData();
+            } else { 
+                navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+                }, "isme by Jumeirah", "Dismiss");
+            } 
+        }); 
+    }
        
     window.preLogin = kendo.observable({
                                            pin1:"",
@@ -949,6 +977,22 @@ function completeRedemption() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
+                                           getFBUserData: function () {    
+                                               //Check Login Status - If not logged in and user rejects then throw enrollment error
+                                               //If not login then login - If user rejects then throw enrolment error
+                                               //check if Id is already exists on isme then thro error
+                                               //get user data and publish on enrol page
+                                               //Show a message of successful FB validation and update balance data to complete.
+                                               fbCleanVariables();
+                                               facebookConnectPlugin.getLoginStatus(function(response) { 
+                                                   if (response.status === "connected") { 
+                                                       getFBUSerData();
+                                                   } else { 
+                                                       fbLogin();
+                                                   } 
+                                               }); 
+                                           }, 
+
         
                                            getLoginStatus: function () { 
                                                facebookConnectPlugin.getLoginStatus(function(response) { 
@@ -961,7 +1005,7 @@ function completeRedemption() {
                                            }, 
 
                                            fbLogin: function () { 
-                                               facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                               facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                                    if (response.status === "connected") { 
                                                        // contains the 'status' - bool, 'authResponse' - object with 'session_key', 'accessToken', 'expiresIn', 'userID' 
                                                        alert("You are: " + response.status + ", details:\n\n" + JSON.stringify(response)); 
