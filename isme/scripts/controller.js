@@ -940,12 +940,12 @@ function completeRedemption() {
                        var getData = JSON.parse(data);
                        if (getData.statuscode != "000") {
                            window.localStorage.setItem("FBValidated", "N");
-                           }else{
+                       }else {
                            window.localStorage.setItem("FBValidated", "Y");
                        }
                    },
                    error: function (errormsg) {
-                        window.localStorage.setItem("FBValidated", "N");
+                       window.localStorage.setItem("FBValidated", "N");
                        navigator.notification.alert("Cannot validate FB User ID in isme this time due to a server error! " + errormsg.statusText, function() {
                        }, "isme By Jumeirah" , "Dismiss");     
                    }
@@ -1014,19 +1014,19 @@ function completeRedemption() {
         }); 
     }
     
-    function clearEnrolPage(){
-        postLogin.set("firstname","");
-        postLogin.set("lastname","");
-        postLogin.set("emailid","");
-        this.firstname.value="";
-        this.lastname.value="";
-        this.emailid.value="";
-        this.emailida.value="";
-        this.mobile.value="";
-        this.siriusnumber.value="";
-        document.getElementById("selGender").value="";
-        document.getElementById("selEmirate").value="";
-         $("#enrol-tandc-accept").data("kendoMobileSwitch").check(false);
+    function clearEnrolPage() {
+        postLogin.set("firstname", "");
+        postLogin.set("lastname", "");
+        postLogin.set("emailid", "");
+        this.firstname.value = "";
+        this.lastname.value = "";
+        this.emailid.value = "";
+        this.emailida.value = "";
+        this.mobile.value = "";
+        this.siriusnumber.value = "";
+        document.getElementById("selGender").value = "";
+        document.getElementById("selEmirate").value = "";
+        $("#enrol-tandc-accept").data("kendoMobileSwitch").check(false);
         fbCleanVariables();
     }
        
@@ -1066,13 +1066,12 @@ function completeRedemption() {
                                                //check if Id is already exists on isme then throw error
                                                //get user data and publish on enrol page
                                                //Show a message of successful FB validation and update balance data to complete.
-                                      
                                                if (window.localStorage.getItem("FBValidated")==="Y") {
                                                    navigator.notification.alert("You have already enrolled or validated your facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your isme membership if already enrolled.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
-                                                        fbCleanVariables();
+                                               fbCleanVariables();
                                                facebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") {
                                                        m = JSON.parse(JSON.stringify(response));                                                       
@@ -1096,14 +1095,29 @@ function completeRedemption() {
                                                }); 
                                            }, 
 
-                                           fbLogin
+                                           fbLoginD
                                            : function () { 
-                                               facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-                                                   if (response.status === "connected") { 
-                                                       // contains the 'status' - bool, 'authResponse' - object with 'session_key', 'accessToken', 'expiresIn', 'userID' 
-                                                       alert("You are: " + response.status + ", details:\n\n" + JSON.stringify(response)); 
+                                               facebookConnectPlugin.getLoginStatus(function(response) { 
+                                                   if (response.status === "connected") {
+                                                       m = JSON.parse(JSON.stringify(response));                                                       
+                                                       window.localStorage.setItem("FBuserID", m.authResponse.userID);
+                                                       window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+                                                       window.localStorage.setItem("loginmode", "FB");
+                                                       preLogin.validateUser();
                                                    } else { 
-                                                       alert("You are not logged in"); 
+                                                       facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                           if (response.status === "connected") { 
+                                                               m = JSON.parse(JSON.stringify(response));                                                       
+                                                               window.localStorage.setItem("FBuserID", m.authResponse.userID);
+                                                               window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+                                                               window.localStorage.setItem("loginmode", "FB");
+                                                               preLogin.validateUser();
+                                                           } else { 
+                                                               navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+                                                               }, "isme by Jumeirah", "Dismiss");
+                                                               return;
+                                                           } 
+                                                       }); 
                                                    } 
                                                }); 
                                            }, 
@@ -1137,7 +1151,6 @@ function completeRedemption() {
                                                        clearEnrolPage();
                                                        return;
                                                    }
-                                                    
                                                }
                                                //alert(window.localStorage.getItem("FBValidated"));
                                                if (window.localStorage.getItem("FBValidated") == "Y") {
@@ -1787,6 +1800,7 @@ function completeRedemption() {
                                                    window.localStorage.setItem("share_image", share_image);
                                                    window.localStorage.setItem("brandcode", "");
                                                    window.localStorage.setItem("faqcategory", "");
+                                                   window.localStorage.setItem("loginmode", "");
                                                    fbCleanVariables();
                                                    $.ajax({    
                                                               type: "POST",
@@ -2115,24 +2129,27 @@ function completeRedemption() {
                                                    window.localStorage.setItem("memberID", "");
                                                    window.localStorage.setItem("rememberMe", "");      
                                                }
-                                           },
+                                           },  
         
                                            validateUser
                                            : function () {
                                                window.localStorage.setItem("appopen", "0");   
-                                          
-                                               if (!this.username) {
-                                                   navigator.notification.alert("Invalid Membership # or Empty", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
-                                                   return;
+                                               // alert(window.localStorage.getItem("loginmode"));
+                                               // alert(window.localStorage.getItem("FBuserID"));
+                                               if (window.localStorage.getItem("loginmode") == "") {
+                                                   if (!this.username) {
+                                                       navigator.notification.alert("Invalid Membership # or Empty", function() {
+                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       return;
+                                                   }
+                                                   if (!this.password) {
+                                                       navigator.notification.alert("Invalid Password or Empty", function() {
+                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       return;
+                                                   }
+                                                   customer = this.username;
+                                                   password = this.password;
                                                }
-                                               if (!this.password) {
-                                                   navigator.notification.alert("Invalid Password or Empty", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
-                                                   return;
-                                               }
-                                               customer = this.username;
-                                               password = this.password;
                                                // window.localStorage.setItem("memberID", this.username);"1000","3"
                                                // m = window.localStorage.getItem("memberID");
                                                //  alert(m);
@@ -2145,7 +2162,7 @@ function completeRedemption() {
                                                           url: gurl + "/validateUser.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,customer:customer,password:password,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification"),mmagicnumber:""
+                                                                                   merchantcode :merchant,customer:customer,password:password,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification"),mmagicnumber:"",fbuserid:window.localStorage.getItem("FBuserID"),loginmode:window.localStorage.getItem("loginmode")
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
@@ -2252,6 +2269,8 @@ function completeRedemption() {
                                                                       });
                                                                       window.localStorage.setItem("notification", "1");
                                                                   }
+                                                                  window.localStorage.setItem("loginmode", "");
+                                                                  window.localStorage.setItem("FBuserID", "");
                                                                    
                                                                   if ((getData.deviceinfo.length === 0)) {
                                                                       $("body").data("kendoMobilePane").navigate("views/tokenpage.html");      
@@ -2260,8 +2279,7 @@ function completeRedemption() {
                                                                   }else {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password);
-                                                                      window.localStorage.setItem("loggedin", "1");
-
+                                                                      window.localStorage.setItem("loggedin", "1");                                                                   
                                                                       //$("body").data("kendoMobilePane").navigate("views/pl-myprofile.html");  
                                                                       window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                                                        "duration"         :  500, // in milliseconds (ms), default 400
@@ -2276,13 +2294,18 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Cannot Login. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")         
+                                                                  }, "isme by Jumeirah", "Dismiss")
+                                                                  window.localStorage.setItem("loginmode", "");
+                                                                  window.localStorage.setItem("FBuserID", "");
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Unknown Error, Cannot Login.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
+                                                              window.localStorage.setItem("loginmode", "");
+                                                              window.localStorage.setItem("FBuserID", "");
+                                                              
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -2653,6 +2676,8 @@ function completeRedemption() {
                                                                window.localStorage.setItem("firstname", "");
                                                                window.localStorage.setItem("initdate", "");
                                                                window.localStorage.setItem("magicnumber", magicnumber);
+                                                               window.localStorage.setItem("loginmode", "");
+                                                               fbCleanVariables();
                                                                outletcode = "";
                                                                brandcode = "";
                                                                offercode = "";
@@ -4065,12 +4090,12 @@ function completeRedemption() {
                                                                    $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");  
                                                                }else {
                                                                    navigator.notification.alert("Cannot delete message. " + getData.statusdesc, function() {
-                                                                   }, "IHG® Dining Rewards", "Dismiss")          
+                                                                   }, "isme By Jumeirah", "Dismiss")          
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot delete message. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "IHG® Dining Rewards", "Dismiss")
+                                                               }, "isme By Jumeirah", "Dismiss")
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
@@ -4101,15 +4126,79 @@ function completeRedemption() {
                                                         'isme by Jumeirah', // title
                                                         'I will set Later,Save now'          // buttonLabels
                                                         );
-                                                }else {
+                                                }else {  
                                                     saveLater();
                                                 }
                                             },
                                             enableSave:function() {
                                                 window.localStorage.setItem("issaved", "0");
+                                            },
+        
+                                            fbLoginD
+                                            : function () { 
+                                                facebookConnectPlugin.getLoginStatus(function(response) { 
+                                                    if (response.status === "connected") {
+                                                        m = JSON.parse(JSON.stringify(response));                                                       
+                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
+                                                        window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+                                                        linkFBUser();
+                                                    } else { 
+                                                        facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                            if (response.status === "connected") { 
+                                                                m = JSON.parse(JSON.stringify(response));                                                       
+                                                                window.localStorage.setItem("FBuserID", m.authResponse.userID);
+                                                                window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+                                                                linkFBUser();
+                                                              
+                                                            } else { 
+                                                                navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+                                                                }, "isme by Jumeirah", "Dismiss");
+                                                                return;
+                                                            } 
+                                                        }); 
+                                                    } 
+                                                }); 
                                             }
+                                         
                                         
                                         });
+    
+    function linkFBUser() {
+      //  showSpin();
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:false,
+                   timeout:20000,
+                   url: gurl + "/linkFBUser.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,fbuserid:window.localStorage.getItem("FBuserID"),customer:customer,password:password,fbaccesstoken:window.localStorage.getItem("FBAccessToken")
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                    //   alert("gggggg");
+                       window.localStorage.setItem("FBuserID", "");
+                       window.localStorage.setItem("FBAccessToken", "");
+                    //   alert(getData.statuscode);
+                       if (getData.statuscode == "000") {
+                           navigator.notification.alert("The selected Facebook User Id is successfully linked to your isme membership, you can now log into your isme membership using your facebook account.", function() {
+                           }, "isme By Jumeirah" , "Dismiss");     
+                     //      hideSpin();
+                       }else {
+                             alert(getData.statusdesc);
+                           navigator.notification.alert("Unable to link the Facebook User Id to your isme membership due to ", function() {
+                           }, "isme By Jumeirah" , "Dismiss");     
+                      //     hideSpin();
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Cannot validate FB User ID with isme this time due to a server error! " + errormsg.statusText, function() {
+                       }, "isme By Jumeirah" , "Dismiss");     
+                   //    hideSpin();
+                   }
+               });
+    }
     
     function onConfirm2 (buttonIndex) {
         if (buttonIndex===1) {
