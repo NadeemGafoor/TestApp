@@ -964,9 +964,9 @@ function completeRedemption() {
                                           window.localStorage.setItem("FBLastName", FBData.last_name);
                                           window.localStorage.setItem("FBGender", FBData.gender);
                                           window.localStorage.setItem("FBValidated", "Y");
-                                          postLogin.set("firstname",FBData.first_name);
-                                          postLogin.set("lastname",FBData.last_name);
-                                          postLogin.set("emailid",FBData.emailid);
+                                          postLogin.set("firstname", FBData.first_name);
+                                          postLogin.set("lastname", FBData.last_name);
+                                          postLogin.set("emailid", FBData.emailid);
                                           //check whether the ID exists
                                           getFBUserExists();
                                           if (window.localStorage.getItem("FBValidated")==="N") {
@@ -1114,30 +1114,68 @@ function completeRedemption() {
         
                                            confirmEnrol
                                            :function() {
-                                               alert(this.get("firstname"));
-                                               if (window.localStorage.getItem("FBValidated")=="Y"){
-                                               if (!this.firstname) {
-                                                   navigator.notification.alert("First Name is required.  Re-enter", function() {
-                                                   }, "Club Epicure", "Dismiss")
-                                                   return;
-                                               }
+                                               //alert(window.localStorage.getItem("FBValidated"));
+                                               if (window.localStorage.getItem("FBValidated") == "Y") {
+                                                   //alert(postLogin.firstname);
+                                                   if (postLogin.firstname=="") {
+                                                       navigator.notification.alert("First Name is required.  Re-enter", function() {
+                                                       }, "Club Epicure", "Dismiss")
+                                                       return;
+                                                   }
                                                
-                                               if (!this.lastname) {
-                                                   navigator.notification.alert("Last Name is required.  Re-enter", function() {
-                                                   }, "Club Epicure", "Dismiss")
-                                                   return;
-                                               }
+                                                   if (postLogin.lastname=="") {
+                                                       navigator.notification.alert("Last Name is required.  Re-enter", function() {
+                                                       }, "Club Epicure", "Dismiss")
+                                                       return;
+                                                   }
                                                
-                                               if (!this.emailid) {
-                                                   navigator.notification.alert("Email is required.  Re-enter", function() {
-                                                   }, "Club Epicure", "Dismiss")
-                                                   return;
-                                               }
-                                               }
+                                                   if (postLogin.emailid="") {
+                                                       navigator.notification.alert("Email is required.  Re-enter", function() {
+                                                       }, "Club Epicure", "Dismiss")
+                                                       return;
+                                                   }
+                                                   
                                                    if (!this.emailida) {
-                                                   navigator.notification.alert("Re-enter Email Id.  Re-enter", function() {
-                                                   }, "Club Epicure", "Dismiss")
-                                                   return;
+                                                       navigator.notification.alert("Re-enter Email Id.  Re-enter", function() {
+                                                       }, "Club Epicure", "Dismiss")
+                                                       return;
+                                                   }
+                                                   alert("Reenter" + this.emailida);
+                                                   alert("Facebook " + this.emailida);
+                                                   if (postLogin.emailid != this.emailida) {
+                                                       navigator.notification.alert("Email ID do not match, re-enter", function() {
+                                                       }, "Club Epicure", "Dismiss");
+                                                       return;
+                                                   }
+                                               } else {
+                                                   if (!this.firstname) {
+                                                       navigator.notification.alert("First Name is required.  Re-enter", function() {
+                                                       }, "Club Epicure", "Dismiss")
+                                                       return;
+                                                   }
+                                               
+                                                   if (!this.lastname) {
+                                                       navigator.notification.alert("Last Name is required.  Re-enter", function() {
+                                                       }, "Club Epicure", "Dismiss")
+                                                       return;
+                                                   }
+                                               
+                                                   if (!this.emailid) {
+                                                       navigator.notification.alert("Email is required.  Re-enter", function() {
+                                                       }, "Club Epicure", "Dismiss")
+                                                       return;
+                                                   }
+                                                   if (!this.emailida) {
+                                                       navigator.notification.alert("Re-enter Email Id.  Re-enter", function() {
+                                                       }, "Club Epicure", "Dismiss")
+                                                       return;
+                                                   }
+                                                   
+                                                   if (this.emailid != this.emailida) {
+                                                       navigator.notification.alert("Email ID do not match, re-enter", function() {
+                                                       }, "Club Epicure", "Dismiss");
+                                                       return;
+                                                   }   
                                                }
                                                 
                                                if (!this.mobile) {
@@ -1151,18 +1189,8 @@ function completeRedemption() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return; 
                                                }
-                                               if (this.emailid != this.emailida) {
-                                                   navigator.notification.alert("Email ID do not match, re-enter", function() {
-                                                   }, "Club Epicure", "Dismiss");
-                                                   return;
-                                               }
                                                
-                                               //   if (this.mobile.value.substring(0,0)==="0") {
-                                               //       navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
-                                               //       }, "Club Epicure", "Dismiss");
-                                               //       return;
-                                               //  }
-                                               
+                                              
                                                if (document.getElementById("selGender").value === "") {
                                                    navigator.notification.alert("Select Gender", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
@@ -5039,8 +5067,8 @@ function completeRedemption() {
         showSpin();
         var emirate = document.getElementById("selEmirate").value;
         var gender = document.getElementById("selGender").value;
-        var fbuserid =  window.localStorage.getItem("FBuserID");
-        var fbaccesstoken=window.localStorage.setItem("FBAccessToken");
+        var fbuserid = window.localStorage.getItem("FBuserID");
+        var fbaccesstoken = window.localStorage.setItem("FBAccessToken");
         //   alert(emirate);          
         //   alert(gender);          
         //   alert(this.firstname.value);          
