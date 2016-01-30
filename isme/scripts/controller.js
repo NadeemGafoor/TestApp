@@ -1114,7 +1114,7 @@ function completeRedemption() {
         
                                            confirmEnrol
                                            :function() {
-                                               alert(this.firstname);
+                                               alert(this.get("firstname"));
                                                if (window.localStorage.getItem("FBValidated")=="Y"){
                                                if (!this.firstname) {
                                                    navigator.notification.alert("First Name is required.  Re-enter", function() {
