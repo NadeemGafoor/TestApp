@@ -955,7 +955,7 @@ function completeRedemption() {
     
     function getFBUserData() {
         var graphPath = "me/?fields=id,email,first_name,last_name,gender,age_range,link,locale"; 
-        FacebookConnectPlugin.api(graphPath, ["email","public_profile"], 
+        facebookConnectPlugin.api(graphPath, ["email","public_profile"], 
                                   function(response) { 
                                       if (response.error) { 
                                           navigator.notification.alert("Error accessing Facebook " + response.error, function() {
@@ -1002,7 +1002,7 @@ function completeRedemption() {
     }
     
     function fbLogin() {
-        FacebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+        facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
             if (response.status === "connected") { 
                 m = JSON.parse(JSON.stringify(response));                                                       
                 window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -1073,7 +1073,7 @@ function completeRedemption() {
                                                    return;
                                                }
                                                fbCleanVariables();
-                                               FacebookConnectPlugin.getLoginStatus(function(response) { 
+                                               facebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") {
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -1087,7 +1087,7 @@ function completeRedemption() {
         
                                            getLoginStatus
                                            : function () { 
-                                               FacebookConnectPlugin.getLoginStatus(function(response) { 
+                                               facebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") { 
                                                        alert("You are logged in, details:\n\n" + JSON.stringify(response.authResponse)); 
                                                    } else { 
@@ -1098,7 +1098,8 @@ function completeRedemption() {
 
                                            fbLoginD
                                            : function () { 
-                                               FacebookConnectPlugin.getLoginStatus(function(response) { 
+                                               alert("Hello");
+                                               facebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") {
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -1106,7 +1107,7 @@ function completeRedemption() {
                                                        window.localStorage.setItem("loginmode", "FB");
                                                        preLogin.validateUser();
                                                    } else { 
-                                                       FacebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                       facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                                            if (response.status === "connected") { 
                                                                m = JSON.parse(JSON.stringify(response));                                                       
                                                                window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -4154,7 +4155,7 @@ function completeRedemption() {
                                             fbLoginDA   
                                             : function () { 
                                      
-                                                FacebookConnectPlugin.getLoginStatus(function(response) { 
+                                                facebookConnectPlugin.getLoginStatus(function(response) { 
                                                     if (response.status === "connected") {
                                                         m = JSON.parse(JSON.stringify(response));                                                       
                                                         window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -4162,7 +4163,7 @@ function completeRedemption() {
                                                         linkFBUserZ();
                                                         return;
                                                     } else { 
-                                                        FacebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                        facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                                             if (response.status === "connected") { 
                                                                 m = JSON.parse(JSON.stringify(response));                                                       
                                                                 window.localStorage.setItem("FBuserID", m.authResponse.userID);
