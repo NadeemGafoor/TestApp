@@ -964,6 +964,9 @@ function completeRedemption() {
                                           window.localStorage.setItem("FBLastName", FBData.last_name);
                                           window.localStorage.setItem("FBGender", FBData.gender);
                                           window.localStorage.setItem("FBValidated", "Y");
+                                          postLogin.set("firstname",FBData.first_name);
+                                          postLogin.set("lastname",FBData.last_name);
+                                          postLogin.set("emailid",FBData.emailid);
                                           //check whether the ID exists
                                           getFBUserExists();
                                           if (window.localStorage.getItem("FBValidated")==="N") {
@@ -1037,7 +1040,11 @@ function completeRedemption() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
-                                           
+                                           firstname:"",
+                                           lastname:"",
+                                           emailid:"",
+                                           mobile:"",
+                                            
                                            getFBUserData
                                            : function () {    
                                                //Check Login Status - If not logged in and user rejects then throw enrollment error
@@ -1107,7 +1114,7 @@ function completeRedemption() {
         
                                            confirmEnrol
                                            :function() {
-                                               
+                                               alert(this.firstname);
                                                if (window.localStorage.getItem("FBValidated")=="Y"){
                                                if (!this.firstname) {
                                                    navigator.notification.alert("First Name is required.  Re-enter", function() {
@@ -1126,6 +1133,11 @@ function completeRedemption() {
                                                    }, "Club Epicure", "Dismiss")
                                                    return;
                                                }
+                                               }
+                                                   if (!this.emailida) {
+                                                   navigator.notification.alert("Re-enter Email Id.  Re-enter", function() {
+                                                   }, "Club Epicure", "Dismiss")
+                                                   return;
                                                }
                                                 
                                                if (!this.mobile) {
