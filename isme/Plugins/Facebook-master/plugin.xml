@@ -16,8 +16,7 @@
 
     <license>Apache 2.0</license>
 
- <preference name="1738460076383554" />
-    <preference name="isme By Jumeirah" />
+
 
     <engines>
         <!-- Requires > 3.3.* because of the custom Framework tag for iOS [CB-5238] -->
