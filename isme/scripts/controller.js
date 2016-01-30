@@ -926,7 +926,6 @@ function completeRedemption() {
     // Listen for the event and wire it to our callback function
     
     function getFBUserData() {
-        alert("You are logged in, details:\n\n" + JSON.stringify(response.authResponse)); 
         var graphPath = "me/?fields=id,email,first_name,last_name,gender,age_range,link,locale"; 
         facebookConnectPlugin.api(graphPath, ["email","public_profile"], 
                                   function(response) { 
@@ -934,17 +933,27 @@ function completeRedemption() {
                                           navigator.notification.alert("Error accessing Facebook " + response.error, function() {
                                           }, "isme by Jumeirah", "Dismiss");
                                       } else { 
-                                          alert(JSON.stringify(response)); 
+                                          FBData = JSON.parse(JSON.stringify(response));  
+                                         
+                                          window.localStorage.setItem("FBemail", FBData.email);
+                                          window.localStorage.setItem("FBFirstNme", FBData.first_name);
+                                          window.localStorage.setItem("FBLastName", FBData.last_name);
+                                          window.localStorage.setItem("FBGender", FBData.gender);
                                       } 
                                   }); 
     }
     
     function fbCleanVariables() {
+        window.localStorage.setItem("FBuserID", "");
+                window.localStorage.setItem("FBAccessToken", "");
     }
     
     function fbLogin() {
         facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
             if (response.status === "connected") { 
+                m = JSON.parse(JSON.stringify(response));                                                       
+                window.localStorage.setItem("FBuserID", m.authResponse.userID);
+                window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
                 getFBUserData();
             } else { 
                 navigator.notification.alert("Error accessing Facebook " + response.status, function() {
@@ -984,9 +993,11 @@ function completeRedemption() {
                                                //get user data and publish on enrol page
                                                //Show a message of successful FB validation and update balance data to complete.
                                                fbCleanVariables();
-                                               alert("FFFFF");
                                                facebookConnectPlugin.getLoginStatus(function(response) { 
-                                                   if (response.status === "connected") { 
+                                                   if (response.status === "connected") {
+                                                       m = JSON.parse(JSON.stringify(response));                                                       
+                                                       window.localStorage.setItem("FBuserID", m.authResponse.userID);
+                                                       window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
                                                        getFBUserData();
                                                    } else { 
                                                        fbLogin();
