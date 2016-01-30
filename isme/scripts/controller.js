@@ -929,7 +929,7 @@ function completeRedemption() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:true,
+                   async:false,
                    timeout:20000,
                    url: gurl + "/checkFBUserExist.aspx",
                    contentType: "application/json; charset=utf-8",
@@ -940,9 +940,12 @@ function completeRedemption() {
                        var getData = JSON.parse(data);
                        if (getData.statuscode != "000") {
                            window.localStorage.setItem("FBValidated", "N");
+                           }else{
+                           window.localStorage.setItem("FBValidated", "Y");
                        }
                    },
                    error: function (errormsg) {
+                        window.localStorage.setItem("FBValidated", "N");
                        navigator.notification.alert("Cannot validate FB User ID in isme this time due to a server error! " + errormsg.statusText, function() {
                        }, "isme By Jumeirah" , "Dismiss");     
                    }
@@ -968,12 +971,7 @@ function completeRedemption() {
                                           postLogin.set("lastname", FBData.last_name);
                                           postLogin.set("emailid", FBData.email);
                                           //check whether the ID exists
-                                          getFBUserExists();
-                                          if (window.localStorage.getItem("FBValidated")==="N") {
-                                              navigator.notification.alert("There is an isme membership already associated with this facebook account.  Unable to enrol using this facebook account", function() {
-                                              }, "isme by Jumeirah", "Dismiss");
-                                              return;
-                                          }
+                                      
                                           this.firstname.value = window.localStorage.getItem("FBFirstNme");                                     
                                           this.lastname.value = window.localStorage.getItem("FBLastName");                                     
                                           this.emailid.value = window.localStorage.getItem("FBemail"); 
@@ -1015,6 +1013,22 @@ function completeRedemption() {
             } 
         }); 
     }
+    
+    function clearEnrolPage(){
+        postLogin.set("firstname","");
+        postLogin.set("lastname","");
+        postLogin.set("emailid","");
+        this.firstname.value="";
+        this.lastname.value="";
+        this.emailid.value="";
+        this.emailida.value="";
+        this.mobile.value="";
+        this.siriusnumber.value="";
+        document.getElementById("selGender").value="";
+        document.getElementById("selEmirate").value="";
+         $("#enrol-tandc-accept").data("kendoMobileSwitch").check(false);
+        fbCleanVariables();
+    }
        
     window.preLogin = kendo.observable({
                                            pin1:"",
@@ -1052,12 +1066,13 @@ function completeRedemption() {
                                                //check if Id is already exists on isme then throw error
                                                //get user data and publish on enrol page
                                                //Show a message of successful FB validation and update balance data to complete.
+                                      
                                                if (window.localStorage.getItem("FBValidated")==="Y") {
                                                    navigator.notification.alert("You have already enrolled or validated your facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your isme membership if already enrolled.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
-                                               fbCleanVariables();
+                                                        fbCleanVariables();
                                                facebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") {
                                                        m = JSON.parse(JSON.stringify(response));                                                       
@@ -1114,6 +1129,16 @@ function completeRedemption() {
         
                                            confirmEnrol
                                            :function() {
+                                               if (window.localStorage.getItem("FBValidated") === "Y") {
+                                                   getFBUserExists();
+                                                   if (window.localStorage.getItem("FBValidated")==="N") {
+                                                       navigator.notification.alert("There is an isme membership already associated with this facebook account.  Unable to enrol using this facebook account", function() {
+                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       clearEnrolPage();
+                                                       return;
+                                                   }
+                                                    
+                                               }
                                                //alert(window.localStorage.getItem("FBValidated"));
                                                if (window.localStorage.getItem("FBValidated") == "Y") {
                                                    //alert(postLogin.firstname);
@@ -1127,14 +1152,13 @@ function completeRedemption() {
                                                        navigator.notification.alert("Last Name is required.  Re-enter", function() {
                                                        }, "Club Epicure", "Dismiss")
                                                        return;
-                                                     }
+                                                   }
                                                
-                                                   if (postLogin.emailid=="") {
+                                                   if (postLogin.emailid == "") {
                                                        navigator.notification.alert("Email is required.  Re-enter", function() {
                                                        }, "Club Epicure", "Dismiss")
                                                        return;
                                                    }
-                                                   
                                                   
                                                    if (!this.emailida) {
                                                        navigator.notification.alert("Re-enter Email Id.  Re-enter", function() {
@@ -5054,19 +5078,21 @@ function completeRedemption() {
         document.getElementById("mycard-qr6").style.backgroundSize = "cover";        
     }
      
-    function onConfirm1 (buttonIndex) {
+    function onConfirm1 (buttonIndex) {  
         if (buttonIndex===1) {
             doExecute();  
-        } else {
+        } else {  
             doExit();
         }
     }
     function doExecute() {
         showSpin();
+       
         var emirate = document.getElementById("selEmirate").value;
         var gender = document.getElementById("selGender").value;
         var fbuserid = window.localStorage.getItem("FBuserID");
-        var fbaccesstoken = window.localStorage.setItem("FBAccessToken");
+        var fbaccesstoken = window.localStorage.getItem("FBAccessToken");
+        // alert(fbuserid + " " + fbaccesstoken);  
         //   alert(emirate);          
         //   alert(gender);          
         //   alert(this.firstname.value);          
@@ -5092,7 +5118,7 @@ function completeRedemption() {
        
                            window.localStorage.setItem("newmembername", getData.customername);
                            window.localStorage.setItem("newmembersegment", getData.segment);
-                                                                             
+                           clearEnrolPage();                                         
                            window.plugins.nativepagetransitions.slide({
                                                                           "duration"         :  500, // in milliseconds (ms), default 400
                                                                           "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
