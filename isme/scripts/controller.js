@@ -925,7 +925,7 @@ function completeRedemption() {
     //var options = { frequency: 1000 };  // Update every 3 seconds
     // Listen for the event and wire it to our callback function
     
-     function getFBUserExists() {  
+    function getFBUserExists() {  
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -939,24 +939,15 @@ function completeRedemption() {
                    success: function (data) { 
                        var getData = JSON.parse(data);
                        if (getData.statuscode != "000") {
-window.localStorage.setItem("FBValidated", "N");
+                           window.localStorage.setItem("FBValidated", "N");
                        }
-
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Cannot validate FB USer ID in isme this time due to a server error! " + errormsg.statusText, function() {
+                       navigator.notification.alert("Cannot validate FB User ID in isme this time due to a server error! " + errormsg.statusText, function() {
                        }, "isme By Jumeirah" , "Dismiss");     
                    }
                });
     }
-    
-    
-    
-    
-    
-    
-    
-    
     
     function getFBUserData() {
         var graphPath = "me/?fields=id,email,first_name,last_name,gender,age_range,link,locale"; 
@@ -982,7 +973,18 @@ window.localStorage.setItem("FBValidated", "N");
                                           }
                                           this.firstname.value = window.localStorage.getItem("FBFirstNme");                                     
                                           this.lastname.value = window.localStorage.getItem("FBLastName");                                     
-                                          this.email.value = window.localStorage.getItem("FBemail");                                     
+                                          this.emailid.value = window.localStorage.getItem("FBemail"); 
+                                          mgender = window.localStorage.getItem("FBGender");
+                                          if (mgender == 'female') {
+                                              document.getElementById("selGender").value = "F";
+                                          }else if (mgender == 'male') {
+                                              document.getElementById("selGender").value = "M";
+                                          } else {
+                                              document.getElementById("selGender").value = "U";
+                                          }
+
+                                          navigator.notification.alert("You have been validated successfully with your facebook account.  Please complete the missing details and continue with your subscription.", function() {
+                                          }, "isme by Jumeirah", "Dismiss");
                                       } 
                                   }); 
     }
@@ -1044,7 +1046,7 @@ window.localStorage.setItem("FBValidated", "N");
                                                //get user data and publish on enrol page
                                                //Show a message of successful FB validation and update balance data to complete.
                                                if (window.localStorage.getItem("FBValidated")==="Y") {
-                                                   navigator.notification.alert("You have already enrolled or validated your facebook account. Please continue to enter missing information and complete your subscription.", function() {
+                                                   navigator.notification.alert("You have already enrolled or validated your facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your isme membership if already enrolled.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
@@ -5022,6 +5024,8 @@ window.localStorage.setItem("FBValidated", "N");
         showSpin();
         var emirate = document.getElementById("selEmirate").value;
         var gender = document.getElementById("selGender").value;
+        var fbuserid =  window.localStorage.getItem("FBuserID");
+        var fbaccesstoken=window.localStorage.setItem("FBAccessToken");
         //   alert(emirate);          
         //   alert(gender);          
         //   alert(this.firstname.value);          
@@ -5037,7 +5041,7 @@ window.localStorage.setItem("FBValidated", "N");
                    url: gurl + "/firsttime.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),firstname:this.firstname.value,lastname:this.lastname.value,mobile:this.mobile.value,emailid:this.emailid.value,emirate:emirate,gender:gender,siriusmember:this.siriusnumber.value,mdevice:mdevicestat,segment:"1000"
+                                            merchantcode :window.localStorage.getItem("merchant"),firstname:this.firstname.value,lastname:this.lastname.value,mobile:this.mobile.value,emailid:this.emailid.value,emirate:emirate,gender:gender,siriusmember:this.siriusnumber.value,mdevice:mdevicestat,segment:"1000",fbuserid:fbuserid,fbaccesstoken:fbaccesstoken
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
