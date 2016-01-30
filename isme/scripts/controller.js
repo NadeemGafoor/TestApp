@@ -4141,7 +4141,6 @@ function completeRedemption() {
                                                         m = JSON.parse(JSON.stringify(response));                                                       
                                                         window.localStorage.setItem("FBuserID", m.authResponse.userID);
                                                         window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
-                                                        alert("FB On");
                                                         linkFBUser();
                                                     } else { 
                                                         facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
@@ -4187,8 +4186,8 @@ function completeRedemption() {
                            }, "isme By Jumeirah" , "Dismiss");     
                      //      hideSpin();
                        }else {
-                             alert(getData.statusdesc);
-                          navigator.notification.alert(" The selecte  d Facebook User Id is successfully linked to your isme membership, you can now log into your isme membership using your facebook account.", function() {
+                           //  alert(getData.statusdesc);
+                           navigator.notification.alert("Unable to link the Facebook User Id to your isme membership due to ", function() {
                            }, "isme By Jumeirah" , "Dismiss");     
                       //     hideSpin();
                        }
