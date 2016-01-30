@@ -931,7 +931,7 @@ function completeRedemption() {
                    cache:false,
                    async:true,
                    timeout:20000,
-                   url: gurl + "/checkFBUserExists.aspx",
+                   url: gurl + "/checkFBUserExist.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
                                             merchantcode :merchant,mdevice:mdevicestat,fbuserid:window.localStorage.getItem("FBuserID")
