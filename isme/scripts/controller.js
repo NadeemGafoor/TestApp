@@ -7,6 +7,19 @@ function hideSpin() {
         $("#mvwait").data("kendoMobileModalView").close();
     }, 1000); 
 }
+
+function () { 
+  if (!this.checkSimulator()) { 
+      facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+         if (response.status === "connected") { 
+           // contains the 'status' - bool, 'authResponse' - object with 'session_key', 'accessToken', 'expiresIn', 'userID' 
+           alert("You are: " + response.status + ", details:\n\n" + JSON.stringify(response)); 
+        } else { 
+          alert("You are not logged in"); 
+         } 
+        }); 
+      } 
+
          
 function showSpin() {
     if (!checkConnectionBool()) {
@@ -51,13 +64,7 @@ function loadDiscover() {
                                                                  }), 500);
 }
 
-function getApplicationSignature() { 
-    
-         facebookConnectPlugin.getApplicationSignature(function(response) { 
-           console.log("Signature: " + response); 
-          alert("Signature: " + response); 
-         }); 
-     }
+
 
 
 function loadExplore() {
@@ -1641,10 +1648,7 @@ function completeRedemption() {
                                                    //    mywatch = navigator.geolocation.watchPosition(meWatchPos, watchPosError, options);
                                                    // } else {
                                                    //Check whether GPS enabled
-                                                   //Get Facebook hash key for android
-                                                   window.facebookConnectPlugin.getApplicationSignature(function(response) {
-  alert(("App signature: " + response));   
-});
+                                                  
                                                    
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                        callBackError(error) ;
