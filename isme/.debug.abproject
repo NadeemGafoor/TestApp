@@ -1,26 +1,19 @@
 {
   "CorePlugins": [
-    "cordova-plugin-camera",
-    "cordova-plugin-device",
-    "cordova-plugin-dialogs",
-    "cordova-plugin-file",
-    "cordova-plugin-geolocation",
-    "cordova-plugin-inappbrowser",
-    "cordova-plugin-network-information",
-    "cordova-plugin-splashscreen",
-    "cordova-plugin-statusbar",
-    "cordova-plugin-whitelist",
+    "org.apache.cordova.camera",
+    "org.apache.cordova.device",
+    "org.apache.cordova.dialogs",
+    "org.apache.cordova.file",
+    "org.apache.cordova.geolocation",
+    "org.apache.cordova.inappbrowser",
+    "org.apache.cordova.network-information",
+    "org.apache.cordova.splashscreen",
+    "org.apache.cordova.statusbar",
     "com.phonegap.plugins.PushPlugin@3.0.5",
     "com.telerik.plugins.nativepagetransitions@0.5.7",
     "de.appplant.cordova.plugin.local-notification@0.8.2",
     "hu.dpal.phonegap.plugins.SpinnerDialog@1.3.1",
     "nl.x-services.plugins.socialsharing@5.0.6",
     "nl.x-services.plugins.toast@2.3.1"
-  ],
-  "CordovaPluginVariables": {
-    "com.phonegap.plugins.facebookconnect": {
-      "APP_ID": "1738460076383554",
-      "APP_NAME": "isme By Jumeirah"
-    }
-  }
+  ]
 }
