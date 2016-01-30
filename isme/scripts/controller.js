@@ -925,6 +925,39 @@ function completeRedemption() {
     //var options = { frequency: 1000 };  // Update every 3 seconds
     // Listen for the event and wire it to our callback function
     
+     function getFBUserExists() {  
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/checkFBUserExists.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,fbuserid:window.localStorage.getItem("FBuserID")
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode != "000") {
+window.localStorage.setItem("FBValidated", "N");
+                       }
+
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Cannot validate FB USer ID in isme this time due to a server error! " + errormsg.statusText, function() {
+                       }, "isme By Jumeirah" , "Dismiss");     
+                   }
+               });
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     function getFBUserData() {
         var graphPath = "me/?fields=id,email,first_name,last_name,gender,age_range,link,locale"; 
         facebookConnectPlugin.api(graphPath, ["email","public_profile"], 
@@ -934,18 +967,34 @@ function completeRedemption() {
                                           }, "isme by Jumeirah", "Dismiss");
                                       } else { 
                                           FBData = JSON.parse(JSON.stringify(response));  
-                                         
+                                          window.localStorage.setItem("FBuserID", FBData.id);
                                           window.localStorage.setItem("FBemail", FBData.email);
                                           window.localStorage.setItem("FBFirstNme", FBData.first_name);
                                           window.localStorage.setItem("FBLastName", FBData.last_name);
                                           window.localStorage.setItem("FBGender", FBData.gender);
+                                          window.localStorage.setItem("FBValidated", "Y");
+                                          //check whether the ID exists
+                                          getFBUserExists();
+                                          if (window.localStorage.getItem("FBValidated")==="N") {
+                                              navigator.notification.alert("There is an isme membership already associated with this facebook account.  Unable to enrol using this facebook account", function() {
+                                              }, "isme by Jumeirah", "Dismiss");
+                                              return;
+                                          }
+                                          this.firstname.value = window.localStorage.getItem("FBFirstNme");                                     
+                                          this.lastname.value = window.localStorage.getItem("FBLastName");                                     
+                                          this.email.value = window.localStorage.getItem("FBemail");                                     
                                       } 
                                   }); 
     }
     
     function fbCleanVariables() {
         window.localStorage.setItem("FBuserID", "");
-                window.localStorage.setItem("FBAccessToken", "");
+        window.localStorage.setItem("FBAccessToken", "");
+        window.localStorage.setItem("FBemail", "");
+        window.localStorage.setItem("FBFirstNme", "");
+        window.localStorage.setItem("FBLastName", "");
+        window.localStorage.setItem("FBGender", "");
+        window.localStorage.setItem("FBValidated", "");
     }
     
     function fbLogin() {
@@ -986,12 +1035,19 @@ function completeRedemption() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
-                                           getFBUserData: function () {    
+                                           
+                                           getFBUserData
+                                           : function () {    
                                                //Check Login Status - If not logged in and user rejects then throw enrollment error
                                                //If not login then login - If user rejects then throw enrolment error
-                                               //check if Id is already exists on isme then thro error
+                                               //check if Id is already exists on isme then throw error
                                                //get user data and publish on enrol page
                                                //Show a message of successful FB validation and update balance data to complete.
+                                               if (window.localStorage.getItem("FBValidated")==="Y") {
+                                                   navigator.notification.alert("You have already enrolled or validated your facebook account. Please continue to enter missing information and complete your subscription.", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
                                                fbCleanVariables();
                                                facebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") {
@@ -1004,9 +1060,9 @@ function completeRedemption() {
                                                    } 
                                                }); 
                                            },   
-
         
-                                           getLoginStatus: function () { 
+                                           getLoginStatus
+                                           : function () { 
                                                facebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") { 
                                                        alert("You are logged in, details:\n\n" + JSON.stringify(response.authResponse)); 
@@ -1016,7 +1072,8 @@ function completeRedemption() {
                                                }); 
                                            }, 
 
-                                           fbLogin: function () { 
+                                           fbLogin
+                                           : function () { 
                                                facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                                    if (response.status === "connected") { 
                                                        // contains the 'status' - bool, 'authResponse' - object with 'session_key', 'accessToken', 'expiresIn', 'userID' 
@@ -1026,9 +1083,9 @@ function completeRedemption() {
                                                    } 
                                                }); 
                                            }, 
-                                           
 
-                                           showConfirmation:function() {
+                                           showConfirmation
+                                           :function() {
                                                document.getElementById("confirm-memberid").innerHTML = window.localStorage.getItem("newmemberid");
                                                document.getElementById("confirm-membername").innerHTML = window.localStorage.getItem("newmembername");
                                                document.getElementById("confirm-segment").innerHTML = window.localStorage.getItem("newmembersegment"); 
@@ -1037,14 +1094,17 @@ function completeRedemption() {
                                                window.localStorage.setItem("newmembersegment", "");
                                            },
         
-                                           showEnrol:function() {
+                                           showEnrol
+                                           :function() {
                                                showSpin();
                                                // kendo.mobile.application.showLoading(); //show loading popup
                                                listCity("UAE", document.getElementById("selEmirate"));
+                                               
                                                hideSpin(); //hide loading popup
                                            },
         
-                                           confirmEnrol:function() {
+                                           confirmEnrol
+                                           :function() {
                                                if (!this.firstname) {
                                                    navigator.notification.alert("First Name is required.  Re-enter", function() {
                                                    }, "Club Epicure", "Dismiss")
@@ -1105,7 +1165,6 @@ function completeRedemption() {
                                                    'OK,Return for Correction'          // buttonLabels
                                                    );
                                            },
-        
                                                                  
                                            showBrandPage
                                            : function () {
@@ -1661,6 +1720,7 @@ function completeRedemption() {
                                                    window.localStorage.setItem("share_image", share_image);
                                                    window.localStorage.setItem("brandcode", "");
                                                    window.localStorage.setItem("faqcategory", "");
+                                                   fbCleanVariables();
                                                    $.ajax({    
                                                               type: "POST",
                                                               cache:false,
@@ -2376,8 +2436,6 @@ function completeRedemption() {
                                                           }
                                                       });
                                            }
-        
-                                                                                
                                        });
     
     window.postLogin = kendo.observable({ 
