@@ -57,7 +57,7 @@ function getApplicationSignature() {
            console.log("Signature: " + response); 
           alert("Signature: " + response); 
          }); 
-     }, 
+     }
 
 
 function loadExplore() {
