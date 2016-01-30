@@ -8,18 +8,22 @@ function hideSpin() {
     }, 1000); 
 }
 
-function () { 
-  if (!this.checkSimulator()) { 
-      facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-         if (response.status === "connected") { 
-           // contains the 'status' - bool, 'authResponse' - object with 'session_key', 'accessToken', 'expiresIn', 'userID' 
-           alert("You are: " + response.status + ", details:\n\n" + JSON.stringify(response)); 
+function fbLogin() { 
+  //  function getApplicationSignature() { 
+  //      facebookConnectPlugin.getApplicationSignature(function(response) { 
+  //         
+  //          alert("Signature: " + response); 
+  //      }); 
+    }
+    facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+        if (response.status === "connected") { 
+            // contains the 'status' - bool, 'authResponse' - object with 'session_key', 'accessToken', 'expiresIn', 'userID' 
+            alert("You are: " + response.status + ", details:\n\n" + JSON.stringify(response)); 
         } else { 
-          alert("You are not logged in"); 
-         } 
-        }); 
-      } 
-
+            alert("You are not logged in"); 
+        } 
+    }); 
+} 
          
 function showSpin() {
     if (!checkConnectionBool()) {
@@ -63,9 +67,6 @@ function loadDiscover() {
                                                                      'href': '#views/discoverlist.html'
                                                                  }), 500);
 }
-
-
-
 
 function loadExplore() {
     window.setTimeout(window.plugins.nativepagetransitions.slide({
@@ -965,6 +966,12 @@ function completeRedemption() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
+        getApplicationSignature: function () { 
+           facebookConnectPlugin.getApplicationSignature(function(response) { 
+           alert("Signature: " + response); 
+         }); 
+     }, 
+
                                            showConfirmation:function() {
                                                document.getElementById("confirm-memberid").innerHTML = window.localStorage.getItem("newmemberid");
                                                document.getElementById("confirm-membername").innerHTML = window.localStorage.getItem("newmembername");
@@ -1648,7 +1655,6 @@ function completeRedemption() {
                                                    //    mywatch = navigator.geolocation.watchPosition(meWatchPos, watchPosError, options);
                                                    // } else {
                                                    //Check whether GPS enabled
-                                                  
                                                    
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                        callBackError(error) ;
@@ -2356,10 +2362,6 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
-                                                                 
-                                                                 
-                                                          
-                                                                 
                                                                    
                                                                    // document.getElementById("wallet-div").style.display = "block";
                                                                    // document.getElementById("summary-1").innerHTML = getData.cashbackbalance;
@@ -2386,7 +2388,7 @@ function completeRedemption() {
                                                                        i = 75;  
                                                                    }
                                                 
-                                                                   document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(i+5) + "%";
+                                                                   document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(i + 5) + "%";
                                                                    document.getElementById("spend-bar").style.width = m + "%";
                                                                    document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend");
                                                                   
