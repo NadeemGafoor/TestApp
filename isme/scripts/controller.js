@@ -925,7 +925,7 @@ function completeRedemption() {
     //var options = { frequency: 1000 };  // Update every 3 seconds
     // Listen for the event and wire it to our callback function
     
-    function getFBUSerData() {
+    function getFBUserData() {
         alert("You are logged in, details:\n\n" + JSON.stringify(response.authResponse)); 
         var graphPath = "me/?fields=id,email,first_name,last_name,gender,age_range,link,locale"; 
         facebookConnectPlugin.api(graphPath, ["email","public_profile"], 
@@ -945,7 +945,7 @@ function completeRedemption() {
     function fbLogin() {
         facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
             if (response.status === "connected") { 
-                getFBUSerData();
+                getFBUserData();
             } else { 
                 navigator.notification.alert("Error accessing Facebook " + response.status, function() {
                 }, "isme by Jumeirah", "Dismiss");
@@ -984,14 +984,15 @@ function completeRedemption() {
                                                //get user data and publish on enrol page
                                                //Show a message of successful FB validation and update balance data to complete.
                                                fbCleanVariables();
+                                               alert("FFFFF");
                                                facebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") { 
-                                                       getFBUSerData();
+                                                       getFBUserData();
                                                    } else { 
                                                        fbLogin();
                                                    } 
                                                }); 
-                                           }, 
+                                           },   
 
         
                                            getLoginStatus: function () { 
