@@ -48,8 +48,8 @@
         </config-file>
 
         <config-file target="res/values/strings.xml" parent="/*">
-            <string name="fb_app_id">1738460076383554</string>
-            <string name="fb_app_name">isme By Jumeirah</string>
+            <string name="fb_app_id">$APP_ID</string>
+            <string name="fb_app_name">$APP_NAME</string>
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="application">
@@ -83,11 +83,11 @@
         <source-file src="platforms/ios/HelloCordova/Plugins/com.phonegap.plugins.facebookconnect/FacebookConnectPlugin.m" />
 
         <config-file target="*-Info.plist" parent="FacebookAppID">
-            <string>1738460076383554</string>
+            <string>$APP_ID</string>
         </config-file>
 
         <config-file target="*-Info.plist" parent="FacebookDisplayName">
-            <string>isme By Jumeirah</string>
+            <string>$APP_NAME</string>
         </config-file>
 
         <config-file target="*-Info.plist" parent="CFBundleURLTypes">
@@ -95,7 +95,7 @@
             <dict>
               <key>CFBundleURLSchemes</key>
               <array>
-                <string>1738460076383554</string>
+                <string>fb$APP_ID</string>
               </array>
             </dict>
           </array>

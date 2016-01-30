@@ -7,23 +7,6 @@ function hideSpin() {
         $("#mvwait").data("kendoMobileModalView").close();
     }, 1000); 
 }
-
-function fbLogin() { 
-  //  function getApplicationSignature() { 
-  //      facebookConnectPlugin.getApplicationSignature(function(response) { 
-  //         
-  //          alert("Signature: " + response); 
-  //      }); 
-    }
-    facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-        if (response.status === "connected") { 
-            // contains the 'status' - bool, 'authResponse' - object with 'session_key', 'accessToken', 'expiresIn', 'userID' 
-            alert("You are: " + response.status + ", details:\n\n" + JSON.stringify(response)); 
-        } else { 
-            alert("You are not logged in"); 
-        } 
-    }); 
-} 
          
 function showSpin() {
     if (!checkConnectionBool()) {
@@ -966,11 +949,28 @@ function completeRedemption() {
                                            segmentcode:"",
                                            enrollmenttelephone:enrollmenttelephone,
                                            customercaretelephone:customercaretelephone,
-        getApplicationSignature: function () { 
-           facebookConnectPlugin.getApplicationSignature(function(response) { 
-           alert("Signature: " + response); 
-         }); 
-     }, 
+        
+                                           getLoginStatus: function () { 
+                                               facebookConnectPlugin.getLoginStatus(function(response) { 
+                                                   if (response.status === "connected") { 
+                                                       alert("You are logged in, details:\n\n" + JSON.stringify(response.authResponse)); 
+                                                   } else { 
+                                                       alert("You are not logged in"); 
+                                                   } 
+                                               }); 
+                                           }, 
+
+                                           fbLogin: function () { 
+                                               facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                   if (response.status === "connected") { 
+                                                       // contains the 'status' - bool, 'authResponse' - object with 'session_key', 'accessToken', 'expiresIn', 'userID' 
+                                                       alert("You are: " + response.status + ", details:\n\n" + JSON.stringify(response)); 
+                                                   } else { 
+                                                       alert("You are not logged in"); 
+                                                   } 
+                                               }); 
+                                           }, 
+                                           
 
                                            showConfirmation:function() {
                                                document.getElementById("confirm-memberid").innerHTML = window.localStorage.getItem("newmemberid");
