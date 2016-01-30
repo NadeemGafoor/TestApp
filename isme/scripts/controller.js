@@ -2614,6 +2614,7 @@ function completeRedemption() {
         
                                             loadProfile
                                             :function() {
+                                                 document.getElementById("back1-filter").style.display="none";
                                                 document.getElementById("profile-picture-1").src = window.localStorage.getItem("cuspict");
                                                 document.getElementById("pro-name").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
                                                 document.getElementById("pro-birthdate").innerHTML = (window.localStorage.getItem("birthdate") != null && window.localStorage.getItem("birthdate").length > 0) ? "Birth date : " + window.localStorage.getItem("birthdate") : "Birth Date : NA";
@@ -2766,6 +2767,7 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
                                                                    if (getData.benefitlist.length > 0) {
+                                                                        document.getElementById("back1-filter").style.display="none";
                                                                        document.getElementById("pl-benefit-detail-view").style.display = "block";
                                                                        document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].titlename;
                                                                        document.getElementById("benefit-text6").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
@@ -3344,6 +3346,7 @@ function completeRedemption() {
                                             : function () {
                                                 showSpin();
                                                 back1_profile();
+                                                 document.getElementById("back1-filter").style.display="none";
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3472,6 +3475,7 @@ function completeRedemption() {
                                                 listCountry();
                                                 listCity("UAE", document.getElementById("selCity"));  
                                                 // alert(window.localStorage.getItem("birthdate"));
+                                                document.getElementById("back1-filter").style.display="none";
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
@@ -3932,6 +3936,7 @@ function completeRedemption() {
                                                 var t = "";//document.getElementById("selCountry").value;
                                                 showSpin();
                                                 back1_profile();
+                                                 document.getElementById("back1-filter").style.display="none";
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3984,6 +3989,7 @@ function completeRedemption() {
                                                 // alert(mdevicestat);
                                                 showSpin();
                                                 back1_profile();
+                                                 document.getElementById("back1-filter").style.display="none";
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
