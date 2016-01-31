@@ -62,5 +62,11 @@
     "nl.x-services.plugins.socialsharing@5.0.6",
     "nl.x-services.plugins.toast@2.3.1"
   ],
-  "iOSDeploymentTarget": "7.0"
+  "iOSDeploymentTarget": "7.0",
+  "CordovaPluginVariables": {
+    "com.phonegap.plugins.facebookconnect": {
+      "APP_ID": "1738460076383554",
+      "APP_NAME": "isme By Jumeirah"
+    }
+  }
 }
