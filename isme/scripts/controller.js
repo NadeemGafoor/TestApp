@@ -1034,8 +1034,9 @@ function completeRedemption() {
     function clearListFilter() {
         window.localStorage.setItem("lifestyle", "");
         window.localStorage.setItem("restaurant", "");
-        window.localStorage.setItem("", "");
-        window.localStorage.setItem("", "");
+        window.localStorage.setItem("celebration", "");
+        window.localStorage.setItem("cuisine", "");
+        window.localStorage.setItem("outlet", "");
     }
        
     window.preLogin = kendo.observable({
