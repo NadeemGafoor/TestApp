@@ -1069,49 +1069,16 @@ function completeRedemption() {
                                            lastname:"",
                                            emailid:"",
                                            mobile:"",
-        getCelebrationFilter:function(){
-             //getCelebrationTypePref("#Celebration-Filter", "#Celebration-Filter-Template");
-             showSpin();
-              alert("geegeer");                       
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:false,
-                   timeout:20000,  
-                   url: gurl + "/celebrationTypeList.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat
-                                        }),
-                   success: function (data) {     
-                       var getData = JSON.parse(data);
-                                        
-                       if (getData.statuscode === "000") {
-                           if (getData.preflist.length > 0) {
-                               $("#Celebration-Filter").kendoMobileListView({
-                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                            template: $("#Celebration-Filter-Template").html()
-                                                            //endlessScroll: true
-                                                                                                                      
-                                                        });
-
-                           }else {
-                               navigator.notification.alert("Celebration Type List not available", function() {
-                               }, "isme By Jumeirah", "Dismiss")    
-                           }
-                       }else {
-                           navigator.notification.alert("Cannot get Celebration Type List. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")          
-                       }
-                   },
-                   error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Celebration Type List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
-                   }
-               });
-        },
-               
-        
+    
+                 getOfferTypeData:function(){
+					                getLifeStylePref("#Offer-Filter", "#Offer-Filter-Template"); 
+					            },
+            getRestTypeFilter:function(){
+					                getRestaurantType("#Type-Filter", "#TypeFilter-Template"); 
+					            },
+         getRestCuisineFilter:function(){
+					                getCuisineTypePref("#Cuisine-Filter", "#CuisineFilter-Template"); 
+					            },
                                             
                                            getFBUserData
                                            : function () {  
