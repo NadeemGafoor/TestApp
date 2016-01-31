@@ -1,1 +1,8 @@
-{}
+{
+  "CordovaPluginVariables": {
+    "com.phonegap.plugins.facebookconnect": {
+      "APP_ID": "1738460076383554",
+      "APP_NAME": "isme By Jumeirah"
+    }
+  }
+}
