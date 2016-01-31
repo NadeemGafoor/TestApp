@@ -1099,16 +1099,14 @@ function completeRedemption() {
                                                
                                                
                                                
-                                                
-                                var graphPath = "me/?fields=id,email";
-                facebookConnectPlugin.api(graphPath, [],
-                    function (response) {
-                        if (response.error) {
-                            alert("Uh-oh! " + JSON.stringify(response.error));
-                        } else {
-                            alert(JSON.stringify(response));
-                        }
-                    });
+                               facebookConnectPlugin.login(["email"], function (response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app
+                    if (response.status === "connected") {
+                        // contains the 'status' - bool, 'authResponse' - object with 'session_key', 'accessToken', 'expiresIn', 'userID'
+                        alert("You are: " + response.status + ", details:\n\n" + JSON.stringify(response));
+                    } else {
+                        alert("You are not logged in");
+                    }
+                });
          
                                    
                                            } 
