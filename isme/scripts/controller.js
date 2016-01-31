@@ -1076,7 +1076,7 @@ function completeRedemption() {
                                                getRestaurantType("#Type-Filter", "#TypeFilter-Template"); 
                                            },
                                            getRestCuisineFilter:function() {
-                                               // getRestaurantType("#cuisine-filter", "#CuisineFilter-Template"); 
+                                                //getRestaurantType("#cuisine-filter", "#CuisineFilter-Template"); 
                                                getCuisineTypePref("#cuisine-filter", "#CuisineFilter-Template"); 
                                            },  
                                             
@@ -5386,7 +5386,7 @@ function completeRedemption() {
                    cache:false,
                    async:false,
                    timeout:20000,
-                   url: gurl + "/cuisineTypeList.aspx",
+                   url: gurl + "/restaurantDetailList.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
                                             merchantcode :merchant,mdevice:mdevicestat
