@@ -1074,7 +1074,20 @@ function completeRedemption() {
                                                }
                                                fbCleanVariables();
                                             
-                                                       preLogin.fbLoginD();
+                                                         facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                  alert(response.status);
+                                                             if (response.status === "connected") { 
+                                                       m = JSON.parse(JSON.stringify(response));                                                       
+                                                       window.localStorage.setItem("FBuserID", m.authResponse.userID);
+                                                       window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+                                                       window.localStorage.setItem("loginmode", "FB");
+                                                       getFBUserData();
+                                                   } else { 
+                                                       navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       return;
+                                                   } 
+                                               }); 
                                                    } 
 
                                            ,   
