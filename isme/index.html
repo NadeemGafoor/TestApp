@@ -3,7 +3,6 @@
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/font-awesome.min.css" rel="stylesheet" />
         <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
@@ -903,10 +902,10 @@
             <div class="filter-item-holder" style="background-color:#ccc">
                 <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Select All</div>
                 <div class="list-group-data-item-1 lheight">
-                    <input type="checkbox" class="km-checkbox" data-bind="checked : celebCheckAll" id="celeb-check"/>
+                    <input type="checkbox" class="km-checkbox" id="celeb-check"/>
                 </div>
             </div>
-            <ul id="Celebration-Filter"  data-bind="value:getCelebrationFilter" >
+            <ul id="Celebration-Filter" data-role="listview">
             </ul>
 
         </div>
