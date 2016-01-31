@@ -765,7 +765,7 @@
             <div class="list-group">&nbsp;Location</div>
             <div class="filter-item-holder">
                 <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Locations Near Me</div>
-                <div class="list-group-data-item-1 lheight" id="restaurantType">
+                <div class="list-group-data-item-1 lheight" id="olocationNearMe ">
                     <input type="checkbox" class="km-checkbox"/>
                 </div>
             </div>
@@ -773,7 +773,7 @@
             <div class="filter-item-holder">
                 <a data-click="loadTypeView" data-role="button">
                     <div class="list-group-data-item">Select Restaurant Type...</div>
-                    <div class="list-group-data-item-1" id="restaurantType">All</div>
+                    <div class="list-group-data-item-1" id="oRestaurantType">All</div>
                 </a>
             </div>
 
@@ -781,14 +781,14 @@
             <div class="filter-item-holder">
                 <a data-click="loadCuisineView" data-role="button">
                     <div class="list-group-data-item">Select Cuisine...</div>
-                    <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
+                    <div class="list-group-data-item-1" id="oCuisine">All</div>
                 </a>
             </div>
             <div class="list-group">&nbsp;Celebration Type</div>
             <div class="filter-item-holder">
                 <a data-click="loadCeleberationTypeView" data-role="button">
                     <div class="list-group-data-item">Select Celebration Type...</div>
-                    <div class="list-group-data-item-1" id="restaurantCuisine">All</div>
+                    <div class="list-group-data-item-1" id="oCelebration">All</div>
                 </a>
             </div>
         </div>
@@ -842,12 +842,7 @@
                     </a>
                 </div>
             </div>
-            <div class="filter-item-holder" style="background-color:#ccc">
-                <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Select All</div>
-                <div class="list-group-data-item-1 lheight" id="restaurantType">
-                    <input type="checkbox" class="km-checkbox"/>
-                </div>
-            </div>
+          
 
             <ul id="Type-Filter" data-bind="value:getRestTypeFilter">
 

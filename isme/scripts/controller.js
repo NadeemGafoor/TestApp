@@ -5430,7 +5430,7 @@ function completeRedemption() {
                });
     }
     
-    function getCelebrationTypePref(x, y) {
+    function getCelebrationTypePref(x, y) {    
         showSpin();
                                                 
         $.ajax({ 
