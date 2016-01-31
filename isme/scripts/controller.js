@@ -1096,20 +1096,14 @@ function completeRedemption() {
 
                                            fbLoginD
                                            : function () { 
-                                             facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-					                                                          if (response.status === "connected") { 
-					                                                              m = JSON.parse(JSON.stringify(response));
-                                                                                  alert(JSON.stringify(response));
-					                                                              window.localStorage.setItem("FBuserID", m.authResponse.userID);
-					                                                              window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
-					                                                              window.localStorage.setItem("loginmode", "FB");
-					                                                              preLogin.validateUser();
-					                                                          } else { 
-					                                                              navigator.notification.alert("Error accessing Facebook " + response.status, function() {
-					                                                              }, "isme by Jumeirah", "Dismiss");
-					                                                              return;
-					                                                          } 
-                                               }); 
+                                              facebookConnectPlugin.login(["email"], function (response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app
+                    if (response.status === "connected") {
+                        // contains the 'status' - bool, 'authResponse' - object with 'session_key', 'accessToken', 'expiresIn', 'userID'
+                        alert("You are: " + response.status + ", details:\n\n" + JSON.stringify(response));
+                    } else {
+                        alert("You are not logged in");
+                    }
+                });
                                    
                                            } 
                                             
