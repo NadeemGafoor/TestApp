@@ -1074,7 +1074,7 @@ function completeRedemption() {
                                                }
                                                fbCleanVariables();
                                             
-                                                       preLogin.fbLogin();
+                                                       preLogin.fbLoginD();
                                                    } 
 
                                            ,   
@@ -1083,7 +1083,7 @@ function completeRedemption() {
 
                                            fbLoginD
                                            : function () { 
-                                               facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                               facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                                    if (response.status === "connected") { 
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
