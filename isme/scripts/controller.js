@@ -1096,19 +1096,21 @@ function completeRedemption() {
 
                                            fbLoginD
                                            : function () { 
-                                               facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-                                                   if (response.status === "connected") { 
-                                                       m = JSON.parse(JSON.stringify(response));                                                       
-                                                       window.localStorage.setItem("FBuserID", m.authResponse.userID);
-                                                       window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
-                                                       window.localStorage.setItem("loginmode", "FB");
-                                                       preLogin.validateUser();
-                                                   } else { 
-                                                       navigator.notification.alert("Error accessing Facebook " + response.status, function() {
-                                                       }, "isme by Jumeirah", "Dismiss");
-                                                       return;
-                                                   } 
-                                               }); 
+                                               
+                                               
+                                               
+                                                
+                                var graphPath = "me/?fields=id,email";
+                facebookConnectPlugin.api(graphPath, [],
+                    function (response) {
+                        if (response.error) {
+                            alert("Uh-oh! " + JSON.stringify(response.error));
+                        } else {
+                            alert(JSON.stringify(response));
+                        }
+                    });
+         
+                                   
                                            } 
                                             
                                            , 
