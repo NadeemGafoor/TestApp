@@ -1097,6 +1097,13 @@ function completeRedemption() {
                                            fbLoginD
                                            : function () { 
                                                
+                                                  facebookConnectPlugin.getLoginStatus(function (response) {
+                    if (response.status === "connected") {
+                        alert("You are logged in, details:\n\n" + JSON.stringify(response.authResponse));
+                    } else {
+                        alert("You are not logged in");
+                    }
+                });
                                                
                                                
                                facebookConnectPlugin.login(["email"], function (response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app
