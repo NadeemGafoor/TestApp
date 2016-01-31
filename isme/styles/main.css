@@ -2305,7 +2305,6 @@ tile-frame-inner
     border-radius: 5px;
     height: 20px;
     width: 90%; 
-     z-index:1000;
     background-color:#000;
 }
 
@@ -2318,7 +2317,6 @@ tile-frame-inner
     border-radius: 5px;
     height: 20px;
     width: 1%; 
-    z-index:-100000;
 }
 
 .progress-bar-amount-holder

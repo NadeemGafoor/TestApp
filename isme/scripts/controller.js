@@ -1002,7 +1002,7 @@ function completeRedemption() {
     }
     
     function fbLogin() {
-        facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+        facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
             if (response.status === "connected") { 
                 m = JSON.parse(JSON.stringify(response));                                                       
                 window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -1031,12 +1031,11 @@ function completeRedemption() {
         fbCleanVariables();
     }
     
-    function clearListFilter(){
-        window.localStorage.setItem("lifestyle","");
-        window.localStorage.setItem("restaurant","");
-        window.localStorage.setItem("","");
-        window.localStorage.setItem("","");
-        
+    function clearListFilter() {
+        window.localStorage.setItem("lifestyle", "");
+        window.localStorage.setItem("restaurant", "");
+        window.localStorage.setItem("", "");
+        window.localStorage.setItem("", "");
     }
        
     window.preLogin = kendo.observable({
@@ -1083,7 +1082,6 @@ function completeRedemption() {
                                                fbCleanVariables();
                                             
                                                facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-                                                   
                                                    if (response.status === "connected") { 
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -4151,22 +4149,29 @@ function completeRedemption() {
         
                                             fbLoginDA   
                                             : function () { 
-                                                facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                facebookConnectPlugin.getLoginStatus(function (response) {
                                                     if (response.status === "connected") { 
                                                         m = JSON.parse(JSON.stringify(response));                                                       
                                                         window.localStorage.setItem("FBuserID", m.authResponse.userID);
                                                         window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
                                                         linkFBUserZ();
                                                     } else { 
-                                                        navigator.notification.alert("Error accessing Facebook " + response.status, function() {
-                                                        }, "isme by Jumeirah", "Dismiss");
-                                                        return;
+                                                        facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                            alert("connect");
+                                                            if (response.status === "connected") { 
+                                                                m = JSON.parse(JSON.stringify(response));                                                       
+                                                                window.localStorage.setItem("FBuserID", m.authResponse.userID);
+                                                                window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+                                                                linkFBUserZ();
+                                                            } else { 
+                                                                navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+                                                                }, "isme by Jumeirah", "Dismiss");
+                                                                return;
+                                                            } 
+                                                        }); 
                                                     } 
-                                                }); 
-                                            } 
-                                             
-                             
-                                         
+                                                });
+                                            }                 
                                             
                                         });  
     
