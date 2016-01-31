@@ -1075,10 +1075,10 @@ function completeRedemption() {
             getLifeStylePref("#Offer-Filter", "#Offer-Filter-Template"); 
         },
             getRestCuisineFilter:function(){
-            getLifeStylePref("#Cuisine-Filter", "#CuisineFilter-Template"); 
+            getCuisineTypePref("#Cuisine-Filter", "#CuisineFilter-Template"); 
         },
          getRestTypeFilter:function(){
-            getLifeStylePref("#Type-Filter", "#TypeFilter-Template"); 
+            getRestaurantType("#Type-Filter", "#TypeFilter-Template"); 
         },
                                     
         
@@ -4139,6 +4139,10 @@ function completeRedemption() {
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
                                                 getCuisineTypePref("#cuisinetype-filter", "#cuisinetypefilter-template");
                                                 getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
+                                                                               setLifeStylePreference(); 
+                                                                               setRestaurantPreference();
+                                                                               setCelebrationTypePreference();
+                                                                               setCuisineTypePreference();
                                             },
                                             getChecked:function() {
                                                 hideSpin();
@@ -5260,11 +5264,55 @@ function completeRedemption() {
     function doExit() {
         return;
     }
+    
+    
+     function getRestaurantType(x, y) {
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:false,
+                   timeout:20000,
+                   url: gurl + "/restaurantTypeList.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);                    
+                       if (getData.statuscode === "000") {
+                           if (getData.preflist.length > 0) {
+                               $(x).kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $(y).html()
+                                                            //endlessScroll: true
+                                                                                                                      
+                                                        });
+                                             
+                           }else {
+                               navigator.notification.alert("Restaurant Type Preference List not available", function() {
+                               }, "isme By Jumeirah", "Dismiss")    
+                           }
+                       }else {
+                           navigator.notification.alert("Cannot get Restaurant Type Preference List. " + getData.statusdesc, function() {
+                           }, "isme By Jumeirah", "Dismiss")          
+                       }
+                       hideSpin(); //hide loading popup
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant Type Preference List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "isme By Jumeirah", "Dismiss")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
+    
+    
+    
     function getLifeStylePref(x, y) {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:true,
+                   async:false,
                    timeout:20000,
                    url: gurl + "/lifeStyleList.aspx",
                    contentType: "application/json; charset=utf-8",
@@ -5281,7 +5329,7 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
-                               setLifeStylePreference();                                              
+                                             
                            }else {
                                navigator.notification.alert("Lifestyle Preference List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -5306,7 +5354,7 @@ function completeRedemption() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:true,
+                   async:false,
                    timeout:20000,
                    url: gurl + "/restaurantDetailList.aspx",
                    contentType: "application/json; charset=utf-8",
@@ -5324,7 +5372,7 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
-                               setRestaurantPreference();
+
                            }else {
                                navigator.notification.alert("Restaurant Details List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -5347,7 +5395,7 @@ function completeRedemption() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:true,
+                   async:false,
                    timeout:20000,
                    url: gurl + "/cuisineTypeList.aspx",
                    contentType: "application/json; charset=utf-8",
@@ -5365,7 +5413,7 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
-                               setCuisineTypePreference();
+
                            }else {
                                navigator.notification.alert("Cuisine Type List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -5388,7 +5436,7 @@ function completeRedemption() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:true,
+                   async:false,
                    timeout:20000,
                    url: gurl + "/celebrationTypeList.aspx",
                    contentType: "application/json; charset=utf-8",
@@ -5406,7 +5454,7 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
-                               setCelebrationTypePreference();
+
                            }else {
                                navigator.notification.alert("Celebration Type List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
