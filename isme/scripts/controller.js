@@ -1077,6 +1077,7 @@ function completeRedemption() {
 					                getRestaurantType("#Type-Filter", "#TypeFilter-Template"); 
 					            },
          getRestCuisineFilter:function(){
+            // getRestaurantType("#Cuisine-Filter", "#CuisineFilter-Template"); 
 					                getCuisineTypePref("#Cuisine-Filter", "#CuisineFilter-Template"); 
 					            },
                                             
@@ -5388,7 +5389,6 @@ function completeRedemption() {
         
     function getCuisineTypePref(x, y) {
         showSpin();
-
         $.ajax({ 
                    type: "POST",
                    cache:false,
