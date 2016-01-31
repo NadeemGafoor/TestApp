@@ -4149,6 +4149,7 @@ function completeRedemption() {
         
                                             fbLoginDA   
                                             : function () { 
+                                                showSpin();
                                                 facebookConnectPlugin.getLoginStatus(function (response) {
                                                     if (response.status === "connected") { 
                                                         m = JSON.parse(JSON.stringify(response));                                                       
@@ -4157,7 +4158,7 @@ function completeRedemption() {
                                                         linkFBUserZ();
                                                     } else { 
                                                         facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-                                                            alert("connect");
+                                        
                                                             if (response.status === "connected") { 
                                                                 m = JSON.parse(JSON.stringify(response));                                                       
                                                                 window.localStorage.setItem("FBuserID", m.authResponse.userID);
