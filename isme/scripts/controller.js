@@ -1068,9 +1068,9 @@ function completeRedemption() {
                                            lastname:"",
                                            emailid:"",
                                            mobile:"",
-                                                  getRestCuisineFilter:function() {
+                                                  getFilterCuisine:function() {
                                            
-                                             getCuisineType("#c-filter", "#cf-template"); 
+                                             gct("#c-filter", "#cf-template"); 
                                           },  
     
                                            getOfferTypeData:function() {
@@ -4135,7 +4135,7 @@ function completeRedemption() {
                                                 window.localStorage.setItem("issaved", "0");
                                                 getLifeStylePref("#lifestyle-filter", "#lifestyle-filter-template");
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
-                                                getCuisineType("#cuisinetype-filter", "#cuisinetypefilter-template");
+                                                gct("#cuisinetype-filter", "#cuisinetypefilter-template");
                                                 getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
                                                 setLifeStylePreference(); 
                                                 setRestaurantPreference();
@@ -5380,7 +5380,7 @@ function completeRedemption() {
                });
     }
         
-    function getCuisineType(x, y) {
+    function gct(x, y) {
         showSpin();
         $.ajax({ 
                    type: "POST",
