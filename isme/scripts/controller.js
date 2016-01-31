@@ -1030,6 +1030,14 @@ function completeRedemption() {
         $("#enrol-tandc-accept").data("kendoMobileSwitch").check(false);
         fbCleanVariables();
     }
+    
+    function clearListFilter(){
+        window.localStorage.setItem("lifestyle","");
+        window.localStorage.setItem("restaurant","");
+        window.localStorage.setItem("","");
+        window.localStorage.setItem("","");
+        
+    }
        
     window.preLogin = kendo.observable({
                                            pin1:"",
@@ -1075,7 +1083,7 @@ function completeRedemption() {
                                                fbCleanVariables();
                                             
                                                facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-                                                   alert(response.status);
+                                                   
                                                    if (response.status === "connected") { 
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
