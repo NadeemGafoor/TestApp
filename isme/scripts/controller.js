@@ -1037,6 +1037,7 @@ function completeRedemption() {
         window.localStorage.setItem("celebration", "");
         window.localStorage.setItem("cuisine", "");
         window.localStorage.setItem("outlet", "");
+        window.localStorage.setItem("distance", "");
     }
        
     window.preLogin = kendo.observable({
@@ -1067,6 +1068,20 @@ function completeRedemption() {
                                            lastname:"",
                                            emailid:"",
                                            mobile:"",
+        getCelebrationFilter:function(){
+             getCelebrationTypePref("#Celebration-Filter", "#celebrationtype-template");
+        },
+        getOfferTypeData:function(){
+            getLifeStylePref("#Offer-Filter", "#Offer-Filter-Template"); 
+        },
+            getRestCuisineFilter:function(){
+            getLifeStylePref("#Cuisine-Filter", "#CuisineFilter-Template"); 
+        },
+         getRestTypeFilter:function(){
+            getLifeStylePref("#Type-Filter", "#TypeFilter-Template"); 
+        },
+                                    
+        
                                             
                                            getFBUserData
                                            : function () {  
@@ -4122,7 +4137,7 @@ function completeRedemption() {
                                                 window.localStorage.setItem("issaved", "0");
                                                 getLifeStylePref("#lifestyle-filter", "#lifestyle-filter-template");
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
-                                                getCuisineTypePref("#cuisinetype-filter", "#celebrationtype-template");
+                                                getCuisineTypePref("#cuisinetype-filter", "#cuisinetypefilter-template");
                                                 getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
                                             },
                                             getChecked:function() {
