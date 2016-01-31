@@ -1101,13 +1101,29 @@ function completeRedemption() {
                                            fbLoginD
                                            : function () { 
                                             
-                                               facebookConnectPlugin.getApplicationSignature(function(response) { 
-         console.log("Signature: " + response); 
-         alert("Signature: " + response); 
-
- 
-                                         });        
-                                               
+            facebookConnectPlugin.getLoginStatus(function(response) { 
+					                                                          if (response.status === "connected") {
+					                                                              m = JSON.parse(JSON.stringify(response));                                                       
+					                                                              window.localStorage.setItem("FBuserID", m.authResponse.userID);
+					                                                              window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+					                                                              window.localStorage.setItem("loginmode", "FB");
+					                                                              preLogin.validateUser();
+					                                                          } else { 
+					                                                              facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+					                                                                  if (response.status === "connected") { 
+					                                                                      m = JSON.parse(JSON.stringify(response));                                                       
+					                                                                      window.localStorage.setItem("FBuserID", m.authResponse.userID);
+					                                                                      window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+					                                                                      window.localStorage.setItem("loginmode", "FB");
+					                                                                      preLogin.validateUser();
+					                                                                  } else { 
+					                                                                      navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+					                                                                      }, "isme by Jumeirah", "Dismiss");
+					                                                                      return;
+					                                                                  } 
+					                                                              }); 
+					                                                          } 
+                                               }); 
                                            }, 
 
                                            showConfirmation
