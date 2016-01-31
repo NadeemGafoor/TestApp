@@ -1068,6 +1068,10 @@ function completeRedemption() {
                                            lastname:"",
                                            emailid:"",
                                            mobile:"",
+                                                  getRestCuisineFilter:function() {
+                                           
+                                             getCuisineType("#c-filter", "#cf-template"); 
+                                          },  
     
                                            getOfferTypeData:function() {
                                                getLifeStylePref("#Offer-Filter", "#Offer-Filter-Template"); 
@@ -1075,10 +1079,7 @@ function completeRedemption() {
                                            getRestTypeFilter:function() {
                                                getRestaurantType("#Type-Filter", "#TypeFilter-Template"); 
                                            },
-                                           getRestCuisineFilter:function() {
-                                                //getRestaurantType("#cuisine-filter", "#CuisineFilter-Template"); 
-                                               getCuisineTypePref("#cuisine-filter", "#CuisineFilter-Template"); 
-                                           },  
+
                                             
                                            getFBUserData
                                            : function () {  
@@ -4134,7 +4135,7 @@ function completeRedemption() {
                                                 window.localStorage.setItem("issaved", "0");
                                                 getLifeStylePref("#lifestyle-filter", "#lifestyle-filter-template");
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
-                                                getCuisineTypePref("#cuisinetype-filter", "#cuisinetypefilter-template");
+                                                getCuisineType("#cuisinetype-filter", "#cuisinetypefilter-template");
                                                 getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
                                                 setLifeStylePreference(); 
                                                 setRestaurantPreference();
@@ -5379,14 +5380,14 @@ function completeRedemption() {
                });
     }
         
-    function getCuisineTypePref(x, y) {
+    function getCuisineType(x, y) {
         showSpin();
         $.ajax({ 
                    type: "POST",
                    cache:false,
                    async:false,
                    timeout:20000,
-                   url: gurl + "/restaurantDetailList.aspx",
+                   url: gurl + "/cuisineTypeList.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
                                             merchantcode :merchant,mdevice:mdevicestat

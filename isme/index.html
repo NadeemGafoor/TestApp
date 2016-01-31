@@ -752,7 +752,7 @@
 
         </div>
 
-        <div data-role="modalview" id="modalviewfilter" style="height:60%;width:90%;border-radius:5px" data-model="preLogin">
+        <div data-role="modalview" id="modalviewfilter" style="height:60%;width:90%;border-radius:5px">
             <div data-role="header" >
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span >Filters</span>
@@ -792,7 +792,7 @@
             </div>
         </div>
 
-        <div data-role="modalview" id="modalviewofferfilter" style="height:60%;width:90%;border-radius:5px;" data-model="preLogin">
+        <div data-role="modalview" id="modalviewofferfilter" style="height:60%;width:90%;border-radius:5px;">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span>Reward Filters</span>
@@ -843,7 +843,7 @@
 	                </div>
 	            </div>
 	           
-	            <ul id="cuisine-filter"  data-bind="value:getRestCuisineFilter">
+	            <ul id="c-filter"  data-bind="value:getRestCuisineFilter">  
 	            </ul>
 	
 	        </div>
@@ -1197,7 +1197,7 @@
             </label>
         </script>
 
-        <script type="text/x-kendo-template" id="CuisineFilter-Template">
+        <script type="text/x-kendo-template" id="cf-template">
             <label class="km-checkbox-label" >
                 ${desc}
                 <input type="checkbox" class="km-checkbox" id="${code}"  value="${code}"/>
