@@ -1074,9 +1074,9 @@ function completeRedemption() {
                                                }
                                                fbCleanVariables();
                                             
-                                                         facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-                                                  alert(response.status);
-                                                             if (response.status === "connected") { 
+                                               facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                   alert(response.status);
+                                                   if (response.status === "connected") { 
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
                                                        window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
@@ -1088,7 +1088,7 @@ function completeRedemption() {
                                                        return;
                                                    } 
                                                }); 
-                                                   } 
+                                           } 
 
                                            ,   
         
@@ -1096,15 +1096,19 @@ function completeRedemption() {
 
                                            fbLoginD
                                            : function () { 
-                                              facebookConnectPlugin.login(["email"], function (response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app
-                    if (response.status === "connected") {
-                        // contains the 'status' - bool, 'authResponse' - object with 'session_key', 'accessToken', 'expiresIn', 'userID'
-                        alert("You are: " + response.status + ", details:\n\n" + JSON.stringify(response));
-                    } else {
-                        alert("You are not logged in");
-                    }
-                });
-                                   
+                                               facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                   if (response.status === "connected") { 
+                                                       m = JSON.parse(JSON.stringify(response));                                                       
+                                                       window.localStorage.setItem("FBuserID", m.authResponse.userID);
+                                                       window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+                                                       window.localStorage.setItem("loginmode", "FB");
+                                                       preLogin.validateUser();
+                                                   } else { 
+                                                       navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       return;
+                                                   } 
+                                               }); 
                                            } 
                                             
                                            , 
@@ -4139,31 +4143,23 @@ function completeRedemption() {
         
                                             fbLoginDA   
                                             : function () { 
-                                                facebookConnectPlugin.getLoginStatus(function(response) { 
-                                                    if (response.status === "connected") {
+                                                facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                    if (response.status === "connected") { 
                                                         m = JSON.parse(JSON.stringify(response));                                                       
                                                         window.localStorage.setItem("FBuserID", m.authResponse.userID);
                                                         window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
                                                         linkFBUserZ();
-                                                        return;
                                                     } else { 
-                                                        facebookConnectPlugin.login(["email"]["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-                                                            if (response.status === "connected") { 
-                                                                m = JSON.parse(JSON.stringify(response));                                                       
-                                                                window.localStorage.setItem("FBuserID", m.authResponse.userID);
-                                                                window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
-                                                                linkFBUserZ();
-                                                            } else { 
-                                                                navigator.notification.alert("Error accessing Facebook " + response.status, function() {
-                                                                }, "isme by Jumeirah", "Dismiss");
-                                                                return;
-                                                            } 
-                                                        }); 
+                                                        navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+                                                        }, "isme by Jumeirah", "Dismiss");
+                                                        return;
                                                     } 
                                                 }); 
-                                            }
+                                            } 
+                                             
+                             
                                          
-                                        
+                                            
                                         });  
     
     function linkFBUserZ() {  
