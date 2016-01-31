@@ -355,7 +355,6 @@ function closeHistoryFilterView() {
 } 
 
 function loadCeleberationTypeView() {
-   
     $("#modalviewceleberationtype").data("kendoMobileModalView").open();
 }
 
@@ -1070,16 +1069,16 @@ function completeRedemption() {
                                            emailid:"",
                                            mobile:"",
     
-                 getOfferTypeData:function(){
-					                getLifeStylePref("#Offer-Filter", "#Offer-Filter-Template"); 
-					            },
-            getRestTypeFilter:function(){
-					                getRestaurantType("#Type-Filter", "#TypeFilter-Template"); 
-					            },
-         getRestCuisineFilter:function(){
-            // getRestaurantType("#Cuisine-Filter", "#CuisineFilter-Template"); 
-					                getCuisineTypePref("#Cuisine-Filter", "#CuisineFilter-Template"); 
-					            },
+                                           getOfferTypeData:function() {
+                                               getLifeStylePref("#Offer-Filter", "#Offer-Filter-Template"); 
+                                           },
+                                           getRestTypeFilter:function() {
+                                               getRestaurantType("#Type-Filter", "#TypeFilter-Template"); 
+                                           },
+                                           getRestCuisineFilter:function() {
+                                               // getRestaurantType("#cuisine-filter", "#CuisineFilter-Template"); 
+                                               getCuisineTypePref("#cuisine-filter", "#CuisineFilter-Template"); 
+                                           },
                                             
                                            getFBUserData
                                            : function () {  
@@ -4137,10 +4136,10 @@ function completeRedemption() {
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
                                                 getCuisineTypePref("#cuisinetype-filter", "#cuisinetypefilter-template");
                                                 getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
-                                                                               setLifeStylePreference(); 
-                                                                               setRestaurantPreference();
-                                                                               setCelebrationTypePreference();
-                                                                               setCuisineTypePreference();
+                                                setLifeStylePreference(); 
+                                                setRestaurantPreference();
+                                                setCelebrationTypePreference();
+                                                setCuisineTypePreference();
                                             },
                                             getChecked:function() {
                                                 hideSpin();
@@ -4176,7 +4175,6 @@ function completeRedemption() {
                                                         linkFBUserZ();
                                                     } else { 
                                                         facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-                                        
                                                             if (response.status === "connected") { 
                                                                 m = JSON.parse(JSON.stringify(response));                                                       
                                                                 window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -5263,8 +5261,7 @@ function completeRedemption() {
         return;
     }
     
-    
-     function getRestaurantType(x, y) {
+    function getRestaurantType(x, y) {
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -5285,7 +5282,6 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
-                                             
                            }else {
                                navigator.notification.alert("Restaurant Type Preference List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -5303,8 +5299,6 @@ function completeRedemption() {
                    }
                });
     }
-    
-    
     
     function getLifeStylePref(x, y) {
         $.ajax({ 
@@ -5327,7 +5321,6 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
-                                             
                            }else {
                                navigator.notification.alert("Lifestyle Preference List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -5370,7 +5363,6 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
-
                            }else {
                                navigator.notification.alert("Restaurant Details List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -5410,7 +5402,6 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
-
                            }else {
                                navigator.notification.alert("Cuisine Type List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -5451,7 +5442,6 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
-
                            }else {
                                navigator.notification.alert("Celebration Type List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
