@@ -1078,7 +1078,7 @@ function completeRedemption() {
                                            getRestCuisineFilter:function() {
                                                // getRestaurantType("#cuisine-filter", "#CuisineFilter-Template"); 
                                                getCuisineTypePref("#cuisine-filter", "#CuisineFilter-Template"); 
-                                           },
+                                           },  
                                             
                                            getFBUserData
                                            : function () {  
