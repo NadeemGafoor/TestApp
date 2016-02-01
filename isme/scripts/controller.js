@@ -1852,7 +1852,7 @@ function completeRedemption() {
                                                                   }
                                                               },
                                                               error: function (errormsg) {
-                                                                  navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                                  navigator.notification.alert("Platform Error, Services may not be available111111111111111111111111111111111111111111. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                   }, "isme by Jumeirah", "Dismiss")
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -1966,7 +1966,7 @@ function completeRedemption() {
                                                                       }
                                                                   },
                                                                   error: function (error) {
-                                                                      navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function () {
+                                                                      navigator.notification.alert("Platform Error, Services may not be available22222222222222222222222222. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function () {
                                                                       }, "isme by Jumeirah", "Dismiss")
                                                                   }
                                                               });
@@ -4591,7 +4591,7 @@ function completeRedemption() {
     function hideSpin() {
         window.setTimeout(function() {
             $("#mvwait").data("kendoMobileModalView").close();
-        }, 1000); 
+        }, 100); 
     }
          
     function showSpin() {
