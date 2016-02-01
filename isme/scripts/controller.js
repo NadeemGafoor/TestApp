@@ -848,7 +848,7 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-    var gurl = "https://isme-stg.jumeirah.com/ismemobileportal";
+    var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
     //var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
     //var gurl = "https://appapi.exclusiveu.in/mobilePortal";
     var merchant = "JUMEI02000";
@@ -901,8 +901,8 @@ function completeRedemption() {
     var minor = "";
     var appad_location = "http://isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";    
-    var share_image = "http://exclusiveu.dynns.com:8088/mobileportalServiceJumeirah/images/large_logo_placeholder.png";
-    var flag_image = "http://exclusiveu.dynns.com:8088/mobileportal/flagimages/";
+    var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+    var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     //var notification_image = "https://appapi.exclusiveu.in/mobileportal/images/36x36_icon.png";    
     //var share_image = "https://appapi.exclusiveu.in/mobileportal/images/ihg_logo.png";
     //var flag_image = "https://appapi.exclusiveu.in/mobileportal/flagimages/";
