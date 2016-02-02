@@ -1155,6 +1155,7 @@ function completeRedemption() {
 
                                            fbLoginD
                                            : function () { 
+                                               showSpin();
                                                facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                                    if (response.status === "connected") { 
                                                        m = JSON.parse(JSON.stringify(response));                                                       
@@ -1165,6 +1166,7 @@ function completeRedemption() {
                                                    } else { 
                                                        navigator.notification.alert("Error accessing Facebook " + response.status, function() {
                                                        }, "isme by Jumeirah", "Dismiss");
+                                                       hideSpin();
                                                        return;
                                                    } 
                                                }); 
@@ -2210,7 +2212,7 @@ function completeRedemption() {
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
-                                                          async:true,
+                                                          async:false,
                                                           timeout:20000,
                                                           url: gurl + "/validateUser.aspx",
                                                           contentType: "application/json; charset=utf-8",
