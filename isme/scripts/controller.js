@@ -322,9 +322,9 @@ function closeModalStar() {
     $("#modalviewstar").data("kendoMobileModalView").close();
 }
 
-function closeFilterView() {
-    $("#modalviewfilter").data("kendoMobileModalView").close();
-} 
+//function closeFilterView() {
+//    $("#modalviewfilter").data("kendoMobileModalView").close();
+//} 
 
 function closeLocationView() {
     $("#modalviewcountry").data("kendoMobileModalView").close();
@@ -1069,12 +1069,40 @@ function completeRedemption() {
                                            lastname:"",
                                            emailid:"",
                                            mobile:"",
-                                           outletFilterList:function(){
+                                           restaurantCritFilter:function() {
+                                               //Restaurant Type Filter
+                                               var itemconcat = "";
+                                               var x = 1;
+                                               var vopen = "('";
+                                               var vclose = "')";
+                                               ul = document.getElementById("RestType-Filter");
+                                               items = ul.getElementsByTagName("input");
+                                                
+                                               for (i = 0; i < items.length; i++) {
+                                                   y = items[i].checked ? "1" : "0";
+                                                   if (y === "1") {
+                                                       if (x===1) {
+                                                           itemconcat = vopen + items[i].value;
+                                                       }else {
+                                                           itemconcat = itemconcat + "','" + items[i].value;
+                                                       }
+                                                       x++;
+                                                   }  
+                                               }
+                                               
+                                               if (x > 1) {
+                                                   itemconcat = itemconcat + vclose;
+                                                   document.getElementById("orestauranttype").innerHTML = "Filter";
+                                                   window.localStorage.setItem("restaurant", itemconcat);    
+                                               }
+                                               alert(window.localStorage.getItem("restaurant"));   
+                                               $("#modalviewtype").data("kendoMobileModalView").close();
+                                           },
+                                           outletFilterList:function() {
                                                clearListFilter();
                                            },
         
                                            getRestCuisineFilter:function() {
-                                               
                                                var dataSource = new kendo.data.DataSource({ data: getRestCuisineData() });
                                                
                                                $("#Cuisine-Filter").kendoMobileListView({
@@ -1087,7 +1115,6 @@ function completeRedemption() {
                                          
         
                                            getLifeStyleData:function() {
-                                               
                                                var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
                                                
                                                $("#Offer-Filter").kendoMobileListView({
@@ -5719,97 +5746,97 @@ function completeRedemption() {
     
     function getRestTypeData() {
         var data = [];
-        data.push({code: "1000",desc:"Award Winning"});
-        data.push({code: "1001",desc:"Bar/Lounge"});
-        data.push({code: "1002",desc:"Casual Dining"});
-        data.push({code: "1003",desc:"Corporate/Business"});
-        data.push({code: "1004",desc:"Family Dining"});
-        data.push({code: "1005",desc:"OpenAir Dining"});
-        data.push({code: "1006",desc:"Romantic Dining"});
-        data.push({code: "1007",desc:"Scenic View"});
-        data.push({code: "1006",desc:"Romantic Dining"});
-        data.push({code: "1009",desc:"Spa"});
-        data.push({code: "1008",desc:"Theme Park"});
-        data.push({code: "1010",desc:"Night life/Night Club"});
-        data.push({code: "1012",desc:"Cafe or Bistro"});
-        data.push({code: "1011",desc:"Sports Bar"});
-        data.push({code: "1013",desc:"Cocktail Bar"});
-        data.push({code: "1014",desc:"Signature Fine Dining"});           
+        data.push({code: "RD1000",desc:"Award Winning"});
+        data.push({code: "RD1001",desc:"Bar/Lounge"});
+        data.push({code: "RD1002",desc:"Casual Dining"});
+        data.push({code: "RD1003",desc:"Corporate/Business"});
+        data.push({code: "RD1004",desc:"Family Dining"});
+        data.push({code: "RD1005",desc:"OpenAir Dining"});
+        data.push({code: "RD1006",desc:"Romantic Dining"});
+        data.push({code: "RD1007",desc:"Scenic View"});
+        data.push({code: "RD1006",desc:"Romantic Dining"});
+        data.push({code: "RD1009",desc:"Spa"});
+        data.push({code: "RD1008",desc:"Theme Park"});
+        data.push({code: "RD1010",desc:"Night life/Night Club"});
+        data.push({code: "RD1012",desc:"Cafe or Bistro"});
+        data.push({code: "RD1011",desc:"Sports Bar"});
+        data.push({code: "RD1013",desc:"Cocktail Bar"});
+        data.push({code: "RD1014",desc:"Signature Fine Dining"});           
            
         return data;
     }
     
     function getRestCuisineData() {
         var data = [];
-        data.push({code: "1008",desc:"African"});
-        data.push({code: "1000",desc:"Afternoon Tea"});
-        data.push({code: "1001",desc:"Asian"});
-        data.push({code: "1002",desc:"Bar food"});
-        data.push({code: "1016",desc:"Brunch"});    
-        data.push({code: "1014",desc:"Business Lunch"});         
-        data.push({code: "1007",desc:"European"});
-        data.push({code: "1009",desc:"Healthy"});         
-        data.push({code: "1003",desc:"International"});
-        data.push({code: "1004",desc:"Latin American"});
-        data.push({code: "1010",desc:"Light Bites"});
-        data.push({code: "1013",desc:"Middle Eastern"});
-        data.push({code: "1011",desc:"Patisserie"});
-        data.push({code: "1005",desc:"Seafood"});
-        data.push({code: "1006",desc:"Steakhouse"});
-        data.push({code: "1012",desc:"Vegetarian"});
+        data.push({code: "CS1008",desc:"African"});
+        data.push({code: "CS1000",desc:"Afternoon Tea"});
+        data.push({code: "CS1001",desc:"Asian"});
+        data.push({code: "CS1002",desc:"Bar food"});
+        data.push({code: "CS1016",desc:"Brunch"});    
+        data.push({code: "CS1014",desc:"Business Lunch"});         
+        data.push({code: "CS1007",desc:"European"});
+        data.push({code: "CS1009",desc:"Healthy"});         
+        data.push({code: "CS1003",desc:"International"});
+        data.push({code: "CS1004",desc:"Latin American"});
+        data.push({code: "CS1010",desc:"Light Bites"});
+        data.push({code: "CS1013",desc:"Middle Eastern"});
+        data.push({code: "CS1011",desc:"Patisserie"});
+        data.push({code: "CS1005",desc:"Seafood"});
+        data.push({code: "CS1006",desc:"Steakhouse"});
+        data.push({code: "CS1012",desc:"Vegetarian"});
            
         return data;
     }
 
     function getOfferTypeData() {
         var data = [];
-        data.push({code: "1007",desc:"Art & Culture"});
-        data.push({code: "1008",desc:"Beach"});
-        data.push({code: "1022",desc:"Beauty"});
-        data.push({code: "1004",desc:"Brunch"});
-        data.push({code: "1006",desc:"Family & Kids"});    
-        data.push({code: "1020",desc:"Fashion"});         
-        data.push({code: "1010",desc:"Fine Dining"});
-        data.push({code: "1017",desc:"Football"});         
-        data.push({code: "1025",desc:"Gadgets"});
-        data.push({code: "1015",desc:"Golf"});         
-        data.push({code: "1011",desc:"Grape Tasting"});
-        data.push({code: "1016",desc:"Horse Racing"});
-        data.push({code: "1001",desc:"Leisure"});
-        data.push({code: "1028",desc:"Live music"});
-        data.push({code: "1024",desc:"Luxury Goods"});
-        data.push({code: "1019",desc:"Motor Sports"});
-        data.push({code: "1026",desc:"Networking"});
-        data.push({code: "1012",desc:"No alcohol"});
-        data.push({code: "1018",desc:"Rugby"});
-        data.push({code: "1021",desc:"Shopping"});
-        data.push({code: "1003",desc:"Signature Events"});
-        data.push({code: "1000",desc:"Spa / Fitness"});
-        data.push({code: "1005",desc:"Special Holiday Offers"});
-        data.push({code: "1009",desc:"Travel & Stay Packages"});
-        data.push({code: "1002",desc:"Watersports"});
-        data.push({code: "1014",desc:"Weight loss"});
-        data.push({code: "1013",desc:"Wellness & Wellbeing"});
-        data.push({code: "1023",desc:"Yoga"});
+        data.push({code: "LS1007",desc:"Art & Culture"});
+        data.push({code: "LS1008",desc:"Beach"});
+        data.push({code: "LS1021",desc:"Beauty"});
+        data.push({code: "LS1004",desc:"Brunch"});
+        data.push({code: "LS1006",desc:"Family & Kids"});    
+        data.push({code: "LS1020",desc:"Fashion"});         
+        data.push({code: "LS1010",desc:"Fine Dining"});
+        data.push({code: "LS1017",desc:"Football"});         
+        data.push({code: "LS1025",desc:"Gadgets"});
+        data.push({code: "LS1015",desc:"Golf"});         
+        data.push({code: "LS1011",desc:"Grape Tasting"});
+        data.push({code: "LS1016",desc:"Horse Racing"});
+        data.push({code: "LS1001",desc:"Leisure"});
+        data.push({code: "LS1028",desc:"Live music"});
+        data.push({code: "LS1024",desc:"Luxury Goods"});
+        data.push({code: "LS1019",desc:"Motor Sports"});
+        data.push({code: "LS1026",desc:"Networking"});
+        data.push({code: "LS1012",desc:"No alcohol"});
+        data.push({code: "LS1018",desc:"Rugby"});
+        data.push({code: "LS1021",desc:"Shopping"});
+        data.push({code: "LS1003",desc:"Signature Events"});
+        data.push({code: "LS1000",desc:"Spa / Fitness"});
+        data.push({code: "LS1005",desc:"Special Holiday Offers"});
+        data.push({code: "LS1009",desc:"Travel & Stay Packages"});
+        data.push({code: "LS1002",desc:"Watersports"});
+        data.push({code: "LS1014",desc:"Weight loss"});
+        data.push({code: "LS1013",desc:"Wellness & Wellbeing"});
+        data.push({code: "LS1023",desc:"Yoga"});
            
         return data;
     }
     
     function getOfferCeleberationData() {
         var data = [];
-        data.push({code: "1000",desc:"Birthdays"});
-        data.push({code: "1012",desc:"Corporate entertainment"});
-        data.push({code: "1007",desc:"Easter celebrations"});
-        data.push({code: "1009",desc:"Eid celebrations"});
-        data.push({code: "1006",desc:"Father`s day"});    
-        data.push({code: "1005",desc:"Festive"});         
-        data.push({code: "1004",desc:"Mothers day"});
-        data.push({code: "1008",desc:"Ramadan"});         
-        data.push({code: "1011",desc:"Thanks giving day"});
-        data.push({code: "1010",desc:"UAE National Day"});         
-        data.push({code: "1003",desc:"Valentines"});
-        data.push({code: "1001",desc:"Wedding Anniversary"});
-        data.push({code: "1002",desc:"Women`s Day"});
+        data.push({code: "CB1000",desc:"Birthdays"});
+        data.push({code: "CB1012",desc:"Corporate entertainment"});
+        data.push({code: "CB1007",desc:"Easter celebrations"});
+        data.push({code: "CB1009",desc:"Eid celebrations"});
+        data.push({code: "CB1006",desc:"Father`s day"});    
+        data.push({code: "CB1005",desc:"Festive"});         
+        data.push({code: "CB1004",desc:"Mothers day"});
+        data.push({code: "CB1008",desc:"Ramadan"});         
+        data.push({code: "CB1011",desc:"Thanks giving day"});
+        data.push({code: "CB1010",desc:"UAE National Day"});         
+        data.push({code: "CB1003",desc:"Valentines"});
+        data.push({code: "CB1001",desc:"Wedding Anniversary"});
+        data.push({code: "CB1002",desc:"Women`s Day"});
            
         return data;
     }

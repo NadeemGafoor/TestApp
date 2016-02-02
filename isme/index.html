@@ -756,7 +756,7 @@
             <div data-role="header" >
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span >Filters</span>
-                    <a data-click="closeFilterView" data-role="button" data-align="right" data-animated="true">
+                    <a id="last" data-role="button" data-align="right" data-animated="true" data-bind="click:restaurantCritFilter" >
                         Go
                     </a>
                 </div>
@@ -801,7 +801,7 @@
                     </a>
                 </div>
             </div>
-            <div class="list-group">&nbsp;Location</div>
+                        <div class="list-group">&nbsp;Location</div>
             <div class="filter-item-holder">
                 <div class="list-group-data-item lheight" >&nbsp;&nbsp;&nbsp;Locations Near Me</div>
                 <div class="list-group-data-item-1 lheight" >
@@ -851,9 +851,9 @@
 
         <div data-role="modalview" id="modalviewtype" style="height:80%;width:90%;border-radius:5px;" data-model="preLogin">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                <div data-click="closeTypeView" data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span >Restaurant Type</span>
-                    <a data-click="closeTypeView" data-role="button" data-align="right" data-animated="true">
+                    <a data-role="button" data-align="right" data-animated="true" id="second">
                         Go
                     </a>
                 </div>
@@ -1196,7 +1196,7 @@
         <script type="text/x-kendo-template" id="OfferFilter-Template">
             <label class="km-checkbox-label" >
                 ${desc}
-                <input type="checkbox" class="km-checkbox" id="${code}"  value="${code}"/>
+                <input type="checkbox"  id="${code}"  value="${code}"/>
 
             </label>
         </script>
@@ -1204,7 +1204,7 @@
         <script type="text/x-kendo-template" id="CelebrationFilter-Template">
             <label class="km-checkbox-label" >
                 ${desc}
-                <input type="checkbox" class="km-checkbox" id="${code}" value="${code}"/>
+                <input type="checkbox"  id="${code}" value="${code}"/>
 
             </label>
         </script>
@@ -1212,7 +1212,7 @@
         <script type="text/x-kendo-template" id="CuisineFilter-Template">
             <label class="km-checkbox-label" >
                 ${desc}
-                <input type="checkbox" class="km-checkbox" id="${code}"  value="${code}"/>
+                <input type="checkbox"  id="${code}"  value="${code}"/>
 
             </label>
         </script>
@@ -1220,7 +1220,7 @@
         <script type="text/x-kendo-template" id="RestFilter-Template">
             <label class="km-checkbox-label" >
                 ${desc}
-                <input type="checkbox" class="km-checkbox" id="${code}"  value="${code}"/>
+                <input type="checkbox"  id="${code}"  value="${code}"/>
 
             </label>
         </script>
@@ -1228,7 +1228,7 @@
         <script type="text/x-kendo-template" id="FAQ-Template">
             <label class="km-checkbox-label" >
                 ${faqitem}
-                <input type="checkbox" class="km-checkbox" id="${faqkey}"/>
+                <input type="checkbox"  id="${faqkey}"/>
 
             </label>
         </script>
