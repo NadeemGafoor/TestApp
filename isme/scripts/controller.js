@@ -1082,51 +1082,43 @@ function completeRedemption() {
                                            },
                                          
         
-                                           getOfferTypeData:function() {
+                                           getLifeStyleData:function() {
                                                var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
                                                
                                                $("#Offer-Filter").kendoMobileListView({
                                                                                           dataSource: dataSource,
-                                                                                          template: $("#Offer-Filter-Template").html()
+                                                                                          template: $("#OfferFilter-Template").html()
 
                                                                     
                                                                                       });
                                            },
-                                           getOfferTypeData1:function() {
-                                               var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
-                                               
-                                               $("#Offer-Filter1").kendoMobileListView({
-                                                                                           dataSource: dataSource,
-                                                                                           template: $("#Offer-Filter-Template1").html()
-
-                                                                    
-                                                                                       });
-                                           },
+                                           
                                            getCelebrationFilter:function() {
                                                var dataSource = new kendo.data.DataSource({ data: getOfferCeleberationData() });
                                                
                                                $("#Celebration-Filter").kendoMobileListView({
                                                                                                 dataSource: dataSource,
-                                                                                                template: $("#Celebration-Filter-Template").html()
+                                                                                                template: $("#CelebrationFilter-Template").html()
 
                                                                     
                                                                                             });
-                                           }
-        
-                                           getFilterCuisine:function() {
-                                               gct("#c-filter", "#cf-template"); 
-                                           },  
-    
-                                           getOfferTypeData:function() {
-                                               getLifeStylePref("#Offer-Filter", "#Offer-Filter-Template"); 
                                            },
-                                           getRestTypeFilter:function() {
-                                               getRestaurantType("#Type-Filter", "#TypeFilter-Template"); 
-                                           },
+          getRestTypeFilter:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getRestTypeData() });
+                                               
+                                               $("#RestType-Filter").kendoMobileListView({
+                                                                                                dataSource: dataSource,
+                                                                                                template: $("#RestFilter-Template").html()
 
+                                                                    
+                                                                                            });
+                                           },
+        
+                                         
                                             
                                            getFBUserData
                                            : function () {  
+                                               showSpin();
                                                //Check Login Status - If not logged in and user rejects then throw enrollment error
                                                //If not login then login - If user rejects then throw enrolment error
                                                //check if Id is already exists on isme then throw error
@@ -1135,6 +1127,7 @@ function completeRedemption() {
                                                if (window.localStorage.getItem("FBValidated")==="Y") {
                                                    navigator.notification.alert("You have already enrolled or validated your Facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your isme membership if already enrolled.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
+                                                   hideSpin();
                                                    return;
                                                }
                                                fbCleanVariables();
@@ -1146,9 +1139,11 @@ function completeRedemption() {
                                                        window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
                                                        window.localStorage.setItem("loginmode", "FB");
                                                        getFBUserData();
+                                                       hideSpin();
                                                    } else { 
                                                        navigator.notification.alert("Error accessing Facebook " + response.status, function() {
                                                        }, "isme by Jumeirah", "Dismiss");
+                                                       hideSpin();
                                                        return;
                                                    } 
                                                }); 
