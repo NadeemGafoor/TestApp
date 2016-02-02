@@ -1069,6 +1069,9 @@ function completeRedemption() {
                                            lastname:"",
                                            emailid:"",
                                            mobile:"",
+                                           outletFilterList:function(){
+                                               clearListFilter();
+                                           },
         
                                            getRestCuisineFilter:function() {
                                                
