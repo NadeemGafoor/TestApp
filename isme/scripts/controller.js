@@ -1069,10 +1069,9 @@ function completeRedemption() {
                                            lastname:"",
                                            emailid:"",
                                            mobile:"",
-                                                  getFilterCuisine:function() {
-                                           
-                                             gct("#c-filter", "#cf-template"); 
-                                          },  
+                                           getFilterCuisine:function() {
+                                               gct("#c-filter", "#cf-template"); 
+                                           },  
     
                                            getOfferTypeData:function() {
                                                getLifeStylePref("#Offer-Filter", "#Offer-Filter-Template"); 
@@ -1476,7 +1475,7 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
                                                                   m = getData.geolocation.split(",");  
-                                                                                                                                                                                                                                   
+                                                                  // alert(getData.imageurll);                                                                                                                                                                  
                                                                   lat = m[0];
                                                                   lon = m[1];
                                                                   document.getElementById("property-detail-div").style.display = "block";
@@ -1852,7 +1851,7 @@ function completeRedemption() {
                                                                   }
                                                               },
                                                               error: function (errormsg) {
-                                                                  navigator.notification.alert("Platform Error, Services may not be available111111111111111111111111111111111111111111. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                                  navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                   }, "isme by Jumeirah", "Dismiss")
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -1966,7 +1965,7 @@ function completeRedemption() {
                                                                       }
                                                                   },
                                                                   error: function (error) {
-                                                                      navigator.notification.alert("Platform Error, Services may not be available22222222222222222222222222. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function () {
+                                                                      navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function () {
                                                                       }, "isme by Jumeirah", "Dismiss")
                                                                   }
                                                               });
@@ -4169,62 +4168,56 @@ function completeRedemption() {
                                             fbLoginDA   
                                             : function () { 
                                                 showSpin();
-                                                facebookConnectPlugin.getLoginStatus(function (response) {
+                                        
+                                                facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                                     if (response.status === "connected") { 
                                                         m = JSON.parse(JSON.stringify(response));                                                       
                                                         window.localStorage.setItem("FBuserID", m.authResponse.userID);
                                                         window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
-                                                        linkFBUserZ();
+                                                        showSpin();
+                                                             
+                                                        $.ajax({ 
+                                                                   type: "POST",
+                                                                   cache:false,
+                                                                   async:true,
+                                                                   timeout:20000,
+                                                                   url: gurl + "/linkFBUser.aspx",
+                                                                   contentType: "application/json; charset=utf-8",
+                                                                   data: JSON.stringify({
+                                                                                            merchantcode :merchant,mdevice:mdevicestat,fbuserid:window.localStorage.getItem("FBuserID"),customer:customer,password:window.localStorage.getItem("password"),fbaccesstoken:window.localStorage.getItem("FBAccessToken")
+                                                                                        }),
+                                                                   success: function (data) { 
+                                                                       var getData = JSON.parse(data);
+                     
+                                                                       if (getData.statuscode === "000") {
+                                                                           window.localStorage.setItem("fbLoginModeEnabled", "Y");
+                                                                           navigator.notification.alert("The Facebook account on this device linked successfully to the Club Epicure membership.", function() {
+                                                                           }, "Club Epicure" , "Dismiss");     
+                                                                           hideSpin();
+                                                                       }else {
+                                                                           navigator.notification.alert("The Facebook account in this device is already linked to another Club Epicure membership.  cannot link Facebook to this account", function() {
+                                                                           }, "Club Epicure" , "Dismiss");  
+                                                                           hideSpin();
+                                                                       }
+                                                                   },
+                                                                   error: function (errormsg) {
+                                                                       navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
+                                                                       }, "Club Epicure" , "Dismiss");     
+                                                                       hideSpin();
+                                                                   }
+                                                               });
                                                     } else { 
-                                                        facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-                                                            if (response.status === "connected") { 
-                                                                m = JSON.parse(JSON.stringify(response));                                                       
-                                                                window.localStorage.setItem("FBuserID", m.authResponse.userID);
-                                                                window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
-                                                                linkFBUserZ();
-                                                            } else { 
-                                                                navigator.notification.alert("Error accessing Facebook " + response.status, function() {
-                                                                }, "isme by Jumeirah", "Dismiss");
-                                                                return;
-                                                            } 
-                                                        }); 
+                                                        navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+                                                        }, "Club Epicure", "Dismiss");
+                                                        return;
                                                     } 
-                                                });
+                                                }); 
+                                                
                                             }                 
                                             
                                         });  
     
-    function linkFBUserZ() {  
-        showSpin();
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/linkFBUser.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,fbuserid:window.localStorage.getItem("FBuserID"),customer:customer,password:password,fbaccesstoken:window.localStorage.getItem("FBAccessToken")
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                       if (getData.statuscode === "000") {
-                           navigator.notification.alert("The Facebook account on this device linked successfully to the isme membership.", function() {
-                           }, "isme By Jumeirah" , "Dismiss");     
-                           hideSpin();
-                       }else {
-                           navigator.notification.alert("The Facebook account in this device is already linked to another isme membership.  cannot link Facebook to this account", function() {
-                           }, "isme By Jumeirah" , "Dismiss");  
-                           hideSpin();
-                       }
-                   },
-                   error: function (errormsg) {
-                       navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
-                       }, "isme By Jumeirah" , "Dismiss");     
-                       hideSpin();
-                   }
-               });
-    }
+    
     
     function onConfirm2 (buttonIndex) {
         if (buttonIndex===1) {
