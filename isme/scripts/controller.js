@@ -1070,7 +1070,7 @@ function completeRedemption() {
                                            emailid:"",
                                            mobile:"",
         
-           getRestCuisineFilter:function() {
+                                           getRestCuisineFilter:function() {
                                                var dataSource = new kendo.data.DataSource({ data: getRestCuisineData() });
                                                
                                                $("#Cuisine-Filter").kendoMobileListView({
@@ -1103,15 +1103,15 @@ function completeRedemption() {
                                                                     
                                                                                             });
                                            },
-          getRestTypeFilter:function() {
+                                           getRestTypeFilter:function() {
                                                var dataSource = new kendo.data.DataSource({ data: getRestTypeData() });
                                                
                                                $("#RestType-Filter").kendoMobileListView({
-                                                                                                dataSource: dataSource,
-                                                                                                template: $("#RestFilter-Template").html()
+                                                                                             dataSource: dataSource,
+                                                                                             template: $("#RestFilter-Template").html()
 
                                                                     
-                                                                                            });
+                                                                                         });
                                            },
         
                                          
@@ -1156,21 +1156,32 @@ function completeRedemption() {
                                            fbLoginD
                                            : function () { 
                                                showSpin();
-                                               facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-                                                   if (response.status === "connected") { 
+                                               
+                                               facebookConnectPlugin.getLoginStatus(function(response) { 
+                                                   if (response.status === "connected") {
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
                                                        window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
                                                        window.localStorage.setItem("loginmode", "FB");
                                                        preLogin.validateUser();
                                                    } else { 
-                                                       navigator.notification.alert("Error accessing Facebook " + response.status, function() {
-                                                       }, "isme by Jumeirah", "Dismiss");
-                                                       hideSpin();
-                                                       return;
+                                                       facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                           if (response.status === "connected") { 
+                                                               m = JSON.parse(JSON.stringify(response));                                                       
+                                                               window.localStorage.setItem("FBuserID", m.authResponse.userID);
+                                                               window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
+                                                               window.localStorage.setItem("loginmode", "FB");
+                                                               preLogin.validateUser();
+                                                           } else { 
+                                                               navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+                                                               }, "isme by Jumeirah", "Dismiss");
+                                                               hideSpin();
+                                                               return;
+                                                           } 
+                                                       }); 
                                                    } 
-                                               }); 
-                                           } 
+                                               });
+                                           }
                                             
                                            , 
 
@@ -4253,12 +4264,9 @@ function completeRedemption() {
                                                         return;
                                                     } 
                                                 }); 
-                                                
                                             }                 
                                             
                                         });  
-    
-    
     
     function onConfirm2 (buttonIndex) {
         if (buttonIndex===1) {
@@ -5704,7 +5712,7 @@ function completeRedemption() {
         //$("body").data("kendoMobilePane").navigate("#:back");
     }
     
-      function getRestTypeData() {
+    function getRestTypeData() {
         var data = [];
         data.push({code: "1000",desc:"Award Winning"});
         data.push({code: "1001",desc:"Bar/Lounge"});
@@ -5725,8 +5733,6 @@ function completeRedemption() {
            
         return data;
     }
-
-
     
     function getRestCuisineData() {
         var data = [];
@@ -5749,8 +5755,6 @@ function completeRedemption() {
            
         return data;
     }
-    
-
 
     function getOfferTypeData() {
         var data = [];
@@ -5785,7 +5789,6 @@ function completeRedemption() {
            
         return data;
     }
-
     
     function getOfferCeleberationData() {
         var data = [];
