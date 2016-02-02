@@ -1071,6 +1071,7 @@ function completeRedemption() {
                                            mobile:"",
         
                                            getRestCuisineFilter:function() {
+                                               
                                                var dataSource = new kendo.data.DataSource({ data: getRestCuisineData() });
                                                
                                                $("#Cuisine-Filter").kendoMobileListView({
@@ -1083,6 +1084,7 @@ function completeRedemption() {
                                          
         
                                            getLifeStyleData:function() {
+                                               
                                                var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
                                                
                                                $("#Offer-Filter").kendoMobileListView({
