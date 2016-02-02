@@ -1112,7 +1112,7 @@ function completeRedemption() {
 
                                                                     
                                                                                          });
-                                           },
+                                           },    
         
                                          
                                             
