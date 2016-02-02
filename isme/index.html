@@ -812,28 +812,28 @@
             <div class="filter-item-holder">
                 <a data-click="loadCeleberationTypeView" data-role="button">
                     <div class="list-group-data-item">Select Celebration Type...</div>
-                    <div class="list-group-data-item-1">All</div>
+                    <div class="list-group-data-item-1" id="ocelebration">All</div>
                 </a>
             </div>
             <div class="list-group">&nbsp;Cuisine Type</div>
             <div class="filter-item-holder">
                 <a data-click="loadCuisineView" data-role="button">
                     <div class="list-group-data-item">Select Cuisine...</div>
-                    <div class="list-group-data-item-1">All</div>
+                    <div class="list-group-data-item-1" id="ocuisine">All</div>
                 </a>
             </div>
             <div class="list-group">&nbsp;Offer Type</div>
             <div class="filter-item-holder">
                 <a data-click="loadOfferView" data-role="button">
                     <div class="list-group-data-item">Select Offer Type...</div>
-                    <div class="list-group-data-item-1">All</div>
+                    <div class="list-group-data-item-1" id="olifestyle">All</div>
                 </a>
             </div>
 
         </div>
         
         
-             <div data-role="modalview" id="modalviewcuisine" style="height:80%;width:90%;border-radius:5px">
+             <div data-role="modalview" id="modalviewcuisine" style="height:80%;width:90%;border-radius:5px" data-model="preLogin">
 	            <div data-role="header">
 	                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
 	                    <span >Select Cuisine</span>
@@ -843,7 +843,7 @@
 	                </div>
 	            </div>
 	           
-	            <ul id="c-filter"  data-bind="value:getFilterCuisine">  
+	            <ul id="Cuisine-Filter"  data-bind="value:getRestCuisineFilter">  
 	            </ul>
 	
 	        </div>

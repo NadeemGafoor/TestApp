@@ -1069,6 +1069,50 @@ function completeRedemption() {
                                            lastname:"",
                                            emailid:"",
                                            mobile:"",
+        
+           getRestCuisineFilter:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getRestCuisineData() });
+                                               
+                                               $("#Cuisine-Filter").kendoMobileListView({
+                                                                                            dataSource: dataSource,
+                                                                                            template: $("#CuisineFilter-Template").html()
+
+                                                                    
+                                                                                        });
+                                           },
+                                         
+        
+                                           getOfferTypeData:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
+                                               
+                                               $("#Offer-Filter").kendoMobileListView({
+                                                                                          dataSource: dataSource,
+                                                                                          template: $("#Offer-Filter-Template").html()
+
+                                                                    
+                                                                                      });
+                                           },
+                                           getOfferTypeData1:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getOfferTypeData() });
+                                               
+                                               $("#Offer-Filter1").kendoMobileListView({
+                                                                                           dataSource: dataSource,
+                                                                                           template: $("#Offer-Filter-Template1").html()
+
+                                                                    
+                                                                                       });
+                                           },
+                                           getCelebrationFilter:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getOfferCeleberationData() });
+                                               
+                                               $("#Celebration-Filter").kendoMobileListView({
+                                                                                                dataSource: dataSource,
+                                                                                                template: $("#Celebration-Filter-Template").html()
+
+                                                                    
+                                                                                            });
+                                           }
+        
                                            getFilterCuisine:function() {
                                                gct("#c-filter", "#cf-template"); 
                                            },  
@@ -1696,7 +1740,7 @@ function completeRedemption() {
                                                       });
                                            },
         
-                                           showOfferItem
+                                           showdesc
                                            : function (e) {
                                                offercode = e.view.params.cpn; //offer code for single offer inquiry
                                                offertype = "2"; //single offer inquiry
@@ -2817,7 +2861,7 @@ function completeRedemption() {
                                                        });
                                             },
         
-                                            showOfferItem
+                                            showdesc
                                             : function (e) {
                                                 offercode = e.view.params.cpn; //offer code for single offer inquiry
                                                 offertype = "2"; //single offer inquiry
@@ -5661,6 +5705,108 @@ function completeRedemption() {
                                                        'href': '#views/pl-home.html'
                                                    });
         //$("body").data("kendoMobilePane").navigate("#:back");
+    }
+    
+      function getRestTypeData() {
+        var data = [];
+        data.push({code: "1000",desc:"Award Winning"});
+        data.push({code: "1001",desc:"Bar/Lounge"});
+        data.push({code: "1002",desc:"Casual Dining"});
+        data.push({code: "1003",desc:"Corporate/Business"});
+        data.push({code: "1004",desc:"Family Dining"});
+        data.push({code: "1005",desc:"OpenAir Dining"});
+        data.push({code: "1006",desc:"Romantic Dining"});
+        data.push({code: "1007",desc:"Scenic View"});
+        data.push({code: "1006",desc:"Romantic Dining"});
+        data.push({code: "1009",desc:"Spa"});
+        data.push({code: "1008",desc:"Theme Park"});
+        data.push({code: "1010",desc:"Night life/Night Club"});
+        data.push({code: "1012",desc:"Cafe or Bistro"});
+        data.push({code: "1011",desc:"Sports Bar"});
+        data.push({code: "1013",desc:"Cocktail Bar"});
+        data.push({code: "1014",desc:"Signature Fine Dining"});           
+           
+        return data;
+    }
+
+
+    
+    function getRestCuisineData() {
+        var data = [];
+        data.push({code: "1008",desc:"African"});
+        data.push({code: "1000",desc:"Afternoon Tea"});
+        data.push({code: "1001",desc:"Asian"});
+        data.push({code: "1002",desc:"Bar food"});
+        data.push({code: "1016",desc:"Brunch"});    
+        data.push({code: "1014",desc:"Business Lunch"});         
+        data.push({code: "1007",desc:"European"});
+        data.push({code: "1009",desc:"Healthy"});         
+        data.push({code: "1003",desc:"International"});
+        data.push({code: "1004",desc:"Latin American"});
+        data.push({code: "1010",desc:"Light Bites"});
+        data.push({code: "1013",desc:"Middle Eastern"});
+        data.push({code: "1011",desc:"Patisserie"});
+        data.push({code: "1005",desc:"Seafood"});
+        data.push({code: "1006",desc:"Steakhouse"});
+        data.push({code: "1012",desc:"Vegetarian"});
+           
+        return data;
+    }
+    
+
+
+    function getOfferTypeData() {
+        var data = [];
+        data.push({code: "1007",desc:"Art & Culture"});
+        data.push({code: "1008",desc:"Beach"});
+        data.push({code: "1022",desc:"Beauty"});
+        data.push({code: "1004",desc:"Brunch"});
+        data.push({code: "1006",desc:"Family & Kids"});    
+        data.push({code: "1020",desc:"Fashion"});         
+        data.push({code: "1010",desc:"Fine Dining"});
+        data.push({code: "1017",desc:"Football"});         
+        data.push({code: "1025",desc:"Gadgets"});
+        data.push({code: "1015",desc:"Golf"});         
+        data.push({code: "1011",desc:"Grape Tasting"});
+        data.push({code: "1016",desc:"Horse Racing"});
+        data.push({code: "1001",desc:"Leisure"});
+        data.push({code: "1028",desc:"Live music"});
+        data.push({code: "1024",desc:"Luxury Goods"});
+        data.push({code: "1019",desc:"Motor Sports"});
+        data.push({code: "1026",desc:"Networking"});
+        data.push({code: "1012",desc:"No alcohol"});
+        data.push({code: "1018",desc:"Rugby"});
+        data.push({code: "1021",desc:"Shopping"});
+        data.push({code: "1003",desc:"Signature Events"});
+        data.push({code: "1000",desc:"Spa / Fitness"});
+        data.push({code: "1005",desc:"Special Holiday Offers"});
+        data.push({code: "1009",desc:"Travel & Stay Packages"});
+        data.push({code: "1002",desc:"Watersports"});
+        data.push({code: "1014",desc:"Weight loss"});
+        data.push({code: "1013",desc:"Wellness & Wellbeing"});
+        data.push({code: "1023",desc:"Yoga"});
+           
+        return data;
+    }
+
+    
+    function getOfferCeleberationData() {
+        var data = [];
+        data.push({code: "1000",desc:"Birthdays"});
+        data.push({code: "1012",desc:"Corporate entertainment"});
+        data.push({code: "1007",desc:"Easter celebrations"});
+        data.push({code: "1009",desc:"Eid celebrations"});
+        data.push({code: "1006",desc:"Father`s day"});    
+        data.push({code: "1005",desc:"Festive"});         
+        data.push({code: "1004",desc:"Mothers day"});
+        data.push({code: "1008",desc:"Ramadan"});         
+        data.push({code: "1011",desc:"Thanks giving day"});
+        data.push({code: "1010",desc:"UAE National Day"});         
+        data.push({code: "1003",desc:"Valentines"});
+        data.push({code: "1001",desc:"Wedding Anniversary"});
+        data.push({code: "1002",desc:"Women`s Day"});
+           
+        return data;
     }
 }
     )(window);
