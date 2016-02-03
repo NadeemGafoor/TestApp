@@ -299,7 +299,7 @@ function loadFilterView() {
 } 
 
 //function loadLocationView() {
- //   $("#modalviewcountry").data("kendoMobileModalView").open();
+//   $("#modalviewcountry").data("kendoMobileModalView").open();
 //}
 
 function loadCuisineView() {
@@ -311,7 +311,7 @@ function loadOfferView() {
 }
 
 //function closeOfferTypeView() {
- //   $("#modalviewoffertype").data("kendoMobileModalView").close();
+//   $("#modalviewoffertype").data("kendoMobileModalView").close();
 //}
 
 function loadTypeView() {
@@ -331,7 +331,7 @@ function loadTypeView() {
 //}
 
 //function closeCuisineView() {
- //   $("#modalviewcuisine").data("kendoMobileModalView").close();
+//   $("#modalviewcuisine").data("kendoMobileModalView").close();
 //}
 
 //function closeTypeView() {
@@ -343,7 +343,7 @@ function offerFilterView() {
 }
 
 //function closeOfferFilterView() {
- //   $("#modalviewofferfilter").data("kendoMobileModalView").close();
+//   $("#modalviewofferfilter").data("kendoMobileModalView").close();
 //} 
 
 function historyFilterView() {
@@ -359,7 +359,7 @@ function loadCeleberationTypeView() {
 }
 
 ///function closeCeleberationTypeView() {
- //   $("#modalviewceleberationtype").data("kendoMobileModalView").close();
+//   $("#modalviewceleberationtype").data("kendoMobileModalView").close();
 //}
 
 function shareClick() {
@@ -1035,66 +1035,51 @@ function completeRedemption() {
     function clearListFilter() {
         //clear Locations Near Me
         window.localStorage.setItem("distance", "");
-        document.getElementById("olocation").checked=false;
+        document.getElementById("olocation").checked = false;
       
         //Clear Restaurant Filter
-           window.localStorage.setItem("restaurant", ""); 
-           document.getElementById("orestauranttype").innerHTML = "All";        
-           ul = document.getElementById("RestType-Filter");
-           items = ul.getElementsByTagName("input");                                    
-           
+        window.localStorage.setItem("restaurant", ""); 
+        document.getElementById("orestauranttype").innerHTML = "All";        
+        ul = document.getElementById("RestType-Filter");
+        items = ul.getElementsByTagName("input");                                    
 
-                                               //check where checked
-                                               for (i = 0; i < items.length; i++) {
-                                                  
-                                                   items[i].checked=false;
-                                             
-                                               }
+        //check where checked
+        for (i = 0; i < items.length; i++) {
+            items[i].checked = false;
+        }
         
-        
-            //Clear Cuisine Filter
-           window.localStorage.setItem("cuisine", ""); 
-           document.getElementById("ocuisine").innerHTML = "All";        
-           ul = document.getElementById("Cuisine-Filter");
-           items = ul.getElementsByTagName("input");                                    
-           
+        //Clear Cuisine Filter
+        window.localStorage.setItem("cuisine", ""); 
+        document.getElementById("ocuisine").innerHTML = "All";        
+        ul = document.getElementById("Cuisine-Filter");
+        items = ul.getElementsByTagName("input");                                    
 
-                                               //check where checked
-                                               for (i = 0; i < items.length; i++) {
-                                                  
-                                                   items[i].checked=false;
-                                             
-                                               }
+        //check where checked
+        for (i = 0; i < items.length; i++) {
+            items[i].checked = false;
+        }
         
-          //Clear Celebration Filter
-           window.localStorage.setItem("celebration", ""); 
-           document.getElementById("ocelebration").innerHTML = "All";        
-           ul = document.getElementById("Celebration-Filter");
-           items = ul.getElementsByTagName("input");                                    
-           
+        //Clear Celebration Filter
+        window.localStorage.setItem("celebration", ""); 
+        document.getElementById("ocelebration").innerHTML = "All";        
+        ul = document.getElementById("Celebration-Filter");
+        items = ul.getElementsByTagName("input");                                    
 
-                                               //check where checked
-                                               for (i = 0; i < items.length; i++) {
-                                                  
-                                                   items[i].checked=false;
-                                             
-                                               }
+        //check where checked
+        for (i = 0; i < items.length; i++) {
+            items[i].checked = false;
+        }
         
-          //Clear Life Style Filter
-           window.localStorage.setItem("lifestyle", ""); 
-           document.getElementById("olifestyle").innerHTML = "All";        
-           ul = document.getElementById("Offer-Filter");
-           items = ul.getElementsByTagName("input");                                    
-           
+        //Clear Life Style Filter
+        window.localStorage.setItem("lifestyle", ""); 
+        document.getElementById("olifestyle").innerHTML = "All";        
+        ul = document.getElementById("Offer-Filter");
+        items = ul.getElementsByTagName("input");                                    
 
-                                               //check where checked
-                                               for (i = 0; i < items.length; i++) {
-                                                  
-                                                   items[i].checked=false;
-                                             
-                                               }
-        
-        
+        //check where checked
+        for (i = 0; i < items.length; i++) {
+            items[i].checked = false;
+        }
     }
        
     window.preLogin = kendo.observable({
@@ -1125,29 +1110,34 @@ function completeRedemption() {
                                            lastname:"",
                                            emailid:"",
                                            mobile:"",
-        checklocation:false,
-        checkrestaurant:false,
-checkcuisine:false,
-        checkcelebration:false,
-        checklifestyle:false,
+                                           checklocation:false,
+                                           checkrestaurant:false,
+                                           checkcuisine:false,
+                                           checkcelebration:false,
+                                           checklifestyle:false,
         
         
-           queryRewardFilter:function() {
-                                              // alert(window.localStorage.getItem("lifestyle"));                                                
-                                              // alert(window.localStorage.getItem("restaurant"));   
+                                           queryRewardFilter:function() {
+                                               // alert(window.localStorage.getItem("lifestyle"));                                                
+                                               // alert(window.localStorage.getItem("restaurant"));   
                                                //alert(window.localStorage.getItem("cuisine")); 
-                                              // alert(window.localStorage.getItem("celebration")); 
-                                              // alert(window.localStorage.getItem("distance")); 
+                                               // alert(window.localStorage.getItem("celebration")); 
+                                               // alert(window.localStorage.getItem("distance")); 
                                                $("#modalviewofferfilter").data("kendoMobileModalView").close();
+                                               if (window.localStorage.getItem("appopen")==="80") {
+                                                   preLogin.showAllOutlet;
+                                               } else if (window.localStorage.getItem("appopen")==="81") {
+                                                   preLogin.showAllLeisure;
+                                               }
                                            },
 
                                            queryOutletFilter:function() {
-                                               if(document.getElementById("olocation").checked){
+                                               if (document.getElementById("olocation").checked) {
                                                    window.localStorage.setItem("distance", "1"); 
-                                                   }else{
-                                                       window.localStorage.setItem("distance", ""); 
-                                                   }
-                                                getlocationparams();
+                                               }else {
+                                                   window.localStorage.setItem("distance", ""); 
+                                               }
+                                               getlocationparams();
                                                $("#modalviewfilter").data("kendoMobileModalView").close();
                                            },
         
@@ -1631,7 +1621,7 @@ checkcuisine:false,
         
                                            showAllOutlet
                                            : function (e) {
-                                                window.localStorage.setItem("appopen", "80");   
+                                               window.localStorage.setItem("appopen", "80");   
                                                showSpin(); 
                                                //window.localStorage.setItem("brandcode", e.view.params.brand);
                                                window.localStorage.setItem("category", e.view.params.category);
@@ -1679,6 +1669,7 @@ checkcuisine:false,
                                            showAllLeisure
                                            : function (e) {
                                                showSpin(); 
+                                               window.localStorage.setItem("appopen", "81");   
                                                //window.localStorage.setItem("brandcode", e.view.params.brand);
                                                window.localStorage.setItem("category", e.view.params.category);
                                                //alert(window.localStorage.getItem("brandcode"));
@@ -5115,17 +5106,14 @@ checkcuisine:false,
     }
     
     function getlocationparams() {
-   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-            window.localStorage.setItem("latl",position.coords.latitude);                                  
-             window.localStorage.setItem("lonl",position.coords.longitude);            
+        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+            window.localStorage.setItem("latl", position.coords.latitude);                                  
+            window.localStorage.setItem("lonl", position.coords.longitude);            
         }
                                                  , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
-                                                     
+                                                     showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
                                                  });
     }
-
-   
     
     function meWatchPos(position) {
         //Check whether GPS enabled
