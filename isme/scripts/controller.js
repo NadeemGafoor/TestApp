@@ -1077,9 +1077,15 @@ function completeRedemption() {
                                                var vclose = "')";
                                                ul = document.getElementById("RestType-Filter");
                                                items = ul.getElementsByTagName("input");
-                                                
+                                              
+                                               window.localStorage.setItem("restaurant", ""); 
+                                                document.getElementById("orestauranttype").innerHTML = "All";
+                                      
+
+                                               //check where checked
                                                for (i = 0; i < items.length; i++) {
                                                    y = items[i].checked ? "1" : "0";
+                                                   
                                                    if (y === "1") {
                                                        if (x===1) {
                                                            itemconcat = vopen + items[i].value;
@@ -1087,17 +1093,116 @@ function completeRedemption() {
                                                            itemconcat = itemconcat + "','" + items[i].value;
                                                        }
                                                        x++;
-                                                   }  
+                                                   }
                                                }
                                                
                                                if (x > 1) {
                                                    itemconcat = itemconcat + vclose;
+                                                   window.localStorage.setItem("restaurant", itemconcat);
                                                    document.getElementById("orestauranttype").innerHTML = "Filter";
-                                                   window.localStorage.setItem("restaurant", itemconcat);    
+                                                     
                                                }
                                                alert(window.localStorage.getItem("restaurant"));   
                                                $("#modalviewtype").data("kendoMobileModalView").close();
                                            },
+        
+          cuisineCritFilter:function() {
+                                               //Cuisine Type Filter
+                                               var itemconcat = "";
+                                               var x = 1;
+                                               var vopen = "('";
+                                               var vclose = "')";
+                                               ul = document.getElementById("Cuisine-Filter");
+                                               items = ul.getElementsByTagName("input");
+                                                document.getElementById("ocuisine").innerHTML = "All";                                              
+                                               window.localStorage.setItem("cuisine", ""); 
+                                               //check where checked
+                                               for (i = 0; i < items.length; i++) {
+                                                   y = items[i].checked ? "1" : "0";
+                                                   
+                                                   if (y === "1") {
+                                                       if (x===1) {
+                                                           itemconcat = vopen + items[i].value;
+                                                       }else {
+                                                           itemconcat = itemconcat + "','" + items[i].value;
+                                                       }
+                                                       x++;
+                                                   }
+                                               }
+                                               if (x > 1) {
+                                                   itemconcat = itemconcat + vclose;
+                                                   document.getElementById("ocuisine").innerHTML = "Filter";
+                                                   window.localStorage.setItem("cuisine", itemconcat);    
+                                               }
+                                               alert(window.localStorage.getItem("cuisine"));   
+                                               $("#modalviewcuisine").data("kendoMobileModalView").close();
+                                           },
+        
+        
+          celebrationCritFilter:function() {
+                                               //Celebration Type Filter
+                                               var itemconcat = "";
+                                               var x = 1;
+                                               var vopen = "('";
+                                               var vclose = "')";
+                                               ul = document.getElementById("Celebration-Filter");
+                                               items = ul.getElementsByTagName("input");
+                                                document.getElementById("ocelebration").innerHTML = "All";                                              
+                                               window.localStorage.setItem("celebration", ""); 
+                                               //check where checked
+                                               for (i = 0; i < items.length; i++) {
+                                                   y = items[i].checked ? "1" : "0";
+                                                   
+                                                   if (y === "1") {
+                                                       if (x===1) {
+                                                           itemconcat = vopen + items[i].value;
+                                                       }else {
+                                                           itemconcat = itemconcat + "','" + items[i].value;
+                                                       }
+                                                       x++;
+                                                   }
+                                               }
+                                               if (x > 1) {
+                                                   itemconcat = itemconcat + vclose;
+                                                   document.getElementById("ocelebration").innerHTML = "Filter";
+                                                   window.localStorage.setItem("celebration", itemconcat);    
+                                               }
+                                               alert(window.localStorage.getItem("celebration"));   
+                                               $("#modalviewceleberationtype").data("kendoMobileModalView").close();
+                                           },
+        
+         lifestyleCritFilter:function() {
+                                               //Lifestyle Type Filter
+                                               var itemconcat = "";
+                                               var x = 1;
+                                               var vopen = "('";
+                                               var vclose = "')";
+                                               ul = document.getElementById("Offer-Filter");
+                                               items = ul.getElementsByTagName("input");
+                                                document.getElementById("olifestyle").innerHTML = "All";                                              
+                                               window.localStorage.setItem("lifestyle", ""); 
+                                               //check where checked
+                                               for (i = 0; i < items.length; i++) {
+                                                   y = items[i].checked ? "1" : "0";
+                                                   
+                                                   if (y === "1") {
+                                                       if (x===1) {
+                                                           itemconcat = vopen + items[i].value;
+                                                       }else {
+                                                           itemconcat = itemconcat + "','" + items[i].value;
+                                                       }
+                                                       x++;
+                                                   }
+                                               }
+                                               if (x > 1) {
+                                                   itemconcat = itemconcat + vclose;
+                                                   document.getElementById("olifestyle").innerHTML = "Filter";
+                                                   window.localStorage.setItem("lifestyle", itemconcat);    
+                                               }
+                                               alert(window.localStorage.getItem("lifestyle"));   
+                                               $("#modalviewoffertype").data("kendoMobileModalView").close();
+                                           },
+        
                                            outletFilterList:function() {
                                                clearListFilter();
                                            },

@@ -756,7 +756,7 @@
             <div data-role="header" >
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span >Filters</span>
-                    <a id="last" data-role="button" data-align="right" data-animated="true" data-bind="click:restaurantCritFilter" >
+                    <a id="last" data-role="button" data-align="right" data-animated="true" >
                         Go
                     </a>
                 </div>
@@ -837,7 +837,7 @@
 	            <div data-role="header">
 	                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
 	                    <span >Select Cuisine</span>
-	                    <a data-click="closeCuisineView" data-role="button" data-align="right" data-animated="true">
+	                    <a  data-role="button" data-align="right" data-animated="true" data-bind="click:cuisineCritFilter">
 	                        Go
 	                    </a>
 	                </div>
@@ -851,9 +851,9 @@
 
         <div data-role="modalview" id="modalviewtype" style="height:80%;width:90%;border-radius:5px;" data-model="preLogin">
             <div data-role="header">
-                <div data-click="closeTypeView" data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                <div  data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span >Restaurant Type</span>
-                    <a data-role="button" data-align="right" data-animated="true" id="second">
+                    <a data-role="button" data-align="right" data-animated="true" data-bind="click:restaurantCritFilter">
                         Go
                     </a>
                 </div>
@@ -869,7 +869,7 @@
             <div data-role="header" style="background-color:#4f5053">
                 <div data-role="navbar">
                     <span >Celebration Type</span>
-                    <a data-click="closeCeleberationTypeView" data-role="button" data-align="right" data-animated="true">
+                    <a data-role="button" data-align="right" data-animated="true" data-bind="click:celebrationCritFilter">
                         Go
                     </a>
                 </div>
@@ -884,7 +884,7 @@
 	            <div data-role="header">
 	                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
 	                    <span >Offer Type</span>
-	                    <a data-click="closeOfferTypeView" data-role="button" data-align="right" data-animated="true">
+	                    <a data-role="button" data-align="right" data-animated="true" data-bind="click:lifestyleCritFilter">
 	                        Go
 	                    </a>
 	                </div>
