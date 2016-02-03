@@ -1049,14 +1049,13 @@ function completeRedemption() {
            window.localStorage.setItem("restaurant", ""); 
            document.getElementById("orestauranttype").innerHTML = "All";        
            ul = document.getElementById("RestType-Filter");
-           items = ul.getElementsByTagName("input");                               
+           items = ul.getElementsByTagName("input");                                    
            
 
                                                //check where checked
                                                for (i = 0; i < items.length; i++) {
                                                   
                                                    items[i].checked=false;
-                                                   alert(i);
                                              
                                                }
     }
