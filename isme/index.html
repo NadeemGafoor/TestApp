@@ -765,7 +765,7 @@
             <div class="filter-item-holder">
                 <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Locations Near Me</div>
                 <div class="list-group-data-item-1 lheight" >
-                    <input type="checkbox" id="olocationnearme"/>
+                    <input type="checkbox" id="olocation" data-bind="text:checklocation"/>
                 </div>
             </div>
             <div class="list-group">&nbsp;Restaurant Type</div>
@@ -805,7 +805,7 @@
             <div class="filter-item-holder">
                 <div class="list-group-data-item lheight" >&nbsp;&nbsp;&nbsp;Locations Near Me</div>
                 <div class="list-group-data-item-1 lheight" >
-                    <input type="checkbox" class="km-checkbox" id="olocation" value="1"/>
+                    <input type="checkbox" class="km-checkbox" id="olocation1" value="1"/>
                 </div>
             </div>
             <div class="list-group">&nbsp;Celebration Type</div>
@@ -1196,7 +1196,7 @@
         <script type="text/x-kendo-template" id="OfferFilter-Template">
             <label class="km-checkbox-label" >
                 ${desc}
-                <input type="checkbox"  id="${code}"  value="${code}"/>
+                <input type="checkbox"  id="${code}"  value="${code}" data-bind="text:checklifestyle"/>
 
             </label>
         </script>
@@ -1204,7 +1204,7 @@
         <script type="text/x-kendo-template" id="CelebrationFilter-Template">
             <label class="km-checkbox-label" >
                 ${desc}
-                <input type="checkbox"  id="${code}" value="${code}"/>
+                <input type="checkbox"  id="${code}" value="${code}" data-bind="text:checkcelebration"/>
 
             </label>
         </script>
@@ -1212,7 +1212,7 @@
         <script type="text/x-kendo-template" id="CuisineFilter-Template">
             <label class="km-checkbox-label" >
                 ${desc}
-                <input type="checkbox"  id="${code}"  value="${code}"/>
+                <input type="checkbox"  id="${code}"  value="${code}" data-bind="text:checkcuisine"/>
 
             </label>
         </script>
@@ -1220,7 +1220,7 @@
         <script type="text/x-kendo-template" id="RestFilter-Template">
             <label class="km-checkbox-label" >
                 ${desc}
-                <input type="checkbox"  id="${code}"  value="${code}"/>
+                <input type="checkbox"  id="${code}"  value="${code}" data-bind="text:checkrestaurant"/>
 
             </label>
         </script>

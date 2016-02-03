@@ -1033,16 +1033,24 @@ function completeRedemption() {
     }
     
     function clearListFilter() {
-       // alert("Clear Filter");
+        //clear Locations Near Me
+        window.localStorage.setItem("distance", "");
+        window.localStorage.setItem("restaurant", ""); 
         window.localStorage.setItem("lifestyle", "");
-        window.localStorage.setItem("restaurant", "");
         window.localStorage.setItem("celebration", "");
         window.localStorage.setItem("cuisine", "");
-        window.localStorage.setItem("distance", "");
-        document.getElementById("orestauranttype").innerHTML = "All";
+     
         document.getElementById("ocuisine").innerHTML = "All";
         document.getElementById("ocelebration").innerHTML = "All";
-        document.getElementById("olifestyle").innerHTML = "All";
+        document.getElementById("olifestyle").innerHTML = "All";  
+        document.getElementById("orestauranttype").innerHTML = "All";             
+        
+        preLogin.set("checklocation",false);
+        preLogin.set("checkrestaurant",false);
+        preLogin.set("checkcuisine",false);
+        preLogin.set("checkcelebration",false);
+        preLogin.set("checklifestyle",false);
+       
     }
        
     window.preLogin = kendo.observable({
@@ -1073,6 +1081,12 @@ function completeRedemption() {
                                            lastname:"",
                                            emailid:"",
                                            mobile:"",
+        checklocation:false,
+        checkrestaurant:false,
+checkcuisine:false,
+        checkcelebration:false,
+        checklifestyle:false,
+        
         
            queryRewardFilter:function() {
                                               // alert(window.localStorage.getItem("lifestyle"));                                                
@@ -1084,17 +1098,19 @@ function completeRedemption() {
                                            },
 
                                            queryOutletFilter:function() {
-                                               if (document.getElementById("olocation").checked) {
-                                                   window.localStorage.setItem("distance", document.getElementById("olocation").value); 
-                                                   alert(document.getElementById("olocation").value);
-                                               }else {
-                                                   window.localStorage.setItem("distance", "");     
-                                               }
+                                               //alert(document.getElementById("olocation").checked);
+                                               if(document.getElementById("olocation").checked){
+                                                   window.localStorage.setItem("distance", "1"); 
+                                                   }else{
+                                                       window.localStorage.setItem("distance", ""); 
+                                                   }
+
+
                                                
                                               // alert(window.localStorage.getItem("restaurant"));   
-                                               //alert(window.localStorage.getItem("cuisine")); 
-                                              // alert(window.localStorage.getItem("celebration")); 
-                                              // alert(window.localStorage.getItem("distance")); 
+                                              // alert(window.localStorage.getItem("cuisine")); 
+                                             // alert(window.localStorage.getItem("celebration")); 
+                                         //alert(window.localStorage.getItem("distance")); 
                                                $("#modalviewfilter").data("kendoMobileModalView").close();
                                            },
         
