@@ -1124,14 +1124,13 @@ function completeRedemption() {
                                                // alert(window.localStorage.getItem("celebration")); 
                                                // alert(window.localStorage.getItem("distance")); 
                                                $("#modalviewofferfilter").data("kendoMobileModalView").close();
-                                               if (window.localStorage.getItem("appopen")==="80") {
-                                                   preLogin.showAllOutlet;
-                                               } else if (window.localStorage.getItem("appopen")==="81") {
-                                                   preLogin.showAllLeisure;
-                                               }
+                                         
                                            },
 
-                                           queryOutletFilter:function() {
+                                           queryOutletFilter:function(e) {
+                                                 alert(window.localStorage.getItem("category"));    
+                                               window.localStorage.setItem("category", e.view.params.category);    
+                                               window.localStorage.setItem("appopen", e.view.params.appopen);    
                                                if (document.getElementById("olocation").checked) {
                                                    window.localStorage.setItem("distance", "1"); 
                                                }else {
@@ -1139,6 +1138,14 @@ function completeRedemption() {
                                                }
                                                getlocationparams();
                                                $("#modalviewfilter").data("kendoMobileModalView").close();
+                                                     alert(window.localStorage.getItem("appopen"));
+                                               if (window.localStorage.getItem("appopen")==="80") {
+                                                   alert("Here");
+                                                   preLogin.showAllOutlet();
+                                               } else if (window.localStorage.getItem("appopen")==="81") {
+                                                    alert("Here12");
+                                                   preLogin.showAllLeisure();
+                                               }
                                            },
         
                                            restaurantCritFilter:function() {
@@ -1622,9 +1629,8 @@ function completeRedemption() {
                                            showAllOutlet
                                            : function (e) {
                                                window.localStorage.setItem("appopen", "80");   
-                                               showSpin(); 
-                                               //window.localStorage.setItem("brandcode", e.view.params.brand);
-                                               window.localStorage.setItem("category", e.view.params.category);
+                                               showSpin();     
+                                               //window.localStorage.setItem("brandcode", e.view.params.brand);                        
                                                //alert(window.localStorage.getItem("brandcode"));
                                                $.ajax({ 
                                                           type: "POST",
