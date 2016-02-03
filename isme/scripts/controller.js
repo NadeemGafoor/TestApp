@@ -1037,7 +1037,6 @@ function completeRedemption() {
         window.localStorage.setItem("restaurant", "");
         window.localStorage.setItem("celebration", "");
         window.localStorage.setItem("cuisine", "");
-        window.localStorage.setItem("outlet", "");
         window.localStorage.setItem("distance", "");
     }
        
@@ -1069,6 +1068,12 @@ function completeRedemption() {
                                            lastname:"",
                                            emailid:"",
                                            mobile:"",
+        queryOutletFilter:function(){
+             alert(window.localStorage.getItem("restaurant"));   
+             alert(window.localStorage.getItem("cuisine")); 
+             alert(window.localStorage.getItem("celebration")); 
+             $("#modalviewtype").data("kendoMobileModalView").close();
+        },
                                            restaurantCritFilter:function() {
                                                //Restaurant Type Filter
                                                var itemconcat = "";
@@ -1102,7 +1107,7 @@ function completeRedemption() {
                                                    document.getElementById("orestauranttype").innerHTML = "Filter";
                                                      
                                                }
-                                               alert(window.localStorage.getItem("restaurant"));   
+                                              
                                                $("#modalviewtype").data("kendoMobileModalView").close();
                                            },
         
@@ -1134,7 +1139,7 @@ function completeRedemption() {
                                                    document.getElementById("ocuisine").innerHTML = "Filter";
                                                    window.localStorage.setItem("cuisine", itemconcat);    
                                                }
-                                               alert(window.localStorage.getItem("cuisine"));   
+                                              
                                                $("#modalviewcuisine").data("kendoMobileModalView").close();
                                            },
         
@@ -1167,7 +1172,7 @@ function completeRedemption() {
                                                    document.getElementById("ocelebration").innerHTML = "Filter";
                                                    window.localStorage.setItem("celebration", itemconcat);    
                                                }
-                                               alert(window.localStorage.getItem("celebration"));   
+                                              
                                                $("#modalviewceleberationtype").data("kendoMobileModalView").close();
                                            },
         
@@ -1199,7 +1204,7 @@ function completeRedemption() {
                                                    document.getElementById("olifestyle").innerHTML = "Filter";
                                                    window.localStorage.setItem("lifestyle", itemconcat);    
                                                }
-                                               alert(window.localStorage.getItem("lifestyle"));   
+                                               
                                                $("#modalviewoffertype").data("kendoMobileModalView").close();
                                            },
         
