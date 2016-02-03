@@ -752,7 +752,7 @@
 
         </div>
 
-        <div data-role="modalview" id="modalviewfilter" style="height:60%;width:90%;border-radius:5px" data-model="preLogin" data-show="preLogin.outletFilterList">
+        <div data-role="modalview" id="modalviewfilter" style="height:60%;width:90%;border-radius:5px" data-model="preLogin">
             <div data-role="header" >
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span >Filters</span>
@@ -805,7 +805,7 @@
             <div class="filter-item-holder">
                 <div class="list-group-data-item lheight" >&nbsp;&nbsp;&nbsp;Locations Near Me</div>
                 <div class="list-group-data-item-1 lheight" >
-                    <input type="checkbox" class="km-checkbox" id="offer-location"/>
+                    <input type="checkbox" class="km-checkbox" id="olocation" data-bind="checked:locationCritFilter"/>
                 </div>
             </div>
             <div class="list-group">&nbsp;Celebration Type</div>

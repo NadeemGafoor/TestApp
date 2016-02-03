@@ -1033,11 +1033,16 @@ function completeRedemption() {
     }
     
     function clearListFilter() {
+        alert("Clear Filter");
         window.localStorage.setItem("lifestyle", "");
         window.localStorage.setItem("restaurant", "");
         window.localStorage.setItem("celebration", "");
         window.localStorage.setItem("cuisine", "");
         window.localStorage.setItem("distance", "");
+        document.getElementById("orestauranttype").innerHTML = "All";
+        document.getElementById("ocuisine").innerHTML = "All";
+        document.getElementById("ocelebration").innerHTML = "All";
+        document.getElementById("olifestyle").innerHTML = "All";
     }
        
     window.preLogin = kendo.observable({
@@ -1068,12 +1073,20 @@ function completeRedemption() {
                                            lastname:"",
                                            emailid:"",
                                            mobile:"",
-        queryOutletFilter:function(){
-             alert(window.localStorage.getItem("restaurant"));   
-             alert(window.localStorage.getItem("cuisine")); 
-             alert(window.localStorage.getItem("celebration")); 
-             $("#modalviewtype").data("kendoMobileModalView").close();
-        },
+                                           queryOutletFilter:function() {
+                                               alert(window.localStorage.getItem("restaurant"));   
+                                               alert(window.localStorage.getItem("cuisine")); 
+                                               alert(window.localStorage.getItem("celebration")); 
+                                               $("#modalviewfilter").data("kendoMobileModalView").close();
+                                           },
+        
+                                           locationCritFilter:function() {
+                                               //location Filter
+                                               window.localStorage.setItem("distance", ""); 
+                                               if (document.getElementById("olocation").checked) {
+                                                   window.localStorage.setItem("restaurant", "1"); 
+                                               }
+                                           },
                                            restaurantCritFilter:function() {
                                                //Restaurant Type Filter
                                                var itemconcat = "";
@@ -1084,8 +1097,7 @@ function completeRedemption() {
                                                items = ul.getElementsByTagName("input");
                                               
                                                window.localStorage.setItem("restaurant", ""); 
-                                                document.getElementById("orestauranttype").innerHTML = "All";
-                                      
+                                               document.getElementById("orestauranttype").innerHTML = "All";
 
                                                //check where checked
                                                for (i = 0; i < items.length; i++) {
@@ -1105,13 +1117,12 @@ function completeRedemption() {
                                                    itemconcat = itemconcat + vclose;
                                                    window.localStorage.setItem("restaurant", itemconcat);
                                                    document.getElementById("orestauranttype").innerHTML = "Filter";
-                                                     
                                                }
                                               
                                                $("#modalviewtype").data("kendoMobileModalView").close();
                                            },
         
-          cuisineCritFilter:function() {
+                                           cuisineCritFilter:function() {
                                                //Cuisine Type Filter
                                                var itemconcat = "";
                                                var x = 1;
@@ -1119,7 +1130,7 @@ function completeRedemption() {
                                                var vclose = "')";
                                                ul = document.getElementById("Cuisine-Filter");
                                                items = ul.getElementsByTagName("input");
-                                                document.getElementById("ocuisine").innerHTML = "All";                                              
+                                               document.getElementById("ocuisine").innerHTML = "All";                                              
                                                window.localStorage.setItem("cuisine", ""); 
                                                //check where checked
                                                for (i = 0; i < items.length; i++) {
@@ -1144,7 +1155,7 @@ function completeRedemption() {
                                            },
         
         
-          celebrationCritFilter:function() {
+                                           celebrationCritFilter:function() {
                                                //Celebration Type Filter
                                                var itemconcat = "";
                                                var x = 1;
@@ -1152,7 +1163,7 @@ function completeRedemption() {
                                                var vclose = "')";
                                                ul = document.getElementById("Celebration-Filter");
                                                items = ul.getElementsByTagName("input");
-                                                document.getElementById("ocelebration").innerHTML = "All";                                              
+                                               document.getElementById("ocelebration").innerHTML = "All";                                              
                                                window.localStorage.setItem("celebration", ""); 
                                                //check where checked
                                                for (i = 0; i < items.length; i++) {
@@ -1176,7 +1187,7 @@ function completeRedemption() {
                                                $("#modalviewceleberationtype").data("kendoMobileModalView").close();
                                            },
         
-         lifestyleCritFilter:function() {
+                                           lifestyleCritFilter:function() {
                                                //Lifestyle Type Filter
                                                var itemconcat = "";
                                                var x = 1;
@@ -1184,7 +1195,7 @@ function completeRedemption() {
                                                var vclose = "')";
                                                ul = document.getElementById("Offer-Filter");
                                                items = ul.getElementsByTagName("input");
-                                                document.getElementById("olifestyle").innerHTML = "All";                                              
+                                               document.getElementById("olifestyle").innerHTML = "All";                                              
                                                window.localStorage.setItem("lifestyle", ""); 
                                                //check where checked
                                                for (i = 0; i < items.length; i++) {
@@ -1206,10 +1217,6 @@ function completeRedemption() {
                                                }
                                                
                                                $("#modalviewoffertype").data("kendoMobileModalView").close();
-                                           },
-        
-                                           outletFilterList:function() {
-                                               clearListFilter();
                                            },
         
                                            getRestCuisineFilter:function() {
@@ -1985,6 +1992,7 @@ function completeRedemption() {
                                                //document.getElementById("flagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center"; 
                                                //checklocation();
                                                window.localStorage.setItem("appopen", "0");
+                                               clearListFilter();
                                                if (firsttime === "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
