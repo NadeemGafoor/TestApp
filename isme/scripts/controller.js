@@ -1036,15 +1036,7 @@ function completeRedemption() {
         //clear Locations Near Me
         window.localStorage.setItem("distance", "");
         document.getElementById("olocation").checked=false;
-        // alert("Clear Filter");
-        window.localStorage.setItem("lifestyle", "");
-        window.localStorage.setItem("celebration", "");
-        window.localStorage.setItem("cuisine", "");
-     
-        document.getElementById("ocuisine").innerHTML = "All";
-        document.getElementById("ocelebration").innerHTML = "All";
-        document.getElementById("olifestyle").innerHTML = "All";  
-        
+      
         //Clear Restaurant Filter
            window.localStorage.setItem("restaurant", ""); 
            document.getElementById("orestauranttype").innerHTML = "All";        
@@ -1058,6 +1050,51 @@ function completeRedemption() {
                                                    items[i].checked=false;
                                              
                                                }
+        
+        
+            //Clear Cuisine Filter
+           window.localStorage.setItem("cuisine", ""); 
+           document.getElementById("ocuisine").innerHTML = "All";        
+           ul = document.getElementById("Cuisine-Filter");
+           items = ul.getElementsByTagName("input");                                    
+           
+
+                                               //check where checked
+                                               for (i = 0; i < items.length; i++) {
+                                                  
+                                                   items[i].checked=false;
+                                             
+                                               }
+        
+          //Clear Celebration Filter
+           window.localStorage.setItem("celebration", ""); 
+           document.getElementById("ocelebration").innerHTML = "All";        
+           ul = document.getElementById("Celebration-Filter");
+           items = ul.getElementsByTagName("input");                                    
+           
+
+                                               //check where checked
+                                               for (i = 0; i < items.length; i++) {
+                                                  
+                                                   items[i].checked=false;
+                                             
+                                               }
+        
+          //Clear Life Style Filter
+           window.localStorage.setItem("lifestyle", ""); 
+           document.getElementById("olifestyle").innerHTML = "All";        
+           ul = document.getElementById("Offer-Filter");
+           items = ul.getElementsByTagName("input");                                    
+           
+
+                                               //check where checked
+                                               for (i = 0; i < items.length; i++) {
+                                                  
+                                                   items[i].checked=false;
+                                             
+                                               }
+        
+        
     }
        
     window.preLogin = kendo.observable({
