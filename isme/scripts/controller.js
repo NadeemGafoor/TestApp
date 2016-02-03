@@ -298,9 +298,9 @@ function loadFilterView() {
     $("#modalviewfilter").data("kendoMobileModalView").open();
 } 
 
-function loadLocationView() {
-    $("#modalviewcountry").data("kendoMobileModalView").open();
-}
+//function loadLocationView() {
+ //   $("#modalviewcountry").data("kendoMobileModalView").open();
+//}
 
 function loadCuisineView() {
     $("#modalviewcuisine").data("kendoMobileModalView").open();
@@ -310,41 +310,41 @@ function loadOfferView() {
     $("#modalviewoffertype").data("kendoMobileModalView").open();
 }
 
-function closeOfferTypeView() {
-    $("#modalviewoffertype").data("kendoMobileModalView").close();
-}
+//function closeOfferTypeView() {
+ //   $("#modalviewoffertype").data("kendoMobileModalView").close();
+//}
 
 function loadTypeView() {
     $("#modalviewtype").data("kendoMobileModalView").open();
 }   
     
-function closeModalStar() {
-    $("#modalviewstar").data("kendoMobileModalView").close();
-}
+//function closeModalStar() {
+//    $("#modalviewstar").data("kendoMobileModalView").close();
+//}
 
 //function closeFilterView() {
 //    $("#modalviewfilter").data("kendoMobileModalView").close();
 //} 
 
-function closeLocationView() {
-    $("#modalviewcountry").data("kendoMobileModalView").close();
-}
+//function closeLocationView() {
+//    $("#modalviewcountry").data("kendoMobileModalView").close();
+//}
 
-function closeCuisineView() {
-    $("#modalviewcuisine").data("kendoMobileModalView").close();
-}
+//function closeCuisineView() {
+ //   $("#modalviewcuisine").data("kendoMobileModalView").close();
+//}
 
-function closeTypeView() {
-    $("#modalviewtype").data("kendoMobileModalView").close();
-}
+//function closeTypeView() {
+//    $("#modalviewtype").data("kendoMobileModalView").close();
+//}
 
 function offerFilterView() {
     $("#modalviewofferfilter").data("kendoMobileModalView").open();
 }
 
-function closeOfferFilterView() {
-    $("#modalviewofferfilter").data("kendoMobileModalView").close();
-} 
+//function closeOfferFilterView() {
+ //   $("#modalviewofferfilter").data("kendoMobileModalView").close();
+//} 
 
 function historyFilterView() {
     $("#modalviewhistoryfilter").data("kendoMobileModalView").open();
@@ -358,9 +358,9 @@ function loadCeleberationTypeView() {
     $("#modalviewceleberationtype").data("kendoMobileModalView").open();
 }
 
-function closeCeleberationTypeView() {
-    $("#modalviewceleberationtype").data("kendoMobileModalView").close();
-}
+///function closeCeleberationTypeView() {
+ //   $("#modalviewceleberationtype").data("kendoMobileModalView").close();
+//}
 
 function shareClick() {
     $(".cardhead").slideUp("slow");
@@ -1033,7 +1033,7 @@ function completeRedemption() {
     }
     
     function clearListFilter() {
-        alert("Clear Filter");
+       // alert("Clear Filter");
         window.localStorage.setItem("lifestyle", "");
         window.localStorage.setItem("restaurant", "");
         window.localStorage.setItem("celebration", "");
@@ -1073,20 +1073,31 @@ function completeRedemption() {
                                            lastname:"",
                                            emailid:"",
                                            mobile:"",
+        
+           queryRewardFilter:function() {
+                                              // alert(window.localStorage.getItem("lifestyle"));                                                
+                                              // alert(window.localStorage.getItem("restaurant"));   
+                                               //alert(window.localStorage.getItem("cuisine")); 
+                                              // alert(window.localStorage.getItem("celebration")); 
+                                              // alert(window.localStorage.getItem("distance")); 
+                                               $("#modalviewofferfilter").data("kendoMobileModalView").close();
+                                           },
+
                                            queryOutletFilter:function() {
-                                               alert(window.localStorage.getItem("restaurant"));   
-                                               alert(window.localStorage.getItem("cuisine")); 
-                                               alert(window.localStorage.getItem("celebration")); 
+                                               if (document.getElementById("olocation").checked) {
+                                                   window.localStorage.setItem("distance", document.getElementById("olocation").value); 
+                                                   alert(document.getElementById("olocation").value);
+                                               }else {
+                                                   window.localStorage.setItem("distance", "");     
+                                               }
+                                               
+                                              // alert(window.localStorage.getItem("restaurant"));   
+                                               //alert(window.localStorage.getItem("cuisine")); 
+                                              // alert(window.localStorage.getItem("celebration")); 
+                                              // alert(window.localStorage.getItem("distance")); 
                                                $("#modalviewfilter").data("kendoMobileModalView").close();
                                            },
         
-                                           locationCritFilter:function() {
-                                               //location Filter
-                                               window.localStorage.setItem("distance", ""); 
-                                               if (document.getElementById("olocation").checked) {
-                                                   window.localStorage.setItem("restaurant", "1"); 
-                                               }
-                                           },
                                            restaurantCritFilter:function() {
                                                //Restaurant Type Filter
                                                var itemconcat = "";

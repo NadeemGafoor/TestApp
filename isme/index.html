@@ -796,7 +796,7 @@
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span>Reward Filters</span>
-                    <a data-click="closeOfferFilterView" data-role="button" data-align="right" data-animated="true">
+                    <a data-bind="click:queryOutletFilter" data-role="button" data-align="right" data-animated="true">
                         Go
                     </a>
                 </div>
@@ -805,7 +805,7 @@
             <div class="filter-item-holder">
                 <div class="list-group-data-item lheight" >&nbsp;&nbsp;&nbsp;Locations Near Me</div>
                 <div class="list-group-data-item-1 lheight" >
-                    <input type="checkbox" class="km-checkbox" id="olocation" data-bind="checked:locationCritFilter"/>
+                    <input type="checkbox" class="km-checkbox" id="olocation" value="1"/>
                 </div>
             </div>
             <div class="list-group">&nbsp;Celebration Type</div>
