@@ -1959,6 +1959,54 @@ function completeRedemption() {
                                                       });
                                            },
         
+                     showOfferItem
+                                           : function (e) {
+                                               offercode = e.view.params.cpn; //offer code for single offer inquiry
+                                               offertype = "2"; //single offer inquiry
+                                               showSpin();
+                                               
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/offerList.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") {
+                                                                  document.getElementById("offer-detail-div").style.display = "block";
+                                                                  //document.getElementById("detail-title").innerHTML = getData.outletlist[0].outletname;
+                                                                  
+                                                                  document.getElementById("offerimage").src = getData.offerlist[0].imageurll;
+                                                                  document.getElementById("offer-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
+                                                                  document.getElementById("offer-long-1").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
+                                                                  document.getElementById("offer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
+                                                                  document.getElementById("offer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
+                          
+                                                                  window.localStorage.setItem("social_shortmsg", getData.offerlist[0].itemdescription);
+                                                                  window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
+                                                                  window.localStorage.setItem("social_message", getData.offerlist[0].itemdescription + "\n\n" + "Offer Expirying on :" + getData.offerlist[0].couponexpirydate);
+                                                                  window.localStorage.setItem("social_image", getData.offerlist[0].imageurll); 
+                                                                    
+                                                                  hideSpin(); //hide loading popup
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get Reward List. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
+        
                                            showdesc
                                            : function (e) {
                                                offercode = e.view.params.cpn; //offer code for single offer inquiry
@@ -2435,7 +2483,7 @@ function completeRedemption() {
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
-                                                          async:false,
+                                                          async:true,
                                                           timeout:20000,
                                                           url: gurl + "/validateUser.aspx",
                                                           contentType: "application/json; charset=utf-8",
@@ -3665,6 +3713,52 @@ function completeRedemption() {
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
+               showOfferItem
+                                            : function (e) {
+                                                offercode = e.view.params.cpn; //offer code for single offer inquiry
+                                                offertype = "2"; //single offer inquiry
+                                                back2_profile();
+                                                showSpin();
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/offerList.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   document.getElementById("pl-offer-detail-div").style.display = "block";
+                                                                   //document.getElementById("detail-title").innerHTML = getData.outletlist[0].outletname;
+                                                                   document.getElementById("pl-offerimage").src = getData.offerlist[0].imageurll;
+                                                                   document.getElementById("pl-offer-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
+                                                                   document.getElementById("pl-offer-long-1").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
+                                                                   document.getElementById("pl-offer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
+                                                                   document.getElementById("pl-offer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
+                                                                   window.localStorage.setItem("social_shortmsg", getData.offerlist[0].itemdescription);
+                                                                   window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
+                                                                   window.localStorage.setItem("social_message", getData.offerlist[0].itemdescription + "\n\n" + "Offer Expirying on :" + getData.offerlist[0].couponexpirydate);
+                                                                   window.localStorage.setItem("social_image", getData.offerlist[0].imageurll);
+                                                                   window.localStorage.setItem("redeemoffer", getData.offerlist[0].itemcode); 
+                                                                   $("#pl-tandc-accept").data("kendoMobileSwitch").check(false);
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot get Reward List. " + getData.statusdesc, function() {
+                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Reward List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -5521,7 +5615,7 @@ function completeRedemption() {
                        hideSpin(); //hide loading popup
                    }
                });
-        hideSpin(); //hide loading popup
+    
     }
     function doExit() {
         return;
