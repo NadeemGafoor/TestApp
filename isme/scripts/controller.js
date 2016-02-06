@@ -2887,7 +2887,7 @@ function completeRedemption() {
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
                                                                                     merchantcode :merchant,customerid:customer,password:password,mdevice:mdevicestat
-                                                                                }),
+                                                                                }),   
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
