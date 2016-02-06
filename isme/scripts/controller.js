@@ -2891,12 +2891,14 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
+                                                                     if (window.localStorage.getItem("fbid") != "99") {
+                                                                       document.getElementById("fblink-show").style.display = "none";
+                                                                   }
+                                                                     document.getElementById("home-page").style.display = "block";
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
                                                                  
-                                                                   if (window.localStorage.getItem("fbid") != "99") {
-                                                                       document.getElementById("fblink-show").style.display = "none";
-                                                                   }
+                                                                 
                                                                    // document.getElementById("wallet-div").style.display = "block";
                                                                    // document.getElementById("summary-1").innerHTML = getData.cashbackbalance;
                                                                    // document.getElementById("summary-2").innerHTML = getData.vouchercount;
@@ -2911,9 +2913,9 @@ function completeRedemption() {
                                                                    document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
                                                                    document.getElementById("profile-init").innerHTML = "Member Since " + window.localStorage.getItem("initdate");
                                                                    if (window.localStorage.getItem("segmentcode") === "1000") {
-                                                                       document.getElementById("profile-type").innerHTML = "isme Member";
+                                                                       document.getElementById("profile-type").innerHTML = "isme ";
                                                                    }else {
-                                                                       document.getElementById("profile-type").innerHTML = "isme elite Member";
+                                                                       document.getElementById("profile-type").innerHTML = "isme elite";
                                                                    }
                                                                    //Generate Spend Bar
                                                                    var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
