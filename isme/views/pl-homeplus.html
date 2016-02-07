@@ -1,0 +1,37 @@
+<!--Explore View-->
+<div data-role="view" data-layout="pl-main-layout" id="pl-home-view" data-model="postLogin" data-show="postLogin.getSummaryplus" data-stretch="true" data-reload="true" >
+        <div style="display:none" id="home-page">
+        <div data-role="navbar" style="background-color:transparent !important">
+            <a  data-role="button" data-align="left" data-rel="drawer"  data-click-on="down" href="#appdrawer" data-click="doOneBack">
+                <i class="fa fa-reorder fa-lg cblack" id="home-drawer"></i>
+            </a>
+            <span style="color:#000" id="main-title"></span>
+        </div>
+        <div class="pl-logo-top">   
+            <div class="pl-logo-image-holder" id="pl-image-holder"></div>
+
+            <div class="progress-bar-amount-holder black" id="spend-amount"></div>
+            <div class="progress-bar-holder" style="margin-top:10px" id="full-bar">
+                <div class="progress-bar-data-holder" id="spend-bar"></div>
+            </div>
+            <div class="home-page-holder" style="height:30px"></div>
+            <div class="home-page-holder">
+                <div class="general-text-line cblack" id="profile-name"></div>
+                <div class="general-text-line cblack" id="profile-number"></div>
+                <div class="general-text-line cblack" id="profile-type"></div>
+                <div class="general-text-line cblack" id="profile-init"></div>
+            </div>
+        </div>
+        <div class="button-frame-login">
+            <a data-click="enterPinForRedemption" data-role="button"  id="discount-button" style="background-color:#000">Apply Discount</a>
+        </div>
+         <div class="filler"></div>
+            <div class="button-frame-login" id="fblink-show">
+                <a data-role="button" class="button-loginwithfacebook" data-bind="click:fbLoginDA">Link Facebook</a>
+            </div>
+  
+
+            
+            </div>
+</div>
+
