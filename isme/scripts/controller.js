@@ -607,7 +607,7 @@ function loadMyMessages() {
 }
 
 function loadSetting() {
-    plHomeClick();p
+    plHomeClick();
 
     if (window.localStorage.getItem("appopen") != "5") {
         window.plugins.nativepagetransitions.slide({
