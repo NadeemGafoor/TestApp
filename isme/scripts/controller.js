@@ -111,7 +111,8 @@ function loadEnrol() {
                                                                  }), 500);
 }
 
-function FacebookClick() {
+function facebookClick() {
+    alert("hello");
     window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("social_message") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
     });
@@ -2958,9 +2959,9 @@ function completeRedemption() {
                                                 document.getElementById("pro-hotelmember").innerHTML = (window.localStorage.getItem("hotelmember") != null && window.localStorage.getItem("hotelmember").length > 0) ? "Sirius Member : " + window.localStorage.getItem("hotelmember") : "Sirius Member : NA";
                                                 back1_profile();
                                                 if (window.localStorage.getItem("segmentcode") === "1000") {
-                                                    document.getElementById("pro-type").innerHTML = "Member Type : isme Member";
+                                                    document.getElementById("pro-type").innerHTML = "Member Type : isme";
                                                 }else {
-                                                    document.getElementById("pro-type").innerHTML = "Member Type : isme elite Member";
+                                                    document.getElementById("pro-type").innerHTML = "Member Type : isme elite";
                                                 }
                                             },
         
@@ -5518,7 +5519,7 @@ function completeRedemption() {
         document.getElementById("name-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
-        document.getElementById("segment-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
+        document.getElementById("segment-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
         document.getElementById("mycard-qr1").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";
         document.getElementById("mycard-qr1").style.backgroundSize = "cover";
     }
@@ -5528,7 +5529,7 @@ function completeRedemption() {
         document.getElementById("name-back1").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back1").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back1").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
-        document.getElementById("segment-back1").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
+        document.getElementById("segment-back1").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
         document.getElementById("mycard-qr2").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
         document.getElementById("mycard-qr2").style.backgroundSize = "cover";        
     }
@@ -5538,7 +5539,7 @@ function completeRedemption() {
         document.getElementById("name-back2").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back2").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry-back2").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
-        document.getElementById("segment-back2").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
+        document.getElementById("segment-back2").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
         document.getElementById("mycard-qr3").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
         document.getElementById("mycard-qr3").style.backgroundSize = "cover";        
     }
@@ -5548,7 +5549,7 @@ function completeRedemption() {
         document.getElementById("name6-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number6-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
         document.getElementById("expiry6-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
-        document.getElementById("segment6-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme Member" : "isme elite Member";
+        document.getElementById("segment6-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
         document.getElementById("mycard-qr6").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
         document.getElementById("mycard-qr6").style.backgroundSize = "cover";        
     }
