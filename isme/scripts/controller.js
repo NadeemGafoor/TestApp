@@ -1557,7 +1557,7 @@ function completeRedemption() {
                                                benefitcode = "1000"; 
                                                showSpin(); //show loading popup
                                                $.ajax({ 
-                                                          type: "POST",
+                                                          type: "POST",   
                                                           cache:false,
                                                           async:true,
                                                           timeout:20000,
@@ -1572,6 +1572,7 @@ function completeRedemption() {
                                                                   //fill the outlet template
                                                                   if (getData.benefitlist.length > 0) {
                                                                       document.getElementById("benefit-detail-view").style.display = "block";
+                                                                      document.getElementById("benefit-detail-view-1").style.display = "none";
                                                                       document.getElementById("benefit-text3").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                                                                       window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
                                                             
@@ -1617,7 +1618,8 @@ function completeRedemption() {
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
                                                                   if (getData.benefitlist.length > 0) {
-                                                                      document.getElementById("benefit-detail-view").style.display = "block";
+                                                                      document.getElementById("benefit-detail-view-1").style.display = "block";
+                                                                      document.getElementById("benefit-detail-view").style.display = "none";
                                                                       document.getElementById("benefit-text5").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                    
                                                                       window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
@@ -2563,7 +2565,7 @@ function completeRedemption() {
                                                                   spend = getData.spend;
                                                                   maxspend = getData.maxspend;
                                                                   fbid = getData.fbid;  
-                                                                  alert(cusqr);   
+                                                 
                                                                   //set Local Storage as cookies to retain login
                                                                   window.localStorage.setItem("customer", customer);
                                                                   window.localStorage.setItem("customername", customername);
