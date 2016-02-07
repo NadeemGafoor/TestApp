@@ -529,7 +529,7 @@ function loadLeisureDetail() {
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
                                                        "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+                                                       "androiddelay"     :  150, // same as above but for Android, default 70pppp
 
                                                        'direction': 'up',
                                                        'href': '#views/pl-outletdetail.html'
@@ -607,7 +607,7 @@ function loadMyMessages() {
 }
 
 function loadSetting() {
-    plHomeClick();
+    plHomeClick();p
 
     if (window.localStorage.getItem("appopen") != "5") {
         window.plugins.nativepagetransitions.slide({
@@ -702,7 +702,7 @@ function postLoginBack() {
                                                                                                                                        "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                                                                                                        'direction': 'up',
-                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                       'href': '#views/pl-homeplus.html'
                                                                                                                                    }), 500);
                                                                    }
     //$("body").data("kendoMobilePane").navigate("#:back");
@@ -1262,7 +1262,7 @@ function completeRedemption() {
                                                    itemconcat = itemconcat + vclose;
                                                    document.getElementById("ocelebration").innerHTML = "Filter";
                                                    window.localStorage.setItem("celebration", itemconcat);    
-                                               }
+                                               }p
                                               
                                                $("#modalviewceleberationtype").data("kendoMobileModalView").close();
                                            },
@@ -2362,7 +2362,7 @@ function completeRedemption() {
                                                                                                                                        "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                                                                                                        'direction': 'up',
-                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                       'href': '#views/pl-homeplus.html'
                                                                                                                                    }), 500);
                                                                    }
                                                                       
@@ -2676,7 +2676,7 @@ function completeRedemption() {
                                                                                                                                        "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                                                                                                        'direction': 'up',
-                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                       'href': '#views/pl-homeplus.html'
                                                                                                                                    }), 500);
                                                                    }
                                                                       
@@ -2771,7 +2771,7 @@ function completeRedemption() {
                                                                                                                                        "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                                                                                                        'direction': 'up',
-                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                       'href': '#views/pl-homeplus.html'
                                                                                                                                    }), 500);
                                                                    }
                                                                       
@@ -3958,6 +3958,7 @@ function completeRedemption() {
                                                                        document.getElementById("myoffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].remark + "</pre>";
                                                             
                                                                        document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
+                                                                       document.getElementById("qr-image-3").style.backgroundSize="cover";
                                                                        window.localStorage.setItem("selfredeem", "M");
                                                                        offercode = getData.myvoucherdetail[0].couponcode;
                                                                     
@@ -4979,7 +4980,7 @@ function completeRedemption() {
                                                                                                                                        "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                                                                                                        'direction': 'up',
-                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                       'href': '#views/pl-homeplus.html'
                                                                                                                                    }), 500);
                                                                    }
                                                                       
@@ -5058,7 +5059,7 @@ function completeRedemption() {
                                    x.add(opt);
                                }
                                hideSpin();
-                           }else {
+                           }else {plus
                                navigator.notification.alert("Cannot get Country list. " + getData.statusdesc, function() {
                                }, "isme by Jumeirah", "Dismiss")          
                                hideSpin(); //hide loading popup
@@ -6216,7 +6217,7 @@ function completeRedemption() {
                                                                                                                                        "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                                                                                                        'direction': 'up',
-                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                       'href': '#views/pl-homeplus.html'
                                                                                                                                    }), 500);
                                                                    }
         //$("body").data("kendoMobilePane").navigate("#:back");
