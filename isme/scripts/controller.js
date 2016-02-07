@@ -3057,9 +3057,9 @@ function completeRedemption() {
                                                                      if (window.localStorage.getItem("fbid") != "99") {
                                                                        document.getElementById("fblink-show-p").style.display = "none";
                                                                    }
-                                                                     document.getElementById("home-page-p").style.display = "block";
-                                                                   window.localStorage.setItem("spend-p", getData.spenda);
-                                                                   window.localStorage.setItem("maxspend-p", getData.maxspend);
+                                                                   document.getElementById("home-page-p").style.display = "block";
+                                                                   window.localStorage.setItem("spend", getData.spenda);
+                                                                   window.localStorage.setItem("maxspend", getData.maxspend);
                                                                  
                                                                  
                                                                    // document.getElementById("wallet-div").style.display = "block";
