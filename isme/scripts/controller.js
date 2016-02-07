@@ -111,7 +111,7 @@ function loadEnrol() {
                                                                  }), 500);
 }
 
-function facebookClick() {
+function faceBookClick() {
     window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("social_message") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
     });
@@ -684,10 +684,27 @@ function postLoginBack() {
     }
     
     window.localStorage.setItem("appopen", "0");   
-    window.plugins.nativepagetransitions.slide({
-                                                   'direction': 'right',
-                                                   'href': '#views/pl-home.html'
-                                               });
+     if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                                                       'direction': 'up',
+                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                   }), 500);
+                                                                   }else {
+                                                                         window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                                                       'direction': 'up',
+                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                   }), 500);
+                                                                   }
     //$("body").data("kendoMobilePane").navigate("#:back");
 }
 
@@ -848,8 +865,8 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-    var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
-    //var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
+    //var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
+    var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
     //var gurl = "https://appapi.exclusiveu.in/mobilePortal";
     var merchant = "JUMEI02000";
     //var merchant = "IHGDI09999"; 
@@ -897,11 +914,11 @@ function completeRedemption() {
     var newimage = "";
     var uuid = "";
     var identifier = "";
-    var major = "";
+    var major = "";  
     var minor = "";
     var appad_location = "http://isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
-    //  var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+     // var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
     //var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     var share_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png";
     var flag_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/flagimages/";
@@ -1131,8 +1148,8 @@ function completeRedemption() {
 
                                            queryOutletFilter:function(e) {
                                                  alert(window.localStorage.getItem("category"));    
-                                               window.localStorage.setItem("category", e.view.params.category);    
-                                               window.localStorage.setItem("appopen", e.view.params.appopen);    
+                                              // window.localStorage.setItem("category", e.view.params.category);    
+                                              // window.localStorage.setItem("appopen", e.view.params.appopen);    
                                                if (document.getElementById("olocation").checked) {
                                                    window.localStorage.setItem("distance", "1"); 
                                                }else {
@@ -1140,14 +1157,14 @@ function completeRedemption() {
                                                }
                                                getlocationparams();
                                                $("#modalviewfilter").data("kendoMobileModalView").close();
-                                                     alert(window.localStorage.getItem("appopen"));
+                                                 //    alert(window.localStorage.getItem("appopen"));
                                                if (window.localStorage.getItem("appopen")==="80") {
-                                                   alert("Here");
+                                                //   alert("Here");
                                                    preLogin.showAllOutlet();
                                                } else if (window.localStorage.getItem("appopen")==="81") {
-                                                    alert("Here12");
+                                               //     alert("Here12");
                                                    preLogin.showAllLeisure();
-                                               }
+                                               }    
                                            },
         
                                            restaurantCritFilter:function() {
@@ -1645,8 +1662,8 @@ function completeRedemption() {
                                                                                    merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:"",preflocation:window.localStorage.getItem("preflocation"),prefcuisine:window.localStorage.getItem("prefcuisine"),prefcelebration:window.localStorage.getItem("prefcelebration"),prefrestaurant:window.localStorage.getItem("prefrestaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
                                                                                }),
                                                           success: function (data) { 
-                                                              var getData = JSON.parse(data);
-                                                            
+                                                              
+                                                            alert(getData.statuscode);
                                                               if (getData.statuscode === "000") {
                                                                   //fill the outlet template
                                                                   $("#outlet-list").kendoMobileListView({
@@ -2325,7 +2342,28 @@ function completeRedemption() {
                                                        maxspend = window.localStorage.getItem("maxspend");
                                                        fbid = window.localStorage.getItem("fbid");
 
-                                                       $("body").data("kendoMobilePane").navigate("views/pl-home.html"); 
+                                                              if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                                                       'direction': 'up',
+                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                   }), 500);
+                                                                   }else {
+                                                                         window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                                                       'direction': 'up',
+                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                   }), 500);
+                                                                   }
+                                                                      
                                                    } else {
                                                        outletcode = "";
                                                        brandcode = "";
@@ -2525,6 +2563,7 @@ function completeRedemption() {
                                                                   spend = getData.spend;
                                                                   maxspend = getData.maxspend;
                                                                   fbid = getData.fbid;  
+                                                                  alert(cusqr);   
                                                                   //set Local Storage as cookies to retain login
                                                                   window.localStorage.setItem("customer", customer);
                                                                   window.localStorage.setItem("customername", customername);
@@ -2610,7 +2649,15 @@ function completeRedemption() {
                                                                       window.localStorage.setItem("password", password);
                                                                       window.localStorage.setItem("loggedin", "1");                                                                   
                                                                       //$("body").data("kendoMobilePane").navigate("views/pl-myprofile.html");  
-                                                                      window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                        if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                                                                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
                                                                                                                                        "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
@@ -2619,6 +2666,36 @@ function completeRedemption() {
                                                                                                                                        'direction': 'up',
                                                                                                                                        'href': '#views/pl-home.html'
                                                                                                                                    }), 500);
+                                                                   }else {
+                                                                         window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                                                       'direction': 'up',
+                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                   }), 500);
+                                                                   }
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                    
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                               }else {
@@ -2674,7 +2751,8 @@ function completeRedemption() {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                       window.localStorage.setItem("loggedin", "1");
-                                                                      window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                            if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                                                                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
                                                                                                                                        "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
@@ -2683,6 +2761,18 @@ function completeRedemption() {
                                                                                                                                        'direction': 'up',
                                                                                                                                        'href': '#views/pl-home.html'
                                                                                                                                    }), 500);
+                                                                   }else {
+                                                                         window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                                                       'direction': 'up',
+                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                   }), 500);
+                                                                   }
+                                                                      
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       $("body").data("kendoMobilePane").navigate("views/setpin.html");  
@@ -2945,6 +3035,74 @@ function completeRedemption() {
                                                        });
                                             },
                                            
+        
+        
+               getSummaryplus:function () {
+                                                showSpin();
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/summaryReport.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:mdevicestat
+                                                                                }),   
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                     if (window.localStorage.getItem("fbid") != "99") {
+                                                                       document.getElementById("fblink-show-p").style.display = "none";
+                                                                   }
+                                                                     document.getElementById("home-page-p").style.display = "block";
+                                                                   window.localStorage.setItem("spend-p", getData.spenda);
+                                                                   window.localStorage.setItem("maxspend-p", getData.maxspend);
+                                                                 
+                                                                 
+                                                                   // document.getElementById("wallet-div").style.display = "block";
+                                                                   // document.getElementById("summary-1").innerHTML = getData.cashbackbalance;
+                                                                   // document.getElementById("summary-2").innerHTML = getData.vouchercount;
+                                                                   // document.getElementById("summary-3").innerHTML = getData.vouchercountexpiry;
+                                                                   // document.getElementById("summary-4").innerHTML = getData.spendbalance;
+                                                                   // document.getElementById("summary-5").innerHTML = getData.referralbalance;
+                                                                   // document.getElementById("summary-6").innerHTML = getData.rewardpointbalance;
+                                                                   // document.getElementById("summary-7").innerHTML = getData.tierpointbalance;
+                                                                   window.localStorage.setItem("selfredeem", ""); 
+                                                                   document.getElementById("main-title-p").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
+                                                                   document.getElementById("profile-name-p").innerHTML = window.localStorage.getItem("customername");
+                                                                   document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
+                                                                   document.getElementById("profile-init-p").innerHTML = "Member Since " + window.localStorage.getItem("initdate");
+                                                                   if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                                       document.getElementById("profile-type-p").innerHTML = "isme ";
+                                                                   }else {
+                                                                       document.getElementById("profile-type-p").innerHTML = "isme elite";
+                                                                   }
+                                                                   //Generate Spend Bar
+                                                                   var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
+                                                                   m = i;
+                                                                   if (i > 75) {
+                                                                       i = 75;  
+                                                                   }
+                                                
+                                                                   document.getElementById("spend-amount-p").style.margin = "auto auto auto " + parseInt(i + 5) + "%";
+                                                                   document.getElementById("spend-bar-p").style.width = m + "%";
+                                                                   document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend");
+                                                                  
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc, function() {
+                                                                   }, "HD Rewards", "Dismiss")          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "HD Rewards", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
         
                                             loadProfile
                                             :function() {
@@ -4801,15 +4959,28 @@ function completeRedemption() {
                            navigator.notification.alert("PIN has been successfully set", function() {
                            }, "isme by Jumeirah", "Dismiss")         
                            if (y === "0") {
-                               window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                                                "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                "androiddelay"     :  150, // same as above but for Android, default 70
+                                      if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                                                                'direction': 'up',
-                                                                                                'href': '#views/pl-home.html'
-                                                                                            }), 500);
+                                                                                                                                       'direction': 'up',
+                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                   }), 500);
+                                                                   }else {
+                                                                         window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                                                       'direction': 'up',
+                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                   }), 500);
+                                                                   }
+                                                                      
                                hideSpin(); //hide loading popup
                            }else {
                                $("#modalviewpin").data("kendoMobileModalView").close();
@@ -6025,10 +6196,27 @@ function completeRedemption() {
         }
     
         window.localStorage.setItem("appopen", "0");   
-        window.plugins.nativepagetransitions.slide({
-                                                       'direction': 'right',
-                                                       'href': '#views/pl-home.html'
-                                                   });
+          if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                                                       'direction': 'up',
+                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                   }), 500);
+                                                                   }else {
+                                                                         window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                                                                                       'direction': 'up',
+                                                                                                                                       'href': '#views/pl-home.html'
+                                                                                                                                   }), 500);
+                                                                   }
         //$("body").data("kendoMobilePane").navigate("#:back");
     }
     

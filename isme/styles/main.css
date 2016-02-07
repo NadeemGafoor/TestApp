@@ -79,7 +79,7 @@ a
 {
     box-shadow: 0px 1px 5px #666365;
 }
-#appdrawer .km-content,#appdrawerN .km-content
+#appdrawer .km-content,#appdrawerN .km-content,#pl-home-view-plus .km-content
 {
     background-color:#000;
 }
@@ -709,7 +709,7 @@ img
 
 
     
- #login-theme .button-loginwithfacebook, #pl-home-view  .button-loginwithfacebook,#enrol-theme .button-loginwithfacebook
+ #login-theme .button-loginwithfacebook, #pl-home-view  .button-loginwithfacebook,#enrol-theme .button-loginwithfacebook,#pl-home-view-plus  .button-loginwithfacebook
     {
         background-color: rgba(13, 104, 197, 0.8);
         color: #fff;
@@ -732,6 +732,23 @@ img
 {
     background-color: rgba(0,0,0,0.7);
     color: #fff;
+    line-height: 30px;
+    width: 80%;
+    display: block;
+    text-align: center;
+    margin-left: 10%;
+    -webkit-border: #fff solid 0px;
+    -moz-border: #fff solid 0px;
+    border: #fff solid 0px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+}
+
+.button-frame-login-w .km-button
+{
+    background-color: #fff;
+    color: #000;
     line-height: 30px;
     width: 80%;
     display: block;
@@ -1117,6 +1134,7 @@ li
     background-color: #fff; 
     line-height: 2em;
 }
+    
 
 .top-shade1
 {
@@ -1167,13 +1185,7 @@ li
     width: 35%;
     padding-left: 10%;
 }   
-
-#pl-home-view .grad
-{
-    color: #fff;
-    font-weight: bold;
-    text-align: right;
-}  
+  
 
 .faq1
 {
@@ -1321,15 +1333,7 @@ li
     float: none;
 }
 
-#pl-home-view .menu-holder
-{
-    width: 100%;
-    height: auto;
-    position: relative;
-    float: none;
-    background-color: #fff; 
-    top: 0px;
-}
+
 
 .prelogin-frame
 {
@@ -2305,7 +2309,16 @@ tile-frame-inner
     border-radius: 5px;
     height: 20px;
     width: 90%; 
-    background-color:#000;
+  
+}
+
+.white-back{
+  background-color:#fff; 
+    
+}
+
+.black-back{
+      background-color:#000;
 }
 
 .progress-bar-data-holder
