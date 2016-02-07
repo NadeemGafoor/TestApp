@@ -4714,24 +4714,24 @@ function completeRedemption() {
                      
                                                                        if (getData.statuscode === "000") {
                                                                            window.localStorage.setItem("fbLoginModeEnabled", "Y");
-                                                                           navigator.notification.alert("The Facebook account on this device linked successfully to the Club Epicure membership.", function() {
-                                                                           }, "Club Epicure" , "Dismiss");     
+                                                                           navigator.notification.alert("The Facebook account on this device linked successfully to the isme membership.", function() {
+                                                                           }, "isme By Jumeirah" , "Dismiss");     
                                                                            hideSpin();
                                                                        }else {
-                                                                           navigator.notification.alert("The Facebook account in this device is already linked to another Club Epicure membership.  cannot link Facebook to this account", function() {
-                                                                           }, "Club Epicure" , "Dismiss");  
+                                                                           navigator.notification.alert("The Facebook account in this device is already linked to another isme membership.  cannot link Facebook to this account", function() {
+                                                                           }, "isme By Jumeirah" , "Dismiss");  
                                                                            hideSpin();
                                                                        }
                                                                    },
                                                                    error: function (errormsg) {
                                                                        navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
-                                                                       }, "Club Epicure" , "Dismiss");     
+                                                                       }, "isme By Jumeirah" , "Dismiss");     
                                                                        hideSpin();
                                                                    }
                                                                });
                                                     } else { 
                                                         navigator.notification.alert("Error accessing Facebook " + response.status, function() {
-                                                        }, "Club Epicure", "Dismiss");
+                                                        }, "isme By Jumeirah", "Dismiss");
                                                         return;
                                                     } 
                                                 }); 

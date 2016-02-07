@@ -2301,6 +2301,10 @@ tile-frame-inner
     background-image:url(../images/home_page_logo_black.png);
 }
 
+.pl-logo-image-holder-w{
+    background-image:url(../images/home_page_logo_white.png);
+}
+
 .progress-bar-holder
 {
     position: relative;
