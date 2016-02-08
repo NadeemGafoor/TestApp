@@ -3911,7 +3911,7 @@ function completeRedemption() {
                                             :function() {
                                                 showSpin(); 
                                                 listCountry();
-                                                 window.localStorage.setItem("isset", "0");
+                                                window.localStorage.setItem("isset", "0");
                                                 listCity("UAE", document.getElementById("selCity"));  
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
@@ -3949,197 +3949,7 @@ function completeRedemption() {
                                                 hideSpin(); //hide loading popup
                                             },
         
-                                            saveSetting:
-                                            function () {
-                                                if (!this.emailid1) {
-                                                    navigator.notification.alert("Email is required.  Re-enter", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
-                                                    return;
-                                                }
-                                                
-                                                if (!this.mobile1) {
-                                                    navigator.notification.alert("Mobile Number is required.  Re-enter", function() {
-                                                    }, "isme by Jumeirah", "Dismiss")
-                                                    return;
-                                                }
-                                                
-                                                if (this.emailid1 != this.emailid2) {
-                                                    navigator.notification.alert("Email ID do not match, re-enter", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
-                                                    return;
-                                                }
-                                               
-                                                //   if (this.mobile1.value.substring(0,0)==="0") {
-                                                //       navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
-                                                //       }, "isme by Jumeirah", "Dismiss");
-                                                //       return;
-                                                //   }
-                                             
-                                                if (document.getElementById("selCountry").value == "") {
-                                                    navigator.notification.alert("Select Nationality", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
-                                                    return; 
-                                                }
-                                                if (document.getElementById("selCity").value == "") {
-                                                    navigator.notification.alert("Select Resident City", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
-                                                    return; 
-                                                }
-                                                                                                
-                                                if ((!document.getElementById("profile-pushoffer").checked) && (document.getElementById("profile-remindexpiry").checked)) {
-                                                    navigator.notification.alert("Please enable Push Notification to receive reminders for expirying vouchers", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
-                                                    return;
-                                                }
-                                                                                           
-                                                if (document.getElementById("profile-pushoffer").checked) {
-                                                    pushoffer1 = "1";
-                                                }else {
-                                                    pushoffer1 = "";
-                                                }
-                                           
-                                                if (document.getElementById("profile-remindexpiry").checked) {
-                                                    remindexpiry1 = "1";
-                                                }else {
-                                                    remindexpiry1 = "";
-                                                }
-                                         
-                                                if (document.getElementById("profile-autolocation").checked) {
-                                                    autolocation1 = "1";
-                                                }else {
-                                                    autolocation1 = "";
-                                                }   
-                                                if (document.getElementById("selCountry").value != "") {
-                                                    homecountry1 = document.getElementById("selCountry").value;
-                                                }else {
-                                                    homecountry1 = ""
-                                                }
-                                                if (document.getElementById("selCity").value != "") {
-                                                    residentcity1 = document.getElementById("selCity").value;
-                                                }else {
-                                                    residentcity1 = "";
-                                                }
-                                                mdate = new Date();
-                                                mdate = this.date1;
-                                                emailid = this.emailid1;
-                                                mobilenumber = this.mobile1;                                             
-                                                magicnumber = this.hotelnumber1;
-                                                homecountry = homecountry1;
-                                                residentcity = residentcity1;  
-                                                pushoffer = pushoffer1;
-                                                remindexpiry = remindexpiry1;
-                                                autolocation = autolocation1;
-                                                country = homecountry1;
-                                                city = residentcity1;
-                                                showSpin();                                                  
-                                   
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/updateprofile_isme.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,mobile:mobilenumber,emailid:emailid,pushoffer:pushoffer1,remindexpiry:remindexpiry1,showprofile:showprofile,image1:newimage,mdevice:mdevicestat,autolocation:autolocation1,city:residentcity,country:homecountry,birthdate:mdate,magicnumber:magicnumber
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                     
-                                                               if (getData.statuscode == "000") {
-                                                                   window.localStorage.setItem("autolocation", autolocation);
-                                                                   window.localStorage.setItem("pushoffer", pushoffer);
-                                                                   window.localStorage.setItem("remindexpiry", remindexpiry);
-                                                                   window.localStorage.setItem("residentcity", residentcity);
-                                                                   window.localStorage.setItem("homecountry", homecountry);  
-                                                                   window.localStorage.setItem("emailid", emailid);
-                                                                   window.localStorage.setItem("mobilenumber", mobilenumber);  
-                                                                   window.localStorage.setItem("birthdate", mdate);  
-                                                                   window.localStorage.setItem("magicnumber", magicnumber); 
-                                                                   window.localStorage.setItem("hotelmember", magicnumber); 
-                                                                
-                                                                   pushSettings = {
-                                                                       iOS: {
-                                                                           badge: "true",
-                                                                           sound: "true",
-                                                                           alert: "true",
-                                                                           clearBadge: "true"
-                                                                       },
-                                                                       android: {
-                                                                           senderID: googleApiProjectNumber
-                                                                       },
-                                                                       wp8: {
-                                                                           channelName: 'EverlivePushChannel'
-                                                                       },
-                                                                       notificationCallbackIOS:onPushNotificationReceived,
-                                                                       notificationCallbackAndroid: onPushNotificationReceived,
-                                                                       notificationCallbackWP8: onPushNotificationReceived,
-                                                                       customParameters: {
-                                                                           Memberid: customer,
-                                                                           Merchant:merchant,
-                                                                           Segment:segmentcode,
-                                                                           devicecode:muuid
-                                                                       }
-                                                                   };
-                                                                                                                            
-                                                                   if (pushoffer == "1") {
-                                                                       //If already registered than update registration
-                                                                       currentDevice.getRegistration(function() {
-                                                                           currentDevice.unregister().then(function() {
-                                                                           }, function (err) {
-                                                                               //alert('unregister 1 ' + err);
-                                                                           });
-                                                                           currentDevice.enableNotifications(pushSettings, function (data) {
-                                                                               currentDevice.register(pushSettings, function (data) {
-                                                                               }, function (err) {
-                                                                                   //alert('register  1 ' + err);
-                                                                               }); 
-                                                                           }, function (err) {
-                                                                               //alert('enable  1 ' + err);
-                                                                           });
-                                                                       }, function(err) { //If not registered then enable and register
-                                                                           currentDevice.enableNotifications(pushSettings, function (data) {
-                                                                               currentDevice.register(pushSettings, function (data) {
-                                                                               }, function (err) {
-                                                                                   //alert('register 2 '+err);
-                                                                               }); 
-                                                                           }, function (err) {
-                                                                               //alert('enable  2 ' + err);
-                                                                           });
-                                                                       });
-                                                                       window.localStorage.setItem("notification", "1");
-                                                                   }else {
-                                                                       currentDevice.unregister()
-                                                                           .then(
-                                                                               function() {
-                                                                               },
-                                                                               function (err) {
-                                                                                   //alert('unregister 2 ' + err);
-                                                                               }
-                                                                               );
-                                                                       window.localStorage.setItem("notification", "2");
-                                                                   }
-                                                                     
-                                                                   navigator.notification.alert("Profile changes successfully updated.", function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")   
-                                                                   window.localStorage.setItem("issaved", "1");
-                                                                   $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
-                                                                   hideSpin(); //hide loading popup
-                                                               }else {
-                                                                   navigator.notification.alert("Could not update profile changes due to error. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Could not update profile.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
-                                                hideSpin(); //hide loading popup
-                                            },
-        
+                                       
                                             plshowBrandPage
                                             : function () {
                                                 // alert("Hello");
@@ -4582,7 +4392,7 @@ function completeRedemption() {
                                                 if (window.localStorage.getItem("isset") ==="0") {
                                                     navigator.notification.confirm(
                                                         'You have not saved your settings?', // message
-                                                        onConfirm2, // callback to invoke with index of button pressed
+                                                        onConfirm3, // callback to invoke with index of button pressed
                                                         'isme by Jumeirah', // title
                                                         'I will Save Later,Save now'          // buttonLabels
                                                         );
@@ -4593,7 +4403,8 @@ function completeRedemption() {
                                             enableSave:function() {
                                                 window.localStorage.setItem("issaved", "0");
                                             },
-           enableSaveSetting:function() {
+                                            enableSaveSetting:function() {
+                                                alert("ggg");
                                                 window.localStorage.setItem("isset", "0");
                                             },
         
@@ -4682,6 +4493,15 @@ function completeRedemption() {
             saveLater();
         } else {
             savePreferenceItem();
+            saveLater();
+        }
+    }
+    
+    function onConfirm3 (buttonIndex) {
+        if (buttonIndex===1) {
+            saveLater();
+        } else {
+            saveSetting();
             saveLater();
         }
     }
@@ -6227,6 +6047,196 @@ function completeRedemption() {
         data.push({code: "CB1002",desc:"Women`s Day"});
            
         return data;
+    }
+    
+    function saveSetting() {
+        if (!this.emailid1) {
+            navigator.notification.alert("Email is required.  Re-enter", function() {
+            }, "isme by Jumeirah", "Dismiss");
+            return;
+        }
+                                                
+        if (!this.mobile1) {
+            navigator.notification.alert("Mobile Number is required.  Re-enter", function() {
+            }, "isme by Jumeirah", "Dismiss")
+            return;
+        }
+                                                
+        if (this.emailid1 != this.emailid2) {
+            navigator.notification.alert("Email ID do not match, re-enter", function() {
+            }, "isme by Jumeirah", "Dismiss");
+            return;
+        }
+                                               
+        //   if (this.mobile1.value.substring(0,0)==="0") {
+        //       navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
+        //       }, "isme by Jumeirah", "Dismiss");
+        //       return;
+        //   }
+                                             
+        if (document.getElementById("selCountry").value == "") {
+            navigator.notification.alert("Select Nationality", function() {
+            }, "isme by Jumeirah", "Dismiss");
+            return; 
+        }
+        if (document.getElementById("selCity").value == "") {
+            navigator.notification.alert("Select Resident City", function() {
+            }, "isme by Jumeirah", "Dismiss");
+            return; 
+        }
+                                                                                                
+        if ((!document.getElementById("profile-pushoffer").checked) && (document.getElementById("profile-remindexpiry").checked)) {
+            navigator.notification.alert("Please enable Push Notification to receive reminders for expirying vouchers", function() {
+            }, "isme by Jumeirah", "Dismiss");
+            return;
+        }
+                                                                                           
+        if (document.getElementById("profile-pushoffer").checked) {
+            pushoffer1 = "1";
+        }else {
+            pushoffer1 = "";
+        }
+                                           
+        if (document.getElementById("profile-remindexpiry").checked) {
+            remindexpiry1 = "1";
+        }else {
+            remindexpiry1 = "";
+        }
+                                         
+        if (document.getElementById("profile-autolocation").checked) {
+            autolocation1 = "1";
+        }else {
+            autolocation1 = "";
+        }   
+        if (document.getElementById("selCountry").value != "") {
+            homecountry1 = document.getElementById("selCountry").value;
+        }else {
+            homecountry1 = ""
+        }
+        if (document.getElementById("selCity").value != "") {
+            residentcity1 = document.getElementById("selCity").value;
+        }else {
+            residentcity1 = "";
+        }
+        mdate = new Date();
+        mdate = this.date1;
+        emailid = this.emailid1;
+        mobilenumber = this.mobile1;                                             
+        magicnumber = this.hotelnumber1;
+        homecountry = homecountry1;
+        residentcity = residentcity1;  
+        pushoffer = pushoffer1;
+        remindexpiry = remindexpiry1;
+        autolocation = autolocation1;
+        country = homecountry1;
+        city = residentcity1;
+        showSpin();                                                  
+                                   
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/updateprofile_isme.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,customerid:customer,password:password,mobile:mobilenumber,emailid:emailid,pushoffer:pushoffer1,remindexpiry:remindexpiry1,showprofile:showprofile,image1:newimage,mdevice:mdevicestat,autolocation:autolocation1,city:residentcity,country:homecountry,birthdate:mdate,magicnumber:magicnumber
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                                                     
+                       if (getData.statuscode == "000") {
+                           window.localStorage.setItem("autolocation", autolocation);
+                           window.localStorage.setItem("pushoffer", pushoffer);
+                           window.localStorage.setItem("remindexpiry", remindexpiry);
+                           window.localStorage.setItem("residentcity", residentcity);
+                           window.localStorage.setItem("homecountry", homecountry);  
+                           window.localStorage.setItem("emailid", emailid);
+                           window.localStorage.setItem("mobilenumber", mobilenumber);  
+                           window.localStorage.setItem("birthdate", mdate);  
+                           window.localStorage.setItem("magicnumber", magicnumber); 
+                           window.localStorage.setItem("hotelmember", magicnumber); 
+                                                                
+                           pushSettings = {
+                               iOS: {
+                                   badge: "true",
+                                   sound: "true",
+                                   alert: "true",
+                                   clearBadge: "true"
+                               },
+                               android: {
+                                   senderID: googleApiProjectNumber
+                               },
+                               wp8: {
+                                   channelName: 'EverlivePushChannel'
+                               },
+                               notificationCallbackIOS:onPushNotificationReceived,
+                               notificationCallbackAndroid: onPushNotificationReceived,
+                               notificationCallbackWP8: onPushNotificationReceived,
+                               customParameters: {
+                                   Memberid: customer,
+                                   Merchant:merchant,
+                                   Segment:segmentcode,
+                                   devicecode:muuid
+                               }
+                           };
+                                                                                                                            
+                           if (pushoffer == "1") {
+                               //If already registered than update registration
+                               currentDevice.getRegistration(function() {
+                                   currentDevice.unregister().then(function() {
+                                   }, function (err) {
+                                       //alert('unregister 1 ' + err);
+                                   });
+                                   currentDevice.enableNotifications(pushSettings, function (data) {
+                                       currentDevice.register(pushSettings, function (data) {
+                                       }, function (err) {
+                                           //alert('register  1 ' + err);
+                                       }); 
+                                   }, function (err) {
+                                       //alert('enable  1 ' + err);
+                                   });
+                               }, function(err) { //If not registered then enable and register
+                                   currentDevice.enableNotifications(pushSettings, function (data) {
+                                       currentDevice.register(pushSettings, function (data) {
+                                       }, function (err) {
+                                           //alert('register 2 '+err);
+                                       }); 
+                                   }, function (err) {
+                                       //alert('enable  2 ' + err);
+                                   });
+                               });
+                               window.localStorage.setItem("notification", "1");
+                           }else {
+                               currentDevice.unregister()
+                                   .then(
+                                       function() {
+                                       },
+                                       function (err) {
+                                           //alert('unregister 2 ' + err);
+                                       }
+                                       );
+                               window.localStorage.setItem("notification", "2");
+                           }
+                                                                     
+                           navigator.notification.alert("Profile changes successfully updated.", function() {
+                           }, "isme by Jumeirah", "Dismiss")   
+                           window.localStorage.setItem("issaved", "1");
+                           $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
+                           hideSpin(); //hide loading popup
+                       }else {
+                           navigator.notification.alert("Could not update profile changes due to error. " + getData.statusdesc, function() {
+                           }, "isme by Jumeirah", "Dismiss")          
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (error) {
+                       navigator.notification.alert("Unknown Error, Could not update profile.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       }, "isme by Jumeirah", "Dismiss")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+        hideSpin(); //hide loading popup
     }
 }
     )(window);
