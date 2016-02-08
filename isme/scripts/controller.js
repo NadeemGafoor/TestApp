@@ -4404,7 +4404,7 @@ function completeRedemption() {
                                                 window.localStorage.setItem("issaved", "0");
                                             },
                                             enableSaveSetting:function() {
-                                                alert("ggg");
+                                                
                                                 window.localStorage.setItem("isset", "0");
                                             },
         
@@ -4502,6 +4502,7 @@ function completeRedemption() {
             saveLater();
         } else {
             saveSetting();
+            if(window.localStorage.getItem("isset")==="1"){
             saveLater();
         }
     }
