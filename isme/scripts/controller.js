@@ -2869,12 +2869,12 @@ function completeRedemption() {
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
-                                                           async:true,
+                                                           async:false,
                                                            timeout:20000,
                                                            url: gurl + "/summaryReport.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:mdevicestat
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),   
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -2885,15 +2885,7 @@ function completeRedemption() {
                                                                    document.getElementById("home-page").style.display = "block";
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
-                                                                 
-                                                                   // document.getElementById("wallet-div").style.display = "block";
-                                                                   // document.getElementById("summary-1").innerHTML = getData.cashbackbalance;
-                                                                   // document.getElementById("summary-2").innerHTML = getData.vouchercount;
-                                                                   // document.getElementById("summary-3").innerHTML = getData.vouchercountexpiry;
-                                                                   // document.getElementById("summary-4").innerHTML = getData.spendbalance;
-                                                                   // document.getElementById("summary-5").innerHTML = getData.referralbalance;
-                                                                   // document.getElementById("summary-6").innerHTML = getData.rewardpointbalance;
-                                                                   // document.getElementById("summary-7").innerHTML = getData.tierpointbalance;
+
                                                                    window.localStorage.setItem("selfredeem", ""); 
                                                                    document.getElementById("main-title").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
                                                                    document.getElementById("profile-name").innerHTML = window.localStorage.getItem("customername");
@@ -2942,7 +2934,7 @@ function completeRedemption() {
                                                            url: gurl + "/summaryReport.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:mdevicestat
+                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),   
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3052,7 +3044,6 @@ function completeRedemption() {
                                                                window.localStorage.setItem("remindexpiry", "");
                                                                window.localStorage.setItem("showprofile", "");
                                                                window.localStorage.setItem("password", "");
-                                                               window.localStorage.setItem("mdevice", "");
                                                                window.localStorage.setItem("muuid", "");
                                                                window.localStorage.setItem("mversion", "");
                                                                window.localStorage.setItem("mplatform", "");
@@ -3149,7 +3140,7 @@ function completeRedemption() {
                                                            url: gurl + "/benefitlist.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,benefitcode:benefitcode,mdevice:mdevicestat
+                                                                                    merchantcode :merchant,benefitcode:benefitcode,mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3199,7 +3190,7 @@ function completeRedemption() {
                                                            url: gurl + "/offerList.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3241,7 +3232,7 @@ function completeRedemption() {
                                                            url: gurl + "/offeroutletlist.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,offercode:offercode,mdevice:mdevicestat
+                                                                                    merchantcode :merchant,offercode:offercode,mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3286,7 +3277,7 @@ function completeRedemption() {
                                                            url: gurl + "/offerList.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3329,7 +3320,7 @@ function completeRedemption() {
                                                            url: gurl + "/outletlist.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,brandcode:"",outletcode:outletcode,mdevice:mdevicestat
+                                                                                    merchantcode :merchant,brandcode:"",outletcode:outletcode,mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3384,7 +3375,7 @@ function completeRedemption() {
                                                            url: gurl + "/propertyList.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat
+                                                                                    merchantcode :merchant,brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3431,7 +3422,7 @@ function completeRedemption() {
                                                            url: gurl + "/outletlist.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:""
+                                                                                    merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3479,7 +3470,7 @@ function completeRedemption() {
                                                            url: gurl + "/outletlist.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:""
+                                                                                    merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3524,7 +3515,7 @@ function completeRedemption() {
                                                            url: gurl + "/propertyitem.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,brandcode: window.localStorage.getItem("brandcode"),mdevice:mdevicestat
+                                                                                    merchantcode :merchant,brandcode: window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3622,7 +3613,7 @@ function completeRedemption() {
                                                            url: gurl + "/offerListOutlet.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat,outletcode:outletcode
+                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:window.localStorage.getItem("mdevicestat"),outletcode:outletcode
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3671,7 +3662,7 @@ function completeRedemption() {
                                                            url: gurl + "/issuecoupon.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,offercode:offercode,customerid:customer,password:password,mdevice:mdevicestat
+                                                                                    merchantcode :merchant,offercode:offercode,customerid:customer,password:password,mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3745,7 +3736,7 @@ function completeRedemption() {
                                                            url: gurl + "/mywalletvouchers.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:mdevicestat
+                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3789,7 +3780,7 @@ function completeRedemption() {
                                                            url: gurl + "/offerList.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3835,7 +3826,7 @@ function completeRedemption() {
                                                            url: gurl + "/mywalletvoucherdetail.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,couponnumber:couponnumber,mdevice:mdevicestat
+                                                                                    merchantcode :merchant,customerid:customer,password:password,couponnumber:couponnumber,mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4046,7 +4037,7 @@ function completeRedemption() {
                                                            url: gurl + "/validatePassword.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,setpass:this.setpass,mdevice:mdevicestat
+                                                                                    merchantcode :merchant,customerid:customer,password:password,setpass:this.setpass,mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4106,7 +4097,7 @@ function completeRedemption() {
                                                            url: gurl + "/validateVoucherRedemptionCredential.aspx", 
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,mdevice:mdevicestat,password:window.localStorage.getItem("password"),customer:customer,pin:this.srpin1
+                                                                                    merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat"),password:window.localStorage.getItem("password"),customer:customer,pin:this.srpin1
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4193,7 +4184,7 @@ function completeRedemption() {
                                                            url: gurl + "/archivehistory.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat,mexcl:""
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:window.localStorage.getItem("mdevicestat"),mexcl:""
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4246,7 +4237,7 @@ function completeRedemption() {
                                                            url: gurl + "/archivehistory.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat,mexcl:"1"
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:window.localStorage.getItem("mdevicestat"),mexcl:"1"
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4294,7 +4285,7 @@ function completeRedemption() {
                                                            url: gurl + "/messageitem.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4336,7 +4327,7 @@ function completeRedemption() {
                                                            url: gurl + "/messagedelete.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:mdevicestat
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4431,7 +4422,7 @@ function completeRedemption() {
                                                                    url: gurl + "/linkFBUser.aspx",
                                                                    contentType: "application/json; charset=utf-8",
                                                                    data: JSON.stringify({
-                                                                                            merchantcode :merchant,mdevice:mdevicestat,fbuserid:window.localStorage.getItem("FBuserID"),customer:customer,password:window.localStorage.getItem("password"),fbaccesstoken:window.localStorage.getItem("FBAccessToken")
+                                                                                            merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat"),fbuserid:window.localStorage.getItem("FBuserID"),customer:customer,password:window.localStorage.getItem("password"),fbaccesstoken:window.localStorage.getItem("FBAccessToken")
                                                                                         }),
                                                                    success: function (data) { 
                                                                        var getData = JSON.parse(data);
@@ -4577,7 +4568,7 @@ function completeRedemption() {
                    url: gurl + "/discountRedemption.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,customerid:customer,password:password,emppin:this.depin1.value,mdevice:mdevicestat
+                                            merchantcode :merchant,customerid:customer,password:password,emppin:this.depin1.value,mdevice:window.localStorage.getItem("mdevicestat")
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -4625,7 +4616,7 @@ function completeRedemption() {
                    url: gurl + "/activateVoucherRedemption.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,customerid:customer,password:password,couponcode:"",emppin:this.depin1.value,mdevice:mdevicestat,offercode:window.localStorage.getItem("redeemoffer")   
+                                            merchantcode :merchant,customerid:customer,password:password,couponcode:"",emppin:this.depin1.value,mdevice:window.localStorage.getItem("mdevicestat"),offercode:window.localStorage.getItem("redeemoffer")   
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -4668,7 +4659,7 @@ function completeRedemption() {
                    url: gurl + "/VoucherRedemption.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,customerid:customer,password:password,couponcode:window.localStorage.getItem("selfredeemVouchernumber"),emppin:this.depin1.value,mdevice:mdevicestat
+                                            merchantcode :merchant,customerid:customer,password:password,couponcode:window.localStorage.getItem("selfredeemVouchernumber"),emppin:this.depin1.value,mdevice:window.localStorage.getItem("mdevicestat")
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -4714,7 +4705,7 @@ function completeRedemption() {
                                                                  
                                                                   
                                                                  
-                                            merchantcode :merchant,customer:customer,token:x,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
+                                            merchantcode :merchant,customer:customer,token:x,mdevice:window.localStorage.getItem("mdevicestat"),mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -4758,7 +4749,7 @@ function completeRedemption() {
                    url: gurl + "/updateimage.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,customerid:customer,password:password,image1:e,mdevice:mdevicestat
+                                            merchantcode :merchant,customerid:customer,password:password,image1:e,mdevice:window.localStorage.getItem("mdevicestat")
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -4787,7 +4778,7 @@ function completeRedemption() {
                    url: gurl + "/listcountryandprice.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,customerid:customer,mdevice:mdevicestat
+                                            merchantcode :merchant,customerid:customer,mdevice:window.localStorage.getItem("mdevicestat")
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -4832,7 +4823,7 @@ function completeRedemption() {
                    url: gurl + "/listcityandlanguage.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,customerid:customer,countrycode:t,mdevice:mdevicestat
+                                            merchantcode :merchant,customerid:customer,countrycode:t,mdevice:window.localStorage.getItem("mdevicestat")
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -4913,7 +4904,7 @@ function completeRedemption() {
                    url: gurl + "/outletlistGeo.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat,city:geocity,country:geocountry,lat:lat,lon:lon
+                                            merchantcode :merchant,brandcode:brandcode,mdevice:window.localStorage.getItem("mdevicestat"),city:geocity,country:geocountry,lat:lat,lon:lon
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -4972,7 +4963,7 @@ function completeRedemption() {
                    url: gurl + "/offerListGeo.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat,city:geocity,country:geocountry,lat:lat,lon:lon
+                                            merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:window.localStorage.getItem("mdevicestat"),city:geocity,country:geocountry,lat:lat,lon:lon
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -5023,7 +5014,7 @@ function completeRedemption() {
                    url: gurl + "/offeroutletlist_Geo.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,offercode:offercode,mdevice:mdevicestat,lat:lat,lon:lon
+                                            merchantcode :merchant,offercode:offercode,mdevice:window.localStorage.getItem("mdevicestat"),lat:lat,lon:lon
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -5063,7 +5054,7 @@ function completeRedemption() {
                    url: gurl + "/offeroutletlist_Geo.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,offercode:offercode,mdevice:mdevicestat,lat:lat,lon:lon
+                                            merchantcode :merchant,offercode:offercode,mdevice:window.localStorage.getItem("mdevicestat"),lat:lat,lon:lon
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -5150,7 +5141,7 @@ function completeRedemption() {
                    url: gurl + "/trackDevice.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,lat:x,lon:y,customer:"WATCH",segment:segmentcode
+                                            merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat"),lat:x,lon:y,customer:"WATCH",segment:segmentcode
                                         }),
                    success: function (data) { 
                    },
@@ -5211,7 +5202,7 @@ function completeRedemption() {
                    url: gurl + "/getCountryflag.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,brandcode:brandcode,mdevice:mdevicestat,city:geocity,country:e,lat:lat,lon:lon
+                                            merchantcode :merchant,brandcode:brandcode,mdevice:window.localStorage.getItem("mdevicestat"),city:geocity,country:e,lat:lat,lon:lon
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -5289,7 +5280,7 @@ function completeRedemption() {
                        url: gurl + "/propertyList.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode: merchant, mdevice: mdevicestat,brandcode:window.localStorage.getItem("brandcode")
+                                                merchantcode: merchant, mdevice: window.localStorage.getItem("mdevicestat"),brandcode:window.localStorage.getItem("brandcode")
                                             }),
                        success: function (data) {
                            var getData = JSON.parse(data);
@@ -5562,7 +5553,7 @@ function completeRedemption() {
                    url: gurl + "/restaurantTypeList.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat
+                                            merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat")
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);                    
@@ -5601,7 +5592,7 @@ function completeRedemption() {
                    url: gurl + "/lifeStyleList.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat
+                                            merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat")
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);                    
@@ -5642,7 +5633,7 @@ function completeRedemption() {
                    url: gurl + "/restaurantDetailList.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat
+                                            merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat")
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -5681,7 +5672,7 @@ function completeRedemption() {
                    url: gurl + "/cuisineTypeList.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat
+                                            merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat")
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -5721,7 +5712,7 @@ function completeRedemption() {
                    url: gurl + "/celebrationTypeList.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat
+                                            merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat")
                                         }),
                    success: function (data) {     
                        var getData = JSON.parse(data);
@@ -5759,7 +5750,7 @@ function completeRedemption() {
                    url: gurl + "/setMemberPreference.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,preference:e,itemcode:m,customer:customer,password:password
+                                            merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat"),preference:e,itemcode:m,customer:customer,password:password
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -5788,7 +5779,7 @@ function completeRedemption() {
                    url: gurl + "/mypreferencelist.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,preferencetype:"LS",customer:customer,password:password
+                                            merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat"),preferencetype:"LS",customer:customer,password:password
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -5826,7 +5817,7 @@ function completeRedemption() {
                    url: gurl + "/mypreferencelist.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,preferencetype:"CS",customer:customer,password:password
+                                            merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat"),preferencetype:"CS",customer:customer,password:password
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -5864,7 +5855,7 @@ function completeRedemption() {
                    url: gurl + "/mypreferencelist.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,preferencetype:"CB",customer:customer,password:password
+                                            merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat"),preferencetype:"CB",customer:customer,password:password
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -5903,7 +5894,7 @@ function completeRedemption() {
                    url: gurl + "/mypreferencelist.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,preferencetype:"RD",customer:customer,password:password
+                                            merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat"),preferencetype:"RD",customer:customer,password:password
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -6124,11 +6115,12 @@ function completeRedemption() {
         }else {
             residentcity1 = "";
         }
+        alert("sdsdsd");    
         mdate = new Date();
-        mdate = this.date1;
-        emailid = this.emailid1;
-        mobilenumber = this.mobile1;                                             
-        magicnumber = this.hotelnumber1;
+        mdate = this.date1.value;
+        emailid = this.emailid1.value;
+        mobilenumber = this.mobile1.value;                                             
+        magicnumber = this.hotelnumber1.value;
         homecountry = homecountry1;
         residentcity = residentcity1;  
         pushoffer = pushoffer1;
@@ -6137,7 +6129,7 @@ function completeRedemption() {
         country = homecountry1;
         city = residentcity1;
         showSpin();                                                  
-                              
+           
         $.ajax({ 
                    type: "POST",
                    cache:false,
