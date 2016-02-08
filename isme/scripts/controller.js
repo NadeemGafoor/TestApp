@@ -4572,7 +4572,7 @@ function completeRedemption() {
                                                         'You have not saved your preferences?', // message
                                                         onConfirm2, // callback to invoke with index of button pressed
                                                         'isme by Jumeirah', // title
-                                                        'I will set Later,Save now'          // buttonLabels
+                                                        'I will Save Later,Save now'          // buttonLabels
                                                         );
                                                 }else {  
                                                     saveLater();
@@ -4581,13 +4581,13 @@ function completeRedemption() {
                                             checkSaveSetting:function() {
                                                 if (window.localStorage.getItem("isset") ==="0") {
                                                     navigator.notification.confirm(
-                                                        'You have not saved your preferences?', // message
+                                                        'You have not saved your settings?', // message
                                                         onConfirm2, // callback to invoke with index of button pressed
                                                         'isme by Jumeirah', // title
-                                                        'I will set Later,Save now'          // buttonLabels
+                                                        'I will Save Later,Save now'          // buttonLabels
                                                         );
                                                 }else {  
-                                                    saveLaterSetting();
+                                                    saveLater();
                                                 }
                                             },
                                             enableSave:function() {
