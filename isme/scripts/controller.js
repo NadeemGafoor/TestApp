@@ -6058,7 +6058,7 @@ function completeRedemption() {
             }, "isme by Jumeirah", "Dismiss")
             return;
         }
-                  alert(this.emailid1.value + " " + this.emailid2.value);                              
+                              
         if (this.emailid1.value != this.emailid2.value) {
             navigator.notification.alert("Email ID do not match, re-enter", function() {
             }, "isme by Jumeirah", "Dismiss");
@@ -6115,12 +6115,16 @@ function completeRedemption() {
         }else {
             residentcity1 = "";
         }
-        alert("sdsdsd");    
-        mdate = new Date();
+   
         mdate = this.date1.value;
         emailid = this.emailid1.value;
+       
         mobilenumber = this.mobile1.value;                                             
+        alert(mdate);
+        alert(emailid);
+        alert(mobilenumber);
         magicnumber = this.hotelnumber1.value;
+        alert(magicnumber);
         homecountry = homecountry1;
         residentcity = residentcity1;  
         pushoffer = pushoffer1;
@@ -6128,6 +6132,7 @@ function completeRedemption() {
         autolocation = autolocation1;
         country = homecountry1;
         city = residentcity1;
+      
         showSpin();                                                  
            
         $.ajax({ 
