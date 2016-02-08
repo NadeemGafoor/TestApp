@@ -685,16 +685,7 @@ function postLoginBack() {
     
     window.localStorage.setItem("appopen", "0");   
 
-                                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                                                                                       'direction': 'up',
-                                                                                                                                       'href': '#views/pl-home.html'
-                                                                                                                                   }), 500);
-                                                                
+   $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
     //$("body").data("kendoMobilePane").navigate("#:back");
 }
 
@@ -908,8 +899,8 @@ function completeRedemption() {
     var minor = "";
     var appad_location = "http://isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
-     // var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-   //var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
+    // var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+    //var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     var share_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png";
     var flag_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/flagimages/";
     //var notification_image = "https://appapi.exclusiveu.in/mobileportal/images/36x36_icon.png";    
@@ -1133,13 +1124,12 @@ function completeRedemption() {
                                                // alert(window.localStorage.getItem("celebration")); 
                                                // alert(window.localStorage.getItem("distance")); 
                                                $("#modalviewofferfilter").data("kendoMobileModalView").close();
-                                         
                                            },
 
                                            queryOutletFilter:function(e) {
-                                                 alert(window.localStorage.getItem("category"));    
-                                              // window.localStorage.setItem("category", e.view.params.category);    
-                                              // window.localStorage.setItem("appopen", e.view.params.appopen);    
+                                               alert(window.localStorage.getItem("category"));    
+                                               // window.localStorage.setItem("category", e.view.params.category);    
+                                               // window.localStorage.setItem("appopen", e.view.params.appopen);    
                                                if (document.getElementById("olocation").checked) {
                                                    window.localStorage.setItem("distance", "1"); 
                                                }else {
@@ -1147,12 +1137,12 @@ function completeRedemption() {
                                                }
                                                getlocationparams();
                                                $("#modalviewfilter").data("kendoMobileModalView").close();
-                                                 //    alert(window.localStorage.getItem("appopen"));
+                                               //    alert(window.localStorage.getItem("appopen"));
                                                if (window.localStorage.getItem("appopen")==="80") {
-                                                //   alert("Here");
+                                                   //   alert("Here");
                                                    preLogin.showAllOutlet();
                                                } else if (window.localStorage.getItem("appopen")==="81") {
-                                               //     alert("Here12");
+                                                   //     alert("Here12");
                                                    preLogin.showAllLeisure();
                                                }    
                                            },
@@ -1252,7 +1242,8 @@ function completeRedemption() {
                                                    itemconcat = itemconcat + vclose;
                                                    document.getElementById("ocelebration").innerHTML = "Filter";
                                                    window.localStorage.setItem("celebration", itemconcat);    
-                                               }p
+                                               }
+                                               p
                                               
                                                $("#modalviewceleberationtype").data("kendoMobileModalView").close();
                                            },
@@ -1640,7 +1631,7 @@ function completeRedemption() {
                                            showAllOutlet
                                            : function (e) {
                                                window.localStorage.setItem("appopen", "80");  
-                                                window.localStorage.setItem("category", e.view.params.category);
+                                               window.localStorage.setItem("category", e.view.params.category);
                                          
                                                showSpin();     
                                                window.localStorage.setItem("brandcode", e.view.params.brand);                        
@@ -1657,8 +1648,7 @@ function completeRedemption() {
                                                                                    merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:""
                                                                                }),
                                                           success: function (data) { 
-                                                              
-                                                               alert(getData.statuscode);
+                                                              alert(getData.statuscode);
                                                               if (getData.statuscode === "000") {
                                                                   //fill the outlet template
                                                                   $("#outlet-list").kendoMobileListView({
@@ -1973,7 +1963,7 @@ function completeRedemption() {
                                                       });
                                            },
         
-                     showOfferItem
+                                           showOfferItem
                                            : function (e) {
                                                offercode = e.view.params.cpn; //offer code for single offer inquiry
                                                offertype = "2"; //single offer inquiry
@@ -2337,17 +2327,7 @@ function completeRedemption() {
                                                        maxspend = window.localStorage.getItem("maxspend");
                                                        fbid = window.localStorage.getItem("fbid");
 
-                                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                                                                                       'direction': 'up',
-                                                                                                                                       'href': '#views/pl-home.html'
-                                                                                                                                   }), 500);
-                                                            
-                                                                      
+                                                       $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
                                                    } else {
                                                        outletcode = "";
                                                        brandcode = "";
@@ -2632,29 +2612,7 @@ function completeRedemption() {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password);
                                                                       window.localStorage.setItem("loggedin", "1");                                                                   
-                
-                                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                                                                                       'direction': 'up',
-                                                                                                                                       'href': '#views/pl-home.html'
-                                                                                                                                   }), 500);
-                                                
-                                                                   
-                                                                      
-                                                                      
-                                                                      
-                                                                      
-                                                                      
-                                                                      
-                                                                      
-                                                                      
-                                                                      
-                                                                      
-                                                                    
+                                                                      $("body").data("kendoMobilePane").navigate("views/pl-home.html"); 
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                               }else {
@@ -2710,17 +2668,7 @@ function completeRedemption() {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                       window.localStorage.setItem("loggedin", "1");
-                                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                                                                                       'direction': 'up',
-                                                                                                                                       'href': '#views/pl-home.html'
-                                                                                                                                   }), 500);
-                                                                 
-                                                                      
+   $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       $("body").data("kendoMobilePane").navigate("views/setpin.html");  
@@ -2931,13 +2879,12 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
-                                                                     if (window.localStorage.getItem("fbid") != "99") {
+                                                                   if (window.localStorage.getItem("fbid") != "99") {
                                                                        document.getElementById("fblink-show").style.display = "none";
                                                                    }
-                                                                     document.getElementById("home-page").style.display = "block";
+                                                                   document.getElementById("home-page").style.display = "block";
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
-                                                                 
                                                                  
                                                                    // document.getElementById("wallet-div").style.display = "block";
                                                                    // document.getElementById("summary-1").innerHTML = getData.cashbackbalance;
@@ -2985,7 +2932,7 @@ function completeRedemption() {
                                            
         
         
-               getSummaryplus:function () {
+                                            getSummaryplus:function () {
                                                 showSpin();
                                                 $.ajax({ 
                                                            type: "POST",
@@ -3000,13 +2947,12 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
-                                                                     if (window.localStorage.getItem("fbid") != "99") {
+                                                                   if (window.localStorage.getItem("fbid") != "99") {
                                                                        document.getElementById("fblink-show-p").style.display = "none";
                                                                    }
                                                                    document.getElementById("home-page-p").style.display = "block";
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
-                                                                 
                                                                  
                                                                    // document.getElementById("wallet-div").style.display = "block";
                                                                    // document.getElementById("summary-1").innerHTML = getData.cashbackbalance;
@@ -3829,7 +3775,7 @@ function completeRedemption() {
                                                            }
                                                        });
                                             },
-               showOfferItem
+                                            showOfferItem
                                             : function (e) {
                                                 offercode = e.view.params.cpn; //offer code for single offer inquiry
                                                 offertype = "2"; //single offer inquiry
@@ -3905,7 +3851,7 @@ function completeRedemption() {
                                                                        document.getElementById("myoffer-remark").innerHTML = "<pre class='fulljustify'>" + getData.myvoucherdetail[0].remark + "</pre>";
                                                             
                                                                        document.getElementById("qr-image-3").style.background = "url(" + getData.myvoucherdetail[0].imageurls + ") no-repeat center center";
-                                                                       document.getElementById("qr-image-3").style.backgroundSize="cover";
+                                                                       document.getElementById("qr-image-3").style.backgroundSize = "cover";
                                                                        window.localStorage.setItem("selfredeem", "M");
                                                                        offercode = getData.myvoucherdetail[0].couponcode;
                                                                     
@@ -4909,17 +4855,7 @@ function completeRedemption() {
                            navigator.notification.alert("PIN has been successfully set", function() {
                            }, "isme by Jumeirah", "Dismiss")         
                            if (y === "0") {
-                     
-                                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                                                                                       'direction': 'up',
-                                                                                                                                       'href': '#views/pl-home.html'
-                                                                                                                                   }), 500);
-                                                               
+             $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
                                                                       
                                hideSpin(); //hide loading popup
                            }else {
@@ -4996,7 +4932,8 @@ function completeRedemption() {
                                    x.add(opt);
                                }
                                hideSpin();
-                           }else {plus
+                           }else {
+                               plus
                                navigator.notification.alert("Cannot get Country list. " + getData.statusdesc, function() {
                                }, "isme by Jumeirah", "Dismiss")          
                                hideSpin(); //hide loading popup
@@ -5730,7 +5667,6 @@ function completeRedemption() {
                        hideSpin(); //hide loading popup
                    }
                });
-    
     }
     function doExit() {
         return;
@@ -6137,18 +6073,9 @@ function completeRedemption() {
     
         window.localStorage.setItem("appopen", "0");   
 
-                                                                        window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                                                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                                                       "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                                                                                       'direction': 'up',
-                                                                                                                                       'href': '#views/pl-home.html'
-                                                                       }), 500);
-                                                              }
-        //$("body").data("kendoMobilePane").navigate("#:back");
-
+       $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+    }
+    //$("body").data("kendoMobilePane").navigate("#:back");
     
     function getRestTypeData() {
         var data = [];
