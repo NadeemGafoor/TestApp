@@ -368,7 +368,7 @@
                     <a  data-role="button" data-click="offerFilterView" data-align="right" id="back1-filter">
                         <i class="fa fa-filter fa-lg" style="color:#fff"></i>
                     </a>
-                    <a data-bind="click:saveSetting" data-role="button"  data-align="right" id="plsave" style="margin-right:10px" >
+                    <a data-click="saveSettings" data-role="button"  data-align="right" id="plsave" style="margin-right:10px" >
                         Save
                     </a>
                 </div>
@@ -755,6 +755,10 @@
             </footer>
 
         </div>
+        
+         <div data-role="modalview" id="modelsavesettings" data-title=""  style="height:100%;width:100%" data-model="postLogin">
+        </div>
+        
 
         <div data-role="modalview" id="modalviewfilter" style="height:60%;width:90%;border-radius:5px" data-model="preLogin">
             <div data-role="header" >
