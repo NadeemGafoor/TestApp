@@ -1639,10 +1639,11 @@ function completeRedemption() {
         
                                            showAllOutlet
                                            : function (e) {
-                                               window.localStorage.setItem("appopen", "80");   
-                                               alert("Hello");
+                                               window.localStorage.setItem("appopen", "80");  
+                                                window.localStorage.setItem("category", e.view.params.category);
+                                         
                                                showSpin();     
-                                               //window.localStorage.setItem("brandcode", e.view.params.brand);                        
+                                               window.localStorage.setItem("brandcode", e.view.params.brand);                        
                                                //alert(window.localStorage.getItem("brandcode"));
                                                $.ajax({ 
                                                           type: "POST",
@@ -1652,11 +1653,12 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:"",preflocation:window.localStorage.getItem("preflocation"),prefcuisine:window.localStorage.getItem("prefcuisine"),prefcelebration:window.localStorage.getItem("prefcelebration"),prefrestaurant:window.localStorage.getItem("prefrestaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
+                                                                                   //merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:"",preflocation:window.localStorage.getItem("preflocation"),prefcuisine:window.localStorage.getItem("prefcuisine"),prefcelebration:window.localStorage.getItem("prefcelebration"),prefrestaurant:window.localStorage.getItem("prefrestaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
+                                                                                   merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:""
                                                                                }),
                                                           success: function (data) { 
                                                               
-                                                            alert(getData.statuscode);
+                                                               alert(getData.statuscode);
                                                               if (getData.statuscode === "000") {
                                                                   //fill the outlet template
                                                                   $("#outlet-list").kendoMobileListView({
@@ -1688,7 +1690,7 @@ function completeRedemption() {
                                            : function (e) {
                                                showSpin(); 
                                                window.localStorage.setItem("appopen", "81");   
-                                               //window.localStorage.setItem("brandcode", e.view.params.brand);
+                                               window.localStorage.setItem("brandcode", e.view.params.brand);
                                                window.localStorage.setItem("category", e.view.params.category);
                                                //alert(window.localStorage.getItem("brandcode"));
                                                $.ajax({ 
