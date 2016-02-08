@@ -3905,19 +3905,21 @@ function completeRedemption() {
                                                     myOfferListOutlet();
                                                 }
                                             },
+                                            showSaveButton:function(){
+                                                 document.getElementById("plsave").style.display = "block";        
+                                            },
         
                                             editsettingdata
                                             :function() {
                                                 showSpin(); 
                                                 listCountry();
                                                 listCity("UAE", document.getElementById("selCity"));  
-                                                // alert(window.localStorage.getItem("birthdate"));
-                                                document.getElementById("back1-filter").style.display = "none";
+                                                alert(document.getElementById("plsave").style.display);
+                                                document.getElementById("plsave").style.display = "block";                                               
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
-                                                postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));
-                                                  document.getElementById("pl-save").style.display = "block";
+                                                postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));                                         
                                                 document.getElementById("selCountry").value = homecountry;
                                                 document.getElementById("selCity").value = residentcity;
                                                 back1_profile();
