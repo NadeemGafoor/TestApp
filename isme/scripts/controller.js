@@ -3913,7 +3913,7 @@ function completeRedemption() {
                                                 listCountry();
                                                 listCity("UAE", document.getElementById("selCity"));  
                                                document.getElementById("back1-filter").style.display = "none";
-                                                document.getElementById("plsave").style.display = "block";
+                                                $("plsave").show();
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
