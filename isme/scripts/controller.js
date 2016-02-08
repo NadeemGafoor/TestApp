@@ -1640,6 +1640,7 @@ function completeRedemption() {
                                            showAllOutlet
                                            : function (e) {
                                                window.localStorage.setItem("appopen", "80");   
+                                               alert("Hello");
                                                showSpin();     
                                                //window.localStorage.setItem("brandcode", e.view.params.brand);                        
                                                //alert(window.localStorage.getItem("brandcode"));
@@ -3487,6 +3488,7 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                window.localStorage.setItem("brandcode", "");
+                                                       
                                                                if (getData.statuscode === "000") {
                                                                    //fill the outlet template
                                                                    $("#pl-outlet-list").kendoMobileListView({
