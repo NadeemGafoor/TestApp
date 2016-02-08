@@ -685,7 +685,7 @@ function postLoginBack() {
     
     window.localStorage.setItem("appopen", "0");   
 
-   $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+    $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
     //$("body").data("kendoMobilePane").navigate("#:back");
 }
 
@@ -2668,7 +2668,7 @@ function completeRedemption() {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                       window.localStorage.setItem("loggedin", "1");
-   $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                                      $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       $("body").data("kendoMobilePane").navigate("views/setpin.html");  
@@ -3911,16 +3911,15 @@ function completeRedemption() {
                                             :function() {
                                                 showSpin(); 
                                                 listCountry();
+                                                 window.localStorage.setItem("isset", "0");
                                                 listCity("UAE", document.getElementById("selCity"));  
-                                               document.getElementById("back1-filter").style.display = "none";
-                                                $("plsave").show();
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
                                                 postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));                                         
                                                 document.getElementById("selCountry").value = homecountry;
                                                 document.getElementById("selCity").value = residentcity;
-                                                back1_profile();
+                                                back7_profile();
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
                                                 }else {
@@ -3954,7 +3953,7 @@ function completeRedemption() {
                                             function () {
                                                 if (!this.emailid1) {
                                                     navigator.notification.alert("Email is required.  Re-enter", function() {
-                                                    }, "isme by Jumeirah", "Dismiss")
+                                                    }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
                                                 
@@ -4123,6 +4122,7 @@ function completeRedemption() {
                                                                      
                                                                    navigator.notification.alert("Profile changes successfully updated.", function() {
                                                                    }, "isme by Jumeirah", "Dismiss")   
+                                                                   window.localStorage.setItem("issaved", "1");
                                                                    $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
                                                                    hideSpin(); //hide loading popup
                                                                }else {
@@ -4578,8 +4578,23 @@ function completeRedemption() {
                                                     saveLater();
                                                 }
                                             },
+                                            checkSaveSetting:function() {
+                                                if (window.localStorage.getItem("isset") ==="0") {
+                                                    navigator.notification.confirm(
+                                                        'You have not saved your preferences?', // message
+                                                        onConfirm2, // callback to invoke with index of button pressed
+                                                        'isme by Jumeirah', // title
+                                                        'I will set Later,Save now'          // buttonLabels
+                                                        );
+                                                }else {  
+                                                    saveLaterSetting();
+                                                }
+                                            },
                                             enableSave:function() {
                                                 window.localStorage.setItem("issaved", "0");
+                                            },
+           enableSaveSetting:function() {
+                                                window.localStorage.setItem("isset", "0");
                                             },
         
                                             fbLoginDA   
@@ -4629,7 +4644,36 @@ function completeRedemption() {
                                                         return;
                                                     } 
                                                 }); 
-                                            }                 
+                                            }  ,
+        
+        
+        
+                                            postLoginBack:function() {
+                                                elems = document.getElementsByClassName('cardhead');
+                                                for (i = 0; i < elems.length; i++) {
+                                                    elems[i].style.display = 'none';
+                                                }  
+   
+                                                elems = document.getElementsByClassName('foot');
+                                                for (i = 0; i < elems.length; i++) {
+                                                    elems[i].style.display = 'none';
+                                                } 
+    
+                                                elems = document.getElementsByClassName('mymenu1');
+
+                                                for (i = 0; i < elems.length; i++) {
+                                                    elems[i].innerHTML = '<i class="fa fa-angle-up fa-2x" style="color:#fff"></i>';
+                                                    elems[i].style.width = "100%";
+                                                    elems[i].style.zIndex = 10000;
+                                                    elems[i].style.textAlign = "center";
+                                                }
+    
+                                                window.localStorage.setItem("appopen", "0");   
+
+                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                //$("body").data("kendoMobilePane").navigate("#:back");
+                                            }
+        
                                             
                                         });  
     
@@ -4856,7 +4900,7 @@ function completeRedemption() {
                            navigator.notification.alert("PIN has been successfully set", function() {
                            }, "isme by Jumeirah", "Dismiss")         
                            if (y === "0") {
-             $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                               $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
                                                                       
                                hideSpin(); //hide loading popup
                            }else {
@@ -5603,7 +5647,17 @@ function completeRedemption() {
         document.getElementById("mycard-qr6").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
         document.getElementById("mycard-qr6").style.backgroundSize = "cover";        
     }
-     
+    
+    function back7_profile() {
+        window.localStorage.setItem("selfredeem", "D"); 
+        document.getElementById("name7-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+        document.getElementById("number7-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+        document.getElementById("expiry7-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+        document.getElementById("segment7-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+        document.getElementById("mycard7-qr").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+        document.getElementById("mycard7-qr").style.backgroundSize = "cover";        
+    }
+    
     function onConfirm1 (buttonIndex) {  
         if (buttonIndex===1) {
             doExecute();  
@@ -6074,7 +6128,7 @@ function completeRedemption() {
     
         window.localStorage.setItem("appopen", "0");   
 
-       $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+        $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
     }
     //$("body").data("kendoMobilePane").navigate("#:back");
     

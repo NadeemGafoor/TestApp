@@ -1,5 +1,42 @@
-<div data-role="view" data-title="My Settings" data-layout="pl-back1-layout" id="pl-setting-theme" data-model="postLogin"  data-show="postLogin.editsettingdata" >
+<div data-role="view" data-title="My Settings" data-layout="pl-back6-layout" id="pl-setting-theme" data-model="postLogin"  data-show="postLogin.editsettingdata" >
+  <header data-role="header">
+                <div data-role="navbar" data-model="postLogin" >
+                    <a data-role="button" data-bind="click:checkSaveSetting"  data-align="left" style="color:#fff" data-icon="back" >
+                    </a>
+                    <span data-role="view-title" id="item-title"></span>
+                 
+                    <a data-bind="click:saveSetting" data-role="button"  data-align="right" style="margin-right:10px" >
+                        Save
+                    </a>
+                </div>
+                <div class="cardhead" style="background-color:#fff">
+                    <div class="class-card-div">
+                        <div class="qr-image-sep">
+                            <div class="qr-image" id="mycard7-qr"></div>
+                        </div>
+                        <div class="filler"></div>
+                        <div class="home-page-holder">
+                            <div class="button-frame-login">
+                                <a data-click="enterPinForRedemption" data-role="button"  >Apply Discount</a>
+                            </div>
+                        </div>
+                        <div class="general-text-line-1 cblack" id="expiry7-back" ></div>
+                    </div>
+                    <div class="share-menu-line-2-c">
+                        <a  data-click="cardClick" data-role="button" class="mymenu2" style="background-color:transparent !important">
+                            <i class="fa fa-angle-up fa-2x" style="color:#000"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="share-menu-line-3">
+                    <a  data-click="cardClick" data-role="button"  class="cardmenu" style="background-color:transparent !important">
+                        <div class="share-menu-line-3-a" style="text-align:left" id="name7-back"></div>
+                        <div class="share-menu-line-3-a" style="text-align:center" id="number7-back"></div>
+                        <div class="share-menu-line-3-a" style="text-align:right" id="segment7-back"></div>
 
+                    </a>
+                </div>
+            </header>
     <ul data-role="listview">
         <li>
             <div class="button-frame-login">
