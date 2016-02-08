@@ -137,7 +137,7 @@
                 <div data-role="navbar">
                     <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff" data-click="postLoginBackOne">
                     </a>
-                    
+
                     <span data-role="view-title" id="pl-detail-title"></span>
                     <a data-role="button" data-click="shareClick" data-align="right" >
                         <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
@@ -365,12 +365,12 @@
                     <a data-role="button" data-align="left"  style="color:#fff;border:0px solid #000 !important;" data-click="postLoginBack" data-icon="back">
                     </a>
                     <span data-role="view-title" id="item-title"></span>
-                    <a  data-role="button" data-click="offerFilterView" data-align="right" style="display:none" id="back1-filter">
+                    <a  data-role="button" data-click="offerFilterView" data-align="right" id="back1-filter">
                         <i class="fa fa-filter fa-lg" style="color:#fff"></i>
                     </a>
-                     <a data-bind="click:saveSetting"      data-role="button"  data-align="right" id="plsave">
-            Save
-        </a>
+                    <a data-bind="click:saveSetting" data-role="button"  data-align="right" id="plsave" style="margin-right:10px" >
+                        Save
+                    </a>
                 </div>
                 <div class="cardhead" style="background-color:#fff">
                     <div class="class-card-div">
@@ -735,7 +735,7 @@
                     &nbsp;&nbsp;Terms & Conditions
                 </a>
             </div>
-           
+
             <footer data-role="footer" style="background-color:#000">
 
                 <div class="li-div li-footer-div" style="background-color:#000">
@@ -805,7 +805,7 @@
                     </a>
                 </div>
             </div>
-                        <div class="list-group">&nbsp;Location</div>
+            <div class="list-group">&nbsp;Location</div>
             <div class="filter-item-holder">
                 <div class="list-group-data-item lheight" >&nbsp;&nbsp;&nbsp;Locations Near Me</div>
                 <div class="list-group-data-item-1 lheight" >
@@ -835,23 +835,21 @@
             </div>
 
         </div>
-        
-        
-             <div data-role="modalview" id="modalviewcuisine" style="height:80%;width:90%;border-radius:5px" data-model="preLogin">
-	            <div data-role="header">
-	                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
-	                    <span >Select Cuisine</span>
-	                    <a  data-role="button" data-align="right" data-animated="true" data-bind="click:cuisineCritFilter">
-	                        Go
-	                    </a>
-	                </div>
-	            </div>
-	           
-	            <ul id="Cuisine-Filter"  data-bind="value:getRestCuisineFilter">  
-	            </ul>
-	
-	        </div>
-        
+
+        <div data-role="modalview" id="modalviewcuisine" style="height:80%;width:90%;border-radius:5px" data-model="preLogin">
+            <div data-role="header">
+                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                    <span >Select Cuisine</span>
+                    <a  data-role="button" data-align="right" data-animated="true" data-bind="click:cuisineCritFilter">
+                        Go
+                    </a>
+                </div>
+            </div>
+
+            <ul id="Cuisine-Filter"  data-bind="value:getRestCuisineFilter">
+            </ul>
+
+        </div>
 
         <div data-role="modalview" id="modalviewtype" style="height:80%;width:90%;border-radius:5px;" data-model="preLogin">
             <div data-role="header">
@@ -862,14 +860,13 @@
                     </a>
                 </div>
             </div>
-          
 
             <ul id="RestType-Filter" data-bind="value:getRestTypeFilter">
             </ul>
 
         </div>
-        
-          <div data-role="modalview" id="modalviewceleberationtype" data-title=""  style="height:70%;width:90%" data-model="preLogin">
+
+        <div data-role="modalview" id="modalviewceleberationtype" data-title=""  style="height:70%;width:90%" data-model="preLogin">
             <div data-role="header" style="background-color:#4f5053">
                 <div data-role="navbar">
                     <span >Celebration Type</span>
@@ -880,30 +877,24 @@
             </div>
             <ul id="Celebration-Filter"  data-bind="value:getCelebrationFilter" >
             </ul>
-          
+
         </div>
-        
-        
-         <div data-role="modalview" id="modalviewoffertype" style="height:80%;width:90%;border-radius:5px;background-color:#fff" data-model="preLogin">
-	            <div data-role="header">
-	                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
-	                    <span >Offer Type</span>
-	                    <a data-role="button" data-align="right" data-animated="true" data-bind="click:lifestyleCritFilter">
-	                        Go
-	                    </a>
-	                </div>
-	            </div>
-	           
-	            <ul id="Offer-Filter"  data-bind="value:getLifeStyleData">
-	            </ul>
-	
-	        </div>
-        
-      
-         
-          
-        
-      
+
+        <div data-role="modalview" id="modalviewoffertype" style="height:80%;width:90%;border-radius:5px;background-color:#fff" data-model="preLogin">
+            <div data-role="header">
+                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                    <span >Offer Type</span>
+                    <a data-role="button" data-align="right" data-animated="true" data-bind="click:lifestyleCritFilter">
+                        Go
+                    </a>
+                </div>
+            </div>
+
+            <ul id="Offer-Filter"  data-bind="value:getLifeStyleData">
+            </ul>
+
+        </div>
+
         <div data-role="modalview" id="modalviewmap" data-title="Map"  style="height:100%;width:100%">
             <div data-role="header">
                 <div data-role="navbar">
@@ -920,8 +911,7 @@
 
         </div>
 
-    
-              <div data-role="modalview" id="modalviewhistoryfilter" style="height:60%;width:90%" data-model="postLogin">
+        <div data-role="modalview" id="modalviewhistoryfilter" style="height:60%;width:90%" data-model="postLogin">
             <div data-role="header" style="background-color:#4f5053">
                 <div data-role="navbar">
                     <span >History Filters</span>
@@ -1237,7 +1227,6 @@
             </label>
         </script>
 
-     
         <script type="text/x-kendo-template" id="explorelisttemplate">
             
             <a>

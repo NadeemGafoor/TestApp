@@ -3905,17 +3905,15 @@ function completeRedemption() {
                                                     myOfferListOutlet();
                                                 }
                                             },
-                                            showSaveButton:function(){
-                                                 document.getElementById("plsave").style.display = "block";        
-                                            },
+                                         
         
                                             editsettingdata
                                             :function() {
                                                 showSpin(); 
                                                 listCountry();
                                                 listCity("UAE", document.getElementById("selCity"));  
-                                                alert(document.getElementById("plsave").style.display);
-                                                document.getElementById("plsave").style.display = "block";                                               
+                                               document.getElementById("back1-filter").style.display = "none";
+                                                document.getElementById("plsave").style.display = "block";
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
