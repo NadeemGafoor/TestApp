@@ -6120,9 +6120,7 @@ function completeRedemption() {
         emailid = this.emailid1.value;
        
         mobilenumber = this.mobile1.value;                                             
-        alert(mdate);
-        alert(emailid);
-        alert(mobilenumber);
+     
         magicnumber = this.hotelnumber1.value;
         alert(magicnumber);
         homecountry = homecountry1;
