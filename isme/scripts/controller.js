@@ -4372,6 +4372,10 @@ function completeRedemption() {
                                             getChecked:function() {
                                                 hideSpin();
                                             },
+                                            saveMySetting:function() {
+                                                saveSetting();
+                                            },
+
         
                                             savePreference:function() {
                                                 savePreferenceItem();
@@ -4388,6 +4392,7 @@ function completeRedemption() {
                                                     saveLater();
                                                 }
                                             },
+                                            
                                             checkSaveSetting:function() {
                                                 if (window.localStorage.getItem("isset") ==="0") {
                                                     navigator.notification.confirm(
@@ -4404,7 +4409,6 @@ function completeRedemption() {
                                                 window.localStorage.setItem("issaved", "0");
                                             },
                                             enableSaveSetting:function() {
-                                                
                                                 window.localStorage.setItem("isset", "0");
                                             },
         
@@ -4502,8 +4506,9 @@ function completeRedemption() {
             saveLater();
         } else {
             saveSetting();
-            if(window.localStorage.getItem("isset")==="1"){
-            saveLater();
+            if (window.localStorage.getItem("isset")==="1") {
+                saveLater();
+            }
         }
     }
     
@@ -6062,8 +6067,8 @@ function completeRedemption() {
             }, "isme by Jumeirah", "Dismiss")
             return;
         }
-                                                
-        if (this.emailid1 != this.emailid2) {
+                  alert(this.emailid1.value + " " + this.emailid2.value);                              
+        if (this.emailid1.value != this.emailid2.value) {
             navigator.notification.alert("Email ID do not match, re-enter", function() {
             }, "isme by Jumeirah", "Dismiss");
             return;
@@ -6132,11 +6137,11 @@ function completeRedemption() {
         country = homecountry1;
         city = residentcity1;
         showSpin();                                                  
-                                   
+                              
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:true,
+                   async:false,
                    timeout:20000,
                    url: gurl + "/updateprofile_isme.aspx",
                    contentType: "application/json; charset=utf-8",
@@ -6145,7 +6150,7 @@ function completeRedemption() {
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
-                                                     
+                         alert(getData.statuscode);                                 
                        if (getData.statuscode == "000") {
                            window.localStorage.setItem("autolocation", autolocation);
                            window.localStorage.setItem("pushoffer", pushoffer);
