@@ -3917,6 +3917,7 @@ function completeRedemption() {
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
                                                 postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));
+                                                  document.getElementById("pl-save").style.display = "block";
                                                 document.getElementById("selCountry").value = homecountry;
                                                 document.getElementById("selCity").value = residentcity;
                                                 back1_profile();
