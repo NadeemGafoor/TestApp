@@ -2893,7 +2893,7 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
-                                                                      
+                                                               window.localStorage.setItem("appopen", "0"); 
                                                                    if (window.localStorage.getItem("fbid") != "99") {
                                                                        document.getElementById("fblink-show").style.display = "none";
                                                                    }
@@ -2917,8 +2917,6 @@ function completeRedemption() {
                                                                    if (i > 75) {
                                                                        i = 75;  
                                                                    }
-                                                                      
-                                                            
                                        
                                                                    document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(i + 5) + "%";
                                                                    document.getElementById("spend-bar").style.width = m + "%";
@@ -3009,7 +3007,6 @@ function completeRedemption() {
         
                                             loadProfile
                                             :function() {
-
                                                 document.getElementById("back1-filter").style.display = "none";
                                                 document.getElementById("profile-picture-1").src = window.localStorage.getItem("cuspict");
                                                 document.getElementById("pro-name").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
@@ -3918,7 +3915,6 @@ function completeRedemption() {
         
                                             editsettingdata
                                             :function() {
-                                            
                                                 showSpin(); 
                                                 listCountry();
                                                 window.localStorage.setItem("isset", "0");
@@ -3946,7 +3942,7 @@ function completeRedemption() {
                                                 }else {
                                                     $("#profile-autolocation").data("kendoMobileSwitch").check(false);
                                                 }
-                                                
+                                        
                                                 if (alcohol == "1") {
                                                     $("#profile-alcohol").data("kendoMobileSwitch").check(true);
                                                 }else {
@@ -4498,7 +4494,7 @@ function completeRedemption() {
                                                     elems[i].style.textAlign = "center";
                                                 }
     
-                                                window.localStorage.setItem("appopen", "0");   
+                                       
 
                                                 $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
                                                 //$("body").data("kendoMobilePane").navigate("#:back");
@@ -4861,7 +4857,7 @@ function completeRedemption() {
                                opt.text = getData.citylist[i].citycode;
                                x.add(opt);
                            }
-                                                                           document.getElementById("selCity").value = residentcity;
+                           document.getElementById("selCity").value = residentcity;
                        }else {
                            navigator.notification.alert("Cannot get City list. " + getData.statusdesc, function() {
                            }, "isme by Jumeirah", "Dismiss")          
@@ -6097,12 +6093,12 @@ function completeRedemption() {
         //       return;
         //   }
                                              
-        if (document.getElementById("selCountry").value == "") {
+        if (document.getElementById("selCountry").value === "") {
             navigator.notification.alert("Select Nationality", function() {
             }, "isme by Jumeirah", "Dismiss");
             return; 
         }
-        if (document.getElementById("selCity").value == "") {
+        if (document.getElementById("selCity").value === "") {
             navigator.notification.alert("Select Resident City", function() {
             }, "isme by Jumeirah", "Dismiss");
             return; 
@@ -6147,9 +6143,12 @@ function completeRedemption() {
         }else {
             residentcity1 = "";
         }
+        showSpin();  
+        mdate = this.date1.value;
+        emailid = this.emailid1.value;         
+        mobilenumber = this.mobile1.value;                                             
+        magicnumber = this.hotelnumber1.value;
        
-        
-        showSpin();                                                  
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6158,17 +6157,12 @@ function completeRedemption() {
                    url: gurl + "/updateprofile_isme.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mobile:this.mobile1.value,emailid:this.emailid1.value,pushoffer:pushoffer1,remindexpiry:remindexpiry1,showprofile:showprofile,image1:newimage,mdevice:window.localStorage.getItem("mdevicestat"),autolocation:autolocation1,city:residentcity1,country:homecountry1,birthdate:this.date1.value,magicnumber:this.hotelnumber1.value
+                                            merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mobile:this.mobile1.value,emailid:this.emailid1.value,pushoffer:pushoffer1,remindexpiry:remindexpiry1,showprofile:showprofile,image1:newimage,mdevice:window.localStorage.getItem("mdevicestat"),autolocation:autolocation1,city:residentcity1,country:homecountry1,birthdate:this.date1.value,magicnumber:this.hotelnumber1.value,alcohol:alcohol1
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
                           
                        if (getData.statuscode == "000") {
-                             alert(getData.statuscode);  
-                           mdate = this.date1.value;
-                           emailid = this.emailid1.value;
-                           mobilenumber = this.mobile1.value;                                             
-                           magicnumber = this.hotelnumber1.value;
                            homecountry = homecountry1;
                            residentcity = residentcity1;  
                            pushoffer = pushoffer1;
@@ -6177,7 +6171,7 @@ function completeRedemption() {
                            country = homecountry1;
                            city = residentcity1;
                            alcohol = alcohol1;
-                              
+                                                        
                            window.localStorage.setItem("autolocation", autolocation);
                            window.localStorage.setItem("pushoffer", pushoffer);
                            window.localStorage.setItem("remindexpiry", remindexpiry);
@@ -6191,11 +6185,13 @@ function completeRedemption() {
                            window.localStorage.setItem("alcohol", alcohol); 
                            window.localStorage.setItem("residentcity", residentcity); 
                            window.localStorage.setItem("homecountry", homecountry); 
-                           alert("here");
-                           window.localStorage.setItem("residentcityname", document.getElementById("selCity").text); 
-                           window.localStorage.setItem("homecountryname", document.getElementById("selCountry").text);
-                           alert(window.localStorage.getItem("residentcityname"));
-                           alert(window.localStorage.getItem("homecountryname"));
+                           var skillsSelect = document.getElementById("selCity");
+                           var selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
+                           window.localStorage.setItem("residentcityname", selectedText); 
+                           skillsSelect = document.getElementById("selCountry");
+                           selectedText = skillsSelect.options[skillsSelect.selectedIndex].text;
+                           window.localStorage.setItem("homecountryname", selectedText);  
+
                            pushSettings = {
                                iOS: {
                                    badge: "true",
