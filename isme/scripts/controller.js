@@ -2505,7 +2505,7 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                        
+                                                                
                                                               if (getData.statuscode == "000") { //Login Successful
                                                                   customer = getData.customerid;
                                                                   customername = getData.customername;
@@ -2723,11 +2723,7 @@ function completeRedemption() {
     
                                            requestPasswordChangeURL:
                                            function () {
-                                               if (!this.username1) {
-                                                   navigator.notification.alert("Invalid Membership # or Empty", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
-                                                   return;
-                                               }
+                                            
                                                if (!this.emailid1) {
                                                    navigator.notification.alert("Invalid email or Empty", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
@@ -2747,7 +2743,7 @@ function completeRedemption() {
                                                           url: gurl + "/passResetRequest.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,customerid:this.username1,emailid:this.emailid1,mdevice:mdevicestat,mmagicnumber:""
+                                                                                   merchantcode :merchant,customerid:"",emailid:this.emailid1,mdevice:mdevicestat,mmagicnumber:""
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
@@ -2881,7 +2877,7 @@ function completeRedemption() {
                                             getSummary:function () {
                                                 showSpin();
                                                 if (firsttime==="") {
-                                                    alert("first");
+                                              
                                                     $.ajax({ 
                                                                type: "POST",
                                                                cache:false,
