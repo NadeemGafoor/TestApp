@@ -2332,7 +2332,7 @@ function completeRedemption() {
                                                        alcohol = window.localStorage.getItem("alcohol");
                                                        homecountryname = window.localStorage.getItem("homecountryname");
                                                        residentcityname = window.localStorage.getItem("residentcityname");
-
+                                                   
                                                        $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
                                                    } else {
                                                        outletcode = "";
@@ -2893,10 +2893,11 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
+                                                                      
                                                                    if (window.localStorage.getItem("fbid") != "99") {
                                                                        document.getElementById("fblink-show").style.display = "none";
                                                                    }
-                                                                   document.getElementById("home-page").style.display = "block";
+                                                                   //document.getElementById("home-page").style.display = "block";
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
 
@@ -2916,11 +2917,13 @@ function completeRedemption() {
                                                                    if (i > 75) {
                                                                        i = 75;  
                                                                    }
-                                                
+                                                                      
+                                                            
+                                       
                                                                    document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(i + 5) + "%";
                                                                    document.getElementById("spend-bar").style.width = m + "%";
                                                                    document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend");
-                                                                  
+                                                                  alert(homecountry + " " + residentcity);
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc, function() {
@@ -3918,6 +3921,7 @@ function completeRedemption() {
                                                 showSpin(); 
                                                 listCountry();
                                                 window.localStorage.setItem("isset", "0");
+                                              
                                                 listCity("UAE", document.getElementById("selCity"));  
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
@@ -6159,6 +6163,7 @@ function completeRedemption() {
                        var getData = JSON.parse(data);
                           
                        if (getData.statuscode == "000") {
+                             alert(getData.statuscode);  
                            mdate = this.date1.value;
                            emailid = this.emailid1.value;
                            mobilenumber = this.mobile1.value;                                             
@@ -6171,7 +6176,7 @@ function completeRedemption() {
                            country = homecountry1;
                            city = residentcity1;
                            alcohol = alcohol1;
-                             alert(getData.statuscode);     
+                              
                            window.localStorage.setItem("autolocation", autolocation);
                            window.localStorage.setItem("pushoffer", pushoffer);
                            window.localStorage.setItem("remindexpiry", remindexpiry);
