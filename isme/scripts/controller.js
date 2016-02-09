@@ -2539,7 +2539,6 @@ function completeRedemption() {
                                                                   alcohol = getData.alcohol;
                                                                   homecountryname = getData.homecountryname;
                                                                   residentcityname = getData.residentcityname;
-                                                 
                                                                   //set Local Storage as cookies to retain login
                                                                   window.localStorage.setItem("customer", customer);
                                                                   window.localStorage.setItem("customername", customername);
@@ -3007,6 +3006,7 @@ function completeRedemption() {
         
                                             loadProfile
                                             :function() {
+
                                                 document.getElementById("back1-filter").style.display = "none";
                                                 document.getElementById("profile-picture-1").src = window.localStorage.getItem("cuspict");
                                                 document.getElementById("pro-name").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
@@ -3016,7 +3016,7 @@ function completeRedemption() {
                                                 document.getElementById("pro-number").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? "Member # : " + window.localStorage.getItem("customer") : "Member # : NA";
                                                 document.getElementById("pro-init").innerHTML = (window.localStorage.getItem("initdate") != null && window.localStorage.getItem("initdate").length > 0) ? "Member Since : " + window.localStorage.getItem("initdate") : "Member Since : NA";
                                                 document.getElementById("pro-expiry").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
-                                                document.getElementById("pro-hotelmember").innerHTML = (window.localStorage.getItem("hotelmember") != null && window.localStorage.getItem("hotelmember").length > 0) ? "Sirius Member : " + window.localStorage.getItem("hotelmember") : "Sirius Member : NA";
+                                                document.getElementById("pro-hotelmember").innerHTML = (window.localStorage.getItem("magicnumber") != null && window.localStorage.getItem("magicnumber").length > 0) ? "Sirius Member : " + window.localStorage.getItem("magicnumber") : "Sirius Member : NA";
                                                 back1_profile();
                                                 if (window.localStorage.getItem("segmentcode") === "1000") {
                                                     document.getElementById("pro-type").innerHTML = "Member Type : isme";
@@ -6142,9 +6142,9 @@ function completeRedemption() {
         }else {
             residentcity1 = "";
         }
-     
+       
+        
         showSpin();                                                  
-           
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6153,11 +6153,11 @@ function completeRedemption() {
                    url: gurl + "/updateprofile_isme.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,customerid:customer,password:password,mobile:this.mobile1.value,emailid:this.emailid1.value,pushoffer:pushoffer1,remindexpiry:remindexpiry1,showprofile:showprofile,image1:newimage,mdevice:window.localStorage.getItem("mdevicestat"),autolocation:autolocation1,city:residentcity1,country:homecountry1,birthdate:this.date1.value,magicnumber:magicnumber1
+                                            merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mobile:this.mobile1.value,emailid:this.emailid1.value,pushoffer:pushoffer1,remindexpiry:remindexpiry1,showprofile:showprofile,image1:newimage,mdevice:window.localStorage.getItem("mdevicestat"),autolocation:autolocation1,city:residentcity1,country:homecountry1,birthdate:this.date1.value,magicnumber:this.hotelnumber1.value
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
-                                
+                          
                        if (getData.statuscode == "000") {
                            mdate = this.date1.value;
                            emailid = this.emailid1.value;
@@ -6171,6 +6171,7 @@ function completeRedemption() {
                            country = homecountry1;
                            city = residentcity1;
                            alcohol = alcohol1;
+                             alert(getData.statuscode);     
                            window.localStorage.setItem("autolocation", autolocation);
                            window.localStorage.setItem("pushoffer", pushoffer);
                            window.localStorage.setItem("remindexpiry", remindexpiry);
@@ -6184,8 +6185,11 @@ function completeRedemption() {
                            window.localStorage.setItem("alcohol", alcohol); 
                            window.localStorage.setItem("residentcity", residentcity); 
                            window.localStorage.setItem("homecountry", homecountry); 
+                           alert("here");
                            window.localStorage.setItem("residentcityname", document.getElementById("selCity").text); 
-                           window.localStorage.setItem("homecountryname", document.getElementById("selCountry").text);                                      
+                           window.localStorage.setItem("homecountryname", document.getElementById("selCountry").text);
+                           alert(window.localStorage.getItem("residentcityname"));
+                           alert(window.localStorage.getItem("homecountryname"));
                            pushSettings = {
                                iOS: {
                                    badge: "true",
