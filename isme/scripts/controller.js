@@ -2850,6 +2850,48 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
+                                           },
+          plgetfaq
+                                           : function () {
+                                               showSpin(); //show loading popup
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/faqlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,mdevice:mdevicestat,category:window.localStorage.getItem("faqcategory")
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                                                                                
+                                                              if (getData.statuscode === "000") {  
+                                                                  //fill the outlet template
+                                                                  if (getData.faqlist.length > 0) {
+                                                                      $("#pl-faqlist-all").kendoMobileListView({
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#pl-faqTemplate").html()
+                                                                                                            });
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      navigator.notification.alert("No FAQ exists for the selected Program", function() {
+                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      hideSpin(); //hide loading popup
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Cannot get FAQ list " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup                                          
+                                                          }
+                                                      });
                                            }
                                        });
     
@@ -3017,7 +3059,7 @@ function completeRedemption() {
                                                 document.getElementById("pro-number").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? "Member # : " + window.localStorage.getItem("customer") : "Member # : NA";
                                                 document.getElementById("pro-init").innerHTML = (window.localStorage.getItem("initdate") != null && window.localStorage.getItem("initdate").length > 0) ? "Member Since : " + window.localStorage.getItem("initdate") : "Member Since : NA";
                                                 document.getElementById("pro-expiry").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
-                                                document.getElementById("pro-hotelmember").innerHTML = (window.localStorage.getItem("magicnumber") != null && window.localStorage.getItem("magicnumber").length > 0) ? "Sirius Member : " + window.localStorage.getItem("magicnumber") : "Sirius Member : NA";
+                                                document.getElementById("pro-hotelmember").innerHTML = (window.localStorage.getItem("magicnumber") != null && window.localStorage.getItem("magicnumber").length > 0) ? "Jumeirah Sirius Member : " + window.localStorage.getItem("magicnumber") : "Jumeirah Sirius Member : NA";
                                                 back1_profile();
                                                 if (window.localStorage.getItem("segmentcode") === "1000") {
                                                     document.getElementById("pro-type").innerHTML = "Member Type : isme";

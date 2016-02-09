@@ -1,4 +1,4 @@
-<div data-role="view" data-title="FAQ" data-layout="pl-back5-layout" id="faq-theme" data-model="preLogin" data-show="preLogin.getfaq">
+<div data-role="view" data-title="FAQ" data-layout="pl-back5-layout" id="pl-faq-theme" data-model="preLogin" data-show="preLogin.plgetfaq">
      <div data-role="header">
         <div data-role="navbar">
               <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff" data-click="postLoginBackOne">
@@ -9,14 +9,14 @@
             </a>
         </div>
     </div>
-     <ul style="background-color:transparent" id="faqlist-all">
+     <ul id="pl-faqlist-all">
 
     </ul>
   
 
 </div>
   
-<script type="text/x-kendo-template" id="faqTemplate">
+<script type="text/x-kendo-template" id="pl-faqTemplate">
         <div class="faq1" >
                 <div class="faqq">${question}<br><span style="font-weight:bold">${answer}</span></div>
             </div>
