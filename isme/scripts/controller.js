@@ -1633,12 +1633,10 @@ function completeRedemption() {
         
                                            showAllOutlet
                                            : function (e) {
-                                              // window.localStorage.setItem("appopen", "80");  
-                                              // alert(window.localStorage.getItem("mdevicestat"));
                                                showSpin();     
+                                               window.localStorage.setItem("appopen", "80");   
+                                               window.localStorage.setItem("brandcode", e.view.params.brand);
                                                window.localStorage.setItem("category", e.view.params.category);
-                                              // window.localStorage.setItem("brandcode", e.view.params.brand);                        
-                                              window.localStorage.setItem("preflocation","");
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1648,10 +1646,10 @@ function completeRedemption() {
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
                                                                                   // merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("preflocation"),prefcuisine:window.localStorage.getItem("prefcuisine"),prefcelebration:window.localStorage.getItem("prefcelebration"),prefrestaurant:window.localStorage.getItem("prefrestaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
-                                                                                   merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
+                                                                                   merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:"",preflocation:window.localStorage.getItem("preflocation"),prefcuisine:window.localStorage.getItem("prefcuisine"),prefcelebration:window.localStorage.getItem("prefcelebration"),prefrestaurant:window.localStorage.getItem("prefrestaurant"),lat:window.localStorage.getItem("lat"),lon:window.localStorage.getItem("lon")
                                                                                }),
                                                           success: function (data) { 
-                                                              alert(getData.statuscode);
+                                                              var getData = JSON.parse(data);
                                                               if (getData.statuscode === "000") {
                                                                   //fill the outlet template
                                                                   $("#outlet-list").kendoMobileListView({
