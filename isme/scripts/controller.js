@@ -897,6 +897,9 @@ function completeRedemption() {
     var identifier = "";
     var major = "";  
     var minor = "";
+    var alcohol = "";
+    var homecountryname = "";
+    var residentcityname = "";
     var appad_location = "http://isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
     // var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
@@ -2326,6 +2329,9 @@ function completeRedemption() {
                                                        spend = window.localStorage.getItem("spend");
                                                        maxspend = window.localStorage.getItem("maxspend");
                                                        fbid = window.localStorage.getItem("fbid");
+                                                       alcohol = window.localStorage.getItem("alcohol");
+                                                       homecountryname = window.localStorage.getItem("homecountryname");
+                                                       residentcityname = window.localStorage.getItem("residentcityname");
 
                                                        $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
                                                    } else {
@@ -2355,6 +2361,9 @@ function completeRedemption() {
                                                        residentcity = "";
                                                        homecountry = "";
                                                        initdate = "";
+                                                       alcohol = "";
+                                                       homecountryname = "";
+                                                       residentcityname = "";
                                                    }     
                                                    var pushSettings = {
                                                        iOS: {
@@ -2527,6 +2536,9 @@ function completeRedemption() {
                                                                   spend = getData.spend;
                                                                   maxspend = getData.maxspend;
                                                                   fbid = getData.fbid;  
+                                                                  alcohol = getData.alcohol;
+                                                                  homecountryname = getData.homecountryname;
+                                                                  residentcityname = getData.residentcityname;
                                                  
                                                                   //set Local Storage as cookies to retain login
                                                                   window.localStorage.setItem("customer", customer);
@@ -2561,6 +2573,9 @@ function completeRedemption() {
                                                                   window.localStorage.setItem("spend", spend);
                                                                   window.localStorage.setItem("maxspend", maxspend);
                                                                   window.localStorage.setItem("fbid", fbid);
+                                                                  window.localStorage.setItem("alcohol", alcohol);
+                                                                  window.localStorage.setItem("homecountryname", homecountryname);
+                                                                  window.localStorage.setItem("residentcityname", residentcityname);
                                                                   pushSettings = {
                                                                       iOS: {
                                                                           badge: "true",
@@ -2996,8 +3011,8 @@ function completeRedemption() {
                                                 document.getElementById("profile-picture-1").src = window.localStorage.getItem("cuspict");
                                                 document.getElementById("pro-name").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
                                                 document.getElementById("pro-birthdate").innerHTML = (window.localStorage.getItem("birthdate") != null && window.localStorage.getItem("birthdate").length > 0) ? "Birth date : " + window.localStorage.getItem("birthdate") : "Birth Date : NA";
-                                                document.getElementById("pro-homecountry").innerHTML = (window.localStorage.getItem("homecountry") != null) && window.localStorage.getItem("homecountry").length > 0 ? "Nationality : " + window.localStorage.getItem("homecountry") : "Nationality : NA";
-                                                document.getElementById("pro-residentcity").innerHTML = (window.localStorage.getItem("residentcity") != null && window.localStorage.getItem("residentcity").length > 0) ? "City : " + window.localStorage.getItem("residentcity") : "City : NA";
+                                                document.getElementById("pro-homecountry").innerHTML = (window.localStorage.getItem("homecountry") != null) && window.localStorage.getItem("homecountry").length > 0 ? "Nationality : " + window.localStorage.getItem("homecountryname") : "Nationality : NA";
+                                                document.getElementById("pro-residentcity").innerHTML = (window.localStorage.getItem("residentcity") != null && window.localStorage.getItem("residentcity").length > 0) ? "City : " + window.localStorage.getItem("residentcityname") : "City : NA";
                                                 document.getElementById("pro-number").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? "Member # : " + window.localStorage.getItem("customer") : "Member # : NA";
                                                 document.getElementById("pro-init").innerHTML = (window.localStorage.getItem("initdate") != null && window.localStorage.getItem("initdate").length > 0) ? "Member Since : " + window.localStorage.getItem("initdate") : "Member Since : NA";
                                                 document.getElementById("pro-expiry").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
@@ -3927,6 +3942,12 @@ function completeRedemption() {
                                                     $("#profile-autolocation").data("kendoMobileSwitch").check(true);
                                                 }else {
                                                     $("#profile-autolocation").data("kendoMobileSwitch").check(false);
+                                                }
+                                                
+                                                if (alcohol == "1") {
+                                                    $("#profile-alcohol").data("kendoMobileSwitch").check(true);
+                                                }else {
+                                                    $("#profile-alcohol").data("kendoMobileSwitch").check(false);
                                                 }
                                                 hideSpin();
                                             },
@@ -6087,6 +6108,12 @@ function completeRedemption() {
             }, "isme by Jumeirah", "Dismiss");
             return;
         }
+        
+        if (document.getElementById("profile-pushoffer").checked) {
+            alcohol1 = "1";
+        }else {
+            alcohol1 = "";
+        }
                                                                                            
         if (document.getElementById("profile-pushoffer").checked) {
             pushoffer1 = "1";
@@ -6115,38 +6142,35 @@ function completeRedemption() {
         }else {
             residentcity1 = "";
         }
-   
-        mdate = this.date1.value;
-        emailid = this.emailid1.value;
-       
-        mobilenumber = this.mobile1.value;                                             
      
-        magicnumber = this.hotelnumber1.value;
-        alert(magicnumber);
-        homecountry = homecountry1;
-        residentcity = residentcity1;  
-        pushoffer = pushoffer1;
-        remindexpiry = remindexpiry1;
-        autolocation = autolocation1;
-        country = homecountry1;
-        city = residentcity1;
-      
         showSpin();                                                  
            
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:false,
+                   async:true,
                    timeout:20000,
                    url: gurl + "/updateprofile_isme.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,customerid:customer,password:password,mobile:mobilenumber,emailid:emailid,pushoffer:pushoffer1,remindexpiry:remindexpiry1,showprofile:showprofile,image1:newimage,mdevice:mdevicestat,autolocation:autolocation1,city:residentcity,country:homecountry,birthdate:mdate,magicnumber:magicnumber
+                                            merchantcode :merchant,customerid:customer,password:password,mobile:this.mobile1.value,emailid:this.emailid1.value,pushoffer:pushoffer1,remindexpiry:remindexpiry1,showprofile:showprofile,image1:newimage,mdevice:window.localStorage.getItem("mdevicestat"),autolocation:autolocation1,city:residentcity1,country:homecountry1,birthdate:this.date1.value,magicnumber:magicnumber1
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
-                         alert(getData.statuscode);                                 
+                                
                        if (getData.statuscode == "000") {
+                           mdate = this.date1.value;
+                           emailid = this.emailid1.value;
+                           mobilenumber = this.mobile1.value;                                             
+                           magicnumber = this.hotelnumber1.value;
+                           homecountry = homecountry1;
+                           residentcity = residentcity1;  
+                           pushoffer = pushoffer1;
+                           remindexpiry = remindexpiry1;
+                           autolocation = autolocation1;
+                           country = homecountry1;
+                           city = residentcity1;
+                           alcohol = alcohol1;
                            window.localStorage.setItem("autolocation", autolocation);
                            window.localStorage.setItem("pushoffer", pushoffer);
                            window.localStorage.setItem("remindexpiry", remindexpiry);
@@ -6157,7 +6181,11 @@ function completeRedemption() {
                            window.localStorage.setItem("birthdate", mdate);  
                            window.localStorage.setItem("magicnumber", magicnumber); 
                            window.localStorage.setItem("hotelmember", magicnumber); 
-                                                                
+                           window.localStorage.setItem("alcohol", alcohol); 
+                           window.localStorage.setItem("residentcity", residentcity); 
+                           window.localStorage.setItem("homecountry", homecountry); 
+                           window.localStorage.setItem("residentcityname", document.getElementById("selCity").text); 
+                           window.localStorage.setItem("homecountryname", document.getElementById("selCountry").text);                                      
                            pushSettings = {
                                iOS: {
                                    badge: "true",
@@ -6222,7 +6250,7 @@ function completeRedemption() {
                                                                      
                            navigator.notification.alert("Profile changes successfully updated.", function() {
                            }, "isme by Jumeirah", "Dismiss")   
-                           window.localStorage.setItem("issaved", "1");
+                           window.localStorage.setItem("isset", "1");
                            $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
                            hideSpin(); //hide loading popup
                        }else {
