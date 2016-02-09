@@ -2923,7 +2923,7 @@ function completeRedemption() {
                                                                    document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(i + 5) + "%";
                                                                    document.getElementById("spend-bar").style.width = m + "%";
                                                                    document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend");
-                                                                  alert(homecountry + " " + residentcity);
+                                                                
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc, function() {
@@ -3918,6 +3918,7 @@ function completeRedemption() {
         
                                             editsettingdata
                                             :function() {
+                                                  alert(homecountry + " " + residentcity);
                                                 showSpin(); 
                                                 listCountry();
                                                 window.localStorage.setItem("isset", "0");
