@@ -3918,7 +3918,7 @@ function completeRedemption() {
         
                                             editsettingdata
                                             :function() {
-                                                  alert(homecountry + " " + residentcity);
+                                            
                                                 showSpin(); 
                                                 listCountry();
                                                 window.localStorage.setItem("isset", "0");
@@ -3927,9 +3927,7 @@ function completeRedemption() {
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
-                                                postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));                                         
-                                                document.getElementById("selCountry").value = homecountry;
-                                                document.getElementById("selCity").value = residentcity;
+                                                postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));
                                                 back7_profile();
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
@@ -4818,7 +4816,8 @@ function completeRedemption() {
                                    opt.value = getData.countrylist[i].countryname;    
                                    opt.text = getData.countrylist[i].countrycode;
                                    x.add(opt);
-                               }
+                               }  
+                               document.getElementById("selCountry").value = homecountry;
                                hideSpin();
                            }else {
                                plus
@@ -4862,6 +4861,7 @@ function completeRedemption() {
                                opt.text = getData.citylist[i].citycode;
                                x.add(opt);
                            }
+                                                                           document.getElementById("selCity").value = residentcity;
                        }else {
                            navigator.notification.alert("Cannot get City list. " + getData.statusdesc, function() {
                            }, "isme by Jumeirah", "Dismiss")          
