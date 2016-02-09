@@ -1634,11 +1634,11 @@ function completeRedemption() {
                                            showAllOutlet
                                            : function (e) {
                                               // window.localStorage.setItem("appopen", "80");  
-                                               alert(window.localStorage.getItem("mdevicestat"));
+                                              // alert(window.localStorage.getItem("mdevicestat"));
                                                showSpin();     
                                                window.localStorage.setItem("category", e.view.params.category);
-                                               window.localStorage.setItem("brandcode", e.view.params.brand);                        
-                                               //alert(window.localStorage.getItem("brandcode"));
+                                              // window.localStorage.setItem("brandcode", e.view.params.brand);                        
+                                              window.localStorage.setItem("preflocation","");
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1647,7 +1647,7 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   //merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:"",preflocation:window.localStorage.getItem("preflocation"),prefcuisine:window.localStorage.getItem("prefcuisine"),prefcelebration:window.localStorage.getItem("prefcelebration"),prefrestaurant:window.localStorage.getItem("prefrestaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
+                                                                                  // merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("preflocation"),prefcuisine:window.localStorage.getItem("prefcuisine"),prefcelebration:window.localStorage.getItem("prefcelebration"),prefrestaurant:window.localStorage.getItem("prefrestaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
                                                                                    merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
                                                                                }),
                                                           success: function (data) { 
