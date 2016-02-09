@@ -2146,7 +2146,7 @@ function completeRedemption() {
                                                                   var getData = JSON.parse(data);
                                                                
                                                                   if (getData.statuscode === "000") {
-                                                                      firsttime = "1";  
+                                                                      //  firsttime = "1";  
                                                                       googleapikey = getData.googleapikey;  
                                                                       city = getData.citycode;
                                                                       country = getData.countrycode;
@@ -2880,61 +2880,66 @@ function completeRedemption() {
         
                                             getSummary:function () {
                                                 showSpin();
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:false,
-                                                           timeout:20000,
-                                                           url: gurl + "/summaryReport.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mdevice:window.localStorage.getItem("mdevicestat")
-                                                                                }),   
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode == "000") {
-                                                               window.localStorage.setItem("appopen", "0"); 
-                                                                   if (window.localStorage.getItem("fbid") != "99") {
-                                                                       document.getElementById("fblink-show").style.display = "none";
-                                                                   }
-                                                                   //document.getElementById("home-page").style.display = "block";
-                                                                   window.localStorage.setItem("spend", getData.spenda);
-                                                                   window.localStorage.setItem("maxspend", getData.maxspend);
-
-                                                                   window.localStorage.setItem("selfredeem", ""); 
-                                                                   document.getElementById("main-title").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
-                                                                   document.getElementById("profile-name").innerHTML = window.localStorage.getItem("customername");
-                                                                   document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
-                                                                   document.getElementById("profile-init").innerHTML = "Member Since " + window.localStorage.getItem("initdate");
-                                                                   if (window.localStorage.getItem("segmentcode") === "1000") {
-                                                                       document.getElementById("profile-type").innerHTML = "isme ";
+                                                if (firsttime==="") {
+                                                    alert("first");
+                                                    $.ajax({ 
+                                                               type: "POST",
+                                                               cache:false,
+                                                               async:false,
+                                                               timeout:20000,
+                                                               url: gurl + "/summaryReport.aspx",
+                                                               contentType: "application/json; charset=utf-8",
+                                                               data: JSON.stringify({
+                                                                                        merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mdevice:window.localStorage.getItem("mdevicestat")
+                                                                                    }),   
+                                                               success: function (data) { 
+                                                                   var getData = JSON.parse(data);
+                                                                   if (getData.statuscode == "000") {
+                                                                       //document.getElementById("home-page").style.display = "block";
+                                                                       window.localStorage.setItem("spend", getData.spenda);
+                                                                       window.localStorage.setItem("maxspend", getData.maxspend);
                                                                    }else {
-                                                                       document.getElementById("profile-type").innerHTML = "isme elite";
+                                                                       navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc, function() {
+                                                                       }, "HD Rewards", "Dismiss")          
+                                                                       hideSpin(); //hide loading popup
                                                                    }
-                                                                   //Generate Spend Bar
-                                                                   var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
-                                                                   m = i;
-                                                                   if (i > 75) {
-                                                                       i = 75;  
-                                                                   }
-                                       
-                                                                   document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(i + 5) + "%";
-                                                                   document.getElementById("spend-bar").style.width = m + "%";
-                                                                   document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend");
-                                                                
-                                                                   hideSpin(); //hide loading popup
-                                                               }else {
-                                                                   navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc, function() {
-                                                                   }, "HD Rewards", "Dismiss")          
+                                                               },
+                                                               error: function (errormsg) {
+                                                                   navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                                   }, "HD Rewards", "Dismiss")
                                                                    hideSpin(); //hide loading popup
                                                                }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "HD Rewards", "Dismiss")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
+                                                           });
+                                                }
+                                                firsttime = "1"; 
+                                                window.localStorage.setItem("appopen", "0"); 
+                                                if (window.localStorage.getItem("fbid") != "99") {
+                                                    document.getElementById("fblink-show").style.display = "none";
+                                                }
+
+                                                window.localStorage.setItem("selfredeem", ""); 
+                                                document.getElementById("main-title").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
+                                                document.getElementById("profile-name").innerHTML = window.localStorage.getItem("customername");
+                                                document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
+                                                document.getElementById("profile-init").innerHTML = "Member Since " + window.localStorage.getItem("initdate");
+                                                if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                    document.getElementById("profile-type").innerHTML = "isme ";
+                                                }else {
+                                                    document.getElementById("profile-type").innerHTML = "isme elite";
+                                                }
+                                                //Generate Spend Bar
+                                                var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
+                                                m = i;
+                                                if (i > 75) {
+                                                    i = 75;  
+                                                }
+                                       
+                                                document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(i + 5) + "%";
+                                                document.getElementById("spend-bar").style.width = m + "%";
+                                                document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend");
+                                                                
+                                                hideSpin(); //hide loading popup
+                                                
                                             },
                                            
         
@@ -4493,8 +4498,6 @@ function completeRedemption() {
                                                     elems[i].style.zIndex = 10000;
                                                     elems[i].style.textAlign = "center";
                                                 }
-    
-                                       
 
                                                 $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
                                                 //$("body").data("kendoMobilePane").navigate("#:back");
