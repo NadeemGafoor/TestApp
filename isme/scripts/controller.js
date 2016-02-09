@@ -6109,13 +6109,13 @@ function completeRedemption() {
             return;
         }
         
-        if (document.getElementById("profile-pushoffer").checked) {
+        if (document.getElementById("profile-alcohol").checked) {
             alcohol1 = "1";
         }else {
             alcohol1 = "";
         }
                                                                                            
-        if (document.getElementById("profile-pushoffer").checked) {
+        if (document.getElementById("profile-alcohol").checked) {
             pushoffer1 = "1";
         }else {
             pushoffer1 = "";
