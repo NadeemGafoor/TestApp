@@ -1197,7 +1197,7 @@ li
 
 .faqq
 {
-    color: #ccc;
+    color: #000;
     width: 100%;
     height: auto;
     padding: .1em; 
@@ -1205,18 +1205,18 @@ li
     float: none; 
     line-height: 1.3em;
     text-align: justify; 
+    font-size:90%
 }
 
 .faqa
 {
     width: 100%;
-    height: 9em;
+    height: auto;
     position: relative;
     float: none; 
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
     color: #fff;
+    text-align: justify; 
+    font-size:90%
 }
 
 .faqa1
@@ -2435,7 +2435,10 @@ tile-frame-inner
     height: 20px;
 }
 
-
+.filler10
+{
+    height: 10px;
+}
 
 
 .class-img{
