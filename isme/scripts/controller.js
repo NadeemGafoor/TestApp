@@ -230,7 +230,7 @@ function supportEmailA() {
 }
 
 function customerCare() {
-    window.open("tel:" + "9999999999");
+    window.open("tel:" + "8004763");
 }
 
 function offerMessage() {
@@ -910,11 +910,11 @@ function completeRedemption() {
     //var share_image = "https://appapi.exclusiveu.in/mobileportal/images/ihg_logo.png";
     //var flag_image = "https://appapi.exclusiveu.in/mobileportal/flagimages/";
     var short_msg = "Check out the isme by Jumeirah at ";
-    var offertelephone = "0097149999999";
-    var enrollmenttelephone = "0097149999999";
-    var customercaretelephone = "0097149999999";
+    var offertelephone = "8004763";
+    var enrollmenttelephone = "8004763";
+    var customercaretelephone = "8004763";
     var cardimage = "";
-    var supportemail = "isme@jumeirah.com";
+    var supportemail = "info@isme.jumeirah.com";
     var emailsubject = "isme By Jumeirah";
     //// function onSuccess(acceleration) {
     // alert('Acceleration X: ' + acceleration.x + '\n' +
