@@ -3762,7 +3762,7 @@ function completeRedemption() {
                                                 window.localStorage.setItem("selfredeem", "V"); 
                                                 $("#modalviewenterpin").data("kendoMobileModalView").open(); 
                                             },
-                                            111
+                                            walletRedeem
                                             : function () {
                                                 if (!document.getElementById("wallet-tandc").checked) {
                                                     navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
