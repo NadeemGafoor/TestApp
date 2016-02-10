@@ -3186,7 +3186,7 @@ function completeRedemption() {
         
                                             benefitdetail  
                                             : function (e) { 
-                                                benefitcode = "1001"; 
+                                                benefitcode = window.localStorage.getItem("segmentcode"); 
                                                 showSpin(); //show loading popup
                                                 $.ajax({ 
                                                            type: "POST",
@@ -6120,18 +6120,8 @@ function completeRedemption() {
             return;
         }
                               
-        if (this.emailid1.value != this.emailid2.value) {
-            navigator.notification.alert("Email ID do not match, re-enter", function() {
-            }, "isme by Jumeirah", "Dismiss");
-            return;
-        }
-                                               
-        //   if (this.mobile1.value.substring(0,0)==="0") {
-        //       navigator.notification.alert("Do not enter 0 prefix for mobile, re-enter", function() {
-        //       }, "isme by Jumeirah", "Dismiss");
-        //       return;
-        //   }
-                                             
+  
+                                              
         if (document.getElementById("selCountry").value === "") {
             navigator.notification.alert("Select Nationality", function() {
             }, "isme by Jumeirah", "Dismiss");
