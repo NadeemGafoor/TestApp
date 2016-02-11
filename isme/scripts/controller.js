@@ -3203,13 +3203,14 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
                                                                    if (getData.benefitlist.length > 0) {
+                                                                      
                                                                        document.getElementById("back1-filter").style.display = "none";
                                                                        document.getElementById("pl-benefit-detail-view").style.display = "block";
                                                                        document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].titlename;
-                                                                       document.getElementById("benefit-text6").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
+                                                                       document.getElementById("benefit-text6").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2  + "</pre>";
                                                                        window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
                                                             
-                                                                       window.localStorage.setItem("social_message", "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>");
+                                                                       window.localStorage.setItem("social_message", "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2  + "</pre>");
                                                                        window.localStorage.setItem("social_image", getData.benefitlist[0].imageurll); 
                                                                        back1_profile();
                                                                        hideSpin(); //hide loading popup
