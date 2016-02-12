@@ -1129,14 +1129,7 @@ function completeRedemption() {
                                                $("#modalviewofferfilter").data("kendoMobileModalView").close();
                                            },
 
-                                           queryOutletFilter:function(e) {
-                                          
-                                               window.localStorage.setItem("brand", e.view.params.brand);  
-                                               window.localStorage.setItem("category", e.view.params.category);    
-                                               window.localStorage.setItem("appopen", e.view.params.appopen);    
-                                                    alert(window.localStorage.getItem("brand"));
-                                               alert(window.localStorage.getItem("category"));
-                                               alert(window.localStorage.getItem("appopen"));
+                                           queryOutletFilter:function() {
                                                if (document.getElementById("olocation").checked) {
                                                    window.localStorage.setItem("distance", "1"); 
                                                }else {
@@ -1145,13 +1138,12 @@ function completeRedemption() {
                                                getlocationparams();
                                              
                                                $("#modalviewfilter").data("kendoMobileModalView").close();
-                                              
                                                
                                                if (window.localStorage.getItem("appopen")==="80") {
-                                                      alert("Bars & Dining");
+                                                   alert("Bars & Dining");
                                                    preLogin.showAllOutlet();
                                                } else if (window.localStorage.getItem("appopen")==="81") {
-                                                        alert("Leisure");
+                                                   alert("Leisure");
                                                    preLogin.showAllLeisure();
                                                }    
                                            },  
@@ -1640,11 +1632,11 @@ function completeRedemption() {
                                            showAllOutlet
                                            : function (e) {
                                                showSpin();    
-                                               
-                                                 alert(window.localStorage.getItem("restaurant"));   
-                                              alert(window.localStorage.getItem("cuisine")); 
-                                              alert(window.localStorage.getItem("celebration")); 
-                                               alert(window.localStorage.getItem("distance")); 
+                                               If(window.localStorage.getItem("appopen")==="") {
+                                                   window.localStorage.setItem("brand", e.view.params.brand);  
+                                                   window.localStorage.setItem("category", e.view.params.category); 
+                                                   window.localStorage.setItem("appopen", "80"); 
+                                               }
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1653,7 +1645,7 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
                                                                                    //merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:"",preflocation:window.localStorage.getItem("preflocation"),prefcuisine:window.localStorage.getItem("prefcuisine"),prefcelebration:window.localStorage.getItem("prefcelebration"),prefrestaurant:window.localStorage.getItem("prefrestaurant"),lat:window.localStorage.getItem("lat"),lon:window.localStorage.getItem("lon")
                                                                                }),
                                                           success: function (data) { 
@@ -5192,7 +5184,6 @@ function completeRedemption() {
         }
                                                  , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
                                                      showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
-
                                                  });
     }
     
