@@ -683,8 +683,6 @@ function postLoginBack() {
         elems[i].style.textAlign = "center";
     }
     
-    window.localStorage.setItem("appopen", "0");   
-
     $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
     //$("body").data("kendoMobilePane").navigate("#:back");
 }
@@ -752,7 +750,6 @@ function doOneBackPre() {
     for (i = 0; i < elems.length; i++) {
         elems[i].style.zIndex = -1000;
     }  
-    window.localStorage.setItem("appopen", "0");  
     //  
     //   
     //     
@@ -1148,7 +1145,7 @@ function completeRedemption() {
                                                    //alert(window.localStorage.getItem("cuisine")); 
                                                    //alert(window.localStorage.getItem("celebration")); 
                                                    //alert(window.localStorage.getItem("distance"));      
-                                                   //postLogin.showAllOutlet();
+                                                   postLogin.showAllOutlet();
                                                }else if (window.localStorage.getItem("appopen")==="83") {
                                                    postLogin.showAllLeisure();
                                                }
