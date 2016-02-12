@@ -184,7 +184,7 @@
 
 .logo-top
 {
-    height: 325px;
+    height: 375px;
     width: 100%;
     display: block;
     position: relative;
@@ -205,7 +205,7 @@
 
 .pl-logo-top
 {
-    height: 410px;
+    height: 420px;
     width: 100%;
     display: block;
     position: relative;
@@ -215,26 +215,27 @@
 
 .logo-image-holder
 {
-    height:200px;
+    height:275px;
     width:100%;
     margin:10px auto;
     background: url(../images/home_page_logo_white.png) no-repeat center center;
+        background-size:50%;
 }
 
 .pl-logo-image-holder
 {
-    height:200px;
+    height:275px;
     width:100%;
     margin:10px auto;
        background-repeat:no-repeat;
     background-size:auto;
     background-position:center;
-
+            background-size:50%;
 }
 
 .home-page-holder
 {
-    height:60px;
+    height:40px;
     width:100%;
     color:#fff;
    
@@ -249,9 +250,8 @@
 
 .home-page-logo-text-holder
 {
-    line-height:40px;
-    margin:10px auto;
-    font-family:'Georgia';
+    margin:5px auto;
+    font-family:'Didot';
     font-size:2em;
     font-weight:bold;
     text-align:center;

@@ -10,6 +10,16 @@
     line-height:1em;
 }
 
+.pl-logo-top
+{
+    height: 500px;
+    width: 100%;
+    display: block;
+    position: relative;
+    float: none;
+    background-color: transparent;
+}
+
 .home-pos 
     {
         position:absolute;
@@ -22,7 +32,7 @@
 
 .home-page-holder
 {
-    height:60px;
+    height:40px;
     width:100%;
     color:#fff;
    
@@ -30,10 +40,11 @@
 
 .logo-image-holder
 {
-    height:250px;
+    height:350px;
     width:100%;
     margin:10px auto;
     background: url(../images/home_page_logo_white.png) no-repeat center center;
+        background-size:auto;
 }
 
 .pl-logo-image-holder
@@ -44,6 +55,7 @@
        background-repeat:no-repeat;
     background-size:auto;
     background-position:center;
+            background-size:auto;
 }
 
     .brand-image-pos
@@ -54,6 +66,15 @@
         background-repeat: no-repeat;
         background-position: center center;
     }
+
+.home-page-logo-text-holder
+{
+    margin:5px auto;
+    font-family:'Didot';
+    font-size:2.5em;
+    font-weight:bold;
+    text-align:center;
+}
 
 .img-hero{
         height: 400px;

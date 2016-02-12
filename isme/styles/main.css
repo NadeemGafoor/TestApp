@@ -4,7 +4,8 @@
 @font-face { font-family: 'Gotham-BookItalic'; src: url('../styles/fonts/Gotham-BookItalic.otf')  format('opentype'); } /* Safari, Android, iOS */
 @font-face { font-family: 'Gotham-Light'; src: url('../styles/fonts/Gotham-Light.ttf')  format('truetype'); } /* Safari, Android, iOS */
 @font-face { font-family: 'Gotham-LightItalic'; src: url('../styles/fonts/Gotham-Book.otf')  format('opentype'); } /* Safari, Android, iOS */
-@font-face { font-family: 'Georgia'; src: url('../styles/fonts/Georgia.ttf')  format('truetype'); } /* Safari, Android, iOS */
+@font-face { font-family: 'Didot'; src: url('../styles/fonts/Didot.ttc')  format('truetype'); } /* Safari, Android, iOS */
+
 
 hr { background-color: #b6b2b4; height: 1px; border: 0; }
 a
@@ -1956,8 +1957,8 @@ tile-frame-inner
 {
     width: 100%;
     text-align: left; 
-    height: 25px;
-    line-height: 25px;
+    height: 20px;
+    line-height: 20px;
     display: block;
     margin-left: 15%;
 }
