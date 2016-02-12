@@ -835,11 +835,12 @@
             </div>
             <div class="list-group">&nbsp;Location</div>
             <div class="filter-item-holder">
-                <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Locations Near Me</div>
-                <div class="list-group-data-item-1 lheight k-checkbox-label" >
-                    <input type="checkbox" id="olocation" data-bind="text:checklocation" class="k-checkbox"/>
+                  <label class="k-checkbox-label" >
+               &nbsp;Locations Near Me
+                <input type="checkbox"  id="olocation" value="1" class="k-checkbox" data-bind="text:checklocation"/>
+            </label>
+            
                 </div>
-            </div>
             <div class="list-group">&nbsp;Restaurant Type</div>
             <div class="filter-item-holder">
                 <a data-click="loadTypeView" data-role="button">
@@ -875,10 +876,12 @@
             </div>
             <div class="list-group">&nbsp;Location</div>
             <div class="filter-item-holder">
-                <div class="list-group-data-item lheight" >&nbsp;&nbsp;&nbsp;Locations Near Me</div>
-                <div class="list-group-data-item-1 lheight k-checkbox-label">
-                    <input type="checkbox" class="k-checkbox" id="olocation1" value="1"/>
-                </div>
+                
+                  <label class="k-checkbox-label" >
+               &nbsp;&nbsp;&nbsp;Locations Near Me
+                <input type="checkbox"  id="olocation1" value="1" class="k-checkbox"/>
+            </label>
+            
             </div>
             <div class="list-group">&nbsp;Celebration Type</div>
             <div class="filter-item-holder">
@@ -1228,40 +1231,45 @@ Such terminated Membership may result in the loss or cancellation of all  accumu
             <label class="k-checkbox-label" >
                 ${desc}
                 <input type="checkbox"  id="${code}"  value="${code}" data-bind="text:checklifestyle" class="k-checkbox"/>
-
+   <hr/>
             </label>
+         
         </script>
 
         <script type="text/x-kendo-template" id="CelebrationFilter-Template">
             <label class="k-checkbox-label" >
                 ${desc}
                 <input type="checkbox"  id="${code}" value="${code}" data-bind="text:checkcelebration" class="k-checkbox"/>
-
+           <hr/>
             </label>
+ 
         </script>
 
         <script type="text/x-kendo-template" id="CuisineFilter-Template">
             <label class="k-checkbox-label" >
                 ${desc}
                 <input type="checkbox"  id="${code}"  value="${code}" data-bind="text:checkcuisine" class="k-checkbox"/>
-
+            <hr/>
             </label>
+
         </script>
 
         <script type="text/x-kendo-template" id="RestFilter-Template">
             <label class="k-checkbox-label" >
                 ${desc}
                 <input type="checkbox"  id="${code}"  value="${code}" data-bind="text:checkrestaurant" class="k-checkbox"/>
-
+      <hr/>
             </label>
+      
         </script>
 
         <script type="text/x-kendo-template" id="FAQ-Template">
             <label class="k-checkbox-label" >
                 ${faqitem}
                 <input type="checkbox"  id="${faqkey}" class="k-checkbox"/>
-
+         <hr/>
             </label>
+   
         </script>
 
         <script type="text/x-kendo-template" id="explorelisttemplate">
@@ -1475,7 +1483,7 @@ Such terminated Membership may result in the loss or cancellation of all  accumu
     
     #modalviewceleberationtype a, #modalviewcountry a, #modalviewofferfilter a, #modalviewfilter a, #modalviewtype a, #modalviewcuisine a
     {
-        background-color: transparent !important;
+        background: transparent !important;
     }
     
     #modalviewstar .km-content
