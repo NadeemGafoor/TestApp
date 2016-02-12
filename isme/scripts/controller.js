@@ -1144,11 +1144,11 @@ function completeRedemption() {
                                                } else if (window.localStorage.getItem("appopen")==="81") {
                                                    preLogin.showAllLeisure();
                                                } else if (window.localStorage.getItem("appopen")==="82") {
-                                                   alert(window.localStorage.getItem("restaurant"));   
-                                                   alert(window.localStorage.getItem("cuisine")); 
-                                                   alert(window.localStorage.getItem("celebration")); 
-                                                   alert(window.localStorage.getItem("distance")); 
-                                                   postLogin.showAllOutlet();
+                                                   //alert(window.localStorage.getItem("restaurant"));   
+                                                   //alert(window.localStorage.getItem("cuisine")); 
+                                                   //alert(window.localStorage.getItem("celebration")); 
+                                                   //alert(window.localStorage.getItem("distance"));      
+                                                   //postLogin.showAllOutlet();
                                                }else if (window.localStorage.getItem("appopen")==="83") {
                                                    postLogin.showAllLeisure();
                                                }
@@ -2925,6 +2925,8 @@ function completeRedemption() {
         
                                             getSummary:function () {
                                                 showSpin();
+                                               window.localStorage.setItem("appopen", "0");
+                                               clearListFilter();
                                                 if (firsttime==="") {
                                                     $.ajax({ 
                                                                type: "POST",
