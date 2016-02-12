@@ -1130,25 +1130,31 @@ function completeRedemption() {
                                            },
 
                                            queryOutletFilter:function(e) {
-                                               alert(window.localStorage.getItem("category"));    
-                                               // window.localStorage.setItem("category", e.view.params.category);    
-                                               // window.localStorage.setItem("appopen", e.view.params.appopen);    
+                                          
+                                               window.localStorage.setItem("brand", e.view.params.brand);  
+                                               window.localStorage.setItem("category", e.view.params.category);    
+                                               window.localStorage.setItem("appopen", e.view.params.appopen);    
+                                                    alert(window.localStorage.getItem("brand"));
+                                               alert(window.localStorage.getItem("category"));
+                                               alert(window.localStorage.getItem("appopen"));
                                                if (document.getElementById("olocation").checked) {
                                                    window.localStorage.setItem("distance", "1"); 
                                                }else {
                                                    window.localStorage.setItem("distance", ""); 
                                                }
                                                getlocationparams();
+                                             
                                                $("#modalviewfilter").data("kendoMobileModalView").close();
-                                               //    alert(window.localStorage.getItem("appopen"));
+                                              
+                                               
                                                if (window.localStorage.getItem("appopen")==="80") {
-                                                   //   alert("Here");
+                                                      alert("Bars & Dining");
                                                    preLogin.showAllOutlet();
                                                } else if (window.localStorage.getItem("appopen")==="81") {
-                                                   //     alert("Here12");
+                                                        alert("Leisure");
                                                    preLogin.showAllLeisure();
                                                }    
-                                           },
+                                           },  
         
                                            restaurantCritFilter:function() {
                                                //Restaurant Type Filter
@@ -1633,10 +1639,12 @@ function completeRedemption() {
         
                                            showAllOutlet
                                            : function (e) {
-                                               showSpin();     
-                                               window.localStorage.setItem("appopen", "80");   
-                                               window.localStorage.setItem("brandcode", e.view.params.brand);
-                                               window.localStorage.setItem("category", e.view.params.category);
+                                               showSpin();    
+                                               
+                                                 alert(window.localStorage.getItem("restaurant"));   
+                                              alert(window.localStorage.getItem("cuisine")); 
+                                              alert(window.localStorage.getItem("celebration")); 
+                                               alert(window.localStorage.getItem("distance")); 
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1645,8 +1653,8 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                  // merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("preflocation"),prefcuisine:window.localStorage.getItem("prefcuisine"),prefcelebration:window.localStorage.getItem("prefcelebration"),prefrestaurant:window.localStorage.getItem("prefrestaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
-                                                                                   merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:"",preflocation:window.localStorage.getItem("preflocation"),prefcuisine:window.localStorage.getItem("prefcuisine"),prefcelebration:window.localStorage.getItem("prefcelebration"),prefrestaurant:window.localStorage.getItem("prefrestaurant"),lat:window.localStorage.getItem("lat"),lon:window.localStorage.getItem("lon")
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
+                                                                                   //merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:"",preflocation:window.localStorage.getItem("preflocation"),prefcuisine:window.localStorage.getItem("prefcuisine"),prefcelebration:window.localStorage.getItem("prefcelebration"),prefrestaurant:window.localStorage.getItem("prefrestaurant"),lat:window.localStorage.getItem("lat"),lon:window.localStorage.getItem("lon")
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
@@ -2721,7 +2729,6 @@ function completeRedemption() {
     
                                            requestPasswordChangeURL:
                                            function () {
-                                            
                                                if (!this.emailid1) {
                                                    navigator.notification.alert("Invalid email or Empty", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
@@ -2849,7 +2856,7 @@ function completeRedemption() {
                                                           }
                                                       });
                                            },
-          plgetfaq
+                                           plgetfaq
                                            : function () {
                                                showSpin(); //show loading popup
                                                $.ajax({ 
@@ -2869,9 +2876,9 @@ function completeRedemption() {
                                                                   //fill the outlet template
                                                                   if (getData.faqlist.length > 0) {
                                                                       $("#pl-faqlist-all").kendoMobileListView({
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#pl-faqTemplate").html()
-                                                                                                            });
+                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                   template: $("#pl-faqTemplate").html()
+                                                                                                               });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       navigator.notification.alert("No FAQ exists for the selected Program", function() {
@@ -2917,7 +2924,6 @@ function completeRedemption() {
                                             getSummary:function () {
                                                 showSpin();
                                                 if (firsttime==="") {
-                                              
                                                     $.ajax({ 
                                                                type: "POST",
                                                                cache:false,
@@ -2975,7 +2981,6 @@ function completeRedemption() {
                                                 document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend");
                                                                 
                                                 hideSpin(); //hide loading popup
-                                                
                                             },
                                            
         
@@ -3203,14 +3208,13 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
                                                                    if (getData.benefitlist.length > 0) {
-                                                                      
                                                                        document.getElementById("back1-filter").style.display = "none";
                                                                        document.getElementById("pl-benefit-detail-view").style.display = "block";
                                                                        document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].titlename;
-                                                                       document.getElementById("benefit-text6").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2  + "</pre>";
+                                                                       document.getElementById("benefit-text6").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                                                                        window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
                                                             
-                                                                       window.localStorage.setItem("social_message", "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2  + "</pre>");
+                                                                       window.localStorage.setItem("social_message", "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>");
                                                                        window.localStorage.setItem("social_image", getData.benefitlist[0].imageurll); 
                                                                        back1_profile();
                                                                        hideSpin(); //hide loading popup
@@ -5188,6 +5192,7 @@ function completeRedemption() {
         }
                                                  , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
                                                      showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
+
                                                  });
     }
     
@@ -6120,8 +6125,6 @@ function completeRedemption() {
             }, "isme by Jumeirah", "Dismiss")
             return;
         }
-                              
-  
                                               
         if (document.getElementById("selCountry").value === "") {
             navigator.notification.alert("Select Nationality", function() {
