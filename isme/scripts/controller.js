@@ -1631,12 +1631,14 @@ function completeRedemption() {
         
                                            showAllOutlet
                                            : function (e) {
-                                               showSpin();    
-                                               If(window.localStorage.getItem("appopen")==="") {
+                                               showSpin();  
+                                               alert(window.localStorage.getItem("appopen"));
+                                               if(window.localStorage.getItem("appopen")==="0") {
                                                    window.localStorage.setItem("brand", e.view.params.brand);  
                                                    window.localStorage.setItem("category", e.view.params.category); 
                                                    window.localStorage.setItem("appopen", "80"); 
                                                }
+                                               
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
