@@ -795,9 +795,9 @@ img
 {
     line-height: 30px;
     width: 70%;
+    margin:auto;
     display: block;
     text-align: center;
-    margin-left: 10%;
     -webkit-border: #fff solid 1px;
     -moz-border: #fff solid 1px;
     border: #fff solid 1px;
