@@ -1632,7 +1632,7 @@ function completeRedemption() {
                                            showAllOutlet
                                            : function (e) {
                                                showSpin();  
-                                               alert(window.localStorage.getItem("appopen"));
+                                             
                                                if(window.localStorage.getItem("appopen")==="0") {
                                                    window.localStorage.setItem("brand", e.view.params.brand);  
                                                    window.localStorage.setItem("category", e.view.params.category); 
@@ -1648,7 +1648,7 @@ function completeRedemption() {
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
-                                                                                   //merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:"",preflocation:window.localStorage.getItem("preflocation"),prefcuisine:window.localStorage.getItem("prefcuisine"),prefcelebration:window.localStorage.getItem("prefcelebration"),prefrestaurant:window.localStorage.getItem("prefrestaurant"),lat:window.localStorage.getItem("lat"),lon:window.localStorage.getItem("lon")
+                                                                                   
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
@@ -1682,10 +1682,11 @@ function completeRedemption() {
                                            showAllLeisure
                                            : function (e) {
                                                showSpin(); 
-                                               window.localStorage.setItem("appopen", "81");   
-                                               window.localStorage.setItem("brandcode", e.view.params.brand);
-                                               window.localStorage.setItem("category", e.view.params.category);
-                                               //alert(window.localStorage.getItem("brandcode"));
+                                                  if(window.localStorage.getItem("appopen")==="0") {
+                                                   window.localStorage.setItem("brand", e.view.params.brand);  
+                                                   window.localStorage.setItem("category", e.view.params.category); 
+                                                   window.localStorage.setItem("appopen", "81"); 
+                                               }
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1694,7 +1695,7 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:mdevicestat,outletcode:"",preflocation:window.localStorage.getItem("preflocation"),prefcuisine:window.localStorage.getItem("prefcuisine"),prefcelebration:window.localStorage.getItem("prefcelebration"),prefrestaurant:window.localStorage.getItem("prefrestaurant"),lat:window.localStorage.getItem("lat"),lon:window.localStorage.getItem("lon")
+                                                                           merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
