@@ -3516,7 +3516,7 @@ function completeRedemption() {
                                                                navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
-                                                           }
+                                                           }    
                                                        });                  
                                             },
         
