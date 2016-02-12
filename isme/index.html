@@ -855,19 +855,19 @@
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
                     <span>Reward Filters</span>
-                    <a data-bind="click:queryOutletFilter" data-role="button" data-align="right" data-animated="true">
+                    <a data-bind="click:queryOfferFilter" data-role="button" data-align="right" data-animated="true">
                         Go
                     </a>
                 </div>
             </div>
             <div class="list-group">&nbsp;Location</div>
-            <div class="filter-item-holder">
-
-                <label class="k-checkbox-label" >
-                    &nbsp;&nbsp;&nbsp;Locations Near Me
+               <div class="filter-item-holder">
+                <div class="list-group-data-item">
+                    &nbsp;&nbsp;Locations Near Me
+                </div>
+                <div class="list-group-data-item-1">
                     <input type="checkbox"  id="olocation1" value="1" class="k-checkbox"/>
-                </label>
-
+                </div>
             </div>
             <div class="list-group">&nbsp;Celebration Type</div>
             <div class="filter-item-holder">
@@ -1486,10 +1486,7 @@
         background-color: transparent !important;
     }
     
-    .km-label a,.km-label a:active{
-        background-color: transparent !important;    
-    }
-    
+   
        #discount-button, #profile-button, #redeem-button
     {
         background-color: rgba(62, 65, 66, 0.7) !important;
