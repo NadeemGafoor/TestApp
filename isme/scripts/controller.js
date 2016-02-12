@@ -710,7 +710,7 @@ function doOneBack() {
       
     elems = document.getElementsByClassName('sharehead');
 
-    for (i = 0; i < elems.length; i++) {
+    for (i = 0; i < elems.length; i++) {  
         elems[i].style.zIndex = -1000;
     }  
     window.localStorage.setItem("appopen", "0");  
