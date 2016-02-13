@@ -1940,7 +1940,7 @@ tile-frame-inner
     margin-top: 0px;
 }
 
-.detail-text-button
+.detail-text-button .km-button
 {
     display: block;
     width: 100%;
@@ -1949,8 +1949,7 @@ tile-frame-inner
     border: 0px !important;
     text-align: left;
     height: 100%;
-    line-height: 5px;
-    font-size:90%
+    margin:auto;
 }
 
 .general-text-line

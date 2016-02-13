@@ -1118,23 +1118,15 @@ function completeRedemption() {
         
         
                                            queryOfferFilter:function() {
-                                               if (document.getElementById("olocation1").checked) {
-                                                   getNearCity(); 
-                                               }else {
+                                          
                                                    window.localStorage.setItem("distance", ""); 
-                                               }
                                                if (window.localStorage.getItem("appopen")==="84") {
                                                    preLogin.rewardList();
                                                } else if (window.localStorage.getItem("appopen")==="85") {
                                                    postLogin.rewardList();
                                                }
                                                
-                                               alert(window.localStorage.getItem("lifestyle"));                                                
-                                               alert(window.localStorage.getItem("restaurant"));   
-                                               alert(window.localStorage.getItem("cuisine")); 
-                                               alert(window.localStorage.getItem("celebration")); 
-                                               alert(window.localStorage.getItem("distance")); 
-                                            
+                                                                                        
                                                $("#modalviewofferfilter").data("kendoMobileModalView").close();
                                            },
 
