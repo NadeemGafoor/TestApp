@@ -1,32 +1,32 @@
 <div data-role="view" data-title="Enrollment Confirmation" data-layout="back-layout" id="enrolmentpage-view" data-model="preLogin" data-show="preLogin.showConfirmation">
-    <header data-role="header">
-        <div data-role="navbar">
+        <div data-role="navbar" style="background-color:transparent !important">
             <span data-role="view-title"></span>
           
         </div>
-    </header>
     <ul data-role="listview"   style="background-color:#fff">
-        <div class="hero-image">
-            <img id="offerimage" src="images/large_logo_placeholder.png" class="img-hero"/>
-        </div>
+     
         <li>
             <div style="width:100%;position:relative;float:left">
-                <div class="mycard-detail-holder-label ">Member ID:</div>
-                <div class="mycard-detail-holder-data  "  id="confirm-memberid"></div>
+                <div class="mycard-detail-holder-label cwhite">Member ID:</div>
+                <div class="mycard-detail-holder-data cwhite "  id="confirm-memberid"></div>
 
-                <div class="mycard-detail-holder-label  ">Name:</div>
-                <div class="mycard-detail-holder-data  " id="confirm-membername" ></div>
+                <div class="mycard-detail-holder-label  cwhite">Name:</div>
+                <div class="mycard-detail-holder-data  cwhite" id="confirm-membername" ></div>
 
-                <div class="mycard-detail-holder-label  ">Member:</div>
-                <div class="mycard-detail-holder-data  " id="confirm-segment"></div>
+                <div class="mycard-detail-holder-label cwhite ">Member:</div>
+                <div class="mycard-detail-holder-data  cwhite" id="confirm-segment"></div>
 
             </div>
             <br>
         </li>
         <li>
-            <div class="fulljustify" style="color:#000">
-                Thank you for becoming an isme member. Welcome to a world of dining privileges. A welcome pack with your login credentials and benefits manual is being sent your email ID. Please check your email and login to your membership.
-            </div>
+            <pre class="fulljustify" style="color:#fff">
+Thank you for becoming an isme member. Welcome to a world of dining privileges.<br/>
+
+A welcome pack with your login credentials and benefits manual is being sent your registered email.<br/>
+
+Please check your email and login to your membership.
+            </pre>
         </li>
         <li>
 
@@ -34,11 +34,6 @@
                 <a  data-role="button" href="views/login.html"  data-transition="slide:up">Login</a>
             </div>
         </li>
-        <li>
-            <div class="button-frame-login">
-
-                <a data-transition="slide:up"  href="views/home.html" data-role="button">Home</a>
-            </div>
-        </li>
+      <div><li></li></div>
     </ul>
 </div>
