@@ -1944,7 +1944,7 @@ function completeRedemption() {
                                                if (window.localStorage.getItem("appopen")==="0") {
                                                    window.localStorage.setItem("appopen", "84"); 
                                                }
-                                                document.getElementById("offer-list-view").style.display="none";
+                                                
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1961,8 +1961,8 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                               
                                                               if (getData.statuscode == "000") {
-                                                                  document.getElementById("offer-list-view").style.display="block";
-                                                                  if (getData.offerlist.length > 0) {
+                                                        
+                                                               
                                                                       //fill the outlet template
                                                                       $("#offer-list-view").kendoMobileListView({
                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
@@ -1970,7 +1970,7 @@ function completeRedemption() {
                                                                                                                     
                                                                                                                 });
                                                                       hideSpin(); //hide loading popup
-                                                                  }else {
+                                                                    if (getData.offerlist.length == 0) {
                                                                       navigator.notification.alert("No Reward List currently exist", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
@@ -3351,7 +3351,7 @@ function completeRedemption() {
                                                 if (window.localStorage.getItem("appopen")==="0") {
                                                     window.localStorage.setItem("appopen", "85"); 
                                                 }
-                                                 document.getElementById("pl-offer-list-view").style.display="none";
+                                      
                                                 back_profile();
                                                 $.ajax({ 
                                                            type: "POST",
@@ -3367,8 +3367,8 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
-                                                                    document.getElementById("pl-offer-list-view").style.display="block";
-                                                                   if (getData.offerlist.length > 0) {
+                                                                 
+                                                                 
                                                                        //fill the outlet template
                                                                        $("#pl-offer-list-view").kendoMobileListView({
                                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
@@ -3376,7 +3376,7 @@ function completeRedemption() {
                                                                                                                     
                                                                                                                     });
                                                                        hideSpin(); //hide loading popup
-                                                                   }else {
+                                                                     if (getData.offerlist.length == 0) {
                                                                        navigator.notification.alert("No Reward List currently exist", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
