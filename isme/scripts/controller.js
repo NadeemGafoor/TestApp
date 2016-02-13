@@ -1154,7 +1154,14 @@ function completeRedemption() {
                                                    postLogin.showAllOutlet();
                                                }else if (window.localStorage.getItem("appopen")==="83") {
                                                    postLogin.showAllLeisure();
+                                               }else if(window.localStorage.getItem("appopen")==="801"){
+                                                    $("body").data("kendoMobilePane").navigate("views/outletlist.html?category=0&brand=");          
+                                              
+                                               }else if(window.localStorage.getItem("appopen")==="811"){
+                                                    $("body").data("kendoMobilePane").navigate("views/pl-outletlist.html?category=0&brand=");          
                                                }
+                                               
+                                               
                                            }
                                                
                                            ,  
@@ -1894,6 +1901,7 @@ function completeRedemption() {
                                            propertyList
                                            : function () {
                                                window.localStorage.setItem("brandcode", "");
+                                                window.localStorage.setItem("appopen", "801");
                                                showSpin();
                                                 
                                                $.ajax({ 
@@ -3493,6 +3501,7 @@ function completeRedemption() {
                                             propertyList
                                             : function () {
                                                 window.localStorage.setItem("brandcode", "");
+                                                window.localStorage.setItem("appopen", "811");
                                                 back_profile();
                                                 showSpin();
                                                 
