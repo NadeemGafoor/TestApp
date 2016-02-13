@@ -100,8 +100,10 @@ a
 }
 
 #outletlist-theme .km-content,
+#outletlistb-theme .km-content,
 #offerdetail-theme .km-content,
 #pl-outletlist-theme .km-content,
+#pl-outletlistb-theme .km-content,
 #pl-offerdetail-theme .km-content
 
 {
@@ -111,7 +113,10 @@ a
 }
 
 #liesurelist-theme .km-content,
-#pl-liesurelist-theme .km-content
+#liesurelistb-theme .km-content,
+#pl-liesurelist-theme .km-content,
+#pl-liesurelistb-theme .km-content
+
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/liesure_bg.png) no-repeat center center;
     background-size: cover;
