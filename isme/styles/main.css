@@ -539,7 +539,7 @@ img
 
 
 
-
+#token-theme .input-frame-enrol-1,
 #enrol-theme .input-frame-enrol-1,
 #login-theme .input-frame-enrol-1,
 #resetpassword-theme .input-frame-enrol-1,
@@ -1098,7 +1098,7 @@ li
 
 .reward-summary-a
 {
-    height: 5em;
+    height: 7em;
     width: 100%;
     position: relative;
     float: none;

@@ -3016,14 +3016,34 @@ function completeRedemption() {
                                                 //Generate Spend Bar
                                                 var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
                                                 m = i;
-                                                if (i > 75) {
-                                                    i = 75;  
+                                                n=i;
+                                               
+                                                if (m>70){
+                                                    n=70;
                                                 }
-                                       
-                                                document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(i + 5) + "%";
+                                                
+                                                if(i>=90){
+                                                    y=83;
+                                                    }else if(i>=17){
+                                                        y=i;
+                                                        }else{
+                                                            y=17;
+                                                }
+                                                document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(y-15) + "%";
                                                 document.getElementById("spend-bar").style.width = m + "%";
-                                                document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend");
-                                                                
+                                                
+                                                 if(i>100){
+                                              
+                                                    document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend")+"K+";
+                                                    }else{
+                                                             
+                                                
+                                                if(m>=80){
+                                                    document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:2%'>" +  window.localStorage.getItem("maxspend")+"K" + "</div>";
+                                                    }else{
+                                                document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend")+"K" + "<div style='width:15%;float:right;text-align:right;margin-right:2%'>" +  window.localStorage.getItem("maxspend")+"K" + "</div>" ;
+                                                        }
+                                                }                
                                                 hideSpin(); //hide loading popup
                                             },
                                            
