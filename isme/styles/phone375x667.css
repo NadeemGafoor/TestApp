@@ -61,9 +61,7 @@
         display: inline-block;
          background-image: url(../images/dashboard_image.png);
         -webkit-background-size: cover;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
+      
     }
 
     .home-dashboard

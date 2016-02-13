@@ -45,9 +45,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     overflow: hidden; 
-     border-radius:5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
+ 
 }
 
 .dashboard-image
