@@ -3843,8 +3843,8 @@ function completeRedemption() {
                                             : function (e) {
                                                 showSpin();
                                                 window.localStorage.setItem("brandcode", e.view.params.od);
-                                                document.getElementById("back-search").style.display="none";
-                                                alert("fgfgfg");
+                                           
+                                    
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3857,6 +3857,7 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
+                                                                          
                                                                if (getData.statuscode == "000") {
                                                                    m = getData.geolocation.split(",");  
                                                                                                                                                                                                                                    
@@ -3864,16 +3865,18 @@ function completeRedemption() {
                                                                    lon = m[1];
                                                                    document.getElementById("pl-property-detail-div").style.display = "block";
                                                                    document.getElementById("pl-detail-title1").innerHTML = getData.hotelname;
+                                                                  
                                                                    document.getElementById("pl-brandimage").src = getData.imageurll;
                                                                    document.getElementById("pl-property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
                                                                    document.getElementById("pl-property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                    document.getElementById("pl-property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
-                                                            
-                                                                   window.localStorage.setItem("social_message", getData.shortdes + "\n\n" + getData.shortdes1 + "\n\n" + getData.longdes);
-                                                                   window.localStorage.setItem("social_image", getData.imageurll); 
-                                                                   window.localStorage.setItem("lat", lat);
-                                                                   window.localStorage.setItem("lon", lon);
-                                                                   back2_profile();
+                                                     
+                                                                  window.localStorage.setItem("social_message", getData.shortdes + "\n\n" + getData.shortdes1 + "\n\n" + getData.longdes);
+                                                                  window.localStorage.setItem("social_image", getData.imageurll); 
+                                                                  window.localStorage.setItem("lat", lat);
+                                                                  window.localStorage.setItem("lon", lon);
+                                                                   back_profile();
+                                                                        document.getElementById("backsearch").style.display="none";
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get Brand Item " + getData.statusdesc, function() {
