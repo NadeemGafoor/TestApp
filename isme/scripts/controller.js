@@ -1118,24 +1118,22 @@ function completeRedemption() {
         
         
                                            queryOfferFilter:function() {
-
-                                                if (document.getElementById("olocation1").checked) {
+                                               if (document.getElementById("olocation1").checked) {
                                                    getNearCity(); 
                                                }else {
                                                    window.localStorage.setItem("distance", ""); 
                                                }
-                                                 if (window.localStorage.getItem("appopen")==="84") {
-                                                 preLogin.rewardList();
+                                               if (window.localStorage.getItem("appopen")==="84") {
+                                                   preLogin.rewardList();
                                                } else if (window.localStorage.getItem("appopen")==="85") {
                                                    postLogin.rewardList();
-                                            
                                                }
                                                
-                                                  alert(window.localStorage.getItem("lifestyle"));                                                
-                                                alert(window.localStorage.getItem("restaurant"));   
+                                               alert(window.localStorage.getItem("lifestyle"));                                                
+                                               alert(window.localStorage.getItem("restaurant"));   
                                                alert(window.localStorage.getItem("cuisine")); 
-                                                alert(window.localStorage.getItem("celebration")); 
-                                                alert(window.localStorage.getItem("distance")); 
+                                               alert(window.localStorage.getItem("celebration")); 
+                                               alert(window.localStorage.getItem("distance")); 
                                             
                                                $("#modalviewofferfilter").data("kendoMobileModalView").close();
                                            },
@@ -1943,9 +1941,10 @@ function completeRedemption() {
                                                showSpin();
                                                offercode = "";
                                                offertype = "1";
-                                              if (window.localStorage.getItem("appopen")==="0") {
+                                               if (window.localStorage.getItem("appopen")==="0") {
                                                    window.localStorage.setItem("appopen", "84"); 
                                                }
+                                                document.getElementById("offer-list-view").style.display="none";
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1954,14 +1953,15 @@ function completeRedemption() {
                                                           url: gurl + "/offerListGeo.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                              //merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
-                                                              merchantcode :window.localStorage.getItem("merchant"),offercode:offercode,offertype:offertype,mdevice:window.localStorage.getItem("mdevicestat"),city:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),segmentcode:segmentcode
+                                                                                   //merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),offercode:offercode,offertype:offertype,mdevice:window.localStorage.getItem("mdevicestat"),city:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),segmentcode:segmentcode
                                                               
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               
                                                               if (getData.statuscode == "000") {
+                                                                  document.getElementById("offer-list-view").style.display="block";
                                                                   if (getData.offerlist.length > 0) {
                                                                       //fill the outlet template
                                                                       $("#offer-list-view").kendoMobileListView({
@@ -2940,8 +2940,8 @@ function completeRedemption() {
         
                                             getSummary:function () {
                                                 showSpin();
-                                               window.localStorage.setItem("appopen", "0");
-                                               clearListFilter();
+                                                window.localStorage.setItem("appopen", "0");
+                                                clearListFilter();
                                                 if (firsttime==="") {
                                                     $.ajax({ 
                                                                type: "POST",
@@ -3348,9 +3348,10 @@ function completeRedemption() {
                                                 showSpin();
                                                 offercode = "";
                                                 offertype = "3"; 
-                                                      if (window.localStorage.getItem("appopen")==="0") {
-                                                   window.localStorage.setItem("appopen", "85"); 
-                                               }
+                                                if (window.localStorage.getItem("appopen")==="0") {
+                                                    window.localStorage.setItem("appopen", "85"); 
+                                                }
+                                                 document.getElementById("pl-offer-list-view").style.display="none";
                                                 back_profile();
                                                 $.ajax({ 
                                                            type: "POST",
@@ -3360,12 +3361,13 @@ function completeRedemption() {
                                                            url: gurl + "/offerListGeo.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                // merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:window.localStorage.getItem("mdevicestat")
-                                                                merchantcode :window.localStorage.getItem("merchant"),offercode:offercode,offertype:offertype,mdevice:window.localStorage.getItem("mdevicestat"),city:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),segmentcode:segmentcode
+                                                                                    // merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:window.localStorage.getItem("mdevicestat")
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),offercode:offercode,offertype:offertype,mdevice:window.localStorage.getItem("mdevicestat"),city:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),segmentcode:segmentcode
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
+                                                                    document.getElementById("pl-offer-list-view").style.display="block";
                                                                    if (getData.offerlist.length > 0) {
                                                                        //fill the outlet template
                                                                        $("#pl-offer-list-view").kendoMobileListView({
@@ -5214,17 +5216,17 @@ function completeRedemption() {
     }
     
     function getlocationparams() {
-          if (autolocation==="1") {
-        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-            window.localStorage.setItem("latl", position.coords.latitude);                                  
-            window.localStorage.setItem("lonl", position.coords.longitude);            
+        if (autolocation==="1") {
+            navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                window.localStorage.setItem("latl", position.coords.latitude);                                  
+                window.localStorage.setItem("lonl", position.coords.longitude);            
+            }
+                                                     , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                         showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page or on the device.");
+                                                     });
+        }else {
+            showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page or on the device.");
         }
-                                                 , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                     showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page or on the device.");
-                                                 });}else{
-                                                     showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page or on the device.");
-                                                 }
-        
     }
     
     function meWatchPos(position) {
@@ -5357,8 +5359,6 @@ function completeRedemption() {
     }
     
     function checklocation() {
-        
-        
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
             lat = position.coords.latitude;                                  
             lon = position.coords.longitude;
@@ -6340,75 +6340,57 @@ function completeRedemption() {
         hideSpin(); //hide loading popup
     }
     
-    function getNearCity(){
-                                                     alert("gggg");
-           
-                                                if (autolocation==="1") {
-                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                        lat = position.coords.latitude;                                  
-                                                        lon = position.coords.longitude
-                                                        var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
-                                                         
-                                                        $.getJSON(geocodingAPI, function (json) {
-                                                            if (json.status === "OK") {
-                                                                //Check result 0
-                                                                var result = json.results[0];
-                                                                for (var i = 0, len = result.address_components.length; i < len; i++) {
-                                                                    var ac = result.address_components[i];
-                                                                    if (ac.types.indexOf("locality") >= 0) {
-                                                                        geocity = ac.long_name;
-                                                                        window.localStorage.setItem("distance",geoCity)
-                                                                    }
+    function getNearCity() {
+        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+            lat = position.coords.latitude;                                  
+            lon = position.coords.longitude
+            alert(lat);
+            alert(lon);
+            var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
+            alert(geocodingAPI);
+            $.getJSON(geocodingAPI, function (json) {
+                if (json.status === "OK") {
+                    //Check result 0
+                    var result = json.results[0];
+                    for (var i = 0, len = result.address_components.length; i < len; i++) {
+                        var ac = result.address_components[i];
+                        if (ac.types.indexOf("locality") >= 0) {
+                            geocity = ac.long_name;
+                            window.localStorage.setItem("distance", geoCity)
+                        }
 	                          
-                                                                    if (ac.types.indexOf("country") >= 0) {
-                                                                        geocountry = ac.long_name;
-                                                                    }
-                                                                }
+                        if (ac.types.indexOf("country") >= 0) {
+                            geocountry = ac.long_name;
+                        }
+                    }
                                                            
-                                                                if (y==="1") {
-                                                                    geocity = "";
-                                                                }
-                                                                pllistOffer();
-                                                                hideSpin();
-                                                            }
-                                                        });
-                                                    }
-                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                                 //  if (err.code == "1") {
-                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                 //  } else if (err.code == "2") {
-                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                                 //  }
-                                                                                                 gpsError();
-                                                                                                 if (y==="1") {
-                                                                                                     geocity = "";
-                                                                                                     window.localStorage.setItem("distance",geoCity)
-                                                                                                 }else {
-                                                                                                     geocity = city;
-                                                                                                     window.localStorage.setItem("distance",geoCity)
-                                                                                                 }
-                                                                                                 lat = window.localStorage.getItem("lat");
-                                                                                                 lon = window.localStorage.getItem("lon");
-                                                                                                 geocountry = country;
-                                                            
+                    if (y==="1") {
+                        geocity = "";
+                    }
+                    hideSpin();
+                }
+            });
+        }
+                                                 , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                                                     //  if (err.code == "1") {
+                                                     //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                                                     //  } else if (err.code == "2") {
+                                                     //      navigator.notification.alert("Device is unable to get the GPS position");  
+                                                     //  }
+                                                     gpsError();
+                                                     if (y==="1") {
+                                                         geocity = "";
+                                                         window.localStorage.setItem("distance", geoCity)
+                                                     }else {
+                                                         geocity = city;
+                                                         window.localStorage.setItem("distance", geoCity)
+                                                     }
+                                                     lat = window.localStorage.getItem("lat");
+                                                     lon = window.localStorage.getItem("lon");
+                                                     geocountry = country;
                                                                                                
-                                                                                                 hideSpin();
-                                                                                             }, positionOption);
-                                                }else {
-                                                    if (y==="1") {
-                                                        geocity = "";
-                                                        window.localStorage.setItem("distance",geoCity)
-                                                    }else {
-                                                        geocity = city;
-                                                        window.localStorage.setItem("distance",geoCity)
-                                                    }
-                                                    lat = window.localStorage.getItem("lat");
-                                                    lon = window.localStorage.getItem("lon");
-                                                    geocountry = country;
-                                                    hideSpin();
-                                                }
-                                            }
-  
-    
+                                                     hideSpin();
+                                                 }, positionOption);
+    }
 }
     )(window);
