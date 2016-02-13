@@ -143,43 +143,6 @@
                         <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
                     </a>
                 </div>
-                <div class="sharehead">
-                    <div class="home-page-holder"></div>
-                    <div class="class-share-div">
-                        <div class="share-menu-line-1">
-                            <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
-                            <div class="button-frame-inline-round">
-                                <a id="btn-facebook" data-role="button" data-click="faceBookClick" style="background:transparent !important">
-                                    <i class="fa fa-facebook fa-2x  share-class"></i>
-                                </a>
-                            </div>
-                            <div class="button-frame-inline-round">
-                                <a id="btn-twitter" data-role="button" data-click="twitterClick" style="background:transparent !important">
-                                    <i class="fa fa-twitter fa-2x   share-class"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
-                        <div class="share-menu-line-1">
-                            <div class="button-frame-inline-round">
-                                <a id="btn-whatsapp" data-role="button"  data-click="whatsappClick" style="background:transparent !important">
-                                    <i class="fa fa-whatsapp fa-2x   share-class"></i>
-                                </a>
-                            </div>
-                            <div class="button-frame-inline-round">
-                                <a id="btn-email" data-role="button" data-click="emailClick" style="background:transparent !important">
-                                    <i class="fa fa-envelope fa-2x   share-class"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="share-menu-line-2">
-                            <a  data-click="shareClick" data-role="button" style="border:0px !important;background-color:transparent" class="mymenu">
-                                <i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
                 <div class="cardhead" style="background-color:#fff">
                     <div class="class-card-div">
                         <div class="qr-image-sep">
@@ -575,48 +538,9 @@
                     <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff" data-click="preLoginBack">
                     </a>
                     <span data-role="view-title" id="detail-title"></span>
-                    <a data-role="button" data-click="shareClick" data-align="right" >
-                        <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
-                    </a>
+                
                 </div>
-                <div class="sharehead">
-                    <div class="home-page-holder"></div>
-                    <div class="class-share-div">
-                        <div class="share-menu-line-1">
-                            <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
-                            <div class="button-frame-inline-round">
-                                <a id="btn-facebook" data-role="button" data-click="faceBookClick" style="background:transparent !important">
-                                    <i class="fa fa-facebook fa-2x  share-class"></i>
-                                </a>
-                            </div>
-                            <div class="button-frame-inline-round">
-                                <a id="btn-twitter" data-role="button" data-click="twitterClick" style="background:transparent !important">
-                                    <i class="fa fa-twitter fa-2x   share-class"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="share-menu-line-1" style="height:10px">&nbsp;</div>
-                        <div class="share-menu-line-1">
-                            <div class="button-frame-inline-round">
-                                <a id="btn-whatsapp" data-role="button"  data-click="whatsappClick" style="background:transparent !important">
-                                    <i class="fa fa-whatsapp fa-2x   share-class"></i>
-                                </a>
-                            </div>
-                            <div class="button-frame-inline-round">
-                                <a id="btn-email" data-role="button" data-click="emailClick" style="background:transparent !important">
-                                    <i class="fa fa-envelope fa-2x   share-class"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="share-menu-line-2">
-                            <a  data-click="shareClick" data-role="button" style="border:0px !important;background-color:transparent" class="mymenu">
-                                <i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </header>
+           </header>
 
             <footer data-role="footer">
 
@@ -764,9 +688,9 @@
         <div data-role="modalview" id="modalsavesettings" data-title=""  style="height:100%;width:100%" data-model="postLogin" data-show="postLogin.saveSettings">
         </div>
 
-        <div data-role="modalview" id="modalviewfilter" style="height:60%;width:90%;border-radius:5px" data-model="preLogin">
+        <div data-role="modalview" id="modalviewfilter" style="height:60%;width:90%" data-model="preLogin">
             <div data-role="header" >
-                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                <div data-role="navbar" style="background-color:#434446;">
                     <span >Filters</span>
                     <a id="last" data-role="button" data-align="right" data-animated="true" data-bind="click:queryOutletFilter">
                         Go
@@ -806,9 +730,9 @@
             </div>
         </div>
 
-        <div data-role="modalview" id="modalviewofferfilter" style="height:60%;width:90%;border-radius:5px;" data-model="preLogin">
+        <div data-role="modalview" id="modalviewofferfilter" style="height:60%;width:90%" data-model="preLogin">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                <div data-role="navbar" style="background-color:#434446">
                     <span>Reward Filters</span>
                     <a data-bind="click:queryOfferFilter" data-role="button" data-align="right" data-animated="true">
                         Go
@@ -840,9 +764,9 @@
 
         </div>
 
-        <div data-role="modalview" id="modalviewcuisine" style="height:80%;width:90%;border-radius:5px" data-model="preLogin">
+        <div data-role="modalview" id="modalviewcuisine" style="height:80%;width:90%" data-model="preLogin">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                <div data-role="navbar" style="background-color:#434446">
                     <span >Select Cuisine</span>
                     <a  data-role="button" data-align="right" data-animated="true" data-bind="click:cuisineCritFilter">
                         Go
@@ -855,9 +779,9 @@
 
         </div>
 
-        <div data-role="modalview" id="modalviewtype" style="height:80%;width:90%;border-radius:5px;" data-model="preLogin">
+        <div data-role="modalview" id="modalviewtype" style="height:80%;width:90%;" data-model="preLogin">
             <div data-role="header">
-                <div  data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                <div  data-role="navbar" style="background-color:#434446">
                     <span >Restaurant Type</span>
                     <a data-role="button" data-align="right" data-animated="true" data-bind="click:restaurantCritFilter">
                         Go
@@ -884,9 +808,9 @@
 
         </div>
 
-        <div data-role="modalview" id="modalviewoffertype" style="height:80%;width:90%;border-radius:5px;background-color:#fff" data-model="preLogin">
+        <div data-role="modalview" id="modalviewoffertype" style="height:80%;width:90%;background-color:#fff" data-model="preLogin">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                <div data-role="navbar" style="background-color:#434446;">
                     <span >Offer Type</span>
                     <a data-role="button" data-align="right" data-animated="true" data-bind="click:lifestyleCritFilter">
                         Go
@@ -929,9 +853,9 @@
             </ul>
         </div>
 
-        <div data-role="modalview" id="modalviewpin" style="height:70%;width:80%;border-radius:5px" data-model="postLogin" data-title="Create PIN">
+        <div data-role="modalview" id="modalviewpin" style="height:70%;width:80%" data-model="postLogin" data-title="Create PIN">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                <div data-role="navbar" style="background-color:#434446">
                     <span data-role="view-title"></span>
 
                     <a data-click="closeSetPinForEnrollment" data-role="button" data-align="right">
@@ -958,9 +882,9 @@
             <div style="height:10px">&nbsp;</div>
         </div>
 
-        <div data-role="modalview" id="modalviewenterpin" style="height:70%;width:80%;border-radius:5px;" data-model="postLogin" data-title="Member PIN">
+        <div data-role="modalview" id="modalviewenterpin" style="height:70%;width:80%" data-model="postLogin" data-title="Member PIN">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                <div data-role="navbar" style="background-color:#434446">
                     <span data-role="view-title"></span>
 
                     <a data-click="closeEnterPinForRedemption" data-role="button" data-align="right">
@@ -983,9 +907,9 @@
             <div style="height:10px">&nbsp;</div>
         </div>
 
-        <div data-role="modalview" id="modalviewstaffpin" style="height:70%;width:80%;border-radius:5px;" data-model="postLogin" data-title="Outlet PIN">
+        <div data-role="modalview" id="modalviewstaffpin" style="height:70%;width:80%" data-model="postLogin" data-title="Outlet PIN">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                <div data-role="navbar" style="background-color:#434446">
                     <span data-role="view-title"></span>
 
                     <a data-click="closeStaffPinForRedemption" data-role="button" data-align="right">
@@ -1008,9 +932,9 @@
             <div style="height:10px">&nbsp;</div>
         </div>
 
-        <div data-role="modalview" id="modalviewpassword" style="height:70%;width:80%;border-radius:5px" data-model="postLogin" data-title="Enter Password">
+        <div data-role="modalview" id="modalviewpassword" style="height:70%;width:80%" data-model="postLogin" data-title="Enter Password">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                <div data-role="navbar" style="background-color:#434446">
                     <span data-role="view-title"></span>
 
                     <a data-click="closeEnterModalPassword" data-role="button" data-align="right">
@@ -1192,9 +1116,9 @@ You may opt out of receiving any marketing material from us at any time by infor
 
         </div>
 
-        <div data-role="modalview" id="modalviewfaq" data-title=""  style="height:50%;width:90%;border-radius:5px" data-model="preLogin">
+        <div data-role="modalview" id="modalviewfaq" data-title=""  style="height:50%;width:90%" data-model="preLogin">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446;border-radius:5px;">
+                <div data-role="navbar" style="background-color:#434446">
                     <span >FAQ Filter</span>
                     <a data-click="closeFAQView" data-role="button" data-align="right" data-animated="true">
                         Go
