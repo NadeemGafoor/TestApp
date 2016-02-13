@@ -2215,7 +2215,7 @@ tile-frame-inner
 
 .foot
 {
-    height: 340px;
+    height: 300px;
     position: fixed;
     width: 100%;
     z-index: 10000;
