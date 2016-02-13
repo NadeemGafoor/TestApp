@@ -521,7 +521,6 @@ img
     height: 2em;
     line-height: 1em;
     width: 90%;
-    color: #fff;
     border-bottom: 2px solid #000;
     float:none;
     position:relative;
@@ -548,11 +547,7 @@ img
 
 
 
-#pl-setting-theme .input-frame-enrol-1 input
-{  
-    color:#000;
- }
-  
+
 #enrol-theme .input-frame-enrol-1,
 #login-theme .input-frame-enrol-1,
 #resetpassword-theme .input-frame-enrol-1,
@@ -575,14 +570,17 @@ img
     height: 2em;
     line-height: 1em;
     background-color: transparent !important;
-    color: #000;
     z-index: 0;
     text-align:left;
     color: #fff;
     margin-left:10%;
  }
 
-
+#pl-setting-theme .input-frame-enrol-1 input
+{  
+    color:#000;
+ }
+  
 
 #modalviewpin .input-frame-modal input,
 #modalviewrepin .input-frame-modal input,
