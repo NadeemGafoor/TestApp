@@ -31,7 +31,7 @@ a
 .km-ios7 .km-navbar .km-view-title
 {
     color: #fff;
-    font-size:1em;
+    font-size:95%;
 }
 
 .km-ios7 .km-navbar
@@ -200,9 +200,8 @@ a
 *
 {
     font-family: "Gotham-Book";
-    font-size:99%;
 }
-
+  
 ul
 {
     border-top: 0  !important;
@@ -891,18 +890,17 @@ img
 {
     display:block;
     line-height: 4em;
-    width: 90%;
+    width: 100%;
     position:relative;
     float: none;
     color:#fff;
-    font-size:90%;
-    margin-left:5%;
+    font-size:95%;
 }
 
 .switch-frame-1 label
 {
     color:#fff;
-    font-size:90%;
+    font-size:95%;
 }
 
 .switch-frame-voucher
