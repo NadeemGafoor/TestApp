@@ -549,21 +549,7 @@ img
     color: #fff;
 }
 
-#pl-setting-theme .input-frame-enrol-1 input,
-#enrol-theme .input-frame-enrol-1 input
 
-{  
-    display: block;
-    width: 100%;
-    height: 2em;
-    line-height: 1em;
-    background-color: transparent !important;
-    color: #000;
-    z-index: 0;
-    text-align:left;
-    color:#fff;
-   
- }
 
 #pl-setting-theme .input-frame-enrol-1 input
 {  
@@ -571,14 +557,16 @@ img
  }
   
 #enrol-theme .input-frame-enrol-1,
-#login-theme .input-frame-enrol-1
+#login-theme .input-frame-enrol-1,
+#resetpassword-theme .input-frame-enrol-1,
+#pin-theme .input-frame-enrol-1
 {  
         border-bottom: 2px solid #fff;
  }
 
 
-
-
+#pl-setting-theme .input-frame-enrol-1 input,
+#enrol-theme .input-frame-enrol-1 input,
 #token-theme .input-frame-enrol-1 input,
 #login-theme .input-frame-enrol-1 input,
 #resetpassword-theme .input-frame-enrol-1 input,
@@ -915,11 +903,12 @@ img
 {
     display:block;
     line-height: 4em;
-    width: 100%;
+    width: 90%;
     position:relative;
     float: none;
     color:#fff;
     font-size:90%;
+    margin-left:5%;
 }
 
 .switch-frame-1 label
@@ -1123,7 +1112,7 @@ li
 
 .reward-summary-a
 {
-    height: 8em;
+    height: 5em;
     width: 100%;
     position: relative;
     float: none;
@@ -1241,8 +1230,8 @@ li
 .fulljustify
 {
     line-height: 1.3em; /* vert-center */
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 8px;
+    margin-right: 8px;
     white-space: pre-line;
     text-align: justify;
     color: #000;
@@ -1251,8 +1240,8 @@ li
 .fulljustifyblack
 {
     line-height: 1.3em; /* vert-center */
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 8px;
+    margin-right: 8px;
     white-space: pre-line;
     text-align: justify;
     color: #000;
