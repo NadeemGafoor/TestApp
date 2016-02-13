@@ -2219,8 +2219,8 @@ tile-frame-inner
 
 .profile-image-holder
 {
-    height: 180px;
-    width: 100px;
+    height: 220px;
+    width: 140px;
     display: block;
     position: relative;
     float: none;
@@ -2233,12 +2233,12 @@ tile-frame-inner
 
 .profile-image
 {
-    height: 80px;
-    width: 80px;
+    height: 120px;
+    width: 120px;
     margin: 40px auto;
     background: url(../images/profile_image.png) no-repeat center center;
     background-size: cover;
-    border-radius: 50px;
+    border-radius: 70px;
     display: block;
     position: relative;
     float: none;
@@ -2428,9 +2428,9 @@ tile-frame-inner
 
 
 .class-img{
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
+    border-radius: 70px;
+    -webkit-border-radius: 70px;
+    -moz-border-radius: 70px;
       -webkit-border: 0px !important;
     -moz-border:  0px !important;
     border: 0px !important;

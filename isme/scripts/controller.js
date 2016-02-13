@@ -3100,18 +3100,18 @@ function completeRedemption() {
                                                 document.getElementById("back1-filter").style.display = "none";
                                                 document.getElementById("profile-picture-1").src = window.localStorage.getItem("cuspict");
                                                 document.getElementById("pro-name").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
-                                                document.getElementById("pro-birthdate").innerHTML = (window.localStorage.getItem("birthdate") != null && window.localStorage.getItem("birthdate").length > 0) ? "Birth date : " + window.localStorage.getItem("birthdate") : "Birth Date : NA";
+                                                document.getElementById("pro-birthdate").innerHTML = (window.localStorage.getItem("birthdate") != null && window.localStorage.getItem("birthdate").length > 0) ? "My Birtday : " + window.localStorage.getItem("birthdate") : "My Birthday : NA";
                                                 document.getElementById("pro-homecountry").innerHTML = (window.localStorage.getItem("homecountry") != null) && window.localStorage.getItem("homecountry").length > 0 ? "Nationality : " + window.localStorage.getItem("homecountryname") : "Nationality : NA";
-                                                document.getElementById("pro-residentcity").innerHTML = (window.localStorage.getItem("residentcity") != null && window.localStorage.getItem("residentcity").length > 0) ? "City : " + window.localStorage.getItem("residentcityname") : "City : NA";
-                                                document.getElementById("pro-number").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? "Member # : " + window.localStorage.getItem("customer") : "Member # : NA";
-                                                document.getElementById("pro-init").innerHTML = (window.localStorage.getItem("initdate") != null && window.localStorage.getItem("initdate").length > 0) ? "Member Since : " + window.localStorage.getItem("initdate") : "Member Since : NA";
+                                                document.getElementById("pro-residentcity").innerHTML = (window.localStorage.getItem("residentcity") != null && window.localStorage.getItem("residentcity").length > 0) ? "Emirate : " + window.localStorage.getItem("residentcityname") : "Emirate : NA";
+                                                //document.getElementById("pro-number").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? "Member # : " + window.localStorage.getItem("customer") : "Member # : NA";
+                                                //document.getElementById("pro-init").innerHTML = (window.localStorage.getItem("initdate") != null && window.localStorage.getItem("initdate").length > 0) ? "Member Since : " + window.localStorage.getItem("initdate") : "Member Since : NA";
                                                 document.getElementById("pro-expiry").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
-                                                document.getElementById("pro-hotelmember").innerHTML = (window.localStorage.getItem("magicnumber") != null && window.localStorage.getItem("magicnumber").length > 0) ? "Jumeirah Sirius Member : " + window.localStorage.getItem("magicnumber") : "Jumeirah Sirius Member : NA";
+                                                document.getElementById("pro-hotelmember").innerHTML = (window.localStorage.getItem("magicnumber") != null && window.localStorage.getItem("magicnumber").length > 0) ? "Jumeirah Sirius No. : " + window.localStorage.getItem("magicnumber") : "Jumeirah Sirius No. : NA";
                                                 back1_profile();
                                                 if (window.localStorage.getItem("segmentcode") === "1000") {
-                                                    document.getElementById("pro-type").innerHTML = "Member Type : isme";
+                                                    document.getElementById("pro-type").innerHTML = "isme Member";
                                                 }else {
-                                                    document.getElementById("pro-type").innerHTML = "Member Type : isme elite";
+                                                    document.getElementById("pro-type").innerHTML = "isme elite Member";
                                                 }
                                             },
         
