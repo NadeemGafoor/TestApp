@@ -18,7 +18,10 @@
         margin:auto;
                 background-color:#e9e5dc;
      }
-
+.button-frame-inline .km-button
+{
+    font-size:80%;
+}
 
     .brand-image-pos
     {

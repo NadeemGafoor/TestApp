@@ -19,7 +19,10 @@
                 background-color:#e9e5dc;
      }
 
-
+.button-frame-inline .km-button
+{
+    font-size:70%;
+}
     .brand-image-pos
     {
         height:125px;
