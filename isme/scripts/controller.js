@@ -4089,6 +4089,7 @@ function completeRedemption() {
                                               
                                             getImage:
                                             function () {
+                                                 alert("Image1");
                                                 var success = function (imageData) {
                                                     var image = document.getElementById('profile-picture-1');
                                                     image.src = "data:image/png;base64," + imageData;
