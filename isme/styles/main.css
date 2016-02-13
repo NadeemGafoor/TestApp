@@ -523,11 +523,12 @@ img
 {
     height: 2em;
     line-height: 1em;
-    width: 100%;
+    width: 90%;
     color: #fff;
     border-bottom: 2px solid #000;
     float:none;
     position:relative;
+    margin-left:5%;
 }
 
 .input-frame-enrol label 
@@ -550,36 +551,7 @@ img
 
 #pl-setting-theme .input-frame-enrol-1 input,
 #enrol-theme .input-frame-enrol-1 input
-{  
-    display: block;
-    width: 95%;
-    height: 2em;
-    line-height: 1em;
-    background-color: transparent !important;
-    color: #000;
-    z-index: 0;
-    text-align:left;
-    color:#fff;
- }
 
-#pl-setting-theme .input-frame-enrol-1 input
-{  
-    color:#000;
- }
-  
-#enrol-theme .input-frame-enrol-1
-{  
-        border-bottom: 2px solid #fff;
- }
-
-
-
-
-#token-theme .input-frame-enrol input,
-#login-theme .input-frame-enrol input,
-#resetpassword-theme .input-frame-enrol input,
-#pl-myprofile-theme .input-frame input,
-#pin-theme .input-frame-enrol input
 {  
     display: block;
     width: 100%;
@@ -588,9 +560,41 @@ img
     background-color: transparent !important;
     color: #000;
     z-index: 0;
-    text-align:center;
-       color: #fff;
+    text-align:left;
+    color:#fff;
+   
+ }
 
+#pl-setting-theme .input-frame-enrol-1 input
+{  
+    color:#000;
+ }
+  
+#enrol-theme .input-frame-enrol-1,
+#login-theme .input-frame-enrol-1
+{  
+        border-bottom: 2px solid #fff;
+ }
+
+
+
+
+#token-theme .input-frame-enrol-1 input,
+#login-theme .input-frame-enrol-1 input,
+#resetpassword-theme .input-frame-enrol-1 input,
+#pl-myprofile-theme .input-frame-1 input,
+#pin-theme .input-frame-enrol-1 input
+{  
+    display: block;
+    width: 90%;
+    height: 2em;
+    line-height: 1em;
+    background-color: transparent !important;
+    color: #000;
+    z-index: 0;
+    text-align:left;
+    color: #fff;
+    margin-left:10%;
  }
 
 

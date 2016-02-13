@@ -11,17 +11,29 @@
     <ul data-role="listview">
 
         <li>
-            <div class="input-frame-enrol">
+            <div class="input-frame-enrol-1">
                 <input type="number" id="username" data-bind="value: username" placeholder="Member ID"/>
             </div>
         </li>
         <li>
-            <div class="input-frame-enrol">
+            <div class="input-frame-enrol-1">
                 <input type="password" id="password" data-bind="value: password" placeholder="Password"/>
             </div>
         </li>
+        <div class="filler10"></div>
+           <li>
+            <div class="button-frame">
+                <a class="button-login" data-role="button" data-bind="click: validateUser">Login</a>
+            </div>
+        </li>
+             <li>
+            <a  data-transition="slide:up"   id="mobile-button1" href="views/resetpassword.html" style="background-color:transparent !important">
+                <div class="switch-frame one-line">RESET PASSWORD</div>
+            </a>
+        </li>
+        
         <li>
-            <div class="switch-frame" >
+            <div class="switch-frame-1" >
                 <label  class="white-color" style="color:#fff">
                     Remember Me
                     <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}"/>
@@ -29,24 +41,16 @@
             </div>
         </li>
 
-        <li>
-            <div class="button-frame-login">
-                <a id="mobile-button1" data-role="button" data-bind="click: validateUser">Login</a>
-            </div>
-        </li>
+     
 
        
 
         <li>
-            <div class="button-frame-login">
-                <a  id="mobile-button1" data-role="button" data-bind="click: fbLoginD" class="button-loginwithfacebook">Login with Facebook</a>
+            <div class="button-frame">
+                <a data-role="button" data-bind="click: fbLoginD" class="button-loginwithfacebook">Login with Facebook</a>
             </div>
         </li>
-         <li>
-            <a  data-transition="slide:up"   id="mobile-button1" href="views/resetpassword.html" style="background-color:transparent !important">
-                <div class="switch-frame one-line">RESET PASSWORD</div>
-            </a>
-        </li>
+    
 
         <div>
             <li></li>
