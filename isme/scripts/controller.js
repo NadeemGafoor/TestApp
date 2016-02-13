@@ -2825,6 +2825,7 @@ function completeRedemption() {
                                            },
                                            getfaq
                                            : function () {
+                                               
                                                showSpin(); //show loading popup
                                                $.ajax({ 
                                                           type: "POST",
@@ -2867,6 +2868,7 @@ function completeRedemption() {
                                            },
                                            plgetfaq
                                            : function () {
+                             
                                                showSpin(); //show loading popup
                                                $.ajax({ 
                                                           type: "POST",
@@ -2906,7 +2908,17 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                           }
+                                           },
+            getFAQFilter:function() {
+                                               var dataSource = new kendo.data.DataSource({ data: getFAQData() });
+                                               
+                                               $("#FAQ-Filter").kendoMobileListView({
+                                                                                        dataSource: dataSource,
+                                                                                        template: $("#FAQ-Template").html()
+
+                                                                    
+                                                                                    });
+                                           }                                    
                                        });
     
     window.postLogin = kendo.observable({ 

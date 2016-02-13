@@ -1150,19 +1150,13 @@ You may opt out of receiving any marketing material from us at any time by infor
 
         </div>
 
-        <div data-role="modalview" id="modalviewfaq" data-title=""  style="height:50%;width:90%" data-model="preLogin">
+        <div data-role="modalview" id="modalviewfaq" data-title=""  style="height:55%;width:90%" data-model="preLogin">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#434446">
                     <span >FAQ Filter</span>
                     <a data-click="closeFAQView" data-role="button" data-align="right" data-animated="true">
                         Go
                     </a>
-                </div>
-            </div>
-            <div class="filter-item-holder" style="background-color:#ccc">
-                <div class="list-group-data-item lheight">&nbsp;&nbsp;&nbsp;Select All</div>
-                <div class="list-group-data-item-1 lheight">
-                    <input type="checkbox" class="km-checkbox"/>
                 </div>
             </div>
             <ul id="FAQ-Filter"  data-bind="value:getFAQFilter" >
@@ -1232,7 +1226,7 @@ You may opt out of receiving any marketing material from us at any time by infor
         </script>
 
         <script type="text/x-kendo-template" id="FAQ-Template">
-            <label class="k-checkbox-label" >
+            <label class="k-checkbox-label">
                 ${desc}
                 <input type="checkbox"  id="${code}" class="k-checkbox"/>
                 <hr/>
