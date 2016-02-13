@@ -382,7 +382,7 @@ function shareClick() {
     elems = document.getElementsByClassName('mymenu1');
 
     for (i = 0; i < elems.length; i++) {
-        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-3x" style="color:#fff"></i>';
+        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
         
         elems[i].style.width = "100%";
         elems[i].style.zIndex = 10000;
@@ -398,10 +398,10 @@ function plHomeClick() {
     elems = document.getElementsByClassName('mymenu1');
 
     for (i = 0; i < elems.length; i++) {
-        if (elems[i].innerHTML === '<i class="fa fa-chevron-down fa-3x" style="color:#fff"></i>') {
-            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-3x" style="color:#fff"></i>';
+        if (elems[i].innerHTML === '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>') {
+            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
         } else {
-            elems[i].innerHTML = '<i class="fa fa-chevron-down fa-3x" style="color:#fff"></i>';
+            elems[i].innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
         }  
         elems[i].style.width = "100%";
         elems[i].style.zIndex = 10000;
@@ -677,7 +677,7 @@ function postLoginBack() {
     elems = document.getElementsByClassName('mymenu1');
 
     for (i = 0; i < elems.length; i++) {
-        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-3x" style="color:#fff"></i>';
+        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
         elems[i].style.width = "100%";
         elems[i].style.zIndex = 10000;
         elems[i].style.textAlign = "center";
@@ -700,7 +700,7 @@ function doOneBack() {
     
     elems = document.getElementsByClassName('mymenu1');
     for (i = 0; i < elems.length; i++) {
-        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-3x" style="color:#fff"></i>';
+        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
         elems[i].style.width = "100%";
         elems[i].style.zIndex = 10000;
         elems[i].style.textAlign = "center";
@@ -1133,10 +1133,11 @@ function completeRedemption() {
                                            queryOutletFilter:function() {
                                                if (document.getElementById("olocation").checked) {
                                                    window.localStorage.setItem("distance", "1"); 
+                                                   getlocationparams();
                                                }else {
                                                    window.localStorage.setItem("distance", ""); 
                                                }
-                                               getlocationparams();
+                                               
                                              
                                                $("#modalviewfilter").data("kendoMobileModalView").close();
                                                
@@ -4556,7 +4557,7 @@ function completeRedemption() {
                                                 elems = document.getElementsByClassName('mymenu1');
 
                                                 for (i = 0; i < elems.length; i++) {
-                                                    elems[i].innerHTML = '<i class="fa fa-chevron-up fa-3x" style="color:#fff"></i>';
+                                                    elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
                                                     elems[i].style.width = "100%";
                                                     elems[i].style.zIndex = 10000;
                                                     elems[i].style.textAlign = "center";
@@ -5208,7 +5209,7 @@ function completeRedemption() {
     }
     
     function getlocationparams() {
-        if (autolocation==="1") {
+      
             navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                 window.localStorage.setItem("latl", position.coords.latitude);                                  
                 window.localStorage.setItem("lonl", position.coords.longitude);            
@@ -5216,9 +5217,7 @@ function completeRedemption() {
                                                      , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
                                                          showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page or on the device.");
                                                      });
-        }else {
-            showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page or on the device.");
-        }
+        
     }
     
     function meWatchPos(position) {
@@ -6029,7 +6028,7 @@ function completeRedemption() {
         elems = document.getElementsByClassName('mymenu1');
 
         for (i = 0; i < elems.length; i++) {
-            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-3x" style="color:#fff"></i>';
+            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
             elems[i].style.width = "100%";
             elems[i].style.zIndex = 10000;
             elems[i].style.textAlign = "center";
