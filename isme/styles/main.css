@@ -684,11 +684,10 @@ img
 
 .button-frame-inline-round .km-button
 {
-    padding-top: 10px;
     margin: auto;
-    height: 100px;
-    line-height: 100px;
-    width: 100px;
+    height: 70px;
+    width: 70px;
+    line-height:70px;
     display: block;
     text-align: center;
     -webkit-border-radius: 100px;
@@ -2276,7 +2275,7 @@ tile-frame-inner
 
 .sharehead, .cardhead
 {
-    height: 320px;
+    height: 300px;
     position: fixed;
     width: 100%;
     z-index: 1000;
