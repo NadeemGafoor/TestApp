@@ -4055,6 +4055,7 @@ function completeRedemption() {
                                             },
                                             addImage:
                                             function () {
+                                                alert("Image");
                                                 var success = function (imageData) {
                                                     var image = document.getElementById('profile-picture-1');
                                                     image.src = "data:image/png;base64," + imageData;
@@ -4102,7 +4103,7 @@ function completeRedemption() {
                                                 var config = {
                                                     quality : 75,
                                                     destinationType : Camera.DestinationType.DATA_URL,
-                                                    sourceType : Camera.PictureSourceType.SAVEDPHOTOALBUM,
+                                                    sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
                                                     allowEdit : true,
                                                     encodingType: Camera.EncodingType.PNG,
                                                     targetWidth: 75,
