@@ -1854,7 +1854,7 @@ function completeRedemption() {
                                            : function (e) {
                                                showSpin();
                                                window.localStorage.setItem("brandcode", e.view.params.od);
-                                               document.getElementById("plback-search").style.display = "none";
+                                               document.getElementById("back2-search").style.display = "none";
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -3843,7 +3843,7 @@ function completeRedemption() {
                                             : function (e) {
                                                 showSpin();
                                                 window.localStorage.setItem("brandcode", e.view.params.od);
-                                            
+                                                document.getElementById("back-search").style.display="none"
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
