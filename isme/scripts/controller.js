@@ -3039,9 +3039,9 @@ function completeRedemption() {
                                                              
                                                 
                                                 if(m>=80){
-                                                    document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:2%'>" +  window.localStorage.getItem("maxspend")+"K" + "</div>";
+                                                    document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" +  window.localStorage.getItem("maxspend")+"K" + "</div>";
                                                     }else{
-                                                document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend")+"K" + "<div style='width:15%;float:right;text-align:right;margin-right:2%'>" +  window.localStorage.getItem("maxspend")+"K" + "</div>" ;
+                                                document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend")+"K" + "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" +  window.localStorage.getItem("maxspend")+"K" + "</div>" ;
                                                         }
                                                 }                
                                                 hideSpin(); //hide loading popup
