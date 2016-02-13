@@ -389,9 +389,7 @@
                     <a  data-role="button" data-click="offerFilterView" data-align="right" id="back1-filter">
                         <i class="fa fa-search fa-lg" style="color:#fff"></i>
                     </a>
-                    <a data-click="saveSettings" data-role="button"  data-align="right" id="plsave" style="margin-right:10px" >
-                        Save
-                    </a>
+             
                 </div>
                 <div class="cardhead" style="background-color:#fff">
                     <div class="class-card-div">
@@ -1174,17 +1172,27 @@ You may opt out of receiving any marketing material from us at any time by infor
         </div>
 
         <script type="text/x-kendo-template" id="History-Filter-Template">
-            <div class="list-group-data-header">
-                <div class="list-group-data-item" style="margin-left:10px;width:65%">
-                    ${historyitem}
-                </div>
-                <div class="list-group-data-item" id=${historykey} style="text-align:center;width:15%">
-                    <i class="fa fa-minus-square-o fa-lg"></i>
-                </div>
-                <div class="list-group-data-item" id=${historykey} style="text-align:center;width:15%">
-                    <i class="fa fa-plus-square-o fa-lg"></i>
-                </div>
-            </div>
+            
+            
+                <label class="k-checkbox-label" >
+                ${desc}
+                <input type="checkbox"  id="${code}"  value="${code}" data-bind="text:checkrestaurant" class="k-checkbox"/>
+                <hr/>
+            </label>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
         </script>
 
         <script type="text/x-kendo-template" id="OfferFilter-Template">
@@ -1225,8 +1233,8 @@ You may opt out of receiving any marketing material from us at any time by infor
 
         <script type="text/x-kendo-template" id="FAQ-Template">
             <label class="k-checkbox-label" >
-                ${faqitem}
-                <input type="checkbox"  id="${faqkey}" class="k-checkbox"/>
+                ${desc}
+                <input type="checkbox"  id="${code}" class="k-checkbox"/>
                 <hr/>
             </label>
    
