@@ -1119,7 +1119,7 @@ function completeRedemption() {
         
                                            queryOfferFilter:function() {
                                              
-                                                if (document.getElementById("olocation").checked) {
+                                                if (document.getElementById("olocation1").checked) {
                                                    getNearCity(); 
                                                }else {
                                                    window.localStorage.setItem("distance", ""); 
@@ -1127,7 +1127,7 @@ function completeRedemption() {
                                                  if (window.localStorage.getItem("appopen")==="84") {
                                                  preLogin.rewardList();
                                                } else if (window.localStorage.getItem("appopen")==="85") {
-                                                   preLogin.rewardList();
+                                                   postLogin.rewardList();
                                             
                                                }
                                                
