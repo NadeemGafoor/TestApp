@@ -1656,7 +1656,7 @@ function completeRedemption() {
                                            showAllOutlet
                                            : function (e) {
                                              showSpin();  
-                                             alert(window.localStorage.getItem("distance"));
+                                             alert(window.localStorage.getItem("category"));
                                                alert(window.localStorage.getItem("latl"));
                                                alert(window.localStorage.getItem("lonl"));
                                                if (window.localStorage.getItem("appopen")==="0") {
