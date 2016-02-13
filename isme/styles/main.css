@@ -2171,6 +2171,7 @@ tile-frame-inner
     width: 80%;
     color: #000;
     height: 30px; 
+
 }
 
 .lheight
@@ -2184,7 +2185,6 @@ tile-frame-inner
     float: left;
     width: 20%;
     color: #000;
-
     height: 30px; 
     text-align: center; 
 }

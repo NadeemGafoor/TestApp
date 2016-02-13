@@ -1118,7 +1118,7 @@ function completeRedemption() {
         
         
                                            queryOfferFilter:function() {
-                                             
+
                                                 if (document.getElementById("olocation1").checked) {
                                                    getNearCity(); 
                                                }else {
@@ -6341,6 +6341,7 @@ function completeRedemption() {
     }
     
     function getNearCity(){
+                                                     alert("gggg");
            
                                                 if (autolocation==="1") {
                                                     navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
