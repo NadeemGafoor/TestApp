@@ -1040,7 +1040,8 @@ function completeRedemption() {
         //clear Locations Near Me
         window.localStorage.setItem("distance", "");
         document.getElementById("olocation").checked = false;
-      
+           window.localStorage.setItem("brand", "");  
+                                                 window.localStorage.setItem("category", ""); 
         //Clear Restaurant Filter
         window.localStorage.setItem("restaurant", ""); 
         document.getElementById("orestauranttype").innerHTML = "All";        
@@ -1155,11 +1156,11 @@ function completeRedemption() {
                                                }else if (window.localStorage.getItem("appopen")==="83") {
                                                    postLogin.showAllLeisure();
                                                }else if (window.localStorage.getItem("appopen")==="801") {
-                                          
+                                            window.localStorage.setItem("category", "0"); 
                                                    $("body").data("kendoMobilePane").navigate("views/outletlist.html?category=0&brand=");   
                                                     preLogin.showAllOutlet();
                                                }else if (window.localStorage.getItem("appopen")==="811") {
-                                                   alert(window.localStorage.getItem("appopen"));                                                      
+                                            window.localStorage.setItem("category", "0"); 
                                                    $("body").data("kendoMobilePane").navigate("views/pl-outletlist.html?category=0&brand=");          
                                                     postLogin.showAllOutlet();
                                                }
@@ -1656,9 +1657,9 @@ function completeRedemption() {
                                            showAllOutlet
                                            : function (e) {
                                              showSpin();  
-                                             alert(window.localStorage.getItem("category"));
-                                               alert(window.localStorage.getItem("latl"));
-                                               alert(window.localStorage.getItem("lonl"));
+                                            // alert(window.localStorage.getItem("category"));
+                                            //   alert(window.localStorage.getItem("latl"));
+                                            //   alert(window.localStorage.getItem("lonl"));
                                                if (window.localStorage.getItem("appopen")==="0") {
                                                    window.localStorage.setItem("brand", e.view.params.brand);  
                                                    window.localStorage.setItem("category", e.view.params.category); 
@@ -1903,7 +1904,7 @@ function completeRedemption() {
         
                                            propertyList
                                            : function () {
-                                               window.localStorage.setItem("brandcode", "");
+                                               clearListFilter();
                                                window.localStorage.setItem("appopen", "801");
                                                showSpin();
                                                 
@@ -2974,6 +2975,7 @@ function completeRedemption() {
                                             getSummary:function () {
                                                 showSpin();
                                                 window.localStorage.setItem("appopen", "0");
+                                            
                                                 clearListFilter();
                                                 if (firsttime==="") {
                                                     $.ajax({ 
@@ -3497,7 +3499,7 @@ function completeRedemption() {
         
                                             propertyList
                                             : function () {
-                                                window.localStorage.setItem("brandcode", "");
+                                               clearListFilter();
                                                 window.localStorage.setItem("appopen", "811");
                                                 back_profile();
                                                 showSpin();
