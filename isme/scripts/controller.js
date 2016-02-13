@@ -382,7 +382,7 @@ function shareClick() {
     elems = document.getElementsByClassName('mymenu1');
 
     for (i = 0; i < elems.length; i++) {
-        elems[i].innerHTML = '<i class="fa fa-angle-up fa-2x" style="color:#fff"></i>';
+        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
         
         elems[i].style.width = "100%";
         elems[i].style.zIndex = 10000;
@@ -398,10 +398,10 @@ function plHomeClick() {
     elems = document.getElementsByClassName('mymenu1');
 
     for (i = 0; i < elems.length; i++) {
-        if (elems[i].innerHTML === '<i class="fa fa-angle-down fa-2x" style="color:#fff"></i>') {
-            elems[i].innerHTML = '<i class="fa fa-angle-up fa-2x" style="color:#fff"></i>';
+        if (elems[i].innerHTML === '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>') {
+            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
         } else {
-            elems[i].innerHTML = '<i class="fa fa-angle-down fa-2x" style="color:#fff"></i>';
+            elems[i].innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
         }  
         elems[i].style.width = "100%";
         elems[i].style.zIndex = 10000;
@@ -677,7 +677,7 @@ function postLoginBack() {
     elems = document.getElementsByClassName('mymenu1');
 
     for (i = 0; i < elems.length; i++) {
-        elems[i].innerHTML = '<i class="fa fa-angle-up fa-2x" style="color:#fff"></i>';
+        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
         elems[i].style.width = "100%";
         elems[i].style.zIndex = 10000;
         elems[i].style.textAlign = "center";
@@ -700,7 +700,7 @@ function doOneBack() {
     
     elems = document.getElementsByClassName('mymenu1');
     for (i = 0; i < elems.length; i++) {
-        elems[i].innerHTML = '<i class="fa fa-angle-up fa-2x" style="color:#fff"></i>';
+        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
         elems[i].style.width = "100%";
         elems[i].style.zIndex = 10000;
         elems[i].style.textAlign = "center";
@@ -4556,7 +4556,7 @@ function completeRedemption() {
                                                 elems = document.getElementsByClassName('mymenu1');
 
                                                 for (i = 0; i < elems.length; i++) {
-                                                    elems[i].innerHTML = '<i class="fa fa-angle-up fa-2x" style="color:#fff"></i>';
+                                                    elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
                                                     elems[i].style.width = "100%";
                                                     elems[i].style.zIndex = 10000;
                                                     elems[i].style.textAlign = "center";
@@ -6029,7 +6029,7 @@ function completeRedemption() {
         elems = document.getElementsByClassName('mymenu1');
 
         for (i = 0; i < elems.length; i++) {
-            elems[i].innerHTML = '<i class="fa fa-angle-up fa-2x" style="color:#fff"></i>';
+            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
             elems[i].style.width = "100%";
             elems[i].style.zIndex = 10000;
             elems[i].style.textAlign = "center";
