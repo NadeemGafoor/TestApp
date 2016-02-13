@@ -3951,6 +3951,7 @@ function completeRedemption() {
                                             mywalletofferdetail
                                             : function (e) {
                                                 couponnumber = e.view.params.cpn;
+                                                document.getElementById("back2-share").style.display="none";
                                                 showSpin();
                                                 back2_profile();
                                                 $.ajax({ 
