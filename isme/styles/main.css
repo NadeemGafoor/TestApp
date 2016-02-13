@@ -2470,3 +2470,12 @@ tile-frame-inner
     
 }
 
+.logo-image-holder
+{
+    height:275px;
+    width:100%;
+    margin:10px auto;
+    background: url(../images/home_page_logo_white.png) no-repeat center center;
+    background-size:50%;
+}
+
