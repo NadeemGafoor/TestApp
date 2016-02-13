@@ -231,10 +231,42 @@
         <div data-role="layout" data-id="pl-back3-layout">
             <div data-role="header">
                 <div data-role="navbar">
+                        <a  data-role="button" data-align="left" style="color:#fff" data-click="postLoginBackOne" data-icon="back" data-transition="slide:left" href="views/pl-home.html">
+                    </a>
                     <span data-role="view-title"></span>
 
                 </div>
-            </div>
+     
+                <div class="cardhead" style="background-color:#fff">
+                    <div class="class-card-div">
+                        <div class="qr-image-sep">
+                            <div class="qr-image" id="mycard-qr8"></div>
+                        </div>
+                        <div class="filler"></div>
+                        <div class="home-page-holder">
+                            <div class="button-frame-login">
+                                <a data-click="enterPinForRedemption" data-role="button" style="background-color:#000">Apply Discount</a>
+                            </div>
+
+                        </div>
+                        <div class="filler10"></div>
+                        <div class="general-text-line-1 cblack" id="expiry-back8" ></div>
+                    </div>
+                    <div class="share-menu-line-2-c">
+                        <a  data-click="cardClick" data-role="button" class="mymenu2" style="background-color:transparent !important">
+                            <i class="fa fa-chevron-up fa-2x" style="color:#000"></i>
+                        </a>
+                    </div>
+                </div>
+                   <div class="share-menu-line-3">
+                    <a  data-click="cardClick" data-role="button"  class="cardmenu" style="background-color:transparent !important">
+                        <div class="share-menu-line-3-a" style="text-align:left" id="name-back8"></div>
+                        <div class="share-menu-line-3-a" style="text-align:center" id="number-back8"></div>
+                        <div class="share-menu-line-3-a" style="text-align:right" id="segment-back8">isme</div>
+
+                    </a>
+                </div>
+       </div>
         </div>
 
         <div data-role="layout" data-id="pl-back-layout">
@@ -720,7 +752,7 @@
 
         <div data-role="modalview" id="modalviewfilter" style="height:60%;width:90%" data-model="preLogin">
             <div data-role="header" >
-                <div data-role="navbar" style="background-color:#434446;">
+                <div data-role="navbar" style="background-color:#000">
                     <span >Filters</span>
                     <a id="last" data-role="button" data-align="right" data-animated="true" data-bind="click:queryOutletFilter">
                         Go
@@ -762,7 +794,7 @@
 
         <div data-role="modalview" id="modalviewofferfilter" style="height:60%;width:90%" data-model="preLogin">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446">
+                <div data-role="navbar" style="background-color:#000">
                     <span>Reward Filters</span>
                     <a data-bind="click:queryOfferFilter" data-role="button" data-align="right" data-animated="true">
                         Go
@@ -796,7 +828,7 @@
 
         <div data-role="modalview" id="modalviewcuisine" style="height:80%;width:90%" data-model="preLogin">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446">
+                <div data-role="navbar" style="background-color:#000">
                     <span >Select Cuisine</span>
                     <a  data-role="button" data-align="right" data-animated="true" data-bind="click:cuisineCritFilter">
                         Go
@@ -811,7 +843,7 @@
 
         <div data-role="modalview" id="modalviewtype" style="height:80%;width:90%;" data-model="preLogin">
             <div data-role="header">
-                <div  data-role="navbar" style="background-color:#434446">
+                <div  data-role="navbar" style="background-color:#000">
                     <span >Restaurant Type</span>
                     <a data-role="button" data-align="right" data-animated="true" data-bind="click:restaurantCritFilter">
                         Go
@@ -825,8 +857,8 @@
         </div>
 
         <div data-role="modalview" id="modalviewceleberationtype" data-title=""  style="height:80%;width:90%" data-model="preLogin">
-            <div data-role="header" style="background-color:#4f5053">
-                <div data-role="navbar">
+            <div data-role="header">
+                <div data-role="navbar"  style="background-color:#000">
                     <span >Celebration Type</span>
                     <a data-role="button" data-align="right" data-animated="true" data-bind="click:celebrationCritFilter">
                         Go
@@ -840,7 +872,7 @@
 
         <div data-role="modalview" id="modalviewoffertype" style="height:80%;width:90%;background-color:#fff" data-model="preLogin">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446;">
+                <div data-role="navbar" style="background-color:#000;">
                     <span >Offer Type</span>
                     <a data-role="button" data-align="right" data-animated="true" data-bind="click:lifestyleCritFilter">
                         Go
@@ -870,8 +902,8 @@
         </div>
 
         <div data-role="modalview" id="modalviewhistoryfilter" style="height:60%;width:90%" data-model="postLogin">
-            <div data-role="header" style="background-color:#4f5053">
-                <div data-role="navbar">
+            <div data-role="header" >
+                <div data-role="navbar"  style="background-color:#000">
                     <span >History Filters</span>
                     <a data-click="closeHistoryFilterView" data-role="button" data-align="right" data-animated="true">
                         Go
@@ -885,7 +917,7 @@
 
         <div data-role="modalview" id="modalviewpin" style="height:70%;width:80%" data-model="postLogin" data-title="Create PIN">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446">
+                <div data-role="navbar" style="background-color:#000">
                     <span data-role="view-title"></span>
 
                     <a data-click="closeSetPinForEnrollment" data-role="button" data-align="right">
@@ -914,7 +946,7 @@
 
         <div data-role="modalview" id="modalviewenterpin" style="height:70%;width:80%" data-model="postLogin" data-title="Member PIN">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446">
+                <div data-role="navbar" style="background-color:#000">
                     <span data-role="view-title"></span>
 
                     <a data-click="closeEnterPinForRedemption" data-role="button" data-align="right">
@@ -939,7 +971,7 @@
 
         <div data-role="modalview" id="modalviewstaffpin" style="height:70%;width:80%" data-model="postLogin" data-title="Outlet PIN">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446">
+                <div data-role="navbar" style="background-color:#000">
                     <span data-role="view-title"></span>
 
                     <a data-click="closeStaffPinForRedemption" data-role="button" data-align="right">
@@ -964,7 +996,7 @@
 
         <div data-role="modalview" id="modalviewpassword" style="height:70%;width:80%" data-model="postLogin" data-title="Enter Password">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446">
+                <div data-role="navbar" style="background-color:#000">
                     <span data-role="view-title"></span>
 
                     <a data-click="closeEnterModalPassword" data-role="button" data-align="right">
@@ -990,7 +1022,7 @@
 
         <div data-role="modalview" id="modalviewterms" style="width:100%;height:100%"data-title="isme By Jumeirah Terms & Conditions">
             <div data-role="header">
-                <div data-role="navbar">
+                <div data-role="navbar"  style="background-color:#000">
                     <span data-role="view-title"></span>
                     <a data-click="closeModalViewLogin" data-role="button" data-align="right">
                         <i class="fa fa-times-circle fa-lg" style="color:#fff"></i>
@@ -1087,7 +1119,7 @@
         
           <div data-role="modalview" id="modalviewdataprotection" style="width:100%;height:100%"data-title="Data Protection Policy">
             <div data-role="header">
-                <div data-role="navbar">
+                <div data-role="navbar"  style="background-color:#000">
                     <span data-role="view-title"></span>
                     <a data-click="closeModalViewData" data-role="button" data-align="right">
                         <i class="fa fa-times-circle fa-lg" style="color:#fff"></i>
@@ -1095,7 +1127,7 @@
                 </div>
             </div>
 
-            <pre class="fulljustify cwhite">
+            <pre class="fulljustify cblack">
 <span style="font-weight:bold;text-align:center">isme by Jumeirah Data Protection Policy</span>
 
 By providing my personal data (which may include sensitive personal data, e.g. details of my race, physical or mental health or condition), I acknowledge that I am agreeing to its collection, transfer and other processing by Jumeirah International LLC in Dubai and its affiliated businesses and third party processors which are involved in the operation of its facilities and services throughout the world in countries where data protection laws may differ or not exist.  Details of such affiliated businesses, facilities and services can be provided on request.  Details of third party processors, what data may be collected and how the data will be used can be found in Jumeirah International LLC’s Privacy and Cookies Policy, which can be accessed online at http://www.jumeirah.com/privacypolicy or can be provided on request.
@@ -1148,7 +1180,7 @@ You may opt out of receiving any marketing material from us at any time by infor
 
         <div data-role="modalview" id="modalviewfaq" data-title=""  style="height:55%;width:90%" data-model="preLogin">
             <div data-role="header">
-                <div data-role="navbar" style="background-color:#434446">
+                <div data-role="navbar" style="background-color:#000">
                     <span >FAQ Filter</span>
                     <a data-click="closeFAQView" data-role="button" data-align="right" data-animated="true">
                         Go

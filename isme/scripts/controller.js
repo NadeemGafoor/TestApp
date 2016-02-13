@@ -3812,6 +3812,7 @@ function completeRedemption() {
         
                                             confirmIssueResponse
                                             :function() {
+                                                back8_profile();
                                                 document.getElementById("offer-1").innerHTML = postLogin.transactionref;
                                                 document.getElementById("offer-2").innerHTML = postLogin.couponname;
                                                 //document.getElementById("offer-3").innerHTML = postLogin.couponcategory;
@@ -4250,7 +4251,8 @@ function completeRedemption() {
                                             },
                                             selfRedeemConfirm
                                             : function () {
-                                                showSpin();                                                  
+                                                showSpin();  
+                                                back8_profile();
                                                 document.getElementById("vouchernumber").innerHTML = window.localStorage.getItem("self-vouchernumber");
                                                 document.getElementById("vouchername").innerHTML = window.localStorage.getItem("self-vouchername");
                                                 document.getElementById("outletname").innerHTML = window.localStorage.getItem("self-outletname");
@@ -4318,6 +4320,10 @@ function completeRedemption() {
                                             showCard
                                             : function () {
                                                 back_profile();
+                                            },
+          showCard1
+                                            : function () {
+                                                back8_profile();
                                             },
                                             mymessagelist
                                             : function () {
@@ -5573,6 +5579,16 @@ function completeRedemption() {
         document.getElementById("segment7-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
         document.getElementById("mycard7-qr").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
         document.getElementById("mycard7-qr").style.backgroundSize = "cover";        
+    }
+    
+     function back8_profile() {
+        window.localStorage.setItem("selfredeem", "D"); 
+        document.getElementById("name-back8").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+        document.getElementById("number-back8").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+        document.getElementById("expiry-back8").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+        document.getElementById("segment-back8").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+        document.getElementById("mycard-qr8").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+        document.getElementById("mycard-qr8").style.backgroundSize = "cover";        
     }
     
     function onConfirm1 (buttonIndex) {  
