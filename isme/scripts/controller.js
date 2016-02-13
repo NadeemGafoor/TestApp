@@ -1517,7 +1517,13 @@ function completeRedemption() {
                                                }
                                                
                                                if (!document.getElementById("enrol-tandc-accept").checked) {
-                                                   navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
+                                                   navigator.notification.alert("Please accept Terms & Conditions to proceed", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
+                                               
+                                                  if (!document.getElementById("enrol-tandc-accept-c").checked) {
+                                                   navigator.notification.alert("Please accept Data Protection Policy to proceed", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
@@ -2501,9 +2507,24 @@ function completeRedemption() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }
+                                                   
+                                               if (!document.getElementById("enrol-tandc-accept-a").checked) {
+                                                   navigator.notification.alert("Please accept Terms & Conditions to proceed", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
+                                               
+                                                  if (!document.getElementById("enrol-tandc-accept-b").checked) {
+                                                   navigator.notification.alert("Please accept Data Protection Policy to proceed", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
+                                                   
                                                    customer = this.username;
                                                    password = this.password;
                                                }
+                                               
+                                               
                                                // window.localStorage.setItem("memberID", this.username);"1000","3"
                                                // m = window.localStorage.getItem("memberID");
                                                //  alert(m);
