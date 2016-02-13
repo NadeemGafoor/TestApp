@@ -919,6 +919,13 @@ img
     position:relative;
     float: none;
     color:#fff;
+    font-size:90%;
+}
+
+.switch-frame-1 label
+{
+    color:#fff;
+    font-size:90%;
 }
 
 .switch-frame-voucher
