@@ -735,16 +735,16 @@ img
 .button-frame-inline .km-button,
 .button-frame-login .km-button
 {
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.3);
     color: #fff;
     line-height: 30px;
-    width: 80%;
+    width: 100%;
     display: block;
     text-align: center;
-    margin-left: 10%;
-    -webkit-border: #fff solid 0px;
-    -moz-border: #fff solid 0px;
-    border: #fff solid 0px;
+    margin:auto;
+    -webkit-border: #fff solid 1px;
+    -moz-border: #fff solid 1px;
+    border: #fff solid 1px;
     -webkit-border-radius: 35px;
     -moz-border-radius: 35px;
     border-radius: 35px;

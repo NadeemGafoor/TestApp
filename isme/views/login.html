@@ -1,12 +1,11 @@
-<div data-role="view" data-layout="back-layout" data-title="Sign In" id="login-theme" data-model="preLogin" data-show="preLogin.loginInit" data-init="preLogin.varInit">
+<div data-role="view" data-layout="back-layout" data-title="Login" id="login-theme" data-model="preLogin" data-show="preLogin.loginInit" data-init="preLogin.varInit">
 
-    <div data-role="header">
-        <div data-role="navbar">
+        <div data-role="navbar" style="background-color:transparent !important">
             <div class="brand-icon"></div>
             <span data-role="view-title"></span>
             <a data-role="button" href="views/home.html"  data-align="left" style="color:#fff" data-icon="back" data-transition="slide"></a>
         </div>
-    </div>
+<div class="filler"></div>
 
     <ul data-role="listview">
 
@@ -22,8 +21,8 @@
         </li>
         <div class="filler10"></div>
            <li>
-            <div class="button-frame">
-                <a class="button-login" data-role="button" data-bind="click: validateUser">Login</a>
+            <div class="button-frame-login">
+                <a  data-role="button" data-bind="click: validateUser">Login</a>
             </div>
         </li>
         <div class="filler10"></div>
