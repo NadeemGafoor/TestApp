@@ -1760,8 +1760,8 @@ function completeRedemption() {
                                                                   document.getElementById("property-detail-div").style.display = "block";
                                                                   document.getElementById("detail-title").innerHTML = getData.hotelname;
                                                                   document.getElementById("brandimage").src = getData.imageurll;
-                                                                  document.getElementById("property-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes + "</pre>";
-                                                                  document.getElementById("property-short-2").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes1 + "</pre>";                                                                  
+                                                                  document.getElementById("property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
+                                                                  document.getElementById("property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                   document.getElementById("property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
                                                             
                                                                   window.localStorage.setItem("social_message", getData.shortdes + "\n\n" + getData.shortdes1 + "\n\n" + getData.longdes);
@@ -3610,8 +3610,8 @@ function completeRedemption() {
                                                                    document.getElementById("pl-property-detail-div").style.display = "block";
                                                                    document.getElementById("pl-detail-title").innerHTML = getData.hotelname;
                                                                    document.getElementById("pl-brandimage").src = getData.imageurll;
-                                                                   document.getElementById("pl-property-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes + "</pre>";
-                                                                   document.getElementById("pl-property-short-2").innerHTML = "<pre class='fulljustifybold'>" + getData.shortdes1 + "</pre>";                                                                  
+                                                                   document.getElementById("pl-property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
+                                                                   document.getElementById("pl-property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                    document.getElementById("pl-property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
                                                             
                                                                    window.localStorage.setItem("social_message", getData.shortdes + "\n\n" + getData.shortdes1 + "\n\n" + getData.longdes);
