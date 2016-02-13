@@ -566,14 +566,13 @@ img
 #pin-theme .input-frame-enrol-1 input
 {  
     display: block;
-    width: 90%;
+    width: 95%;
     height: 2em;
     line-height: 1em;
     background-color: transparent !important;
     z-index: 0;
     text-align:left;
     color: #fff;
-    margin-left:10%;
  }
 
 #pl-setting-theme .input-frame-enrol-1 input
