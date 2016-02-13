@@ -1863,7 +1863,7 @@ tile-frame-inner
     float: left; 
     display: inline-block;
     width: 48%;
-    height: 100px;
+    height: 110px;
     color: #fff;
     text-align: center; 
     margin: 3px auto 3px auto;
@@ -1871,16 +1871,16 @@ tile-frame-inner
    
 }
 
-.discover-back-part-a1
+.discover-back-part-a1 
 {
-    background: url(../images/small2.png) no-repeat center center;
+    background: url(../images/1.png) no-repeat center center;
     background-size: 100%;
     -webkit-background-size: 100%;
 }
 
 .discover-back-part-a2
 {
-    background: url(../images/small1.png) no-repeat center center;
+    background: url(../images/2.png) no-repeat center center;
     background-size: 100%;
     -webkit-background-size: 100%;
 }
