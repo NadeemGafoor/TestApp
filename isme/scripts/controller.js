@@ -3876,6 +3876,7 @@ function completeRedemption() {
                                                                   window.localStorage.setItem("lat", lat);
                                                                   window.localStorage.setItem("lon", lon);
                                                                    back_profile();
+                                                                   alert(document.getElementById("backsearch").style.display);
                                                                         document.getElementById("backsearch").style.display="none";
                                                                    hideSpin(); //hide loading popup
                                                                }else {
