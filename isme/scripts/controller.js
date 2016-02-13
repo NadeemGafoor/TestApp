@@ -1133,6 +1133,7 @@ function completeRedemption() {
                                            },
 
                                            queryOutletFilter:function() {
+                                               alert(window.localStorage.getItem("appopen"));   
                                                if (document.getElementById("olocation").checked) {
                                                    window.localStorage.setItem("distance", "1"); 
                                                    getlocationparams();
