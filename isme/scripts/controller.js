@@ -1133,7 +1133,6 @@ function completeRedemption() {
                                            },
 
                                            queryOutletFilter:function() {
-                                               alert(window.localStorage.getItem("appopen"));   
                                                if (document.getElementById("olocation").checked) {
                                                    window.localStorage.setItem("distance", "1"); 
                                                    getlocationparams();
@@ -1142,7 +1141,7 @@ function completeRedemption() {
                                                }
                                              
                                                $("#modalviewfilter").data("kendoMobileModalView").close();
-                                               
+ 
                                                if (window.localStorage.getItem("appopen")==="80") {
                                                    preLogin.showAllOutlet();
                                                } else if (window.localStorage.getItem("appopen")==="81") {
@@ -1155,14 +1154,15 @@ function completeRedemption() {
                                                    postLogin.showAllOutlet();
                                                }else if (window.localStorage.getItem("appopen")==="83") {
                                                    postLogin.showAllLeisure();
-                                               }else if(window.localStorage.getItem("appopen")==="801"){
-                                                    $("body").data("kendoMobilePane").navigate("views/outletlist.html?category=0&brand=");          
-                                              
-                                               }else if(window.localStorage.getItem("appopen")==="811"){
-                                                    $("body").data("kendoMobilePane").navigate("views/pl-outletlist.html?category=0&brand=");          
+                                               }else if (window.localStorage.getItem("appopen")==="801") {
+                                          
+                                                   $("body").data("kendoMobilePane").navigate("views/outletlist.html?category=0&brand=");   
+                                                    preLogin.showAllOutlet();
+                                               }else if (window.localStorage.getItem("appopen")==="811") {
+                                                   alert(window.localStorage.getItem("appopen"));                                                      
+                                                   $("body").data("kendoMobilePane").navigate("views/pl-outletlist.html?category=0&brand=");          
+                                                    postLogin.showAllOutlet();
                                                }
-                                               
-                                               
                                            }
                                                
                                            ,  
@@ -1260,7 +1260,7 @@ function completeRedemption() {
                                                }
                                                if (x > 1) {
                                                    itemconcat = itemconcat + vclose;
-                                                  // document.getElementById("ocelebration").innerHTML = "Filter";
+                                                   // document.getElementById("ocelebration").innerHTML = "Filter";
                                                    window.localStorage.setItem("celebration", itemconcat);    
                                                }
                                                                                       
@@ -1530,7 +1530,7 @@ function completeRedemption() {
                                                    return;
                                                }
                                                
-                                                  if (!document.getElementById("enrol-tandc-accept-c").checked) {
+                                               if (!document.getElementById("enrol-tandc-accept-c").checked) {
                                                    navigator.notification.alert("Please accept Data Protection Policy to proceed", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
@@ -1655,8 +1655,10 @@ function completeRedemption() {
         
                                            showAllOutlet
                                            : function (e) {
-                                               showSpin();  
-                                             
+                                             showSpin();  
+                                             alert(window.localStorage.getItem("distance"));
+                                               alert(window.localStorage.getItem("latl"));
+                                               alert(window.localStorage.getItem("lonl"));
                                                if (window.localStorage.getItem("appopen")==="0") {
                                                    window.localStorage.setItem("brand", e.view.params.brand);  
                                                    window.localStorage.setItem("category", e.view.params.category); 
@@ -1902,7 +1904,7 @@ function completeRedemption() {
                                            propertyList
                                            : function () {
                                                window.localStorage.setItem("brandcode", "");
-                                                window.localStorage.setItem("appopen", "801");
+                                               window.localStorage.setItem("appopen", "801");
                                                showSpin();
                                                 
                                                $.ajax({ 
@@ -2517,22 +2519,21 @@ function completeRedemption() {
                                                        return;
                                                    }
                                                    
-                                               if (!document.getElementById("enrol-tandc-accept-a").checked) {
-                                                   navigator.notification.alert("Please accept Terms & Conditions to proceed", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
-                                                   return;
-                                               }
+                                                   if (!document.getElementById("enrol-tandc-accept-a").checked) {
+                                                       navigator.notification.alert("Please accept Terms & Conditions to proceed", function() {
+                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       return;
+                                                   }
                                                
-                                                  if (!document.getElementById("enrol-tandc-accept-b").checked) {
-                                                   navigator.notification.alert("Please accept Data Protection Policy to proceed", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
-                                                   return;
-                                               }
+                                                   if (!document.getElementById("enrol-tandc-accept-b").checked) {
+                                                       navigator.notification.alert("Please accept Data Protection Policy to proceed", function() {
+                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       return;
+                                                   }
                                                    
                                                    customer = this.username;
                                                    password = this.password;
                                                }
-                                               
                                                
                                                // window.localStorage.setItem("memberID", this.username);"1000","3"
                                                // m = window.localStorage.getItem("memberID");
@@ -2855,7 +2856,6 @@ function completeRedemption() {
                                            },
                                            getfaq
                                            : function () {
-                                               
                                                showSpin(); //show loading popup
                                                $.ajax({ 
                                                           type: "POST",
@@ -2898,7 +2898,6 @@ function completeRedemption() {
                                            },
                                            plgetfaq
                                            : function () {
-                             
                                                showSpin(); //show loading popup
                                                $.ajax({ 
                                                           type: "POST",
@@ -2939,7 +2938,7 @@ function completeRedemption() {
                                                           }
                                                       });
                                            },
-            getFAQFilter:function() {
+                                           getFAQFilter:function() {
                                                var dataSource = new kendo.data.DataSource({ data: getFAQData() });
                                                
                                                $("#FAQ-Filter").kendoMobileListView({
@@ -3025,33 +3024,30 @@ function completeRedemption() {
                                                 //Generate Spend Bar
                                                 var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
                                                 m = i;
-                                                n=i;
+                                                n = i;
                                                
-                                                if (m>70){
-                                                    n=70;
+                                                if (m > 70) {
+                                                    n = 70;
                                                 }
                                                 
-                                                if(i>=90){
-                                                    y=83;
-                                                    }else if(i>=17){
-                                                        y=i;
-                                                        }else{
-                                                            y=17;
+                                                if (i >= 90) {
+                                                    y = 83;
+                                                }else if (i >= 17) {
+                                                    y = i;
+                                                }else {
+                                                    y = 17;
                                                 }
-                                                document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(y-15) + "%";
+                                                document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
                                                 document.getElementById("spend-bar").style.width = m + "%";
                                                 
-                                                 if(i>100){
-                                              
-                                                    document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend")+"K+";
-                                                    }else{
-                                                             
-                                                
-                                                if(m>=80){
-                                                    document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" +  window.localStorage.getItem("maxspend")+"K" + "</div>";
-                                                    }else{
-                                                document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend")+"K" + "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" +  window.localStorage.getItem("maxspend")+"K" + "</div>" ;
-                                                        }
+                                                if (i > 100) {
+                                                    document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
+                                                }else {
+                                                    if (m >= 80) {
+                                                        document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
+                                                    }else {
+                                                        document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
+                                                    }
                                                 }                
                                                 hideSpin(); //hide loading popup
                                             },
@@ -3961,7 +3957,7 @@ function completeRedemption() {
                                             mywalletofferdetail
                                             : function (e) {
                                                 couponnumber = e.view.params.cpn;
-                                                document.getElementById("back2-share").style.display="none";
+                                                document.getElementById("back2-share").style.display = "none";
                                                 showSpin();
                                                 back2_profile();
                                                 $.ajax({ 
@@ -4142,7 +4138,7 @@ function completeRedemption() {
                                               
                                             getImage:
                                             function () {
-                                                 alert("Image1");
+                                                alert("Image1");
                                                 var success = function (imageData) {
                                                     var image = document.getElementById('profile-picture-1');
                                                     image.src = "data:image/png;base64," + imageData;
@@ -4373,7 +4369,7 @@ function completeRedemption() {
                                             : function () {
                                                 back_profile();
                                             },
-          showCard1
+                                            showCard1
                                             : function () {
                                                 back8_profile();
                                             },
@@ -5633,7 +5629,7 @@ function completeRedemption() {
         document.getElementById("mycard7-qr").style.backgroundSize = "cover";        
     }
     
-     function back8_profile() {
+    function back8_profile() {
         window.localStorage.setItem("selfredeem", "D"); 
         document.getElementById("name-back8").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
         document.getElementById("number-back8").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
