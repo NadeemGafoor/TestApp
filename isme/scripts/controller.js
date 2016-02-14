@@ -721,8 +721,8 @@ function doOneBack() {
 }
 
 function hideBenefitDetail() {
-    document.getElementById("pbenefit-detail-view").style.display = "none";
-    document.getElementById("pbenefit-detail-view-1").style.display = "none";
+    document.getElementById("benefit-detail-view").style.display = "none";
+    document.getElementById("benefit-detail-view-1").style.display = "none";
 }
 
 function plhideOutletDetail() {
@@ -1561,11 +1561,12 @@ function completeRedemption() {
                                       
                                            benefitdetail
                                            : function (e) { 
-                                               alert("here");
+                                               
                                                benefitcode = "1000"; 
                                                showSpin(); //show loading popup
                                                 document.getElementById("benefit-detail-view").style.display = "block";
                                                 document.getElementById("benefit-detail-view-1").style.display = "none";
+                                               alert(document.getElementById("benefit-detail-view").style.display);
                                                $.ajax({ 
                                                           type: "POST",   
                                                           cache:false,
@@ -1580,6 +1581,7 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
+                                                                  alert(getData.benefitlist.length);
                                                                   if (getData.benefitlist.length > 0) {                                                                     
                                                                       document.getElementById("benefit-text3").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                                                                       window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
@@ -1668,8 +1670,8 @@ function completeRedemption() {
                                                    window.localStorage.setItem("appopen", "80"); 
                                                }
                                                 
-                                               alert(window.localStorage.getItem("category"));
-                                               alert(window.localStorage.getItem("appopen"));
+                                               //alert(window.localStorage.getItem("category"));
+                                               //alert(window.localStorage.getItem("appopen"));
 
                                                $.ajax({ 
                                                           type: "POST",
