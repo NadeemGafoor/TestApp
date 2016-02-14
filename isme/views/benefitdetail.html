@@ -1,4 +1,4 @@
-<div data-role="view"  data-title="Programme Benefits" data-layout="back3-layout" id="benefit-theme" data-init="initButtonGroup" data-model="preLogin" data-show="preLogin.benefitdetail" data-hide="hideBenefitDetail">
+<div data-role="view"  data-title="Programme Benefits" data-layout="back3-layout" id="benefit-theme" data-init="initButtonGroup" data-model="preLogin" data-show="preLogin.benefitdetail" data-hide="preLogin.destroybenefit">
     <ul data-role="buttongroup" data-index="0" id="benefitdetailtab" class="button-group a-group">
         <li>
             isme
@@ -23,7 +23,7 @@
         </div>
     </ul>
 
-    <ul data-role="listview"   style="background-color:#fff;margin-top:0px;display:none" id="benefit-detail-view-1">
+    <ul data-role="listview"   style="background-color:#fff;margin-top:0px" id="benefit-detail-view-1">
       
         <li>
             <div id="benefit-text5"></div>
@@ -31,7 +31,7 @@
          <div>
             <li>    
                 <div class="button-frame-login">
-                    <a data-role="button" data-click="customerCare" style="background-color:#000">Enrol</a>
+                    <a data-role="button" href="views/customerservice.html" data-transition="slide:up" style="background-color:#000">Enrol</a>
                 </div>
             </li>
         </div>

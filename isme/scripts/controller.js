@@ -1414,6 +1414,9 @@ function completeRedemption() {
                                            }
                                             
                                            , 
+                                           destroybenefit:function() {
+                                               $("#benefit-theme").remove();
+                                           },
 
                                            showConfirmation
                                            :function() {
@@ -1561,11 +1564,10 @@ function completeRedemption() {
                                       
                                            benefitdetail
                                            : function (e) { 
-                                               
                                                benefitcode = "1000"; 
                                                showSpin(); //show loading popup
-                                                document.getElementById("benefit-detail-view").style.display = "block";
-                                                document.getElementById("benefit-detail-view-1").style.display = "none";
+                                               document.getElementById("benefit-detail-view").style.display = "block";
+                                               document.getElementById("benefit-detail-view-1").style.display = "none";
                     
                                                $.ajax({ 
                                                           type: "POST",   
@@ -1581,7 +1583,6 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
-                                       
                                                                   if (getData.benefitlist.length > 0) {                                                                     
                                                                       document.getElementById("benefit-text3").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                                                                       window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
@@ -1613,8 +1614,8 @@ function completeRedemption() {
                                            : function (e) { 
                                                benefitcode = "1001"; 
                                                showSpin(); //show loading popup
-                                             document.getElementById("benefit-detail-view-1").style.display = "block";
-                                                                      document.getElementById("benefit-detail-view").style.display = "none";                                               
+                                               document.getElementById("benefit-detail-view-1").style.display = "block";
+                                               document.getElementById("benefit-detail-view").style.display = "none";                                               
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1630,7 +1631,6 @@ function completeRedemption() {
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
                                                                   if (getData.benefitlist.length > 0) {
-                                                                     
                                                                       document.getElementById("benefit-text5").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                    
                                                                       window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
@@ -3697,11 +3697,11 @@ function completeRedemption() {
         
         
         
-        showAllOutlet1
+                                            showAllOutlet1
                                             : function (e) {
                                                 showSpin(); 
                                              
-                                                    window.localStorage.setItem("category", "0"); 
+                                                window.localStorage.setItem("category", "0"); 
                                                    
                                                 back_profile();
                                                 $.ajax({ 
@@ -3722,9 +3722,9 @@ function completeRedemption() {
                                                                    //fill the outlet template
                                                                    $("#pl-outlet-list-b").kendoMobileListView({
                                                                              
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                                template: $("#pl-outletTemplate-b").html()
-                                                                                                            });
+                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                                  template: $("#pl-outletTemplate-b").html()
+                                                                                                              });
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
                                                                        navigator.notification.alert("No locations exists for the selected property", function() {
@@ -3794,12 +3794,11 @@ function completeRedemption() {
                                                        });                  
                                             },
         
-         showAllLeisure1
+                                            showAllLeisure1
                                             : function (e) {
                                                 showSpin(); 
                                           
-                                                    window.localStorage.setItem("category", e.view.params.category); 
-                                                
+                                                window.localStorage.setItem("category", e.view.params.category); 
                                                 
                                                 back_profile();
                                                 $.ajax({ 
@@ -3824,9 +3823,9 @@ function completeRedemption() {
                                                                    //fill the outlet template
                                                                    $("#pl-leisure-list-b").kendoMobileListView({
                                                                              
-                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                                 template: $("#pl-leisureTemplate-b").html()
-                                                                                                             });
+                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                                   template: $("#pl-leisureTemplate-b").html()
+                                                                                                               });
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
@@ -3847,7 +3846,6 @@ function completeRedemption() {
                                             : function (e) {
                                                 showSpin();
                                                 window.localStorage.setItem("brandcode", e.view.params.od);
-                                           
                                     
                                                 $.ajax({ 
                                                            type: "POST",
@@ -3875,10 +3873,10 @@ function completeRedemption() {
                                                                    document.getElementById("pl-property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                    document.getElementById("pl-property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
                                                      
-                                                                  window.localStorage.setItem("social_message", getData.shortdes + "\n\n" + getData.shortdes1 + "\n\n" + getData.longdes);
-                                                                  window.localStorage.setItem("social_image", getData.imageurll); 
-                                                                  window.localStorage.setItem("lat", lat);
-                                                                  window.localStorage.setItem("lon", lon);
+                                                                   window.localStorage.setItem("social_message", getData.shortdes + "\n\n" + getData.shortdes1 + "\n\n" + getData.longdes);
+                                                                   window.localStorage.setItem("social_image", getData.imageurll); 
+                                                                   window.localStorage.setItem("lat", lat);
+                                                                   window.localStorage.setItem("lon", lon);
                                                                    back_profile();
                                                                    hideSpin(); //hide loading popup
                                                                }else {
