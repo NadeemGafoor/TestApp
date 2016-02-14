@@ -206,6 +206,22 @@ function onSelectTabStrip(e) {
     var currentItem = tabstrip.currentItem();
 }
 
+
+function onSelectTabStrip2(e) {
+    var i = $(e.item).index();
+    if (i === 0) {
+        getLocation5();
+    } else if (i === 1) {
+        supportEmailA();
+    } else {
+        customerCareOutlet();
+    }
+    var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
+    var currentItem = tabstrip.currentItem();
+}
+
+
+
 function onSelectTabStrip1(e) {
     var i = $(e.item).index();
     if (i === 0) {
@@ -231,6 +247,10 @@ function supportEmailA() {
 
 function customerCare() {
     window.open("tel:" + "8004763");
+}
+
+function customerCareOutlet() {
+    window.open("tel:" + window.localStorage.getItem("social_telephone"));
 }
 
 function offerMessage() {
@@ -847,8 +867,8 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-    var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
-    //var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
+    //var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
+    var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
     //var gurl = "https://appapi.exclusiveu.in/mobilePortal";
     var merchant = "JUMEI02000";
     //var merchant = "IHGDI09999"; 
@@ -903,10 +923,10 @@ function completeRedemption() {
     var residentcityname = "";
     var appad_location = "http://isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
-    var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-    var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
-    //var share_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png";
-    //var flag_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/flagimages/";
+    //var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+    //var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
+    var share_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png";
+    var flag_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/flagimages/";
     //var notification_image = "https://appapi.exclusiveu.in/mobileportal/images/36x36_icon.png";    
     //var share_image = "https://appapi.exclusiveu.in/mobileportal/images/ihg_logo.png";
     //var flag_image = "https://appapi.exclusiveu.in/mobileportal/flagimages/";
