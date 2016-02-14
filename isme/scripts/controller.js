@@ -1566,7 +1566,7 @@ function completeRedemption() {
                                                showSpin(); //show loading popup
                                                 document.getElementById("benefit-detail-view").style.display = "block";
                                                 document.getElementById("benefit-detail-view-1").style.display = "none";
-                                               alert(document.getElementById("benefit-detail-view").style.display);
+                    
                                                $.ajax({ 
                                                           type: "POST",   
                                                           cache:false,
@@ -1581,7 +1581,7 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
-                                                                  alert(getData.benefitlist.length);
+                                       
                                                                   if (getData.benefitlist.length > 0) {                                                                     
                                                                       document.getElementById("benefit-text3").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                                                                       window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
