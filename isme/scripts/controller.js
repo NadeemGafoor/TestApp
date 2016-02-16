@@ -112,17 +112,17 @@ function loadEnrol() {
 }
 
 function faceBookClick() {
-    window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("social_message") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), window.localStorage.getItem("appad_location_short"), window.localStorage.getItem("appad_location"), function () {
+    window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("social_message") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com", function () {
     }, function (errormsg) {
     });
 }
-
+  
 function twitterClick() {
-    window.plugins.socialsharing.shareViaTwitter(window.localStorage.getItem("social_shortmsg"));
+    window.plugins.socialsharing.shareViaTwitter(window.localStorage.getItem("social_shortmsg"),["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com");   
 }
 
 function whatsappClick() {
-    window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("social_shortmsg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" , "", window.localStorage.getItem("appad_location"), function () {
+    window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("social_shortmsg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" ,["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com", function () {
     }, function (errormsg) {
     })
 }
@@ -897,8 +897,9 @@ function completeRedemption() {
     var alcohol = "";
     var homecountryname = "";
     var residentcityname = "";
-    var appad_location = "http://isme.jumeirah.com";
-    var appad_location_short = "isme.jumeirah.com";  
+    var appad_location = "http://www.jumeirah.com";
+    var appad_location_short = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png";  
+    //var appad_location_short = "isme.jumeirah.com";  
     //var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
     //var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     var share_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png";
