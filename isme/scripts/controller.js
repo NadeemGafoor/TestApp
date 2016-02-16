@@ -3737,7 +3737,7 @@ function completeRedemption() {
                                                            url: gurl + "/offeroutletlist_geo.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,offercode:offercode,mdevice:window.localStorage.getItem("mdevicestat"),customer:window.localStorage.getItem("customer")
+                                                                                    merchantcode :merchant,offercode:offercode,mdevice:window.localStorage.getItem("mdevicestat"),customer:window.localStorage.getItem("customer"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
