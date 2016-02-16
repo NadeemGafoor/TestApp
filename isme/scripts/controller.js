@@ -752,11 +752,6 @@ function plhideLeisureDetail() {
     document.getElementById("pl-outlet-detail-div").style.display = "none";
 }
 
-function plhideBrandDetail() {
-    doOneBackPre();
-    document.getElementById("pl-property-detail-div").style.display = "none";
-}
-
 function plhideOfferDetail() {
     doOneBackPre();
     document.getElementById("pl-offer-detail-div").style.display = "none";
@@ -943,6 +938,22 @@ function completeRedemption() {
         //   
         //     
         //        
+    }
+    
+    function plhideOutletDetail() {
+        doOneBackPre();  
+        document.getElementById("pl-outlet-detail-div").style.display = "none";
+    }
+    
+    function plhideOfferDetail() {
+        doOneBackPre();
+        document.getElementById("pl-offer-detail-div").style.display = "none";
+        document.getElementById("pl-offer-location-div").style.display = "none";
+    }
+    
+    function plhideBrandDetail() {
+        doOneBackPre();
+        document.getElementById("pl-property-detail-div").style.display = "none";
     }
     
     function hideOutletDetail() {
@@ -1210,15 +1221,28 @@ function completeRedemption() {
                                                $("#outletdetail-theme").remove();
                                            },
         
-            destroyoutletlist:function() {
+                                           destroyoutletlist:function() {
                                                $("#outletlist-theme").remove();
                                            },
         
-           destroyoutletlistb:function() {
+                                           destroyoutletlistb:function() {
                                                $("#outletlistb-theme").remove();
                                            },
-
+                                           destroyplfaq:function() {
+                                               $("#pl-faq-theme").remove();
+                                           },
         
+                                           destroyresetpassword:function() {
+                                               $("#resetpassword-theme").remove();
+                                           },  
+        
+                                           destroysetpin:function() {
+                                               $("#pin-theme").remove();
+                                           }, 
+        
+                                           destroytokenpage:function() {
+                                               $("#token-theme").remove();
+                                           }, 
         
                                            queryOfferFilter:function() {
                                                window.localStorage.setItem("distance", ""); 
@@ -3149,6 +3173,35 @@ function completeRedemption() {
                                            }                                    
                                        });
     
+    function doOneBack() {
+        elems = document.getElementsByClassName('cardhead');
+        for (i = 0; i < elems.length; i++) {
+            elems[i].style.display = 'none';
+        }  
+    
+        elems = document.getElementsByClassName('foot');
+        for (i = 0; i < elems.length; i++) {
+            elems[i].style.display = 'none';
+        }  
+    
+        elems = document.getElementsByClassName('mymenu1');
+        for (i = 0; i < elems.length; i++) {
+            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+            elems[i].style.width = "100%";
+            elems[i].style.zIndex = 10000;
+            elems[i].style.textAlign = "center";
+        }
+    
+        $(".sharehead").slideUp("slow");
+      
+        elems = document.getElementsByClassName('sharehead');
+
+        for (i = 0; i < elems.length; i++) {  
+            elems[i].style.zIndex = -1000;
+        }  
+        window.localStorage.setItem("appopen", "0");  
+    }
+    
     window.postLogin = kendo.observable({ 
                                             outlettelephone:"",
                                             transactionref:"",
@@ -3169,6 +3222,116 @@ function completeRedemption() {
                                             setpass:"",
                                             msgsequence:"",
                                             lifestyle:"",
+        
+                                            destroyplaboutisme:function() {
+                                                $("#pl-aboutisme-theme").remove();
+                                            },
+                                            destroyplbenefitdetail:function() {
+                                                $("#pl-benefit-theme").remove();
+                                            },
+                                            destroyplconfirmdiscount:function() {
+                                                doOneBack();
+                                                $("#pl-confirmredemption-view").remove();
+                                            },
+                                            destroyplconfirmpage:function() {
+                                                $("#pl-confirmpage-view").remove();
+                                            },
+                                            destroyplconfirmvoucher:function() {
+                                                $("#pl-voucheredeem-view").remove();
+                                            },
+        
+                                            destroyplbranddetail:function() {
+                                                plhideBrandDetail();
+                                                $("#pl-branddetail-theme").remove();
+                                            },
+                                            destroyplcustomerservice:function() {
+                                                $("#pl-customerservice-theme").remove();
+                                            },
+                                            destroyplexplorelist:function() {
+                                                $("#pl-explorelist-view").remove();
+                                            },
+    
+                                            destroyplfavorites:function() {
+                                                $("#myfavorite-view").remove();
+                                            },
+        
+                                            destroyplhistorylist:function() {
+                                                $("#history-theme").remove();
+                                            },
+        
+                                            destroyplhome:function() {
+                                                $("#pl-home-view").remove();
+                                            },
+        
+                                            destroyplhomeplus:function() {
+                                                $("#pl-home-view-plus").remove();
+                                            },
+        
+                                            destroyplleisurelist:function() {
+                                                doOneBack();
+                                                $("#liesurelist-theme").remove();
+                                            },
+                                            destroyplleisurelistb:function() {
+                                                $("#pl-liesurelistb-theme").remove();
+                                            },
+        
+                                            destroyplmessageitem:function() {
+                                                doOneBack();
+                                                $("#messageitem-theme").remove();
+                                            },
+        
+                                            destroymymessagelist:function() {
+                                                $("#mymessagelist-theme").remove();
+                                            },
+        
+                                            destroyplmyprofile:function() {
+                                                $("#pl-myprofile-view").remove();
+                                            },
+        
+                                            destroyplmyreward:function() {
+                                                doOneBack();
+                                                $("#pl-mywallet-theme").remove();
+                                            },
+        
+                                            destroyplmyvoucherdetail:function() {
+                                                $("#pl-myvoucherdetail-theme").remove();
+                                            },
+        
+                                            destroyplofferdetail:function() {
+                                                plhideOfferDetail();
+                                                $("#pl-offerdetail-theme").remove();
+                                            },
+        
+                                            destroyplofferlist:function() {
+                                                doOneBack();
+                                                $("#pl-offerlist-view").remove();
+                                            },
+        
+                                            destroyploutletdetail:function() {
+                                                plhideOutletDetail();
+                                                $("#pl-outletdetail-theme").remove();
+                                            },
+                                            destroyploutletlist:function() {
+                                                doOneBack();
+                                                $("#pl-outletlist-theme").remove();
+                                            },
+                                            destroyploutletlistb:function() {
+                                                doOneBack();
+                                                $("#pl-outletlistb-theme").remove();
+                                            },
+                                            destroyplsetting:function() {
+                                                $("#pl-setting-theme").remove();
+                                            },  
+        
+                                            destroypltermsandcondition:function() {
+                                                $("#pl-termsconditions-theme").remove();
+                                            },  
+        
+           
+        
+        
+        
+        
         
                                             getSummary:function () {
                                                 showSpin();
