@@ -2247,7 +2247,7 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
                                                                   document.getElementById("offer-detail-div").style.display = "block";
-                                                                  //document.getElementById("detail-title").innerHTML = getData.outletlist[0].outletname;
+                                                                  document.getElementById("detail-title").innerHTML = getData.outletlist[0].outletname;
                                                                   
                                                                   document.getElementById("offerimage").src = getData.offerlist[0].imageurll;
                                                                   document.getElementById("offer-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
