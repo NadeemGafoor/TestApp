@@ -3769,7 +3769,9 @@ function completeRedemption() {
                                             },
         
                                             myVoucherShowOfferOutlet
+
                                             : function() {
+                                       
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4383,7 +4385,8 @@ function completeRedemption() {
                                             : function () {
                                                 showSpin();
                                                 back1_profile();
-                                                document.getElementById("back1-filter").style.display = "none";
+                                                //document.getElementById("back1-filter").style.display = "none";
+                            
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4472,7 +4475,6 @@ function completeRedemption() {
                                             mywalletofferdetail
                                             : function (e) {
                                                 couponnumber = e.view.params.cpn;
-                                              
                                                 showSpin();
                                                 back2_profile();
                                                 $.ajax({ 
