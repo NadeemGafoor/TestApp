@@ -1188,6 +1188,13 @@ function completeRedemption() {
                                                $("#deviceblock-view").remove();
                                            },
                                            destroyenrol:function() {
+                                               preLogin.set("firstname","");
+                                               preLogin.set("lastname","");
+                                               preLogin.set("emailid","");
+                                               preLogin.set("emailida","");
+                                               preLogin.set("mobile","");
+                                               preLogin.set("siriusnumber","");
+                                                 
                                                $("#enrol-theme").remove();
                                            },
         
@@ -1978,7 +1985,7 @@ function completeRedemption() {
                                            : function (e) {
                                                showSpin();
                                                window.localStorage.setItem("brandcode", e.view.params.od);
-                                               document.getElementById("back2-search").style.display = "none";
+                                               //document.getElementById("back2-search").style.display = "none";
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
