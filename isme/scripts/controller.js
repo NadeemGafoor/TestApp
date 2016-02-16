@@ -3224,107 +3224,109 @@ function completeRedemption() {
                                             lifestyle:"",
         
                                             destroyplaboutisme:function() {
-                                                $("#pl-aboutisme-theme").remove();
+                                          //      $("#pl-aboutisme-theme").remove();
                                             },
                                             destroyplbenefitdetail:function() {
-                                                $("#pl-benefit-theme").remove();
+                                         //       $("#pl-benefit-theme").remove();
                                             },
                                             destroyplconfirmdiscount:function() {
                                                 doOneBack();
-                                                $("#pl-confirmredemption-view").remove();
+                                         //       $("#pl-confirmredemption-view").remove();
                                             },
                                             destroyplconfirmpage:function() {
-                                                $("#pl-confirmpage-view").remove();
+                                          //      $("#pl-confirmpage-view").remove();
                                             },
                                             destroyplconfirmvoucher:function() {
-                                                $("#pl-voucheredeem-view").remove();
+                                          //      $("#pl-voucheredeem-view").remove();
                                             },
         
                                             destroyplbranddetail:function() {
                                                 plhideBrandDetail();
-                                                $("#pl-branddetail-theme").remove();
+                                        //        $("#pl-branddetail-theme").remove();
                                             },
                                             destroyplcustomerservice:function() {
-                                                $("#pl-customerservice-theme").remove();
+                                           //     $("#pl-customerservice-theme").remove();
                                             },
                                             destroyplexplorelist:function() {
-                                                $("#pl-explorelist-view").remove();
+                                         //       $("#pl-explorelist-view").remove();
                                             },
     
                                             destroyplfavorites:function() {
-                                                $("#myfavorite-view").remove();
+                                         //       $("#myfavorite-view").remove();
                                             },
         
                                             destroyplhistorylist:function() {
-                                                $("#history-theme").remove();
+                                         //       $("#history-theme").remove();
                                             },
         
                                             destroyplhome:function() {
-                                                $("#pl-home-view").remove();
+                                      //          $("#pl-home-view").remove();
                                             },
         
                                             destroyplhomeplus:function() {
-                                                $("#pl-home-view-plus").remove();
+                                       //         $("#pl-home-view-plus").remove();
                                             },
         
                                             destroyplleisurelist:function() {
                                                 doOneBack();
-                                                $("#liesurelist-theme").remove();
+                                         //       $("#liesurelist-theme").remove();
                                             },
                                             destroyplleisurelistb:function() {
-                                                $("#pl-liesurelistb-theme").remove();
+                                                doOneBack();
+                                               // $("#pl-liesurelistb-theme").remove();
                                             },
         
                                             destroyplmessageitem:function() {
                                                 doOneBack();
-                                                $("#messageitem-theme").remove();
+                                                //$("#messageitem-theme").remove();
                                             },
         
                                             destroymymessagelist:function() {
-                                                $("#mymessagelist-theme").remove();
+                                        //        $("#mymessagelist-theme").remove();
                                             },
         
                                             destroyplmyprofile:function() {
-                                                $("#pl-myprofile-view").remove();
+                                            //    $("#pl-myprofile-view").remove();
                                             },
         
                                             destroyplmyreward:function() {
                                                 doOneBack();
-                                                $("#pl-mywallet-theme").remove();
+                                           //     $("#pl-mywallet-theme").remove();
                                             },
         
                                             destroyplmyvoucherdetail:function() {
-                                                $("#pl-myvoucherdetail-theme").remove();
+                                                 doOneBack();
+                                       //         $("#pl-myvoucherdetail-theme").remove();
                                             },
         
                                             destroyplofferdetail:function() {
                                                 plhideOfferDetail();
-                                                $("#pl-offerdetail-theme").remove();
+        //                                        $("#pl-offerdetail-theme").remove();
                                             },
         
                                             destroyplofferlist:function() {
                                                 doOneBack();
-                                                $("#pl-offerlist-view").remove();
+        //                                        $("#pl-offerlist-view").remove();
                                             },
         
                                             destroyploutletdetail:function() {
                                                 plhideOutletDetail();
-                                                $("#pl-outletdetail-theme").remove();
+        //                                        $("#pl-outletdetail-theme").remove();
                                             },
                                             destroyploutletlist:function() {
                                                 doOneBack();
-                                                $("#pl-outletlist-theme").remove();
+          //                                      $("#pl-outletlist-theme").remove();
                                             },
                                             destroyploutletlistb:function() {
                                                 doOneBack();
-                                                $("#pl-outletlistb-theme").remove();
+            //                                    $("#pl-outletlistb-theme").remove();
                                             },
                                             destroyplsetting:function() {
-                                                $("#pl-setting-theme").remove();
+                                       //         $("#pl-setting-theme").remove();
                                             },  
         
                                             destroypltermsandcondition:function() {
-                                                $("#pl-termsconditions-theme").remove();
+                                       //         $("#pl-termsconditions-theme").remove();
                                             },  
         
            
@@ -6759,7 +6761,7 @@ function completeRedemption() {
             alcohol1 = "";
         }
                                                                                            
-        if (document.getElementById("profile-alcohol").checked) {
+        if (document.getElementById("profile-pushoffer").checked) {
             pushoffer1 = "1";
         }else {
             pushoffer1 = "";
