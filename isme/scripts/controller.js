@@ -118,7 +118,7 @@ function faceBookClick() {
 }
   
 function twitterClick() {
-    window.plugins.socialsharing.shareViaTwitter(window.localStorage.getItem("social_shortmsg"),["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com");   
+    window.plugins.socialsharing.shareViaTwitter(window.localStorage.getItem("social_shortmsg"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com");   
 }
 
 function whatsappClick() {
@@ -1171,7 +1171,7 @@ function completeRedemption() {
                      
                                            destroybranddetail:function() {
                                                hideBrandDetail();
-                                             //  $("#branddetail-theme").remove();
+                                               //  $("#branddetail-theme").remove();
                                            },
                                            destroyexplorelist:function() {
                                                $("#explorelist-view").remove();
@@ -1189,12 +1189,12 @@ function completeRedemption() {
                                                $("#deviceblock-view").remove();
                                            },
                                            destroyenrol:function() {
-                                               preLogin.set("firstname","");
-                                               preLogin.set("lastname","");
-                                               preLogin.set("emailid","");
-                                               preLogin.set("emailida","");
-                                               preLogin.set("mobile","");
-                                               preLogin.set("siriusnumber","");
+                                               preLogin.set("firstname", "");
+                                               preLogin.set("lastname", "");
+                                               preLogin.set("emailid", "");
+                                               preLogin.set("emailida", "");
+                                               preLogin.set("mobile", "");
+                                               preLogin.set("siriusnumber", "");
                                                  
                                                $("#enrol-theme").remove();
                                            },
@@ -1218,7 +1218,7 @@ function completeRedemption() {
                                            },
                                            destroyofferdetail:function() {
                                                hideOfferDetail();
-                                             //  $("#offerdetail-theme").remove();
+                                               //  $("#offerdetail-theme").remove();
                                            },       
                                            destroyofferlist:function() {
                                                $("#offerlist-view").remove();
@@ -1226,7 +1226,7 @@ function completeRedemption() {
         
                                            destroyoutletdetail:function() {
                                                hideOutletDetail();
-                                             //  $("#outletdetail-theme").remove();
+                                               //  $("#outletdetail-theme").remove();
                                            },
         
                                            destroyoutletlist:function() {
@@ -2750,20 +2750,22 @@ function completeRedemption() {
                                                        return;
                                                    }
                                                    
-                                                   if (!document.getElementById("enrol-tandc-accept-a").checked) {
-                                                       navigator.notification.alert("Please accept Terms & Conditions to proceed", function() {
-                                                       }, "isme by Jumeirah", "Dismiss");
-                                                       return;
-                                                   }
-                                               
-                                                   if (!document.getElementById("enrol-tandc-accept-b").checked) {
-                                                       navigator.notification.alert("Please accept Data Protection Policy to proceed", function() {
-                                                       }, "isme by Jumeirah", "Dismiss");
-                                                       return;
-                                                   }
-                                                   
                                                    customer = this.username;
                                                    password = this.password;
+                                               }
+                                               
+                                               if (!document.getElementById("enrol-tandc-accept-a").checked) {
+                                                   navigator.notification.alert("Please accept Terms & Conditions to proceed", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   hideSpin();
+                                                   return;
+                                               }
+                                               
+                                               if (!document.getElementById("enrol-tandc-accept-b").checked) {
+                                                   navigator.notification.alert("Please accept Data Protection Policy to proceed", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   hideSpin();
+                                                   return;
                                                }
                                                
                                                // window.localStorage.setItem("memberID", this.username);"1000","3"
@@ -3232,56 +3234,56 @@ function completeRedemption() {
                                             lifestyle:"",
         
                                             destroyplaboutisme:function() {
-                                          //      $("#pl-aboutisme-theme").remove();
+                                                //      $("#pl-aboutisme-theme").remove();
                                             },
                                             destroyplbenefitdetail:function() {
-                                         //       $("#pl-benefit-theme").remove();
+                                                //       $("#pl-benefit-theme").remove();
                                             },
                                             destroyplconfirmdiscount:function() {
                                                 doOneBack();
-                                         //       $("#pl-confirmredemption-view").remove();
+                                                //       $("#pl-confirmredemption-view").remove();
                                             },
                                             destroyplconfirmpage:function() {
-                                          //      $("#pl-confirmpage-view").remove();
+                                                //      $("#pl-confirmpage-view").remove();
                                             },
                                             destroyplconfirmvoucher:function() {
-                                          //      $("#pl-voucheredeem-view").remove();
+                                                //      $("#pl-voucheredeem-view").remove();
                                             },
         
                                             destroyplbranddetail:function() {
                                                 plhideBrandDetail();
-                                        //        $("#pl-branddetail-theme").remove();
+                                                //        $("#pl-branddetail-theme").remove();
                                             },
                                             destroyplcustomerservice:function() {
-                                           //     $("#pl-customerservice-theme").remove();
+                                                //     $("#pl-customerservice-theme").remove();
                                             },
                                             destroyplexplorelist:function() {
-                                         //       $("#pl-explorelist-view").remove();
+                                                //       $("#pl-explorelist-view").remove();
                                             },
     
                                             destroyplfavorites:function() {
-                                         //       $("#myfavorite-view").remove();
+                                                //       $("#myfavorite-view").remove();
                                             },
         
                                             destroyplhistorylist:function() {
-                                         //       $("#history-theme").remove();
+                                                //       $("#history-theme").remove();
                                             },
         
                                             destroyplhome:function() {
-                                      //          $("#pl-home-view").remove();
+                                                //          $("#pl-home-view").remove();
                                             },
         
                                             destroyplhomeplus:function() {
-                                       //         $("#pl-home-view-plus").remove();
+                                                //         $("#pl-home-view-plus").remove();
                                             },
         
                                             destroyplleisurelist:function() {
                                                 doOneBack();
-                                         //       $("#liesurelist-theme").remove();
+                                                //       $("#liesurelist-theme").remove();
                                             },
                                             destroyplleisurelistb:function() {
                                                 doOneBack();
-                                               // $("#pl-liesurelistb-theme").remove();
+                                                // $("#pl-liesurelistb-theme").remove();
                                             },
         
                                             destroyplmessageitem:function() {
@@ -3290,51 +3292,51 @@ function completeRedemption() {
                                             },
         
                                             destroymymessagelist:function() {
-                                        //        $("#mymessagelist-theme").remove();
+                                                //        $("#mymessagelist-theme").remove();
                                             },
         
                                             destroyplmyprofile:function() {
-                                            //    $("#pl-myprofile-view").remove();
+                                                //    $("#pl-myprofile-view").remove();
                                             },
         
                                             destroyplmyreward:function() {
                                                 doOneBack();
-                                           //     $("#pl-mywallet-theme").remove();
+                                                //     $("#pl-mywallet-theme").remove();
                                             },
         
                                             destroyplmyvoucherdetail:function() {
-                                                 doOneBack();
-                                       //         $("#pl-myvoucherdetail-theme").remove();
+                                                doOneBack();
+                                                //         $("#pl-myvoucherdetail-theme").remove();
                                             },
         
                                             destroyplofferdetail:function() {
                                                 plhideOfferDetail();
-        //                                        $("#pl-offerdetail-theme").remove();
+                                                //                                        $("#pl-offerdetail-theme").remove();
                                             },
         
                                             destroyplofferlist:function() {
                                                 doOneBack();
-        //                                        $("#pl-offerlist-view").remove();
+                                                //                                        $("#pl-offerlist-view").remove();
                                             },
         
                                             destroyploutletdetail:function() {
                                                 plhideOutletDetail();
-        //                                        $("#pl-outletdetail-theme").remove();
+                                                //                                        $("#pl-outletdetail-theme").remove();
                                             },
                                             destroyploutletlist:function() {
                                                 doOneBack();
-          //                                      $("#pl-outletlist-theme").remove();
+                                                //                                      $("#pl-outletlist-theme").remove();
                                             },
                                             destroyploutletlistb:function() {
                                                 doOneBack();
-            //                                    $("#pl-outletlistb-theme").remove();
+                                                //                                    $("#pl-outletlistb-theme").remove();
                                             },
                                             destroyplsetting:function() {
-                                       //         $("#pl-setting-theme").remove();
+                                                //         $("#pl-setting-theme").remove();
                                             },  
         
                                             destroypltermsandcondition:function() {
-                                       //         $("#pl-termsconditions-theme").remove();
+                                                //         $("#pl-termsconditions-theme").remove();
                                             },  
         
            
@@ -3597,6 +3599,9 @@ function completeRedemption() {
                                                                alcohol = "";
                                                                homecountryname = "";
                                                                residentcityname = "";
+                                                               //clear div
+                                                               alert("GGGG");
+
                                                                window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                                                 "duration"         :  500, // in milliseconds (ms), default 400
                                                                                                                                 "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -3779,7 +3784,6 @@ function completeRedemption() {
                                             myVoucherShowOfferOutlet
 
                                             : function() {
-                                       
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
