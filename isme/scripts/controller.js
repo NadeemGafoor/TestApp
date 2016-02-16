@@ -3599,9 +3599,7 @@ function completeRedemption() {
                                                                alcohol = "";
                                                                homecountryname = "";
                                                                residentcityname = "";
-                                                               //clear div
-                                                               alert("GGGG");
-
+                                                             
                                                                window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                                                 "duration"         :  500, // in milliseconds (ms), default 400
                                                                                                                                 "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
