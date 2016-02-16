@@ -777,20 +777,9 @@ function doOneBackPre() {
     //        
 }
 
-function hideOutletDetail() {
-    doOneBackPre();  
-    document.getElementById("outlet-detail-div").style.display = "none";
-}
-
 function hideLeisureDetail() {
     doOneBackPre(); 
     document.getElementById("outlet-detail-div").style.display = "none";
-}
-
-function hideOfferDetail() {
-    doOneBackPre();
-    document.getElementById("offer-detail-div").style.display = "none";
-    document.getElementById("offer-location-div").style.display = "none";
 }
 
 function postLoginBackOne() {
@@ -954,6 +943,17 @@ function completeRedemption() {
         //   
         //     
         //        
+    }
+    
+    function hideOutletDetail() {
+        doOneBackPre();  
+        document.getElementById("outlet-detail-div").style.display = "none";
+    }
+    
+    function hideOfferDetail() {
+        doOneBackPre();
+        document.getElementById("offer-detail-div").style.display = "none";
+        document.getElementById("offer-location-div").style.display = "none";
     }
     
     function hideBrandDetail() {
@@ -1158,30 +1158,64 @@ function completeRedemption() {
                                            },
                      
                                            destroybranddetail:function() {
-                                               doOneBackPre();
+                                               hideBrandDetail();
                                                $("#branddetail-theme").remove();
                                            },
                                            destroyexplorelist:function() {
                                                $("#explorelist-view").remove();
                                            },
-           confirmenrollment:function() {
+                                           confirmenrollment:function() {
                                                $("#enrolmentpage-view").remove();
                                            },
-         customerservice:function() {
+                                           customerservice:function() {
                                                $("#customerservice-theme").remove();
                                            },
-         destroydiscoverlist:function() {
+                                           destroydiscoverlist:function() {
                                                $("#discoverlist-view").remove();
                                            },
-          destroydeviceblock:function() {
+                                           destroydeviceblock:function() {
                                                $("#deviceblock-view").remove();
                                            },
-           destroyenrol:function() {
+                                           destroyenrol:function() {
                                                $("#enrol-theme").remove();
                                            },
         
-           destroyenrol:function() {
-                                               $("#enrol-theme").remove();
+                                           destroyfaq:function() {
+                                               $("#faq-theme").remove();
+                                           },
+                                           destroyhome:function() {
+                                               $("#home-theme").remove();
+                                           },
+        
+                                           destroyleisurelist:function() {
+                                               $("#liesurelist-theme").remove();
+                                           },
+                                           destroylogin:function() {
+                                               $("#login-theme").remove();
+                                           },
+        
+                                           mobilepolicy:function() {
+                                               $("#device-theme").remove();
+                                           },
+                                           destroyofferdetail:function() {
+                                               hideOfferDetail();
+                                               $("#offerdetail-theme").remove();
+                                           },       
+                                           destroyofferlist:function() {
+                                               $("#offerlist-view").remove();
+                                           },
+        
+                                           destroyoutletdetail:function() {
+                                               hideOutletDetail();
+                                               $("#outletdetail-theme").remove();
+                                           },
+        
+            destroyoutletlist:function() {
+                                               $("#outletlist-theme").remove();
+                                           },
+        
+           destroyoutletlistb:function() {
+                                               $("#outletlistb-theme").remove();
                                            },
 
         
