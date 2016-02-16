@@ -206,7 +206,6 @@ function onSelectTabStrip(e) {
     var currentItem = tabstrip.currentItem();
 }
 
-
 function onSelectTabStrip2(e) {
     var i = $(e.item).index();
     if (i === 0) {
@@ -219,8 +218,6 @@ function onSelectTabStrip2(e) {
     var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
     var currentItem = tabstrip.currentItem();
 }
-
-
 
 function onSelectTabStrip1(e) {
     var i = $(e.item).index();
@@ -790,11 +787,6 @@ function hideLeisureDetail() {
     document.getElementById("outlet-detail-div").style.display = "none";
 }
 
-function hideBrandDetail() {
-    doOneBackPre();
-    document.getElementById("property-detail-div").style.display = "none";
-}
-
 function hideOfferDetail() {
     doOneBackPre();
     document.getElementById("offer-detail-div").style.display = "none";
@@ -950,6 +942,24 @@ function completeRedemption() {
 
     //var options = { frequency: 1000 };  // Update every 3 seconds
     // Listen for the event and wire it to our callback function
+    function doOneBackPre() {
+        $(".sharehead").slideUp("slow");
+      
+        elems = document.getElementsByClassName('sharehead');
+
+        for (i = 0; i < elems.length; i++) {
+            elems[i].style.zIndex = -1000;
+        }  
+        //  
+        //   
+        //     
+        //        
+    }
+    
+    function hideBrandDetail() {
+        doOneBackPre();
+        document.getElementById("property-detail-div").style.display = "none";
+    }
     
     function getFBUserExists() {  
         $.ajax({ 
@@ -1140,6 +1150,40 @@ function completeRedemption() {
                                            checkcuisine:false,
                                            checkcelebration:false,
                                            checklifestyle:false,
+                                           destroyaboutisme:function() {
+                                               $("#aboutisme-theme").remove();
+                                           },
+                                           destroybenefitdetail:function() {
+                                               $("#benefit-theme").remove();
+                                           },
+                     
+                                           destroybranddetail:function() {
+                                               doOneBackPre();
+                                               $("#branddetail-theme").remove();
+                                           },
+                                           destroyexplorelist:function() {
+                                               $("#explorelist-view").remove();
+                                           },
+           confirmenrollment:function() {
+                                               $("#enrolmentpage-view").remove();
+                                           },
+         customerservice:function() {
+                                               $("#customerservice-theme").remove();
+                                           },
+         destroydiscoverlist:function() {
+                                               $("#discoverlist-view").remove();
+                                           },
+          destroydeviceblock:function() {
+                                               $("#deviceblock-view").remove();
+                                           },
+           destroyenrol:function() {
+                                               $("#enrol-theme").remove();
+                                           },
+        
+           destroyenrol:function() {
+                                               $("#enrol-theme").remove();
+                                           },
+
         
         
                                            queryOfferFilter:function() {
@@ -1434,9 +1478,7 @@ function completeRedemption() {
                                            }
                                             
                                            , 
-                                           destroybenefit:function() {
-                                               $("#benefit-theme").remove();
-                                           },
+                              
 
                                            showConfirmation
                                            :function() {
@@ -3317,37 +3359,37 @@ function completeRedemption() {
                                                                clearListFilter();
                                                                fbCleanVariables();
                                                                customer = "9999999999";
-                                                                  customername = "Guest";
-                                                                  segmentcode = "";
-                                                                  segmentname = "";
-                                                                  currency = "";
-                                                                  nationality = "";
-                                                                  pointvalue = "";
-                                                                  cuspict = "";
-                                                                  cusqr = "";
-                                                                  emailid = "";
-                                                                  mobilenumber ="";                                                                    
-                                                                  memberexpiry = ""; 
-                                                                  segmentimage = ""; 
-                                                                  pushoffer = "";
-                                                                  remindexpiry = "";
-                                                                  showprofile = "";
-                                                                  autolocation = "";
-                                                                  city = "";
-                                                                  country = "";
-                                                                  magicnumber = "";
-                                                                  firstname = "";
-                                                                  initdate = "";
-                                                                  homecountry = "";
-                                                                  birthdate = "";
-                                                                  residentcity = "";
-                                                                  pinnumber = "";
-                                                                  spend = "";
-                                                                  maxspend = "";
-                                                                  fbid = "";  
-                                                                  alcohol = "";
-                                                                  homecountryname = "";
-                                                                  residentcityname = "";
+                                                               customername = "Guest";
+                                                               segmentcode = "";
+                                                               segmentname = "";
+                                                               currency = "";
+                                                               nationality = "";
+                                                               pointvalue = "";
+                                                               cuspict = "";
+                                                               cusqr = "";
+                                                               emailid = "";
+                                                               mobilenumber = "";                                                                    
+                                                               memberexpiry = ""; 
+                                                               segmentimage = ""; 
+                                                               pushoffer = "";
+                                                               remindexpiry = "";
+                                                               showprofile = "";
+                                                               autolocation = "";
+                                                               city = "";
+                                                               country = "";
+                                                               magicnumber = "";
+                                                               firstname = "";
+                                                               initdate = "";
+                                                               homecountry = "";
+                                                               birthdate = "";
+                                                               residentcity = "";
+                                                               pinnumber = "";
+                                                               spend = "";
+                                                               maxspend = "";
+                                                               fbid = "";  
+                                                               alcohol = "";
+                                                               homecountryname = "";
+                                                               residentcityname = "";
                                                                window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                                                 "duration"         :  500, // in milliseconds (ms), default 400
                                                                                                                                 "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -3527,46 +3569,46 @@ function completeRedemption() {
                                                        });
                                             },
         
-         myVoucherShowOfferOutlet
-                                           : function() {
-                                               $.ajax({ 
-                                                          type: "POST",
-                                                          cache:false,
-                                                          async:true,
-                                                          timeout:20000,
-                                                          url: gurl + "/offeroutletlist_geo.aspx",
-                                                          contentType: "application/json; charset=utf-8",
-                                                          data: JSON.stringify({
-                                                                                   merchantcode :merchant,offercode:offercode,mdevice:mdevicestat,customer:window.localStorage.getItem("customer"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
-                                                                               }),
-                                                          success: function (data) { 
-                                                              var getData = JSON.parse(data);
-                                                              if (getData.statuscode == "000") {
-                                                                  //fill the outlet template
-                                                                  if (getData.offeroutletlist.length > 0) {
-                                                                      $("#myvoucher-location-div").kendoMobileListView({
-                                                                                                                       dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
-                                                                                                                       template: $("#MyVoucherOfferOutletTemplate").html()
-                                                                                                                   });
-                                                                      hideSpin(); //hide loading popup
-                                                                  }else {
-                                                                      navigator.notification.alert("There are no locations for the selected offer.", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
-                                                                      hideSpin(); //hide loading popup
-                                                                  }
-                                                              }else {
-                                                                  navigator.notification.alert("Cannot get locations List. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
-                                                                  hideSpin(); //hide loading popup
-                                                              }
-                                                          },
-                                                          error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get locations List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
-                                                              hideSpin(); //hide loading popup
-                                                          }
-                                                      });
-                                           },
+                                            myVoucherShowOfferOutlet
+                                            : function() {
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/offeroutletlist_geo.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,offercode:offercode,mdevice:mdevicestat,customer:window.localStorage.getItem("customer"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl")
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   //fill the outlet template
+                                                                   if (getData.offeroutletlist.length > 0) {
+                                                                       $("#myvoucher-location-div").kendoMobileListView({
+                                                                                                                            dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
+                                                                                                                            template: $("#MyVoucherOfferOutletTemplate").html()
+                                                                                                                        });
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("There are no locations for the selected offer.", function() {
+                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Cannot get locations List. " + getData.statusdesc, function() {
+                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (error) {
+                                                               navigator.notification.alert("Unknown Error, Cannot get locations List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                            },
         
                                             rewardList
                                             : function (e) {
