@@ -4200,7 +4200,7 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("social_image", getData.imageurll); 
                                                                    window.localStorage.setItem("lat", lat);
                                                                    window.localStorage.setItem("lon", lon);
-                                                                   back_profile();
+                                                                   back2_profile();
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get Brand Item " + getData.statusdesc, function() {
