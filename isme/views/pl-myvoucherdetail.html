@@ -1,5 +1,12 @@
     <div data-role="view" data-title="My Reward" data-layout="pl-back2-layout" id="pl-myvoucherdetail-theme" data-model="postLogin" data-show="postLogin.mywalletofferdetail">
-
+ <ul data-role="buttongroup" data-index="0" id="myvouchertab" class="button-group a-group">
+        <li>
+            Details
+        </li>
+        <li data-bind="click: myVoucherShowOfferOutlet">
+            Locations
+        </li>
+     </ul>
     <ul data-role="listview" id="wallet-voucher-div" style="display:none">
          <div class="hero-image" id="outlet-image-large">
         <img id="myvoucherdetaila" src="images/Brand1.png" class="img-hero"/>
@@ -45,10 +52,33 @@
             <li>&nbsp;</li>
         </div>
     </ul>
+        
+        
+        <ul data-role="listview" style="margin-top:0px;display:none" id="myvoucher-location-div" >
+      
+    </ul>
+        
+        
+        
+        
 </div>
    
     
     
-    
+    <script>
+    function initOfferGroup() {
+        var listviews = this.element.find("ul.km-listview");
+
+        $("#myvouchertab").kendoMobileButtonGroup({
+                                                  select: function (e) {
+                                                      listviews.hide()
+                                                          .eq(e.index)
+                                                          .show();
+                                                  },
+                                                  index: 0
+                                              });
+    }  
+</script>
+
     
   
