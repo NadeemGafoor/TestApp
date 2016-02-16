@@ -1170,7 +1170,7 @@ function completeRedemption() {
                      
                                            destroybranddetail:function() {
                                                hideBrandDetail();
-                                               $("#branddetail-theme").remove();
+                                             //  $("#branddetail-theme").remove();
                                            },
                                            destroyexplorelist:function() {
                                                $("#explorelist-view").remove();
@@ -1217,7 +1217,7 @@ function completeRedemption() {
                                            },
                                            destroyofferdetail:function() {
                                                hideOfferDetail();
-                                               $("#offerdetail-theme").remove();
+                                             //  $("#offerdetail-theme").remove();
                                            },       
                                            destroyofferlist:function() {
                                                $("#offerlist-view").remove();
@@ -1225,7 +1225,7 @@ function completeRedemption() {
         
                                            destroyoutletdetail:function() {
                                                hideOutletDetail();
-                                               $("#outletdetail-theme").remove();
+                                             //  $("#outletdetail-theme").remove();
                                            },
         
                                            destroyoutletlist:function() {
