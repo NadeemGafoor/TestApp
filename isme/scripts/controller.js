@@ -3915,6 +3915,7 @@ function completeRedemption() {
                                                                    lat = m[0];
                                                                    lon = m[1];
                                                                    document.getElementById("pl-outlet-detail-div").style.display = "block";
+                                                                    document.getElementById("pl-detail-title").innerHTML="";
                                                                    document.getElementById("pl-detail-title").innerHTML = getData.outletlist[0].outletname;
                                                                   
                                                                    document.getElementById("pl-outletimage").src = getData.outletlist[0].imageurll;
@@ -4212,6 +4213,7 @@ function completeRedemption() {
                                                                    lat = m[0];
                                                                    lon = m[1];
                                                                    document.getElementById("pl-property-detail-div").style.display = "block";
+                                                                   document.getElementById("pl-detail-title").innerHTML = "";
                                                                    document.getElementById("pl-detail-title").innerHTML = getData.hotelname;
                                                                   
                                                                    document.getElementById("pl-brandimage").src = getData.imageurll;
