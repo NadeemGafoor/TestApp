@@ -1139,7 +1139,7 @@ function completeRedemption() {
         window.localStorage.setItem("category","")
         window.localStorage.setItem("brand","")
         window.localStorage.setItem("appopen", "0");
-        
+                window.localStorage.setItem("brandcode", "");
     }
        
     window.preLogin = kendo.observable({
@@ -4113,7 +4113,6 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
-                                                               window.localStorage.setItem("brandcode", "");
                                                                if (getData.statuscode === "000") {
                                                                    if (getData.outletlist.length === 0) {
                                                                        navigator.notification.alert("No locations exists for the selected property", function() {
