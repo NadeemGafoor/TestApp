@@ -4191,7 +4191,7 @@ function completeRedemption() {
                                                                    lat = m[0];
                                                                    lon = m[1];
                                                                    document.getElementById("pl-property-detail-div").style.display = "block";
-                                                                   document.getElementById("pl-detail-title1").innerHTML = getData.hotelname;
+                                                                   document.getElementById("pl-detail-title").innerHTML = getData.hotelname;
                                                                   
                                                                    document.getElementById("pl-brandimage").src = getData.imageurll;
                                                                    document.getElementById("pl-property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
