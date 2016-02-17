@@ -4803,8 +4803,8 @@ function completeRedemption() {
                                             discountRedeemConfirm
                                             : function () {
                                                 document.getElementById("discount-1").innerHTML = window.localStorage.getItem("self-authorization");
-                                                document.getElementById("discount-2").innerHTML = window.localStorage.getItem("self-outletname");
-                                                document.getElementById("discount-3").innerHTML = window.localStorage.getItem("self-vouchername");
+                                              //  document.getElementById("discount-2").innerHTML = window.localStorage.getItem("self-outletname");
+                                              //  document.getElementById("discount-3").innerHTML = window.localStorage.getItem("self-vouchername");
                                             },
                                             selfRedeemConfirm
                                             : function () {
