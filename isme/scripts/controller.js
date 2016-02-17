@@ -3132,6 +3132,7 @@ function completeRedemption() {
                                            plgetfaq
                                            : function () {
                                                showSpin(); //show loading popup
+                                               back8_profile();
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
