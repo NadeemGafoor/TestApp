@@ -4802,6 +4802,7 @@ function completeRedemption() {
         
                                             discountRedeemConfirm
                                             : function () {
+                                                back8_profile();
                                                 document.getElementById("discount-1").innerHTML = window.localStorage.getItem("self-authorization");
                                               //  document.getElementById("discount-2").innerHTML = window.localStorage.getItem("self-outletname");
                                               //  document.getElementById("discount-3").innerHTML = window.localStorage.getItem("self-vouchername");
