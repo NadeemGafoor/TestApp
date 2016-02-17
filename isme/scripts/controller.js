@@ -1237,7 +1237,7 @@ function completeRedemption() {
                                                $("#outletlistb-theme").remove();
                                            },
                                            destroyplfaq:function() {
-                                               $("#pl-faq-theme").remove();
+                                         //      $("#pl-faq-theme").remove();
                                            },
         
                                            destroyresetpassword:function() {
@@ -3235,6 +3235,7 @@ function completeRedemption() {
                                             lifestyle:"",
         
                                             destroyplaboutisme:function() {
+                                                  doOneBack();
                                                 //      $("#pl-aboutisme-theme").remove();
                                             },
                                             destroyplbenefitdetail:function() {
@@ -3245,9 +3246,11 @@ function completeRedemption() {
                                                 //       $("#pl-confirmredemption-view").remove();
                                             },
                                             destroyplconfirmpage:function() {
+                                                  doOneBack();
                                                 //      $("#pl-confirmpage-view").remove();
                                             },
                                             destroyplconfirmvoucher:function() {
+                                                  doOneBack();
                                                 //      $("#pl-voucheredeem-view").remove();
                                             },
         
@@ -3256,17 +3259,21 @@ function completeRedemption() {
                                                 //        $("#pl-branddetail-theme").remove();
                                             },
                                             destroyplcustomerservice:function() {
+                                                  doOneBack();
                                                 //     $("#pl-customerservice-theme").remove();
                                             },
                                             destroyplexplorelist:function() {
+                                                  doOneBack();
                                                 //       $("#pl-explorelist-view").remove();
                                             },
     
                                             destroyplfavorites:function() {
+                                                  doOneBack();
                                                 //       $("#myfavorite-view").remove();
                                             },
         
                                             destroyplhistorylist:function() {
+                                                  doOneBack();
                                                 //       $("#history-theme").remove();
                                             },
         
@@ -3297,6 +3304,7 @@ function completeRedemption() {
                                             },
         
                                             destroyplmyprofile:function() {
+                                                  doOneBack();
                                                 //    $("#pl-myprofile-view").remove();
                                             },
         
@@ -3333,10 +3341,12 @@ function completeRedemption() {
                                                 //                                    $("#pl-outletlistb-theme").remove();
                                             },
                                             destroyplsetting:function() {
+                                                  doOneBack();
                                                 //         $("#pl-setting-theme").remove();
                                             },  
         
                                             destroypltermsandcondition:function() {
+                                                  doOneBack();
                                                 //         $("#pl-termsconditions-theme").remove();
                                             },  
         
