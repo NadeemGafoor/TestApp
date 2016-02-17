@@ -1134,6 +1134,13 @@ function completeRedemption() {
             items[i].checked = false;
         }
     }
+    
+    function clearAllVariables(){
+        window.localStorage.setItem("category","")
+        window.localStorage.setItem("brand","")
+        window.localStorage.setItem("appopen", "0");
+        
+    }
        
     window.preLogin = kendo.observable({
                                            pin1:"",
@@ -2375,9 +2382,8 @@ function completeRedemption() {
                                            varInit
                                            : function() {
                                                showSpin();
-                                               //document.getElementById("flagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center"; 
-                                               //checklocation();
-                                               window.localStorage.setItem("appopen", "0");
+                                             
+                                               clearAllVariables();
                                                clearListFilter();
                                                if (firsttime === "") { //Register Access and device in the platform
                                                    mdevice = device.model;
@@ -3364,8 +3370,7 @@ function completeRedemption() {
         
                                             getSummary:function () {
                                                 showSpin();
-                                                window.localStorage.setItem("appopen", "0");
-                                            
+                                                clearAllVariables();                                            
                                                 clearListFilter();
                                                 if (firsttime==="") {
                                                     $.ajax({ 
