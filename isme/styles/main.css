@@ -139,7 +139,11 @@ a
     color: #fff;
 }
 
-
+#modalviewterms .km-content
+{
+     background-color: #fff !important;
+    color: #000;
+}
 
 
 #mvwait .km-content
