@@ -952,7 +952,7 @@ function completeRedemption() {
         document.getElementById("pl-offer-location-div").style.display = "none";
     }
     
-      function plhideMyRewardDetail() {
+    function plhideMyRewardDetail() {
         doOneBackPre();
         document.getElementById("wallet-voucher-div").style.display = "none";
         document.getElementById("myvoucher-location-div").style.display = "none";
@@ -1135,11 +1135,11 @@ function completeRedemption() {
         }
     }
     
-    function clearAllVariables(){
-        window.localStorage.setItem("category","")
-        window.localStorage.setItem("brand","")
+    function clearAllVariables() {
+        window.localStorage.setItem("category", "")
+        window.localStorage.setItem("brand", "")
         window.localStorage.setItem("appopen", "0");
-                window.localStorage.setItem("brandcode", "");
+        window.localStorage.setItem("brandcode", "");
     }
        
     window.preLogin = kendo.observable({
@@ -1250,7 +1250,7 @@ function completeRedemption() {
                                                $("#outletlistb-theme").remove();
                                            },
                                            destroyplfaq:function() {
-                                         //      $("#pl-faq-theme").remove();
+                                               //      $("#pl-faq-theme").remove();
                                            },
         
                                            destroyresetpassword:function() {
@@ -3247,7 +3247,7 @@ function completeRedemption() {
                                             lifestyle:"",
         
                                             destroyplaboutisme:function() {
-                                                  doOneBack();
+                                                doOneBack();
                                                 //      $("#pl-aboutisme-theme").remove();
                                             },
                                             destroyplbenefitdetail:function() {
@@ -3258,34 +3258,35 @@ function completeRedemption() {
                                                 //       $("#pl-confirmredemption-view").remove();
                                             },
                                             destroyplconfirmpage:function() {
-                                                  doOneBack();
+                                                doOneBack();
                                                 //      $("#pl-confirmpage-view").remove();
                                             },
                                             destroyplconfirmvoucher:function() {
-                                                  doOneBack();
+                                                doOneBack();
                                                 //      $("#pl-voucheredeem-view").remove();
                                             },
         
                                             destroyplbranddetail:function() {
+                                                document.getElementById("pl-detail-title").innerHTML = "";
                                                 plhideBrandDetail();
                                                 //        $("#pl-branddetail-theme").remove();
                                             },
                                             destroyplcustomerservice:function() {
-                                                  doOneBack();
+                                                doOneBack();
                                                 //     $("#pl-customerservice-theme").remove();
                                             },
                                             destroyplexplorelist:function() {
-                                                  doOneBack();
+                                                doOneBack();
                                                 //       $("#pl-explorelist-view").remove();
                                             },
     
                                             destroyplfavorites:function() {
-                                                  doOneBack();
+                                                doOneBack();
                                                 //       $("#myfavorite-view").remove();
                                             },
         
                                             destroyplhistorylist:function() {
-                                                  doOneBack();
+                                                doOneBack();
                                                 //       $("#history-theme").remove();
                                             },
         
@@ -3316,7 +3317,7 @@ function completeRedemption() {
                                             },
         
                                             destroyplmyprofile:function() {
-                                                  doOneBack();
+                                                doOneBack();
                                                 //    $("#pl-myprofile-view").remove();
                                             },
         
@@ -3326,11 +3327,13 @@ function completeRedemption() {
                                             },
         
                                             destroyplmyvoucherdetail:function() {
+                                                document.getElementById("pl-detail-title").innerHTML = "";
                                                 plhideMyRewardDetail();
                                                 //         $("#pl-myvoucherdetail-theme").remove();
                                             },
         
                                             destroyplofferdetail:function() {
+                                                document.getElementById("pl-detail-title").innerHTML = "";
                                                 plhideOfferDetail();
                                                 //                                        $("#pl-offerdetail-theme").remove();
                                             },
@@ -3341,6 +3344,7 @@ function completeRedemption() {
                                             },
         
                                             destroyploutletdetail:function() {
+                                                document.getElementById("pl-detail-title").innerHTML = "";
                                                 plhideOutletDetail();
                                                 //                                        $("#pl-outletdetail-theme").remove();
                                             },
@@ -3353,12 +3357,12 @@ function completeRedemption() {
                                                 //                                    $("#pl-outletlistb-theme").remove();
                                             },
                                             destroyplsetting:function() {
-                                                  doOneBack();
+                                                doOneBack();
                                                 //         $("#pl-setting-theme").remove();
                                             },  
         
                                             destroypltermsandcondition:function() {
-                                                  doOneBack();
+                                                doOneBack();
                                                 //         $("#pl-termsconditions-theme").remove();
                                             },  
         
@@ -3915,7 +3919,8 @@ function completeRedemption() {
                                                                    lat = m[0];
                                                                    lon = m[1];
                                                                    document.getElementById("pl-outlet-detail-div").style.display = "block";
-                                                                    document.getElementById("pl-detail-title").innerHTML="";
+
+                                                                 alert(getData.outletlist[0].outletname);
                                                                    document.getElementById("pl-detail-title").innerHTML = getData.outletlist[0].outletname;
                                                                   
                                                                    document.getElementById("pl-outletimage").src = getData.outletlist[0].imageurll;
@@ -4625,7 +4630,6 @@ function completeRedemption() {
                                             },
                                             addImage:
                                             function () {
-                             
                                                 var success = function (imageData) {
                                                     var image = document.getElementById('profile-picture-1');
                                                     image.src = "data:image/png;base64," + imageData;
@@ -4816,15 +4820,15 @@ function completeRedemption() {
                                             : function () {
                                                 back8_profile();
                                                 document.getElementById("discount-1").innerHTML = window.localStorage.getItem("self-authorization");
-                                              //  document.getElementById("discount-2").innerHTML = window.localStorage.getItem("self-outletname");
-                                              //  document.getElementById("discount-3").innerHTML = window.localStorage.getItem("self-vouchername");
+                                                //  document.getElementById("discount-2").innerHTML = window.localStorage.getItem("self-outletname");
+                                                //  document.getElementById("discount-3").innerHTML = window.localStorage.getItem("self-vouchername");
                                             },
                                             selfRedeemConfirm
                                             : function () {
                                                 showSpin();  
                                                 back8_profile();
-                                             //   document.getElementById("vouchernumber").innerHTML = window.localStorage.getItem("self-vouchernumber");
-                                               // document.getElementById("vouchername").innerHTML = window.localStorage.getItem("self-vouchername");
+                                                //   document.getElementById("vouchernumber").innerHTML = window.localStorage.getItem("self-vouchernumber");
+                                                // document.getElementById("vouchername").innerHTML = window.localStorage.getItem("self-vouchername");
                                                 //document.getElementById("outletname").innerHTML = window.localStorage.getItem("self-outletname");
                                                 document.getElementById("authcode").innerHTML = window.localStorage.getItem("self-authorization");
                                                 window.localStorage.setItem("self-vouchernumber", "");
@@ -6744,7 +6748,6 @@ function completeRedemption() {
             }, "isme by Jumeirah", "Dismiss")
             return;
         }
-                                              
      
         if (document.getElementById("selCity").value === "") {
             navigator.notification.alert("Select Resident City", function() {
@@ -6919,7 +6922,6 @@ function completeRedemption() {
                        hideSpin(); //hide loading popup
                    }
                });
-    
     }
     
     function getNearCity() {
