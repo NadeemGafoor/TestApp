@@ -1183,6 +1183,7 @@ function completeRedemption() {
                                            },
                      
                                            destroybranddetail:function() {
+                                               document.getElementById("detail-title").innerHTML = "";
                                                hideBrandDetail();
                                                //  $("#branddetail-theme").remove();
                                            },
@@ -1230,6 +1231,7 @@ function completeRedemption() {
                                                $("#device-theme").remove();
                                            },
                                            destroyofferdetail:function() {
+                                               document.getElementById("detail-title").innerHTML = "";
                                                hideOfferDetail();
                                                //  $("#offerdetail-theme").remove();
                                            },       
@@ -1238,6 +1240,7 @@ function completeRedemption() {
                                            },
         
                                            destroyoutletdetail:function() {
+                                               document.getElementById("detail-title").innerHTML = "";
                                                hideOutletDetail();
                                                //  $("#outletdetail-theme").remove();
                                            },
@@ -4218,7 +4221,7 @@ function completeRedemption() {
                                                                    lat = m[0];
                                                                    lon = m[1];
                                                                    document.getElementById("pl-property-detail-div").style.display = "block";
-                                                                   document.getElementById("pl-detail-title").innerHTML = "";
+                                                                   
                                                                    document.getElementById("pl-detail-title").innerHTML = getData.hotelname;
                                                                   
                                                                    document.getElementById("pl-brandimage").src = getData.imageurll;
