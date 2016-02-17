@@ -4811,9 +4811,9 @@ function completeRedemption() {
                                             : function () {
                                                 showSpin();  
                                                 back8_profile();
-                                                document.getElementById("vouchernumber").innerHTML = window.localStorage.getItem("self-vouchernumber");
-                                                document.getElementById("vouchername").innerHTML = window.localStorage.getItem("self-vouchername");
-                                                document.getElementById("outletname").innerHTML = window.localStorage.getItem("self-outletname");
+                                             //   document.getElementById("vouchernumber").innerHTML = window.localStorage.getItem("self-vouchernumber");
+                                               // document.getElementById("vouchername").innerHTML = window.localStorage.getItem("self-vouchername");
+                                                //document.getElementById("outletname").innerHTML = window.localStorage.getItem("self-outletname");
                                                 document.getElementById("authcode").innerHTML = window.localStorage.getItem("self-authorization");
                                                 window.localStorage.setItem("self-vouchernumber", "");
                                                 window.localStorage.setItem("self-vouchername", "");
