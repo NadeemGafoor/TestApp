@@ -4234,37 +4234,8 @@ function completeRedemption() {
                                                 }
                                             },
                                         
-                                            loginSuccess:function() {
-                                                if (segmentcode==="") {
-                                                    $("body").data("kendoMobilePane").navigate("views/home.html"); 
-                                                    return;
-                                                }
-                                                
-                                                checklocation(); 
-                                                
-                                                if (autolocation != "1") {
-                                                    gpsErrorApp();
-                                                }
-                                                //get flag
-                                                document.getElementById("plflagtitle").style.background = "url(" + window.localStorage.getItem("flagurl") + ") no-repeat center center";
-
-                                                //Show Card Image
-                                                if (segmentcode==="1000") {
-                                                    cardimage = "images/ihg_gold.png";
-                                                }else if (segmentcode==="1001") {
-                                                    cardimage = "images/ihg_platinum.png";
-                                                }else {
-                                                    cardimage = "images/ihg_platinum.png";
-                                                }
-                                                //  alert(cardimage);
-                                                document.getElementById("mycardimage").style.background = "url(" + cardimage + ") no-repeat center center";
-                                                document.getElementById("mycardname").innerHTML = customername;
-                                                document.getElementById("mycardid").innerHTML = customer.substring(0, 3) + " " + customer.substring(3, 6) + " " + customer.substring(6, 9);
-                                                document.getElementById("mycardexpiry").innerHTML = "EXP. " + memberexpiry;
-                                                //  document.getElementById("mycardimage").style.backgroundSize = "cover";
-                                            }
-        
-                                            ,
+                                           
+                                           
 
                                             showOutletOffer
                                             : function () {
@@ -6750,11 +6721,7 @@ function completeRedemption() {
             return;
         }
                                               
-        if (document.getElementById("selCountry").value === "") {
-            navigator.notification.alert("Select Nationality", function() {
-            }, "isme by Jumeirah", "Dismiss");
-            return; 
-        }
+     
         if (document.getElementById("selCity").value === "") {
             navigator.notification.alert("Select Resident City", function() {
             }, "isme by Jumeirah", "Dismiss");
@@ -6928,7 +6895,7 @@ function completeRedemption() {
                        hideSpin(); //hide loading popup
                    }
                });
-        hideSpin(); //hide loading popup
+    
     }
     
     function getNearCity() {
