@@ -952,6 +952,12 @@ function completeRedemption() {
         document.getElementById("pl-offer-location-div").style.display = "none";
     }
     
+      function plhideMyRewardDetail() {
+        doOneBackPre();
+        document.getElementById("wallet-voucher-div").style.display = "none";
+        document.getElementById("myvoucher-location-div").style.display = "none";
+    }
+    
     function plhideBrandDetail() {
         doOneBackPre();
         document.getElementById("pl-property-detail-div").style.display = "none";
@@ -3314,7 +3320,7 @@ function completeRedemption() {
                                             },
         
                                             destroyplmyvoucherdetail:function() {
-                                                doOneBack();
+                                                plhideMyRewardDetail();
                                                 //         $("#pl-myvoucherdetail-theme").remove();
                                             },
         
