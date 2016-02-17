@@ -5924,7 +5924,7 @@ function completeRedemption() {
     
     function checklocation() {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-            lat = position.coords.latitude;                                  
+            lat = position.coords.latitude;                                      
             lon = position.coords.longitude;
         }
                                                  , function onErrorShowMap(error) { 

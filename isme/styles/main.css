@@ -1227,6 +1227,7 @@ li
     white-space: pre-line;
     text-align: justify;
     color: #000;
+    font-size:95%;
 }
 
 .fulljustifyblack
@@ -1237,6 +1238,7 @@ li
     white-space: pre-line;
     text-align: justify;
     color: #000;
+    font-size:95%;
 }
 
 .fulljustifyblue-bold
@@ -1248,6 +1250,7 @@ li
     text-align: justify;
     color: #0c0cc5;
     font-weight: bold;
+    font-size:95%;
 }
 
 .fulljustifybold
@@ -1260,6 +1263,7 @@ li
     text-align: justify;
     color: #000;
     margin:0px;
+    font-size:95%;
 }
 
 .km-listview-link::after
