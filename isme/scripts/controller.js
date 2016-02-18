@@ -3577,18 +3577,7 @@ function completeRedemption() {
                                                 }else {
                                                     y = 17;
                                                 }
-                                                document.getElementById("spend-amount-p").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
-                                                document.getElementById("spend-bar-p").style.width = m + "%";
-                                                
-                                                if (i > 100) {
-                                                    document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
-                                                }else {
-                                                    if (m >= 80) {
-                                                        document.getElementById("spend-amount-p").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
-                                                    }else {
-                                                        document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
-                                                    }
-                                                }                
+                                          
                                                 hideSpin(); //hide loading popup
                                             },
         
