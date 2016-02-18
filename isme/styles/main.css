@@ -2300,6 +2300,14 @@ tile-frame-inner
     border: none;
 }
 
+.collapse-format{
+
+    height:30px;
+    line-height:30px;
+    margin-left:15px;
+    font-size:125%;
+}
+
 .pl-logo-image-holder{
     background-image:url(../images/home_page_logo_black.png);
        width:100%;
@@ -2508,4 +2516,16 @@ tile-frame-inner
     background: url(../images/home_page_logo_white.png) no-repeat center center;
     background-size:50%;
 }
+
+ .km-arrow-up:after,
+    .km-arrow-up:before {
+        content: "\e001";
+        font-size:125%;
+    }
+
+    .km-arrow-down:after,
+    .km-arrow-down:before {
+        content: "\e002";
+        font-size:125%;
+    }
 

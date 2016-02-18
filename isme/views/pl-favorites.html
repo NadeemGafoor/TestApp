@@ -1,153 +1,151 @@
 <div data-role="view"  data-title="My Favourites" data-layout="pl-pre-layout" id="myfavorite-view"  data-reload="true" data-show="postLogin.initPref" data-model="postLogin" data-after-show="postLogin.getChecked" data-hide="postLogin.destroyplfavorites">
- <div data-role="header">
-                <div data-role="navbar">
+    <div data-role="header">
+        <div data-role="navbar">
             <a data-role="button" data-bind="click:checkSave"  data-align="left" style="color:#fff" data-icon="back"></a>
-                    <span data-role="view-title"></span>
-                 <a data-role="button"  data-align="right" style="margin-right:10px" data-bind="click:savePreference" id="prefsave">
-            Save
-        </a>
+            <span data-role="view-title"></span>
+            <a data-role="button"  data-align="right" style="margin-right:10px" data-bind="click:savePreference" id="prefsave">
+                Save
+            </a>
+        </div>
+
+        <div class="cardhead" style="background-color:#fff">
+            <div class="class-card-div">
+                <div class="qr-image-sep">
+                    <div class="qr-image" id="mycard-qr6"></div>
                 </div>
-
-                <div class="cardhead" style="background-color:#fff">
-                    <div class="class-card-div">
-                        <div class="qr-image-sep">
-                            <div class="qr-image" id="mycard-qr6"></div>
-                        </div>
-                        <div class="filler"></div>
-                        <div class="home-page-holder">
-                            <div class="button-frame-login">
-                                <a data-click="enterPinForRedemption" data-role="button">Apply Discount</a>
-                            </div>
-
-                        </div>
-                        <div class="general-text-line-1 cblack" id="expiry6-back" ></div>
+                <div class="filler"></div>
+                <div class="home-page-holder">
+                    <div class="button-frame-login">
+                        <a data-click="enterPinForRedemption" data-role="button">Apply Discount</a>
                     </div>
-                    <div class="share-menu-line-2-c">
-                        <a  data-click="cardClick" data-role="button" class="mymenu2">
-                            <i class="fa fa-angle-up fa-2x" style="color:#000"></i>
-                        </a>
-                    </div>
+
                 </div>
-                <div class="share-menu-line-3">
-                    <a  data-click="cardClick" data-role="button"  class="cardmenu">
-                        <div class="share-menu-line-3-a" style="text-align:left" id="name6-back"></div>
-                        <div class="share-menu-line-3-a" style="text-align:center" id="number6-back"></div>
-                        <div class="share-menu-line-3-a" style="text-align:right" id="segment6-back">isme</div>
+                <div class="general-text-line-1 cblack" id="expiry6-back" ></div>
+            </div>
+            <div class="share-menu-line-2-c">
+                <a  data-click="cardClick" data-role="button" class="mymenu2">
+                    <i class="fa fa-angle-up fa-2x" style="color:#000"></i>
+                </a>
+            </div>
+        </div>
+        <div class="share-menu-line-3">
+            <a  data-click="cardClick" data-role="button"  class="cardmenu">
+                <div class="share-menu-line-3-a" style="text-align:left" id="name6-back"></div>
+                <div class="share-menu-line-3-a" style="text-align:center" id="number6-back"></div>
+                <div class="share-menu-line-3-a" style="text-align:right" id="segment6-back">isme</div>
 
-                    </a>
+            </a>
+        </div>
+    </div>
+
+    <div data-role="collapsible" data-collapse-icon="arrow-up" data-expand-icon="arrow-down" data-inset="true">
+        <h3 class="collapse-format">&nbsp;My Lifestyle Interests</h3>
+        <ul data-role="listview" id="lifestyle-filter" data-bind="click:enableSave">
+
+        </ul>
+    </div>
+    <div data-role="collapsible" data-collapse-icon="arrow-up" data-expand-icon="arrow-down" data-inset="true">
+        <h3 class="collapse-format">&nbsp;My Taste Type</h3>
+        <ul data-role="listview" id="cuisinetype-filter" data-bind="click:enableSave">
+        </ul>
+    </div>
+    <div data-role="collapsible" data-collapse-icon="arrow-up" data-expand-icon="arrow-down" data-inset="true">
+        <h3 class="collapse-format">&nbsp;My Celebration Type</h3>
+        <ul data-role="listview" id="celebrationtype-filter" data-bind="click:enableSave">
+        </ul>
+    </div>
+    <div data-role="collapsible" data-collapsed="false" data-collapse-icon="arrow-up" data-expand-icon="arrow-down" data-inset="true">
+        <h3 class="collapse-format">&nbsp;My Favourite Restaurants</h3>
+        <ul data-role="listview" id="restaurantdetail-filter" data-bind="click:enableSave">
+
+        </ul>
+    </div>
+
+    <footer data-role="footer">
+        <div class="mymenu-style">
+            <a  data-click="plHomeClick" data-role="button"  class="mymenu1" style="background:transparent !important">
+                <i class="fa fa-chevron-up fa-2x" style="color:#fff" ></i>
+            </a>
+        </div>
+        <div class="foot" >
+
+            <div class="share-menu-line-1-pl">
+                <div class="share-menu-line-1-pl" style="height:10px">&nbsp;</div>
+                <div class="button-frame-inline-round-menu">
+                    <a data-role="button" data-click="loadMyReward" style="background:transparent !important">
+                        <i class="fa fa-mobile fa-2x"></i>
+                    </a><br>My Rewards
+                </div>
+                <div class="button-frame-inline-round-menu">
+                    <a  data-role="button" data-click="loadMyBenefit" style="background:transparent !important">
+                        <i class="fa fa-check-square-o fa-2x"></i>
+                    </a><br>My Benefits
+                </div>
+                <div class="button-frame-inline-round-menu">
+                    <a data-role="button" data-click="loadMyMessages" style="background:transparent !important">
+                        <i class="fa fa-envelope fa-2x"></i>
+                    </a><br>My Messages
+                </div>
+            </div>
+            <div class="share-menu-line-1-pl" style="height:40px">&nbsp;</div>
+            <div class="share-menu-line-1-pl">
+                <div class="button-frame-inline-round-menu">
+                    <a data-role="button" data-click="loadHistory"style="background:transparent !important">
+                        <i class="fa fa-history fa-2x"></i>
+                    </a><br>My History
+                </div>
+                <div class="button-frame-inline-round-menu">
+                    <a  data-role="button" data-click="loadSetting" style="background:transparent !important">
+                        <i class="fa fa-gear fa-2x"></i>
+                    </a><br>My Preferences
+                </div>
+                <div class="button-frame-inline-round-menu">
+                    <a data-role="button" data-click="loadFavorites" style="background:transparent !important">
+                        <i class="fa fa-star fa-2x "></i>
+                    </a><br>My Favourites
                 </div>
             </div>
 
-   
- 
-    
-    <div class="list-group">&nbsp;My Lifestyle Interests</div>
-    <ul data-role="listview" id="lifestyle-filter" data-bind="click:enableSave">
-
-    </ul>
-         
-    <div class="list-group" >&nbsp;My Taste Type</div>
-    <ul data-role="listview" id="cuisinetype-filter" data-bind="click:enableSave">
-    </ul>
- 
-    <div class="list-group" >&nbsp;My Celebration Type</div>
-    <ul data-role="listview" id="celebrationtype-filter" data-bind="click:enableSave">
-    </ul>
-    
-    <div class="list-group">&nbsp;My Favourite Restaurants</div>
-    <ul data-role="listview" id="restaurantdetail-filter" data-bind="click:enableSave">
-
-    </ul>
-
- <footer data-role="footer">
-                <div class="mymenu-style">
-                    <a  data-click="plHomeClick" data-role="button"  class="mymenu1" style="background:transparent !important">
-                        <i class="fa fa-chevron-up fa-2x" style="color:#fff" ></i>
-                    </a>
-                </div>
-                <div class="foot" >
-
-                    <div class="share-menu-line-1-pl">
-                        <div class="share-menu-line-1-pl" style="height:10px">&nbsp;</div>
-                        <div class="button-frame-inline-round-menu">
-                            <a data-role="button" data-click="loadMyReward" style="background:transparent !important">
-                                <i class="fa fa-mobile fa-2x"></i>
-                            </a><br>My Rewards
-                        </div>
-                        <div class="button-frame-inline-round-menu">
-                            <a  data-role="button" data-click="loadMyBenefit" style="background:transparent !important">
-                                <i class="fa fa-check-square-o fa-2x"></i>
-                            </a><br>My Benefits
-                        </div>
-                        <div class="button-frame-inline-round-menu">
-                            <a data-role="button" data-click="loadMyMessages" style="background:transparent !important">
-                                <i class="fa fa-envelope fa-2x"></i>
-                            </a><br>My Messages
-                        </div>
-                    </div>
-                    <div class="share-menu-line-1-pl" style="height:40px">&nbsp;</div>
-                    <div class="share-menu-line-1-pl">
-                        <div class="button-frame-inline-round-menu">
-                            <a data-role="button" data-click="loadHistory"style="background:transparent !important">
-                                <i class="fa fa-history fa-2x"></i>
-                            </a><br>My History
-                        </div>
-                        <div class="button-frame-inline-round-menu">
-                            <a  data-role="button" data-click="loadSetting" style="background:transparent !important">
-                                <i class="fa fa-gear fa-2x"></i>
-                            </a><br>My Preferences
-                        </div>
-                        <div class="button-frame-inline-round-menu">
-                            <a data-role="button" data-click="loadFavorites" style="background:transparent !important">
-                                <i class="fa fa-star fa-2x "></i>
-                            </a><br>My Favourites
-                        </div>
-                    </div>
-
-                </div>
-            </footer>
+        </div>
+    </footer>
 
 </div>
 
 <script type="text/x-kendo-template" id="lifestyle-filter-template">
-     <label class="km-checkbox-label" style="background-color: transparent !important;">
+    <label class="k-checkbox-label" style="background-color: transparent !important;">
         ${desc}
-        <input type="checkbox" id="${code}" value="${code}"/>
+        <input type="checkbox" id="${code}" value="${code}" class="k-checkbox"/>
 
     </label>
 </script>
 
-
-
 <script type="text/x-kendo-template" id="restaurantdetailfilter-template">
-    <label class="km-checkbox-label" style="background-color: transparent !important;">
+    <label class="k-checkbox-label" style="background-color: transparent !important;">
         ${desc}
-        <input type="checkbox" id="${code}" value="${code}"/>
+        <input type="checkbox" id="${code}" value="${code}" class="k-checkbox"/>
 
     </label>
 </script>
 
 <script type="text/x-kendo-template" id="cuisinetypefilter-template">
-    <label class="km-checkbox-label" style="background-color: transparent !important;">
+    <label class="k-checkbox-label" style="background-color: transparent !important;">
         ${desc}
         <input type="checkbox" id="${code}" value="${code}"/>
 
     </label>
-    </script>
-    <script type="text/x-kendo-template" id="celebrationtype-template">
-    <label class="km-checkbox-label" style="background-color: transparent !important;">
+</script>
+<script type="text/x-kendo-template" id="celebrationtype-template">
+    <label class="k-checkbox-label" style="background-color: transparent !important;">
         ${desc}
-        <input type="checkbox" id="${code}" value="${code}"/>
+        <input type="checkbox" id="${code}" value="${code}" class="k-checkbox"/>
 
     </label>
-        
-      
+
 </script>
 
-
 <script>
-    
-      function updatePreference(e){
-         alert(e.id);   
-        }
+
+    function updatePreference(e) {
+        alert(e.id);   
+    }
 </script>
