@@ -25,6 +25,12 @@
    
 }
 
+.pl-logo-image-holder.pl-logo-image-holder-w
+{
+    height:200px;
+    background-size:auto;
+}
+
 .pl-logo-top
 {
     height: 500px;

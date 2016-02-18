@@ -47,15 +47,10 @@
         background-size:auto;
 }
 
-.pl-logo-image-holder
+.pl-logo-image-holder.pl-logo-image-holder-w
 {
     height:200px;
-    width:100%;
-    margin:10px auto;
-       background-repeat:no-repeat;
     background-size:auto;
-    background-position:center;
-            background-size:auto;
 }
 
     .brand-image-pos

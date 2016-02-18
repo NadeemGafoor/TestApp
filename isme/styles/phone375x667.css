@@ -219,15 +219,10 @@
         background-size:50%;
 }
 
-.pl-logo-image-holder
+.pl-logo-image-holder,.pl-logo-image-holder-w
 {
     height:225px;
-    width:100%;
-    margin:10px auto;
-       background-repeat:no-repeat;
-    background-size:auto;
-    background-position:center;
-            background-size:50%;
+
 }
 
 .home-page-holder

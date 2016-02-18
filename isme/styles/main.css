@@ -2302,10 +2302,22 @@ tile-frame-inner
 
 .pl-logo-image-holder{
     background-image:url(../images/home_page_logo_black.png);
+       width:100%;
+    margin:10px auto;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-position:center;
+     background-size:50%;
 }
 
 .pl-logo-image-holder-w{
     background-image:url(../images/home_page_logo_white.png);
+    width:100%;
+    margin:10px auto;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-position:center;
+    background-size:50%;
 }
 
 .progress-bar-holder
