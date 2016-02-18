@@ -3274,8 +3274,9 @@ function completeRedemption() {
                                                 $("#pl-confirmpage-view").remove();
                                             },
                                             destroyplconfirmvoucher:function() {
-                                                doOneBack();
-                                                //      $("#pl-voucheredeem-view").remove();
+                                                //doOneBack();
+                                                 window.localStorage.setItem("appopen", "0");  
+                                                      $("#pl-voucheredeem-view").remove();
                                             },
         
                                             destroyplbranddetail:function() {
@@ -3307,7 +3308,7 @@ function completeRedemption() {
                                             },
         
                                             destroyplhome:function() {
-                                                //          $("#pl-home-view").remove();
+                                                $("#pl-home-view").remove();
                                             },
         
                                             destroyplhomeplus:function() {
@@ -3343,14 +3344,15 @@ function completeRedemption() {
                                             },
         
                                             destroyplmyreward:function() {
-                                                doOneBack();
-                                                //     $("#pl-mywallet-theme").remove();
+                                                //doOneBack();
+                                                 window.localStorage.setItem("appopen", "0");  
+                                                $("#pl-mywallet-theme").remove();
                                             },
         
                                             destroyplmyvoucherdetail:function() {
                                                
-                                                plhideMyRewardDetail();
-                                                //         $("#pl-myvoucherdetail-theme").remove();
+                                                //plhideMyRewardDetail();
+                                                   $("#pl-myvoucherdetail-theme").remove();
                                             },
         
                                             destroyplofferdetail:function() {
@@ -3360,8 +3362,9 @@ function completeRedemption() {
                                             },
         
                                             destroyplofferlist:function() {
-                                                doOneBack();
-                                                //                                        $("#pl-offerlist-view").remove();
+                                                //doOneBack();
+                                                 window.localStorage.setItem("appopen", "0");  
+                                                                                        $("#pl-offerlist-view").remove();
                                             },
         
                                             destroyploutletdetail:function() {
@@ -3380,11 +3383,13 @@ function completeRedemption() {
                                             },
                                             destroyplsetting:function() {
                                                 //doOneBack();
+                                                 window.localStorage.setItem("appopen", "0");  
                                                 $("#pl-setting-theme").remove();
                                             },  
         
                                             destroypltermsandcondition:function() {
                                                 //doOneBack();
+                                                 window.localStorage.setItem("appopen", "0");  
                                                $("#pl-termsconditions-theme").remove();
                                             },           
         
