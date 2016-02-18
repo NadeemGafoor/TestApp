@@ -5244,10 +5244,7 @@ function completeRedemption() {
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
                                                 gct("#cuisinetype-filter", "#cuisinetypefilter-template");
                                                 getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
-                                                setLifeStylePreference(); 
-                                                setRestaurantPreference();
-                                                setCelebrationTypePreference();
-                                                setCuisineTypePreference();
+                                              
                                             },
                                             getChecked:function() {
                                                 hideSpin();
@@ -6425,7 +6422,7 @@ function completeRedemption() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:false,
+                   async:true,
                    timeout:20000,
                    url: gurl + "/lifeStyleList.aspx",
                    contentType: "application/json; charset=utf-8",
@@ -6440,8 +6437,10 @@ function completeRedemption() {
                                                             dataSource: kendo.data.DataSource.create({data: getData.preflist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
                                                             template: $(y).html()
                                                             //endlessScroll: true
+                                   
                                                                                                                       
                                                         });
+                                     setLifeStylePreference(); 
                            }else {
                                navigator.notification.alert("Lifestyle Preference List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -6466,7 +6465,7 @@ function completeRedemption() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:false,
+                   async:true,
                    timeout:20000,
                    url: gurl + "/restaurantDetailList.aspx",
                    contentType: "application/json; charset=utf-8",
@@ -6484,6 +6483,7 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
+                                setRestaurantPreference();
                            }else {
                                navigator.notification.alert("Restaurant Details List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -6505,7 +6505,7 @@ function completeRedemption() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:false,
+                   async:true,
                    timeout:20000,
                    url: gurl + "/cuisineTypeList.aspx",
                    contentType: "application/json; charset=utf-8",
@@ -6523,6 +6523,7 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
+                                setCelebrationTypePreference();
                            }else {
                                navigator.notification.alert("Cuisine Type List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -6545,7 +6546,7 @@ function completeRedemption() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:false,
+                   async:true,
                    timeout:20000,
                    url: gurl + "/celebrationTypeList.aspx",
                    contentType: "application/json; charset=utf-8",
@@ -6563,6 +6564,8 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
+                               
+                                 setCuisineTypePreference();
                            }else {
                                navigator.notification.alert("Celebration Type List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
