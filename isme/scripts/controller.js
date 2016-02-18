@@ -5432,10 +5432,12 @@ function completeRedemption() {
                            window.localStorage.setItem("self-authorization", getData.transactionref);
                            window.localStorage.setItem("self-outletname", getData.outletname);
                            postLogin.set("depin1", "");
+                           alert(getData.segment);
+                           alert(window.localStorage.getItem("segmentcode"));
                            if (getData.segment==="1000") {
                                $("body").data("kendoMobilePane").navigate("views/pl-confirmDiscount.html");      
                            } else {
-                               $("body").data("kendoMobilePane").navigate("views/pl-confirmDiscountblack.html");    
+                               $("body").data("kendoMobilePane").navigate("views/pl-confirmDiscountBlack.html");    
                            }
                                                               
                            hideSpin(); //hide loading popup
