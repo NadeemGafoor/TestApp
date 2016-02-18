@@ -2152,7 +2152,7 @@ function completeRedemption() {
         
                                            propertyList
                                            : function () {
-                                               clearListFilter();
+                                              // clearListFilter();
                                                window.localStorage.setItem("appopen", "801");
                                                showSpin();
                                                 
@@ -2390,7 +2390,7 @@ function completeRedemption() {
                                                showSpin();
                                              
                                                clearAllVariables();
-                                               clearListFilter();
+                                              // clearListFilter();
                                                if (firsttime === "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
@@ -3427,7 +3427,7 @@ function completeRedemption() {
                                             getSummary:function () {
                                                 showSpin();
                                                 clearAllVariables();                                            
-                                                clearListFilter();
+                                              //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "0"); 
                                           
                                                 if (firsttime==="") {
@@ -3512,7 +3512,7 @@ function completeRedemption() {
                                             getSummaryplus:function () {
                                                  showSpin();
                                                 clearAllVariables();                                            
-                                                clearListFilter();
+                                              //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "0"); 
                                           
                                                 if (firsttime==="") {
@@ -3667,7 +3667,7 @@ function completeRedemption() {
                                                                window.localStorage.setItem("fbid", "");
                                                                window.localStorage.setItem("homecountryname", "");
                                                                window.localStorage.setItem("residentcityname", "");
-                                                               clearListFilter();
+                                                          //     clearListFilter();
                                                                fbCleanVariables();
                                                                customer = "9999999999";
                                                                customername = "Guest";
@@ -4001,7 +4001,7 @@ function completeRedemption() {
         
                                             propertyList
                                             : function () {
-                                                clearListFilter();
+                                              //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "811");
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backf").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
