@@ -5513,7 +5513,7 @@ function completeRedemption() {
                            window.localStorage.setItem("self-authorization", getData.transactionref);
                            window.localStorage.setItem("self-outletname", getData.outletname);
                            postLogin.set("depin1", "");
-                           alert(window.localStorage.getItem("segmentcode"));
+                        
                              if (window.localStorage.getItem("segmentcode")==="1000") {
                                $("body").data("kendoMobilePane").navigate("views/pl-confirmvoucher.html");      
                            } else {
