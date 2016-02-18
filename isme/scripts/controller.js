@@ -5555,15 +5555,11 @@ function completeRedemption() {
                            window.localStorage.setItem("self-authorization", getData.transactionref);
                            window.localStorage.setItem("self-outletname", getData.outletname);
                            postLogin.set("depin1", "");
-                           window.plugins.nativepagetransitions.slide({
-                                                                          "duration"         :  500, // in milliseconds (ms), default 400
-                                                                          "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                          "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                          "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                          'direction': 'up',
-                                                                          'href': '#views/pl-confirmvoucher.html'
-                                                                      });
+                             if (window.localStorage.getItem("segmentcode")==="1000") {
+                               $("body").data("kendoMobilePane").navigate("views/pl-confirmvoucher.html");      
+                           } else {
+                               $("body").data("kendoMobilePane").navigate("views/pl-confirmvoucherblack.html");    
+                           }
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Unable to Redeem Voucher! " + getData.statusdesc, function() {
