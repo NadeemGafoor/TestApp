@@ -6,6 +6,9 @@
 @font-face { font-family: 'Gotham-LightItalic'; src: url('../styles/fonts/Gotham-Book.otf')  format('opentype'); } /* Safari, Android, iOS */
 @font-face { font-family: 'Didot'; src: url('../styles/fonts/Didot.ttc')  format('truetype'); } /* Safari, Android, iOS */
 
+.km-ios7 .km-list>li:last-child{
+  box-shadow:none;
+}
 
 hr { background-color: #b6b2b4; height: 1px; border: 0; }
 a
@@ -80,7 +83,7 @@ a
 {
     box-shadow: 0px 1px 5px #666365;
 }
-#appdrawer .km-content,#appdrawerN .km-content,#pl-home-view-plus .km-content
+#appdrawer .km-content,#appdrawerN .km-content,#pl-home-view-plus .km-content, #pl-confirmredemptionblack-view .km-content,#pl-voucheredeemblack-view .km-content
 {
     background-color:#000;
 }
