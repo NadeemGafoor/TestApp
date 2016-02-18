@@ -1,4 +1,4 @@
-<div data-role="view"  data-title="My Favourites" data-layout="pl-back-layout" id="myfavorite-view"  data-reload="true" data-show="postLogin.initPref" data-model="postLogin" data-after-show="postLogin.getChecked" data-hide="postLogin.destroyplfavorites">
+<div data-role="view"  data-title="My Favourites" data-layout="pl-pre-layout" id="myfavorite-view"  data-reload="true" data-show="postLogin.initPref" data-model="postLogin" data-after-show="postLogin.getChecked" data-hide="postLogin.destroyplfavorites">
  <div data-role="header">
                 <div data-role="navbar">
             <a data-role="button" data-bind="click:checkSave"  data-align="left" style="color:#fff" data-icon="back"></a>
@@ -59,7 +59,54 @@
 
     </ul>
 
-  
+ <footer data-role="footer">
+                <div class="mymenu-style">
+                    <a  data-click="plHomeClick" data-role="button"  class="mymenu1" style="background:transparent !important">
+                        <i class="fa fa-chevron-up fa-2x" style="color:#fff" ></i>
+                    </a>
+                </div>
+                <div class="foot" >
+
+                    <div class="share-menu-line-1-pl">
+                        <div class="share-menu-line-1-pl" style="height:10px">&nbsp;</div>
+                        <div class="button-frame-inline-round-menu">
+                            <a data-role="button" data-click="loadMyReward" style="background:transparent !important">
+                                <i class="fa fa-mobile fa-2x"></i>
+                            </a><br>My Rewards
+                        </div>
+                        <div class="button-frame-inline-round-menu">
+                            <a  data-role="button" data-click="loadMyBenefit" style="background:transparent !important">
+                                <i class="fa fa-check-square-o fa-2x"></i>
+                            </a><br>My Benefits
+                        </div>
+                        <div class="button-frame-inline-round-menu">
+                            <a data-role="button" data-click="loadMyMessages" style="background:transparent !important">
+                                <i class="fa fa-envelope fa-2x"></i>
+                            </a><br>My Messages
+                        </div>
+                    </div>
+                    <div class="share-menu-line-1-pl" style="height:40px">&nbsp;</div>
+                    <div class="share-menu-line-1-pl">
+                        <div class="button-frame-inline-round-menu">
+                            <a data-role="button" data-click="loadHistory"style="background:transparent !important">
+                                <i class="fa fa-history fa-2x"></i>
+                            </a><br>My History
+                        </div>
+                        <div class="button-frame-inline-round-menu">
+                            <a  data-role="button" data-click="loadSetting" style="background:transparent !important">
+                                <i class="fa fa-gear fa-2x"></i>
+                            </a><br>My Preferences
+                        </div>
+                        <div class="button-frame-inline-round-menu">
+                            <a data-role="button" data-click="loadFavorites" style="background:transparent !important">
+                                <i class="fa fa-star fa-2x "></i>
+                            </a><br>My Favourites
+                        </div>
+                    </div>
+
+                </div>
+            </footer>
+
 </div>
 
 <script type="text/x-kendo-template" id="lifestyle-filter-template">

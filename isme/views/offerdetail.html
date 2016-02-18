@@ -1,4 +1,50 @@
-<div data-role="view"   data-title="Reward" data-layout="back2-layout" id="offerdetail-theme" data-reload="true"  data-model="preLogin" data-init="initOfferGroup" data-hide="preLogin.destroyofferdetail" data-show="preLogin.showOfferItem" style="background-color:#fff">
+<div data-role="view"   data-title="Reward" data-layout="pre-layout" id="offerdetail-theme" data-reload="true"  data-model="preLogin" data-init="initOfferGroup" data-hide="preLogin.destroyofferdetail" data-show="preLogin.showOfferItem" style="background-color:#fff">
+               <header data-role="header">
+                <div data-role="navbar">
+                    <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff" data-click="preLoginBack">
+                    </a>
+                    <span  id="offerdetail-title"></span>
+                     <a data-role="button" data-click="shareClick" data-align="right" >
+                        <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
+                    </a>
+                </div>
+                <div class="sharehead">
+                    <div class="home-page-holder"></div>
+                    <div class="class-share-div">
+                        <div class="share-menu-line-1">
+                            <div class="button-frame-inline-round">
+                                <a id="btn-facebook" data-role="button" data-click="faceBookClick" style="background:transparent !important">
+                                    <i class="fa fa-facebook fa-2x  share-class"></i>
+                                </a>
+                            </div>
+                            <div class="button-frame-inline-round">
+                                <a id="btn-twitter" data-role="button" data-click="twitterClick" style="background:transparent !important">
+                                    <i class="fa fa-twitter fa-2x   share-class"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="share-menu-line-1">
+                            <div class="button-frame-inline-round">
+                                <a id="btn-whatsapp" data-role="button"  data-click="whatsappClick" style="background:transparent !important">
+                                    <i class="fa fa-whatsapp fa-2x   share-class"></i>
+                                </a>
+                            </div>
+                            <div class="button-frame-inline-round">
+                                <a id="btn-email" data-role="button" data-click="emailClick" style="background:transparent !important">
+                                    <i class="fa fa-envelope fa-2x   share-class"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="share-menu-line-2">
+                            <a  data-click="shareClick" data-role="button" style="border:0px !important;background-color:transparent" class="mymenu">
+                                <i class="fa fa-angle-up fa-2x" style="color:#fff"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+           </header>
+
     <ul data-role="buttongroup" data-index="0" id="offertab" class="button-group a-group">
         <li>
             Details
@@ -65,6 +111,16 @@
       
     </ul>
 
+   <footer data-role="footer">
+
+                <div data-role="tabstrip" style="background-color:#000" data-selected-index="5" data-select="onSelectTabStrip2">
+                    <a class="fa" data-icon="customlocation" data-role="button" ></a>
+                    <a class="fa" data-icon="customenvelope" data-role="button"  ></a>
+                    <a class="fa" data-icon="customcall"  data-role="button" ></a>
+                </div>
+            </footer>
+         
+            
 </div>
 
 <script>

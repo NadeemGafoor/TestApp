@@ -1231,18 +1231,18 @@ function completeRedemption() {
                                                $("#device-theme").remove();
                                            },
                                            destroyofferdetail:function() {
-                                               document.getElementById("detail-title").innerHTML = "";
-                                               hideOfferDetail();
-                                               //  $("#offerdetail-theme").remove();
+                                              // document.getElementById("detail-title").innerHTML = "";
+                                              // hideOfferDetail();
+                                                 $("#offerdetail-theme").remove();
                                            },       
                                            destroyofferlist:function() {
                                                $("#offerlist-view").remove();
                                            },
         
                                            destroyoutletdetail:function() {
-                                               document.getElementById("detail-title").innerHTML = "";
-                                               hideOutletDetail();
-                                               //  $("#outletdetail-theme").remove();
+                                           //    document.getElementById("detail-title").innerHTML = "";
+                                           //    hideOutletDetail();
+                                                 $("#outletdetail-theme").remove();
                                            },
         
                                            destroyoutletlist:function() {
@@ -1253,7 +1253,7 @@ function completeRedemption() {
                                                $("#outletlistb-theme").remove();
                                            },
                                            destroyplfaq:function() {
-                                               //      $("#pl-faq-theme").remove();
+                                                $("#pl-faq-theme").remove();
                                            },
         
                                            destroyresetpassword:function() {
@@ -2021,7 +2021,7 @@ function completeRedemption() {
                                                                   lat = m[0];
                                                                   lon = m[1];
                                                                   document.getElementById("property-detail-div").style.display = "block";
-                                                                  document.getElementById("detail-title").innerHTML = getData.hotelname;
+                                                                  document.getElementById("branddetail-title").innerHTML = getData.hotelname;
                                                                   document.getElementById("brandimage").src = getData.imageurll;
                                                                   document.getElementById("property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
                                                                   document.getElementById("property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
@@ -2071,7 +2071,7 @@ function completeRedemption() {
                                                                   lat = m[0];
                                                                   lon = m[1];
                                                                   document.getElementById("outlet-detail-div").style.display = "block";
-                                                                  document.getElementById("detail-title").innerHTML = getData.outletlist[0].outletname;
+                                                                  document.getElementById("outletdetail-title").innerHTML = getData.outletlist[0].outletname;
                                                                   
                                                                   document.getElementById("outletimage").src = getData.outletlist[0].imageurll;
                                                                   document.getElementById("outlet-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
@@ -2264,7 +2264,7 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {
                                                                   document.getElementById("offer-detail-div").style.display = "block";
-                                                                  //document.getElementById("detail-title").innerHTML = getData.outletlist[0].outletname;
+                                                                  //document.getElementById("offerdetail-title").innerHTML = getData.outletlist[0].outletname;
                                                                
                                                                   document.getElementById("offerimage").src = getData.offerlist[0].imageurll;
                                                                   document.getElementById("offer-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
@@ -3147,7 +3147,13 @@ function completeRedemption() {
                                            plgetfaq
                                            : function () {
                                                showSpin(); //show loading popup
-                                               back8_profile();
+                                               window.localStorage.setItem("selfredeem", "D"); 
+                                               document.getElementById("name-backg").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                               document.getElementById("number-backg").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                               document.getElementById("expiry-backg").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                               document.getElementById("segment-backg").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                               document.getElementById("mycard-qrg").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                               document.getElementById("mycard-qrg").style.backgroundSize = "cover";    
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -3250,19 +3256,23 @@ function completeRedemption() {
                                             lifestyle:"",
         
                                             destroyplaboutisme:function() {
-                                                doOneBack();
-                                                //      $("#pl-aboutisme-theme").remove();
+                                                //doOneBack();
+                                                window.localStorage.setItem("appopen", "0");  
+                                                $("#pl-aboutisme-theme").remove();
                                             },
                                             destroyplbenefitdetail:function() {
-                                                //       $("#pl-benefit-theme").remove();
+                                                window.localStorage.setItem("appopen", "0");  
+                                                 $("#pl-benefit-theme").remove();
                                             },
                                             destroyplconfirmdiscount:function() {
-                                                doOneBack();
-                                                //       $("#pl-confirmredemption-view").remove();
+                                                //doOneBack();
+                                                window.localStorage.setItem("appopen", "0");  
+                                                $("#pl-confirmredemption-view").remove();
                                             },
                                             destroyplconfirmpage:function() {
-                                                doOneBack();
-                                                //      $("#pl-confirmpage-view").remove();
+                                                //doOneBack();
+                                                window.localStorage.setItem("appopen", "0");  
+                                                $("#pl-confirmpage-view").remove();
                                             },
                                             destroyplconfirmvoucher:function() {
                                                 doOneBack();
@@ -3270,27 +3280,31 @@ function completeRedemption() {
                                             },
         
                                             destroyplbranddetail:function() {
-                                                document.getElementById("pl-detail-title").innerHTML = "";
-                                                plhideBrandDetail();
-                                                //        $("#pl-branddetail-theme").remove();
+                                             //   document.getElementById("pl-detail-title").innerHTML = "";
+                                             //   plhideBrandDetail();
+                                              $("#pl-branddetail-theme").remove();
                                             },
                                             destroyplcustomerservice:function() {
-                                                doOneBack();
-                                                //     $("#pl-customerservice-theme").remove();
+                                                //doOneBack();
+                                                window.localStorage.setItem("appopen", "0");  
+                                                $("#pl-customerservice-theme").remove();
                                             },
                                             destroyplexplorelist:function() {
-                                                doOneBack();
-                                                //       $("#pl-explorelist-view").remove();
+                                                //doOneBack();
+                                                window.localStorage.setItem("appopen", "0");  
+                                                 $("#pl-explorelist-view").remove();
                                             },
     
                                             destroyplfavorites:function() {
-                                                doOneBack();
-                                                //       $("#myfavorite-view").remove();
+                                               // doOneBack();
+                                                window.localStorage.setItem("appopen", "0");  
+                                                $("#myfavorite-view").remove();
                                             },
         
                                             destroyplhistorylist:function() {
-                                                doOneBack();
-                                                //       $("#history-theme").remove();
+                                                //doOneBack();
+                                                window.localStorage.setItem("appopen", "0");  
+                                                $("#history-theme").remove();
                                             },
         
                                             destroyplhome:function() {
@@ -3298,30 +3312,35 @@ function completeRedemption() {
                                             },
         
                                             destroyplhomeplus:function() {
-                                                //         $("#pl-home-view-plus").remove();
+                                                window.localStorage.setItem("appopen", "0");  
+                                                 $("#pl-home-view-plus").remove();
                                             },
         
                                             destroyplleisurelist:function() {
-                                                doOneBack();
-                                                //       $("#liesurelist-theme").remove();
+                                                //doOneBack();
+                                               
+                                                $("#liesurelist-theme").remove();
                                             },
                                             destroyplleisurelistb:function() {
-                                                doOneBack();
-                                                // $("#pl-liesurelistb-theme").remove();
+                                                //doOneBack();
+                                                $("#pl-liesurelistb-theme").remove();
                                             },
         
                                             destroyplmessageitem:function() {
-                                                doOneBack();
-                                                //$("#messageitem-theme").remove();
+                                                //doOneBack();
+                                                window.localStorage.setItem("appopen", "0");  
+                                                $("#messageitem-theme").remove();
                                             },
         
                                             destroymymessagelist:function() {
-                                                //        $("#mymessagelist-theme").remove();
+                                                window.localStorage.setItem("appopen", "0");  
+                                                $("#mymessagelist-theme").remove();
                                             },
         
                                             destroyplmyprofile:function() {
-                                                doOneBack();
-                                                //    $("#pl-myprofile-view").remove();
+                                                //doOneBack();
+                                                window.localStorage.setItem("appopen", "0");  
+                                                $("#pl-myprofile-view").remove();
                                             },
         
                                             destroyplmyreward:function() {
@@ -3336,9 +3355,9 @@ function completeRedemption() {
                                             },
         
                                             destroyplofferdetail:function() {
-                                                document.getElementById("pl-detail-title").innerHTML = "";
-                                                plhideOfferDetail();
-                                                //                                        $("#pl-offerdetail-theme").remove();
+                                                //document.getElementById("pl-detail-title").innerHTML = "";
+                                                //plhideOfferDetail();
+                                                $("#pl-offerdetail-theme").remove();
                                             },
         
                                             destroyplofferlist:function() {
@@ -3347,27 +3366,28 @@ function completeRedemption() {
                                             },
         
                                             destroyploutletdetail:function() {
-                                                document.getElementById("pl-detail-title").innerHTML = "";
-                                                plhideOutletDetail();
-                                                //                                        $("#pl-outletdetail-theme").remove();
+                                               // document.getElementById("pl-detail-title").innerHTML = "";
+                                                /plhideOutletDetail();
+                                                $("#pl-outletdetail-theme").remove();
                                             },
                                             destroyploutletlist:function() {
-                                                doOneBack();
-                                                //                                      $("#pl-outletlist-theme").remove();
+                                                //doOneBack();
+                                                $("#pl-outletlist-theme").remove();
                                             },
                                             destroyploutletlistb:function() {
-                                                doOneBack();
-                                                //                                    $("#pl-outletlistb-theme").remove();
+                                               // doOneBack();
+                                           
+                                               $("#pl-outletlistb-theme").remove();
                                             },
                                             destroyplsetting:function() {
-                                                doOneBack();
-                                                //         $("#pl-setting-theme").remove();
+                                                //doOneBack();
+                                                $("#pl-setting-theme").remove();
                                             },  
         
                                             destroypltermsandcondition:function() {
-                                                doOneBack();
-                                                //         $("#pl-termsconditions-theme").remove();
-                                            },  
+                                                //doOneBack();
+                                               $("#pl-termsconditions-theme").remove();
+                                            },           
         
            
         
@@ -3526,7 +3546,6 @@ function completeRedemption() {
         
                                             loadProfile
                                             :function() {
-                                                document.getElementById("back1-filter").style.display = "none";
                                                 document.getElementById("profile-picture-1").src = window.localStorage.getItem("cuspict");
                                                 document.getElementById("pro-name").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
                                                 document.getElementById("pro-birthdate").innerHTML = (window.localStorage.getItem("birthdate") != null && window.localStorage.getItem("birthdate").length > 0) ? "My Birtday : " + window.localStorage.getItem("birthdate") : "My Birthday : NA";
@@ -3692,15 +3711,22 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
                                                                    if (getData.benefitlist.length > 0) {
-                                                                       document.getElementById("back1-filter").style.display = "none";
                                                                        document.getElementById("pl-benefit-detail-view").style.display = "block";
+                                                                       window.localStorage.setItem("selfredeem", "D"); 
+                                                                       document.getElementById("name-back9").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                                       document.getElementById("number-back9").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                                       document.getElementById("expiry-back9").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                                       document.getElementById("segment-back9").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                                       document.getElementById("mycard-qr9").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                                       document.getElementById("mycard-qr9").style.backgroundSize = "cover";        
+                                                                       
                                                                        document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].titlename;
                                                                        document.getElementById("benefit-text6").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
                                                                        window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
                                                             
                                                                        window.localStorage.setItem("social_message", "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>");
                                                                        window.localStorage.setItem("social_image", getData.benefitlist[0].imageurll); 
-                                                                       back1_profile();
+                                                               
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("There are no Benefits for the selected Program", function() {
@@ -3859,7 +3885,13 @@ function completeRedemption() {
                                                     window.localStorage.setItem("appopen", "85"); 
                                                 }
                                       
-                                                back_profile();
+                                                 window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backp").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backp").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backp").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backp").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrp").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrp").style.backgroundSize = "cover";      
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3922,9 +3954,15 @@ function completeRedemption() {
                                                                    lat = m[0];
                                                                    lon = m[1];
                                                                    document.getElementById("pl-outlet-detail-div").style.display = "block";
-
-                                                                 alert(getData.outletlist[0].outletname);
-                                                                   document.getElementById("pl-detail-title").innerHTML = getData.outletlist[0].outletname;
+    window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backq").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backq").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backq").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backq").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrq").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrq").style.backgroundSize = "cover"; 
+                                                                   alert(getData.outletlist[0].outletname);
+                                                                   document.getElementById("pl-outletdetail-title").innerHTML = getData.outletlist[0].outletname;
                                                                   
                                                                    document.getElementById("pl-outletimage").src = getData.outletlist[0].imageurll;
                                                                    document.getElementById("pl-outlet-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
@@ -3938,7 +3976,7 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("social_image", getData.outletlist[0].imageurll); 
                                                                    window.localStorage.setItem("lat", lat);
                                                                    window.localStorage.setItem("lon", lon);
-                                                                   back2_profile();
+                                                              
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get location " + getData.statusdesc, function() {
@@ -3958,7 +3996,13 @@ function completeRedemption() {
                                             : function () {
                                                 clearListFilter();
                                                 window.localStorage.setItem("appopen", "811");
-                                                back_profile();
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backf").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backf").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backf").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backf").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrf").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrf").style.backgroundSize = "cover";      
                                                 showSpin();
                                                 
                                                 $.ajax({ 
@@ -4009,7 +4053,13 @@ function completeRedemption() {
                                                     window.localStorage.setItem("category", e.view.params.category); 
                                                     window.localStorage.setItem("appopen", "82"); 
                                                 }
-                                                back_profile();
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backr").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backr").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backr").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backr").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrr").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrr").style.backgroundSize = "cover";    
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4059,7 +4109,13 @@ function completeRedemption() {
                                              
                                                 window.localStorage.setItem("category", "0"); 
                                                    
-                                                back_profile();
+                                                  window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backs").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backs").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backs").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backs").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrs").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrs").style.backgroundSize = "cover";    
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4109,7 +4165,13 @@ function completeRedemption() {
                                                     window.localStorage.setItem("appopen", "83"); 
                                                 }
                                                 
-                                                back_profile();
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backi").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backi").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backi").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backi").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qri").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qri").style.backgroundSize = "cover";      
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4155,7 +4217,13 @@ function completeRedemption() {
                                           
                                                 window.localStorage.setItem("category", e.view.params.category); 
                                                 
-                                                back_profile();
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backj").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backj").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backj").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backj").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrj").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrj").style.backgroundSize = "cover";      
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4221,8 +4289,15 @@ function completeRedemption() {
                                                                    lat = m[0];
                                                                    lon = m[1];
                                                                    document.getElementById("pl-property-detail-div").style.display = "block";
+                                                                   window.localStorage.setItem("selfredeem", "D"); 
+                                                                   document.getElementById("name-backa").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                                   document.getElementById("number-backa").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                                   document.getElementById("expiry-backa").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                                   document.getElementById("segment-backa").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                                   document.getElementById("mycard-qra").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                                   document.getElementById("mycard-qra").style.backgroundSize = "cover";      
                                                                    
-                                                                   document.getElementById("pl-detail-title").innerHTML = getData.hotelname;
+                                                                   document.getElementById("pl-branddetail-title").innerHTML = getData.hotelname;
                                                                   
                                                                    document.getElementById("pl-brandimage").src = getData.imageurll;
                                                                    document.getElementById("pl-property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
@@ -4233,7 +4308,7 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("social_image", getData.imageurll); 
                                                                    window.localStorage.setItem("lat", lat);
                                                                    window.localStorage.setItem("lon", lon);
-                                                                   back2_profile();
+                                                             
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Cannot get Brand Item " + getData.statusdesc, function() {
@@ -4388,7 +4463,13 @@ function completeRedemption() {
         
                                             confirmIssueResponse
                                             :function() {
-                                                back8_profile();
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backc").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backc").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backc").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backc").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrc").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrc").style.backgroundSize = "cover";      
                                                 document.getElementById("offer-1").innerHTML = postLogin.transactionref;
                                                 document.getElementById("offer-2").innerHTML = postLogin.couponname;
                                                 //document.getElementById("offer-3").innerHTML = postLogin.couponcategory;
@@ -4396,9 +4477,14 @@ function completeRedemption() {
                                             mywalletofferlist
                                             : function () {
                                                 showSpin();
-                                                back1_profile();
-                                                //document.getElementById("back1-filter").style.display = "none";
-                            
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backm").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backm").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backm").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backm").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrm").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrm").style.backgroundSize = "cover";      
+                                                                           
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4441,7 +4527,13 @@ function completeRedemption() {
                                             : function (e) {
                                                 offercode = e.view.params.cpn; //offer code for single offer inquiry
                                                 offertype = "2"; //single offer inquiry
-                                                back2_profile();
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backo").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backo").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backo").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backo").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qro").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qro").style.backgroundSize = "cover";      
                                                 showSpin();
                                                 $.ajax({ 
                                                            type: "POST",
@@ -4488,7 +4580,13 @@ function completeRedemption() {
                                             : function (e) {
                                                 couponnumber = e.view.params.cpn;
                                                 showSpin();
-                                                back2_profile();
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backn").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backn").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backn").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrn").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrn").style.backgroundSize = "cover";    
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4580,7 +4678,13 @@ function completeRedemption() {
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
                                                 postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));
-                                                back7_profile();
+                                                   window.localStorage.setItem("selfredeem", "D"); 
+        document.getElementById("name7-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+        document.getElementById("number7-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+        document.getElementById("expiry7-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+        document.getElementById("segment7-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+        document.getElementById("mycard7-qr").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+        document.getElementById("mycard7-qr").style.backgroundSize = "cover";        
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
                                                 }else {
@@ -4821,7 +4925,13 @@ function completeRedemption() {
         
                                             discountRedeemConfirm
                                             : function () {
-                                                back8_profile();
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backb").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backb").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backb").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backb").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrb").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrb").style.backgroundSize = "cover";      
                                                 document.getElementById("discount-1").innerHTML = window.localStorage.getItem("self-authorization");
                                                 //  document.getElementById("discount-2").innerHTML = window.localStorage.getItem("self-outletname");
                                                 //  document.getElementById("discount-3").innerHTML = window.localStorage.getItem("self-vouchername");
@@ -4829,10 +4939,13 @@ function completeRedemption() {
                                             selfRedeemConfirm
                                             : function () {
                                                 showSpin();  
-                                                back8_profile();
-                                                //   document.getElementById("vouchernumber").innerHTML = window.localStorage.getItem("self-vouchernumber");
-                                                // document.getElementById("vouchername").innerHTML = window.localStorage.getItem("self-vouchername");
-                                                //document.getElementById("outletname").innerHTML = window.localStorage.getItem("self-outletname");
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backd").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backd").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backd").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backd").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrd").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrd").style.backgroundSize = "cover";           
                                                 document.getElementById("authcode").innerHTML = window.localStorage.getItem("self-authorization");
                                                 window.localStorage.setItem("self-vouchernumber", "");
                                                 window.localStorage.setItem("self-vouchername", "");
@@ -4853,7 +4966,13 @@ function completeRedemption() {
                                             : function () {
                                                 var t = "";//document.getElementById("selCountry").value;
                                                 showSpin();
-                                                back1_profile();
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backh").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backh").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backh").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrh").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrh").style.backgroundSize = "cover";     
                                                 window.localStorage.setItem("appopen", "90");
                                                 $.ajax({ 
                                                            type: "POST",
@@ -4900,7 +5019,34 @@ function completeRedemption() {
                                             },
                                             showCard1
                                             : function () {
-                                                back8_profile();
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-back8").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-back8").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-back8").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-back8").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qr8").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qr8").style.backgroundSize = "cover";      
+                                            },
+           showCard3
+                                            : function () {
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backt").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backt").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backt").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backt").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrt").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrt").style.backgroundSize = "cover";      
+                                            },
+        
+                                            showCard2
+                                            : function () {
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backe").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backe").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backe").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backe").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qre").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qre").style.backgroundSize = "cover";      
                                             },
                                             mymessagelist
                                             : function () {
@@ -4910,8 +5056,13 @@ function completeRedemption() {
                                                 // alert(password);
                                                 // alert(mdevicestat);
                                                 showSpin();
-                                                back1_profile();
-                                                document.getElementById("back1-filter").style.display = "none";
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name-backl").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number-backl").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry-backl").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment-backl").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qrl").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qrl").style.backgroundSize = "cover";      
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4975,25 +5126,35 @@ function completeRedemption() {
                                   
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.messageitem.length > 0) {
+                                                                       window.localStorage.setItem("selfredeem", "D"); 
+                                                                       document.getElementById("name-backk").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                                       document.getElementById("number-backk").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                                       document.getElementById("expiry-backk").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                                       document.getElementById("segment-backk").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                                       document.getElementById("mycard-qrk").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                                       document.getElementById("mycard-qrk").style.backgroundSize = "cover";      
                                                                        document.getElementById("pl-messageitem-list").style.display = "block";
                                                                        document.getElementById("msgnarration").innerHTML = getData.messageitem[0].narration;
                                                                        document.getElementById("msgday").innerHTML = getData.messageitem[0].mday + " " + getData.messageitem[0].mmonth;
                                                                        postLogin.set("msgsequence", getData.messageitem[0].sequence);
+                                                                       hideSpin();
                                                                    }else {
                                                                        navigator.notification.alert("No message available for your Membership", function() {
                                                                        }, "isme By Jumeirah", "Dismiss")    
+                                                                       hideSpin();
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Cannot get message item. " + getData.statusdesc, function() {
                                                                    }, "isme By Jumeirah", "Dismiss")          
+                                                                   hideSpin();
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot get message item.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss")
+                                                               hideSpin();
                                                            }
                                                        });
-                                                hideSpin(); //hide loading popup
                                             },
                                             deleteMessage
                                             :
@@ -5032,7 +5193,13 @@ function completeRedemption() {
                                            
                                             initPref: function () {
                                                 showSpin();
-                                                back6_profile();                        
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                document.getElementById("name6-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                document.getElementById("number6-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                document.getElementById("expiry6-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("segment6-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("mycard-qr6").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                document.getElementById("mycard-qr6").style.backgroundSize = "cover";                            
                                                 window.localStorage.setItem("issaved", "0");
                                                 getLifeStylePref("#lifestyle-filter", "#lifestyle-filter-template");
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
