@@ -3366,7 +3366,7 @@ function completeRedemption() {
         
                                             destroyploutletdetail:function() {
                                                // document.getElementById("pl-detail-title").innerHTML = "";
-                                                /plhideOutletDetail();
+                                                //plhideOutletDetail();
                                                 $("#pl-outletdetail-theme").remove();
                                             },
                                             destroyploutletlist:function() {
@@ -3920,7 +3920,7 @@ function completeRedemption() {
                                                 document.getElementById("segment-backq").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
                                                 document.getElementById("mycard-qrq").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrq").style.backgroundSize = "cover"; 
-                                                                   alert(getData.outletlist[0].outletname);
+                                                          
                                                                    document.getElementById("pl-outletdetail-title").innerHTML = getData.outletlist[0].outletname;
                                                                   
                                                                    document.getElementById("pl-outletimage").src = getData.outletlist[0].imageurll;
@@ -4443,7 +4443,7 @@ function completeRedemption() {
                                                 document.getElementById("segment-backm").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
                                                 document.getElementById("mycard-qrm").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrm").style.backgroundSize = "cover";      
-                                                                           
+                                                         
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4543,7 +4543,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backn").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backn").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backn").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
-                                                document.getElementById("segment-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
+                                                document.getElementById("segment-backn").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
                                                 document.getElementById("mycard-qrn").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrn").style.backgroundSize = "cover";    
                                                 $.ajax({ 
