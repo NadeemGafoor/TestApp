@@ -704,7 +704,11 @@ function postLoginBack() {
         elems[i].style.textAlign = "center";
     }
     
-    $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+     if (window.localStorage.getItem("segmentcode")==="1000"){
+                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                    }else{
+                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                        }                                                               
     //$("body").data("kendoMobilePane").navigate("#:back");
 }
 
@@ -2610,7 +2614,11 @@ function completeRedemption() {
                                                        homecountryname = window.localStorage.getItem("homecountryname");
                                                        residentcityname = window.localStorage.getItem("residentcityname");
                                                    
-                                                       $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                        if (window.localStorage.getItem("segmentcode")==="1000"){
+                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                    }else{
+                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                        }                                                                  
                                                    } else {
                                                        outletcode = "";
                                                        brandcode = "";
@@ -2919,7 +2927,11 @@ function completeRedemption() {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password);
                                                                       window.localStorage.setItem("loggedin", "1");                                                                   
-                                                                      $("body").data("kendoMobilePane").navigate("views/pl-home.html"); 
+                                                                        if (window.localStorage.getItem("segmentcode")==="1000"){
+                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                    }else{
+                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                        }
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                               }else {
@@ -2975,7 +2987,11 @@ function completeRedemption() {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                       window.localStorage.setItem("loggedin", "1");
-                                                                      $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                                       if (window.localStorage.getItem("segmentcode")==="1000"){
+                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                    }else{
+                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                        }                                                                  
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       $("body").data("kendoMobilePane").navigate("views/setpin.html");  
@@ -3319,6 +3335,7 @@ function completeRedemption() {
                                             },
         
                                             destroyplhome:function() {
+                                                 window.localStorage.setItem("appopen", "0");  
                                                 $("#pl-home-view").remove();
                                             },
         
@@ -3493,69 +3510,86 @@ function completeRedemption() {
         
         
                                             getSummaryplus:function () {
-                                                showSpin();
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/summaryReport.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:window.localStorage.getItem("mdevicestat")
-                                                                                }),   
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode == "000") {
-                                                                   if (window.localStorage.getItem("fbid") != "99") {
-                                                                       document.getElementById("fblink-show-p").style.display = "none";
-                                                                   }
-                                                                   document.getElementById("home-page-p").style.display = "block";
-                                                                   window.localStorage.setItem("spend", getData.spenda);
-                                                                   window.localStorage.setItem("maxspend", getData.maxspend);
-                                                                 
-                                                                   // document.getElementById("wallet-div").style.display = "block";
-                                                                   // document.getElementById("summary-1").innerHTML = getData.cashbackbalance;
-                                                                   // document.getElementById("summary-2").innerHTML = getData.vouchercount;
-                                                                   // document.getElementById("summary-3").innerHTML = getData.vouchercountexpiry;
-                                                                   // document.getElementById("summary-4").innerHTML = getData.spendbalance;
-                                                                   // document.getElementById("summary-5").innerHTML = getData.referralbalance;
-                                                                   // document.getElementById("summary-6").innerHTML = getData.rewardpointbalance;
-                                                                   // document.getElementById("summary-7").innerHTML = getData.tierpointbalance;
-                                                                   window.localStorage.setItem("selfredeem", ""); 
-                                                                   document.getElementById("main-title-p").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
-                                                                   document.getElementById("profile-name-p").innerHTML = window.localStorage.getItem("customername");
-                                                                   document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
-                                                                   document.getElementById("profile-init-p").innerHTML = "Member Since " + window.localStorage.getItem("initdate");
-                                                                   if (window.localStorage.getItem("segmentcode") === "1000") {
-                                                                       document.getElementById("profile-type-p").innerHTML = "isme ";
+                                                 showSpin();
+                                                clearAllVariables();                                            
+                                                clearListFilter();
+                                                window.localStorage.setItem("appopen", "0"); 
+                                          
+                                                if (firsttime==="") {
+                                                    $.ajax({ 
+                                                               type: "POST",
+                                                               cache:false,
+                                                               async:false,
+                                                               timeout:20000,
+                                                               url: gurl + "/summaryReport.aspx",
+                                                               contentType: "application/json; charset=utf-8",
+                                                               data: JSON.stringify({
+                                                                                        merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mdevice:window.localStorage.getItem("mdevicestat")
+                                                                                    }),   
+                                                               success: function (data) { 
+                                                                   var getData = JSON.parse(data);
+                                                                   if (getData.statuscode == "000") {
+                                                                       //document.getElementById("home-page").style.display = "block";
+                                                                       window.localStorage.setItem("spend", getData.spenda);
+                                                                       window.localStorage.setItem("maxspend", getData.maxspend);
                                                                    }else {
-                                                                       document.getElementById("profile-type-p").innerHTML = "isme elite";
+                                                                       navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc, function() {
+                                                                       }, "HD Rewards", "Dismiss")          
+                                                                       hideSpin(); //hide loading popup
                                                                    }
-                                                                   //Generate Spend Bar
-                                                                   var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
-                                                                   m = i;
-                                                                   if (i > 75) {
-                                                                       i = 75;  
-                                                                   }
-                                                
-                                                                   document.getElementById("spend-amount-p").style.margin = "auto auto auto " + parseInt(i + 5) + "%";
-                                                                   document.getElementById("spend-bar-p").style.width = m + "%";
-                                                                   document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend");
-                                                                  
-                                                                   hideSpin(); //hide loading popup
-                                                               }else {
-                                                                   navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc, function() {
-                                                                   }, "HD Rewards", "Dismiss")          
+                                                               },
+                                                               error: function (errormsg) {
+                                                                   navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                                   }, "HD Rewards", "Dismiss")
                                                                    hideSpin(); //hide loading popup
                                                                }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
-                                                               }, "HD Rewards", "Dismiss")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });
+                                                           });
+                                                }
+                                                firsttime = "1"; 
+                               
+                                                if (window.localStorage.getItem("fbid") != "99") {
+                                                    document.getElementById("fblink-show-p").style.display = "none";
+                                                }
+
+                                                window.localStorage.setItem("selfredeem", ""); 
+                                                document.getElementById("main-title-p").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
+                                                document.getElementById("profile-name-p").innerHTML = window.localStorage.getItem("customername");
+                                                document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
+                                                document.getElementById("profile-init-p").innerHTML = "Member Since " + window.localStorage.getItem("initdate");
+                                                if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                    document.getElementById("profile-type-p").innerHTML = "isme ";
+                                                }else {
+                                                    document.getElementById("profile-type-p").innerHTML = "isme elite";
+                                                }
+                                                //Generate Spend Bar
+                                                var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
+                                                m = i;
+                                                n = i;
+                                               
+                                                if (m > 70) {
+                                                    n = 70;
+                                                }
+                                                
+                                                if (i >= 90) {
+                                                    y = 83;
+                                                }else if (i >= 17) {
+                                                    y = i;
+                                                }else {
+                                                    y = 17;
+                                                }
+                                                document.getElementById("spend-amount-p").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
+                                                document.getElementById("spend-bar-p").style.width = m + "%";
+                                                
+                                                if (i > 100) {
+                                                    document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
+                                                }else {
+                                                    if (m >= 80) {
+                                                        document.getElementById("spend-amount-p").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
+                                                    }else {
+                                                        document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
+                                                    }
+                                                }                
+                                                hideSpin(); //hide loading popup
                                             },
         
                                             loadProfile
@@ -5327,8 +5361,12 @@ function completeRedemption() {
                                                     elems[i].style.zIndex = 10000;
                                                     elems[i].style.textAlign = "center";
                                                 }
-
+                                                if (window.localStorage.getItem("segmentcode")==="1000"){
                                                 $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                    }else{
+                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                        }
+
                                                 //$("body").data("kendoMobilePane").navigate("#:back");
                                             }
         
@@ -5564,7 +5602,11 @@ function completeRedemption() {
                            navigator.notification.alert("PIN has been successfully set", function() {
                            }, "isme by Jumeirah", "Dismiss")         
                            if (y === "0") {
-                               $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                if (window.localStorage.getItem("segmentcode")==="1000"){
+                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                    }else{
+                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                        }                                                                    
                                                                       
                                hideSpin(); //hide loading popup
                            }else {
@@ -6744,7 +6786,11 @@ function completeRedemption() {
     
         window.localStorage.setItem("appopen", "0");   
 
-        $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+         if (window.localStorage.getItem("segmentcode")==="1000"){
+                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                    }else{
+                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                        }                                                                   
     }
     //$("body").data("kendoMobilePane").navigate("#:back");
     
