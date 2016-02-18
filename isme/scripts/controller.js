@@ -3590,6 +3590,7 @@ function completeRedemption() {
                                                     }
                                                 }                
                                                 hideSpin(); //hide loading popup
+                                                
                                             },
         
                                             loadProfile
