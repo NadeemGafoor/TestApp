@@ -3403,6 +3403,8 @@ function completeRedemption() {
                                                 showSpin();
                                                 clearAllVariables();                                            
                                                 clearListFilter();
+                                                window.localStorage.setItem("appopen", "0"); 
+                                          
                                                 if (firsttime==="") {
                                                     $.ajax({ 
                                                                type: "POST",
@@ -3434,7 +3436,7 @@ function completeRedemption() {
                                                            });
                                                 }
                                                 firsttime = "1"; 
-                                                window.localStorage.setItem("appopen", "0"); 
+                               
                                                 if (window.localStorage.getItem("fbid") != "99") {
                                                     document.getElementById("fblink-show").style.display = "none";
                                                 }
