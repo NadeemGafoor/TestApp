@@ -6673,7 +6673,7 @@ function completeRedemption() {
                                    }
                                }
                            }
-                           document.getElementById("myfavorite-view").style.display="block";
+                         //  document.getElementById("myfavorite-view").style.display="block";
                            hideSpin();
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
