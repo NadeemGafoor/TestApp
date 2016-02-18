@@ -3039,6 +3039,7 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
+                                                
                                                               if (getData.statuscode == "000") { //Login Successful
                                                                   navigator.notification.alert("A URL has been sent to your registered email with a link to set your new password", function() {
                                                                   }, "isme by Jumeirah", "Dismiss");   
