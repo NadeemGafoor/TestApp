@@ -1843,7 +1843,7 @@ function completeRedemption() {
                                                                                                         });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
-                                                                      navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
+                                                                      navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
@@ -1889,7 +1889,7 @@ function completeRedemption() {
                                                                                                           });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
-                                                                      navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
+                                                                      navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
@@ -1937,7 +1937,7 @@ function completeRedemption() {
                                                                                                          });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
-                                                                      navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
+                                                                      navigator.notification.alert("There are no Leisure venues available for the selected property.", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
@@ -1983,7 +1983,7 @@ function completeRedemption() {
                                                                                                            });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
-                                                                      navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
+                                                                      navigator.notification.alert("There are no Leisure venues available for the selected property.", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
@@ -4120,7 +4120,7 @@ function completeRedemption() {
                                                                                                             });
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
-                                                                       navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
+                                                                       navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
@@ -4177,7 +4177,7 @@ function completeRedemption() {
                                                                                                               });
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
-                                                                       navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
+                                                                       navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
@@ -4225,7 +4225,7 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode === "000") {
                                                                    if (getData.outletlist.length === 0) {
-                                                                       navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
+                                                                       navigator.notification.alert("There are no Leisure venues available for the selected property. ", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
@@ -4279,7 +4279,7 @@ function completeRedemption() {
                                                                window.localStorage.setItem("brandcode", "");
                                                                if (getData.statuscode === "000") {
                                                                    if (getData.outletlist.length === 0) {
-                                                                       navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
+                                                                       navigator.notification.alert("There are no Leisure venues available for the selected property.", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
