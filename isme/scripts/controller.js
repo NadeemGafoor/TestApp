@@ -112,17 +112,17 @@ function loadEnrol() {
 }
 
 function faceBookClick() {
-    window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("social_message") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com", function () {
+    window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("static_social_msg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com", function () {
     }, function (errormsg) {
     });
 }
   
 function twitterClick() {
-    window.plugins.socialsharing.shareViaTwitter(window.localStorage.getItem("social_shortmsg"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com");   
+    window.plugins.socialsharing.shareViaTwitter(window.localStorage.getItem("static_social_msg"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com");   
 }
 
 function whatsappClick() {
-    window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("social_shortmsg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" , "", window.localStorage.getItem("appad_location"), function () {
+    window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("static_social_msg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" , "", window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
     })
 }
@@ -911,7 +911,7 @@ function completeRedemption() {
     //var notification_image = "https://appapi.exclusiveu.in/mobileportal/images/36x36_icon.png";    
     //var share_image = "https://appapi.exclusiveu.in/mobileportal/images/ihg_logo.png";
     //var flag_image = "https://appapi.exclusiveu.in/mobileportal/flagimages/";
-    var short_msg = "Check out the isme by Jumeirah at ";
+    var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at http://isme.jumeirah.com";
     var offertelephone = "8004763";
     var enrollmenttelephone = "8004763";
     var customercaretelephone = "8004763";
@@ -2412,6 +2412,7 @@ function completeRedemption() {
                                                    window.localStorage.setItem("brandcode", "");
                                                    window.localStorage.setItem("faqcategory", "");
                                                    window.localStorage.setItem("loginmode", "");
+                                                   window.localStorage.setItem("static_social_msg",static_social_msg);
                                                    fbCleanVariables();
                                                    $.ajax({    
                                                               type: "POST",
