@@ -1739,18 +1739,18 @@ function completeRedemption() {
 
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("There are no Benefits for the selected Program", function() {
+                                                                      navigator.notification.alert("There are no Benefits for the selected Programme. ", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get Benefit details. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, the Benefit details are not available. Please close the app and log in again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, the Benefit details are not available. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
@@ -1787,18 +1787,18 @@ function completeRedemption() {
 
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("There are no Benefits for the selected Program", function() {
+                                                                      navigator.notification.alert("There are no Benefits for the selected Programme.", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get Benefit details. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, the Benefit details are not available. Please close the app and log in again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, the Benefit details are not available. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
@@ -1842,18 +1842,18 @@ function completeRedemption() {
                                                                                                         });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
-                                                                      navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                      navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again.  " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, the location details are not available for the selected property. [" + errormsg.statusText + "]  Please check your network connection and try again. ", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -1888,18 +1888,18 @@ function completeRedemption() {
                                                                                                           });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
-                                                                      navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                      navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again.  " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, the location details are not available for the selected property. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -1936,19 +1936,19 @@ function completeRedemption() {
                                                                                                          });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
-                                                                      navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                      navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                                   //fill the outlet template
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again.  " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, the location details are not available for the selected property. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -1982,19 +1982,19 @@ function completeRedemption() {
                                                                                                            });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
-                                                                      navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                      navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                                   //fill the outlet template
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again.  " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, the location details are not available for the selected property. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2037,13 +2037,13 @@ function completeRedemption() {
                                                               
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get Brand Item " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, these details cannot be displayed. Please close the app and log in again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Brand Item. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, these details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2091,13 +2091,13 @@ function completeRedemption() {
                                                               
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get location " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, the location details are not available for the selected property. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get location. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, the location details are not available for the selected property. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2132,18 +2132,18 @@ function completeRedemption() {
                                                                                                              });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("No Offers currently exist for the selected Restaurant", function() {
+                                                                      navigator.notification.alert("No rewards are currently available for the selected venue. ", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get Offer List " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, these details cannot be displayed. Please close the app and log in again " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, these details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2179,18 +2179,18 @@ function completeRedemption() {
                                                                                                               });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("No Property Data Available", function() {
+                                                                      navigator.notification.alert("Due to a system error, these details cannot be displayed. ", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get Property Data " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, these details cannot be displayed. close app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Property Data.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, these details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2229,18 +2229,18 @@ function completeRedemption() {
                                                                                                             });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.offerlist.length == 0) {
-                                                                      navigator.notification.alert("No Reward List currently exist", function() {
+                                                                      navigator.notification.alert("No rewards are currently available for the selected venue. ", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get Reward List" + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, these details cannot be displayed. Please close the app and log in again " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, these details cannot be displayed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2282,13 +2282,13 @@ function completeRedemption() {
                                                                     
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get Reward List. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("No rewards are currently available for the selected venue. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, these details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2330,13 +2330,13 @@ function completeRedemption() {
                                                                     
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get Reward List. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("No rewards are currently available for the selected venue. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, these details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2366,18 +2366,18 @@ function completeRedemption() {
                                                                                                                    });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("There are no locations for the selected offer.", function() {
+                                                                      navigator.notification.alert("No venues are currently available for the selected reward. ", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get locations List. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, these details cannot be displayed. clos app and login again" + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get locations List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, these details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2445,13 +2445,13 @@ function completeRedemption() {
                                                                   }else if (getData.statuscode === "047") {
                                                                       $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
                                                                   } else {
-                                                                      navigator.notification.alert("Platform Error, Services may not be available. " + getData.statusText, function() {
+                                                                      navigator.notification.alert("Platform Error. Please close the app and log in again. " + getData.statusText, function() {
                                                                       }, "isme by Jumeirah", "Dismiss")          
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               },
                                                               error: function (errormsg) {
-                                                                  navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                                  navigator.notification.alert("Platform Error. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                   }, "isme by Jumeirah", "Dismiss")
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -2554,18 +2554,18 @@ function completeRedemption() {
                                    
                                                                               hideSpin(); //hide loading popup
                                                                           } else {
-                                                                              navigator.notification.alert("There are no Property for the selected Program!", function () {
+                                                                              navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
                                                                               }, "isme by Jumeirah", "Dismiss")
                                                                               hideSpin(); //hide loading popup
                                                                           }
                                                                       } else {
-                                                                          navigator.notification.alert("Cannot get Property List " + getData.statusdesc, function () {
+                                                                          navigator.notification.alert("Due to a system error, the property details cannot be displayed. " + getData.statusdesc, function () {
                                                                           }, "isme by Jumeirah", "Dismiss")
                                                                           hideSpin(); //hide loading popup
                                                                       }
                                                                   },
                                                                   error: function (error) {
-                                                                      navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
+                                                                      navigator.notification.alert("Due to a system error, the property details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
                                                                       }, "isme by Jumeirah", "Dismiss")
                                                                   }
                                                               });
@@ -2762,12 +2762,12 @@ function completeRedemption() {
                                                // alert(window.localStorage.getItem("FBuserID"));
                                                if (window.localStorage.getItem("loginmode") == "") {
                                                    if (!this.username) {
-                                                       navigator.notification.alert("Invalid Membership # or Empty", function() {
+                                                       navigator.notification.alert("Please enter a valid Membership number.", function() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }
                                                    if (!this.password) {
-                                                       navigator.notification.alert("Invalid Password or Empty", function() {
+                                                       navigator.notification.alert("Please enter a valid Password.", function() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }
@@ -2777,14 +2777,14 @@ function completeRedemption() {
                                                }
                                                
                                                if (!document.getElementById("enrol-tandc-accept-a").checked) {
-                                                   navigator.notification.alert("Please accept Terms & Conditions to proceed", function() {
+                                                   navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    hideSpin();
                                                    return;
                                                }
                                                
                                                if (!document.getElementById("enrol-tandc-accept-b").checked) {
-                                                   navigator.notification.alert("Please accept Data Protection Policy to proceed", function() {
+                                                   navigator.notification.alert("Please Accept Data Protection Policy to proceed", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    hideSpin();
                                                    return;
@@ -2935,7 +2935,7 @@ function completeRedemption() {
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Cannot Login. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Login failed. Please try entering your login details again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")
                                                                   window.localStorage.setItem("loginmode", "");
                                                                   window.localStorage.setItem("FBuserID", "");
@@ -2943,7 +2943,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot Login.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Login failed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               window.localStorage.setItem("loginmode", "");
                                                               window.localStorage.setItem("FBuserID", "");
@@ -2956,7 +2956,7 @@ function completeRedemption() {
                                            validateToken
                                            : function () {
                                                if (!this.tokennum) {
-                                                   navigator.notification.alert("Invalid Token or Empty", function() {
+                                                   navigator.notification.alert("Please enter a valid Token number. ", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
@@ -2997,13 +2997,13 @@ function completeRedemption() {
                                                                       $("body").data("kendoMobilePane").navigate("views/setpin.html");  
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot Login. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Login failed. Please try entering your login details again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot Login.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Login failed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -3019,7 +3019,7 @@ function completeRedemption() {
                                                }
                                                
                                                if (this.pin1 != this.pin2) {
-                                                   navigator.notification.alert("PIN Numbers do not match, re-enter", function() {
+                                                   navigator.notification.alert("PIN Numbers do not match, please re-enter a valid PIN.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
@@ -3033,7 +3033,7 @@ function completeRedemption() {
                                            requestPasswordChangeURL:
                                            function () {
                                                if (!this.emailid1) {
-                                                   navigator.notification.alert("Invalid email or Empty", function() {
+                                                   navigator.notification.alert("Please enter a valid email address.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
@@ -3057,19 +3057,19 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                 
                                                               if (getData.statuscode == "000") { //Login Successful
-                                                                  navigator.notification.alert("A URL has been sent to your registered email with a link to set your new password", function() {
+                                                                  navigator.notification.alert("A URL has been sent to your registered email with a link to set your new password. ", function() {
                                                                   }, "isme by Jumeirah", "Dismiss");   
                                                                   preLogin.set("username1", "");
                                                                   preLogin.set("emailid1", "");
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Unable to send the password reset URL. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Unable to send the password reset URL. Please restart the app and try resetting your password again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Unable to send the password reset URL [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Unable to send the password reset URL. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -3101,18 +3101,18 @@ function completeRedemption() {
                                                                                                                   });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("There are no Benefits for the selected Program!", function() {
+                                                                      navigator.notification.alert("Due to a system error, the Benefit details are not available. Please close the app and log in again. ", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get Benefit List " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, the Benefit details are not available. Please close the app and log in again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit List. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, the Benefit details are not available. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -3143,18 +3143,18 @@ function completeRedemption() {
                                                                                                             });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("No FAQ exists for the selected Program", function() {
+                                                                      navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. ", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get FAQ list " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, the FAQs cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
@@ -3192,18 +3192,18 @@ function completeRedemption() {
                                                                                                                });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
-                                                                      navigator.notification.alert("No FAQ exists for the selected Program", function() {
+                                                                      navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. ", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
-                                                                  navigator.notification.alert("Cannot get FAQ list " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, the FAQs cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
@@ -3448,13 +3448,13 @@ function completeRedemption() {
                                                                        window.localStorage.setItem("spend", getData.spenda);
                                                                        window.localStorage.setItem("maxspend", getData.maxspend);
                                                                    }else {
-                                                                       navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc, function() {
+                                                                       navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
                                                                        }, "HD Rewards", "Dismiss")          
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                },
                                                                error: function (errormsg) {
-                                                                   navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                                   navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                    }, "HD Rewards", "Dismiss")
                                                                    hideSpin(); //hide loading popup
                                                                }
@@ -3533,13 +3533,13 @@ function completeRedemption() {
                                                                        window.localStorage.setItem("spend", getData.spenda);
                                                                        window.localStorage.setItem("maxspend", getData.maxspend);
                                                                    }else {
-                                                                       navigator.notification.alert("Cannot retrieve Wallet! " + getData.statusdesc, function() {
+                                                                       navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
                                                                        }, "HD Rewards", "Dismiss")          
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                },
                                                                error: function (errormsg) {
-                                                                   navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                                   navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                    }, "HD Rewards", "Dismiss")
                                                                    hideSpin(); //hide loading popup
                                                                }
@@ -3784,18 +3784,18 @@ function completeRedemption() {
                                                                
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("There are no Benefits for the selected Program", function() {
+                                                                       navigator.notification.alert("There are no Benefits for the selected Programme.", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get Benefit details. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, the Benefit details are not available. Please close the app and log in again. " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, the Benefit details are not available.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup                                          
                                                            }
@@ -3824,18 +3824,18 @@ function completeRedemption() {
                                                                                                                        });
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("There are no locations for the selected Reward.", function() {
+                                                                       navigator.notification.alert("Due to a system error, the locations cannot be retrieved for the selected reward, please try again or contact support for assistance. ", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get locations List. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, the locations cannot be retrieved for the selected reward. " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get locations List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, the locations cannot be retrieved for the selected reward. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -3866,12 +3866,12 @@ function completeRedemption() {
                                                                                                                         });
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("There are no locations for the selected offer.", function() {
+                                                                       navigator.notification.alert("Due to a system error, the locations cannot be retrieved for the selected reward, please try again or contact support for assistance. ", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get locations List. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, the locations cannot be retrieved for the selected reward. " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
@@ -3922,18 +3922,18 @@ function completeRedemption() {
                                                                                                                 });
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.offerlist.length == 0) {
-                                                                       navigator.notification.alert("No Reward List currently exist", function() {
+                                                                       navigator.notification.alert("No rewards are currently available.", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get Reward List." + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, the rewards cannot be displayed. Please close the app and log in again.  " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Reward List.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, the rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -3987,13 +3987,13 @@ function completeRedemption() {
                                                               
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get location " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, the location details are not available for the selected property. " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get location. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, the location details are not available for the selected property. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4035,18 +4035,18 @@ function completeRedemption() {
                                                                                                               });
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.propertylist.length === 0) {
-                                                                       navigator.notification.alert("No Property Data Available", function() {
+                                                                       navigator.notification.alert("Due to a system error, the Property details cannot be displayed. ", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get Property Data " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, the Property details cannot be displayed. " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Property Data.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, the Property details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4091,18 +4091,18 @@ function completeRedemption() {
                                                                                                             });
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
-                                                                       navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                       navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again. " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }    
@@ -4147,18 +4147,18 @@ function completeRedemption() {
                                                                                                               });
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
-                                                                       navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                       navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again. " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }    
@@ -4194,7 +4194,7 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode === "000") {
                                                                    if (getData.outletlist.length === 0) {
-                                                                       navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                       navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
@@ -4206,13 +4206,13 @@ function completeRedemption() {
                                                                                                              });
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again. " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4247,7 +4247,7 @@ function completeRedemption() {
                                                                window.localStorage.setItem("brandcode", "");
                                                                if (getData.statuscode === "000") {
                                                                    if (getData.outletlist.length === 0) {
-                                                                       navigator.notification.alert("No locations exists for the selected property", function() {
+                                                                       navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again. ", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
@@ -4259,13 +4259,13 @@ function completeRedemption() {
                                                                                                                });
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get locations List." + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again. " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again.    [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4319,13 +4319,13 @@ function completeRedemption() {
                                                              
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get Brand Item " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, the Property details cannot be displayed.  " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Brand Item. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, the Property details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4384,13 +4384,13 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get Offer List. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("There are no rewards for the selected location." + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, the Reward details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4436,13 +4436,13 @@ function completeRedemption() {
                                                                    
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Cannot activate offer. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, this reward could not be activated. " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error Cannot activate offer. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, this reward could not be activated.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup                                                                 
                                                            }
@@ -4514,18 +4514,18 @@ function completeRedemption() {
                                                                                                                        });
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("No Vouchers available in Wallet.", function() {
+                                                                       navigator.notification.alert("No Vouchers are currently available in your Wallet.", function() {
                                                                        }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot retrieve Wallet.  " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, your Wallet could not be displayed. Please restart the app and try again.  " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, your Wallet cannot be displayed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4571,13 +4571,13 @@ function completeRedemption() {
                                                                    $("#pl-tandc-accept").data("kendoMobileSwitch").check(false);
                                                                    hideSpin(); //hide loading popup
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get Reward List. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, the Rewards cannot be displayed. " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Reward List. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, the Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4626,18 +4626,18 @@ function completeRedemption() {
                                                                        $("#wallet-tandc").data("kendoMobileSwitch").check(false);    
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("No Vouchers available in Wallet", function() {
+                                                                       navigator.notification.alert("No Vouchers are currently available in your Wallet.", function() {
                                                                        }, "isme By Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot retrieve Wallet " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, your Wallet could not be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                    }, "isme By Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, your Wallet cannot be displayed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4753,7 +4753,7 @@ function completeRedemption() {
                                                     saveImageFile(imageData);
                                                 };
                                                 var error = function () {
-                                                    navigator.notification.alert("Unfortunately Image cannot be captured");
+                                                    navigator.notification.alert("Unfortunately, your image could not be captured. Please try again.");
                                                 };
                                                   
                                                 var config = {
@@ -4778,7 +4778,7 @@ function completeRedemption() {
                                               
                                             getImage:
                                             function () {
-                                                alert("Image1");
+                               
                                                 var success = function (imageData) {
                                                     var image = document.getElementById('profile-picture-1');
                                                     image.src = "data:image/png;base64," + imageData;
@@ -4787,7 +4787,7 @@ function completeRedemption() {
                                                     saveImageFile(imageData);
                                                 };
                                                 var error = function () {
-                                                    navigator.notification.alert("Unfortunately Image cannot be retrieved");
+                                                    navigator.notification.alert("Unfortunately, your image could not be retrieved. Please try again.");
                                                 };
                                                   
                                                 var config = {
@@ -4836,13 +4836,13 @@ function completeRedemption() {
                                                                    $("#modalviewpin").data("kendoMobileModalView").open();
                                                                    hideSpin();
                                                                }else {
-                                                                   navigator.notification.alert("Error setting PIN " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to a system error, the PIN was not set. " + getData.statusdesc, function() {
                                                                    }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin();
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, cannot verify password. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to a system error, the PIN was not set.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin();
                                                            }
@@ -4853,13 +4853,13 @@ function completeRedemption() {
                                             plsavePIN 
                                             : function () {
                                                 if (!this.newpin1 || !this.newpin2) {
-                                                    navigator.notification.alert("Invalid PIN Number", function() {
+                                                    navigator.notification.alert("Invalid PIN Number. Please re-enter a valid PIN number. ", function() {
                                                     }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
                                                
                                                 if (this.newpin1 != this.newpin2) {
-                                                    navigator.notification.alert("PIN Numbers do not match, re-enter", function() {
+                                                    navigator.notification.alert("PIN Numbers do not match, please re-enter a valid PIN number.", function() {
                                                     }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
@@ -4873,7 +4873,7 @@ function completeRedemption() {
                                             validateredemptionpin
                                             : function () {
                                                 if (!this.srpin1) {
-                                                    navigator.notification.alert("Invalid Redemption PIN or Empty", function() {
+                                                    navigator.notification.alert("Invalid PIN Number. Please re-enter a valid PIN number. ", function() {
                                                     }, "isme By Jumeirah", "Dismiss");
                                                     return;
                                                 }
@@ -4912,7 +4912,7 @@ function completeRedemption() {
                                             completeRedemptionDiscount
                                             : function () {
                                                 if (!this.depin1) {
-                                                    navigator.notification.alert("Invalid or Empty Restaurant Staff PIN", function() {
+                                                    navigator.notification.alert("Invalid Outlet identifier. Please enter valid outlet identifier.", function() {
                                                     }, "isme By Jumeirah", "Dismiss");
                                                     return;
                                                 }
@@ -4925,7 +4925,7 @@ function completeRedemption() {
                                                 } else if (window.localStorage.getItem("selfredeem")==="M") {
                                                     redeemVoucher();
                                                 } else {
-                                                    navigator.notification.alert("Invalid Redemption Type. Contact Technical Support", function() {
+                                                    navigator.notification.alert("Invalid Outlet identifier. Please try again.", function() {
                                                     }, "isme By Jumeirah", "Dismiss");
                                                     return;  
                                                 }
@@ -5039,18 +5039,18 @@ function completeRedemption() {
                                                                                                                  });
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
-                                                                       navigator.notification.alert("No transaction history available for your membership", function() {
+                                                                       navigator.notification.alert("No transaction history available for your membership.", function() {
                                                                        }, "isme By Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get history " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to system error, transaction history cannot be displayed. " + getData.statusdesc, function() {
                                                                    }, "isme By Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get history  [" + errormsg.responseText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to system error, transaction history cannot be displayed.  [" + errormsg.responseText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -5124,16 +5124,16 @@ function completeRedemption() {
                                                                                                                       
                                                                                                                  });
                                                                    }else {
-                                                                       navigator.notification.alert("No message history for your Membership", function() {
+                                                                       navigator.notification.alert("No message history for your Membership. ", function() {
                                                                        }, "isme By Jumeirah", "Dismiss")    
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get message history. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to system error, message history cannot be displayed. Please try again. " + getData.statusdesc, function() {
                                                                    }, "isme By Jumeirah", "Dismiss")          
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get message history.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to system error, message history cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss")
                                                            }
                                                        });
@@ -5178,18 +5178,18 @@ function completeRedemption() {
                                                                        postLogin.set("msgsequence", getData.messageitem[0].sequence);
                                                                        hideSpin();
                                                                    }else {
-                                                                       navigator.notification.alert("No message available for your Membership", function() {
+                                                                       navigator.notification.alert("No message history for your Membership. ", function() {
                                                                        }, "isme By Jumeirah", "Dismiss")    
                                                                        hideSpin();
                                                                    }
                                                                }else {
-                                                                   navigator.notification.alert("Cannot get message item. " + getData.statusdesc, function() {
+                                                                   navigator.notification.alert("Due to system error, message item cannot be displayed. Please try again. " + getData.statusdesc, function() {
                                                                    }, "isme By Jumeirah", "Dismiss")          
                                                                    hideSpin();
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get message item.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("Due to system error, message item cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss")
                                                                hideSpin();
                                                            }
@@ -5220,13 +5220,15 @@ function completeRedemption() {
                                                                    navigator.notification.alert("Cannot delete message. " + getData.statusdesc, function() {
                                                                    }, "isme By Jumeirah", "Dismiss")          
                                                                }
+                                                                hideSpin(); //hide loading popup
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot delete message. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               navigator.notification.alert("System error, cannot delete message. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss")
+                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
-                                                hideSpin(); //hide loading popup
+                                               
                                             },
            
                                            
@@ -5315,17 +5317,17 @@ function completeRedemption() {
                      
                                                                        if (getData.statuscode === "000") {
                                                                            window.localStorage.setItem("fbLoginModeEnabled", "Y");
-                                                                           navigator.notification.alert("The Facebook account on this device linked successfully to the isme membership.", function() {
+                                                                           navigator.notification.alert("The Facebook account on this device is successfully linked to your isme membership.", function() {
                                                                            }, "isme By Jumeirah" , "Dismiss");     
                                                                            hideSpin();
                                                                        }else {
-                                                                           navigator.notification.alert("The Facebook account in this device is already linked to another isme membership.  cannot link Facebook to this account", function() {
+                                                                           navigator.notification.alert("The Facebook account in this device is already linked to another isme membership.", function() {
                                                                            }, "isme By Jumeirah" , "Dismiss");  
                                                                            hideSpin();
                                                                        }
                                                                    },
                                                                    error: function (errormsg) {
-                                                                       navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
+                                                                       navigator.notification.alert("Due to a system error, we are unable to validate the Facebook account. " + errormsg.statusText, function() {
                                                                        }, "isme By Jumeirah" , "Dismiss");     
                                                                        hideSpin();
                                                                    }
@@ -5434,10 +5436,10 @@ function completeRedemption() {
             setMemberPreference(y, items[i].value);
         }
         if (window.localStorage.getItem("errorPreference") === "1") {
-            navigator.notification.alert("Preferences Saves Successfully", function() {
+            navigator.notification.alert("Your Preferences were saved successfully.", function() {
             }, "isme By Jumeirah", "Dismiss") ;    
         } else {
-            navigator.notification.alert("ERROR : One or more preferences could not be saved!" + window.localStorage.getItem("errorPreference"), function() {
+            navigator.notification.alert("System error: One or more preferences could not be saved. Please click Save again to re-try. " + window.localStorage.getItem("errorPreference"), function() {
             }, "isme By Jumeirah" , "Dismiss") ;   
         }
         window.localStorage.setItem("errorPreference", "1");
@@ -5477,13 +5479,13 @@ function completeRedemption() {
                                                               
                            hideSpin(); //hide loading popup
                        }else {
-                           navigator.notification.alert("Unable to Validate Discount ! " + getData.statusdesc, function() {
+                           navigator.notification.alert("Unable to Validate Discount. Please try again.  " + getData.statusdesc, function() {
                            }, "isme By Jumeirah", "Dismiss")      
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("System Error, unable to Validate Discount  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                       navigator.notification.alert("Due to a system error, we are unable to Validate Discount  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5520,13 +5522,13 @@ function completeRedemption() {
                           
                            hideSpin(); //hide loading popup
                        }else {
-                           navigator.notification.alert("Unable to Redeem Voucher! " + getData.statusdesc, function() {
+                           navigator.notification.alert("Unable to Redeem Voucher. Please try again. " + getData.statusdesc, function() {
                            }, "isme By Jumeirah", "Dismiss")      
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("System Error, unable to Redeem Voucher  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                       navigator.notification.alert("System Error: unable to Redeem Voucher.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5559,13 +5561,13 @@ function completeRedemption() {
                            }
                            hideSpin(); //hide loading popup
                        }else {
-                           navigator.notification.alert("Unable to Redeem Voucher! " + getData.statusdesc, function() {
+                           navigator.notification.alert("Unable to Redeem Voucher. Please try again. " + getData.statusdesc, function() {
                            }, "isme By Jumeirah", "Dismiss")      
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("System Error, unable to Redeem Voucher  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                       navigator.notification.alert("System Error: unable to Redeem Voucher.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5608,13 +5610,13 @@ function completeRedemption() {
                                hideSpin();
                            }
                        }else {
-                           navigator.notification.alert("Cannot set PIN. " + getData.statusdesc, function() {
+                           navigator.notification.alert("Due to a system error, we are unable to set PIN. " + getData.statusdesc, function() {
                            }, "isme by Jumeirah", "Dismiss")         
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot set PIN.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                       navigator.notification.alert("Due to a system error, we are unable to set PIN. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5637,13 +5639,13 @@ function completeRedemption() {
                    success: function (data) { 
                        var getData = JSON.parse(data);
                        if (getData.statuscode != "000") {
-                           navigator.notification.alert("Could not update image changes due to error  " + getData.statusdesc, function() {
+                           navigator.notification.alert("Image change could not be updated due to system error. " + getData.statusdesc, function() {
                            }, "isme By Jumeirah", "Dismiss")          
                        }
                        hideSpin(); //hide loading popup
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Could not update image  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                       navigator.notification.alert("Image change could not be updated due to system error. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5680,7 +5682,7 @@ function completeRedemption() {
                                hideSpin();
                            }else {
                                plus
-                               navigator.notification.alert("Cannot get Country list. " + getData.statusdesc, function() {
+                               navigator.notification.alert("Unable to display country list. Please restart your app and try again. " + getData.statusdesc, function() {
                                }, "isme by Jumeirah", "Dismiss")          
                                hideSpin(); //hide loading popup
                            }
@@ -5688,7 +5690,7 @@ function completeRedemption() {
                    },
                    error:
                    function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Country list. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                       navigator.notification.alert("Due to a system error, Unable to display country list. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5722,13 +5724,13 @@ function completeRedemption() {
                            }
                            document.getElementById("selCity").value = residentcity;
                        }else {
-                           navigator.notification.alert("Cannot get City list. " + getData.statusdesc, function() {
+                           navigator.notification.alert("Unable to display city list. Please restart your app and try again. " + getData.statusdesc, function() {
                            }, "isme by Jumeirah", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get City list. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                       navigator.notification.alert("Due to a system error, Unable to display city list. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5743,7 +5745,7 @@ function completeRedemption() {
          
     function showSpin() {
         if (!checkConnectionBool()) {
-            navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.", function() {
+            navigator.notification.alert("Due to a network error cannot complete the request. Please check your network and re-try.", function() {
             }, "isme by Jumeirah", "Dismiss");  
             //        //$("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
         } else {
