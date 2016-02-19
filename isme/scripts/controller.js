@@ -199,7 +199,7 @@ function onSelectTabStrip(e) {
         getLocation5();
     } else if (i === 1) {
         supportEmailA();
-    } else {
+    } else if (i === 2) {
         customerCare();
     }
     var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
@@ -2074,6 +2074,8 @@ function completeRedemption() {
                                                                                                                                                                                                                                    
                                                                   lat = m[0];
                                                                   lon = m[1];
+                                                                  window.localStorage.setItem("oc", getData.outletlist[0].outletcode);
+                                                                  window.localStorage.setItem("op", getData.outletlist[0].outletfavourite);
                                                                   document.getElementById("outlet-detail-div").style.display = "block";
                                                                   document.getElementById("outletdetail-title").innerHTML = getData.outletlist[0].outletname;
                                                                   
@@ -3431,7 +3433,7 @@ function completeRedemption() {
                                                 clearAllVariables();                                            
                                                 //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "0"); 
-                                               //changeCard(window.localStorage.getItem("segmentcode"));  
+                                                //changeCard(window.localStorage.getItem("segmentcode"));  
                                                 if (firsttime==="") {
                                                     $.ajax({ 
                                                                type: "POST",
@@ -3495,12 +3497,12 @@ function completeRedemption() {
                                                     y = 17;
                                                 }
                                                 document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
-                                                 if (i >= 100) {
-                                                     document.getElementById("spend-amount").style.margin = "auto auto auto 75%";
-                                                     document.getElementById("spend-bar").style.width = '100%';
+                                                if (i >= 100) {
+                                                    document.getElementById("spend-amount").style.margin = "auto auto auto 75%";
+                                                    document.getElementById("spend-bar").style.width = '100%';
                                                     document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
                                                 }else {
-                                                     document.getElementById("spend-bar").style.width = m + "%";
+                                                    document.getElementById("spend-bar").style.width = m + "%";
                                                     if (m >= 80) {
                                                         document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
                                                     }else {
@@ -3517,7 +3519,7 @@ function completeRedemption() {
                                                 clearAllVariables();                                            
                                                 //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "0"); 
-                                          //changeCard(window.localStorage.getItem("segmentcode"));  
+                                                //changeCard(window.localStorage.getItem("segmentcode"));  
                                                 if (firsttime==="") {
                                                     $.ajax({ 
                                                                type: "POST",
@@ -3581,14 +3583,13 @@ function completeRedemption() {
                                                     y = 17;
                                                 }
                                                 document.getElementById("spend-amount-p").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
-                                              
                                                
                                                 if (i >= 100) {
-                                                     document.getElementById("spend-bar-p").style.width = '100%';
-                                                     document.getElementById("spend-amount-p").style.margin = "auto auto auto 75%";
+                                                    document.getElementById("spend-bar-p").style.width = '100%';
+                                                    document.getElementById("spend-amount-p").style.margin = "auto auto auto 75%";
                                                     document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
                                                 }else {
-                                                     document.getElementById("spend-bar-p").style.width = m + "%";
+                                                    document.getElementById("spend-bar-p").style.width = m + "%";
                                                     if (m >= 80) {
                                                         document.getElementById("spend-amount-p").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
                                                     }else {
@@ -3810,7 +3811,7 @@ function completeRedemption() {
                                             },
         
                                             showOfferOutlet: function() {
-                                                 changeCard();
+                                                changeCard();
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3853,7 +3854,7 @@ function completeRedemption() {
                                             myVoucherShowOfferOutlet
 
                                             : function() {
-                                                 changeCard();
+                                                changeCard();
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3895,7 +3896,7 @@ function completeRedemption() {
         
                                             rewardList
                                             : function (e) {
-                                                 changeCard();
+                                                changeCard();
                                                 showSpin();
                                                 offercode = "";
                                                 offertype = "3"; 
@@ -3951,7 +3952,7 @@ function completeRedemption() {
                                             },
                                             showOutletItem
                                             : function (e) {
-                                                 changeCard();
+                                                changeCard();
                                                 showSpin();
                                                 outletcode = e.view.params.od;
                                                 $.ajax({ 
@@ -4013,7 +4014,7 @@ function completeRedemption() {
         
                                             propertyList
                                             : function () {
-                                                 changeCard();
+                                                changeCard();
                                                 //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "811");
                                                 window.localStorage.setItem("selfredeem", "D"); 
@@ -4067,7 +4068,7 @@ function completeRedemption() {
         
                                             showAllOutlet
                                             : function (e) {
-                                                 changeCard();
+                                                changeCard();
                                                 showSpin(); 
                                                 if (window.localStorage.getItem("appopen")==="0") {
                                                     window.localStorage.setItem("brand", e.view.params.brand);  
@@ -4126,7 +4127,7 @@ function completeRedemption() {
         
                                             showAllOutlet1
                                             : function (e) {
-                                                 changeCard();
+                                                changeCard();
                                                 showSpin(); 
                                              
                                                 window.localStorage.setItem("category", "0"); 
@@ -4180,7 +4181,7 @@ function completeRedemption() {
                                             },
                                             showAllLeisure
                                             : function (e) {
-                                                 changeCard();
+                                                changeCard();
                                                 showSpin(); 
                                                 if (window.localStorage.getItem("appopen")==="0") {
                                                     window.localStorage.setItem("brand", e.view.params.brand);  
@@ -4236,7 +4237,7 @@ function completeRedemption() {
         
                                             showAllLeisure1
                                             : function (e) {
-                                                 changeCard();
+                                                changeCard();
                                                 showSpin(); 
                                           
                                                 window.localStorage.setItem("category", e.view.params.category); 
@@ -4291,7 +4292,7 @@ function completeRedemption() {
         
                                             showPropertyItem  
                                             : function (e) {
-                                                 changeCard();
+                                                changeCard();
                                                 showSpin();
                                                 window.localStorage.setItem("brandcode", e.view.params.od);
                                     
@@ -4370,7 +4371,7 @@ function completeRedemption() {
 
                                             showOutletOffer
                                             : function () {
-                                                 changeCard();
+                                                changeCard();
                                                 offercode = "";
                                                 offertype = "1";
                                                 showSpin();
@@ -4503,7 +4504,7 @@ function completeRedemption() {
                                             },
                                             mywalletofferlist
                                             : function () {
-                                                 changeCard();
+                                                changeCard();
                                                 showSpin();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backm").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -4553,7 +4554,7 @@ function completeRedemption() {
                                             },
                                             showOfferItem
                                             : function (e) {
-                                                 changeCard();
+                                                changeCard();
                                                 offercode = e.view.params.cpn; //offer code for single offer inquiry
                                                 offertype = "2"; //single offer inquiry
                                                 window.localStorage.setItem("selfredeem", "D"); 
@@ -4607,7 +4608,7 @@ function completeRedemption() {
         
                                             mywalletofferdetail
                                             : function (e) {
-                                                 changeCard();
+                                                changeCard();
                                                 couponnumber = e.view.params.cpn;
                                                 showSpin();
                                                 window.localStorage.setItem("selfredeem", "D"); 
@@ -4668,7 +4669,7 @@ function completeRedemption() {
         
                                             myofferOutlet:
                                             function () {
-                                                 changeCard();
+                                                changeCard();
                                                 showSpin(); //show loading popup
                                                 
                                                 if (autolocation==="1") {
@@ -4700,7 +4701,7 @@ function completeRedemption() {
         
                                             editsettingdata
                                             :function() {
-                                                 changeCard();
+                                                changeCard();
                                                 showSpin(); 
                                                 listCountry();
                                                 window.localStorage.setItem("isset", "0");
@@ -4971,7 +4972,7 @@ function completeRedemption() {
         
                                             discountRedeemConfirmblack
                                             : function () {
-                                                 changeCard();
+                                                changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backy").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backy").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -5034,7 +5035,7 @@ function completeRedemption() {
                                                                                   
                                             myhistorylist
                                             : function () {
-                                                 changeCard();
+                                                changeCard();
                                                 var t = "";//document.getElementById("selCountry").value;
                                                 showSpin();
                                                 window.localStorage.setItem("selfredeem", "D"); 
@@ -5265,7 +5266,7 @@ function completeRedemption() {
            
                                            
                                             initPref: function () {
-                                                 changeCard();
+                                                changeCard();
                                                 showSpin();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name6-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -5399,8 +5400,16 @@ function completeRedemption() {
                                                     $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
                                                 }
                                                 //$("body").data("kendoMobilePane").navigate("#:back");
+                                            },
+                                            setOutletFavourite:function() {
+                                                if (window.localStorage.getItem("op")==="1") {
+                                                    y = "1";
+                                                    
+                                                }else {
+                                                    y = "";
+                                                }
+                                                setMemberPreference(y, window.localStorage.getItem("oc"));
                                             }
-        
                                             
                                         });  
     
@@ -7168,82 +7177,77 @@ function completeRedemption() {
     }
     
     function changeCard() {
-  if (window.localStorage.getItem("segmentcode")==="1000"){   
-   elems = document.getElementsByClassName('cardhead');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.backgroundColor = '#fff';
-    }  
+        if (window.localStorage.getItem("segmentcode")==="1000") {   
+            elems = document.getElementsByClassName('cardhead');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.backgroundColor = '#fff';
+            }  
         
-   elems = document.getElementsByClassName('class-card-div');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.backgroundColor = '#fff';
-    }  
+            elems = document.getElementsByClassName('class-card-div');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.backgroundColor = '#fff';
+            }  
         
-    elems = document.getElementsByClassName('share-menu-line-3');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.backgroundColor = '#fff';
-    }  
+            elems = document.getElementsByClassName('share-menu-line-3');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.backgroundColor = '#fff';
+            }  
     
-    elems = document.getElementsByClassName('share-menu-line-2-c');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.backgroundColor = '#fff';
-    }   
+            elems = document.getElementsByClassName('share-menu-line-2-c');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.backgroundColor = '#fff';
+            }   
         
-    elems = document.getElementsByClassName('share-menu-line-3-a');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.color = '#000';
-    }   
+            elems = document.getElementsByClassName('share-menu-line-3-a');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.color = '#000';
+            }   
         
-    elems = document.getElementsByClassName('fa-chevron-up');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.color = '#000';
-    }    
+            elems = document.getElementsByClassName('fa-chevron-up');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.color = '#000';
+            }    
         
-       elems = document.getElementsByClassName('general-text-line-1');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.color = '#000';
-    }       
-      
-      
-      }else{
-         elems = document.getElementsByClassName('cardhead');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.backgroundColor = '#000';
-    }  
+            elems = document.getElementsByClassName('general-text-line-1');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.color = '#000';
+            }       
+        }else {
+            elems = document.getElementsByClassName('cardhead');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.backgroundColor = '#000';
+            }  
         
-   elems = document.getElementsByClassName('class-card-div');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.backgroundColor = '#000';
-    }  
+            elems = document.getElementsByClassName('class-card-div');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.backgroundColor = '#000';
+            }  
         
-    elems = document.getElementsByClassName('share-menu-line-3');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.backgroundColor = '#000';
-    }  
+            elems = document.getElementsByClassName('share-menu-line-3');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.backgroundColor = '#000';
+            }  
     
-    elems = document.getElementsByClassName('share-menu-line-2-c');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.backgroundColor = '#000';
-    }   
+            elems = document.getElementsByClassName('share-menu-line-2-c');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.backgroundColor = '#000';
+            }   
         
-    elems = document.getElementsByClassName('share-menu-line-3-a');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.color = '#fff';
-    }   
+            elems = document.getElementsByClassName('share-menu-line-3-a');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.color = '#fff';
+            }   
         
-    elems = document.getElementsByClassName('fa-chevron-up');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.color = '#fff';
-    }    
+            elems = document.getElementsByClassName('fa-chevron-up');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.color = '#fff';
+            }    
         
-       elems = document.getElementsByClassName('general-text-line-1');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.color = '#fff';
-    }        
-          
-      }
-       
-        
+            elems = document.getElementsByClassName('general-text-line-1');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.color = '#fff';
+            }        
+        }
+    }
 }
-}
-)(window);
+    )(window);

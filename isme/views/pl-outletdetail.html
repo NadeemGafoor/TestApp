@@ -1,87 +1,83 @@
 <div data-role="view" id="pl-outletdetail-theme"    data-title="" data-layout="pl-pre-layout" data-model="postLogin" data-reload="true" data-show="postLogin.showOutletItem" style="background-color:#fff" data-hide="postLogin.destroyploutletdetail">
-  
-  <header data-role="header">
-                <div data-role="navbar">
-                    <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff">
-                    </a>
 
-                    <span id="pl-outletdetail-title"></span>
-                      <a data-role="button" data-click="shareClick" data-align="right">
-                        <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
-                    </a>
-                </div>
-                
-                      <div class="sharehead">
-                    <div class="home-page-holder"></div>
-                    <div class="class-share-div">
-                        <div class="share-menu-line-1">
-                            <div class="button-frame-inline-round">
-                                <a id="btn-facebook" data-role="button" data-click="faceBookClick" style="background:transparent !important">
-                                    <i class="fa fa-facebook fa-2x  share-class"></i>
-                                </a>
-                            </div>
-                            <div class="button-frame-inline-round">
-                                <a id="btn-twitter" data-role="button" data-click="twitterClick" style="background:transparent !important">
-                                    <i class="fa fa-twitter fa-2x   share-class"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="share-menu-line-1">
-                            <div class="button-frame-inline-round">
-                                <a id="btn-whatsapp" data-role="button"  data-click="whatsappClick" style="background:transparent !important">
-                                    <i class="fa fa-whatsapp fa-2x   share-class"></i>
-                                </a>
-                            </div>
-                            <div class="button-frame-inline-round">
-                                <a id="btn-email" data-role="button" data-click="emailClick" style="background:transparent !important">
-                                    <i class="fa fa-envelope fa-2x   share-class"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="share-menu-line-2">
-                            <a  data-click="shareClick" data-role="button" style="border:0px !important;background-color:transparent" class="mymenu">
-                                <i class="fa fa-angle-up fa-2x" style="color:#fff"></i>
-                            </a>
-                        </div>
+    <header data-role="header">
+        <div data-role="navbar">
+            <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff">
+            </a>
+
+            <span id="pl-outletdetail-title"></span>
+            <a data-role="button" data-click="shareClick" data-align="right">
+                <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
+            </a>
+        </div>
+
+        <div class="sharehead">
+            <div class="home-page-holder"></div>
+            <div class="class-share-div">
+                <div class="share-menu-line-1">
+                    <div class="button-frame-inline-round">
+                        <a id="btn-facebook" data-role="button" data-click="faceBookClick" style="background:transparent !important">
+                            <i class="fa fa-facebook fa-2x  share-class"></i>
+                        </a>
                     </div>
-
-                </div>
-             
-                
-                
-                
-                
-                <div class="cardhead" style="background-color:#fff">
-                    <div class="class-card-div">
-                        <div class="qr-image-sep">
-                            <div class="qr-image" id="mycard-qrq"></div>
-                        </div>
-                        <div class="filler"></div>
-                        <div class="home-page-holder">
-                            <div class="button-frame-login">
-                                <a data-click="enterPinForRedemption" data-role="button" style="background-color:#000">Apply Discount</a>
-                            </div>
-
-                        </div>
-                        <div class="filler10"></div>
-                        <div class="general-text-line-1 cblack" id="expiry-backq" ></div>
-                    </div>
-                    <div class="share-menu-line-2-c">
-                        <a  data-click="cardClick" data-role="button" class="mymenu2" style="background-color:transparent !important">
-                            <i class="fa fa-chevron-up fa-2x" style="color:#000"></i>
+                    <div class="button-frame-inline-round">
+                        <a id="btn-twitter" data-role="button" data-click="twitterClick" style="background:transparent !important">
+                            <i class="fa fa-twitter fa-2x   share-class"></i>
                         </a>
                     </div>
                 </div>
-                <div class="share-menu-line-3">
-                    <a  data-click="cardClick" data-role="button"  class="cardmenu" style="background-color:transparent !important">
-                        <div class="share-menu-line-3-a" style="text-align:left" id="name-backq"></div>
-                        <div class="share-menu-line-3-a" style="text-align:center" id="number-backq"></div>
-                        <div class="share-menu-line-3-a" style="text-align:right" id="segment-backq">isme</div>
+                <div class="share-menu-line-1">
+                    <div class="button-frame-inline-round">
+                        <a id="btn-whatsapp" data-role="button"  data-click="whatsappClick" style="background:transparent !important">
+                            <i class="fa fa-whatsapp fa-2x   share-class"></i>
+                        </a>
+                    </div>
+                    <div class="button-frame-inline-round">
+                        <a id="btn-email" data-role="button" data-click="emailClick" style="background:transparent !important">
+                            <i class="fa fa-envelope fa-2x   share-class"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="share-menu-line-2">
+                    <a  data-click="shareClick" data-role="button" style="border:0px !important;background-color:transparent" class="mymenu">
+                        <i class="fa fa-angle-up fa-2x" style="color:#fff"></i>
                     </a>
                 </div>
-            </header>
-                
-   <ul data-role="listview"    style="margin-top:5px;display:none;background-color:#fff" id="pl-outlet-detail-div" >
+            </div>
+
+        </div>
+
+        <div class="cardhead" style="background-color:#fff">
+            <div class="class-card-div">
+                <div class="qr-image-sep">
+                    <div class="qr-image" id="mycard-qrq"></div>
+                </div>
+                <div class="filler"></div>
+                <div class="home-page-holder">
+                    <div class="button-frame-login">
+                        <a data-click="enterPinForRedemption" data-role="button" style="background-color:#000">Apply Discount</a>
+                    </div>
+
+                </div>
+                <div class="filler10"></div>
+                <div class="general-text-line-1 cblack" id="expiry-backq" ></div>
+            </div>
+            <div class="share-menu-line-2-c">
+                <a  data-click="cardClick" data-role="button" class="mymenu2" style="background-color:transparent !important">
+                    <i class="fa fa-chevron-up fa-2x" style="color:#000"></i>
+                </a>
+            </div>
+        </div>
+        <div class="share-menu-line-3">
+            <a  data-click="cardClick" data-role="button"  class="cardmenu" style="background-color:transparent !important">
+                <div class="share-menu-line-3-a" style="text-align:left" id="name-backq"></div>
+                <div class="share-menu-line-3-a" style="text-align:center" id="number-backq"></div>
+                <div class="share-menu-line-3-a" style="text-align:right" id="segment-backq">isme</div>
+            </a>
+        </div>
+    </header>
+
+    <ul data-role="listview"    style="margin-top:5px;display:none;background-color:#fff" id="pl-outlet-detail-div" >
         <div class="hero-image">
             <img id="pl-outletimage" src="images\large_logo_placeholder.png" class="img-hero"/>
 
@@ -91,71 +87,67 @@
             <div id="pl-outlet-short-1"></div>
         </li>
         <li>
-        
+
         <li>
             <div id="pl-outlet-long-1">
             </div>
         </li>
         <div></div>
     </ul>
-            
-            
-            
-              <footer data-role="footer">
-               
-                <div class="mymenu-style">
-                    <a  data-click="plHomeClick" data-role="button"  class="mymenu1" style="background:transparent !important">
-                        <i class="fa fa-chevron-up fa-2x" style="color:#fff !important" ></i>
-                    </a>
-                </div>
-                <div class="foot" >
 
-                    <div class="share-menu-line-1-pl">
-                        <div class="share-menu-line-1-pl" style="height:10px">&nbsp;</div>
-                        <div class="button-frame-inline-round-menu">
-                            <a data-role="button" data-click="loadMyReward" style="background:transparent !important">
-                                <i class="fa fa-mobile fa-2x"></i>
-                            </a><br>My Rewards
-                        </div>
-                        <div class="button-frame-inline-round-menu">
-                            <a  data-role="button" data-click="loadMyBenefit" style="background:transparent !important">
-                                <i class="fa fa-check-square-o fa-2x"></i>
-                            </a><br>My Benefits
-                        </div>
-                        <div class="button-frame-inline-round-menu">
-                            <a data-role="button" data-click="loadMyMessages" style="background:transparent !important">
-                                <i class="fa fa-envelope fa-2x"></i>
-                            </a><br>My Messages
-                        </div>
-                    </div>
-                    <div class="share-menu-line-1-pl" style="height:40px">&nbsp;</div>
-                    <div class="share-menu-line-1-pl">
-                        <div class="button-frame-inline-round-menu">
-                            <a data-role="button" data-click="loadHistory"style="background:transparent !important">
-                                <i class="fa fa-history fa-2x"></i>
-                            </a><br>My History
-                        </div>
-                        <div class="button-frame-inline-round-menu">
-                            <a  data-role="button" data-click="loadSetting" style="background:transparent !important">
-                                <i class="fa fa-gear fa-2x"></i>
-                            </a><br>My Preferences
-                        </div>
-                        <div class="button-frame-inline-round-menu">
-                            <a data-role="button" data-click="loadFavorites" style="background:transparent !important">
-                                <i class="fa fa-star fa-2x "></i>
-                            </a><br>My Favourites
-                        </div>
-                    </div>
+    <footer data-role="footer">
 
+        <div class="mymenu-style">
+            <a  data-click="plHomeClick" data-role="button"  class="mymenu1" style="background:transparent !important">
+                <i class="fa fa-chevron-up fa-2x" style="color:#fff !important" ></i>
+            </a>
+        </div>
+        <div class="foot" >
+
+            <div class="share-menu-line-1-pl">
+                <div class="share-menu-line-1-pl" style="height:10px">&nbsp;</div>
+                <div class="button-frame-inline-round-menu">
+                    <a data-role="button" data-click="loadMyReward" style="background:transparent !important">
+                        <i class="fa fa-mobile fa-2x"></i>
+                    </a><br>My Rewards
                 </div>
-                    <div data-role="tabstrip" style="background-color:#000" data-selected-index="5" data-select="onSelectTabStrip">
-                    <a class="fa" data-icon="customlocation" data-role="button" ></a>
-                    <a class="fa" data-icon="customenvelope" data-role="button"  ></a>
-                    <a class="fa" data-icon="customcall"  data-role="button" ></a>
+                <div class="button-frame-inline-round-menu">
+                    <a  data-role="button" data-click="loadMyBenefit" style="background:transparent !important">
+                        <i class="fa fa-check-square-o fa-2x"></i>
+                    </a><br>My Benefits
                 </div>
-            </footer> 
+                <div class="button-frame-inline-round-menu">
+                    <a data-role="button" data-click="loadMyMessages" style="background:transparent !important">
+                        <i class="fa fa-envelope fa-2x"></i>
+                    </a><br>My Messages
+                </div>
+            </div>
+            <div class="share-menu-line-1-pl" style="height:40px">&nbsp;</div>
+            <div class="share-menu-line-1-pl">
+                <div class="button-frame-inline-round-menu">
+                    <a data-role="button" data-click="loadHistory"style="background:transparent !important">
+                        <i class="fa fa-history fa-2x"></i>
+                    </a><br>My History
+                </div>
+                <div class="button-frame-inline-round-menu">
+                    <a  data-role="button" data-click="loadSetting" style="background:transparent !important">
+                        <i class="fa fa-gear fa-2x"></i>
+                    </a><br>My Preferences
+                </div>
+                <div class="button-frame-inline-round-menu">
+                    <a data-role="button" data-click="loadFavorites" style="background:transparent !important">
+                        <i class="fa fa-star fa-2x "></i>
+                    </a><br>My Favourites
+                </div>
+            </div>
+
+        </div>
+        <div data-role="tabstrip" style="background-color:#000" data-selected-index="5" data-select="onSelectTabStrip">
+            <a class="fa" data-icon="customlocation" data-role="button" ></a>
+            <a class="fa" data-icon="customenvelope" data-role="button"  ></a>
+            <a class="fa" data-icon="customcall"  data-role="button" ></a>
+            <a class="fa" data-icon="customlocation" data-role="button" data-bind="click:setOutletFavourite"></a>
+        </div>
+    </footer>
 </div>
-
-    
-
 
