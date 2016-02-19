@@ -7137,10 +7137,10 @@ function completeRedemption() {
     function changeCard(y) {
      
         if (y==="1000") {
-               alert(y);
-                 elems = document.getElementsByClassName('cardhead');
+           elems = document.getElementsByClassName('cardhead');
                 
                   for (i = 0; i < elems.length; i++) {
+                      alert(elems[i]);
         elems[i].style.style.backgroundColor = "#fff";
                       elems[i].style.style.color = "#000";
     }  
