@@ -1,5 +1,5 @@
 function FacebookErr() {
-    navigator.notification.alert("Error Accessing your Facebook account, please make sure you have Facebook installed", function() {
+    navigator.notification.alert("Please make sure that you have installed the Facebook Mobile app on your smartphone.", function() {
     }, "isme by Jumeirah", "Dismiss");    
 }
 function hideSpin() {
@@ -10,7 +10,7 @@ function hideSpin() {
          
 function showSpin() {
     if (!checkConnectionBool()) {
-        navigator.notification.alert("Cannot complete the request.  Network unavailable.  Please check your network and re-try.", function() {
+        navigator.notification.alert("Network weak or unavailable. Please check your network connection and try again.", function() {
         }, "isme by Jumeirah", "Dismiss");  
         //        //$("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
     } else {
@@ -19,7 +19,7 @@ function showSpin() {
 }
 
 function showOutletMessage() {
-    navigator.notification.alert("Please check the Reward location details under the Bars & Dining or Leisure", function() {
+    navigator.notification.alert("Please check the Reward's location details under the Bars & Dining or Leisure tab.", function() {
     }, "isme by Jumeirah", "Dismiss");  
 }
 function showConfirm() {
@@ -1004,7 +1004,7 @@ function completeRedemption() {
                    },
                    error: function (errormsg) {
                        window.localStorage.setItem("FBValidated", "N");
-                       navigator.notification.alert("Cannot validate FB User ID in isme this time due to a server error! " + errormsg.statusText, function() {
+                       navigator.notification.alert("Your Facebook User ID could not be validated due to a system error. Please try again. " + errormsg.statusText, function() {
                        }, "isme By Jumeirah" , "Dismiss");     
                    }
                });
@@ -1015,7 +1015,7 @@ function completeRedemption() {
         facebookConnectPlugin.api(graphPath, ["email","public_profile"], 
                                   function(response) { 
                                       if (response.error) { 
-                                          navigator.notification.alert("Error accessing Facebook " + response.error, function() {
+                                          navigator.notification.alert("There is an error accessing Facebook account. " + response.error, function() {
                                           }, "isme by Jumeirah", "Dismiss");
                                       } else { 
                                           FBData = JSON.parse(JSON.stringify(response));  
@@ -1066,7 +1066,7 @@ function completeRedemption() {
                 window.localStorage.setItem("FBAccessToken", m.authResponse.accessToken);
                 getFBUserData();
             } else { 
-                navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+                navigator.notification.alert("There is an error accessing Facebook account.  " + response.status, function() {
                 }, "isme by Jumeirah", "Dismiss");
             } 
         }); 
@@ -1520,7 +1520,7 @@ function completeRedemption() {
                                                        getFBUserData();
                                                        hideSpin();
                                                    } else { 
-                                                       navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+                                                       navigator.notification.alert("There is an error accessing Facebook account. " + response.status, function() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        hideSpin();
                                                        return;
@@ -1552,7 +1552,7 @@ function completeRedemption() {
                                                                window.localStorage.setItem("loginmode", "FB");
                                                                preLogin.validateUser();
                                                            } else { 
-                                                               navigator.notification.alert("Error accessing Facebook " + response.status, function() {
+                                                               navigator.notification.alert("There is an error accessing Facebook account. " + response.status, function() {
                                                                }, "isme by Jumeirah", "Dismiss");
                                                                hideSpin();
                                                                return;
@@ -1599,90 +1599,90 @@ function completeRedemption() {
                                                if (window.localStorage.getItem("FBValidated") == "Y") {
                                                    //alert(postLogin.firstname);
                                                    if (postLogin.firstname == "") {
-                                                       navigator.notification.alert("First Name is required.  Re-enter", function() {
+                                                       navigator.notification.alert("Please enter your First Name. ", function() {
                                                        }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                
                                                    if (postLogin.lastname == "") {
-                                                       navigator.notification.alert("Last Name is required.  Re-enter", function() {
+                                                       navigator.notification.alert("Please enter your Last Name.", function() {
                                                        }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                
                                                    if (postLogin.emailid == "") {
-                                                       navigator.notification.alert("Email is required.  Re-enter", function() {
+                                                       navigator.notification.alert("Please enter your Email address.", function() {
                                                        }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                   
                                                    if (!this.emailida) {
-                                                       navigator.notification.alert("Re-enter Email Id.  Re-enter", function() {
+                                                       navigator.notification.alert("Please Re-enter your Email address.", function() {
                                                        }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                    if (postLogin.emailid != this.emailida) {
-                                                       navigator.notification.alert("Email ID do not match, re-enter", function() {
+                                                       navigator.notification.alert("Emails do not match, please re-enter correctly.", function() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }
                                                } else {
                                                    if (!this.firstname) {
-                                                       navigator.notification.alert("First Name is required.  Re-enter", function() {
+                                                       navigator.notification.alert("Please enter your First Name. ", function() {
                                                        }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                
                                                    if (!this.lastname) {
-                                                       navigator.notification.alert("Last Name is required.  Re-enter", function() {
+                                                       navigator.notification.alert("Please enter your Last Name.", function() {
                                                        }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                
                                                    if (!this.emailid) {
-                                                       navigator.notification.alert("Email is required.  Re-enter", function() {
+                                                       navigator.notification.alert("Please enter your Email address.", function() {
                                                        }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                    if (!this.emailida) {
-                                                       navigator.notification.alert("Re-enter Email Id.  Re-enter", function() {
+                                                       navigator.notification.alert("Please Re-enter your Email address.", function() {
                                                        }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
                                                    
                                                    if (this.emailid != this.emailida) {
-                                                       navigator.notification.alert("Email ID do not match, re-enter", function() {
+                                                       navigator.notification.alert("Emails do not match, please re-enter correctly.", function() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }   
                                                }
                                                 
                                                if (!this.mobile) {
-                                                   navigator.notification.alert("Mobile Number is required.  Re-enter", function() {
+                                                   navigator.notification.alert("Please enter your mobile number.", function() {
                                                    }, "isme by Jumeirah", "Dismiss")
                                                    return;
                                                }
                                            
                                                if (document.getElementById("selEmirate").value === "") {
-                                                   navigator.notification.alert("Select Resident City", function() {
+                                                   navigator.notification.alert("Please select your city of residence.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return; 
                                                }
                                               
                                                if (document.getElementById("selGender").value === "") {
-                                                   navigator.notification.alert("Select Gender", function() {
+                                                   navigator.notification.alert("Please select your gender.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return; 
                                                }
                                                
                                                if (!document.getElementById("enrol-tandc-accept").checked) {
-                                                   navigator.notification.alert("Please accept Terms & Conditions to proceed", function() {
+                                                   navigator.notification.alert("Please Accept the Terms & Conditions to proceed.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
                                                
                                                if (!document.getElementById("enrol-tandc-accept-c").checked) {
-                                                   navigator.notification.alert("Please accept Data Protection Policy to proceed", function() {
+                                                   navigator.notification.alert("Please Accept the Data Protection Policy to proceed", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
@@ -1750,7 +1750,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
@@ -1798,7 +1798,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
@@ -1853,7 +1853,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -1899,7 +1899,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -1948,7 +1948,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -1994,7 +1994,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2043,7 +2043,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Brand Item. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Brand Item. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2097,7 +2097,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get location. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get location. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2143,7 +2143,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Offer List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2190,7 +2190,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Property Data.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Property Data.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2240,7 +2240,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2288,7 +2288,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2336,7 +2336,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Reward List. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2377,7 +2377,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get locations List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get locations List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -2451,7 +2451,7 @@ function completeRedemption() {
                                                                   }
                                                               },
                                                               error: function (errormsg) {
-                                                                  navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                                  navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                   }, "isme by Jumeirah", "Dismiss")
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -2565,7 +2565,7 @@ function completeRedemption() {
                                                                       }
                                                                   },
                                                                   error: function (error) {
-                                                                      navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function () {
+                                                                      navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
                                                                       }, "isme by Jumeirah", "Dismiss")
                                                                   }
                                                               });
@@ -2943,7 +2943,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot Login.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot Login.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               window.localStorage.setItem("loginmode", "");
                                                               window.localStorage.setItem("FBuserID", "");
@@ -3003,7 +3003,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Cannot Login.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot Login.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -3069,7 +3069,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Unknown Error, Unable to send the password reset URL [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Unable to send the password reset URL [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -3112,7 +3112,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get Benefit List. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
@@ -3154,7 +3154,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
@@ -3203,7 +3203,7 @@ function completeRedemption() {
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                              navigator.notification.alert("Unknown Error, Cannot get FAQ list  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
@@ -3454,7 +3454,7 @@ function completeRedemption() {
                                                                    }
                                                                },
                                                                error: function (errormsg) {
-                                                                   navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                                   navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                    }, "HD Rewards", "Dismiss")
                                                                    hideSpin(); //hide loading popup
                                                                }
@@ -3539,7 +3539,7 @@ function completeRedemption() {
                                                                    }
                                                                },
                                                                error: function (errormsg) {
-                                                                   navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                                   navigator.notification.alert("System Error, Cannot retrieve Wallet  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                    }, "HD Rewards", "Dismiss")
                                                                    hideSpin(); //hide loading popup
                                                                }
@@ -3715,7 +3715,7 @@ function completeRedemption() {
                                                                hideSpin(); //hide loading popup
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot Logout. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot Logout. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -3795,7 +3795,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Benefit details.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup                                          
                                                            }
@@ -3835,7 +3835,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get locations List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get locations List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -3877,7 +3877,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get locations List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get locations List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -3933,7 +3933,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Reward List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Reward List.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -3993,7 +3993,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get location. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get location. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4046,7 +4046,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Property Data.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Property Data.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4102,7 +4102,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }    
@@ -4158,7 +4158,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }    
@@ -4212,7 +4212,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4265,7 +4265,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get locations list.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4325,7 +4325,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (error) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Brand Item. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Brand Item. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4390,7 +4390,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4442,7 +4442,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error Cannot activate offer. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error Cannot activate offer. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup                                                                 
                                                            }
@@ -4525,7 +4525,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4577,7 +4577,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get Reward List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get Reward List. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4637,7 +4637,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot retrieve Wallet  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -4842,7 +4842,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, cannot verify password. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, cannot verify password. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin();
                                                            }
@@ -4902,7 +4902,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error. Cannot verify Redemption PIN [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error. Cannot verify Redemption PIN [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -5050,7 +5050,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get history  [" + errormsg.responseText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get history  [" + errormsg.responseText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -5133,7 +5133,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get message history.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get message history.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss")
                                                            }
                                                        });
@@ -5189,7 +5189,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot get message item.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot get message item.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss")
                                                                hideSpin();
                                                            }
@@ -5222,7 +5222,7 @@ function completeRedemption() {
                                                                }
                                                            },
                                                            error: function (errormsg) {
-                                                               navigator.notification.alert("Unknown Error, Cannot delete message. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                                                               navigator.notification.alert("Unknown Error, Cannot delete message. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss")
                                                            }
                                                        });
@@ -5483,7 +5483,7 @@ function completeRedemption() {
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("System Error, unable to Validate Discount  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("System Error, unable to Validate Discount  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5526,7 +5526,7 @@ function completeRedemption() {
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("System Error, unable to Redeem Voucher  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("System Error, unable to Redeem Voucher  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5565,7 +5565,7 @@ function completeRedemption() {
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("System Error, unable to Redeem Voucher  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("System Error, unable to Redeem Voucher  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5614,7 +5614,7 @@ function completeRedemption() {
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot set PIN.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot set PIN.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5643,7 +5643,7 @@ function completeRedemption() {
                        hideSpin(); //hide loading popup
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Could not update image  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Could not update image  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5688,7 +5688,7 @@ function completeRedemption() {
                    },
                    error:
                    function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Country list. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Country list. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5728,7 +5728,7 @@ function completeRedemption() {
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get City list. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get City list. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5826,7 +5826,7 @@ function completeRedemption() {
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5883,7 +5883,7 @@ function completeRedemption() {
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5923,7 +5923,7 @@ function completeRedemption() {
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.   [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -5963,7 +5963,7 @@ function completeRedemption() {
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurants List. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurants List. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -6203,7 +6203,7 @@ function completeRedemption() {
                            }
                        },
                        error: function (error) {
-                           navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function () {
+                           navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
                            }, "isme by Jumeirah", "Dismiss")
                        }
                    });
@@ -6363,13 +6363,13 @@ function completeRedemption() {
                                                               
                            hideSpin(); //hide loading popup
                        }else {
-                           navigator.notification.alert("Could not complete enrollment due to an error.  " + getData.statusdesc + ". Please try again.", function() {
+                           navigator.notification.alert("Due to a system error, your enrolment could not be completed.  " + getData.statusdesc + ". Please try again.", function() {
                            }, "isme by Jumeirah", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Could not complete enrollment.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Due to a system error, your enrolment could not be completed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -6411,7 +6411,7 @@ function completeRedemption() {
                        hideSpin(); //hide loading popup
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant Type Preference List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant Type Preference List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -6452,7 +6452,7 @@ function completeRedemption() {
                        hideSpin(); //hide loading popup
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Lifestyle Preference List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Lifestyle Preference List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
@@ -6494,7 +6494,7 @@ function completeRedemption() {
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant Details List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Restaurant Details List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                    }
                });
@@ -6534,7 +6534,7 @@ function completeRedemption() {
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Cuisine Type List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Cuisine Type List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                    }
                });
@@ -6576,7 +6576,7 @@ function completeRedemption() {
                        }
                    },
                    error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Celebration Type List.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Cannot get Celebration Type List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
                    }
                });
@@ -7074,7 +7074,7 @@ function completeRedemption() {
                        }
                    },
                    error: function (error) {
-                       navigator.notification.alert("Unknown Error, Could not update profile.  [" + errormsg.statusText + "] The Internet connections seems to be weak or not available or check proxy if any or services may not be available. Please check network connection and try again.", function() {
+                       navigator.notification.alert("Unknown Error, Could not update profile.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
