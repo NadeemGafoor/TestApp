@@ -5418,18 +5418,18 @@ function completeRedemption() {
                                             },
                                             setOutletFavourite:function() {
                                                 if (window.localStorage.getItem("op")==="1") {
-                                                    y = "1";                                                   
-                                                    elems = document.getElementsByClassName('km-customstar');
-                                                    for (i = 0; i < elems.length; i++) {
-                                                        elems[i].style.color = '#fff000';
-                                                    } 
-                                                
-                                                    window.localStorage.setItem("op", "");
-                                                }else {
-                                                    y = "";
+                                                    y = "";                                                   
                                                     elems = document.getElementsByClassName('km-customstar');
                                                     for (i = 0; i < elems.length; i++) {
                                                         elems[i].style.color = '#fff';
+                                                    } 
+                                                 
+                                                    window.localStorage.setItem("op", "");
+                                                }else {
+                                                    y = "1";
+                                                    elems = document.getElementsByClassName('km-customstar');
+                                                    for (i = 0; i < elems.length; i++) {
+                                                        elems[i].style.color = '#fff000';
                                                     } 
                                                     window.localStorage.setItem("op", "1");
                                                 }
@@ -6654,7 +6654,7 @@ function completeRedemption() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:true,
+                   async:false,
                    timeout:20000,
                    url: gurl + "/setMemberPreference.aspx",
                    contentType: "application/json; charset=utf-8",
