@@ -5442,7 +5442,11 @@ function completeRedemption() {
         if (buttonIndex===1) {
             saveLater();
         } else {
+            showSpin();
+              window.setTimeout(function() {
             savePreferenceItem();
+        }, 500); 
+            
             saveLater();
         }
     }
@@ -6654,7 +6658,7 @@ function completeRedemption() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:false,
+                   async:true,
                    timeout:20000,
                    url: gurl + "/setMemberPreference.aspx",
                    contentType: "application/json; charset=utf-8",
