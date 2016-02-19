@@ -5025,7 +5025,7 @@ function completeRedemption() {
                                                            url: gurl + "/archivehistory.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:window.localStorage.getItem("mdevicestat"),mexcl:""
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:window.localStorage.getItem("mdevicestat"),mexcl:"('SP')"
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -5110,7 +5110,7 @@ function completeRedemption() {
                                                            url: gurl + "/archivehistory.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:window.localStorage.getItem("mdevicestat"),mexcl:"1"
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:window.localStorage.getItem("mdevicestat"),mexcl:"('NT','OF')"
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
