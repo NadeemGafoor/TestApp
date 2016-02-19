@@ -3431,7 +3431,7 @@ function completeRedemption() {
                                                 clearAllVariables();                                            
                                                 //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "0"); 
-                                                changeCard(window.localStorage.getItem("segmentcode"));  
+                                               //changeCard(window.localStorage.getItem("segmentcode"));  
                                                 if (firsttime==="") {
                                                     $.ajax({ 
                                                                type: "POST",
@@ -3516,7 +3516,7 @@ function completeRedemption() {
                                                 clearAllVariables();                                            
                                                 //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "0"); 
-                                          changeCard(window.localStorage.getItem("segmentcode"));  
+                                          //changeCard(window.localStorage.getItem("segmentcode"));  
                                                 if (firsttime==="") {
                                                     $.ajax({ 
                                                                type: "POST",
@@ -3596,6 +3596,7 @@ function completeRedemption() {
         
                                             loadProfile
                                             :function() {
+                                                changeCard(window.localStorage.getItem("segmentcode"));  
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backz").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backz").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -7134,7 +7135,9 @@ function completeRedemption() {
     }
     
     function changeCard(y) {
+     
         if (y==="1000") {
+               alert(y);
                  elems = document.getElementsByClassName('cardhead');
                 
                   for (i = 0; i < elems.length; i++) {
@@ -7148,8 +7151,7 @@ function completeRedemption() {
                       elems[i].style.style.color = "#000";
     }  
  
-    }else {
-        
+        }else {
           elems = document.getElementsByClassName('cardhead');
                 
                   for (i = 0; i < elems.length; i++) {
@@ -7162,8 +7164,7 @@ function completeRedemption() {
         elems[i].style.style.backgroundColor = "#000";
                       elems[i].style.style.color = "#fff";
     }  
-        
-    }
+        }
 }
 }
 )(window);
