@@ -3962,7 +3962,7 @@ function completeRedemption() {
                                                            url: gurl + "/outletlist.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,brandcode:"",outletcode:outletcode,mdevice:window.localStorage.getItem("mdevicestat")
+                                                                                    merchantcode :merchant,brandcode:"",outletcode:outletcode,mdevice:window.localStorage.getItem("mdevicestat"),customer:window.localStorage.getItem("customer")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -3997,17 +3997,17 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("lon", lon);
                                                                    window.localStorage.setItem("oc", getData.outletlist[0].outletcode);
                                                                    window.localStorage.setItem("op", getData.outletlist[0].outletfavourite);
-                                                                  
+                                                                
                                                                    if (window.localStorage.getItem("op")==="1") {
                                                                        elems = document.getElementsByClassName('km-customstar');
-                                                                                                                                 for (i = 0; i < elems.length; i++) {
-                                                                           alert(elems[i].style.color);
+                                                                       for (i = 0; i < elems.length; i++) {
+                                                                     
                                                                            elems[i].style.color = '#fff000';
                                                                        } 
                                                                    }else {
                                                                        elems = document.getElementsByClassName('km-customstar');
-                                                                                                        for (i = 0; i < elems.length; i++) {
-                                                                           alert(elems[i].style.color);
+                                                                       for (i = 0; i < elems.length; i++) {
+                                                                    
                                                                            elems[i].style.color = '#fff';
                                                                        } 
                                                                    }
@@ -6650,6 +6650,7 @@ function completeRedemption() {
     }
     
     function setMemberPreference(e, m) {
+        showSpin();
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6669,11 +6670,13 @@ function completeRedemption() {
                            //                           }, "isme By Jumeirah" , "Dismiss");     
                            window.localStorage.setItem("errorPreference", getData.statusdesc);                                      
                        }
+                       hideSpin();
                    },
                    error: function (errormsg) {
                        // navigator.notification.alert("ERROR : One or more preferences could not be saved!"  +errormsg.statusText, function() {
                        //                             }, "isme By Jumeirah" , "Dismiss");     
                        window.localStorage.setItem("errorPreference", errormsg.statusText);                                      
+                       hideSpin();
                    }
                });
     }
