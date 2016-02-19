@@ -4485,6 +4485,7 @@ function completeRedemption() {
         
                                             confirmIssueResponse
                                             :function() {
+                                                changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backc").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backc").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -4951,6 +4952,7 @@ function completeRedemption() {
         
                                             discountRedeemConfirm
                                             : function () {
+                                                changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backb").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backb").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -4965,6 +4967,7 @@ function completeRedemption() {
         
                                             discountRedeemConfirmblack
                                             : function () {
+                                                 changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backy").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backy").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -4978,6 +4981,7 @@ function completeRedemption() {
                                             },
                                             selfRedeemConfirm
                                             : function () {
+                                                changeCard();
                                                 showSpin();  
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backd").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -4999,6 +5003,7 @@ function completeRedemption() {
         
                                             selfRedeemConfirmblack
                                             : function () {
+                                                changeCard();
                                                 showSpin();  
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backx").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
