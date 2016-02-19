@@ -7134,37 +7134,83 @@ function completeRedemption() {
                                                  }, positionOption);
     }
     
-    function changeCard(y) {
-     
-        if (y==="1000") {
-           elems = document.getElementsByClassName('cardhead');
-                
-                  for (i = 0; i < elems.length; i++) {
-                      alert(elems[i]);
-        elems[i].style.style.backgroundColor = "#fff";
-                      elems[i].style.style.color = "#000";
+    function changeCard() {
+  if (window.localStorage.getItem("segmentcode")==="1000"){   
+   elems = document.getElementsByClassName('cardhead');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.backgroundColor = '#fff';
     }  
-             elems = document.getElementsByClassName('share-menu-line-3');
-                
-                  for (i = 0; i < elems.length; i++) {
-        elems[i].style.style.backgroundColor = "#fff";
-                      elems[i].style.style.color = "#000";
+        
+   elems = document.getElementsByClassName('class-card-div');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.backgroundColor = '#fff';
     }  
- 
-        }else {
-          elems = document.getElementsByClassName('cardhead');
-                
-                  for (i = 0; i < elems.length; i++) {
-        elems[i].style.style.backgroundColor = "#000";
-                      elems[i].style.style.color = "#fff";
+        
+    elems = document.getElementsByClassName('share-menu-line-3');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.backgroundColor = '#fff';
     }  
-             elems = document.getElementsByClassName('share-menu-line-3');
-                
-                  for (i = 0; i < elems.length; i++) {
-        elems[i].style.style.backgroundColor = "#000";
-                      elems[i].style.style.color = "#fff";
+    
+    elems = document.getElementsByClassName('share-menu-line-2-c');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.backgroundColor = '#fff';
+    }   
+        
+    elems = document.getElementsByClassName('share-menu-line-3-a');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.color = '#000';
+    }   
+        
+    elems = document.getElementsByClassName('fa-chevron-up');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.color = '#000';
+    }    
+        
+       elems = document.getElementsByClassName('general-text-line-1');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.color = '#000';
+    }       
+      
+      
+      }else{
+         elems = document.getElementsByClassName('cardhead');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.backgroundColor = '#000';
     }  
-        }
+        
+   elems = document.getElementsByClassName('class-card-div');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.backgroundColor = '#000';
+    }  
+        
+    elems = document.getElementsByClassName('share-menu-line-3');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.backgroundColor = '#000';
+    }  
+    
+    elems = document.getElementsByClassName('share-menu-line-2-c');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.backgroundColor = '#000';
+    }   
+        
+    elems = document.getElementsByClassName('share-menu-line-3-a');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.color = '#fff';
+    }   
+        
+    elems = document.getElementsByClassName('fa-chevron-up');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.color = '#fff';
+    }    
+        
+       elems = document.getElementsByClassName('general-text-line-1');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.color = '#fff';
+    }        
+          
+      }
+       
+        
 }
 }
 )(window);
