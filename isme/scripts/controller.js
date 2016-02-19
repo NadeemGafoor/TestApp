@@ -704,11 +704,11 @@ function postLoginBack() {
         elems[i].style.textAlign = "center";
     }
     
-     if (window.localStorage.getItem("segmentcode")==="1000"){
-                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                                                    }else{
-                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                        }                                                               
+    if (window.localStorage.getItem("segmentcode")==="1000") {
+        $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+    }else {
+        $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+    }                                                               
     //$("body").data("kendoMobilePane").navigate("#:back");
 }
 
@@ -911,7 +911,7 @@ function completeRedemption() {
     //var notification_image = "https://appapi.exclusiveu.in/mobileportal/images/36x36_icon.png";    
     //var share_image = "https://appapi.exclusiveu.in/mobileportal/images/ihg_logo.png";
     //var flag_image = "https://appapi.exclusiveu.in/mobileportal/flagimages/";
-    var short_msg="isme By Jumeirah";
+    var short_msg = "isme By Jumeirah";
     var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at http://isme.jumeirah.com";
     var offertelephone = "8004763";
     var enrollmenttelephone = "8004763";
@@ -2153,7 +2153,7 @@ function completeRedemption() {
         
                                            propertyList
                                            : function () {
-                                              // clearListFilter();
+                                               // clearListFilter();
                                                window.localStorage.setItem("appopen", "801");
                                                showSpin();
                                                 
@@ -2391,7 +2391,7 @@ function completeRedemption() {
                                                showSpin();
                                              
                                                clearAllVariables();
-                                              // clearListFilter();
+                                               // clearListFilter();
                                                if (firsttime === "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
@@ -2413,7 +2413,7 @@ function completeRedemption() {
                                                    window.localStorage.setItem("brandcode", "");
                                                    window.localStorage.setItem("faqcategory", "");
                                                    window.localStorage.setItem("loginmode", "");
-                                                   window.localStorage.setItem("static_social_msg",static_social_msg);
+                                                   window.localStorage.setItem("static_social_msg", static_social_msg);
                                                    fbCleanVariables();
                                                    $.ajax({    
                                                               type: "POST",
@@ -2616,11 +2616,11 @@ function completeRedemption() {
                                                        homecountryname = window.localStorage.getItem("homecountryname");
                                                        residentcityname = window.localStorage.getItem("residentcityname");
                                                    
-                                                        if (window.localStorage.getItem("segmentcode")==="1000"){
-                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                                                    }else{
-                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                        }                                                                  
+                                                       if (window.localStorage.getItem("segmentcode")==="1000") {
+                                                           $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                       }else {
+                                                           $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                       }                                                                  
                                                    } else {
                                                        outletcode = "";
                                                        brandcode = "";
@@ -2929,11 +2929,11 @@ function completeRedemption() {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password);
                                                                       window.localStorage.setItem("loggedin", "1");                                                                   
-                                                                        if (window.localStorage.getItem("segmentcode")==="1000"){
-                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                                                    }else{
-                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                        }
+                                                                      if (window.localStorage.getItem("segmentcode")==="1000") {
+                                                                          $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                                      }else {
+                                                                          $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                                      }
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                               }else {
@@ -2989,11 +2989,11 @@ function completeRedemption() {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                       window.localStorage.setItem("loggedin", "1");
-                                                                       if (window.localStorage.getItem("segmentcode")==="1000"){
-                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                                                    }else{
-                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                        }                                                                  
+                                                                      if (window.localStorage.getItem("segmentcode")==="1000") {
+                                                                          $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                                      }else {
+                                                                          $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                                      }                                                                  
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       $("body").data("kendoMobilePane").navigate("views/setpin.html");  
@@ -3302,7 +3302,7 @@ function completeRedemption() {
                                                 window.localStorage.setItem("appopen", "0");  
                                                 $("#pl-voucheredeem-view").remove();
                                             },
-           destroyplconfirmvoucherblack:function() {
+                                            destroyplconfirmvoucherblack:function() {
                                                 //doOneBack();
                                                 window.localStorage.setItem("appopen", "0");  
                                                 $("#pl-voucheredeemblack-view").remove();
@@ -3337,7 +3337,7 @@ function completeRedemption() {
                                             },
         
                                             destroyplhome:function() {
-                                                 window.localStorage.setItem("appopen", "0");  
+                                                window.localStorage.setItem("appopen", "0");  
                                                 $("#pl-home-view").remove();
                                             },
         
@@ -3429,9 +3429,9 @@ function completeRedemption() {
                                             getSummary:function () {
                                                 showSpin();
                                                 clearAllVariables();                                            
-                                              //  clearListFilter();
+                                                //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "0"); 
-                                          
+                                                changeCard(window.localStorage.getItem("segmentcode"));  
                                                 if (firsttime==="") {
                                                     $.ajax({ 
                                                                type: "POST",
@@ -3512,11 +3512,11 @@ function completeRedemption() {
         
         
                                             getSummaryplus:function () {
-                                                 showSpin();
+                                                showSpin();
                                                 clearAllVariables();                                            
-                                              //  clearListFilter();
+                                                //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "0"); 
-                                          
+                                          changeCard(window.localStorage.getItem("segmentcode"));  
                                                 if (firsttime==="") {
                                                     $.ajax({ 
                                                                type: "POST",
@@ -3592,7 +3592,6 @@ function completeRedemption() {
                                                     }
                                                 }                
                                                 hideSpin(); //hide loading popup
-                                                
                                             },
         
                                             loadProfile
@@ -3670,7 +3669,7 @@ function completeRedemption() {
                                                                window.localStorage.setItem("fbid", "");
                                                                window.localStorage.setItem("homecountryname", "");
                                                                window.localStorage.setItem("residentcityname", "");
-                                                          //     clearListFilter();
+                                                               //     clearListFilter();
                                                                fbCleanVariables();
                                                                customer = "9999999999";
                                                                customername = "Guest";
@@ -4004,7 +4003,7 @@ function completeRedemption() {
         
                                             propertyList
                                             : function () {
-                                              //  clearListFilter();
+                                                //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "811");
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backf").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -4780,7 +4779,6 @@ function completeRedemption() {
                                               
                                             getImage:
                                             function () {
-                               
                                                 var success = function (imageData) {
                                                     var image = document.getElementById('profile-picture-1');
                                                     image.src = "data:image/png;base64," + imageData;
@@ -4944,7 +4942,7 @@ function completeRedemption() {
                                                 document.getElementById("mycard-qrb").style.backgroundSize = "cover";      
                                                 document.getElementById("discount-1").innerHTML = window.localStorage.getItem("self-authorization");
                                                 window.localStorage.setItem("self-authorization", "");
-                                                 window.localStorage.setItem("selfredeem", "")
+                                                window.localStorage.setItem("selfredeem", "")
                                             },
         
                                             discountRedeemConfirmblack
@@ -4958,7 +4956,7 @@ function completeRedemption() {
                                                 document.getElementById("mycard-qry").style.backgroundSize = "cover";      
                                                 document.getElementById("discountb-1").innerHTML = window.localStorage.getItem("self-authorization");
                                                 window.localStorage.setItem("self-authorization", "");
-                                                 window.localStorage.setItem("selfredeem", "")
+                                                window.localStorage.setItem("selfredeem", "")
                                             },
                                             selfRedeemConfirm
                                             : function () {
@@ -4981,7 +4979,7 @@ function completeRedemption() {
                                                 hideSpin(); //hide loading popup
                                             },
         
-         selfRedeemConfirmblack
+                                            selfRedeemConfirmblack
                                             : function () {
                                                 showSpin();  
                                                 window.localStorage.setItem("selfredeem", "D"); 
@@ -5222,15 +5220,14 @@ function completeRedemption() {
                                                                    navigator.notification.alert("Cannot delete message. " + getData.statusdesc, function() {
                                                                    }, "isme By Jumeirah", "Dismiss")          
                                                                }
-                                                                hideSpin(); //hide loading popup
+                                                               hideSpin(); //hide loading popup
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("System error, cannot delete message. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss")
-                                                                hideSpin(); //hide loading popup
+                                                               hideSpin(); //hide loading popup
                                                            }
                                                        });
-                                               
                                             },
            
                                            
@@ -5248,7 +5245,6 @@ function completeRedemption() {
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
                                                 gct("#cuisinetype-filter", "#cuisinetypefilter-template");
                                                 getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
-                                              
                                             },
                                             getChecked:function() {
                                                 hideSpin();
@@ -5363,12 +5359,11 @@ function completeRedemption() {
                                                     elems[i].style.zIndex = 10000;
                                                     elems[i].style.textAlign = "center";
                                                 }
-                                                if (window.localStorage.getItem("segmentcode")==="1000"){
-                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                                                    }else{
-                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                        }
-
+                                                if (window.localStorage.getItem("segmentcode")==="1000") {
+                                                    $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                }else {
+                                                    $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                }
                                                 //$("body").data("kendoMobilePane").navigate("#:back");
                                             }
         
@@ -5516,7 +5511,7 @@ function completeRedemption() {
                            window.localStorage.setItem("self-outletname", getData.outletname);
                            postLogin.set("depin1", "");
                         
-                             if (window.localStorage.getItem("segmentcode")==="1000") {
+                           if (window.localStorage.getItem("segmentcode")==="1000") {
                                $("body").data("kendoMobilePane").navigate("views/pl-confirmvoucher.html");      
                            } else {
                                $("body").data("kendoMobilePane").navigate("views/pl-confirmvoucherblack.html");    
@@ -5556,7 +5551,7 @@ function completeRedemption() {
                            window.localStorage.setItem("self-authorization", getData.transactionref);
                            window.localStorage.setItem("self-outletname", getData.outletname);
                            postLogin.set("depin1", "");
-                             if (window.localStorage.getItem("segmentcode")==="1000") {
+                           if (window.localStorage.getItem("segmentcode")==="1000") {
                                $("body").data("kendoMobilePane").navigate("views/pl-confirmvoucher.html");      
                            } else {
                                $("body").data("kendoMobilePane").navigate("views/pl-confirmvoucherblack.html");    
@@ -5600,11 +5595,11 @@ function completeRedemption() {
                            navigator.notification.alert("PIN has been successfully set", function() {
                            }, "isme by Jumeirah", "Dismiss")         
                            if (y === "0") {
-                                if (window.localStorage.getItem("segmentcode")==="1000"){
-                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                                                    }else{
-                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                        }                                                                    
+                               if (window.localStorage.getItem("segmentcode")==="1000") {
+                                   $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                               }else {
+                                   $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                               }                                                                    
                                                                       
                                hideSpin(); //hide loading popup
                            }else {
@@ -6444,7 +6439,7 @@ function completeRedemption() {
                                    
                                                                                                                       
                                                         });
-                                     setLifeStylePreference(); 
+                               setLifeStylePreference(); 
                            }else {
                                navigator.notification.alert("Lifestyle Preference List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -6487,7 +6482,7 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
-                                setRestaurantPreference();
+                               setRestaurantPreference();
                            }else {
                                navigator.notification.alert("Restaurant Details List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -6527,7 +6522,7 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                                                                                                       
                                                         });
-                                setCelebrationTypePreference();
+                               setCelebrationTypePreference();
                            }else {
                                navigator.notification.alert("Cuisine Type List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -6569,7 +6564,7 @@ function completeRedemption() {
                                                                                                                       
                                                         });
                                
-                                 setCuisineTypePreference();
+                               setCuisineTypePreference();
                            }else {
                                navigator.notification.alert("Celebration Type List not available", function() {
                                }, "isme By Jumeirah", "Dismiss")    
@@ -6677,7 +6672,7 @@ function completeRedemption() {
                                    }
                                }
                            }
-                         //  document.getElementById("myfavorite-view").style.display="block";
+                           //  document.getElementById("myfavorite-view").style.display="block";
                            hideSpin();
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
@@ -6792,11 +6787,11 @@ function completeRedemption() {
     
         window.localStorage.setItem("appopen", "0");   
 
-         if (window.localStorage.getItem("segmentcode")==="1000"){
-                                                $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                                                    }else{
-                                                         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                        }                                                                   
+        if (window.localStorage.getItem("segmentcode")==="1000") {
+            $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+        }else {
+            $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+        }                                                                   
     }
     //$("body").data("kendoMobilePane").navigate("#:back");
     
@@ -7137,5 +7132,38 @@ function completeRedemption() {
                                                      hideSpin();
                                                  }, positionOption);
     }
+    
+    function changeCard(y) {
+        if (y==="1000") {
+                 elems = document.getElementsByClassName('cardhead');
+                
+                  for (i = 0; i < elems.length; i++) {
+        elems[i].style.style.backgroundColor = "#fff";
+                      elems[i].style.style.color = "#000";
+    }  
+             elems = document.getElementsByClassName('share-menu-line-3');
+                
+                  for (i = 0; i < elems.length; i++) {
+        elems[i].style.style.backgroundColor = "#fff";
+                      elems[i].style.style.color = "#000";
+    }  
+ 
+    }else {
+        
+          elems = document.getElementsByClassName('cardhead');
+                
+                  for (i = 0; i < elems.length; i++) {
+        elems[i].style.style.backgroundColor = "#000";
+                      elems[i].style.style.color = "#fff";
+    }  
+             elems = document.getElementsByClassName('share-menu-line-3');
+                
+                  for (i = 0; i < elems.length; i++) {
+        elems[i].style.style.backgroundColor = "#000";
+                      elems[i].style.style.color = "#fff";
+    }  
+        
+    }
 }
-    )(window);
+}
+)(window);
