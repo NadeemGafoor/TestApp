@@ -3995,15 +3995,21 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("social_image", getData.outletlist[0].imageurll); 
                                                                    window.localStorage.setItem("lat", lat);
                                                                    window.localStorage.setItem("lon", lon);
-                                                                  window.localStorage.setItem("oc", getData.outletlist[0].outletcode);
-                                                                  window.localStorage.setItem("op", getData.outletlist[0].outletfavourite);
-                                                                   alert(getData.outletlist[0].outletfavourite);
+                                                                   window.localStorage.setItem("oc", getData.outletlist[0].outletcode);
+                                                                   window.localStorage.setItem("op", getData.outletlist[0].outletfavourite);
+                                                                  
                                                                    if (window.localStorage.getItem("op")==="1") {
-                                                                      elems = document.getElementsById('outfav');
-                                                    elems.style.color='#1fb357';
+                                                                       elems = document.getElementsByClassName('km-customstar');
+                                                                                                                                 for (i = 0; i < elems.length; i++) {
+                                                                           alert(elems[i].style.color);
+                                                                           elems[i].style.color = '#fff000';
+                                                                       } 
                                                                    }else {
-                                                                      elems = document.getElementsById('outfav');
-                                                    elems.style.color='#fff';
+                                                                       elems = document.getElementsByClassName('km-customstar');
+                                                                                                        for (i = 0; i < elems.length; i++) {
+                                                                           alert(elems[i].style.color);
+                                                                           elems[i].style.color = '#fff';
+                                                                       } 
                                                                    }
                                                               
                                                                    hideSpin(); //hide loading popup
@@ -5411,19 +5417,23 @@ function completeRedemption() {
                                                 //$("body").data("kendoMobilePane").navigate("#:back");
                                             },
                                             setOutletFavourite:function() {
-                                                alert(window.localStorage.getItem("op"));
                                                 if (window.localStorage.getItem("op")==="1") {
                                                     y = "1";                                                   
-                                                    elems = document.getElementsById('outfav');
-                                                    elems.style.color='#1fb357';
-                                                    window.localStorage.setItem("op","");
+                                                    elems = document.getElementsByClassName('km-customstar');
+                                                    for (i = 0; i < elems.length; i++) {
+                                                        elems[i].style.color = '#fff000';
+                                                    } 
+                                                
+                                                    window.localStorage.setItem("op", "");
                                                 }else {
                                                     y = "";
-                                                    elems = document.getElementsById('outfav');
-                                                    elems.style.color='#fff';
-                                                    window.localStorage.setItem("op","1");
+                                                    elems = document.getElementsByClassName('km-customstar');
+                                                    for (i = 0; i < elems.length; i++) {
+                                                        elems[i].style.color = '#fff';
+                                                    } 
+                                                    window.localStorage.setItem("op", "1");
                                                 }
-                                                setMemberPreference(y, "RD"+window.localStorage.getItem("oc"));
+                                                setMemberPreference(y, "RD" + window.localStorage.getItem("oc"));
                                             }
                                             
                                         });  
