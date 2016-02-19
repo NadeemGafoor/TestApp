@@ -3751,6 +3751,7 @@ function completeRedemption() {
         
                                             benefitdetail  
                                             : function (e) { 
+                                                changeCard();
                                                 benefitcode = window.localStorage.getItem("segmentcode"); 
                                                 showSpin(); //show loading popup
                                                 $.ajax({ 
@@ -3805,6 +3806,7 @@ function completeRedemption() {
                                             },
         
                                             showOfferOutlet: function() {
+                                                 changeCard();
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3847,6 +3849,7 @@ function completeRedemption() {
                                             myVoucherShowOfferOutlet
 
                                             : function() {
+                                                 changeCard();
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3888,6 +3891,7 @@ function completeRedemption() {
         
                                             rewardList
                                             : function (e) {
+                                                 changeCard();
                                                 showSpin();
                                                 offercode = "";
                                                 offertype = "3"; 
@@ -3943,6 +3947,7 @@ function completeRedemption() {
                                             },
                                             showOutletItem
                                             : function (e) {
+                                                 changeCard();
                                                 showSpin();
                                                 outletcode = e.view.params.od;
                                                 $.ajax({ 
@@ -4004,6 +4009,7 @@ function completeRedemption() {
         
                                             propertyList
                                             : function () {
+                                                 changeCard();
                                                 //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "811");
                                                 window.localStorage.setItem("selfredeem", "D"); 
@@ -4057,6 +4063,7 @@ function completeRedemption() {
         
                                             showAllOutlet
                                             : function (e) {
+                                                 changeCard();
                                                 showSpin(); 
                                                 if (window.localStorage.getItem("appopen")==="0") {
                                                     window.localStorage.setItem("brand", e.view.params.brand);  
@@ -4115,6 +4122,7 @@ function completeRedemption() {
         
                                             showAllOutlet1
                                             : function (e) {
+                                                 changeCard();
                                                 showSpin(); 
                                              
                                                 window.localStorage.setItem("category", "0"); 
@@ -4168,6 +4176,7 @@ function completeRedemption() {
                                             },
                                             showAllLeisure
                                             : function (e) {
+                                                 changeCard();
                                                 showSpin(); 
                                                 if (window.localStorage.getItem("appopen")==="0") {
                                                     window.localStorage.setItem("brand", e.view.params.brand);  
@@ -4223,6 +4232,7 @@ function completeRedemption() {
         
                                             showAllLeisure1
                                             : function (e) {
+                                                 changeCard();
                                                 showSpin(); 
                                           
                                                 window.localStorage.setItem("category", e.view.params.category); 
@@ -4277,6 +4287,7 @@ function completeRedemption() {
         
                                             showPropertyItem  
                                             : function (e) {
+                                                 changeCard();
                                                 showSpin();
                                                 window.localStorage.setItem("brandcode", e.view.params.od);
                                     
@@ -4355,6 +4366,7 @@ function completeRedemption() {
 
                                             showOutletOffer
                                             : function () {
+                                                 changeCard();
                                                 offercode = "";
                                                 offertype = "1";
                                                 showSpin();
@@ -4486,6 +4498,7 @@ function completeRedemption() {
                                             },
                                             mywalletofferlist
                                             : function () {
+                                                 changeCard();
                                                 showSpin();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backm").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -4535,6 +4548,7 @@ function completeRedemption() {
                                             },
                                             showOfferItem
                                             : function (e) {
+                                                 changeCard();
                                                 offercode = e.view.params.cpn; //offer code for single offer inquiry
                                                 offertype = "2"; //single offer inquiry
                                                 window.localStorage.setItem("selfredeem", "D"); 
@@ -4588,6 +4602,7 @@ function completeRedemption() {
         
                                             mywalletofferdetail
                                             : function (e) {
+                                                 changeCard();
                                                 couponnumber = e.view.params.cpn;
                                                 showSpin();
                                                 window.localStorage.setItem("selfredeem", "D"); 
@@ -4648,6 +4663,7 @@ function completeRedemption() {
         
                                             myofferOutlet:
                                             function () {
+                                                 changeCard();
                                                 showSpin(); //show loading popup
                                                 
                                                 if (autolocation==="1") {
@@ -4679,6 +4695,7 @@ function completeRedemption() {
         
                                             editsettingdata
                                             :function() {
+                                                 changeCard();
                                                 showSpin(); 
                                                 listCountry();
                                                 window.localStorage.setItem("isset", "0");
@@ -5008,6 +5025,7 @@ function completeRedemption() {
                                                                                   
                                             myhistorylist
                                             : function () {
+                                                 changeCard();
                                                 var t = "";//document.getElementById("selCountry").value;
                                                 showSpin();
                                                 window.localStorage.setItem("selfredeem", "D"); 
@@ -5059,6 +5077,7 @@ function completeRedemption() {
                                             },
                                             showCard1
                                             : function () {
+                                                changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-back8").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-back8").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -5068,7 +5087,9 @@ function completeRedemption() {
                                                 document.getElementById("mycard-qr8").style.backgroundSize = "cover";      
                                             },
                                             showCard3
+        
                                             : function () {
+                                                changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backt").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backt").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -5095,6 +5116,7 @@ function completeRedemption() {
                                                 // alert(customer);
                                                 // alert(password);
                                                 // alert(mdevicestat);
+                                                changeCard();
                                                 showSpin();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backl").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -5143,6 +5165,7 @@ function completeRedemption() {
         
                                             mymessageitem
                                             : function (e) {
+                                                changeCard();
                                                 t = e.view.params.mi;
                                                 showSpin(); 
                                                 // alert(merchant);
@@ -5233,6 +5256,7 @@ function completeRedemption() {
            
                                            
                                             initPref: function () {
+                                                 changeCard();
                                                 showSpin();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name6-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
