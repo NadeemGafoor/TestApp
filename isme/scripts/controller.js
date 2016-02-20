@@ -6338,7 +6338,7 @@ function completeRedemption() {
 	                   url: gurl + "/offerlistname.aspx",
 	                   contentType: "application/json; charset=utf-8",
 	                   data: JSON.stringify({
-	                                            merchantcode :merchant,mdevice:mdevicestat,offercode:e
+	                                            merchantcode :merchant,mdevice:mdevicestat,offercode:e.message
 	                                        }),
 	                   success: function (data) { 
 	                       var getData = JSON.parse(data);
