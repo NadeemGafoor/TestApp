@@ -6350,14 +6350,18 @@ function completeRedemption() {
                        }else {
                            if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                                if (getData.offer.length > 0) {
+                                                             
                                    $("body").data().kendoMobilePane.navigate("views/pl-offerdetail.html?cpn" + e);
                                }else {
+                                                        
                                    $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");
                                }
                            } else {
                                if (getData.offer.length > 0) {
+                                                      
                                    $("body").data().kendoMobilePane.navigate("views/offerdetail.html?cpn" + e);
                                }else {
+                                                       
                                    $("body").data().kendoMobilePane.navigate("views/home.html");
                                }
                            }          
@@ -6367,8 +6371,10 @@ function completeRedemption() {
                    : function (errormsg) {
                        // alert(JSON.stringify(e));
                        if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
+                     
                            $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
                        } else {
+                                              
                            $("body").data().kendoMobilePane.navigate("views/home.html");
                        }     
                    }          
