@@ -6327,58 +6327,15 @@ function completeRedemption() {
     }                     
 
     function onPushNotificationReceived(e) {
-        showspin();
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:false,
-                   timeout:20000,
-                   url: gurl + "/offerlistname.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:mdevicestat,offercode:e
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                       hideSpin();
-                       if (getData.statuscode != "000") {
-                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
-                               $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
-                           } else {
-                               $("body").data().kendoMobilePane.navigate("views/home.html");
-                           }          
-                       }else {
-                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
-                               if (getData.offer.length > 0) {
-                                                             
-                                   $("body").data().kendoMobilePane.navigate("views/pl-offerdetail.html?cpn" + e);
-                               }else {
-                                                        
-                                   $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");
-                               }
-                           } else {
-                               if (getData.offer.length > 0) {
-                                                      
-                                   $("body").data().kendoMobilePane.navigate("views/offerdetail.html?cpn" + e);
-                               }else {
-                                                       
-                                   $("body").data().kendoMobilePane.navigate("views/home.html");
-                               }
-                           }          
-                       }           
-                   },
-                   error
-                   : function (errormsg) {
-                       // alert(JSON.stringify(e));
-                       if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
-                     
-                           $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
-                       } else {
-                                              
-                           $("body").data().kendoMobilePane.navigate("views/home.html");
-                       }     
-                   }          
-               });
+      
+        if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
+	        
+	                                                             
+	                                 $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");
+	                               }else {
+	                                                        
+	                                   $("body").data().kendoMobilePane.navigate("views/home.html");
+	                               }
     }                  
     
     function callBackError(e) {
