@@ -6327,9 +6327,7 @@ function completeRedemption() {
     }                     
 
     function onPushNotificationReceived(e) {
-        alert(merchant);
-        alert(mdevicestat);
-        alert(e.message);
+     
      $.ajax({ 
 	                   type: "POST",
 	                   cache:false,
@@ -6338,10 +6336,11 @@ function completeRedemption() {
 	                   url: gurl + "/offerlistname.aspx",
 	                   contentType: "application/json; charset=utf-8",
 	                   data: JSON.stringify({
-	                                            merchantcode :merchant,mdevice:mdevicestat,offercode:e.message
+	                                            merchantcode :merchant,mdevice:mdevicestat,offercode:e.alert
 	                                        }),
 	                   success: function (data) { 
 	                       var getData = JSON.parse(data);
+                          
 	                       if (getData.statuscode != "000") {
 	                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
 	                               $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
@@ -6352,15 +6351,15 @@ function completeRedemption() {
 	                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
 	                               if (getData.offer.length > 0) {
                             
-	                                   $("body").data().kendoMobilePane.navigate("views/pl-offerdetail.html?cpn" + getData.offer);
+	                                   $("body").data().kendoMobilePane.navigate("views/pl-offerlist.html");
 	                               }else {
                      
 	                                   $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");
 	                               }
 	                           } else {
-	                               if (getData.offer.length > 0) {
+	                               if (getData.offer.length > 0) {   
                    
-	                                   $("body").data().kendoMobilePane.navigate("views/offerdetail.html?cpn" + getData.offer);
+	                                   $("body").data().kendoMobilePane.navigate("views/offerlist.html");
 	                               }else {
             
 	                                   $("body").data().kendoMobilePane.navigate("views/home.html");
