@@ -6327,15 +6327,57 @@ function completeRedemption() {
     }                     
 
     function onPushNotificationReceived(e) {
-      
-        if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
-	        
+    showSpin();
+     $.ajax({ 
+	                   type: "POST",
+	                   cache:false,
+	                   async:true,
+	                   timeout:20000,
+	                   url: gurl + "/offerlistname.aspx",
+	                   contentType: "application/json; charset=utf-8",
+	                   data: JSON.stringify({
+	                                            merchantcode :merchant,mdevice:mdevicestat,offercode:e
+	                                        }),
+	                   success: function (data) { 
+	                       var getData = JSON.parse(data);
+	                       if (getData.statuscode != "000") {
+	                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
+	                               $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
+	                           } else {
+	                               $("body").data().kendoMobilePane.navigate("views/home.html");
+	                           }          
+	                       }else {
+	                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
+	                               if (getData.offer.length > 0) {
 	                                                             
-	                                 $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");
+	                                   $("body").data().kendoMobilePane.navigate("views/pl-offerdetail.html?cpn" + getData.offer);
 	                               }else {
 	                                                        
+	                                   $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");
+	                               }
+	                           } else {
+	                               if (getData.offer.length > 0) {
+	                                                      
+	                                   $("body").data().kendoMobilePane.navigate("views/offerdetail.html?cpn" + getData.offer);
+	                               }else {
+	                                                       
 	                                   $("body").data().kendoMobilePane.navigate("views/home.html");
 	                               }
+	                           }          
+	                       }           
+	                   },
+	                   error
+	                   : function (errormsg) {
+	                       // alert(JSON.stringify(e));
+	                       if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
+	                     
+	                           $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
+	                       } else {
+	                                              
+	                           $("body").data().kendoMobilePane.navigate("views/home.html");
+	                       }     
+	                   }          
+               });
     }                  
     
     function callBackError(e) {
