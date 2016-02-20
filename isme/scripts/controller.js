@@ -6327,6 +6327,9 @@ function completeRedemption() {
     }                     
 
     function onPushNotificationReceived(e) {
+        alert(merchant);
+        alert(mdevicestat);
+        alert(e);
      $.ajax({ 
 	                   type: "POST",
 	                   cache:false,
@@ -6341,27 +6344,25 @@ function completeRedemption() {
 	                       var getData = JSON.parse(data);
 	                       if (getData.statuscode != "000") {
 	                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
-                                   alert("1");
 	                               $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
 	                           } else {
-                                   alert("2");
 	                               $("body").data().kendoMobilePane.navigate("views/home.html");
 	                           }          
 	                       }else {
 	                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
 	                               if (getData.offer.length > 0) {
-	                              alert("3");                               
+                            
 	                                   $("body").data().kendoMobilePane.navigate("views/pl-offerdetail.html?cpn" + getData.offer);
 	                               }else {
-	                                   alert("4");                     
+                     
 	                                   $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");
 	                               }
 	                           } else {
 	                               if (getData.offer.length > 0) {
-	                                alert("5");                      
+                   
 	                                   $("body").data().kendoMobilePane.navigate("views/offerdetail.html?cpn" + getData.offer);
 	                               }else {
-	                                    alert("6");                   
+            
 	                                   $("body").data().kendoMobilePane.navigate("views/home.html");
 	                               }
 	                           }          
