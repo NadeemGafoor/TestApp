@@ -6329,7 +6329,7 @@ function completeRedemption() {
     function onPushNotificationReceived(e) {
         alert(merchant);
         alert(mdevicestat);
-        alert(e);
+        alert(e.message);
      $.ajax({ 
 	                   type: "POST",
 	                   cache:false,
