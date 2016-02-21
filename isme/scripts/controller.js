@@ -847,8 +847,8 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-    var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
-    //var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
+    //var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
+    var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
     //var gurl = "https://appapi.exclusiveu.in/mobilePortal";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
