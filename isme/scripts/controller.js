@@ -1876,9 +1876,8 @@ function completeRedemption() {
                                                                   //fill the outlet template
                                                                   $("#outlet-list-b").kendoMobileListView({
                                                                              
-                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
-                                                                                                            template: $("#outletTemplate").html(),
-                                                                      endlessScroll:true
+                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                            template: $("#outletTemplate").html()
                                                                                                           });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
@@ -1925,9 +1924,8 @@ function completeRedemption() {
                                                               if (getData.statuscode === "000") {
                                                                   $("#leisure-list").kendoMobileListView({
                                                                              
-                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
-                                                                                                            template: $("#outletTemplate").html(),
-                                                                      endlessScroll:true
+                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                            template: $("#outletTemplate").html()
                                                                                                          });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
@@ -2025,6 +2023,12 @@ function completeRedemption() {
                                                                   document.getElementById("property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
                                                                   document.getElementById("property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                   document.getElementById("property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
+                                                            
+                                                                  
+                                                                  
+                                                                  window.localStorage.setItem("social_email", supportemail + "  \n");
+                                                                  window.localStorage.setItem("social_telephone", customercaretelephone);                   
+                                                                  window.localStorage.setItem("social_shortmsg", emailsubject);
                                                             
                                                                   window.localStorage.setItem("social_message", getData.shortdes + "\n\n" + getData.shortdes1 + "\n\n" + getData.longdes);
                                                                   window.localStorage.setItem("social_image", getData.imageurll); 
@@ -4165,9 +4169,8 @@ function completeRedemption() {
                                                                    //fill the outlet template
                                                                    $("#pl-outlet-list-b").kendoMobileListView({
                                                                              
-                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
-                                                                                                            template: $("#outletTemplate").html(),
-                                                                      endlessScroll:true
+                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                            template: $("#outletTemplate").html()
                                                                                                               });
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
@@ -4226,9 +4229,8 @@ function completeRedemption() {
                                                                    //fill the outlet template
                                                                    $("#pl-leisure-list").kendoMobileListView({
                                                                              
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
-                                                                                                            template: $("#outletTemplate").html(),
-                                                                      endlessScroll:true
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                            template: $("#outletTemplate").html()
                                                                                                              });
                                                                    hideSpin(); //hide loading popup
                                                                }else {
@@ -4280,9 +4282,8 @@ function completeRedemption() {
                                                                    //fill the outlet template
                                                                    $("#pl-leisure-list-b").kendoMobileListView({
                                                                              
-                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
-                                                                                                            template: $("#outletTemplate").html(),
-                                                                      endlessScroll:true
+                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                            template: $("#outletTemplate").html()
                                                                                                                });
                                                                    hideSpin(); //hide loading popup
                                                                }else {
@@ -4339,7 +4340,11 @@ function completeRedemption() {
                                                                    document.getElementById("pl-property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
                                                                    document.getElementById("pl-property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                    document.getElementById("pl-property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
-                                                     
+                                                                   
+                                                                  window.localStorage.setItem("social_email", supportemail + "  \n");
+                                                                  window.localStorage.setItem("social_telephone", customercaretelephone);                   
+                                                                  window.localStorage.setItem("social_shortmsg", emailsubject);
+
                                                                    window.localStorage.setItem("social_message", getData.shortdes + "\n\n" + getData.shortdes1 + "\n\n" + getData.longdes);
                                                                    window.localStorage.setItem("social_image", getData.imageurll); 
                                                                    window.localStorage.setItem("lat", lat);
@@ -5444,7 +5449,7 @@ function completeRedemption() {
             showSpin();
             window.setTimeout(function() {
                 savePreferenceItem();
-            }, 500); 
+            }, 1000); 
             
             saveLater();
         }
@@ -5474,9 +5479,9 @@ function completeRedemption() {
         for (var i = 0; i < items.length; ++i) {
             y = items[i].checked ? "1" : "0";
             
-                window.setTimeout(function() {
+              
                 setMemberPreference(y, items[i].value);
-            }, 100); 
+         
             
         }
                                                 
@@ -5486,9 +5491,9 @@ function completeRedemption() {
         items = ul.getElementsByTagName("input");                                             
         for (i = 0; i < items.length; ++i) {
             y = items[i].checked ? "1" : "0";
-             window.setTimeout(function() {
+            
                 setMemberPreference(y, items[i].value);
-            }, 100); 
+         
         }
 
         //celebration Type
@@ -5498,9 +5503,9 @@ function completeRedemption() {
                                                 
         for (i = 0; i < items.length; ++i) {
             y = items[i].checked ? "1" : "0";
-             window.setTimeout(function() {
+          
                 setMemberPreference(y, items[i].value);
-            }, 100); 
+
         }
 
         //Restaurant
@@ -5509,9 +5514,9 @@ function completeRedemption() {
                                                 
         for (i = 0; i < items.length; ++i) {
             y = items[i].checked ? "1" : "0";
-             window.setTimeout(function() {
+          
                 setMemberPreference(y, items[i].value);
-            }, 100); 
+
         }
         if (window.localStorage.getItem("errorPreference") === "1") {
             navigator.notification.alert("Your Preferences were saved successfully.", function() {
@@ -6338,7 +6343,11 @@ function completeRedemption() {
     }                     
 
     function onPushNotificationReceived(e) {
+if (e.alert == undefined || e.alert == ''){
     y = e.message;
+ }   else{
+    y = e.alert;
+}
         
      $.ajax({ 
 	                   type: "POST",
