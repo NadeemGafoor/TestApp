@@ -200,7 +200,7 @@ function onSelectTabStrip(e) {
     } else if (i === 1) {
         supportEmailA();
     } else if (i === 2) {
-        customerCare();
+        customerCareOutlet();
     }
     var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
     var currentItem = tabstrip.currentItem();
@@ -218,6 +218,20 @@ function onSelectTabStrip2(e) {
     var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
     var currentItem = tabstrip.currentItem();
 }
+
+function onSelectTabStrip3(e) {
+    var i = $(e.item).index();
+    if (i === 0) {
+        getLocation5();
+    } else if (i === 1) {
+        supportEmailA();
+    } else {
+        customerCare();
+    }
+    var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
+    var currentItem = tabstrip.currentItem();
+}
+
 
 function onSelectTabStrip1(e) {
     var i = $(e.item).index();
@@ -847,8 +861,8 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-    var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
-    //var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
+    //var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
+    var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
@@ -901,10 +915,10 @@ function completeRedemption() {
     var residentcityname = "";
     var appad_location = "http://www.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
-    var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-    var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
-    //var share_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png";
-    //var flag_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/flagimages/";
+   // var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+    //var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
+    var share_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png";
+    var flag_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/flagimages/";
     var short_msg = "isme By Jumeirah";
     var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at http://isme.jumeirah.com";
     var offertelephone = "8004763";
@@ -4154,7 +4168,6 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
-                                                               window.localStorage.setItem("brandcode", "");
                                                        
                                                                if (getData.statuscode === "000") {
                                                                    //fill the outlet template
@@ -4264,7 +4277,6 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
-                                                               window.localStorage.setItem("brandcode", "");
                                                                if (getData.statuscode === "000") {
                                                                    if (getData.outletlist.length === 0) {
                                                                        navigator.notification.alert("There are no Leisure venues available for the selected property.", function() {
