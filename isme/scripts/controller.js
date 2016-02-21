@@ -193,19 +193,6 @@ function mapInitialize() {
     google.maps.event.trigger(map, 'resize');
 }
 
-function onSelectTabStrip(e) {
-    var i = $(e.item).index();
-    if (i === 0) {
-        getLocation5();
-    } else if (i === 1) {
-        supportEmailA();
-    } else if (i === 2) {
-        customerCareOutlet();
-    }
-    var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
-    var currentItem = tabstrip.currentItem();
-}
-
 function onSelectTabStrip2(e) {
     var i = $(e.item).index();
     if (i === 0) {
@@ -247,7 +234,7 @@ function onSelectTabStrip1(e) {
 function supportEmailA() {
     window.plugins.socialsharing.shareViaEmail(
         "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
-        window.localStorage.getItem("social_subject"), window.localStorage.getItem("social_email"), null, null, // TO: must be null or an array
+        window.localStorage.getItem("social_subject"), [window.localStorage.getItem("social_email")], null, null, // TO: must be null or an array
         window.localStorage.getItem("share_image"), // FILES: can be null, a string, or an array
         function (msg) {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
