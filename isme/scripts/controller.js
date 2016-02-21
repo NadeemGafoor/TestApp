@@ -6338,7 +6338,8 @@ function completeRedemption() {
     }                     
 
     function onPushNotificationReceived(e) {
-     alert(e.alert);
+    y = e.message;
+        
      $.ajax({ 
 	                   type: "POST",
 	                   cache:false,
@@ -6347,11 +6348,10 @@ function completeRedemption() {
 	                   url: gurl + "/offerlistname.aspx",
 	                   contentType: "application/json; charset=utf-8",
 	                   data: JSON.stringify({
-	                                            merchantcode :merchant,mdevice:mdevicestat,offercode:e.alert
+	                                            merchantcode :merchant,mdevice:mdevicestat,offercode:y
 	                                        }),
 	                   success: function (data) { 
 	                       var getData = JSON.parse(data);
-                          alert(getData.offer);
 	                       if (getData.statuscode != "000") {
 	                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
 	                               $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
