@@ -4729,7 +4729,8 @@ function completeRedemption() {
                                                 document.getElementById("mycard7-qr").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard7-qr").style.backgroundSize = "cover";    
                                                 if(window.localStorage.getItem("magicnumber").length>0){
-                                                document.getElementById("cantidadCopias").disabled = true; 
+                                                document.getElementById("hotelnumber1").disabled = true; 
+                                                    document.getElementById("hotelnumber1").style.color = '#ccc'; 
                                                 }
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
@@ -5472,7 +5473,11 @@ function completeRedemption() {
                                                 
         for (var i = 0; i < items.length; ++i) {
             y = items[i].checked ? "1" : "0";
-            setMemberPreference(y, items[i].value);
+            
+                window.setTimeout(function() {
+                setMemberPreference(y, items[i].value);
+            }, 100); 
+            
         }
                                                 
         //Cuisine Type
@@ -5481,7 +5486,9 @@ function completeRedemption() {
         items = ul.getElementsByTagName("input");                                             
         for (i = 0; i < items.length; ++i) {
             y = items[i].checked ? "1" : "0";
-            setMemberPreference(y, items[i].value);
+             window.setTimeout(function() {
+                setMemberPreference(y, items[i].value);
+            }, 100); 
         }
 
         //celebration Type
@@ -5491,7 +5498,9 @@ function completeRedemption() {
                                                 
         for (i = 0; i < items.length; ++i) {
             y = items[i].checked ? "1" : "0";
-            setMemberPreference(y, items[i].value);
+             window.setTimeout(function() {
+                setMemberPreference(y, items[i].value);
+            }, 100); 
         }
 
         //Restaurant
@@ -5500,7 +5509,9 @@ function completeRedemption() {
                                                 
         for (i = 0; i < items.length; ++i) {
             y = items[i].checked ? "1" : "0";
-            setMemberPreference(y, items[i].value);
+             window.setTimeout(function() {
+                setMemberPreference(y, items[i].value);
+            }, 100); 
         }
         if (window.localStorage.getItem("errorPreference") === "1") {
             navigator.notification.alert("Your Preferences were saved successfully.", function() {
@@ -6327,7 +6338,7 @@ function completeRedemption() {
     }                     
 
     function onPushNotificationReceived(e) {
-     
+     alert(e.alert);
      $.ajax({ 
 	                   type: "POST",
 	                   cache:false,
@@ -6340,7 +6351,7 @@ function completeRedemption() {
 	                                        }),
 	                   success: function (data) { 
 	                       var getData = JSON.parse(data);
-                          
+                          alert(getData.offer);
 	                       if (getData.statuscode != "000") {
 	                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
 	                               $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
