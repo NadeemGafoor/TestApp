@@ -1322,8 +1322,8 @@ li
 .qr-image
 {
   
-    height: 125px;
-    width: 125px; 
+    height: 100px;
+    width: 100px; 
     background-size: cover;
     margin: .5px auto;
     display: block;
@@ -1332,7 +1332,7 @@ li
     
 .qr-image-sep
 {
-    height: 135px;
+    height: 110px;
     position: relative; 
     float: none;
 }
@@ -2009,8 +2009,8 @@ tile-frame-inner
 
 .class-card-div
 {
-    height: 200px;
-    margin: 40px auto;
+    height: 150px;
+    margin: 10px auto;
     display: block;
     width: 100%;
     background-color: #fff;
@@ -2280,7 +2280,15 @@ tile-frame-inner
    
 }
 
-.sharehead, .cardhead
+.home-page-holder
+{
+    height:40px;
+    width:100%;
+    color:#fff;
+    font-size:1em;
+}
+
+.sharehead
 {
     height: 300px;
     position: fixed;
@@ -2298,6 +2306,26 @@ tile-frame-inner
     background-color: #000;
     border: none;
 }
+
+.cardhead
+{
+    height: 200px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    text-align: center;
+    color: #fff;
+    display: none;
+    justify-content: center; /* align horizontal */
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    top: 43px; 
+    background-color: #000;
+    border: none;
+}
+
 
 .collapse-format{
 
