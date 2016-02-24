@@ -2323,7 +2323,7 @@ tile-frame-inner
     margin-left: auto;
     top: 43px; 
     background-color: #000;
-    border: 2px solid #000;
+    border:none;
 }
 
 

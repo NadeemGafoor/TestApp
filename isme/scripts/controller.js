@@ -5469,7 +5469,6 @@ function completeRedemption() {
     function savePreferenceItem() {
         //life style
         showSpin();
-        alert("fgfgfg");
         var ul = document.getElementById("lifestyle-filter");
         var items = ul.getElementsByTagName("input");
                                                 
