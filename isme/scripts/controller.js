@@ -6724,7 +6724,7 @@ function completeRedemption() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:true,
+                   async:false,
                    timeout:20000,
                    url: gurl + "/setMemberPreference.aspx",
                    contentType: "application/json; charset=utf-8",
