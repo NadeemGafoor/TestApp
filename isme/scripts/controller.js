@@ -5442,7 +5442,7 @@ function completeRedemption() {
     function onConfirm2 (buttonIndex) {
         if (buttonIndex===1) {
             saveLater();
-        } else {
+        } else if (buttonIndex===2){
             showSpin();
             window.setTimeout(function() {
                 savePreferenceItem();
@@ -5454,7 +5454,7 @@ function completeRedemption() {
     function onConfirm3 (buttonIndex) {
         if (buttonIndex===1) {
             saveLater();
-        } else {
+        } else if (buttonIndex===2){
             saveSetting();
             if (window.localStorage.getItem("isset")==="1") {
                 saveLater();
@@ -5509,11 +5509,11 @@ function completeRedemption() {
             setMemberPreference(y, items[i].value);
         }
         if (window.localStorage.getItem("errorPreference") === "1") {
-            navigator.notification.alert("Your Preferences were saved successfully.", function() {
+            navigator.notification.alert("Your preferences were saved successfully.", function() {
             }, "isme By Jumeirah", "Dismiss") ;                         
             saveLater();
         } else {
-            navigator.notification.alert("System error: One or more preferences could not be saved. Please click Save again to re-try. " + window.localStorage.getItem("errorPreference"), function() {
+            navigator.notification.alert("Your Preferences Were Saved Successfully", function() {
             }, "isme By Jumeirah" , "Dismiss") ;   
             
             saveLater();            
