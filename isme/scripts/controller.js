@@ -149,14 +149,7 @@ function getLocation5() {
 }
 
 function mapInitialize() {
-    //  navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-    //     lat = position.coords.latitude;                                  
-    //     lon = position.coords.longitude;
-    //    }
-    //                                            , function onErrorShowMap(error) { 
-    //                                              lat = window.localStorage.getItem("lat");
-    //                                            lon = window.localStorage.getItem("lon");
-    //                                      }); 
+  
     lat = window.localStorage.getItem("lat");
     lon = window.localStorage.getItem("lon");
     
@@ -837,7 +830,8 @@ function completeRedemption() {
                                                });
 }
 
-(function (global) {   
+(function (global) {  
+     var positionOption = { maximumAge:60000,timeout: 7000, enableHighAccuracy: false};
     var gpsErrorShow = "";
     var gpsErrorShowApp = "";
     var magicnumber = "";
@@ -848,8 +842,8 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-    var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
-    //var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
+   // var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
+    var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
@@ -902,10 +896,10 @@ function completeRedemption() {
     var residentcityname = "";
     var appad_location = "http://www.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
-    var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-    var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
-    //var share_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png";
-    //var flag_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/flagimages/";
+   // var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+   /// var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
+    var share_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png";
+    var flag_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/flagimages/";
     var short_msg = "isme By Jumeirah";
     var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at http://isme.jumeirah.com";
     var offertelephone = "8004763";
@@ -2574,7 +2568,7 @@ function completeRedemption() {
                                                    }
                                                                                             , function onErrorShowMap(error) {
                                                                                                 gpsError();
-                                                                                            }); 
+                                                                                            },positionOption); 
                                    
                                                    // }
                            
@@ -4705,7 +4699,7 @@ function completeRedemption() {
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                   
                                                                                                  myOfferListOutlet();
-                                                                                             });
+                                                                                             },positionOption);
                                                 }else {
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
@@ -6096,7 +6090,7 @@ function completeRedemption() {
         }
                                                  , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
                                                      showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page or on the device.");
-                                                 });
+                                                 },positionOption);
     }
     
     function meWatchPos(position) {
@@ -6161,7 +6155,7 @@ function completeRedemption() {
                                                      mcountry = country;
                                                      window.localStorage.setItem("country", mcountry);
                                                      getFlag(mcountry);
-                                                 });
+                                                 },positionOption);
     }
     function getFlag(e) {
         $.ajax({ 
@@ -6235,7 +6229,7 @@ function completeRedemption() {
         }
                                                  , function onErrorShowMap(error) { 
                                                      gpsError();
-                                                 });   
+                                                 },positionOption);   
     }
     
     function startMonitor() {
@@ -6294,7 +6288,7 @@ function completeRedemption() {
                    });
         }
                                                  , function onErrorShowMap(error) {
-                                                 });
+                                                 },positionOption);
         hideSpin(); 
     }
         
