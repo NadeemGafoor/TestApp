@@ -149,7 +149,6 @@ function getLocation5() {
 }
 
 function mapInitialize() {
-  
     lat = window.localStorage.getItem("lat");
     lon = window.localStorage.getItem("lon");
     
@@ -211,7 +210,6 @@ function onSelectTabStrip3(e) {
     var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
     var currentItem = tabstrip.currentItem();
 }
-
 
 function onSelectTabStrip1(e) {
     var i = $(e.item).index();
@@ -831,7 +829,7 @@ function completeRedemption() {
 }
 
 (function (global) {  
-     var positionOption = { maximumAge:60000,timeout: 7000, enableHighAccuracy: false};
+    var positionOption = { maximumAge:60000,timeout: 7000, enableHighAccuracy: false};
     var gpsErrorShow = "";
     var gpsErrorShowApp = "";
     var magicnumber = "";
@@ -842,7 +840,7 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-   // var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
+    // var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
     var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
@@ -896,8 +894,8 @@ function completeRedemption() {
     var residentcityname = "";
     var appad_location = "http://www.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
-   // var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-   /// var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
+    // var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+    /// var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     var share_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png";
     var flag_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/flagimages/";
     var short_msg = "isme By Jumeirah";
@@ -1607,11 +1605,6 @@ function completeRedemption() {
                                                        }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
-                                                   if (postLogin.emailid != this.emailida) {
-                                                       navigator.notification.alert("Emails do not match, please re-enter correctly.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss");
-                                                       return;
-                                                   }
                                                } else {
                                                    if (!this.firstname) {
                                                        navigator.notification.alert("Please enter your First Name. ", function() {
@@ -1635,14 +1628,25 @@ function completeRedemption() {
                                                        }, "isme by Jumeirah", "Dismiss")
                                                        return;
                                                    }
-                                                   
+                                               }
+                                               
+                                               //if email updated check with the keyin email ans 2nd email
+                                               if (!this.emailid) {
+                                                   if (postLogin.emailid != this.emailida) {
+                                                       navigator.notification.alert("Emails do not match, please re-enter correctly.", function() {
+                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       return;
+                                                   }
+                                               }else {  
                                                    if (this.emailid != this.emailida) {
                                                        navigator.notification.alert("Emails do not match, please re-enter correctly.", function() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
-                                                   }   
-                                               }
-                                                
+                                                   }
+                                               }  
+                                               
+                                               
+                                               
                                                if (!this.mobile) {
                                                    navigator.notification.alert("Please enter your mobile number.", function() {
                                                    }, "isme by Jumeirah", "Dismiss")
@@ -1825,7 +1829,7 @@ function completeRedemption() {
                                                                              
                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
                                                                                                             template: $("#outletTemplate").html(),
-                                                                      endlessScroll:true
+                                                                                                            endlessScroll:true
                                                                                                         });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
@@ -1870,8 +1874,8 @@ function completeRedemption() {
                                                                   //fill the outlet template
                                                                   $("#outlet-list-b").kendoMobileListView({
                                                                              
-                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                            template: $("#outletTemplate").html()
+                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                              template: $("#outletTemplate").html()
                                                                                                           });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
@@ -1919,7 +1923,7 @@ function completeRedemption() {
                                                                   $("#leisure-list").kendoMobileListView({
                                                                              
                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                            template: $("#outletTemplate").html()
+                                                                                                             template: $("#outletTemplate").html()
                                                                                                          });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
@@ -1964,9 +1968,9 @@ function completeRedemption() {
                                                               if (getData.statuscode === "000") {
                                                                   $("#leisure-list-b").kendoMobileListView({
                                                                              
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
-                                                                                                            template: $("#outletTemplate").html(),
-                                                                      endlessScroll:true
+                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
+                                                                                                               template: $("#outletTemplate").html(),
+                                                                                                               endlessScroll:true
                                                                                                            });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
@@ -2017,8 +2021,6 @@ function completeRedemption() {
                                                                   document.getElementById("property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
                                                                   document.getElementById("property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                   document.getElementById("property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
-                                                            
-                                                                  
                                                                   
                                                                   window.localStorage.setItem("social_email", supportemail + "  \n");
                                                                   window.localStorage.setItem("social_telephone", customercaretelephone);                   
@@ -2568,7 +2570,7 @@ function completeRedemption() {
                                                    }
                                                                                             , function onErrorShowMap(error) {
                                                                                                 gpsError();
-                                                                                            },positionOption); 
+                                                                                            }, positionOption); 
                                    
                                                    // }
                            
@@ -4107,8 +4109,8 @@ function completeRedemption() {
                                                                    $("#pl-outlet-list").kendoMobileListView({
                                                                              
                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
-                                                                                                            template: $("#outletTemplate").html(),
-                                                                      endlessScroll:true
+                                                                                                                template: $("#outletTemplate").html(),
+                                                                                                                endlessScroll:true
                                                                                                             });
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
@@ -4164,7 +4166,7 @@ function completeRedemption() {
                                                                    $("#pl-outlet-list-b").kendoMobileListView({
                                                                              
                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                            template: $("#outletTemplate").html()
+                                                                                                                  template: $("#outletTemplate").html()
                                                                                                               });
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
@@ -4223,8 +4225,8 @@ function completeRedemption() {
                                                                    //fill the outlet template
                                                                    $("#pl-leisure-list").kendoMobileListView({
                                                                              
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                            template: $("#outletTemplate").html()
+                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                                 template: $("#outletTemplate").html()
                                                                                                              });
                                                                    hideSpin(); //hide loading popup
                                                                }else {
@@ -4276,8 +4278,8 @@ function completeRedemption() {
                                                                    //fill the outlet template
                                                                    $("#pl-leisure-list-b").kendoMobileListView({
                                                                              
-                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                            template: $("#outletTemplate").html()
+                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                                   template: $("#outletTemplate").html()
                                                                                                                });
                                                                    hideSpin(); //hide loading popup
                                                                }else {
@@ -4335,9 +4337,9 @@ function completeRedemption() {
                                                                    document.getElementById("pl-property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                    document.getElementById("pl-property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
                                                                    
-                                                                  window.localStorage.setItem("social_email", supportemail + "  \n");
-                                                                  window.localStorage.setItem("social_telephone", customercaretelephone);                   
-                                                                  window.localStorage.setItem("social_shortmsg", emailsubject);
+                                                                   window.localStorage.setItem("social_email", supportemail + "  \n");
+                                                                   window.localStorage.setItem("social_telephone", customercaretelephone);                   
+                                                                   window.localStorage.setItem("social_shortmsg", emailsubject);
 
                                                                    window.localStorage.setItem("social_message", getData.shortdes + "\n\n" + getData.shortdes1 + "\n\n" + getData.longdes);
                                                                    window.localStorage.setItem("social_image", getData.imageurll); 
@@ -4699,7 +4701,7 @@ function completeRedemption() {
                                                                                                  lon = window.localStorage.getItem("lon");
                                                                                                   
                                                                                                  myOfferListOutlet();
-                                                                                             },positionOption);
+                                                                                             }, positionOption);
                                                 }else {
                                                     lat = window.localStorage.getItem("lat");
                                                     lon = window.localStorage.getItem("lon");
@@ -4727,8 +4729,8 @@ function completeRedemption() {
                                                 document.getElementById("segment7-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme elite";
                                                 document.getElementById("mycard7-qr").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard7-qr").style.backgroundSize = "cover";    
-                                                if(window.localStorage.getItem("magicnumber").length>0){
-                                                document.getElementById("hotelnumber1").disabled = true; 
+                                                if (window.localStorage.getItem("magicnumber").length > 0) {
+                                                    document.getElementById("hotelnumber1").disabled = true; 
                                                     document.getElementById("hotelnumber1").style.color = '#ccc'; 
                                                 }
                                                 if (pushoffer == "1") {
@@ -5472,11 +5474,8 @@ function completeRedemption() {
                                                 
         for (var i = 0; i < items.length; ++i) {
             y = items[i].checked ? "1" : "0";
-            
               
-                setMemberPreference(y, items[i].value);
-         
-            
+            setMemberPreference(y, items[i].value);
         }
                                                 
         //Cuisine Type
@@ -5486,8 +5485,7 @@ function completeRedemption() {
         for (i = 0; i < items.length; ++i) {
             y = items[i].checked ? "1" : "0";
             
-                setMemberPreference(y, items[i].value);
-         
+            setMemberPreference(y, items[i].value);
         }
 
         //celebration Type
@@ -5498,8 +5496,7 @@ function completeRedemption() {
         for (i = 0; i < items.length; ++i) {
             y = items[i].checked ? "1" : "0";
           
-                setMemberPreference(y, items[i].value);
-
+            setMemberPreference(y, items[i].value);
         }
 
         //Restaurant
@@ -5509,8 +5506,7 @@ function completeRedemption() {
         for (i = 0; i < items.length; ++i) {
             y = items[i].checked ? "1" : "0";
           
-                setMemberPreference(y, items[i].value);
-
+            setMemberPreference(y, items[i].value);
         }
         if (window.localStorage.getItem("errorPreference") === "1") {
             navigator.notification.alert("Your Preferences were saved successfully.", function() {
@@ -6090,7 +6086,7 @@ function completeRedemption() {
         }
                                                  , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
                                                      showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page or on the device.");
-                                                 },positionOption);
+                                                 }, positionOption);
     }
     
     function meWatchPos(position) {
@@ -6155,7 +6151,7 @@ function completeRedemption() {
                                                      mcountry = country;
                                                      window.localStorage.setItem("country", mcountry);
                                                      getFlag(mcountry);
-                                                 },positionOption);
+                                                 }, positionOption);
     }
     function getFlag(e) {
         $.ajax({ 
@@ -6229,7 +6225,7 @@ function completeRedemption() {
         }
                                                  , function onErrorShowMap(error) { 
                                                      gpsError();
-                                                 },positionOption);   
+                                                 }, positionOption);   
     }
     
     function startMonitor() {
@@ -6288,7 +6284,7 @@ function completeRedemption() {
                    });
         }
                                                  , function onErrorShowMap(error) {
-                                                 },positionOption);
+                                                 }, positionOption);
         hideSpin(); 
     }
         
@@ -6337,59 +6333,55 @@ function completeRedemption() {
     }                     
 
     function onPushNotificationReceived(e) {
-if (e.alert == undefined || e.alert == ''){
-    y = e.message;
- }   else{
-    y = e.alert;
-}
+        if (e.alert == undefined || e.alert == '') {
+            y = e.message;
+        } else {
+            y = e.alert;
+        }
         
-     $.ajax({ 
-	                   type: "POST",
-	                   cache:false,
-	                   async:true,
-	                   timeout:20000,
-	                   url: gurl + "/offerlistname.aspx",
-	                   contentType: "application/json; charset=utf-8",
-	                   data: JSON.stringify({
-	                                            merchantcode :merchant,mdevice:mdevicestat,offercode:y
-	                                        }),
-	                   success: function (data) { 
-	                       var getData = JSON.parse(data);
-	                       if (getData.statuscode != "000") {
-	                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
-	                               $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
-	                           } else {
-	                               $("body").data().kendoMobilePane.navigate("views/home.html");
-	                           }          
-	                       }else {
-	                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
-	                               if (getData.offer.length > 0) {
-                            
-	                                   $("body").data().kendoMobilePane.navigate("views/pl-offerlist.html");
-	                               }else {
-                     
-	                                   $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");
-	                               }
-	                           } else {
-	                               if (getData.offer.length > 0) {   
-                   
-	                                   $("body").data().kendoMobilePane.navigate("views/offerlist.html");
-	                               }else {
-            
-	                                   $("body").data().kendoMobilePane.navigate("views/home.html");
-	                               }
-	                           }          
-	                       }           
-	                   },
-	                   error  
-	                   : function (errormsg) {
-	                       alert(JSON.stringify(errormsg));
-	                       if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
-	                           $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
-	                       } else {
-	                           $("body").data().kendoMobilePane.navigate("views/home.html");
-	                       }     
-	                   }          
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/offerlistname.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,mdevice:mdevicestat,offercode:y
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode != "000") {
+                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
+                               $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
+                           } else {
+                               $("body").data().kendoMobilePane.navigate("views/home.html");
+                           }          
+                       }else {
+                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
+                               if (getData.offer.length > 0) {
+                                   $("body").data().kendoMobilePane.navigate("views/pl-offerlist.html");
+                               }else {
+                                   $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");
+                               }
+                           } else {
+                               if (getData.offer.length > 0) {   
+                                   $("body").data().kendoMobilePane.navigate("views/offerlist.html");
+                               }else {
+                                   $("body").data().kendoMobilePane.navigate("views/home.html");
+                               }
+                           }          
+                       }           
+                   },
+                   error  
+                   : function (errormsg) {
+                       alert(JSON.stringify(errormsg));
+                       if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
+                           $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
+                       } else {
+                           $("body").data().kendoMobilePane.navigate("views/home.html");
+                       }     
+                   }          
                });
     }                  
     
