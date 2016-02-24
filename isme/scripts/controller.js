@@ -5447,8 +5447,7 @@ function completeRedemption() {
             window.setTimeout(function() {
                 savePreferenceItem();
             }, 1000); 
-            
-            saveLater();
+
         }
     }
     
@@ -5470,6 +5469,7 @@ function completeRedemption() {
     function savePreferenceItem() {
         //life style
         showSpin();
+        alert("fgfgfg");
         var ul = document.getElementById("lifestyle-filter");
         var items = ul.getElementsByTagName("input");
                                                 
@@ -5511,10 +5511,13 @@ function completeRedemption() {
         }
         if (window.localStorage.getItem("errorPreference") === "1") {
             navigator.notification.alert("Your Preferences were saved successfully.", function() {
-            }, "isme By Jumeirah", "Dismiss") ;    
+            }, "isme By Jumeirah", "Dismiss") ;                         
+            saveLater();
         } else {
             navigator.notification.alert("System error: One or more preferences could not be saved. Please click Save again to re-try. " + window.localStorage.getItem("errorPreference"), function() {
             }, "isme By Jumeirah" , "Dismiss") ;   
+            
+            saveLater();            
         }
         window.localStorage.setItem("errorPreference", "1");
         window.localStorage.setItem("issaved", "1");
@@ -6724,7 +6727,7 @@ function completeRedemption() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:false,
+                   async:true,
                    timeout:20000,
                    url: gurl + "/setMemberPreference.aspx",
                    contentType: "application/json; charset=utf-8",
