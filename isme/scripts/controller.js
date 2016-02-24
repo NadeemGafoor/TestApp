@@ -4717,7 +4717,7 @@ function completeRedemption() {
                                                 showSpin(); 
                                                 listCountry();
                                                 window.localStorage.setItem("isset", "0");
-                                              
+                                               
                                                 listCity("UAE", document.getElementById("selCity"));  
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
@@ -4732,7 +4732,7 @@ function completeRedemption() {
                                                 document.getElementById("mycard7-qr").style.backgroundSize = "cover";    
                                                 if (window.localStorage.getItem("magicnumber").length > 0) {
                                                     document.getElementById("hotelnumber1").disabled = true; 
-                                                    document.getElementById("hotelnumber1").style.color = '#ccc'; 
+                                                   // document.getElementById("hotelnumber1").style.color = '#999'; 
                                                 }
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
