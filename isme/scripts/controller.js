@@ -114,17 +114,25 @@ function loadEnrol() {
 function faceBookClick() {
     window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("static_social_msg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com", function () {
     }, function (errormsg) {
+          navigator.notification.alert("There is an error loading Facebook on this device or the Facebook app is not installed. Please check and re-try.", function() {
+                       }, "isme By Jumeirah" , "Dismiss"); 
     });
 }
   
 function twitterClick() {
-    window.plugins.socialsharing.shareViaTwitter(window.localStorage.getItem("static_social_msg"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com");   
+    window.plugins.socialsharing.shareViaTwitter(window.localStorage.getItem("static_social_msg"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com", function () {
+    },function (errormsg) {
+    navigator.notification.alert("There is an error loading Twitter on this device or the Twitter app is not installed. Please check and re-try.", function() {
+    }, "isme By Jumeirah" , "Dismiss"); 
+    });
 }
 
 function whatsappClick() {
     window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("static_social_msg"), "", "", function () {
     }, function (errormsg) {
-    })
+          navigator.notification.alert(JSON.stringify(errormsg), function() {
+    }, "isme By Jumeirah" , "Dismiss"); 
+    });
 }
 
 function emailClick() {
@@ -135,6 +143,8 @@ function emailClick() {
         function (msg) {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
         function (msg) {
+             navigator.notification.alert("There is an error loading Email on this device or the Email app is not installed. Please check and re-try.", function() {
+    }, "isme By Jumeirah" , "Dismiss"); 
         } // called when sh*t hits the fan
         );
 }
