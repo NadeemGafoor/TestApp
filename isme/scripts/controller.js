@@ -1643,8 +1643,9 @@ function completeRedemption() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }
-                                               }  
-                                               
+                                               }
+                                              
+                                            
                                                
                                                
                                                if (!this.mobile) {
@@ -6437,8 +6438,25 @@ function completeRedemption() {
         }
     }
     function doExecute() {
-        showSpin();
-       
+      
+        fn = !this.firstname ? postLogin.firstname : this.firstname
+        ln = !this.lastname ? postLogin.lastname : this.lastname
+        
+            if (fn.value === "" || fn.value == undefined) {
+                                                       navigator.notification.alert("Please enter your First Name. ", function() {
+                                                       }, "isme by Jumeirah", "Dismiss")
+                                                       return;
+                                                   }
+                                               
+                                               if (ln.value === "" || ln.value == undefined) {
+                                                       navigator.notification.alert("Please enter your Last Name.", function() {
+                                                       }, "isme by Jumeirah", "Dismiss")
+                                                       return;
+                                                   }
+
+                                                  
+                                               
+          showSpin();                                       
         var emirate = document.getElementById("selEmirate").value;
         var gender = document.getElementById("selGender").value;
         var fbuserid = window.localStorage.getItem("FBuserID");
@@ -6459,7 +6477,7 @@ function completeRedemption() {
                    url: gurl + "/firsttime.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),firstname:this.firstname.value,lastname:this.lastname.value,mobile:this.mobile.value,emailid:this.emailid.value,emirate:emirate,gender:gender,siriusmember:this.siriusnumber.value,mdevice:mdevicestat,segment:"1000",fbuserid:fbuserid,fbaccesstoken:fbaccesstoken
+                                            merchantcode :window.localStorage.getItem("merchant"),firstname:fn.value,lastname:ln.value,mobile:this.mobile.value,emailid:this.emailid.value,emirate:emirate,gender:gender,siriusmember:this.siriusnumber.value,mdevice:mdevicestat,segment:"1000",fbuserid:fbuserid,fbaccesstoken:fbaccesstoken
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
