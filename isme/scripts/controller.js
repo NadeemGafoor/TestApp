@@ -34,7 +34,7 @@ function showConfirm() {
 function onConfirm(buttonIndex) {
     if (buttonIndex===1) {
         loadLogin();
-    } else {
+    } else  if (buttonIndex===2){
         loadEnrol();
     }
 }
@@ -904,8 +904,8 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-    // var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
-    var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
+    var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
+    //var gurl = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
@@ -958,10 +958,10 @@ function completeRedemption() {
     var residentcityname = "";
     var appad_location = "http://www.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
-    // var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-    /// var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
-    var share_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png";
-    var flag_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/flagimages/";
+     var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+     var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
+    //var share_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png";
+    //var flag_image = "http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/flagimages/";
     var short_msg = "isme By Jumeirah";
     var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at http://isme.jumeirah.com";
     var offertelephone = "8004763";
@@ -1940,7 +1940,7 @@ function completeRedemption() {
                                                                   $("#outlet-list-b").kendoMobileListView({
                                                                              
                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                              template: $("#outletTemplate").html()
+                                                                                                              template: $("#outletTemplate-b").html()
                                                                                                           });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
@@ -1988,7 +1988,7 @@ function completeRedemption() {
                                                                   $("#leisure-list").kendoMobileListView({
                                                                              
                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                             template: $("#outletTemplate").html()
+                                                                                                             template: $("#leisureTemplate").html()
                                                                                                          });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
@@ -2034,7 +2034,7 @@ function completeRedemption() {
                                                                   $("#leisure-list-b").kendoMobileListView({
                                                                              
                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
-                                                                                                               template: $("#outletTemplate").html(),
+                                                                                                               template: $("#leisureTemplate-b").html(),
                                                                                                                endlessScroll:true
                                                                                                            });
                                                                   hideSpin(); //hide loading popup
@@ -4011,6 +4011,7 @@ function completeRedemption() {
                                             },
                                             showOutletItem
                                             : function (e) {
+                                          
                                                 changeCard();
                                                 showSpin();
                                                 outletcode = e.view.params.od;
@@ -4174,7 +4175,7 @@ function completeRedemption() {
                                                                    $("#pl-outlet-list").kendoMobileListView({
                                                                              
                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
-                                                                                                                template: $("#outletTemplate").html(),
+                                                                                                                template: $("#pl-outletTemplate").html(),
                                                                                                                 endlessScroll:true
                                                                                                             });
                                                                    hideSpin(); //hide loading popup
@@ -4231,7 +4232,7 @@ function completeRedemption() {
                                                                    $("#pl-outlet-list-b").kendoMobileListView({
                                                                              
                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                                  template: $("#outletTemplate").html()
+                                                                                                                  template: $("#pl-outletTemplate-b").html()
                                                                                                               });
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
@@ -4291,7 +4292,7 @@ function completeRedemption() {
                                                                    $("#pl-leisure-list").kendoMobileListView({
                                                                              
                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                                 template: $("#outletTemplate").html()
+                                                                                                                 template: $("#pl-leisureTemplate").html()
                                                                                                              });
                                                                    hideSpin(); //hide loading popup
                                                                }else {
@@ -4344,7 +4345,7 @@ function completeRedemption() {
                                                                    $("#pl-leisure-list-b").kendoMobileListView({
                                                                              
                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                                                                   template: $("#outletTemplate").html()
+                                                                                                                   template: $("#pl-leisureTemplate-b").html()
                                                                                                                });
                                                                    hideSpin(); //hide loading popup
                                                                }else {
@@ -6499,7 +6500,7 @@ function completeRedemption() {
     function onConfirm1 (buttonIndex) {  
         if (buttonIndex===1) {
             doExecute();  
-        } else {  
+        } else if (buttonIndex===2) {
             doExit();
         }
     }
@@ -7341,7 +7342,6 @@ function completeRedemption() {
     }
     
     function changeCard() {
-        alert(window.localStorage.getItem("segmentcode"));
         if (window.localStorage.getItem("segmentcode")==="1000") {   
             elems = document.getElementsByClassName('cardhead');
             for (i = 0; i < elems.length; i++) {
