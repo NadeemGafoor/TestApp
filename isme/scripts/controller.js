@@ -201,7 +201,7 @@ function onSelectTabStrip2(e) {
         getLocation5();
     } else if (i === 1) {
         supportEmailA();
-    } else {
+    }  else if (i === 2)  {
         customerCareOutlet();
     }
     var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
@@ -214,7 +214,7 @@ function onSelectTabStrip3(e) {
         getLocation5();
     } else if (i === 1) {
         supportEmailA();
-    } else {
+    } else if (i === 2)  {
         customerCare();
     }
     var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
@@ -225,7 +225,7 @@ function onSelectTabStrip1(e) {
     var i = $(e.item).index();
     if (i === 0) {
         supportEmailA();
-    } else {
+    } else if (i === 1)  {
         customerCare();
     }
     var tabstrip = app.view().footer.find(".km-tabstrip").data("kendoMobileTabStrip");
