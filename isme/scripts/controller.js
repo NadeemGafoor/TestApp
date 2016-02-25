@@ -686,6 +686,7 @@ function preLoginBack() {
     } 
 }
 
+
 function postLoginBack() {
     elems = document.getElementsByClassName('cardhead');
     for (i = 0; i < elems.length; i++) {
@@ -712,6 +713,57 @@ function postLoginBack() {
         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
     }                                                               
     //$("body").data("kendoMobilePane").navigate("#:back");
+}
+
+function exploreListBack(){
+    doOneBack();
+            $("body").data("kendoMobilePane").navigate("views/pl-explorelist.html");                                                                           
+}
+
+function brandDetailBack(){
+    doOneBackExplore();
+            $("body").data("kendoMobilePane").navigate("views/pl-branddetail.html");                                                                           
+}
+
+function myrewardListBack(){
+    doOneBackExplore();
+            $("body").data("kendoMobilePane").navigate("views/pl-myreward.html");                                                                           
+}
+
+function outletListBack(){
+    doOneBack();
+            $("body").data("kendoMobilePane").navigate("views/pl-outletlist.html");                                                                           
+}
+
+function offerListBack(){
+    doOneBack();
+            $("body").data("kendoMobilePane").navigate("views/pl-offerlist.html");                                                                           
+}
+
+function messageListBack(){
+    doOneBackExplore();
+            $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");                                                                           
+}
+
+function doOneBackExplore() {
+    elems = document.getElementsByClassName('cardhead');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.display = 'none';
+    }  
+    
+    elems = document.getElementsByClassName('foot');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].style.display = 'none';
+    }  
+    
+    elems = document.getElementsByClassName('mymenu1');
+    for (i = 0; i < elems.length; i++) {
+        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
+        elems[i].style.width = "100%";
+        elems[i].style.zIndex = 10000;
+        elems[i].style.textAlign = "center";
+    }
+
 }
 
 function doOneBack() {
