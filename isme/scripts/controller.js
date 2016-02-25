@@ -7341,6 +7341,7 @@ function completeRedemption() {
     }
     
     function changeCard() {
+        alert(window.localStorage.getItem("segmentcode"));
         if (window.localStorage.getItem("segmentcode")==="1000") {   
             elems = document.getElementsByClassName('cardhead');
             for (i = 0; i < elems.length; i++) {
