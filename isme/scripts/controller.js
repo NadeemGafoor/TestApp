@@ -722,7 +722,7 @@ function exploreListBack(){
 
 function brandDetailBack(){
     doOneBackExplore();
-            $("body").data("kendoMobilePane").navigate("views/pl-branddetail.html");                                                                           
+            $("body").data("kendoMobilePane").navigate("views/pl-branddetail.html?od=" + window.localStorage.getItem("brandcode"));                                                                           
 }
 
 function myrewardListBack(){
@@ -730,9 +730,10 @@ function myrewardListBack(){
             $("body").data("kendoMobilePane").navigate("views/pl-myreward.html");                                                                           
 }
 
-function outletListBack(){
+function outletListBack(e){
     doOneBack();
-            $("body").data("kendoMobilePane").navigate("views/pl-outletlist.html");                                                                           
+    alert(e.params.id);
+            $("body").data("kendoMobilePane").navigate("views/pl-outletlist.html?brand=" + window.localStorage.getItem("brandcode") + "&category=" + window.localStorage.getItem("category"));                                                                           
 }
 
 function offerListBack(){
@@ -763,6 +764,7 @@ function doOneBackExplore() {
         elems[i].style.zIndex = 10000;
         elems[i].style.textAlign = "center";
     }
+     window.localStorage.setItem("appopen", "0");  
 
 }
 
