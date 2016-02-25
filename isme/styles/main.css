@@ -2084,6 +2084,7 @@ tile-frame-inner
     display: block;
     box-shadow: -1px 2px 2px #666365;
     border: 0px;
+    z-index:10000;
 }
 
 .share-menu-line-3 a
