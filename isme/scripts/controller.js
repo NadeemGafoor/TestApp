@@ -4028,10 +4028,7 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
 
                                                                if (getData.statuscode == "000") {
-                                                                   m = getData.outletlist[0].geolocation.split(",");  
-                                                                                                                                                                                                                                   
-                                                                   lat = m[0];
-                                                                   lon = m[1];
+                                                                 
                                                                    document.getElementById("pl-outlet-detail-div").style.display = "block";
                                                                    window.localStorage.setItem("selfredeem", "D"); 
                                                                    document.getElementById("name-backq").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -4057,7 +4054,10 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("lon", lon);
                                                                    window.localStorage.setItem("oc", getData.outletlist[0].outletcode);
                                                                    window.localStorage.setItem("op", getData.outletlist[0].outletfavourite);
-                                                                
+                                                                  m = getData.outletlist[0].geolocation.split(",");  
+                                                                                                                                                                                                                                   
+                                                                   lat = m[0];
+                                                                   lon = m[1];
                                                                    if (window.localStorage.getItem("op")==="1") {
                                                                        elems = document.getElementsByClassName('km-customstar');
                                                                        for (i = 0; i < elems.length; i++) {
