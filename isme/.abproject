@@ -21,6 +21,7 @@
     "android.permission.BLUETOOTH",
     "android.permission.CALL_PHONE",
     "android.permission.CAMERA",
+    "android.permission.READ_EXTERNAL_STORAGE",
     "android.permission.WRITE_CONTACTS",
     "android.permission.WRITE_EXTERNAL_STORAGE",
     "android.permission.WRITE_PROFILE",

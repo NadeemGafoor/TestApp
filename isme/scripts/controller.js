@@ -4873,14 +4873,15 @@ function completeRedemption() {
                                                 };
                                                   
                                                 var config = {
-                                                    quality : 100,
+                                                    quality : 75,
                                                     destinationType : Camera.DestinationType.DATA_URL,
+                                                    sourceType : Camera.PictureSourceType.CAMERA, 
                                                     allowEdit : false,
                                                     encodingType: Camera.EncodingType.JPG,
-                                                    targetWidth: 75,
-                                                    targetHeight: 75,
-                                                    popoverOptions: CameraPopoverOptions,
-                                                    saveToPhotoAlbum: false
+                                                    targetWidth: 500,
+                                                    targetHeight: 500,
+                                                    saveToPhotoAlbum: false,
+                                                    correctOrientation: true
                                                 };
                                                 //                       var config = {
                                                 //                           destinationType: Camera.DestinationType.DATA_URL,
@@ -4905,15 +4906,15 @@ function completeRedemption() {
                                                 };
                                                   
                                                 var config = {
-                                                    quality : 100,
+                                                    quality : 75,
                                                     destinationType : Camera.DestinationType.DATA_URL,
                                                     sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
                                                     allowEdit : false,
                                                     encodingType: Camera.EncodingType.JPG,
-                                                    targetWidth: 75,
-                                                    targetHeight: 75,
-                                                    popoverOptions: CameraPopoverOptions,
-                                                    saveToPhotoAlbum: false
+                                                    targetWidth: 500,
+                                                    targetHeight: 500,
+                                                    saveToPhotoAlbum: false,
+                                                    correctOrientation: true
                                                 };
                                                 //                       var config = {
                                                 //                           destinationType: Camera.DestinationType.DATA_URL,
