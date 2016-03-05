@@ -909,6 +909,7 @@ function completeRedemption() {
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
+    var displaybirthdate="";
     var password = "";
     var segmentcode = "";
     var segmentname = "";
@@ -2667,6 +2668,7 @@ function completeRedemption() {
                                                        magicnumber = window.localStorage.getItem("magicnumber");
                                                        firstname = window.localStorage.getItem("firstname");
                                                        birthdate = window.localStorage.getItem("birthdate");
+                                                          displaybirthdate = window.localStorage.getItem("displaybirthdate");
                                                        residentcity = window.localStorage.getItem("residentcity");
                                                        homecountry = window.localStorage.getItem("homecountry");
                                                        initdate = window.localStorage.getItem("initdate");
@@ -2895,6 +2897,7 @@ function completeRedemption() {
                                                                   initdate = getData.initdate;
                                                                   homecountry = getData.homecountry;
                                                                   birthdate = getData.dateofbirth;
+                                                                   displaybirthdate = getData.displaydateofbirth;
                                                                   residentcity = getData.residentcity;
                                                                   pinnumber = getData.pinnumber;
                                                                   spend = getData.spend;
@@ -2931,6 +2934,7 @@ function completeRedemption() {
                                                                   window.localStorage.setItem("residentcity", residentcity);
                                                                   window.localStorage.setItem("homecountry", homecountry);
                                                                   window.localStorage.setItem("birthdate", birthdate);
+                                                                   window.localStorage.setItem("displaybirthdate", displaybirthdate);
                                                                   window.localStorage.setItem("firstname", firstname);
                                                                   window.localStorage.setItem("initdate", initdate);
                                                                   window.localStorage.setItem("spend", spend);
@@ -3670,7 +3674,7 @@ function completeRedemption() {
                                                 document.getElementById("mycard-qrz").style.backgroundSize = "cover";    
                                                 document.getElementById("profile-picture-1").src = window.localStorage.getItem("cuspict");
                                                 document.getElementById("pro-name").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? "Name : " + window.localStorage.getItem("customername") :"Name : NA" ;
-                                                document.getElementById("pro-birthdate").innerHTML = (window.localStorage.getItem("birthdate") != null && window.localStorage.getItem("birthdate").length > 0) ? "My Birtday : " + window.localStorage.getItem("birthdate") : "My Birthday : NA";
+                                                document.getElementById("pro-birthdate").innerHTML = (window.localStorage.getItem("birthdate") != null && window.localStorage.getItem("birthdate").length > 0) ? "My Birthday : " + window.localStorage.getItem("displaybirthdate") : "My Birthday : NA";
                                                 document.getElementById("pro-homecountry").innerHTML = (window.localStorage.getItem("homecountry") != null) && window.localStorage.getItem("homecountry").length > 0 ? "Nationality : " + window.localStorage.getItem("homecountryname") : "Nationality : NA";
                                                 document.getElementById("pro-residentcity").innerHTML = (window.localStorage.getItem("residentcity") != null && window.localStorage.getItem("residentcity").length > 0) ? "Emirate : " + window.localStorage.getItem("residentcityname") : "Emirate : NA";
                                                 //document.getElementById("pro-number").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? "Member # : " + window.localStorage.getItem("customer") : "Member # : NA";
@@ -3725,6 +3729,7 @@ function completeRedemption() {
                                                                window.localStorage.setItem("residentcity", "");
                                                                window.localStorage.setItem("homecountry", "");
                                                                window.localStorage.setItem("birthdate", "");
+                                                                           window.localStorage.setItem("displaybirthdate", "");
                                                                window.localStorage.setItem("firstname", "");
                                                                window.localStorage.setItem("initdate", "");
                                                                window.localStorage.setItem("magicnumber", "");
@@ -7194,7 +7199,8 @@ function completeRedemption() {
                            window.localStorage.setItem("homecountry", homecountry);  
                            window.localStorage.setItem("emailid", emailid);
                            window.localStorage.setItem("mobilenumber", mobilenumber);  
-                           window.localStorage.setItem("birthdate", mdate);  
+                           window.localStorage.setItem("birthdate", mdate);
+                             window.localStorage.setItem("displaybirthdate", getData.displaybirthdate);
                            window.localStorage.setItem("magicnumber", magicnumber); 
                            window.localStorage.setItem("hotelmember", magicnumber); 
                            window.localStorage.setItem("alcohol", alcohol); 
