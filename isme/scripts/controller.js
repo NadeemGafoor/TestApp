@@ -4873,7 +4873,7 @@ function completeRedemption() {
                                                 };
                                                   
                                                 var config = {
-                                                    quality : 75,
+                                                    quality : 100,
                                                     destinationType : Camera.DestinationType.DATA_URL,
                                                     allowEdit : false,
                                                     encodingType: Camera.EncodingType.JPG,
@@ -4906,7 +4906,7 @@ function completeRedemption() {
                                                 };
                                                   
                                                 var config = {
-                                                    quality : 75,
+                                                    quality : 100,
                                                     destinationType : Camera.DestinationType.DATA_URL,
                                                     sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
                                                     allowEdit : false,
