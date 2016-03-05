@@ -4880,8 +4880,7 @@ function completeRedemption() {
                                                     targetWidth: 75,
                                                     targetHeight: 75,
                                                     popoverOptions: CameraPopoverOptions,
-                                                    saveToPhotoAlbum: false,
-                                                    correctOrientation: false
+                                                    saveToPhotoAlbum: false
                                                 };
                                                 //                       var config = {
                                                 //                           destinationType: Camera.DestinationType.DATA_URL,
@@ -4910,7 +4909,6 @@ function completeRedemption() {
                                                     destinationType : Camera.DestinationType.DATA_URL,
                                                     sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
                                                     allowEdit : false,
-                                                    correctOrientation: false,
                                                     encodingType: Camera.EncodingType.JPG,
                                                     targetWidth: 75,
                                                     targetHeight: 75,
