@@ -120,7 +120,8 @@ function faceBookClick() {
 }
   
 function twitterClick() {
-    window.plugins.socialsharing.shareViaTwitter(window.localStorage.getItem("static_social_msg"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com", function () {
+    var m = window.localStorage.getItem("social_shortmsg");
+    window.plugins.socialsharing.shareViaTwitter(m.substring(0,140), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com", function () {
     },function (errormsg) {
     navigator.notification.alert("There is an error loading Twitter on this device or the Twitter app is not installed. Please check and re-try.", function() {
     }, "isme By Jumeirah" , "Dismiss"); 
@@ -128,7 +129,7 @@ function twitterClick() {
 }
 
 function whatsappClick() {
-    window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("static_social_msg"), "", "", function () {
+    window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("social_shortmsg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), "", "", function () {
     }, function (errormsg) {
           navigator.notification.alert(JSON.stringify(errormsg), function() {
     }, "isme By Jumeirah" , "Dismiss"); 
@@ -1890,13 +1891,13 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
+                                                             
                                                               if (getData.statuscode === "000") {
                                                                   //fill the outlet template
                                                                   $("#outlet-list").kendoMobileListView({
                                                                              
-                                                                                                            dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
-                                                                                                            template: $("#outletTemplate").html(),
-                                                                                                            endlessScroll:true
+                                                                                                            dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:25}),
+                                                                                                            template: $("#outletTemplate").html()
                                                                                                         });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
@@ -2035,9 +2036,9 @@ function completeRedemption() {
                                                               if (getData.statuscode === "000") {
                                                                   $("#leisure-list-b").kendoMobileListView({
                                                                              
-                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
-                                                                                                               template: $("#leisureTemplate-b").html(),
-                                                                                                               endlessScroll:true
+                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
+                                                                                                               template: $("#leisureTemplate-b").html()
+                                                                                                              
                                                                                                            });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
@@ -4183,9 +4184,9 @@ function completeRedemption() {
                                                                    //fill the outlet template
                                                                    $("#pl-outlet-list").kendoMobileListView({
                                                                              
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:50}),
-                                                                                                                template: $("#pl-outletTemplate").html(),
-                                                                                                                endlessScroll:true
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:25}),
+                                                                                                                template: $("#pl-outletTemplate").html()
+                                                                                                        
                                                                                                             });
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
@@ -4617,7 +4618,7 @@ function completeRedemption() {
                                                                        $("#mywallet-voucher-list").kendoMobileListView({
                                                                                                                            dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
                                                                                                                            template: $("#mywallet-voucherlist-Template").html()
-                                                                                                                           // endlessScroll:true
+                                                                                                                         
                                                                                                                        });
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
@@ -4874,13 +4875,13 @@ function completeRedemption() {
                                                 var config = {
                                                     quality : 75,
                                                     destinationType : Camera.DestinationType.DATA_URL,
-                                                    sourceType : Camera.PictureSourceType.CAMERA,
                                                     allowEdit : false,
-                                                    encodingType: Camera.EncodingType.PNG,
+                                                    encodingType: Camera.EncodingType.JPG,
                                                     targetWidth: 75,
                                                     targetHeight: 75,
                                                     popoverOptions: CameraPopoverOptions,
-                                                    saveToPhotoAlbum: false
+                                                    saveToPhotoAlbum: false,
+                                                    correctOrientation: false
                                                 };
                                                 //                       var config = {
                                                 //                           destinationType: Camera.DestinationType.DATA_URL,
@@ -4909,7 +4910,8 @@ function completeRedemption() {
                                                     destinationType : Camera.DestinationType.DATA_URL,
                                                     sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
                                                     allowEdit : false,
-                                                    encodingType: Camera.EncodingType.PNG,
+                                                    correctOrientation: false,
+                                                    encodingType: Camera.EncodingType.JPG,
                                                     targetWidth: 75,
                                                     targetHeight: 75,
                                                     popoverOptions: CameraPopoverOptions,
