@@ -1,8 +1,7 @@
 <div data-role="view"   data-title="Reward" data-layout="pre-layout" id="offerdetail-theme" data-reload="true"  data-model="preLogin" data-init="initOfferGroup" data-hide="preLogin.destroyofferdetail" data-show="preLogin.showOfferItem" style="background-color:#fff">
                <header data-role="header">
                 <div data-role="navbar">
-                        <a data-role="button" data-align="left"  style="color:#fff;border:0px solid #000 !important;" data-click="offerListBack" data-icon="back">
-                    </a>
+                       <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff"></a>
                     <span  id="offerdetail-title"></span>
                      <a data-role="button" data-click="shareClick" data-align="right" >
                         <i class="fa fa-share-alt fa-lg" style="color:#fff"></i>
@@ -81,9 +80,7 @@
         <li>
            <div class="switch-frame-1 cblack">
                 Agree to
-                <a href="#modalviewterms" data-role="button" data-click="onClick" style="border:0px">
                     Terms & Conditions
-                </a>
                 <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox"/>
             </div>
         </li>
