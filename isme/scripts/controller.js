@@ -5012,13 +5012,15 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Invalid Redemption PIN", function() {
-                                                                   }, "isme By Jumeirah", "Dismiss")         
+                                                                   }, "isme By Jumeirah", "Dismiss");
+                                                                    postLogin.set("srpin1", "");
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error. Cannot verify Redemption PIN [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme By Jumeirah", "Dismiss")
+                                                               }, "isme By Jumeirah", "Dismiss");
+                                                                postLogin.set("srpin1", "");
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -5631,13 +5633,15 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Unable to Validate Discount. Please try again.  " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")      
+                           }, "isme By Jumeirah", "Dismiss");
+                           postLogin.set("depin1", "");
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Due to a system error, we are unable to Validate Discount  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
+                       }, "isme By Jumeirah", "Dismiss");
+                            postLogin.set("depin1", "");
                        hideSpin(); //hide loading popup
                    }
                });
@@ -5674,13 +5678,15 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Unable to Redeem Voucher. Please try again. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")      
+                           }, "isme By Jumeirah", "Dismiss")
+                                postLogin.set("depin1", "");
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("System Error: unable to Redeem Voucher.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
+                            postLogin.set("depin1", "");
                        hideSpin(); //hide loading popup
                    }
                });
@@ -5713,13 +5719,15 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Unable to Redeem Voucher. Please try again. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")      
+                           }, "isme By Jumeirah", "Dismiss")
+                                postLogin.set("depin1", "");
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("System Error: unable to Redeem Voucher.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
+                            postLogin.set("depin1", "");
                        hideSpin(); //hide loading popup
                    }
                });
