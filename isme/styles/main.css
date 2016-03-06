@@ -418,7 +418,13 @@ img
 {
     background-color: #ccc;
     width: 100%;
-    border: 0px solid #000;
+    border: none;
+}
+
+.button-group .km-button
+{
+    background-color: #ccc;
+    border: none;
 }
 
 .button-group-single-isme 
@@ -2465,14 +2471,6 @@ tile-frame-inner
 
 }
 
-.a-group .km-button
-{
-    line-height: 25px;
-    height: 25px;
-    -webkit-border: #fff solid 0px;
-    -moz-border: #fff solid 0px;
-    border: #fff solid 0px;
-}
 
 .photo1 { background: url(../images/001.png) no-repeat center center; }
 .photo2 { background: url(../images/002.png) no-repeat center center; }
