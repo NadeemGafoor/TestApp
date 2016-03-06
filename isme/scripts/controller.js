@@ -2857,6 +2857,12 @@ function completeRedemption() {
                                                    return;
                                                }
                                                
+                                                 if ($("#profile-rememberme").data("kendoMobileSwitch").check()) {
+                                                   window.localStorage.setItem("memberID", this.username);
+                                               } else{
+                                                   window.localStorage.setItem("memberID", "");
+                                               }
+                                     
                                                // window.localStorage.setItem("memberID", this.username);"1000","3"
                                                // m = window.localStorage.getItem("memberID");
                                                //  alert(m);
