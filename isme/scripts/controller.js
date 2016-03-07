@@ -2523,13 +2523,7 @@ function completeRedemption() {
                                                               }
                                                           });
                                       
-                                                   //var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
-                                                   // if (mplatform==="iOS") {
-                                                   //     var options = {enableHighAccuracy:false,timeout: 30000,frequency:600000 }
-                                                   //    mywatch = navigator.geolocation.watchPosition(meWatchPos, watchPosError, options);
-                                                   // } else {
-                                                   //Check whether GPS enabled
-                                                   
+                                                                                               
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                        callBackError(error) ;
                                                    });
@@ -6181,27 +6175,7 @@ function completeRedemption() {
                                                  }, positionOption);
     }
     
-    function meWatchPos(position) {
-        //Check whether GPS enabled
-        x = position.coords.latitude;                                  
-        y = position.coords.longitude;
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/trackDevice.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,mdevice:window.localStorage.getItem("mdevicestat"),lat:x,lon:y,customer:"WATCH",segment:segmentcode
-                                        }),
-                   success: function (data) { 
-                   },
-                   error: function (error) {
-                   }
-               });
-    }
-   
+ 
     //Get Country
     function getCountry() {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
