@@ -2780,9 +2780,7 @@ function completeRedemption() {
                                           
                                            loginInit
                                            :function() {
-                                               if(window.localStorage.getItem("memberID").length>0){
-                                                   alert(window.localStorage.getItem("memberID").length);
-                                                   alert(window.localStorage.getItem("memberID"));
+                                               if(window.localStorage.getItem("memberID") != undefined && window.localStorage.getItem("memberID").length>0){
                                                  $("#profile-rememberme").data("kendoMobileSwitch").check(true);          
                                                  preLogin.set("username", window.localStorage.getItem("memberID"));
                                                  preLogin.set("password", "");     
@@ -2849,7 +2847,7 @@ function completeRedemption() {
                                                }
                                                
                                                  if ($("#profile-rememberme").data("kendoMobileSwitch").check()) {
-                                                   window.localStorage.setItem("memberID", this.username.value);
+                                                   window.localStorage.setItem("memberID", this.username);
                                                } else{
                                                    window.localStorage.setItem("memberID", "");
                                                }
