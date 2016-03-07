@@ -2337,7 +2337,7 @@ function completeRedemption() {
                                                                   document.getElementById("offerimage").src = getData.offerlist[0].imageurll;
                                                                   document.getElementById("offer-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
                                                                   document.getElementById("offer-long-1").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
-                                                                  document.getElementById("offer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
+                                                                  document.getElementById("offer-expiry").innerHTML = "Reward Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                   document.getElementById("offer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
                           
                                                                   window.localStorage.setItem("social_shortmsg", getData.offerlist[0].itemdescription);
@@ -4665,7 +4665,7 @@ function completeRedemption() {
                                                                    document.getElementById("pl-offerimage").src = getData.offerlist[0].imageurll;
                                                                    document.getElementById("pl-offer-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
                                                                    document.getElementById("pl-offer-long-1").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
-                                                                   document.getElementById("pl-offer-expiry").innerHTML = "Offer Expiry : " + getData.offerlist[0].couponexpirydate;
+                                                                   document.getElementById("pl-offer-expiry").innerHTML = "Reward Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                    document.getElementById("pl-offer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
                                                                    window.localStorage.setItem("social_shortmsg", getData.offerlist[0].itemdescription);
                                                                    window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
