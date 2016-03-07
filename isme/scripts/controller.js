@@ -2780,20 +2780,19 @@ function completeRedemption() {
                                           
                                            loginInit
                                            :function() {
-                                               if (window.localStorage.getItem("rememberMe") != undefined) {
-                                                   y = window.localStorage.getItem("rememberMe");           
-                                                   if (y == "1") {
-                                                       $("#profile-rememberme").data("kendoMobileSwitch").check(true);
-                                                       preLogin.set("username", window.localStorage.getItem("memberID"));
-                                                   } else {
-                                                       preLogin.set("username", "");
-                                                       preLogin.set("password", "");
-                                                       $("#profile-rememberme").data("kendoMobileSwitch").check(false);                                                          
-                                                   }
-                                               }else {
-                                                   preLogin.set("username", "");                                                   
-                                               }
-                                               preLogin.set("password", "");
+                                               if(window.localStorage.getItem("memberID").length>0){
+                                                   alert(window.localStorage.getItem("memberID").length);
+                                                   alert(window.localStorage.getItem("memberID"));
+                                                 $("#profile-rememberme").data("kendoMobileSwitch").check(true);          
+                                                 preLogin.set("username", window.localStorage.getItem("memberID"));
+                                                 preLogin.set("password", "");     
+                                                   }else{
+                                                 preLogin.set("username", "");
+                                                 preLogin.set("password", "");
+                                                 $("#profile-rememberme").data("kendoMobileSwitch").check(false);                                                          
+                                                 }
+                                               
+                                         
                                            },   
                                            initToken
                                            :function() {
@@ -2808,11 +2807,9 @@ function completeRedemption() {
                                            updateRememberMe
                                            :function() {   
                                                if ($("#profile-rememberme").data("kendoMobileSwitch").check()) {
-                                                   window.localStorage.setItem("memberID", this.username);
-                                                   window.localStorage.setItem("rememberMe", "1");           
+                                                   window.localStorage.setItem("memberID", this.username);         
                                                } else {
-                                                   window.localStorage.setItem("memberID", "");
-                                                   window.localStorage.setItem("rememberMe", "");      
+                                                   window.localStorage.setItem("memberID", "");    
                                                }
                                            },  
         
@@ -2852,7 +2849,7 @@ function completeRedemption() {
                                                }
                                                
                                                  if ($("#profile-rememberme").data("kendoMobileSwitch").check()) {
-                                                   window.localStorage.setItem("memberID", this.username);
+                                                   window.localStorage.setItem("memberID", this.username.value);
                                                } else{
                                                    window.localStorage.setItem("memberID", "");
                                                }
