@@ -2554,3 +2554,6 @@ tile-frame-inner
         font-size:125%;
     }
 
+.share-menu-line-2-c a{
+    background-color:transparent !important;
+}
