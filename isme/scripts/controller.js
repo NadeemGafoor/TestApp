@@ -3678,7 +3678,7 @@ function completeRedemption() {
                                                 document.getElementById("pro-residentcity").innerHTML = (window.localStorage.getItem("residentcity") != null && window.localStorage.getItem("residentcity").length > 0) ? "Emirate : " + window.localStorage.getItem("residentcityname") : "Emirate : NA";
                                                 //document.getElementById("pro-number").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? "Member # : " + window.localStorage.getItem("customer") : "Member # : NA";
                                                 //document.getElementById("pro-init").innerHTML = (window.localStorage.getItem("initdate") != null && window.localStorage.getItem("initdate").length > 0) ? "Member Since : " + window.localStorage.getItem("initdate") : "Member Since : NA";
-                                                document.getElementById("pro-expiry").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Member Expiry : " + window.localStorage.getItem("memberexpiry") : "Member Expiry : No Expiry";
+                                                document.getElementById("pro-expiry").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
                                                 document.getElementById("pro-hotelmember").innerHTML = (window.localStorage.getItem("magicnumber") != null && window.localStorage.getItem("magicnumber").length > 0) ? "Jumeirah Sirius No. : " + window.localStorage.getItem("magicnumber") : "Jumeirah Sirius No. : NA";
                                                 if (window.localStorage.getItem("segmentcode") === "1000") {
                                                     document.getElementById("pro-type").innerHTML = "isme Member";
@@ -4874,7 +4874,7 @@ function completeRedemption() {
                                                     allowEdit : false,
                                                     encodingType: Camera.EncodingType.JPG,
                                                     targetWidth: 500,
-                                                    targetHeight: 500,
+                                                    targetHeight: 750,
                                                     saveToPhotoAlbum: false,
                                                     correctOrientation: true
                                                 };
@@ -4907,7 +4907,7 @@ function completeRedemption() {
                                                     allowEdit : false,
                                                     encodingType: Camera.EncodingType.JPG,
                                                     targetWidth: 500,
-                                                    targetHeight: 500,
+                                                    targetHeight: 750,
                                                     saveToPhotoAlbum: false,
                                                     correctOrientation: true
                                                 };
