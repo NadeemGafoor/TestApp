@@ -42,7 +42,7 @@
 
   .hero-image
     {
-        height: 150px;
+        height: 175px;
         width: 100%;
         display: inline-block;
          background-image: url(../images/large_logo_placeholder.png);
