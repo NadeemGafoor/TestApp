@@ -3721,9 +3721,6 @@ function completeRedemption() {
                                                                window.localStorage.setItem("remindexpiry", "");
                                                                window.localStorage.setItem("showprofile", "");
                                                                window.localStorage.setItem("password", "");
-                                                               window.localStorage.setItem("muuid", "");
-                                                               window.localStorage.setItem("mversion", "");
-                                                               window.localStorage.setItem("mplatform", "");
                                                                window.localStorage.setItem("loggedin", "");
                                                                window.localStorage.setItem("residentcity", "");
                                                                window.localStorage.setItem("homecountry", "");
