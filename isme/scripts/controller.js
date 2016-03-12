@@ -959,7 +959,7 @@ function completeRedemption() {
     var homecountryname = "";
     var residentcityname = "";
     var fullname="";
-    var appad_location = "http://www.jumeirah.com";
+    var appad_location = "isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
      //var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
      //var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
@@ -973,19 +973,7 @@ function completeRedemption() {
     var cardimage = "";
     var supportemail = "info@isme.jumeirah.com";
     var emailsubject = "isme By Jumeirah";
-    //// function onSuccess(acceleration) {
-    // alert('Acceleration X: ' + acceleration.x + '\n' +
-    //     'Acceleration Y: ' + acceleration.y + '\n' +
-    //   'Acceleration Z: ' + acceleration.z + '\n' +
-    // 'Timestamp: '      + acceleration.timestamp + '\n');
-    //};
-
-    //function onError() {
-    //alert('onError!');
-    //};
-
-    //var options = { frequency: 1000 };  // Update every 3 seconds
-    // Listen for the event and wire it to our callback function
+  
     function doOneBackPre() {
         $(".sharehead").slideUp("slow");
       
@@ -2083,6 +2071,7 @@ function completeRedemption() {
                                                                   // alert(getData.imageurll);                                                                                                                                                                  
                                                                   lat = m[0];
                                                                   lon = m[1];
+                                                           
                                                                   document.getElementById("property-detail-div").style.display = "block";
                                                                   document.getElementById("branddetail-title").innerHTML = getData.hotelname;
                                                                   document.getElementById("brandimage").src = getData.imageurll;
