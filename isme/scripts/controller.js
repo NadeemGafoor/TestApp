@@ -3502,6 +3502,7 @@ function completeRedemption() {
                                                                        //document.getElementById("home-page").style.display = "block";
                                                                        window.localStorage.setItem("spend", getData.spenda);
                                                                        window.localStorage.setItem("maxspend", getData.maxspend);
+                                                                       window.localStorage.setItem("spendmb", getData.spendbalance);
                                                                    }else {
                                                                        navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
                                                                        }, "HD Rewards", "Dismiss")          
@@ -3525,7 +3526,7 @@ function completeRedemption() {
                                                 document.getElementById("main-title").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
                                                 document.getElementById("profile-name").innerHTML = window.localStorage.getItem("customername");
                                                 document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
-                                                document.getElementById("profile-init").innerHTML = "Member Since " + window.localStorage.getItem("initdate");
+                                                document.getElementById("profile-init").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
                                                 if (window.localStorage.getItem("segmentcode") === "1000") {
                                                     document.getElementById("profile-type").innerHTML = "isme ";
                                                 }else {
@@ -3588,6 +3589,7 @@ function completeRedemption() {
                                                                        //document.getElementById("home-page").style.display = "block";
                                                                        window.localStorage.setItem("spend", getData.spenda);
                                                                        window.localStorage.setItem("maxspend", getData.maxspend);
+                                                                        window.localStorage.setItem("spendmb", getData.spendbalance);
                                                                    }else {
                                                                        navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
                                                                        }, "HD Rewards", "Dismiss")          
@@ -3611,7 +3613,7 @@ function completeRedemption() {
                                                 document.getElementById("main-title-p").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
                                                 document.getElementById("profile-name-p").innerHTML = window.localStorage.getItem("customername");
                                                 document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
-                                                document.getElementById("profile-init-p").innerHTML = "Member Since " + window.localStorage.getItem("initdate");
+                                                document.getElementById("profile-init-p").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
                                                 if (window.localStorage.getItem("segmentcode") === "1000") {
                                                     document.getElementById("profile-type-p").innerHTML = "isme ";
                                                 }else {
@@ -4375,7 +4377,7 @@ function completeRedemption() {
                                                                           
                                                                if (getData.statuscode == "000") {
                                                                    m = getData.geolocation.split(",");  
-                                                                                                                                                                                                                                   
+                                                                    //alert(getData.imageurll);
                                                                    lat = m[0];
                                                                    lon = m[1];
                                                                    document.getElementById("pl-property-detail-div").style.display = "block";
