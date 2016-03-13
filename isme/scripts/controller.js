@@ -3621,6 +3621,7 @@ function completeRedemption() {
                                                     document.getElementById("profile-type-p").innerHTML = "isme Elite";
                                                 }
                                                 //Generate Spend Bar
+                                                //alert(window.localStorage.getItem("spend"));
                                                 var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
                                                 m = i;
                                                 n = i;
