@@ -6698,6 +6698,7 @@ function completeRedemption() {
     }
     
     function setLifeStylePreference(x,y) {  
+        showSpin();
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6717,7 +6718,18 @@ function completeRedemption() {
                                                             //endlessScroll: true
                                    
                                                                                                                       
-                                                        });
+                                                        });  
+                           
+                              var ul = document.getElementById("lifestyle-filter");
+                           var items = ul.getElementsByTagName("input");
+                           // alert("LS" + items.length);
+                           for (var n = 0; n < getData.mypreferences.length ;n++) {
+                               for (var i = 0; i < items.length; ++i) {  
+                                   if (getData.mypreferences[n].isavailable == items[i].value) {
+                                       items[i].checked = true;
+                                   }
+                               }
+                               }
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
@@ -6733,6 +6745,7 @@ function completeRedemption() {
     }
     
     function setCuisineTypePreference(x,y) {    
+        showSpin();
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6753,8 +6766,19 @@ function completeRedemption() {
                                    
                                                                                                                       
                                                         });
+                           
+                              var ul = document.getElementById("cuisinetype-filter");
+                           var items = ul.getElementsByTagName("input");
+                           // alert("LS" + items.length);
+                           for (var n = 0; n < getData.mypreferences.length ;n++) {
+                               for (var i = 0; i < items.length; ++i) {  
+                                   if (getData.mypreferences[n].isavailable == items[i].value) {
+                                       items[i].checked = true;
+                                   }
+                               }
+                               }
                            //  document.getElementById("myfavorite-view").style.display="block"; 
-                           hideSpin();
+                         //  hideSpin();
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
@@ -6770,6 +6794,7 @@ function completeRedemption() {
     }   
        
     function setCelebrationTypePreference(x,y) {  
+        showSpin();
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6790,6 +6815,17 @@ function completeRedemption() {
                                    
                                                                                                                       
                                                         });
+                           
+                               var ul = document.getElementById("celebrationtype-filter");
+                           var items = ul.getElementsByTagName("input");
+                           // alert("LS" + items.length);
+                           for (var n = 0; n < getData.mypreferences.length ;n++) {
+                               for (var i = 0; i < items.length; ++i) {  
+                                   if (getData.mypreferences[n].isavailable == items[i].value) {
+                                       items[i].checked = true;
+                                   }
+                               }
+                               }
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
@@ -6804,7 +6840,8 @@ function completeRedemption() {
                });
     }
  
-    function setRestaurantPreference(x,y) {  
+    function setRestaurantPreference(x,y) {
+        showSpin();
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6825,6 +6862,16 @@ function completeRedemption() {
                                    
                                                                                                                       
                                                         });
+                             var ul = document.getElementById("restaurantdetail-filter");
+                           var items = ul.getElementsByTagName("input");
+                           // alert("LS" + items.length);
+                           for (var n = 0; n < getData.mypreferences.length ;n++) {
+                               for (var i = 0; i < items.length; ++i) {  
+                                   if (getData.mypreferences[n].isavailable == items[i].value) {
+                                       items[i].checked = true;
+                                   }
+                               }
+                               }
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
