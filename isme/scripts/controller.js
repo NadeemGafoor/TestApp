@@ -5263,10 +5263,6 @@ function completeRedemption() {
                                                 document.getElementById("mycard-qr6").style.backgroundSize = "cover";                            
                                                 window.localStorage.setItem("issaved", "0");
                                                 setLifeStylePreference("#lifestyle-filter", "#lifestyle-filter-template");
-                                                setRestaurantPreference("#restaurantdetail-filter", "#restaurantdetailfilter-template");
-                                                setCuisineTypePreference("#cuisinetype-filter", "#cuisinetypefilter-template");
-                                                setCelebrationTypePreference("#celebrationtype-filter", "#celebrationtype-template");
-                                                hideSpin();
                                             },
                                          
                                             saveMySetting:function() {
@@ -5793,7 +5789,7 @@ function completeRedemption() {
         }, 100); 
     }
     
-        function hideSpinA() {
+    function hideSpinA() {
         window.setTimeout(function() {
             $("#mvwait").data("kendoMobileModalView").close();
         }, 3000); 
@@ -6697,7 +6693,7 @@ function completeRedemption() {
                });
     }
     
-    function setLifeStylePreference(x,y) {  
+    function setLifeStylePreference(x, y) {  
         showSpin();
         $.ajax({ 
                    type: "POST",
@@ -6713,14 +6709,14 @@ function completeRedemption() {
                        var getData = JSON.parse(data);
                        if (getData.statuscode === "000") {
                            $(x).kendoMobileListView({
-                                                            dataSource: kendo.data.DataSource.create({data: getData.mypreferences }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                            template: $(y).html()
-                                                            //endlessScroll: true
+                                                        dataSource: kendo.data.DataSource.create({data: getData.mypreferences }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                        template: $(y).html()
+                                                        //endlessScroll: true
                                    
                                                                                                                       
-                                                        });  
+                                                    });  
                            
-                              var ul = document.getElementById("lifestyle-filter");
+                           var ul = document.getElementById("lifestyle-filter");
                            var items = ul.getElementsByTagName("input");
                            // alert("LS" + items.length);
                            for (var n = 0; n < getData.mypreferences.length ;n++) {
@@ -6729,7 +6725,8 @@ function completeRedemption() {
                                        items[i].checked = true;
                                    }
                                }
-                               }
+                           }
+                           setRestaurantPreference("#restaurantdetail-filter", "#restaurantdetailfilter-template");
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
@@ -6744,7 +6741,7 @@ function completeRedemption() {
                });
     }
     
-    function setCuisineTypePreference(x,y) {    
+    function setCuisineTypePreference(x, y) {    
         showSpin();
         $.ajax({ 
                    type: "POST",
@@ -6759,15 +6756,15 @@ function completeRedemption() {
                    success: function (data) { 
                        var getData = JSON.parse(data);
                        if (getData.statuscode === "000") {
-                        $(x).kendoMobileListView({
-                                                            dataSource: kendo.data.DataSource.create({data: getData.mypreferences }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                            template: $(y).html()
-                                                            //endlessScroll: true
+                           $(x).kendoMobileListView({
+                                                        dataSource: kendo.data.DataSource.create({data: getData.mypreferences }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                        template: $(y).html()
+                                                        //endlessScroll: true
                                    
                                                                                                                       
-                                                        });
+                                                    });
                            
-                              var ul = document.getElementById("cuisinetype-filter");
+                           var ul = document.getElementById("cuisinetype-filter");
                            var items = ul.getElementsByTagName("input");
                            // alert("LS" + items.length);
                            for (var n = 0; n < getData.mypreferences.length ;n++) {
@@ -6776,24 +6773,26 @@ function completeRedemption() {
                                        items[i].checked = true;
                                    }
                                }
-                               }
+                           }
                            //  document.getElementById("myfavorite-view").style.display="block"; 
-                         //  hideSpin();
+                           hideSpin();
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
                            document.getElementById("prefsave").style.display = "none";
+                           hideSpin();
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
                        }, "isme By Jumeirah" , "Dismiss");     
                        document.getElementById("prefsave").style.display = "none";
+                       hideSpin();
                    }
                });
     }   
        
-    function setCelebrationTypePreference(x,y) {  
+    function setCelebrationTypePreference(x, y) {  
         showSpin();
         $.ajax({ 
                    type: "POST",
@@ -6808,15 +6807,15 @@ function completeRedemption() {
                    success: function (data) { 
                        var getData = JSON.parse(data);
                        if (getData.statuscode === "000") {
-                     $(x).kendoMobileListView({
-                                                            dataSource: kendo.data.DataSource.create({data: getData.mypreferences }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                            template: $(y).html()
-                                                            //endlessScroll: true
+                           $(x).kendoMobileListView({
+                                                        dataSource: kendo.data.DataSource.create({data: getData.mypreferences }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                        template: $(y).html()
+                                                        //endlessScroll: true
                                    
                                                                                                                       
-                                                        });
+                                                    });
                            
-                               var ul = document.getElementById("celebrationtype-filter");
+                           var ul = document.getElementById("celebrationtype-filter");
                            var items = ul.getElementsByTagName("input");
                            // alert("LS" + items.length);
                            for (var n = 0; n < getData.mypreferences.length ;n++) {
@@ -6825,7 +6824,8 @@ function completeRedemption() {
                                        items[i].checked = true;
                                    }
                                }
-                               }
+                           }
+                           setCuisineTypePreference("#cuisinetype-filter", "#cuisinetypefilter-template");                                           
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
@@ -6840,7 +6840,7 @@ function completeRedemption() {
                });
     }
  
-    function setRestaurantPreference(x,y) {
+    function setRestaurantPreference(x, y) {
         showSpin();
         $.ajax({ 
                    type: "POST",
@@ -6855,14 +6855,14 @@ function completeRedemption() {
                    success: function (data) { 
                        var getData = JSON.parse(data);
                        if (getData.statuscode === "000") {
-                       $(x).kendoMobileListView({
-                                                            dataSource: kendo.data.DataSource.create({data: getData.mypreferences }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                            template: $(y).html()
-                                                            //endlessScroll: true
+                           $(x).kendoMobileListView({
+                                                        dataSource: kendo.data.DataSource.create({data: getData.mypreferences }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                        template: $(y).html()
+                                                        //endlessScroll: true
                                    
                                                                                                                       
-                                                        });
-                             var ul = document.getElementById("restaurantdetail-filter");
+                                                    });
+                           var ul = document.getElementById("restaurantdetail-filter");
                            var items = ul.getElementsByTagName("input");
                            // alert("LS" + items.length);
                            for (var n = 0; n < getData.mypreferences.length ;n++) {
@@ -6871,7 +6871,8 @@ function completeRedemption() {
                                        items[i].checked = true;
                                    }
                                }
-                               }
+                           }
+                           setCelebrationTypePreference("#celebrationtype-filter", "#celebrationtype-template");
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
