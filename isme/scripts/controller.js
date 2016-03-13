@@ -6570,7 +6570,7 @@ function completeRedemption() {
         $.ajax({ 
                    type: "POST",
                    cache:false,
-                   async:false,
+                   async:true,
                    timeout:20000,
                    url: gurl + "/restaurantTypeList.aspx",
                    contentType: "application/json; charset=utf-8",
