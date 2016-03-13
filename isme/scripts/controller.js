@@ -5266,6 +5266,7 @@ function completeRedemption() {
                                                 getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
                                                 gct("#cuisinetype-filter", "#cuisinetypefilter-template");
                                                 getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
+                                                hideSpinA();
                                             },
                                             setPrefItem:function() {
                                                 setCuisineTypePreference();
@@ -5796,6 +5797,12 @@ function completeRedemption() {
         window.setTimeout(function() {
             $("#mvwait").data("kendoMobileModalView").close();
         }, 100); 
+    }
+    
+        function hideSpinA() {
+        window.setTimeout(function() {
+            $("#mvwait").data("kendoMobileModalView").close();
+        }, 3000); 
     }
          
     function showSpin() {
