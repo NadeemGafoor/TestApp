@@ -5268,7 +5268,9 @@ function completeRedemption() {
                                             saveMySetting:function() {
                                                 saveSetting();
                                             },
-
+       showScreen:function() {
+                                                showSpin();
+                                            },
         
                                             savePreference:function() {
                                                 savePreferenceItem();
@@ -5409,9 +5411,9 @@ function completeRedemption() {
             saveLater();
         } else if (buttonIndex===2) {
             showSpin();
-            window.setTimeout(function() {
+           
                 savePreferenceItem();
-            }, 1000); 
+
         }
     }
     
@@ -5484,8 +5486,7 @@ function completeRedemption() {
         }
         window.localStorage.setItem("errorPreference", "1");
         window.localStorage.setItem("issaved", "1");
-        hideSpin(); //hide loading popup
-    }
+     }
     
     function redeemDiscount() {
         showSpin();
@@ -6913,7 +6914,8 @@ function completeRedemption() {
             $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
         }else {
             $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-        }                                                                   
+        }    
+        hideSpin();
     }
     //$("body").data("kendoMobilePane").navigate("#:back");
     
