@@ -34,7 +34,7 @@ function showConfirm() {
 function onConfirm(buttonIndex) {
     if (buttonIndex===1) {
         loadLogin();
-    } else  if (buttonIndex===2){
+    } else if (buttonIndex===2) {
         loadEnrol();
     }
 }
@@ -114,25 +114,25 @@ function loadEnrol() {
 function faceBookClick() {
     window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("static_social_msg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com", function () {
     }, function (errormsg) {
-          navigator.notification.alert("There is an error loading Facebook on this device or the Facebook app is not installed. Please check and re-try.", function() {
-                       }, "isme By Jumeirah" , "Dismiss"); 
+        navigator.notification.alert("There is an error loading Facebook on this device or the Facebook app is not installed. Please check and re-try.", function() {
+        }, "isme By Jumeirah" , "Dismiss"); 
     });
 }
   
 function twitterClick() {
     var m = window.localStorage.getItem("social_shortmsg");
-    window.plugins.socialsharing.shareViaTwitter(m.substring(0,140), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com", function () {
-    },function (errormsg) {
-    navigator.notification.alert("There is an error loading Twitter on this device or the Twitter app is not installed. Please check and re-try.", function() {
-    }, "isme By Jumeirah" , "Dismiss"); 
+    window.plugins.socialsharing.shareViaTwitter(m.substring(0, 140), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com", function () {
+    }, function (errormsg) {
+        navigator.notification.alert("There is an error loading Twitter on this device or the Twitter app is not installed. Please check and re-try.", function() {
+        }, "isme By Jumeirah" , "Dismiss"); 
     });
 }
 
 function whatsappClick() {
     window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("social_shortmsg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), "", "", function () {
     }, function (errormsg) {
-          navigator.notification.alert(JSON.stringify(errormsg), function() {
-    }, "isme By Jumeirah" , "Dismiss"); 
+        navigator.notification.alert(JSON.stringify(errormsg), function() {
+        }, "isme By Jumeirah" , "Dismiss"); 
     });
 }
 
@@ -144,8 +144,8 @@ function emailClick() {
         function (msg) {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
         function (msg) {
-             navigator.notification.alert("There is an error loading Email on this device or the Email app is not installed. Please check and re-try.", function() {
-    }, "isme By Jumeirah" , "Dismiss"); 
+            navigator.notification.alert("There is an error loading Email on this device or the Email app is not installed. Please check and re-try.", function() {
+            }, "isme By Jumeirah" , "Dismiss"); 
         } // called when sh*t hits the fan
         );
 }
@@ -202,7 +202,7 @@ function onSelectTabStrip2(e) {
         getLocation5();
     } else if (i === 1) {
         supportEmailA();
-    }  else if (i === 2)  {
+    } else if (i === 2) {
         customerCareOutlet();
     }
     var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
@@ -215,7 +215,7 @@ function onSelectTabStrip3(e) {
         getLocation5();
     } else if (i === 1) {
         supportEmailA();
-    } else if (i === 2)  {
+    } else if (i === 2) {
         customerCare();
     }
     var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
@@ -226,7 +226,7 @@ function onSelectTabStrip1(e) {
     var i = $(e.item).index();
     if (i === 0) {
         supportEmailA();
-    } else if (i === 1)  {
+    } else if (i === 1) {
         customerCare();
     }
     var tabstrip = app.view().footer.find(".km-tabstrip").data("kendoMobileTabStrip");
@@ -687,7 +687,6 @@ function preLoginBack() {
     } 
 }
 
-
 function postLoginBack() {
     elems = document.getElementsByClassName('cardhead');
     for (i = 0; i < elems.length; i++) {
@@ -716,35 +715,35 @@ function postLoginBack() {
     //$("body").data("kendoMobilePane").navigate("#:back");
 }
 
-function exploreListBack(){
+function exploreListBack() {
     doOneBack();
-            $("body").data("kendoMobilePane").navigate("views/pl-explorelist.html");                                                                           
+    $("body").data("kendoMobilePane").navigate("views/pl-explorelist.html");                                                                           
 }
 
-function brandDetailBack(){
+function brandDetailBack() {
     doOneBackExplore();
-            $("body").data("kendoMobilePane").navigate("views/pl-branddetail.html?od=" + window.localStorage.getItem("brandcode"));                                                                           
+    $("body").data("kendoMobilePane").navigate("views/pl-branddetail.html?od=" + window.localStorage.getItem("brandcode"));                                                                           
 }
 
-function myrewardListBack(){
+function myrewardListBack() {
     doOneBackExplore();
-            $("body").data("kendoMobilePane").navigate("views/pl-myreward.html");                                                                           
+    $("body").data("kendoMobilePane").navigate("views/pl-myreward.html");                                                                           
 }
 
-function outletListBack(e){
+function outletListBack(e) {
     doOneBack();
     alert(e.params.id);
-            $("body").data("kendoMobilePane").navigate("views/pl-outletlist.html?brand=" + window.localStorage.getItem("brandcode") + "&category=" + window.localStorage.getItem("category"));                                                                           
+    $("body").data("kendoMobilePane").navigate("views/pl-outletlist.html?brand=" + window.localStorage.getItem("brandcode") + "&category=" + window.localStorage.getItem("category"));                                                                           
 }
 
-function offerListBack(){
+function offerListBack() {
     doOneBack();
-            $("body").data("kendoMobilePane").navigate("views/pl-offerlist.html");                                                                           
+    $("body").data("kendoMobilePane").navigate("views/pl-offerlist.html");                                                                           
 }
 
-function messageListBack(){
+function messageListBack() {
     doOneBackExplore();
-            $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");                                                                           
+    $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");                                                                           
 }
 
 function doOneBackExplore() {
@@ -765,8 +764,7 @@ function doOneBackExplore() {
         elems[i].style.zIndex = 10000;
         elems[i].style.textAlign = "center";
     }
-     window.localStorage.setItem("appopen", "0");  
-
+    window.localStorage.setItem("appopen", "0");  
 }
 
 function doOneBack() {
@@ -910,7 +908,7 @@ function completeRedemption() {
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
-    var displaybirthdate="";
+    var displaybirthdate = "";
     var password = "";
     var segmentcode = "";
     var segmentname = "";
@@ -958,11 +956,11 @@ function completeRedemption() {
     var alcohol = "";
     var homecountryname = "";
     var residentcityname = "";
-    var fullname="";
+    var fullname = "";
     var appad_location = "isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
-     //var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-     //var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
+    //var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+    //var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     var share_image = "http://exclusiveu.dynns.com:8088/jumismemobile/images/large_logo_placeholder.png";
     var flag_image = "http://exclusiveu.dynns.com:8088/jumismemobile/flagimages/";
     var short_msg = "isme By Jumeirah";
@@ -1699,9 +1697,6 @@ function completeRedemption() {
                                                        return;
                                                    }
                                                }
-                                              
-                                            
-                                               
                                                
                                                if (!this.mobile) {
                                                    navigator.notification.alert("Please enter your mobile number.", function() {
@@ -2074,7 +2069,7 @@ function completeRedemption() {
                                                            
                                                                   document.getElementById("property-detail-div").style.display = "block";
                                                                   document.getElementById("branddetail-title").innerHTML = getData.hotelname;
-                                                                                      document.getElementById("brandimage").src = getData.imageurll;
+                                                                  document.getElementById("brandimage").src = getData.imageurll;
                                                                   document.getElementById("brandimage").src = getData.imageurll;
                                                                   document.getElementById("property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
                                                                   document.getElementById("property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
@@ -2512,7 +2507,6 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           });
-                                      
                                                                                                
                                                    window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
                                                        callBackError(error) ;
@@ -2654,7 +2648,7 @@ function completeRedemption() {
                                                        magicnumber = window.localStorage.getItem("magicnumber");
                                                        firstname = window.localStorage.getItem("firstname");
                                                        birthdate = window.localStorage.getItem("birthdate");
-                                                          displaybirthdate = window.localStorage.getItem("displaybirthdate");
+                                                       displaybirthdate = window.localStorage.getItem("displaybirthdate");
                                                        residentcity = window.localStorage.getItem("residentcity");
                                                        homecountry = window.localStorage.getItem("homecountry");
                                                        initdate = window.localStorage.getItem("initdate");
@@ -2770,17 +2764,15 @@ function completeRedemption() {
                                           
                                            loginInit
                                            :function() {
-                                               if(window.localStorage.getItem("memberID") != undefined && window.localStorage.getItem("memberID").length>0){
-                                                 $("#profile-rememberme").data("kendoMobileSwitch").check(true);          
-                                                 preLogin.set("username", window.localStorage.getItem("memberID"));
-                                                 preLogin.set("password", "");     
-                                                   }else{
-                                                 preLogin.set("username", "");
-                                                 preLogin.set("password", "");
-                                                 $("#profile-rememberme").data("kendoMobileSwitch").check(false);                                                          
-                                                 }
-                                               
-                                         
+                                               if (window.localStorage.getItem("memberID") != undefined && window.localStorage.getItem("memberID").length > 0) {
+                                                   $("#profile-rememberme").data("kendoMobileSwitch").check(true);          
+                                                   preLogin.set("username", window.localStorage.getItem("memberID"));
+                                                   preLogin.set("password", "");     
+                                               }else {
+                                                   preLogin.set("username", "");
+                                                   preLogin.set("password", "");
+                                                   $("#profile-rememberme").data("kendoMobileSwitch").check(false);                                                          
+                                               }
                                            },   
                                            initToken
                                            :function() {
@@ -2836,9 +2828,9 @@ function completeRedemption() {
                                                    return;
                                                }
                                                
-                                                 if ($("#profile-rememberme").data("kendoMobileSwitch").check()) {
+                                               if ($("#profile-rememberme").data("kendoMobileSwitch").check()) {
                                                    window.localStorage.setItem("memberID", this.username);
-                                               } else{
+                                               } else {
                                                    window.localStorage.setItem("memberID", "");
                                                }
                                      
@@ -2862,7 +2854,7 @@ function completeRedemption() {
                                                               if (getData.statuscode == "000") { //Login Successful
                                                                   customer = getData.customerid;
                                                                   customername = getData.customername;
-                                                                  fullname=getData.fullname;
+                                                                  fullname = getData.fullname;
                                                                   segmentcode = getData.segmentcode;
                                                                   segmentname = getData.segmentname;
                                                                   currency = getData.currency;
@@ -2885,7 +2877,7 @@ function completeRedemption() {
                                                                   initdate = getData.initdate;
                                                                   homecountry = getData.homecountry;
                                                                   birthdate = getData.dateofbirth;
-                                                                   displaybirthdate = getData.displaydateofbirth;
+                                                                  displaybirthdate = getData.displaydateofbirth;
                                                                   residentcity = getData.residentcity;
                                                                   pinnumber = getData.pinnumber;
                                                                   spend = getData.spend;
@@ -2922,7 +2914,7 @@ function completeRedemption() {
                                                                   window.localStorage.setItem("residentcity", residentcity);
                                                                   window.localStorage.setItem("homecountry", homecountry);
                                                                   window.localStorage.setItem("birthdate", birthdate);
-                                                                   window.localStorage.setItem("displaybirthdate", displaybirthdate);
+                                                                  window.localStorage.setItem("displaybirthdate", displaybirthdate);
                                                                   window.localStorage.setItem("firstname", firstname);
                                                                   window.localStorage.setItem("initdate", initdate);
                                                                   window.localStorage.setItem("spend", spend);
@@ -3486,83 +3478,83 @@ function completeRedemption() {
                                                 //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "0"); 
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
-                                               // if (firsttime==="") {
-                                                    $.ajax({ 
-                                                               type: "POST",
-                                                               cache:false,
-                                                               async:false,
-                                                               timeout:20000,
-                                                               url: gurl + "/summaryReport.aspx",
-                                                               contentType: "application/json; charset=utf-8",
-                                                               data: JSON.stringify({
-                                                                                        merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mdevice:window.localStorage.getItem("mdevicestat")
-                                                                                    }),   
-                                                               success: function (data) { 
-                                                                   var getData = JSON.parse(data);
-                                                                   if (getData.statuscode == "000") {
-                                                                       //document.getElementById("home-page").style.display = "block";
-                                                                       window.localStorage.setItem("spend", getData.spenda);
-                                                                       window.localStorage.setItem("maxspend", getData.maxspend);
-                                                                       window.localStorage.setItem("spendmb", getData.spendbalance);
-                                                                   }else {
-                                                                       navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
-                                                                       }, "HD Rewards", "Dismiss")          
-                                                                       hideSpin(); //hide loading popup
+                                                // if (firsttime==="") {
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/summaryReport.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mdevice:window.localStorage.getItem("mdevicestat")
+                                                                                }),   
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   //document.getElementById("home-page").style.display = "block";
+                                                                   window.localStorage.setItem("spend", getData.spenda);
+                                                                   window.localStorage.setItem("maxspend", getData.maxspend);
+                                                                   window.localStorage.setItem("spendmb", getData.spendbalance);
+                                                                   firsttime = "1"; 
+                               
+                                                                   if (window.localStorage.getItem("fbid") != "99") {
+                                                                       document.getElementById("fblink-show").style.display = "none";
                                                                    }
-                                                               },
-                                                               error: function (errormsg) {
-                                                                   navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                                   }, "HD Rewards", "Dismiss")
+
+                                                                   window.localStorage.setItem("selfredeem", ""); 
+                                                                   document.getElementById("main-title").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
+                                                                   document.getElementById("profile-name").innerHTML = window.localStorage.getItem("customername");
+                                                                   document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
+                                                                   document.getElementById("profile-init").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
+                                                                   if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                                       document.getElementById("profile-type").innerHTML = "isme ";
+                                                                   }else {
+                                                                       document.getElementById("profile-type").innerHTML = "isme Elite";
+                                                                   }
+                                                                   //Generate Spend Bar
+                                                                   var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
+                                                                   m = i;
+                                                                   n = i;
+                                               
+                                                                   if (m > 70) {
+                                                                       n = 70;
+                                                                   }
+                                                
+                                                                   if (i >= 90) {
+                                                                       y = 83;
+                                                                   }else if (i >= 17) {
+                                                                       y = i;
+                                                                   }else {
+                                                                       y = 17;
+                                                                   }
+                                                                   document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
+                                                                   if (i >= 100) {
+                                                                       document.getElementById("spend-amount").style.margin = "auto auto auto 75%";
+                                                                       document.getElementById("spend-bar").style.width = '100%';
+                                                                       document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
+                                                                   }else {
+                                                                       document.getElementById("spend-bar").style.width = m + "%";
+                                                                       if (m >= 80) {
+                                                                           document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
+                                                                       }else {
+                                                                           document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
+                                                                       }
+                                                                   }                
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
+                                                                   }, "HD Rewards", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
-                                                           });
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               }, "HD Rewards", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
                                                 //}
-                                                firsttime = "1"; 
-                               
-                                                if (window.localStorage.getItem("fbid") != "99") {
-                                                    document.getElementById("fblink-show").style.display = "none";
-                                                }
-
-                                                window.localStorage.setItem("selfredeem", ""); 
-                                                document.getElementById("main-title").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
-                                                document.getElementById("profile-name").innerHTML = window.localStorage.getItem("customername");
-                                                document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
-                                                document.getElementById("profile-init").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
-                                                if (window.localStorage.getItem("segmentcode") === "1000") {
-                                                    document.getElementById("profile-type").innerHTML = "isme ";
-                                                }else {
-                                                    document.getElementById("profile-type").innerHTML = "isme Elite";
-                                                }
-                                                //Generate Spend Bar
-                                                var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
-                                                m = i;
-                                                n = i;
-                                               
-                                                if (m > 70) {
-                                                    n = 70;
-                                                }
-                                                
-                                                if (i >= 90) {
-                                                    y = 83;
-                                                }else if (i >= 17) {
-                                                    y = i;
-                                                }else {
-                                                    y = 17;
-                                                }
-                                                document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
-                                                if (i >= 100) {
-                                                    document.getElementById("spend-amount").style.margin = "auto auto auto 75%";
-                                                    document.getElementById("spend-bar").style.width = '100%';
-                                                    document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
-                                                }else {
-                                                    document.getElementById("spend-bar").style.width = m + "%";
-                                                    if (m >= 80) {
-                                                        document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
-                                                    }else {
-                                                        document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
-                                                    }
-                                                }                
-                                                hideSpin(); //hide loading popup
                                             },
                                            
         
@@ -3573,85 +3565,87 @@ function completeRedemption() {
                                                 //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "0"); 
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
+                                            
                                                 //if (firsttime==="") {
-                                                    $.ajax({ 
-                                                               type: "POST",
-                                                               cache:false,
-                                                               async:false,
-                                                               timeout:20000,
-                                                               url: gurl + "/summaryReport.aspx",
-                                                               contentType: "application/json; charset=utf-8",
-                                                               data: JSON.stringify({
-                                                                                        merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mdevice:window.localStorage.getItem("mdevicestat")
-                                                                                    }),   
-                                                               success: function (data) { 
-                                                                   var getData = JSON.parse(data);
-                                                                   if (getData.statuscode == "000") {
-                                                                       //document.getElementById("home-page").style.display = "block";
-                                                                       window.localStorage.setItem("spend", getData.spenda);
-                                                                       window.localStorage.setItem("maxspend", getData.maxspend);
-                                                                        window.localStorage.setItem("spendmb", getData.spendbalance);
-                                                                   }else {
-                                                                       navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
-                                                                       }, "HD Rewards", "Dismiss")          
-                                                                       hideSpin(); //hide loading popup
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/summaryReport.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mdevice:window.localStorage.getItem("mdevicestat")
+                                                                                }),   
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   window.localStorage.setItem("spend", getData.spenda);
+                                                                   window.localStorage.setItem("maxspend", getData.maxspend);
+                                                                   window.localStorage.setItem("spendmb", getData.spendbalance);
+                                                                       
+                                                                   firsttime = "1"; 
+                               
+                                                                   if (window.localStorage.getItem("fbid") != "99") {
+                                                                       document.getElementById("fblink-show-p").style.display = "none";
                                                                    }
-                                                               },
-                                                               error: function (errormsg) {
-                                                                   navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                                   }, "HD Rewards", "Dismiss")
+
+                                                                   window.localStorage.setItem("selfredeem", ""); 
+                                                                   document.getElementById("main-title-p").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
+                                                                   document.getElementById("profile-name-p").innerHTML = window.localStorage.getItem("customername");
+                                                                   document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
+                                                                   document.getElementById("profile-init-p").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
+                                                                   if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                                       document.getElementById("profile-type-p").innerHTML = "isme ";
+                                                                   }else {
+                                                                       document.getElementById("profile-type-p").innerHTML = "isme Elite";
+                                                                   }
+                                                                   //Generate Spend Bar
+                                                                   //alert(window.localStorage.getItem("spend"));
+                                                                   var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
+                                                                   m = i;
+                                                                   n = i;
+                                               
+                                                                   if (m > 70) {
+                                                                       n = 70;
+                                                                   }
+                                                
+                                                                   if (i >= 90) {
+                                                                       y = 83;
+                                                                   }else if (i >= 17) {
+                                                                       y = i;
+                                                                   }else {
+                                                                       y = 17;
+                                                                   }
+                                                                   document.getElementById("spend-amount-p").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
+                                               
+                                                                   if (i >= 100) {
+                                                                       document.getElementById("spend-bar-p").style.width = '100%';
+                                                                       document.getElementById("spend-amount-p").style.margin = "auto auto auto 75%";
+                                                                       document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
+                                                                   }else {
+                                                                       document.getElementById("spend-bar-p").style.width = m + "%";
+                                                                       if (m >= 80) {
+                                                                           document.getElementById("spend-amount-p").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
+                                                                       }else {
+                                                                           document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
+                                                                       }
+                                                                   }                
+                                                                   hideSpin(); //hide loading popup
+                                                                   
+                                                               }else {
+                                                                   navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
+                                                                   }, "HD Rewards", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
-                                                           });
-                                               // }
-                                                firsttime = "1"; 
-                               
-                                                if (window.localStorage.getItem("fbid") != "99") {
-                                                    document.getElementById("fblink-show-p").style.display = "none";
-                                                }
-
-                                                window.localStorage.setItem("selfredeem", ""); 
-                                                document.getElementById("main-title-p").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
-                                                document.getElementById("profile-name-p").innerHTML = window.localStorage.getItem("customername");
-                                                document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
-                                                document.getElementById("profile-init-p").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
-                                                if (window.localStorage.getItem("segmentcode") === "1000") {
-                                                    document.getElementById("profile-type-p").innerHTML = "isme ";
-                                                }else {
-                                                    document.getElementById("profile-type-p").innerHTML = "isme Elite";
-                                                }
-                                                //Generate Spend Bar
-                                                //alert(window.localStorage.getItem("spend"));
-                                                var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
-                                                m = i;
-                                                n = i;
-                                               
-                                                if (m > 70) {
-                                                    n = 70;
-                                                }
-                                                
-                                                if (i >= 90) {
-                                                    y = 83;
-                                                }else if (i >= 17) {
-                                                    y = i;
-                                                }else {
-                                                    y = 17;
-                                                }
-                                                document.getElementById("spend-amount-p").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
-                                               
-                                                if (i >= 100) {
-                                                    document.getElementById("spend-bar-p").style.width = '100%';
-                                                    document.getElementById("spend-amount-p").style.margin = "auto auto auto 75%";
-                                                    document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
-                                                }else {
-                                                    document.getElementById("spend-bar-p").style.width = m + "%";
-                                                    if (m >= 80) {
-                                                        document.getElementById("spend-amount-p").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
-                                                    }else {
-                                                        document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
-                                                    }
-                                                }                
-                                                hideSpin(); //hide loading popup
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               }, "HD Rewards", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                                // }
                                             },
         
                                             loadProfile
@@ -3718,7 +3712,7 @@ function completeRedemption() {
                                                                window.localStorage.setItem("residentcity", "");
                                                                window.localStorage.setItem("homecountry", "");
                                                                window.localStorage.setItem("birthdate", "");
-                                                                           window.localStorage.setItem("displaybirthdate", "");
+                                                               window.localStorage.setItem("displaybirthdate", "");
                                                                window.localStorage.setItem("firstname", "");
                                                                window.localStorage.setItem("initdate", "");
                                                                window.localStorage.setItem("magicnumber", "");
@@ -3728,7 +3722,7 @@ function completeRedemption() {
                                                                window.localStorage.setItem("fbid", "");
                                                                window.localStorage.setItem("homecountryname", "");
                                                                window.localStorage.setItem("residentcityname", "");
-                                                                        window.localStorage.setItem("fullname", "");
+                                                               window.localStorage.setItem("fullname", "");
                                                                //     clearListFilter();
                                                                fbCleanVariables();
                                                                customer = "9999999999";
@@ -4006,7 +4000,6 @@ function completeRedemption() {
                                             },
                                             showOutletItem
                                             : function (e) {
-                                          
                                                 changeCard();
                                                 showSpin();
                                                 outletcode = e.view.params.od;
@@ -4379,7 +4372,7 @@ function completeRedemption() {
                                                                           
                                                                if (getData.statuscode == "000") {
                                                                    m = getData.geolocation.split(",");  
-                                                                    //alert(getData.imageurll);
+                                                                   //alert(getData.imageurll);
                                                                    lat = m[0];
                                                                    lon = m[1];
                                                                    document.getElementById("pl-property-detail-div").style.display = "block";
@@ -4792,7 +4785,7 @@ function completeRedemption() {
                                                 document.getElementById("mycard7-qr").style.backgroundSize = "cover";    
                                                 if (window.localStorage.getItem("magicnumber").length > 0) {
                                                     document.getElementById("hotelnumber1").disabled = true; 
-                                                   // document.getElementById("hotelnumber1").style.color = '#999'; 
+                                                    // document.getElementById("hotelnumber1").style.color = '#999'; 
                                                 }
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
@@ -4998,14 +4991,14 @@ function completeRedemption() {
                                                                }else {
                                                                    navigator.notification.alert("Invalid Redemption PIN", function() {
                                                                    }, "isme By Jumeirah", "Dismiss");
-                                                                    postLogin.set("srpin1", "");
+                                                                   postLogin.set("srpin1", "");
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error. Cannot verify Redemption PIN [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme By Jumeirah", "Dismiss");
-                                                                postLogin.set("srpin1", "");
+                                                               postLogin.set("srpin1", "");
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -5189,6 +5182,7 @@ function completeRedemption() {
         
                                             showCard2
                                             : function () {
+                                                 changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backe").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backe").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -5504,19 +5498,18 @@ function completeRedemption() {
     function onConfirm2 (buttonIndex) {
         if (buttonIndex===1) {
             saveLater();
-        } else if (buttonIndex===2){
+        } else if (buttonIndex===2) {
             showSpin();
             window.setTimeout(function() {
                 savePreferenceItem();
             }, 1000); 
-
         }
     }
     
     function onConfirm3 (buttonIndex) {
         if (buttonIndex===1) {
             saveLater();
-        } else if (buttonIndex===2){
+        } else if (buttonIndex===2) {
             saveSetting();
             if (window.localStorage.getItem("isset")==="1") {
                 saveLater();
@@ -5626,7 +5619,7 @@ function completeRedemption() {
                    error: function (errormsg) {
                        navigator.notification.alert("Due to a system error, we are unable to Validate Discount  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss");
-                            postLogin.set("depin1", "");
+                       postLogin.set("depin1", "");
                        hideSpin(); //hide loading popup
                    }
                });
@@ -5664,14 +5657,14 @@ function completeRedemption() {
                        }else {
                            navigator.notification.alert("Unable to Redeem Voucher. Please try again. " + getData.statusdesc, function() {
                            }, "isme By Jumeirah", "Dismiss")
-                                postLogin.set("depin1", "");
+                           postLogin.set("depin1", "");
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("System Error: unable to Redeem Voucher.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
-                            postLogin.set("depin1", "");
+                       postLogin.set("depin1", "");
                        hideSpin(); //hide loading popup
                    }
                });
@@ -5705,14 +5698,14 @@ function completeRedemption() {
                        }else {
                            navigator.notification.alert("Unable to Redeem Voucher. Please try again. " + getData.statusdesc, function() {
                            }, "isme By Jumeirah", "Dismiss")
-                                postLogin.set("depin1", "");
+                           postLogin.set("depin1", "");
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("System Error: unable to Redeem Voucher.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
-                            postLogin.set("depin1", "");
+                       postLogin.set("depin1", "");
                        hideSpin(); //hide loading popup
                    }
                });
@@ -6159,7 +6152,6 @@ function completeRedemption() {
                                                      showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page or on the device.");
                                                  }, positionOption);
     }
-    
  
     //Get Country
     function getCountry() {
@@ -6488,25 +6480,22 @@ function completeRedemption() {
         }
     }
     function doExecute() {
-      
         fn = !this.firstname ? postLogin.firstname : this.firstname
         ln = !this.lastname ? postLogin.lastname : this.lastname
         
-            if (fn.value === "" || fn.value == undefined) {
-                                                       navigator.notification.alert("Please enter your First Name. ", function() {
-                                                       }, "isme by Jumeirah", "Dismiss")
-                                                       return;
-                                                   }
+        if (fn.value === "" || fn.value == undefined) {
+            navigator.notification.alert("Please enter your First Name. ", function() {
+            }, "isme by Jumeirah", "Dismiss")
+            return;
+        }
                                                
-                                               if (ln.value === "" || ln.value == undefined) {
-                                                       navigator.notification.alert("Please enter your Last Name.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss")
-                                                       return;
-                                                   }
-
-                                                  
+        if (ln.value === "" || ln.value == undefined) {
+            navigator.notification.alert("Please enter your Last Name.", function() {
+            }, "isme by Jumeirah", "Dismiss")
+            return;
+        }
                                                
-          showSpin();                                       
+        showSpin();                                       
         var emirate = document.getElementById("selEmirate").value;
         var gender = document.getElementById("selGender").value;
         var fbuserid = window.localStorage.getItem("FBuserID");
@@ -7178,7 +7167,7 @@ function completeRedemption() {
                            window.localStorage.setItem("emailid", emailid);
                            window.localStorage.setItem("mobilenumber", mobilenumber);  
                            window.localStorage.setItem("birthdate", mdate);
-                             window.localStorage.setItem("displaybirthdate", getData.displaybirthdate);
+                           window.localStorage.setItem("displaybirthdate", getData.displaybirthdate);
                            window.localStorage.setItem("magicnumber", magicnumber); 
                            window.localStorage.setItem("hotelmember", magicnumber); 
                            window.localStorage.setItem("alcohol", alcohol); 
