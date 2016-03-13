@@ -112,7 +112,7 @@ function loadEnrol() {
 }
 
 function faceBookClick() {
-    window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("static_social_msg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com", function () {
+    window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("static_social_msg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
         navigator.notification.alert("There is an error loading Facebook on this device or the Facebook app is not installed. Please check and re-try.", function() {
         }, "isme By Jumeirah" , "Dismiss"); 
@@ -121,15 +121,15 @@ function faceBookClick() {
   
 function twitterClick() {
     var m = window.localStorage.getItem("social_shortmsg");
-    window.plugins.socialsharing.shareViaTwitter(m.substring(0, 140), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], "http://www.jumeirah.com", function () {
+    window.plugins.socialsharing.shareViaTwitter("I'am looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App! \n" + "Join the fun and download the app here " + window.localStorage.getItem("appad_location") , ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
         navigator.notification.alert("There is an error loading Twitter on this device or the Twitter app is not installed. Please check and re-try.", function() {
-        }, "isme By Jumeirah" , "Dismiss"); 
+        }, "isme By Jumeirah" , "Dismiss");   
     });
 }
 
 function whatsappClick() {
-    window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("social_shortmsg") + " on my isme by Jumeirah mobile app! It's \n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), "", "", function () {
+    window.plugins.socialsharing.shareViaWhatsApp("I'am looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App! It's Jumeirah at your finger tips!\n\n" + "Join the fun and download isme by Jumeirah Mobile App today at " + window.localStorage.getItem("appad_location") , "", "", function () {
     }, function (errormsg) {
         navigator.notification.alert(JSON.stringify(errormsg), function() {
         }, "isme By Jumeirah" , "Dismiss"); 
@@ -139,7 +139,7 @@ function whatsappClick() {
 function emailClick() {
     window.plugins.socialsharing.shareViaEmail(
         "<pre>I'am looking at " + window.localStorage.getItem("social_email_message") + " on my <i>isme by Jumeirah</i> Mobile App! It's Jumeirah at your finger tips!\n\n" + "Join the fun and download <i>isme by Jumeirah</i> Mobile App today at " + window.localStorage.getItem("appad_location") + "</pre>", 
-        "Let's Meet Here", null, null, null, // TO: must be null or an array
+        window.localStorage.getItem("social_email_subject"), null, null, null, // TO: must be null or an array
        null, // FILES: can be null, a string, or an array
         function (msg) {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
@@ -236,7 +236,7 @@ function onSelectTabStrip1(e) {
 function supportEmailA() {
     window.plugins.socialsharing.shareViaEmail(
         "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
-        window.localStorage.getItem("social_subject"), [window.localStorage.getItem("social_email")], null, null, // TO: must be null or an array
+        "isme by Jumeirah", [window.localStorage.getItem("social_email")], null, null, // TO: must be null or an array
         window.localStorage.getItem("share_image"), // FILES: can be null, a string, or an array
         function (msg) {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
@@ -971,7 +971,8 @@ function completeRedemption() {
     var customercaretelephone = "8004763";
     var cardimage = "";
     var supportemail = "info@isme.jumeirah.com";
-    var emailsubject = "isme By Jumeirah";
+    var emailsubject = "Let's meet here!";
+    var emailsubjectoffer = "Check this offer on isme by Jumeirah!";
   
     function doOneBackPre() {
         $(".sharehead").slideUp("slow");
@@ -2075,6 +2076,7 @@ function completeRedemption() {
                                                                   document.getElementById("property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
                                                                   document.getElementById("property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                   document.getElementById("property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
+                                                                  window.localStorage.setItem("social_email_subject", emailsubject); 
                                                                   window.localStorage.setItem("social_email_message", getData.hotelname); 
                                                                   window.localStorage.setItem("social_email", supportemail + "  \n");
                                                                   window.localStorage.setItem("social_telephone", customercaretelephone);                   
@@ -2130,7 +2132,8 @@ function completeRedemption() {
                                                                   document.getElementById("outletimage").src = getData.outletlist[0].imageurll;
                                                                   document.getElementById("outlet-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
                                                                   document.getElementById("outlet-long-1").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
-                                                                               window.localStorage.setItem("social_email_message", getData.outletlist[0].outletname);
+                                                                  window.localStorage.setItem("social_email_subject", emailsubject); 
+                                                                  window.localStorage.setItem("social_email_message", getData.outletlist[0].outletname);
                                                                   window.localStorage.setItem("social_email", getData.outletlist[0].emailid + "  \n");
                                                                   window.localStorage.setItem("social_telephone", getData.outletlist[0].telephone);                   
                                                                   window.localStorage.setItem("social_shortmsg", getData.outletlist[0].outletshort);
@@ -2325,7 +2328,8 @@ function completeRedemption() {
                                                                   document.getElementById("offer-long-1").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                   document.getElementById("offer-expiry").innerHTML = "Reward Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                   document.getElementById("offer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
-                          
+                                                                  window.localStorage.setItem("social_email_message",getData.offerlist[0].itemname);
+                          window.localStorage.setItem("social_email_subject", emailsubjectoffer); 
                                                                   window.localStorage.setItem("social_shortmsg", getData.offerlist[0].itemdescription);
                                                                   window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
                                                                   window.localStorage.setItem("social_message", getData.offerlist[0].itemdescription + "\n\n" + "Offer Expirying on :" + getData.offerlist[0].couponexpirydate);
@@ -3948,7 +3952,9 @@ function completeRedemption() {
                                                                    document.getElementById("pl-outletimage").src = getData.outletlist[0].imageurll;
                                                                    document.getElementById("pl-outlet-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
                                                                    document.getElementById("pl-outlet-long-1").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
-                                                                               window.localStorage.setItem("social_email_message", getData.outletlist[0].outletname);
+                                                                   
+                                                                   window.localStorage.setItem("social_email_subject", emailsubject); 
+                                                                   window.localStorage.setItem("social_email_message", getData.outletlist[0].outletname);
                                                                    window.localStorage.setItem("social_email", getData.outletlist[0].emailid + "  \n");
                                                                    window.localStorage.setItem("social_telephone", getData.outletlist[0].telephone);                   
                                                                    window.localStorage.setItem("social_shortmsg", getData.outletlist[0].outletshort);
@@ -4303,7 +4309,9 @@ function completeRedemption() {
                                                                    document.getElementById("pl-property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
                                                                    document.getElementById("pl-property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                    document.getElementById("pl-property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
-                                                                                    window.localStorage.setItem("social_email_message", getData.hotelname);
+                                                                   
+                                                                   window.localStorage.setItem("social_email_subject", emailsubject); 
+                                                                   window.localStorage.setItem("social_email_message", getData.hotelname);
                                                                    window.localStorage.setItem("social_email", supportemail + "  \n");
                                                                    window.localStorage.setItem("social_telephone", customercaretelephone);                   
                                                                    window.localStorage.setItem("social_shortmsg", emailsubject);
@@ -4563,6 +4571,8 @@ function completeRedemption() {
                                                                    document.getElementById("pl-offer-long-1").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                    document.getElementById("pl-offer-expiry").innerHTML = "Reward Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                    document.getElementById("pl-offer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
+                                                                   window.localStorage.setItem("social_email_message",getData.offerlist[0].itemname);
+                                                                   window.localStorage.setItem("social_email_subject", emailsubjectoffer); 
                                                                    window.localStorage.setItem("social_shortmsg", getData.offerlist[0].itemdescription);
                                                                    window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
                                                                    window.localStorage.setItem("social_message", getData.offerlist[0].itemdescription + "\n\n" + "Offer Expirying on :" + getData.offerlist[0].couponexpirydate);
