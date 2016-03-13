@@ -944,6 +944,7 @@ function completeRedemption() {
     var spend = 0;
     var maxspend = 0;
     var fbid = "";
+    var showsummary="";
     var m = [];  
     var offertype = "1"; //prelogin ofer
     var offercode = ""; //All Offers default
@@ -3478,7 +3479,7 @@ function completeRedemption() {
                                                 //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "0"); 
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
-                                                // if (firsttime==="") {
+                                                 if (firsttime==="" || showsummary==="") {
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3496,51 +3497,7 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
                                                                    window.localStorage.setItem("spendmb", getData.spendbalance);
-                                                                   firsttime = "1"; 
-                               
-                                                                   if (window.localStorage.getItem("fbid") != "99") {
-                                                                       document.getElementById("fblink-show").style.display = "none";
-                                                                   }
-
-                                                                   window.localStorage.setItem("selfredeem", ""); 
-                                                                   document.getElementById("main-title").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
-                                                                   document.getElementById("profile-name").innerHTML = window.localStorage.getItem("customername");
-                                                                   document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
-                                                                   document.getElementById("profile-init").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
-                                                                   if (window.localStorage.getItem("segmentcode") === "1000") {
-                                                                       document.getElementById("profile-type").innerHTML = "isme ";
-                                                                   }else {
-                                                                       document.getElementById("profile-type").innerHTML = "isme Elite";
-                                                                   }
-                                                                   //Generate Spend Bar
-                                                                   var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
-                                                                   m = i;
-                                                                   n = i;
-                                               
-                                                                   if (m > 70) {
-                                                                       n = 70;
-                                                                   }
-                                                
-                                                                   if (i >= 90) {
-                                                                       y = 83;
-                                                                   }else if (i >= 17) {
-                                                                       y = i;
-                                                                   }else {
-                                                                       y = 17;
-                                                                   }
-                                                                   document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
-                                                                   if (i >= 100) {
-                                                                       document.getElementById("spend-amount").style.margin = "auto auto auto 75%";
-                                                                       document.getElementById("spend-bar").style.width = '100%';
-                                                                       document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
-                                                                   }else {
-                                                                       document.getElementById("spend-bar").style.width = m + "%";
-                                                                       if (m >= 80) {
-                                                                           document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
-                                                                       }else {
-                                                                           document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
-                                                                       }
-                                                                   }                
+                                                                 spendBar();
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
@@ -3554,7 +3511,10 @@ function completeRedemption() {
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
-                                                //}
+                                                }
+                                                
+                                                
+                                            spendBar(); 
                                             },
                                            
         
@@ -3566,7 +3526,7 @@ function completeRedemption() {
                                                 window.localStorage.setItem("appopen", "0"); 
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
                                             
-                                                //if (firsttime==="") {
+                                                if (firsttime==="" || showsummary==="") {
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -3583,54 +3543,8 @@ function completeRedemption() {
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
                                                                    window.localStorage.setItem("spendmb", getData.spendbalance);
-                                                                       
-                                                                   firsttime = "1"; 
-                               
-                                                                   if (window.localStorage.getItem("fbid") != "99") {
-                                                                       document.getElementById("fblink-show-p").style.display = "none";
-                                                                   }
-
-                                                                   window.localStorage.setItem("selfredeem", ""); 
-                                                                   document.getElementById("main-title-p").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
-                                                                   document.getElementById("profile-name-p").innerHTML = window.localStorage.getItem("customername");
-                                                                   document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
-                                                                   document.getElementById("profile-init-p").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
-                                                                   if (window.localStorage.getItem("segmentcode") === "1000") {
-                                                                       document.getElementById("profile-type-p").innerHTML = "isme ";
-                                                                   }else {
-                                                                       document.getElementById("profile-type-p").innerHTML = "isme Elite";
-                                                                   }
-                                                                   //Generate Spend Bar
-                                                                   //alert(window.localStorage.getItem("spend"));
-                                                                   var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
-                                                                   m = i;
-                                                                   n = i;
-                                               
-                                                                   if (m > 70) {
-                                                                       n = 70;
-                                                                   }
-                                                
-                                                                   if (i >= 90) {
-                                                                       y = 83;
-                                                                   }else if (i >= 17) {
-                                                                       y = i;
-                                                                   }else {
-                                                                       y = 17;
-                                                                   }
-                                                                   document.getElementById("spend-amount-p").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
-                                               
-                                                                   if (i >= 100) {
-                                                                       document.getElementById("spend-bar-p").style.width = '100%';
-                                                                       document.getElementById("spend-amount-p").style.margin = "auto auto auto 75%";
-                                                                       document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
-                                                                   }else {
-                                                                       document.getElementById("spend-bar-p").style.width = m + "%";
-                                                                       if (m >= 80) {
-                                                                           document.getElementById("spend-amount-p").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
-                                                                       }else {
-                                                                           document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
-                                                                       }
-                                                                   }                
+                                                                   spendBarPlus();    
+                                                                 
                                                                    hideSpin(); //hide loading popup
                                                                    
                                                                }else {
@@ -3645,7 +3559,13 @@ function completeRedemption() {
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
-                                                // }
+                                                 }
+                                                
+                                              
+                                                                 spendBarPlus();
+                                                
+                                                
+                                                
                                             },
         
                                             loadProfile
@@ -3757,7 +3677,7 @@ function completeRedemption() {
                                                                alcohol = "";
                                                                homecountryname = "";
                                                                residentcityname = "";
-                                                             
+                                                               showsummary="";
                                                                window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                                                 "duration"         :  500, // in milliseconds (ms), default 400
                                                                                                                                 "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -6584,12 +6504,10 @@ function completeRedemption() {
                            navigator.notification.alert("Cannot get Restaurant Type Preference List. " + getData.statusdesc, function() {
                            }, "isme By Jumeirah", "Dismiss")          
                        }
-                       hideSpin(); //hide loading popup
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Restaurant Type Preference List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                        }, "isme By Jumeirah", "Dismiss")
-                       hideSpin(); //hide loading popup
                    }
                });
     }
@@ -6636,7 +6554,7 @@ function completeRedemption() {
     }
     
     function getRestaurantDetailPref(x, y) {
-        showSpin();
+
 
         $.ajax({ 
                    type: "POST",
@@ -6677,7 +6595,7 @@ function completeRedemption() {
     }
         
     function gct(x, y) {
-        showSpin();
+ 
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6717,8 +6635,7 @@ function completeRedemption() {
     }
     
     function getCelebrationTypePref(x, y) {    
-        showSpin();
-                                       
+                                      
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6774,18 +6691,18 @@ function completeRedemption() {
                        var getData = JSON.parse(data);
                        if (getData.statuscode === "000") {
                            window.localStorage.setItem("errorPreference", "1");
+                           hideSpin();
                        }else {
                            //  navigator.notification.alert("ERROR : One or more preferences could not be saved!"  +getData.statusdesc, function() {
                            //                           }, "isme By Jumeirah" , "Dismiss");     
                            window.localStorage.setItem("errorPreference", getData.statusdesc);                                      
+                           hideSpin();                           
                        }
-                       hideSpin();
                    },
                    error: function (errormsg) {
                        // navigator.notification.alert("ERROR : One or more preferences could not be saved!"  +errormsg.statusText, function() {
                        //                             }, "isme By Jumeirah" , "Dismiss");     
                        window.localStorage.setItem("errorPreference", errormsg.statusText);                                      
-                       hideSpin();
                    }
                });
     }
@@ -6852,8 +6769,8 @@ function completeRedemption() {
                                    }
                                }
                            }
-                           //  document.getElementById("myfavorite-view").style.display="block";
-                           hideSpin();
+                                    //  document.getElementById("myfavorite-view").style.display="block"; 
+                  hideSpin();
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
@@ -7386,6 +7303,109 @@ function completeRedemption() {
                 elems[i].style.color = '#fff';
             }        
         }
+    }
+    
+    function spendBarPlus(){
+            firsttime = "1"; 
+                      showsummary="1";                 
+                                                                   if (window.localStorage.getItem("fbid") != "99") {
+                                                                       document.getElementById("fblink-show-p").style.display = "none";
+                                                                   }
+
+                                                                   window.localStorage.setItem("selfredeem", ""); 
+                                                                   document.getElementById("main-title-p").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
+                                                                   document.getElementById("profile-name-p").innerHTML = window.localStorage.getItem("customername");
+                                                                   document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
+                                                                   document.getElementById("profile-init-p").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
+                                                                   if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                                       document.getElementById("profile-type-p").innerHTML = "isme ";
+                                                                   }else {
+                                                                       document.getElementById("profile-type-p").innerHTML = "isme Elite";
+                                                                   }
+      //Generate Spend Bar
+                                                                   //alert(window.localStorage.getItem("spend"));
+                                                                   var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
+                                                                   m = i;
+                                                                   n = i;
+                                               
+                                                                   if (m > 70) {
+                                                                       n = 70;
+                                                                   }
+                                                
+                                                                   if (i >= 90) {
+                                                                       y = 83;
+                                                                   }else if (i >= 17) {
+                                                                       y = i;
+                                                                   }else {
+                                                                       y = 17;
+                                                                   }
+                                                                   document.getElementById("spend-amount-p").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
+                                               
+                                                                   if (i >= 100) {
+                                                                       document.getElementById("spend-bar-p").style.width = '100%';
+                                                                       document.getElementById("spend-amount-p").style.margin = "auto auto auto 75%";
+                                                                       document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
+                                                                   }else {
+                                                                       document.getElementById("spend-bar-p").style.width = m + "%";
+                                                                       if (m >= 80) {
+                                                                           document.getElementById("spend-amount-p").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
+                                                                       }else {
+                                                                           document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
+                                                                       }
+                                                                   } 
+        hideSpin();
+        }
+    
+    function spendBar(){
+        
+            
+                                                  firsttime = "1";
+        showsummary="1";
+                               
+                                                                   if (window.localStorage.getItem("fbid") != "99") {
+                                                                       document.getElementById("fblink-show").style.display = "none";
+                                                                   }
+
+                                                                   window.localStorage.setItem("selfredeem", ""); 
+                                                                   document.getElementById("main-title").innerHTML = "Hello, " + window.localStorage.getItem("firstname");
+                                                                   document.getElementById("profile-name").innerHTML = window.localStorage.getItem("customername");
+                                                                   document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
+                                                                   document.getElementById("profile-init").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
+                                                                   if (window.localStorage.getItem("segmentcode") === "1000") {
+                                                                       document.getElementById("profile-type").innerHTML = "isme ";
+                                                                   }else {
+                                                                       document.getElementById("profile-type").innerHTML = "isme Elite";
+                                                                   }
+                                                                   //Generate Spend Bar
+                                                                   var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
+                                                                   m = i;
+                                                                   n = i;
+                                               
+                                                                   if (m > 70) {
+                                                                       n = 70;
+                                                                   }
+                                                
+                                                                   if (i >= 90) {
+                                                                       y = 83;
+                                                                   }else if (i >= 17) {
+                                                                       y = i;
+                                                                   }else {
+                                                                       y = 17;
+                                                                   }
+                                                                   document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
+                                                                   if (i >= 100) {
+                                                                       document.getElementById("spend-amount").style.margin = "auto auto auto 75%";
+                                                                       document.getElementById("spend-bar").style.width = '100%';
+                                                                       document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
+                                                                   }else {
+                                                                       document.getElementById("spend-bar").style.width = m + "%";
+                                                                       if (m >= 80) {
+                                                                           document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
+                                                                       }else {
+                                                                           document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
+                                                                       }
+                                                                   }               
+        hideSpin();
     }
 }
     )(window);
