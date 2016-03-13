@@ -3486,7 +3486,7 @@ function completeRedemption() {
                                                 //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "0"); 
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
-                                                if (firsttime==="") {
+                                               // if (firsttime==="") {
                                                     $.ajax({ 
                                                                type: "POST",
                                                                cache:false,
@@ -3516,7 +3516,7 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            });
-                                                }
+                                                //}
                                                 firsttime = "1"; 
                                
                                                 if (window.localStorage.getItem("fbid") != "99") {
@@ -3573,7 +3573,7 @@ function completeRedemption() {
                                                 //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "0"); 
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
-                                                if (firsttime==="") {
+                                                //if (firsttime==="") {
                                                     $.ajax({ 
                                                                type: "POST",
                                                                cache:false,
@@ -3603,7 +3603,7 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            });
-                                                }
+                                               // }
                                                 firsttime = "1"; 
                                
                                                 if (window.localStorage.getItem("fbid") != "99") {
