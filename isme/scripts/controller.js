@@ -5262,17 +5262,11 @@ function completeRedemption() {
                                                 document.getElementById("mycard-qr6").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qr6").style.backgroundSize = "cover";                            
                                                 window.localStorage.setItem("issaved", "0");
-                                                getLifeStylePref("#lifestyle-filter", "#lifestyle-filter-template");
-                                                getRestaurantDetailPref("#restaurantdetail-filter", "#restaurantdetailfilter-template");
-                                                gct("#cuisinetype-filter", "#cuisinetypefilter-template");
-                                                getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
-                                                hideSpinA();
-                                            },
-                                            setPrefItem:function() {
-                                                setCuisineTypePreference();
-                                                setCelebrationTypePreference();
-                                                setRestaurantPreference();
-                                                setLifeStylePreference();
+                                                setLifeStylePreference("#lifestyle-filter", "#lifestyle-filter-template");
+                                                setRestaurantPreference("#restaurantdetail-filter", "#restaurantdetailfilter-template");
+                                                setCuisineTypePreference("#cuisinetype-filter", "#cuisinetypefilter-template");
+                                                setCelebrationTypePreference("#celebrationtype-filter", "#celebrationtype-template");
+                                                hideSpin();
                                             },
                                          
                                             saveMySetting:function() {
@@ -6703,7 +6697,7 @@ function completeRedemption() {
                });
     }
     
-    function setLifeStylePreference() {  
+    function setLifeStylePreference(x,y) {  
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6717,15 +6711,13 @@ function completeRedemption() {
                    success: function (data) { 
                        var getData = JSON.parse(data);
                        if (getData.statuscode === "000") {
-                           var ul = document.getElementById("lifestyle-filter");
-                           var items = ul.getElementsByTagName("input");
-                           for (var n = 0; n < getData.mypreferences.length ;n++) {
-                               for (var i = 0; i < items.length; ++i) {  
-                                   if (getData.mypreferences[n].prfcode == items[i].value) {
-                                       items[i].checked = true;
-                                   }
-                               }
-                           }
+                           $(x).kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.mypreferences }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $(y).html()
+                                                            //endlessScroll: true
+                                   
+                                                                                                                      
+                                                        });
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
@@ -6740,7 +6732,7 @@ function completeRedemption() {
                });
     }
     
-    function setCuisineTypePreference() {    
+    function setCuisineTypePreference(x,y) {    
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6754,15 +6746,13 @@ function completeRedemption() {
                    success: function (data) { 
                        var getData = JSON.parse(data);
                        if (getData.statuscode === "000") {
-                           var ul = document.getElementById("cuisinetype-filter");
-                           var items = ul.getElementsByTagName("input");
-                           for (var n = 0; n < getData.mypreferences.length ;n++) {
-                               for (var i = 0; i < items.length; ++i) {  
-                                   if (getData.mypreferences[n].prfcode == items[i].value) {
-                                       items[i].checked = true;
-                                   }
-                               }
-                           }
+                        $(x).kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.mypreferences }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $(y).html()
+                                                            //endlessScroll: true
+                                   
+                                                                                                                      
+                                                        });
                            //  document.getElementById("myfavorite-view").style.display="block"; 
                            hideSpin();
                        }else {
@@ -6779,7 +6769,7 @@ function completeRedemption() {
                });
     }   
        
-    function setCelebrationTypePreference() {  
+    function setCelebrationTypePreference(x,y) {  
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6793,16 +6783,13 @@ function completeRedemption() {
                    success: function (data) { 
                        var getData = JSON.parse(data);
                        if (getData.statuscode === "000") {
-                           var ul = document.getElementById("celebrationtype-filter");
-                           var items = ul.getElementsByTagName("input");
-                           for (var n = 0; n < getData.mypreferences.length ;n++) {
-                               for (var i = 0; i < items.length; ++i) {  
-                                   if (getData.mypreferences[n].prfcode == items[i].value) {
-                                       //alert(getData.mypreferences[n].prfcode + "  " + items[i].value);
-                                       items[i].checked = true;
-                                   }
-                               }
-                           }
+                     $(x).kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.mypreferences }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $(y).html()
+                                                            //endlessScroll: true
+                                   
+                                                                                                                      
+                                                        });
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     
@@ -6817,7 +6804,7 @@ function completeRedemption() {
                });
     }
  
-    function setRestaurantPreference() {  
+    function setRestaurantPreference(x,y) {  
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6831,15 +6818,13 @@ function completeRedemption() {
                    success: function (data) { 
                        var getData = JSON.parse(data);
                        if (getData.statuscode === "000") {
-                           var ul = document.getElementById("restaurantdetail-filter");
-                           var items = ul.getElementsByTagName("input");
-                           for (var n = 0; n < getData.mypreferences.length ;n++) {
-                               for (var i = 0; i < items.length; ++i) {  
-                                   if (getData.mypreferences[n].prfcode == items[i].value) {
-                                       items[i].checked = true;
-                                   }
-                               }
-                           }
+                       $(x).kendoMobileListView({
+                                                            dataSource: kendo.data.DataSource.create({data: getData.mypreferences }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                            template: $(y).html()
+                                                            //endlessScroll: true
+                                   
+                                                                                                                      
+                                                        });
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
                            }, "isme By Jumeirah" , "Dismiss");     

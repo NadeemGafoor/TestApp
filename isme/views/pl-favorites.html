@@ -1,4 +1,4 @@
-<div data-role="view"  data-title="My Favourites" data-layout="pl-pre-layout" id="myfavorite-view"  data-reload="true" data-init="postLogin.initPref" data-show="postLogin.setPrefItem" data-model="postLogin" data-hide="postLogin.destroyplfavorites">
+<div data-role="view"  data-title="My Favourites" data-layout="pl-pre-layout" id="myfavorite-view"  data-reload="true" data-init="postLogin.initPref" data-model="postLogin" data-hide="postLogin.destroyplfavorites">
     <div data-role="header">
         <div data-role="navbar">
             <a data-role="button" data-bind="click:checkSave"  data-align="left" style="color:#fff" data-icon="back"></a>
@@ -115,31 +115,31 @@
 
 <script type="text/x-kendo-template" id="lifestyle-filter-template">
     <label class="k-checkbox-label" style="background-color: transparent !important;">
-        ${desc}
-        <input type="checkbox" id="${code}" value="${code}" class="k-checkbox"/>
+        ${prfname}
+        <input type="checkbox" id="${prfcode}" value="${prfcode}" class="k-checkbox" checked="${isavailable}"/>
 
     </label>
 </script>
 
 <script type="text/x-kendo-template" id="restaurantdetailfilter-template">
     <label class="k-checkbox-label" style="background-color: transparent !important;">
-        ${desc}
-        <input type="checkbox" id="${code}" value="${code}" class="k-checkbox"/>
+        ${prfname}
+        <input type="checkbox" id="${prfcode}" value="${prfcode}" class="k-checkbox"  checked="${isavailable}"/>
 
     </label>
 </script>
 
 <script type="text/x-kendo-template" id="cuisinetypefilter-template">
     <label class="k-checkbox-label" style="background-color: transparent !important;">
-        ${desc}
-        <input type="checkbox" id="${code}" value="${code}"/>
+        ${prfname}
+        <input type="checkbox" id="${prfcode}" value="${prfcode}"  class="k-checkbox" checked="${isavailable}"/>
 
     </label>
 </script>
 <script type="text/x-kendo-template" id="celebrationtype-template">
     <label class="k-checkbox-label" style="background-color: transparent !important;">
-        ${desc}
-        <input type="checkbox" id="${code}" value="${code}" class="k-checkbox"/>
+        ${prfname}
+        <input type="checkbox" id="${prfcode}" value="${prfcode}" class="k-checkbox"  checked="${isavailable}"/>
 
     </label>
 
