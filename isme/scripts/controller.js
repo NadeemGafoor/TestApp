@@ -6769,7 +6769,7 @@ function completeRedemption() {
                            // alert("LS" + items.length);
                            for (var n = 0; n < getData.mypreferences.length ;n++) {
                                for (var i = 0; i < items.length; ++i) {  
-                                   if (getData.mypreferences[n].isavailable == items[i].value) {
+                                   if (getData.mypreferences[n].isavailable == items[i].value) {  
                                        items[i].checked = true;
                                    }
                                }
