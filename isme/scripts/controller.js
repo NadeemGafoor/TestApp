@@ -5273,9 +5273,7 @@ function completeRedemption() {
                                                 gct("#cuisinetype-filter", "#cuisinetypefilter-template");
                                                 getCelebrationTypePref("#celebrationtype-filter", "#celebrationtype-template");
                                             },
-                                            getChecked:function() {
-                                                hideSpin();
-                                            },
+                                         
                                             saveMySetting:function() {
                                                 saveSetting();
                                             },
