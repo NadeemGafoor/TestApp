@@ -129,7 +129,7 @@ function twitterClick() {
 }
 
 function whatsappClick() {
-    window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("social_shortmsg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), "", "", function () {
+    window.plugins.socialsharing.shareViaWhatsApp(window.localStorage.getItem("social_shortmsg") + " on my isme by Jumeirah mobile app! It's \n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), "", "", function () {
     }, function (errormsg) {
         navigator.notification.alert(JSON.stringify(errormsg), function() {
         }, "isme By Jumeirah" , "Dismiss"); 
@@ -138,9 +138,9 @@ function whatsappClick() {
 
 function emailClick() {
     window.plugins.socialsharing.shareViaEmail(
-        window.localStorage.getItem("social_message") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
-        window.localStorage.getItem("social_shortmsg"), null, null, null, // TO: must be null or an array
-        [window.localStorage.getItem("share_image")], // FILES: can be null, a string, or an array
+        "<pre>I'am looking at " + window.localStorage.getItem("social_email_message") + " on my <i>isme by Jumeirah</i> Mobile App! It's Jumeirah at your finger tips!\n\n" + "Join the fun and download <i>isme by Jumeirah</i> Mobile App today at " + window.localStorage.getItem("appad_location") + "</pre>", 
+        "Let's Meet Here", null, null, null, // TO: must be null or an array
+       null, // FILES: can be null, a string, or an array
         function (msg) {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
         function (msg) {
@@ -2075,7 +2075,7 @@ function completeRedemption() {
                                                                   document.getElementById("property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
                                                                   document.getElementById("property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                   document.getElementById("property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
-                                                                  
+                                                                  window.localStorage.setItem("social_email_message", getData.hotelname); 
                                                                   window.localStorage.setItem("social_email", supportemail + "  \n");
                                                                   window.localStorage.setItem("social_telephone", customercaretelephone);                   
                                                                   window.localStorage.setItem("social_shortmsg", emailsubject);
@@ -2130,7 +2130,7 @@ function completeRedemption() {
                                                                   document.getElementById("outletimage").src = getData.outletlist[0].imageurll;
                                                                   document.getElementById("outlet-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
                                                                   document.getElementById("outlet-long-1").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
-                                                                  
+                                                                               window.localStorage.setItem("social_email_message", getData.outletlist[0].outletname);
                                                                   window.localStorage.setItem("social_email", getData.outletlist[0].emailid + "  \n");
                                                                   window.localStorage.setItem("social_telephone", getData.outletlist[0].telephone);                   
                                                                   window.localStorage.setItem("social_shortmsg", getData.outletlist[0].outletshort);
@@ -3372,7 +3372,6 @@ function completeRedemption() {
                                             },
     
                                             destroyplfavorites:function() {
-                                                // doOneBack();
                                                 window.localStorage.setItem("appopen", "0");  
                                                 $("#myfavorite-view").remove();
                                             },
@@ -3949,7 +3948,7 @@ function completeRedemption() {
                                                                    document.getElementById("pl-outletimage").src = getData.outletlist[0].imageurll;
                                                                    document.getElementById("pl-outlet-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.outletlist[0].outletshort + "</pre>";
                                                                    document.getElementById("pl-outlet-long-1").innerHTML = "<pre class='fulljustify'>" + getData.outletlist[0].outletlong + "</pre>";
-                                                                  
+                                                                               window.localStorage.setItem("social_email_message", getData.outletlist[0].outletname);
                                                                    window.localStorage.setItem("social_email", getData.outletlist[0].emailid + "  \n");
                                                                    window.localStorage.setItem("social_telephone", getData.outletlist[0].telephone);                   
                                                                    window.localStorage.setItem("social_shortmsg", getData.outletlist[0].outletshort);
@@ -4271,7 +4270,7 @@ function completeRedemption() {
                                                 showSpin();
                                                 window.localStorage.setItem("brandcode", e.view.params.od);
                                     
-                                                $.ajax({ 
+                                                $.ajax({   
                                                            type: "POST",
                                                            cache:false,
                                                            async:true,
@@ -4304,7 +4303,7 @@ function completeRedemption() {
                                                                    document.getElementById("pl-property-short-1").innerHTML = "<pre class='fulljustify'>" + getData.shortdes + "</pre>";
                                                                    document.getElementById("pl-property-short-2").innerHTML = "<pre class='fulljustify'>" + getData.shortdes1 + "</pre>";                                                                  
                                                                    document.getElementById("pl-property-long-1").innerHTML = "<pre class='fulljustify'>" + getData.longdes + "</pre>";
-                                                                   
+                                                                                    window.localStorage.setItem("social_email_message", getData.hotelname);
                                                                    window.localStorage.setItem("social_email", supportemail + "  \n");
                                                                    window.localStorage.setItem("social_telephone", customercaretelephone);                   
                                                                    window.localStorage.setItem("social_shortmsg", emailsubject);
@@ -4697,7 +4696,9 @@ function completeRedemption() {
                                                 document.getElementById("segment7-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
                                                 document.getElementById("mycard7-qr").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard7-qr").style.backgroundSize = "cover";    
-                                                if (window.localStorage.getItem("magicnumber").length > 0) {
+                                                                                              
+
+                                                if (window.localStorage.getItem("magicnumber")!="") {
                                                     document.getElementById("hotelnumber1").disabled = true; 
                                                     // document.getElementById("hotelnumber1").style.color = '#999'; 
                                                 }
@@ -5410,8 +5411,7 @@ function completeRedemption() {
         if (buttonIndex===1) {
             saveLater();
         } else if (buttonIndex===2) {
-            showSpin();
-           
+          
                 savePreferenceItem();
 
         }
@@ -5434,7 +5434,7 @@ function completeRedemption() {
     
     function savePreferenceItem() {
         //life style
-        showSpin();
+       // showSpin();
         var ul = document.getElementById("lifestyle-filter");
         var items = ul.getElementsByTagName("input");
                                                 
@@ -5477,15 +5477,36 @@ function completeRedemption() {
         if (window.localStorage.getItem("errorPreference") === "1") {
             navigator.notification.alert("Your preferences were saved successfully.", function() {
             }, "isme By Jumeirah", "Dismiss") ;                         
-            saveLater();
         } else {
             navigator.notification.alert("Your Preferences Were Saved Successfully", function() {
             }, "isme By Jumeirah" , "Dismiss") ;   
             
-            saveLater();            
         }
         window.localStorage.setItem("errorPreference", "1");
         window.localStorage.setItem("issaved", "1");
+            if (window.localStorage.getItem("segmentcode")==="1000") {
+             window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'up',
+                                                                     'href': '#views/pl-home.html'
+                                                                 }), 500);                                                                 
+        }else {
+             window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'up',
+                                                                     'href': '#views/pl-homeplus.html'
+                                                                 }), 500);                                                                 
+
+        }    
+ 
      }
     
     function redeemDiscount() {
@@ -6663,7 +6684,6 @@ function completeRedemption() {
     }
     
     function setMemberPreference(e, m) {
-        showSpin();
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6678,12 +6698,12 @@ function completeRedemption() {
                        var getData = JSON.parse(data);
                        if (getData.statuscode === "000") {
                            window.localStorage.setItem("errorPreference", "1");
-                           hideSpin();
+                          // hideSpin();
                        }else {
                            //  navigator.notification.alert("ERROR : One or more preferences could not be saved!"  +getData.statusdesc, function() {
                            //                           }, "isme By Jumeirah" , "Dismiss");     
                            window.localStorage.setItem("errorPreference", getData.statusdesc);                                      
-                           hideSpin();                           
+                          // hideSpin();                           
                        }
                    },
                    error: function (errormsg) {
@@ -6695,7 +6715,6 @@ function completeRedemption() {
     }
     
     function setLifeStylePreference(x, y) {  
-        showSpin();
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6743,7 +6762,7 @@ function completeRedemption() {
     }
     
     function setCuisineTypePreference(x, y) {    
-        showSpin();
+  
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6794,7 +6813,6 @@ function completeRedemption() {
     }   
        
     function setCelebrationTypePreference(x, y) {  
-        showSpin();
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6842,7 +6860,6 @@ function completeRedemption() {
     }
  
     function setRestaurantPreference(x, y) {
-        showSpin();
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6911,9 +6928,26 @@ function completeRedemption() {
         window.localStorage.setItem("appopen", "0");   
 
         if (window.localStorage.getItem("segmentcode")==="1000") {
-            $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+             window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'up',
+                                                                     'href': '#views/pl-home.html'
+                                                                 }), 500);                                                                 
         }else {
-            $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+             window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'up',
+                                                                     'href': '#views/pl-homeplus.html'
+                                                                 }), 500);                                                                 
+
         }    
         hideSpin();
     }
