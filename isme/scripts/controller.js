@@ -7399,7 +7399,7 @@ function completeRedemption() {
         //alert(window.localStorage.getItem("spendn"));
         //alert(window.localStorage.getItem("maxspend"));
             var i = ((parseInt(window.localStorage.getItem("spendn"))/1000) / parseInt(window.localStorage.getItem("maxspend"))) * 100
-   if (i >= 90) {
+   if (i >= 80) {
             y = 83;
         }else if (i >= 17) {
             y = i;
@@ -7446,12 +7446,16 @@ function completeRedemption() {
         //Generate Spend Bar        
       
         var i = ((parseInt(window.localStorage.getItem("spendn"))/1000) / parseInt(window.localStorage.getItem("maxspend"))) * 100
-       alert(i);                                           
-        if (i >= 90) {
+       if (i >= 80) {
             y = 83;
+        }else if (i >= 17) {
+            y = i;
+        }else {
+            y = 17;
+        }                                          
     
-        document.getElementById("spend-amount").style.margin = "auto 2% auto auto";
-        document.getElementById("spend-amount").style.width = "18%";
+        document.getElementById("spend-amount").style.width = "18%";    
+        document.getElementById("spend-amount").style.margin = "auto auto auto parseInt(y - 15) + "%";
         if (i >= 100) {
 
             document.getElementById("spend-amount").style.margin = "auto auto auto 78%";
