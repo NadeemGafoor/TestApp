@@ -7407,7 +7407,7 @@ function completeRedemption() {
             y = 17;
         }
         document.getElementById("spend-amount-p").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
-           document.getElementById("spend-amount-p").style.width = "18%";                                       
+        document.getElementById("spend-amount-p").style.width = "18%";                                       
         if (i >= 100) {
          
             document.getElementById("spend-bar-p").style.width = '100%';
@@ -7444,8 +7444,9 @@ function completeRedemption() {
             document.getElementById("profile-type").innerHTML = "isme Elite";
         }
         //Generate Spend Bar        
+      
         var i = ((parseInt(window.localStorage.getItem("spendn"))/1000) / parseInt(window.localStorage.getItem("maxspend"))) * 100
-                                                 
+       alert(i);                                           
         if (i >= 90) {
             y = 83;
         }else if (i >= 17) {
@@ -7453,8 +7454,8 @@ function completeRedemption() {
         }else {
             y = 17;
         }
-        document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
-                    document.getElementById("spend-amount").style.width = "18%";
+        document.getElementById("spend-amount").style.margin = "auto 2% auto auto";
+        document.getElementById("spend-amount").style.width = "18%";
         if (i >= 100) {
 
             document.getElementById("spend-amount").style.margin = "auto auto auto 78%";
