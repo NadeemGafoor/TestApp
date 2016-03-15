@@ -3500,6 +3500,7 @@ function completeRedemption() {
                                                                        window.localStorage.setItem("spend", getData.spenda);
                                                                        window.localStorage.setItem("maxspend", getData.maxspend);
                                                                        window.localStorage.setItem("spendmb", getData.spendbalance);
+                                                                        window.localStorage.setItem("spendn", getData.spendbalanceN);
                                                                        spendBar();
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
@@ -3545,6 +3546,7 @@ function completeRedemption() {
                                                                        window.localStorage.setItem("spend", getData.spenda);
                                                                        window.localStorage.setItem("maxspend", getData.maxspend);
                                                                        window.localStorage.setItem("spendmb", getData.spendbalance);
+                                                                        window.localStorage.setItem("spendn", getData.spendbalanceN);
                                                                        spendBarPlus();    
                                                                  
                                                                        hideSpin(); //hide loading popup
@@ -7394,16 +7396,10 @@ function completeRedemption() {
             document.getElementById("profile-type-p").innerHTML = "isme Elite";
         }
         //Generate Spend Bar
-        //alert(window.localStorage.getItem("spend"));
-        var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
-        m = i;
-        n = i;
-                                               
-        if (m > 70) {
-            n = 70;
-        }
-                                                
-        if (i >= 90) {
+        alert(window.localStorage.getItem("spendn"));
+        alert(window.localStorage.getItem("maxspend"));
+        var i = (parseInt(window.localStorage.getItem("spendn")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
+   if (i >= 90) {
             y = 83;
         }else if (i >= 17) {
             y = i;
@@ -7417,11 +7413,11 @@ function completeRedemption() {
             document.getElementById("spend-amount-p").style.margin = "auto auto auto 75%";
             document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
         }else {
-            document.getElementById("spend-bar-p").style.width = m + "%";
-            if (m >= 80) {
+            document.getElementById("spend-bar-p").style.width = i + "%";
+            if (i >= 80) {
                 document.getElementById("spend-amount-p").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
             }else {
-                document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
+                document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K";
             }
         } 
         hideSpin();
@@ -7445,15 +7441,9 @@ function completeRedemption() {
         }else {
             document.getElementById("profile-type").innerHTML = "isme Elite";
         }
-        //Generate Spend Bar
-        var i = (parseInt(window.localStorage.getItem("spend")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
-        m = i;
-        n = i;
-                                               
-        if (m > 70) {
-            n = 70;
-        }
-                                                
+        //Generate Spend Bar        
+        var i = (parseInt(window.localStorage.getItem("spendn")) / parseInt(window.localStorage.getItem("maxspend"))*1000) * 100
+                                                 
         if (i >= 90) {
             y = 83;
         }else if (i >= 17) {
@@ -7463,15 +7453,16 @@ function completeRedemption() {
         }
         document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
         if (i >= 100) {
-            document.getElementById("spend-amount").style.margin = "auto auto auto 75%";
+            document.getElementById("spend-amount").style.margin = "auto auto auto 99%";
             document.getElementById("spend-bar").style.width = '100%';
             document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
         }else {
-            document.getElementById("spend-bar").style.width = m + "%";
-            if (m >= 80) {
+            document.getElementById("spend-bar").style.width = i + "%";
+            if (i > 80) {
                 document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
             }else {
-                document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
+               //document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
+                document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K";
             }
         }               
         hideSpin();
