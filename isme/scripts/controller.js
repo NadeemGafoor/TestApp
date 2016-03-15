@@ -7449,11 +7449,7 @@ function completeRedemption() {
        alert(i);                                           
         if (i >= 90) {
             y = 83;
-        }else if (i >= 17) {
-            y = i;
-        }else {
-            y = 17;
-        }
+    
         document.getElementById("spend-amount").style.margin = "auto 2% auto auto";
         document.getElementById("spend-amount").style.width = "18%";
         if (i >= 100) {
