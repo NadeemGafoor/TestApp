@@ -7409,10 +7409,12 @@ function completeRedemption() {
         document.getElementById("spend-amount-p").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
                                                
         if (i >= 100) {
+            document.getElementById("spend-amount-p").style.width = "95%";
             document.getElementById("spend-bar-p").style.width = '100%';
             document.getElementById("spend-amount-p").style.margin = "auto auto auto 75%";
             document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
         }else {
+            document.getElementById("spend-amount-p").style.width = i + "%";
             document.getElementById("spend-bar-p").style.width = i + "%";
             if (i >= 80) {
                 document.getElementById("spend-amount-p").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:2%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
@@ -7453,10 +7455,12 @@ function completeRedemption() {
         }
         document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
         if (i >= 100) {
-            document.getElementById("spend-amount").style.margin = "auto auto auto 99%";
+            document.getElementById("spend-amount").style.width = "95%";
+            document.getElementById("spend-amount").style.margin = "auto auto auto 75%";
             document.getElementById("spend-bar").style.width = '100%';
             document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
         }else {
+            document.getElementById("spend-amount").style.width = i + "%";
             document.getElementById("spend-bar").style.width = i + "%";
             if (i > 80) {
                 document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:2%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
