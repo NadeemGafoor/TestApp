@@ -121,7 +121,7 @@ function faceBookClick() {
   
 function twitterClick() {
     var m = window.localStorage.getItem("social_shortmsg");
-    window.plugins.socialsharing.shareViaTwitter("I'am looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App! \n" + "Join the fun and download the app here " + window.localStorage.getItem("appad_location") , ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
+    window.plugins.socialsharing.shareViaTwitter("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App!  It’s Jumeirah at your fingertips! \n\n" + "Join the fun and download the isme by Jumeirah Mobile App today at " + window.localStorage.getItem("appad_location") , ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
         navigator.notification.alert("There is an error loading Twitter on this device or the Twitter app is not installed. Please check and re-try.", function() {
         }, "isme By Jumeirah" , "Dismiss");   
@@ -129,7 +129,7 @@ function twitterClick() {
 }
 
 function whatsappClick() {
-    window.plugins.socialsharing.shareViaWhatsApp("I'am looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App! It's Jumeirah at your finger tips!\n\n" + "Join the fun and download isme by Jumeirah Mobile App today at " + window.localStorage.getItem("appad_location") , "", "", function () {
+    window.plugins.socialsharing.shareViaWhatsApp("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App!  It’s Jumeirah at your fingertips! \n\n" + "Join the fun and download the isme by Jumeirah Mobile App today at " + window.localStorage.getItem("appad_location") , "", "", function () {
     }, function (errormsg) {
         navigator.notification.alert(JSON.stringify(errormsg), function() {
         }, "isme By Jumeirah" , "Dismiss"); 
@@ -138,7 +138,7 @@ function whatsappClick() {
 
 function emailClick() {
     window.plugins.socialsharing.shareViaEmail(
-        "<pre>I'am looking at " + window.localStorage.getItem("social_email_message") + " on my <i>isme by Jumeirah</i> Mobile App! It's Jumeirah at your finger tips!\n\n" + "Join the fun and download <i>isme by Jumeirah</i> Mobile App today at " + window.localStorage.getItem("appad_location") + "</pre>", 
+        "<pre>I'm looking at " + window.localStorage.getItem("social_email_message") + " on my <i>isme by Jumeirah</i> Mobile App!  It's Jumeirah at your finger tips!\n\n" + "Join the fun and download the <i>isme by Jumeirah</i> Mobile App today at " + window.localStorage.getItem("appad_location") + "</pre>", 
         window.localStorage.getItem("social_email_subject"), null, null, null, // TO: must be null or an array
        null, // FILES: can be null, a string, or an array
         function (msg) {
@@ -7407,7 +7407,7 @@ function completeRedemption() {
             y = 17;
         }
        document.getElementById("spend-amount-p").style.marginLeft = ((parseInt(window.localStorage.getItem("spend"))*2)-15) + "%";
-        document.getElementById("spend-amount-p").style.width = "16%";                                   
+        document.getElementById("spend-amount-p").style.width = "18%";                                   
         if (i >= 100) {
          
             document.getElementById("spend-bar-p").style.width = '100%';
@@ -7455,7 +7455,7 @@ function completeRedemption() {
         }                                          
        
         document.getElementById("spend-amount").style.marginLeft = ((parseInt(window.localStorage.getItem("spend"))*2)-15) + "%";
-        document.getElementById("spend-amount").style.width = "16%";            
+        document.getElementById("spend-amount").style.width = "18%";            
         if (i >= 100) {
 
             document.getElementById("spend-amount").style.margin = "auto auto auto 78%";
