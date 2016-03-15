@@ -7396,9 +7396,9 @@ function completeRedemption() {
             document.getElementById("profile-type-p").innerHTML = "isme Elite";
         }
         //Generate Spend Bar
-        alert(window.localStorage.getItem("spendn"));
-        alert(window.localStorage.getItem("maxspend"));
-        var i = (parseInt(window.localStorage.getItem("spendn")) / parseInt(window.localStorage.getItem("maxspend"))) * 100
+        //alert(window.localStorage.getItem("spendn"));
+        //alert(window.localStorage.getItem("maxspend"));
+            var i = ((parseInt(window.localStorage.getItem("spendn"))/1000) / parseInt(window.localStorage.getItem("maxspend"))) * 100
    if (i >= 90) {
             y = 83;
         }else if (i >= 17) {
@@ -7415,7 +7415,7 @@ function completeRedemption() {
         }else {
             document.getElementById("spend-bar-p").style.width = i + "%";
             if (i >= 80) {
-                document.getElementById("spend-amount-p").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:5%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
+                document.getElementById("spend-amount-p").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:2%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
             }else {
                 document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K";
             }
@@ -7442,7 +7442,7 @@ function completeRedemption() {
             document.getElementById("profile-type").innerHTML = "isme Elite";
         }
         //Generate Spend Bar        
-        var i = (parseInt(window.localStorage.getItem("spendn")) / parseInt(window.localStorage.getItem("maxspend"))*1000) * 100
+        var i = ((parseInt(window.localStorage.getItem("spendn"))/1000) / parseInt(window.localStorage.getItem("maxspend"))) * 100
                                                  
         if (i >= 90) {
             y = 83;
@@ -7459,7 +7459,7 @@ function completeRedemption() {
         }else {
             document.getElementById("spend-bar").style.width = i + "%";
             if (i > 80) {
-                document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
+                document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:2%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
             }else {
                //document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
                 document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K";
