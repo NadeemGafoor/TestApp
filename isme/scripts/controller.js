@@ -7407,11 +7407,11 @@ function completeRedemption() {
             y = 17;
         }
         document.getElementById("spend-amount-p").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
-                                               
+           document.getElementById("spend-amount-p").style.width = "18%";                                       
         if (i >= 100) {
-            document.getElementById("spend-amount-p").style.width = "95%";
+         
             document.getElementById("spend-bar-p").style.width = '100%';
-            document.getElementById("spend-amount-p").style.margin = "auto auto auto 75%";
+            document.getElementById("spend-amount-p").style.margin = "auto auto auto 78%";
             document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
         }else {
             document.getElementById("spend-amount-p").style.width = i + "%";
@@ -7454,9 +7454,10 @@ function completeRedemption() {
             y = 17;
         }
         document.getElementById("spend-amount").style.margin = "auto auto auto " + parseInt(y - 15) + "%";
+                    document.getElementById("spend-amount").style.width = "18%";
         if (i >= 100) {
-            document.getElementById("spend-amount").style.width = "95%";
-            document.getElementById("spend-amount").style.margin = "auto auto auto 75%";
+
+            document.getElementById("spend-amount").style.margin = "auto auto auto 78%";
             document.getElementById("spend-bar").style.width = '100%';
             document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
         }else {
