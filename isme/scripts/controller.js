@@ -903,8 +903,8 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-    var gurl = "https://ismemobileportal.jumeirah.com";
-    //var gurl = "http://exclusiveu.dynns.com:8088/jumismemobile";
+    //var gurl = "https://ismemobileapp.jumeirah.com";
+    var gurl = "http://exclusiveu.dynns.com:8088/jumismemobile";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
@@ -960,10 +960,10 @@ function completeRedemption() {
     var fullname = "";
     var appad_location = "isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
-    var share_image = "https://ismemobileportal.jumeirah.com/images/large_logo_placeholder.png";
-    var flag_image = "https://ismemobileportal.jumeirah.com/flagimages/";
-   //var share_image = "http://exclusiveu.dynns.com:8088/jumismemobile/images/large_logo_placeholder.png";
-    //var flag_image = "http://exclusiveu.dynns.com:8088/jumismemobile/flagimages/";
+   // var share_image = "https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png";
+   // var flag_image = "https://ismemobileapp.jumeirah.com/flagimages/";
+   var share_image = "http://exclusiveu.dynns.com:8088/jumismemobile/images/large_logo_placeholder.png";
+   var flag_image = "http://exclusiveu.dynns.com:8088/jumismemobile/flagimages/";
     var short_msg = "isme By Jumeirah";
     var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at http://isme.jumeirah.com";
     var offertelephone = "8004763";
@@ -2801,8 +2801,6 @@ function completeRedemption() {
                                            validateUser
                                            : function () {
                                                window.localStorage.setItem("appopen", "0");   
-                                               // alert(window.localStorage.getItem("loginmode"));
-                                               // alert(window.localStorage.getItem("FBuserID"));
                                                if (window.localStorage.getItem("loginmode") == "") {
                                                    if (!this.username) {
                                                        navigator.notification.alert("Please enter a valid Membership number.", function() {
@@ -3061,7 +3059,14 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
-                                           },  
+                                           }, 
+                                           setPINLater:function(){
+                                                    if (window.localStorage.getItem("segmentcode")==="1000") {
+                                                                          $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                                      }else {
+                                                                          $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                                      }         
+                                               },
         
                                            savePIN 
                                            : function () {
@@ -6449,14 +6454,7 @@ function completeRedemption() {
         var gender = document.getElementById("selGender").value;
         var fbuserid = window.localStorage.getItem("FBuserID");
         var fbaccesstoken = window.localStorage.getItem("FBAccessToken");
-        // alert(fbuserid + " " + fbaccesstoken);  
-        //   alert(emirate);          
-        //   alert(gender);          
-        //   alert(this.firstname.value);          
-        //   alert(this.lastname.value);          
-        //   alert(this.mobile.value);          
-        //   alert(this.emailid.value);          
-        //    alert(this.siriusnumber.value);          
+      
         $.ajax({ 
                    type: "POST",
                    cache:false,
