@@ -3059,14 +3059,7 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
-                                           }, 
-                                           setPINLater:function(){
-                                                    if (window.localStorage.getItem("segmentcode")==="1000") {
-                                                                          $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                                                                      }else {
-                                                                          $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                                      }         
-                                               },
+                                           },  
         
                                            savePIN 
                                            : function () {
