@@ -10,6 +10,10 @@ var googleApiProjectNumber = '718540900342';
 var el;
 var currentDevice;
 
+var emptyFunc = function () { };
+var disableBackButton = function() { document.addEventListener("backbutton", emptyFunc, false); };
+var enableBackButton = function() { document.removeEventListener("backbutton", emptyFunc); };
+
 (function () {
     // store a reference to the application object that will be created
     // later on so that we can use it if need be
@@ -45,7 +49,7 @@ var currentDevice;
     
         currentDevice = el.push.currentDevice(false);
     }, false);
-     
+        
     function hideNav() {
         setTimeout(function() {
             navigator.splashscreen.hide();  
