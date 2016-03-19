@@ -7397,7 +7397,7 @@ function completeRedemption() {
         }else {
             y = 17;
         }
-       document.getElementById("spend-amount-p").style.marginLeft = ((parseInt(window.localStorage.getItem("spend"))*2)-10) + "%";
+       document.getElementById("spend-amount-p").style.marginLeft = ((parseInt(window.localStorage.getItem("spend"))*2)-13) + "%";
         document.getElementById("spend-amount-p").style.width = "18%";                                   
         if (i >= 100) {
          
@@ -7445,7 +7445,7 @@ function completeRedemption() {
             y = 17;
         }                                          
        
-        document.getElementById("spend-amount").style.marginLeft = ((parseInt(window.localStorage.getItem("spend"))*2)-10) + "%";
+        document.getElementById("spend-amount").style.marginLeft = ((parseInt(window.localStorage.getItem("spend"))*2)-13) + "%";
         document.getElementById("spend-amount").style.width = "18%";            
         if (i >= 100) {
 
