@@ -1053,7 +1053,7 @@ function completeRedemption() {
     
     function getFBUserData() {
         var graphPath = "me/?fields=id,email,first_name,last_name,gender,age_range,link,locale"; 
-        facebookConnectPlugin.api(graphPath, ["email","public_profile"], 
+        facebookConnectPlugin.api(graphPath, ["public_profile"], 
                                   function(response) { 
                                       if (response.error) { 
                                           navigator.notification.alert("There is an error accessing Facebook account. " + response.error, function() {
@@ -1100,7 +1100,7 @@ function completeRedemption() {
     }
     
     function fbLogin() {
-        facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+        facebookConnectPlugin.login( ["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
             if (response.status === "connected") { 
                 m = JSON.parse(JSON.stringify(response));                                                       
                 window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -1544,6 +1544,7 @@ function completeRedemption() {
                                                //check if Id is already exists on isme then throw error
                                                //get user data and publish on enrol page
                                                //Show a message of successful FB validation and update balance data to complete.
+                                               
                                                if (window.localStorage.getItem("FBValidated")==="Y") {
                                                    navigator.notification.alert("You have already enrolled or validated your Facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your isme membership if already enrolled.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
@@ -1551,8 +1552,9 @@ function completeRedemption() {
                                                    return;
                                                }
                                                fbCleanVariables();
-                                            
-                                               facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                        
+                                               facebookConnectPlugin.login( ["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+
                                                    if (response.status === "connected") { 
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -1585,7 +1587,7 @@ function completeRedemption() {
                                                        window.localStorage.setItem("loginmode", "FB");
                                                        preLogin.validateUser();
                                                    } else { 
-                                                       facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                       facebookConnectPlugin.login( ["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                                            if (response.status === "connected") { 
                                                                m = JSON.parse(JSON.stringify(response));                                                       
                                                                window.localStorage.setItem("FBuserID", m.authResponse.userID);
