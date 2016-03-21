@@ -1554,7 +1554,7 @@ function completeRedemption() {
                                                fbCleanVariables();
                                         
                                                facebookConnectPlugin.login( ["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-
+                                                   alert(response.status);
                                                    if (response.status === "connected") { 
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
