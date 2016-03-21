@@ -2446,7 +2446,6 @@ function completeRedemption() {
                                            varInit
                                            : function() {
                                                showSpin();
-                                             
                                                clearAllVariables();
                                                // clearListFilter();
                                                if (firsttime === "") { //Register Access and device in the platform
