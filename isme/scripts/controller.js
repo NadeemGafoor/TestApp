@@ -904,8 +904,8 @@ function completeRedemption() {
     var mdevicestat = "";
     var ctr = 0;
     //  var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
-    var gurl = "https://ismemobileapp.jumeirah.com";
-    //var gurl = "http://exclusiveu.dynns.com:8088/jumismemobile";
+    //var gurl = "https://ismemobileapp.jumeirah.com";
+    var gurl = "http://exclusiveu.dynns.com:8088/jumismemobile";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
