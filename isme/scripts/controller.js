@@ -732,7 +732,6 @@ function myrewardListBack() {
 
 function outletListBack(e) {
     doOneBack();
-    alert(e.params.id);
     $("body").data("kendoMobilePane").navigate("views/pl-outletlist.html?brand=" + window.localStorage.getItem("brandcode") + "&category=" + window.localStorage.getItem("category"));                                                                           
 }
 
@@ -1026,7 +1025,6 @@ function completeRedemption() {
     }
     
     function getFBUserExists() { 
-        alert("FB User Exists");
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -1054,7 +1052,6 @@ function completeRedemption() {
     }
     
     function getFBUserData() {
-        alert("FB User Data");
         var graphPath = "me/?fields=id,email,first_name,last_name,gender,age_range,link,locale"; 
         facebookConnectPlugin.api(graphPath, ["email","public_profile"], 
                                   function(response) { 
@@ -1103,7 +1100,6 @@ function completeRedemption() {
     }
     
     function fbLogin() {
-        alert("FB Login");
         facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
             if (response.status === "connected") { 
                 m = JSON.parse(JSON.stringify(response));                                                       
@@ -1557,7 +1553,6 @@ function completeRedemption() {
                                                fbCleanVariables();
                                             
                                                facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-                                                   alert(response.status);
                                                    if (response.status === "connected") { 
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
