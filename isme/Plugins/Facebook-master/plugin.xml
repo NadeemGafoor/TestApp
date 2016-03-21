@@ -16,8 +16,8 @@
 
     <license>Apache 2.0</license>
 
-    <preference name="APP_ID" />
-    <preference name="APP_NAME" />
+    <preference name="1738460076383554" />
+    <preference name="isme by Jumeirah" />
 
     <engines>
         <!-- Requires > 3.3.* because of the custom Framework tag for iOS [CB-5238] -->
@@ -48,8 +48,8 @@
         </config-file>
 
         <config-file target="res/values/strings.xml" parent="/*">
-            <string name="fb_app_id">$APP_ID</string>
-            <string name="fb_app_name">$APP_NAME</string>
+            <string name="fb_app_id">1738460076383554</string>
+            <string name="fb_app_name">isme by Jumeirah</string>
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="application">
@@ -95,7 +95,7 @@
             <dict>
               <key>CFBundleURLSchemes</key>
               <array>
-                <string>fb$APP_ID</string>
+                <string>fb1738460076383554</string>
               </array>
             </dict>
           </array>
