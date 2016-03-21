@@ -1025,7 +1025,8 @@ function completeRedemption() {
         document.getElementById("property-detail-div").style.display = "none";
     }
     
-    function getFBUserExists() {  
+    function getFBUserExists() { 
+        alert("FB User Exists");
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -1053,6 +1054,7 @@ function completeRedemption() {
     }
     
     function getFBUserData() {
+        alert("FB User Data");
         var graphPath = "me/?fields=id,email,first_name,last_name,gender,age_range,link,locale"; 
         facebookConnectPlugin.api(graphPath, ["email","public_profile"], 
                                   function(response) { 
@@ -1101,6 +1103,7 @@ function completeRedemption() {
     }
     
     function fbLogin() {
+        alert("FB Login");
         facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
             if (response.status === "connected") { 
                 m = JSON.parse(JSON.stringify(response));                                                       
@@ -1537,7 +1540,7 @@ function completeRedemption() {
         
                                          
                                             
-                                           getFBUserData
+                                           getFBUserDataA
                                            : function () {  
                                                showSpin();
                                                //Check Login Status - If not logged in and user rejects then throw enrollment error
@@ -1554,6 +1557,7 @@ function completeRedemption() {
                                                fbCleanVariables();
                                             
                                                facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                   alert(response.status);
                                                    if (response.status === "connected") { 
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
