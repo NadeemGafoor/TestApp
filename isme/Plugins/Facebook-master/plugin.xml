@@ -46,8 +46,8 @@
         </config-file>
 
         <config-file target="res/values/strings.xml" parent="/*">
-            <string name="fb_app_id">$1738460076383554</string>
-            <string name="fb_app_name">$isme by Jumeirah</string>
+            <string name="fb_app_id">1738460076383554</string>
+            <string name="fb_app_name">isme by Jumeirah</string>
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="application">

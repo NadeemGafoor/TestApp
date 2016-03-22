@@ -1053,7 +1053,7 @@ function completeRedemption() {
     
     function getFBUserData() {
         var graphPath = "me/?fields=id,email,first_name,last_name,gender,age_range,link,locale"; 
-        facebookConnectPlugin.api(graphPath, ["public_profile"], 
+        facebookConnectPlugin.api(graphPath,["public_profile"], 
                                   function(response) { 
                                       if (response.error) { 
                                           navigator.notification.alert("There is an error accessing Facebook account. " + response.error, function() {
@@ -1100,7 +1100,7 @@ function completeRedemption() {
     }
     
     function fbLogin() {
-        facebookConnectPlugin.login( ["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+        facebookConnectPlugin.login(["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
             if (response.status === "connected") { 
                 m = JSON.parse(JSON.stringify(response));                                                       
                 window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -1545,6 +1545,12 @@ function completeRedemption() {
                                                //get user data and publish on enrol page
                                                //Show a message of successful FB validation and update balance data to complete.
                                                
+                                                 //facebookConnectPlugin.getApplicationSignature(function(response) {
+         // console.log("Signature: " + response);
+        //  alert("Signature: " + response);
+      //  });
+                                               
+                                               
                                                if (window.localStorage.getItem("FBValidated")==="Y") {
                                                    navigator.notification.alert("You have already enrolled or validated your Facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your isme membership if already enrolled.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
@@ -1553,7 +1559,7 @@ function completeRedemption() {
                                                }
                                                fbCleanVariables();
                                         
-                                               facebookConnectPlugin.login( ["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                               facebookConnectPlugin.login(["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                       
                                                    if (response.status === "connected") { 
                                                        m = JSON.parse(JSON.stringify(response));                                                       
@@ -1578,7 +1584,8 @@ function completeRedemption() {
                                            fbLoginD
                                            : function () { 
                                                showSpin();
-                                               
+                                        
+
                                                facebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") {
                                                        m = JSON.parse(JSON.stringify(response));                                                       
@@ -1587,7 +1594,7 @@ function completeRedemption() {
                                                        window.localStorage.setItem("loginmode", "FB");
                                                        preLogin.validateUser();
                                                    } else { 
-                                                       facebookConnectPlugin.login( ["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                       facebookConnectPlugin.login(["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                                            if (response.status === "connected") { 
                                                                m = JSON.parse(JSON.stringify(response));                                                       
                                                                window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -5325,7 +5332,7 @@ function completeRedemption() {
                                             : function () { 
                                                 showSpin();
                                         
-                                                facebookConnectPlugin.login(["email"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
+                                                facebookConnectPlugin.login(["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
                                                     if (response.status === "connected") { 
                                                         m = JSON.parse(JSON.stringify(response));                                                       
                                                         window.localStorage.setItem("FBuserID", m.authResponse.userID);
