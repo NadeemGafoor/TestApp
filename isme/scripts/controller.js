@@ -1540,10 +1540,10 @@ function completeRedemption() {
                                                //get user data and publish on enrol page
                                                //Show a message of successful FB validation and update balance data to complete.
                                                
-                                                 //facebookConnectPlugin.getApplicationSignature(function(response) {
-         // console.log("Signature: " + response);
-        //  alert("Signature: " + response);
-      //  });
+                                                 facebookConnectPlugin.getApplicationSignature(function(response) {
+          console.log("Signature: " + response);
+          alert("Signature: " + response);
+        });
                                                
                                                
                                                if (window.localStorage.getItem("FBValidated")==="Y") {
