@@ -1542,6 +1542,7 @@ function completeRedemption() {
                                                
                                                  facebookConnectPlugin.getApplicationSignature(function(response) {
           console.log("Signature: " + response);
+                                                    window.localStorage.setItem("signature", response);
         });
                                                
                                                
