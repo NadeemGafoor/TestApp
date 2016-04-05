@@ -45,7 +45,7 @@
             <access origin="https://*.fbcdn.net" />
             <access origin="https://*.akamaihd.net" />
         </config-file>
-
+<source-file src="platforms/android/res/values/facebookconnect.xml" target-dir="res/values" />
         <config-file target="res/values/strings.xml" parent="/*">
             <string name="fb_app_id">1738460076383554</string>
             <string name="fb_app_name">isme by Jumeirah</string>
