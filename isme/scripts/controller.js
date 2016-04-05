@@ -1540,10 +1540,10 @@ function completeRedemption() {
                                                //get user data and publish on enrol page
                                                //Show a message of successful FB validation and update balance data to complete.
                                                
-                                                 facebookConnectPlugin.getApplicationSignature(function(response) {
-          console.log("Signature: " + response);
-                                                    window.localStorage.setItem("signature", response);
-        });
+                                                // facebookConnectPlugin.getApplicationSignature(function(response) {
+         // console.log("Signature: " + response);
+                                                 //   window.localStorage.setItem("signature", response);
+    //    });
                                                
                                                
                                                if (window.localStorage.getItem("FBValidated")==="Y") {
@@ -1569,7 +1569,7 @@ function completeRedemption() {
                                                        hideSpin();
                                                        return;
                                                    } 
-                                               }); 
+                                               },function (error) { alert("" + error) }); 
                                            } 
 
                                            ,   
