@@ -1571,8 +1571,8 @@ function completeRedemption() {
                                                    } 
                                                },function (error) {
                                                    //alert(JSON.parse(error));
-                                                   //alert(JSON.stringify(error));
-                                                   alert(JSON.parse(JSON.stringify(error)));                                                       
+                                                   alert(JSON.stringify(error));
+                                                   //alert(JSON.parse(JSON.stringify(error)));                                                       
                                                }
                                                
                                                ); 
