@@ -1569,9 +1569,14 @@ function completeRedemption() {
                                                        hideSpin();
                                                        return;
                                                    } 
-                                               },function (error) { alert("" + error) }); 
+                                               },function (error) {
+                                                   //alert(JSON.parse(error));
+                                                   //alert(JSON.stringify(error));
+                                                   alert(JSON.parse(JSON.stringify(error)));                                                       
+                                               }
+                                               
+                                               ); 
                                            } 
-
                                            ,   
         
                                       
