@@ -2550,7 +2550,7 @@ tile-frame-inner
     width:100%;
     margin:10px auto;
     background: url(../images/home_page_logo_home.png) no-repeat center center;
-    background-size:cover;
+    background-size:50%;
 }
 
  .km-arrow-up:after,
