@@ -1893,7 +1893,8 @@ function completeRedemption() {
                                                                   $("#outlet-list").kendoMobileListView({
                                                                              
                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:25}),
-                                                                                                            template: $("#outletTemplate").html()
+                                                                                                            template: $("#outletTemplate").html(),
+                                                                      endlessScroll: true
                                                                                                         });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
@@ -4092,7 +4093,8 @@ function completeRedemption() {
                                                                    $("#pl-outlet-list").kendoMobileListView({
                                                                              
                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging:true,pageSize:25}),
-                                                                                                                template: $("#pl-outletTemplate").html()
+                                                                                                                template: $("#pl-outletTemplate").html(),
+                                                                      endlessScroll: true
                                                                                                         
                                                                                                             });
                                                                    hideSpin(); //hide loading popup
@@ -4525,8 +4527,9 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.mywalletvouchers.length > 0) {
                                                                        $("#mywallet-voucher-list").kendoMobileListView({
-                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                                                           template: $("#mywallet-voucherlist-Template").html()
+                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers,serverPaging:true,pageSize:25}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                                                                                           template: $("#mywallet-voucherlist-Template").html(),
+                                                                            endlessScroll: true
                                                                                                                          
                                                                                                                        });
                                                                        hideSpin(); //hide loading popup
@@ -5067,9 +5070,9 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.historylist.length > 0) {
                                                                        $("#pl-history-list").kendoMobileListView({
-                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.historylist }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                                                     template: $("#pl-historyListTemplate").html()
-                                                                                                                     //endlessScroll: true
+                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.historylist, serverPaging: true,pageSize:25 }),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                                                                                     template: $("#pl-historyListTemplate").html(),
+                                                                                                                     endlessScroll: true
                                                                                                                       
                                                                                                                  });
                                                                        hideSpin(); //hide loading popup
