@@ -902,7 +902,8 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-    var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
+  //    var gurl = "https://ismemobileapp.jumeirah.com";
+   var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
  //var gurl = "http://exclusiveu.dynns.com:8088/jumismemobile";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
@@ -1894,6 +1895,7 @@ function completeRedemption() {
                                                              
                                                               if (getData.statuscode === "000") {
                                                                   //fill the outlet template
+                                                                  alert(getData.outletlist[0].imageurll);
                                                                   $("#outlet-list").kendoMobileListView({
                                                                              
                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
