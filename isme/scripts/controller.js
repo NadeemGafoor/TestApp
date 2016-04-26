@@ -4638,6 +4638,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode === "000") {
                                                                    if (getData.myvoucherdetail.length > 0) {
+                                                                       alert(getData.myvoucherdetail[0].imageurll);
                                                                        document.getElementById("wallet-voucher-div").style.display = "block";
                                                                        window.localStorage.setItem("selfredeemVouchernumber", getData.myvoucherdetail[0].itemcode);
                                                                        document.getElementById("myvoucherdetaila").src = getData.myvoucherdetail[0].imageurll;                                                                
