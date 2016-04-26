@@ -904,7 +904,7 @@ function completeRedemption() {
     var ctr = 0;
   //    var gurl = "https://ismemobileapp.jumeirah.com";
   // var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
-var gurl = "http://exclusiveu.dynns.com:8088/jumismemobile";
+var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
@@ -963,8 +963,8 @@ var gurl = "http://exclusiveu.dynns.com:8088/jumismemobile";
   //  var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
   //  var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     
-    var share_image = "http://exclusiveu.dynns.com:8088/ismemobileportal/images/large_logo_placeholder.png";
-    var flag_image = "http://exclusiveu.dynns.com:8088/ismemobileportal/flagimages/";
+    var share_image = "http://hdrewards.ddns.net:8088/ismemobileportal/images/large_logo_placeholder.png";
+    var flag_image = "http://hdrewards.ddns.net:8088/ismemobileportal/flagimages/";
     
      var short_msg = "isme By Jumeirah";
     var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at http://isme.jumeirah.com";
