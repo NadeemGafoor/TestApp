@@ -140,7 +140,7 @@ function emailClick() {
     window.plugins.socialsharing.shareViaEmail(
         "<pre>I'm looking at " + window.localStorage.getItem("social_email_message") + " on my <i>isme by Jumeirah</i> Mobile App!  It's Jumeirah at your finger tips!\n\n" + "Join the fun and download the <i>isme by Jumeirah</i> Mobile App today at " + window.localStorage.getItem("appad_location") + "</pre>", 
         window.localStorage.getItem("social_email_subject"), null, null, null, // TO: must be null or an array
-       null, // FILES: can be null, a string, or an array
+        null, // FILES: can be null, a string, or an array
         function (msg) {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
         function (msg) {
@@ -210,14 +210,20 @@ function onSelectTabStrip2(e) {
 function onSelectTabStrip4(e) {
     var i = $(e.item).index();
     if (i === 0) {
-        
         if (window.localStorage.getItem("segmentcode")==="1000") {
-        $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-    }else {
-        $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-    }               
+            $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+        }else {
+            $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+        } 
+    } else if (i===1) {
+        loadMyMessages();
+    } else if (i===2) {
+        loadHistory();
+    } else if (i===3) {
+        loadSetting();
+    } else if (i===4) {
+        loadFavorites();
     }
-
 }
 
 function onSelectTabStrip3(e) {
@@ -306,8 +312,6 @@ function closeEnterPinForRedemption() {
     $("#modalviewenterpin").data("kendoMobileModalView").close();
 }
 
-
-
 function closeStaffPinForRedemption() {
     $("#modalviewstaffpin").data("kendoMobileModalView").close();
 }
@@ -336,12 +340,9 @@ function loadOfferView() {
     $("#modalviewoffertype").data("kendoMobileModalView").open();
 }
 
-
-
 function loadTypeView() {
     $("#modalviewtype").data("kendoMobileModalView").open();
 }   
-    
 
 function offerFilterView() {
     if (window.localStorage.getItem("appopen")==="90") {
@@ -350,8 +351,6 @@ function offerFilterView() {
         $("#modalviewofferfilter").data("kendoMobileModalView").open();          
     }
 }
-
-
 
 function historyFilterView() {
     $("#modalviewhistoryfilter").data("kendoMobileModalView").open();
@@ -364,8 +363,6 @@ function closeHistoryFilterView() {
 function loadCeleberationTypeView() {
     $("#modalviewceleberationtype").data("kendoMobileModalView").open();
 }
-
-
 
 function shareClick() {
     $(".cardhead").slideUp("slow");
@@ -394,7 +391,6 @@ function shareClick() {
         elems[i].style.textAlign = "center";
     }
 }
-
 
 function cardClick() {
     $(".sharehead").slideUp("slow");
@@ -543,8 +539,6 @@ function loadMyReward() {
 }
 
 function loadMyBenefit() {
-
-
     if (window.localStorage.getItem("appopen") != "3") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
@@ -560,7 +554,6 @@ function loadMyBenefit() {
 }
 
 function loadMyMessages() {
-
     if (window.localStorage.getItem("appopen") != "4") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
@@ -576,8 +569,6 @@ function loadMyMessages() {
 }
 
 function loadSetting() {
-
-
     if (window.localStorage.getItem("appopen") != "5") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
@@ -593,8 +584,6 @@ function loadSetting() {
 }
 
 function loadHistory() {
-
-
     if (window.localStorage.getItem("appopen") != "6") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
@@ -610,7 +599,6 @@ function loadHistory() {
 }
 
 function loadFavorites() {
-
     if (window.localStorage.getItem("appopen") != "7") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
@@ -847,9 +835,9 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-  //    var gurl = "https://ismemobileapp.jumeirah.com";
-  // var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
-var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
+    //    var gurl = "https://ismemobileapp.jumeirah.com";
+    // var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
+    var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
@@ -905,13 +893,13 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
     var fullname = "";
     var appad_location = "isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
-  //  var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-  //  var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
+    //  var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+    //  var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     
     var share_image = "http://hdrewards.ddns.net:8088/jumismemobile/images/large_logo_placeholder.png";
     var flag_image = "http://hdrewards.ddns.net:8088/jumismemobile/flagimages/";
     
-     var short_msg = "isme By Jumeirah";
+    var short_msg = "isme By Jumeirah";
     var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at http://isme.jumeirah.com";
     var offertelephone = "8004763";
     var enrollmenttelephone = "8004763";
@@ -998,7 +986,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
     
     function getFBUserData() {
         var graphPath = "me/?fields=id,email,first_name,last_name,gender,age_range,link,locale"; 
-        facebookConnectPlugin.api(graphPath,["public_profile"], 
+        facebookConnectPlugin.api(graphPath, ["public_profile"], 
                                   function(response) { 
                                       if (response.error) { 
                                           navigator.notification.alert("There is an error accessing Facebook account. " + response.error, function() {
@@ -1490,11 +1478,10 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                //get user data and publish on enrol page
                                                //Show a message of successful FB validation and update balance data to complete.
                                                
-                                              //   facebookConnectPlugin.getApplicationSignature(function(response) {
-       //  console.log("Signature: " + response);
-                                         //          window.localStorage.setItem("signature", response);
-   //     });
-                                               
+                                               //   facebookConnectPlugin.getApplicationSignature(function(response) {
+                                               //  console.log("Signature: " + response);
+                                               //          window.localStorage.setItem("signature", response);
+                                               //     });
                                                
                                                if (window.localStorage.getItem("FBValidated")==="Y") {
                                                    navigator.notification.alert("You have already enrolled or validated your Facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your isme membership if already enrolled.", function() {
@@ -1505,7 +1492,6 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                fbCleanVariables();
                                         
                                                facebookConnectPlugin.login(["public_profile"], function(response) { // do not retrieve the 'user_likes' permissions from FB as it will break the app 
-                                      
                                                    if (response.status === "connected") { 
                                                        m = JSON.parse(JSON.stringify(response));                                                       
                                                        window.localStorage.setItem("FBuserID", m.authResponse.userID);
@@ -1519,13 +1505,13 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                        hideSpin();
                                                        return;
                                                    } 
-                                               },function (error) {
+                                               }, function (error) {
                                                    //alert(JSON.parse(error));
                                                    alert(JSON.stringify(error));
                                                    //alert(JSON.parse(JSON.stringify(error)));                                                       
                                                }
                                                
-                                               ); 
+                                                   ); 
                                            } 
                                            ,   
         
@@ -1534,7 +1520,6 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                            fbLoginD
                                            : function () { 
                                                showSpin();
-                                        
 
                                                facebookConnectPlugin.getLoginStatus(function(response) { 
                                                    if (response.status === "connected") {
@@ -1892,7 +1877,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                              
                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),
                                                                                                               template: $("#outletTemplate-b").html(),
-                                                                                                            endlessScroll: true
+                                                                                                              endlessScroll: true
                                                                                                           });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
@@ -1941,7 +1926,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                              
                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),
                                                                                                              template: $("#leisureTemplate").html(),
-                                                                      endlessScroll: true
+                                                                                                             endlessScroll: true
                                                                                                          });
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
@@ -1988,7 +1973,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                              
                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),
                                                                                                                template: $("#leisureTemplate-b").html(),
-                                                                      endlessScroll: true
+                                                                                                               endlessScroll: true
                                                                                                               
                                                                                                            });
                                                                   hideSpin(); //hide loading popup
@@ -2245,7 +2230,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                   $("#offer-list-view").kendoMobileListView({
                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.offerlist,serverPaging: true,pageSize: 40}),
                                                                                                                 template: $("#offerListTemplate").html(),
-                                                                                                                  endlessScroll: true
+                                                                                                                endlessScroll: true
                                                                                                                     
                                                                                                             });
                                                                   hideSpin(); //hide loading popup
@@ -2295,8 +2280,8 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                   document.getElementById("offer-long-1").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                   document.getElementById("offer-expiry").innerHTML = "Reward Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                   document.getElementById("offer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
-                                                                  window.localStorage.setItem("social_email_message",getData.offerlist[0].itemname);
-                          window.localStorage.setItem("social_email_subject", emailsubjectoffer); 
+                                                                  window.localStorage.setItem("social_email_message", getData.offerlist[0].itemname);
+                                                                  window.localStorage.setItem("social_email_subject", emailsubjectoffer); 
                                                                   window.localStorage.setItem("social_shortmsg", getData.offerlist[0].itemdescription);
                                                                   window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
                                                                   window.localStorage.setItem("social_message", getData.offerlist[0].itemdescription + "\n\n" + "Offer Expirying on :" + getData.offerlist[0].couponexpirydate);
@@ -3154,9 +3139,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
                                                                   if (getData.faqlist.length > 0) {
-                                                                     
-                                                                      
-                                                                             for (var i = 0; i < getData.faqlist.length; i++) {
+                                                                      for (var i = 0; i < getData.faqlist.length; i++) {
                                                                           document.getElementById("faql").innerHTML += '<div id=col' + i + ' data-role="collapsible" data-collapsed="true" data-collapse-icon="arrow-up" data-expand-icon="arrow-down"><h3 class="collapse-format-1">&nbsp;' + getData.faqlist[i].question + '</h3><pre class="fulljustify">' + getData.faqlist[0].answer + '</pre></div>';
                                                                       }
                                                                       hideSpin(); //hide loading popup
@@ -3203,19 +3186,12 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
                                                                   if (getData.faqlist.length > 0) {
-                                                                      
-                                                                    
-                                                                      
-                                                                              for (var i = 0; i < getData.faqlist.length; i++) {
+                                                                      for (var i = 0; i < getData.faqlist.length; i++) {
                                                                           document.getElementById("pl-faql").innerHTML += '<div data-role="collapsible" data-collapse-icon="arrow-up" data-expand-icon="arrow-down"><h6 class="collapse-format-1">&nbsp;' + getData.faqlist[i].question + '</h6><pre class="fulljustify">' + getData.faqlist[0].answer + '</pre></div>';
                                                                       }
                                                                   
-                                                                  
                                                                       hideSpin(); //hide loading popup
-                                                                  
                                                                   }else {
                                                                       navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. ", function() {
                                                                       }, "isme by Jumeirah", "Dismiss")    
@@ -3472,7 +3448,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                        window.localStorage.setItem("spend", getData.spenda);
                                                                        window.localStorage.setItem("maxspend", getData.maxspend);
                                                                        window.localStorage.setItem("spendmb", getData.spendbalance);
-                                                                        window.localStorage.setItem("spendn", getData.spendbalanceN);
+                                                                       window.localStorage.setItem("spendn", getData.spendbalanceN);
                                                                        spendBar();
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
@@ -3518,7 +3494,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                        window.localStorage.setItem("spend", getData.spenda);
                                                                        window.localStorage.setItem("maxspend", getData.maxspend);
                                                                        window.localStorage.setItem("spendmb", getData.spendbalance);
-                                                                        window.localStorage.setItem("spendn", getData.spendbalanceN);
+                                                                       window.localStorage.setItem("spendn", getData.spendbalanceN);
                                                                        spendBarPlus();    
                                                                  
                                                                        hideSpin(); //hide loading popup
@@ -4000,7 +3976,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                    $("#pl-property-list").kendoMobileListView({
                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.propertylist,serverPaging: true,pageSize: 40}),
                                                                                                                   template: $("#pl-explorelisttemplate").html(),
-                                                                      endlessScroll: true
+                                                                                                                  endlessScroll: true
                                                                                                                     
                                                                                                               });
                                                                    hideSpin(); //hide loading popup
@@ -4059,7 +4035,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                              
                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),//serverPaging:true,pageSize:25
                                                                                                                 template: $("#pl-outletTemplate").html(),
-                                                                      endlessScroll: true
+                                                                                                                endlessScroll: true
                                                                                                         
                                                                                                             });
                                                                    hideSpin(); //hide loading popup
@@ -4117,7 +4093,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                              
                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),
                                                                                                                   template: $("#pl-outletTemplate-b").html(),
-                                                                      endlessScroll: true
+                                                                                                                  endlessScroll: true
                                                                                                               });
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
@@ -4178,7 +4154,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                              
                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),
                                                                                                                  template: $("#pl-leisureTemplate").html(),
-                                                                      endlessScroll: true
+                                                                                                                 endlessScroll: true
                                                                                                              });
                                                                    hideSpin(); //hide loading popup
                                                                }else {
@@ -4232,7 +4208,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                              
                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),
                                                                                                                    template: $("#pl-leisureTemplate-b").html(),
-                                                                      endlessScroll: true
+                                                                                                                   endlessScroll: true
                                                                                                                });
                                                                    hideSpin(); //hide loading popup
                                                                }else {
@@ -4497,7 +4473,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                        $("#mywallet-voucher-list").kendoMobileListView({
                                                                                                                            dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers,serverPaging: true,pageSize: 40}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
                                                                                                                            template: $("#mywallet-voucherlist-Template").html(),
-                                                                            endlessScroll: true
+                                                                                                                           endlessScroll: true
                                                                                                                          
                                                                                                                        });
                                                                        hideSpin(); //hide loading popup
@@ -4552,7 +4528,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                    document.getElementById("pl-offer-long-1").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                    document.getElementById("pl-offer-expiry").innerHTML = "Reward Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                    document.getElementById("pl-offer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
-                                                                   window.localStorage.setItem("social_email_message",getData.offerlist[0].itemname);
+                                                                   window.localStorage.setItem("social_email_message", getData.offerlist[0].itemname);
                                                                    window.localStorage.setItem("social_email_subject", emailsubjectoffer); 
                                                                    window.localStorage.setItem("social_shortmsg", getData.offerlist[0].itemdescription);
                                                                    window.localStorage.setItem("social_subject", getData.offerlist[0].itemname);
@@ -4688,9 +4664,8 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                 document.getElementById("segment7-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
                                                 document.getElementById("mycard7-qr").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard7-qr").style.backgroundSize = "cover";    
-                                                                                              
 
-                                                if (window.localStorage.getItem("magicnumber")!="") {
+                                                if (window.localStorage.getItem("magicnumber") != "") {
                                                     document.getElementById("hotelnumber1").disabled = true; 
                                                     // document.getElementById("hotelnumber1").style.color = '#999'; 
                                                 }
@@ -5261,7 +5236,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                             saveMySetting:function() {
                                                 saveSetting();
                                             },
-       showScreen:function() {
+                                            showScreen:function() {
                                                 showSpin();
                                             },
         
@@ -5403,9 +5378,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
         if (buttonIndex===1) {
             saveLater();
         } else if (buttonIndex===2) {
-          
-                savePreferenceItem();
-
+            savePreferenceItem();
         }
     }
     
@@ -5426,7 +5399,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
     
     function savePreferenceItem() {
         //life style
-       // showSpin();
+        // showSpin();
         var ul = document.getElementById("lifestyle-filter");
         var items = ul.getElementsByTagName("input");
                                                 
@@ -5472,34 +5445,31 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
         } else {
             navigator.notification.alert("Your Preferences Were Saved Successfully", function() {
             }, "isme By Jumeirah" , "Dismiss") ;   
-            
         }
         window.localStorage.setItem("errorPreference", "1");
         window.localStorage.setItem("issaved", "1");
-            if (window.localStorage.getItem("segmentcode")==="1000") {
-             window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                     "duration"         :  500, // in milliseconds (ms), default 400
-                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+        if (window.localStorage.getItem("segmentcode")==="1000") {
+            window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                             "duration"         :  500, // in milliseconds (ms), default 400
+                                                                             "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                             "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                             "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                                     'direction': 'up',
-                                                                     'href': '#views/pl-home.html'
-                                                                 }), 500);                                                                 
+                                                                             'direction': 'up',
+                                                                             'href': '#views/pl-home.html'
+                                                                         }), 500);                                                                 
         }else {
-             window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                     "duration"         :  500, // in milliseconds (ms), default 400
-                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+            window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                             "duration"         :  500, // in milliseconds (ms), default 400
+                                                                             "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                             "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                             "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                                     'direction': 'up',
-                                                                     'href': '#views/pl-homeplus.html'
-                                                                 }), 500);                                                                 
-
+                                                                             'direction': 'up',
+                                                                             'href': '#views/pl-homeplus.html'
+                                                                         }), 500);                                                                 
         }    
- 
-     }
+    }
     
     function redeemDiscount() {
         showSpin();
@@ -6683,12 +6653,12 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                        var getData = JSON.parse(data);
                        if (getData.statuscode === "000") {
                            window.localStorage.setItem("errorPreference", "1");
-                          // hideSpin();
+                           // hideSpin();
                        }else {
                            //  navigator.notification.alert("ERROR : One or more preferences could not be saved!"  +getData.statusdesc, function() {
                            //                           }, "isme By Jumeirah" , "Dismiss");     
                            window.localStorage.setItem("errorPreference", getData.statusdesc);                                      
-                          // hideSpin();                           
+                           // hideSpin();                           
                        }
                    },
                    error: function (errormsg) {
@@ -6747,7 +6717,6 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
     }
     
     function setCuisineTypePreference(x, y) {    
-  
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6913,26 +6882,25 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
         window.localStorage.setItem("appopen", "0");   
 
         if (window.localStorage.getItem("segmentcode")==="1000") {
-             window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                     "duration"         :  500, // in milliseconds (ms), default 400
-                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+            window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                             "duration"         :  500, // in milliseconds (ms), default 400
+                                                                             "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                             "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                             "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                                     'direction': 'up',
-                                                                     'href': '#views/pl-home.html'
-                                                                 }), 500);                                                                 
+                                                                             'direction': 'up',
+                                                                             'href': '#views/pl-home.html'
+                                                                         }), 500);                                                                 
         }else {
-             window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                     "duration"         :  500, // in milliseconds (ms), default 400
-                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+            window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                             "duration"         :  500, // in milliseconds (ms), default 400
+                                                                             "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                             "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                             "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                                     'direction': 'up',
-                                                                     'href': '#views/pl-homeplus.html'
-                                                                 }), 500);                                                                 
-
+                                                                             'direction': 'up',
+                                                                             'href': '#views/pl-homeplus.html'
+                                                                         }), 500);                                                                 
         }    
         hideSpin();
     }
@@ -7371,23 +7339,22 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
         //Generate Spend Bar
         //alert(window.localStorage.getItem("spendn"));
         //alert(window.localStorage.getItem("maxspend"));
-            var i = ((parseInt(window.localStorage.getItem("spendn"))/1000) / parseInt(window.localStorage.getItem("maxspend"))) * 100
-   if (i >= 80) {
+        var i = ((parseInt(window.localStorage.getItem("spendn")) / 1000) / parseInt(window.localStorage.getItem("maxspend"))) * 100
+        if (i >= 80) {
             y = 83;
         }else if (i >= 17) {
             y = i;
         }else {
             y = 17;
         }
-       document.getElementById("spend-amount-p").style.marginLeft = ((parseInt(window.localStorage.getItem("spend"))*2)-10) + "%";
+        document.getElementById("spend-amount-p").style.marginLeft = ((parseInt(window.localStorage.getItem("spend")) * 2) - 10) + "%";
         document.getElementById("spend-amount-p").style.width = "18%";                                   
         if (i >= 100) {
-         
             document.getElementById("spend-bar-p").style.width = '100%';
             document.getElementById("spend-amount-p").style.margin = "auto auto auto 78%";
             document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
         }else {
-           document.getElementById("spend-amount-p").style.width = (parseInt(window.localStorage.getItem("spend"))*2)-((parseInt(window.localStorage.getItem("spend"))*2)-17) + "%";
+            document.getElementById("spend-amount-p").style.width = (parseInt(window.localStorage.getItem("spend")) * 2) - ((parseInt(window.localStorage.getItem("spend")) * 2) - 17) + "%";
             document.getElementById("spend-bar-p").style.width = i + "%";
             if (i >= 80) {
                 document.getElementById("spend-amount-p").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:2%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
@@ -7418,8 +7385,8 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
         }
         //Generate Spend Bar        
       
-        var i = ((parseInt(window.localStorage.getItem("spendn"))/1000) / parseInt(window.localStorage.getItem("maxspend"))) * 100
-       if (i >= 80) {
+        var i = ((parseInt(window.localStorage.getItem("spendn")) / 1000) / parseInt(window.localStorage.getItem("maxspend"))) * 100
+        if (i >= 80) {
             y = 83;
         }else if (i >= 17) {
             y = i;
@@ -7427,20 +7394,19 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
             y = 17;
         }                                          
        
-        document.getElementById("spend-amount").style.marginLeft = ((parseInt(window.localStorage.getItem("spend"))*2)-10) + "%";
+        document.getElementById("spend-amount").style.marginLeft = ((parseInt(window.localStorage.getItem("spend")) * 2) - 10) + "%";
         document.getElementById("spend-amount").style.width = "18%";            
         if (i >= 100) {
-
             document.getElementById("spend-amount").style.margin = "auto auto auto 78%";
             document.getElementById("spend-bar").style.width = '100%';
             document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("maxspend") + "K+";
         }else {
-            document.getElementById("spend-amount").style.width = (parseInt(window.localStorage.getItem("spend"))*2)-((parseInt(window.localStorage.getItem("spend"))*2)-17) + "%";
+            document.getElementById("spend-amount").style.width = (parseInt(window.localStorage.getItem("spend")) * 2) - ((parseInt(window.localStorage.getItem("spend")) * 2) - 17) + "%";
             document.getElementById("spend-bar").style.width = i + "%";
             if (i > 80) {
                 document.getElementById("spend-amount").innerHTML = "<div style='width:15%;float:right;text-align:right;margin-right:2%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>";
             }else {
-               //document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
+                //document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K" + "<div style='width:15%;float:right;text-align:right;margin-right:10%'>" + window.localStorage.getItem("maxspend") + "K" + "</div>" ;
                 document.getElementById("spend-amount").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K";
             }
         }               
