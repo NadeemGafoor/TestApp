@@ -7200,7 +7200,6 @@ function completeRedemption() {
                 document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K";
             }
         } 
-        alert("Came Last");
         hideSpin();
     }
     
