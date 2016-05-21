@@ -209,11 +209,7 @@ function onSelectTabStrip2(e) {
 }
 
 function onSelectTabStrip4(e) {
-    alert(window.localStorage.getItem("appopen"));
-  if (window.localStorage.getItem("appopen") == "5"){
-      alert("here");
-        postLogin.checkSaveSetting;
-      }
+   
     var i = $(e.item).index();
     if (i === 0) {
         if (window.localStorage.getItem("segmentcode")==="1000") {
