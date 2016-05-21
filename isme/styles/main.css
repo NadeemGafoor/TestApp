@@ -10,6 +10,10 @@
   box-shadow:none;
 }
 
+.km-ios7 .km-tabstrip .km-state-active{
+    color:#fff;
+}
+
 
 hr { background-color: #b6b2b4; height: 1px; border: 0; }
 a
