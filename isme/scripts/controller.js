@@ -1,3 +1,7 @@
+function showItem(){
+    alert(document.getElementById("selCountry").value);
+}
+
 function FacebookErr() {
     navigator.notification.alert("Please make sure that you have installed the Facebook Mobile app on your smartphone.", function() {
     }, "isme by Jumeirah", "Dismiss");    
