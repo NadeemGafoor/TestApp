@@ -221,6 +221,7 @@ function onSelectTabStrip4(e) {
     }
     var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
     var currentItem = tabstrip.currentItem();
+        alert(currentItem);
 }
 
 function onSelectTabStrip3(e) {
