@@ -337,9 +337,6 @@ function loadFilterView() {
     $("#modalviewfilter").data("kendoMobileModalView").open();
 } 
 
-//function loadLocationView() {
-//   $("#modalviewcountry").data("kendoMobileModalView").open();
-//}
 
 function loadCuisineView() {
     $("#modalviewcuisine").data("kendoMobileModalView").open();
@@ -354,11 +351,9 @@ function loadTypeView() {
 }   
 
 function offerFilterView() {
-    if (window.localStorage.getItem("appopen")==="90") {
-        $("#modalviewhistoryfilter").data("kendoMobileModalView").open();
-    }else {
+   
         $("#modalviewofferfilter").data("kendoMobileModalView").open();          
-    }
+
 }
 
 function historyFilterView() {
@@ -421,8 +416,7 @@ function cardClick() {
 }
 
 function loadExploreDetail() {
-    doOneBack();
-    if (window.localStorage.getItem("appopen") != "10") {
+ 
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -432,13 +426,12 @@ function loadExploreDetail() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-branddetail.html'
                                                    });
-        window.localStorage.setItem("appopen", "10");   
+       
     }
-}
+
 
 function loadMessageDetail() {  
-    doOneBack();
-    if (window.localStorage.getItem("appopen") != "14") {
+  
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -448,13 +441,12 @@ function loadMessageDetail() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-messageitem.html'
                                                    });
-        window.localStorage.setItem("appopen", "14");   
+         
     }
-}
+
 
 function loadHistoryDetail() {  
-    doOneBack();
-    if (window.localStorage.getItem("appopen") != "15") {
+
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -464,13 +456,12 @@ function loadHistoryDetail() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-historyitem.html'
                                                    });
-        window.localStorage.setItem("appopen", "15");   
-    }
+    
+   
 }
 
 function loadOfferDetail(e) {  
-    doOneBack();
-    if (window.localStorage.getItem("appopen") != "11") {
+  
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -480,13 +471,11 @@ function loadOfferDetail(e) {
                                                        'direction': 'up',
                                                        'href': '#views/pl-offerdetail.html?cpn=' + e
                                                    });
-        window.localStorage.setItem("appopen", "11");   
-    }
+       
 }
 
 function loadOutletDetail() {
-    doOneBack();
-    if (window.localStorage.getItem("appopen") != "13") {
+  
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -496,13 +485,11 @@ function loadOutletDetail() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-outletdetail.html'
                                                    });
-        window.localStorage.setItem("appopen", "13");   
-    }
+    
 }
 
 function loadLeisureDetail() {
-    doOneBack();
-    if (window.localStorage.getItem("appopen") != "12") {
+   
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -512,13 +499,11 @@ function loadLeisureDetail() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-outletdetail.html'
                                                    });
-        window.localStorage.setItem("appopen", "12");   
-    }
+       
 }
 
 function loadMyProfile() {
-    doOneBack();
-    if (window.localStorage.getItem("appopen") != "1") {
+   
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -528,12 +513,11 @@ function loadMyProfile() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-myprofile.html'
                                                    });
-        window.localStorage.setItem("appopen", "1");   
-    }
+      
 }
 
 function loadMyReward() {  
-    if (window.localStorage.getItem("appopen") != "2") {
+   
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -543,12 +527,11 @@ function loadMyReward() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-myreward.html'
                                                    });
-        window.localStorage.setItem("appopen", "2");   
-    }
+       
 }
 
 function loadMyBenefit() {
-    if (window.localStorage.getItem("appopen") != "3") {
+   
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -558,12 +541,11 @@ function loadMyBenefit() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-benefitdetail.html'
                                                    });
-        window.localStorage.setItem("appopen", "3");   
-    }
+      
 }
 
 function loadMyMessages() {
-    if (window.localStorage.getItem("appopen") != "4") {
+    
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -573,12 +555,11 @@ function loadMyMessages() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-mymessagelist.html'
                                                    });
-        window.localStorage.setItem("appopen", "4");   
-    }
+     
 }
 
 function loadSetting() {
-    if (window.localStorage.getItem("appopen") != "5") {
+
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -588,12 +569,11 @@ function loadSetting() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-setting.html'
                                                    });
-        window.localStorage.setItem("appopen", "5");   
-    }
+      
 }
 
 function loadHistory() {
-    if (window.localStorage.getItem("appopen") != "6") {
+   
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -603,12 +583,11 @@ function loadHistory() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-historylist.html'
                                                    });
-        window.localStorage.setItem("appopen", "6");   
-    }
+   
 }
 
 function loadFavorites() {
-    if (window.localStorage.getItem("appopen") != "7") {
+    
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
                                                        "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -618,8 +597,7 @@ function loadFavorites() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-favorites.html'
                                                    });
-        window.localStorage.setItem("appopen", "7");   
-    }
+       
 }
 
 function preLoginBack() {
@@ -658,83 +636,33 @@ function postLoginBack() {
 }
 
 function exploreListBack() {
-    doOneBack();
+
     $("body").data("kendoMobilePane").navigate("views/pl-explorelist.html");                                                                           
 }
 
 function brandDetailBack() {
-    doOneBackExplore();
+
     $("body").data("kendoMobilePane").navigate("views/pl-branddetail.html?od=" + window.localStorage.getItem("brandcode"));                                                                           
 }
 
 function myrewardListBack() {
-    doOneBackExplore();
+
     $("body").data("kendoMobilePane").navigate("views/pl-myreward.html");                                                                           
 }
 
 function outletListBack(e) {
-    doOneBack();
+
     $("body").data("kendoMobilePane").navigate("views/pl-outletlist.html?brand=" + window.localStorage.getItem("brandcode") + "&category=" + window.localStorage.getItem("category"));                                                                           
 }
 
 function offerListBack() {
-    doOneBack();
+
     $("body").data("kendoMobilePane").navigate("views/pl-offerlist.html");                                                                           
 }
 
 function messageListBack() {
-    doOneBackExplore();
+
     $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");                                                                           
-}
-
-function doOneBackExplore() {
-    elems = document.getElementsByClassName('cardhead');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.display = 'none';
-    }  
-    
-    elems = document.getElementsByClassName('foot');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.display = 'none';
-    }  
-    
-    elems = document.getElementsByClassName('mymenu1');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-        elems[i].style.width = "100%";
-        elems[i].style.zIndex = 10000;
-        elems[i].style.textAlign = "center";
-    }
-    window.localStorage.setItem("appopen", "0");  
-}
-
-function doOneBack() {
-    elems = document.getElementsByClassName('cardhead');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.display = 'none';
-    }  
-    
-    elems = document.getElementsByClassName('foot');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.display = 'none';
-    }  
-    
-    elems = document.getElementsByClassName('mymenu1');
-    for (i = 0; i < elems.length; i++) {
-        elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-        elems[i].style.width = "100%";
-        elems[i].style.zIndex = 10000;
-        elems[i].style.textAlign = "center";
-    }
-    
-    $(".sharehead").slideUp("slow");
-      
-    elems = document.getElementsByClassName('sharehead');
-
-    for (i = 0; i < elems.length; i++) {  
-        elems[i].style.zIndex = -1000;
-    }  
-    window.localStorage.setItem("appopen", "0");  
 }
 
 function hideBenefitDetail() {
@@ -743,46 +671,30 @@ function hideBenefitDetail() {
 }
 
 function plhideOutletDetail() {
-    doOneBackPre();  
+
     document.getElementById("pl-outlet-detail-div").style.display = "none";
 }
 
 function plhideLeisureDetail() {
-    doOneBackPre(); 
+
     document.getElementById("pl-outlet-detail-div").style.display = "none";
 }
 
 function plhideOfferDetail() {
-    doOneBackPre();
+
     document.getElementById("pl-offer-detail-div").style.display = "none";
     document.getElementById("pl-offer-location-div").style.display = "none";
 }
 
-function doOneBackPre() {
-    $(".sharehead").slideUp("slow");
-      
-    elems = document.getElementsByClassName('sharehead');
-
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.zIndex = -1000;
-    }  
-    //  
-    //   
-    //     
-    //        
-}
 
 function hideLeisureDetail() {
-    doOneBackPre(); 
     document.getElementById("outlet-detail-div").style.display = "none";
 }
 
-function postLoginBackOne() {
-    doOneBack();
-}
+
 
 function postLoginBackMessage() {
-    doOneBack();
+
 
     window.plugins.nativepagetransitions.slide({
                                                    "duration"         :  500, // in milliseconds (ms), default 400
@@ -795,7 +707,7 @@ function postLoginBackMessage() {
 }
 
 function postLoginBackMessage() {
-    doOneBack();
+
     window.plugins.nativepagetransitions.slide({
                                                    "duration"         :  500, // in milliseconds (ms), default 400
                                                    "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -918,51 +830,42 @@ function completeRedemption() {
     var emailsubject = "Let's meet here!";
     var emailsubjectoffer = "Check this offer on isme by Jumeirah!";
   
-    function doOneBackPre() {
-        $(".sharehead").slideUp("slow");
-      
-        elems = document.getElementsByClassName('sharehead');
-
-        for (i = 0; i < elems.length; i++) {
-            elems[i].style.zIndex = -1000;
-        }  
-    }
-    
+       
     function plhideOutletDetail() {
-        doOneBackPre();  
+
         document.getElementById("pl-outlet-detail-div").style.display = "none";
     }
     
     function plhideOfferDetail() {
-        doOneBackPre();
+
         document.getElementById("pl-offer-detail-div").style.display = "none";
         document.getElementById("pl-offer-location-div").style.display = "none";
     }
     
     function plhideMyRewardDetail() {
-        doOneBackPre();
+
         document.getElementById("wallet-voucher-div").style.display = "none";
         document.getElementById("myvoucher-location-div").style.display = "none";
     }
     
     function plhideBrandDetail() {
-        doOneBackPre();
+
         document.getElementById("pl-property-detail-div").style.display = "none";
     }
     
     function hideOutletDetail() {
-        doOneBackPre();  
+ 
         document.getElementById("outlet-detail-div").style.display = "none";
     }
     
     function hideOfferDetail() {
-        doOneBackPre();
+
         document.getElementById("offer-detail-div").style.display = "none";
         document.getElementById("offer-location-div").style.display = "none";
     }
     
     function hideBrandDetail() {
-        doOneBackPre();
+
         document.getElementById("property-detail-div").style.display = "none";
     }
     
@@ -1125,7 +1028,6 @@ function completeRedemption() {
     function clearAllVariables() {
         window.localStorage.setItem("category", "")
         window.localStorage.setItem("brand", "")
-        window.localStorage.setItem("appopen", "0");
         window.localStorage.setItem("brandcode", "");
     }
        
@@ -1254,17 +1156,7 @@ function completeRedemption() {
                                                $("#token-theme").remove();
                                            }, 
         
-                                           queryOfferFilter:function() {
-                                               window.localStorage.setItem("distance", ""); 
-                                               if (window.localStorage.getItem("appopen")==="84") {
-                                                   preLogin.rewardList();
-                                               } else if (window.localStorage.getItem("appopen")==="85") {
-                                                   postLogin.rewardList();
-                                               }
-                                                                                        
-                                               $("#modalviewofferfilter").data("kendoMobileModalView").close();
-                                           },
-
+                                         
                                            queryOutletFilter:function() {
                                                if (document.getElementById("olocation").checked) {
                                                    window.localStorage.setItem("distance", "1"); 
@@ -1807,17 +1699,13 @@ function completeRedemption() {
                                            : function (e) {
                                                showSpin();  
                                
-                                               //   alert(window.localStorage.getItem("latl"));
-                                               //   alert(window.localStorage.getItem("lonl"));
-                                               if (window.localStorage.getItem("appopen")==="0") {
+                                             
+                                             
                                                    window.localStorage.setItem("brand", e.view.params.brand);  
                                                    window.localStorage.setItem("category", e.view.params.category); 
-                                                   window.localStorage.setItem("appopen", "80"); 
-                                               }
+                                                 
                                                 
-                                               //alert(window.localStorage.getItem("category"));
-                                               //alert(window.localStorage.getItem("appopen"));
-
+                                          
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1911,11 +1799,10 @@ function completeRedemption() {
                                            showAllLeisure
                                            : function (e) {
                                                showSpin(); 
-                                               if (window.localStorage.getItem("appopen")==="0") {
+                                           
                                                    window.localStorage.setItem("brand", e.view.params.brand);  
                                                    window.localStorage.setItem("category", e.view.params.category); 
-                                                   window.localStorage.setItem("appopen", "81"); 
-                                               }
+                                                 
                                              
                                                $.ajax({ 
                                                           type: "POST",
@@ -2166,8 +2053,8 @@ function completeRedemption() {
         
                                            propertyList
                                            : function () {
-                                               // clearListFilter();
-                                               window.localStorage.setItem("appopen", "801");
+                                             
+                                               
                                                showSpin();
                                                 
                                                $.ajax({ 
@@ -2215,10 +2102,7 @@ function completeRedemption() {
                                                showSpin();
                                                offercode = "";
                                                offertype = "1";
-                                               if (window.localStorage.getItem("appopen")==="0") {
-                                                   window.localStorage.setItem("appopen", "84"); 
-                                               }
-                                                
+                                              
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -2760,7 +2644,7 @@ function completeRedemption() {
         
                                            validateUser
                                            : function () {
-                                               window.localStorage.setItem("appopen", "0");   
+                                              
                                                if (window.localStorage.getItem("loginmode") == "") {
                                                    if (!this.username) {
                                                        navigator.notification.alert("Please enter a valid Membership number.", function() {
@@ -3231,35 +3115,7 @@ function completeRedemption() {
                                            }                                    
                                        });
     
-    function doOneBack() {
-        elems = document.getElementsByClassName('cardhead');
-        for (i = 0; i < elems.length; i++) {
-            elems[i].style.display = 'none';
-        }  
-    
-        elems = document.getElementsByClassName('foot');
-        for (i = 0; i < elems.length; i++) {
-            elems[i].style.display = 'none';
-        }  
-    
-        elems = document.getElementsByClassName('mymenu1');
-        for (i = 0; i < elems.length; i++) {
-            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-            elems[i].style.width = "100%";
-            elems[i].style.zIndex = 10000;
-            elems[i].style.textAlign = "center";
-        }
-    
-        $(".sharehead").slideUp("slow");
-      
-        elems = document.getElementsByClassName('sharehead');
-
-        for (i = 0; i < elems.length; i++) {  
-            elems[i].style.zIndex = -1000;
-        }  
-        window.localStorage.setItem("appopen", "0");  
-    }
-    
+        
     window.postLogin = kendo.observable({ 
                                             outlettelephone:"",
                                             transactionref:"",
@@ -3282,150 +3138,133 @@ function completeRedemption() {
                                             lifestyle:"",
         
                                             destroyplaboutisme:function() {
-                                                //doOneBack();
-                                                window.localStorage.setItem("appopen", "0");  
+                                              
                                                 $("#pl-aboutisme-theme").remove();
                                             },
                                             destroyplbenefitdetail:function() {
-                                                window.localStorage.setItem("appopen", "0");  
+       
                                                 $("#pl-benefit-theme").remove();
                                             },
                                             destroyplconfirmdiscount:function() {
-                                                //doOneBack();
-                                                window.localStorage.setItem("appopen", "0");  
+             
                                                 $("#pl-confirmredemption-view").remove();
                                             },
                                             destroyplconfirmdiscountblack:function() {
-                                                //doOneBack();
-                                                window.localStorage.setItem("appopen", "0");  
+                                               
                                                 $("#pl-confirmredemptionblack-view").remove();
                                             },
                                             destroyplconfirmpage:function() {
-                                                //doOneBack();
-                                                window.localStorage.setItem("appopen", "0");  
+                                                
                                                 $("#pl-confirmpage-view").remove();
                                             },
                                             destroyplconfirmvoucher:function() {
-                                                //doOneBack();
-                                                window.localStorage.setItem("appopen", "0");  
+                                               
                                                 $("#pl-voucheredeem-view").remove();
                                             },
                                             destroyplconfirmvoucherblack:function() {
-                                                //doOneBack();
-                                                window.localStorage.setItem("appopen", "0");  
+                                              
                                                 $("#pl-voucheredeemblack-view").remove();
                                             },
         
                                             destroyplbranddetail:function() {
-                                                //   document.getElementById("pl-detail-title").innerHTML = "";
-                                                //   plhideBrandDetail();
-                                                $("#pl-branddetail-theme").remove();
+                                                                                               $("#pl-branddetail-theme").remove();
                                             },
                                             destroyplcustomerservice:function() {
-                                                //doOneBack();
-                                                window.localStorage.setItem("appopen", "0");  
+                                               
                                                 $("#pl-customerservice-theme").remove();
                                             },
                                             destroyplexplorelist:function() {
-                                                //doOneBack();
-                                                window.localStorage.setItem("appopen", "0");  
+                                                
                                                 $("#pl-explorelist-view").remove();
                                             },
     
                                             destroyplfavorites:function() {
-                                                window.localStorage.setItem("appopen", "0");  
+                                              
                                                 $("#myfavorite-view").remove();
                                             },
         
                                             destroyplhistorylist:function() {
-                                                //doOneBack();
-                                                window.localStorage.setItem("appopen", "0");  
+                                               
                                                 $("#history-theme").remove();
                                             },
         
                                             destroyplhome:function() {
-                                                window.localStorage.setItem("appopen", "0");  
+                                               
                                                 $("#pl-home-view").remove();
                                             },
         
                                             destroyplhomeplus:function() {
-                                                window.localStorage.setItem("appopen", "0");  
+                                                
                                                 $("#pl-home-view-plus").remove();
                                             },
         
                                             destroyplleisurelist:function() {
-                                                //doOneBack();
+                                               
                                                 $("#liesurelist-theme").remove();
                                             },
                                             destroyplleisurelistb:function() {
-                                                //doOneBack();
+                                              
                                                 $("#pl-liesurelistb-theme").remove();
                                             },
         
                                             destroyplmessageitem:function() {
-                                                //doOneBack();
-                                                window.localStorage.setItem("appopen", "0");  
+                                                
+                                              
                                                 $("#messageitem-theme").remove();
                                             },
         
                                             destroymymessagelist:function() {
-                                                window.localStorage.setItem("appopen", "0");  
+                                               
                                                 $("#mymessagelist-theme").remove();
                                             },
         
                                             destroyplmyprofile:function() {
-                                                //doOneBack();
-                                                window.localStorage.setItem("appopen", "0");  
+                                                
                                                 $("#pl-myprofile-view").remove();
                                             },
         
                                             destroyplmyreward:function() {
-                                                //doOneBack();
-                                                window.localStorage.setItem("appopen", "0");  
+                                               
                                                 $("#pl-mywallet-theme").remove();
                                             },
         
                                             destroyplmyvoucherdetail:function() {
-                                                //plhideMyRewardDetail();
+                                               
                                                 $("#pl-myvoucherdetail-theme").remove();
                                             },
         
                                             destroyplofferdetail:function() {
-                                                //document.getElementById("pl-detail-title").innerHTML = "";
-                                                //plhideOfferDetail();
+                                                
                                                 $("#pl-offerdetail-theme").remove();
                                             },
         
                                             destroyplofferlist:function() {
-                                                //doOneBack();
-                                                window.localStorage.setItem("appopen", "0");  
+                                                
                                                 $("#pl-offerlist-view").remove();
                                             },
         
                                             destroyploutletdetail:function() {
-                                                // document.getElementById("pl-detail-title").innerHTML = "";
-                                                //plhideOutletDetail();
                                                 $("#pl-outletdetail-theme").remove();
                                             },
                                             destroyploutletlist:function() {
-                                                //doOneBack();
+                                               
                                                 $("#pl-outletlist-theme").remove();
                                             },
                                             destroyploutletlistb:function() {
-                                                // doOneBack();
+                                               
                                                 $("#pl-outletlistb-theme").remove();
                                             },
                                             destroyplsetting:function() {
-                                                //doOneBack();
+                                               
                                                  disableTabstrip();
-                                                window.localStorage.setItem("appopen", "0");  
+                                              
                                                 $("#pl-setting-theme").remove();
                                             },  
         
                                             destroypltermsandcondition:function() {
-                                                //doOneBack();
+                                          
                                                  disableTabstrip();
-                                                window.localStorage.setItem("appopen", "0");  
+                                                
                                                 $("#pl-termsconditions-theme").remove();
                                             },             
         
@@ -3439,7 +3278,7 @@ function completeRedemption() {
                                                 showSpin();
                                                 clearAllVariables();                                            
                                                 //  clearListFilter();
-                                                window.localStorage.setItem("appopen", "0"); 
+                                               
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
                                                 if (firsttime==="" || showsummary==="") {
                                                     $.ajax({ 
@@ -3485,7 +3324,7 @@ function completeRedemption() {
                                                 showSpin();
                                                 clearAllVariables();                                            
                                                 //  clearListFilter();
-                                                window.localStorage.setItem("appopen", "0"); 
+                                               
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
                                             
                                                 if (firsttime==="" || showsummary==="") {
@@ -3829,9 +3668,7 @@ function completeRedemption() {
                                                 showSpin();
                                                 offercode = "";
                                                 offertype = "3"; 
-                                                if (window.localStorage.getItem("appopen")==="0") {
-                                                    window.localStorage.setItem("appopen", "85"); 
-                                                }
+                                               
                                       
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backp").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -3963,7 +3800,7 @@ function completeRedemption() {
                                                 disableTabstrip();
                                                 changeCard();
                                                 //  clearListFilter();
-                                                window.localStorage.setItem("appopen", "811");
+                                               
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backf").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backf").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -4019,11 +3856,9 @@ function completeRedemption() {
                                                 disableTabstrip();
                                                 changeCard();
                                                 showSpin(); 
-                                                if (window.localStorage.getItem("appopen")==="0") {
                                                     window.localStorage.setItem("brand", e.view.params.brand);  
                                                     window.localStorage.setItem("category", e.view.params.category); 
-                                                    window.localStorage.setItem("appopen", "82"); 
-                                                }
+                                              
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backr").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backr").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -4135,11 +3970,10 @@ function completeRedemption() {
                                                 disableTabstrip();
                                                 changeCard();
                                                 showSpin(); 
-                                                if (window.localStorage.getItem("appopen")==="0") {
+
                                                     window.localStorage.setItem("brand", e.view.params.brand);  
                                                     window.localStorage.setItem("category", e.view.params.category); 
-                                                    window.localStorage.setItem("appopen", "83"); 
-                                                }
+                                             
                                                 
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backi").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -5016,7 +4850,6 @@ function completeRedemption() {
                                                 document.getElementById("segment-backh").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
                                                 document.getElementById("mycard-qrh").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrh").style.backgroundSize = "cover";     
-                                                window.localStorage.setItem("appopen", "90");
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -6903,29 +6736,13 @@ function completeRedemption() {
             elems[i].style.textAlign = "center";
         }
     
-        window.localStorage.setItem("appopen", "0");   
+       
 
-        if (window.localStorage.getItem("segmentcode")==="1000") {
-            window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                             "duration"         :  500, // in milliseconds (ms), default 400
-                                                                             "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                             "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                             "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                             'direction': 'up',
-                                                                             'href': '#views/pl-home.html'
-                                                                         }), 500);                                                                 
-        }else {
-            window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                             "duration"         :  500, // in milliseconds (ms), default 400
-                                                                             "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                             "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                             "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                             'direction': 'up',
-                                                                             'href': '#views/pl-homeplus.html'
-                                                                         }), 500);                                                                 
-        }    
+         if (window.localStorage.getItem("segmentcode")==="1000") {
+                                                    $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+                                                }else {
+                                                    $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                }
         hideSpin();
     }
     //$("body").data("kendoMobilePane").navigate("#:back");
