@@ -400,38 +400,6 @@ function shareClick() {
     }
 }
 
-function plHomeClick() {
-    $(".cardhead").slideUp("slow");
-   
-    $(".foot").slideToggle("slow"); 
-  
-    elems = document.getElementsByClassName('mymenu1');
-
-    for (i = 0; i < elems.length; i++) {
-        if (elems[i].innerHTML === '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>') {
-            elems[i].innerHTML = '<i class="fa fa-chevron-up fa-2x" style="color:#fff"></i>';
-        } else {
-            elems[i].innerHTML = '<i class="fa fa-chevron-down fa-2x" style="color:#fff"></i>';
-        }  
-        elems[i].style.width = "100%";
-        elems[i].style.zIndex = 10000;
-        elems[i].style.textAlign = "center";
-    }
-    
-    elems = document.getElementsByClassName('foot');
-
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.zIndex = -10000;
-    }  
-    
-    $(".sharehead").slideUp("slow");
-      
-    elems = document.getElementsByClassName('sharehead');
-
-    for (i = 0; i < elems.length; i++) {
-        elems[i].style.zIndex = -1000;
-    }  
-}
 
 function cardClick() {
     $(".sharehead").slideUp("slow");
@@ -549,7 +517,6 @@ function loadLeisureDetail() {
 }
 
 function loadMyProfile() {
-    plHomeClick();
     doOneBack();
     if (window.localStorage.getItem("appopen") != "1") {
         window.plugins.nativepagetransitions.slide({
@@ -566,8 +533,6 @@ function loadMyProfile() {
 }
 
 function loadMyReward() {  
-    plHomeClick();  
-
     if (window.localStorage.getItem("appopen") != "2") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
@@ -583,7 +548,7 @@ function loadMyReward() {
 }
 
 function loadMyBenefit() {
-    plHomeClick();
+
 
     if (window.localStorage.getItem("appopen") != "3") {
         window.plugins.nativepagetransitions.slide({
@@ -600,7 +565,6 @@ function loadMyBenefit() {
 }
 
 function loadMyMessages() {
-    plHomeClick();
 
     if (window.localStorage.getItem("appopen") != "4") {
         window.plugins.nativepagetransitions.slide({
@@ -617,7 +581,7 @@ function loadMyMessages() {
 }
 
 function loadSetting() {
-    plHomeClick();
+
 
     if (window.localStorage.getItem("appopen") != "5") {
         window.plugins.nativepagetransitions.slide({
@@ -634,7 +598,7 @@ function loadSetting() {
 }
 
 function loadHistory() {
-    plHomeClick();
+
 
     if (window.localStorage.getItem("appopen") != "6") {
         window.plugins.nativepagetransitions.slide({
@@ -651,7 +615,7 @@ function loadHistory() {
 }
 
 function loadFavorites() {
-    plHomeClick();
+
     if (window.localStorage.getItem("appopen") != "7") {
         window.plugins.nativepagetransitions.slide({
                                                        "duration"         :  500, // in milliseconds (ms), default 400
