@@ -2342,6 +2342,13 @@ tile-frame-inner
     font-size:125%;
 }
 
+.collapse-format-1{
+
+    height:20px;
+    line-height:20px;
+    font-size:90%;
+}
+
 .pl-logo-image-holder{
     background-image:url(../images/home_page_logo_black.png);
        width:100%;

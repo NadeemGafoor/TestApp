@@ -4047,8 +4047,9 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
                                                                    $("#pl-property-list").kendoMobileListView({
-                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.propertylist}),
-                                                                                                                  template: $("#pl-explorelisttemplate").html()
+                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.propertylist,serverPaging: true,pageSize: 40}),
+                                                                                                                  template: $("#pl-explorelisttemplate").html(),
+                                                                      endlessScroll: true
                                                                                                                     
                                                                                                               });
                                                                    hideSpin(); //hide loading popup
