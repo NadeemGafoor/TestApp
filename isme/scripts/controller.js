@@ -225,8 +225,8 @@ function onSelectTabStrip4(e) {
         loadFavorites();
     }
     
- //     var ts = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
-    //var currentItem = tabstrip.currentItem();
+ //    var ts = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
+ //   var currentItem = ts.currentItem();
     
   //  var ts = $("#mainTab").data("kendoTabStrip");
 //ts.enable(ts.tabGroup.children(i), true); // enable tab 1
@@ -252,8 +252,7 @@ function onSelectTabStrip1(e) {
     } else if (i === 1) {
         customerCare();
     }
-    var tabstrip = app.view().footer.find(".km-tabstrip").data("kendoMobileTabStrip");
-    tabstrip.clear();
+
 }
 
 function supportEmailA() {
@@ -7385,6 +7384,8 @@ function completeRedemption() {
     function disableTabstrip(){
          // var tabStrip = $("#mainTab").kendoTabStrip().data("kendoTabStrip");
    // tabStrip.enable(tabStrip.tabGroup.children().eq(5), false);
+    var tabstrip = app.view().footer.find(".km-tabstrip").data("kendoMobileTabStrip");
+    tabstrip.clear();
     }
     
     function spendBar() {
