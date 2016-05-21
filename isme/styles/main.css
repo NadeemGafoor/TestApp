@@ -182,11 +182,20 @@ a
     font: .9em/.9em 'FontAwesome';
 }
 
-.km-customstar:before,
-.km-customstar:after
+.km-customhistory:before,
+.km-customhistory:after
 {
-    content: "\f005";
+    content: "\e307";
 }
+
+
+.km-customreward:before,
+.km-customreward:after
+{
+    content: "\e0c4";
+    color: #fff;
+}
+
 
 .km-customenvelope:before,
 .km-customenvelope:after
