@@ -216,7 +216,7 @@ a
 .km-customenvelope:before,
 .km-customenvelope:after
 {
-    content: "\f0e0";
+    content: "\e099";
     color: #fff;
 }
 
