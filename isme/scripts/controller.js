@@ -209,7 +209,6 @@ function onSelectTabStrip2(e) {
 }
 
 function onSelectTabStrip4(e) {
-   alert("ffff");
     var i = $(e.item).index();
     if (i === 0) {
         if (window.localStorage.getItem("segmentcode")==="1000") {
@@ -3342,6 +3341,7 @@ function completeRedemption() {
                                                                        window.localStorage.setItem("maxspend", getData.maxspend);
                                                                        window.localStorage.setItem("spendmb", getData.spendbalance);
                                                                        window.localStorage.setItem("spendn", getData.spendbalanceN);
+                                                                 
                                                                        spendBarPlus();    
                                                                  
                                                                        hideSpin(); //hide loading popup
@@ -6905,7 +6905,6 @@ function completeRedemption() {
         emailid = this.emailid1.value;         
         mobilenumber = this.mobile1.value;                                             
         magicnumber = this.hotelnumber1.value;
-       disableTabstrip();
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -7201,6 +7200,7 @@ function completeRedemption() {
                 document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K";
             }
         } 
+        alert("Came Last");
         hideSpin();
     }
     
