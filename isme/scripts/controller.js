@@ -1898,7 +1898,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                   //alert(getData.outletlist[0].imageurll);
                                                                   $("#outlet-list").kendoMobileListView({
                                                                              
-                                                                                                            dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 10}),
+                                                                                                            dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 20}),
                                                                                                             template: $("#outletTemplate").html(),
                                                                                                             endlessScroll: true
                                                                                                         });
@@ -1945,7 +1945,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                   //fill the outlet template
                                                                   $("#outlet-list-b").kendoMobileListView({
                                                                              
-                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 10}),
+                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 20}),
                                                                                                               template: $("#outletTemplate-b").html(),
                                                                                                             endlessScroll: true
                                                                                                           });
@@ -1994,7 +1994,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                               if (getData.statuscode === "000") {
                                                                   $("#leisure-list").kendoMobileListView({
                                                                              
-                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 10}),
+                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 20}),
                                                                                                              template: $("#leisureTemplate").html(),
                                                                       endlessScroll: true
                                                                                                          });
@@ -2041,7 +2041,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                               if (getData.statuscode === "000") {
                                                                   $("#leisure-list-b").kendoMobileListView({
                                                                              
-                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 10}),
+                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 20}),
                                                                                                                template: $("#leisureTemplate-b").html(),
                                                                       endlessScroll: true
                                                                                                               
@@ -2298,7 +2298,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
                                                                   $("#offer-list-view").kendoMobileListView({
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.offerlist,serverPaging: true,pageSize: 10}),
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.offerlist,serverPaging: true,pageSize: 20}),
                                                                                                                 template: $("#offerListTemplate").html(),
                                                                                                                   endlessScroll: true
                                                                                                                     
@@ -3210,7 +3210,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                   //fill the outlet template
                                                                   if (getData.faqlist.length > 0) {
                                                                       $("#faqlist-all").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist,serverPaging: true,pageSize: 10}),
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist,serverPaging: true,pageSize: 20}),
                                                                                                                 template: $("#faqTemplate").html(),
                                                                                       endlessScroll: true
                                                                                                             });
@@ -3260,7 +3260,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                   //fill the outlet template
                                                                   if (getData.faqlist.length > 0) {
                                                                       $("#pl-faqlist-all").kendoMobileListView({
-                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.faqlist,serverPaging: true,pageSize: 10}),
+                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.faqlist,serverPaging: true,pageSize: 20}),
                                                                                                                    template: $("#pl-faqTemplate").html(),
                                                                                       endlessScroll: true
                                                                                                                });
@@ -3283,7 +3283,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                           }
                                                       });
                                            },
-                                           getFAQFilter:function() {
+                                           getFAQFilter:function() {   
                                                var dataSource = new kendo.data.DataSource({ data: getFAQData() });
                                                
                                                $("#FAQ-Filter").kendoMobileListView({
@@ -3915,7 +3915,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
                                                                    $("#pl-offer-list-view").kendoMobileListView({
-                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offerlist,serverPaging: true,pageSize: 10}),
+                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offerlist,serverPaging: true,pageSize: 20}),
                                                                                                                     template: $("#pl-offerListTemplate").html(),
                                                                                                                     endlessScroll: true
                                                                                                                     
@@ -4105,7 +4105,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                    //fill the outlet template
                                                                    $("#pl-outlet-list").kendoMobileListView({
                                                                              
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 10}),//serverPaging:true,pageSize:25
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 20}),//serverPaging:true,pageSize:25
                                                                                                                 template: $("#pl-outletTemplate").html(),
                                                                       endlessScroll: true
                                                                                                         
@@ -4163,7 +4163,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                    //fill the outlet template
                                                                    $("#pl-outlet-list-b").kendoMobileListView({
                                                                              
-                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 10}),
+                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 20}),
                                                                                                                   template: $("#pl-outletTemplate-b").html(),
                                                                       endlessScroll: true
                                                                                                               });
@@ -4224,7 +4224,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                    //fill the outlet template
                                                                    $("#pl-leisure-list").kendoMobileListView({
                                                                              
-                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 10}),
+                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 20}),
                                                                                                                  template: $("#pl-leisureTemplate").html(),
                                                                       endlessScroll: true
                                                                                                              });
@@ -4278,7 +4278,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                    //fill the outlet template
                                                                    $("#pl-leisure-list-b").kendoMobileListView({
                                                                              
-                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 10}),
+                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 20}),
                                                                                                                    template: $("#pl-leisureTemplate-b").html(),
                                                                       endlessScroll: true
                                                                                                                });
@@ -4543,7 +4543,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.mywalletvouchers.length > 0) {
                                                                        $("#mywallet-voucher-list").kendoMobileListView({
-                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers,serverPaging: true,pageSize: 10}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers,serverPaging: true,pageSize: 20}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
                                                                                                                            template: $("#mywallet-voucherlist-Template").html(),
                                                                             endlessScroll: true
                                                                                                                          
@@ -5925,7 +5925,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                        operator: "contains",
                                        serverPaging: true,
                                        serverSorting: true,
-                                       pageSize: 10
+                                       pageSize: 20
                                    }
                                                                                                                     
                                                                            });
@@ -5982,7 +5982,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                        operator: "contains",
                                        serverPaging: true,
                                        serverSorting: true,
-                                       pageSize: 10
+                                       pageSize: 20
                                    }
                                                                                                                     
                                                                             });
