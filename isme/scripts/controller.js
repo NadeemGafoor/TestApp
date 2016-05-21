@@ -3209,11 +3209,11 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
                                                                   if (getData.faqlist.length > 0) {
-                                                                      $("#faqlist-all").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist,serverPaging: true,pageSize: 40}),
-                                                                                                                template: $("#faqTemplate").html(),
-                                                                                      endlessScroll: true
-                                                                                                            });
+                                                                     
+                                                                      
+                                                                      for (var i = 0; i < getData.faqlist.length; i++) {
+                                                                          document.getElementById("faql").innerHTML += "<div data-role='collapsible' data-collapse-icon='arrow-up' data-expand-icon='arrow-down'><h6 class='collapse-format-1'>&nbsp;" + getData.faqlist[i].question} + "</h6><pre class='fulljustify'>+ getData.faqlist[0].answer + "</pre></div>";
+                                                                      }
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. ", function() {
@@ -3267,7 +3267,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                       var mfaqlist="";
                                                                       
                                                                       
-                                                                      for (var i = 0; i < getData.faqlist.length; i++){
+                                                                      for (var i = 0; i < getData.faqlist.length; i++) {
                                                                           mfaqlist = "<div data-role='collapsible' data-collapse-icon='arrow-up' data-expand-icon='arrow-down'><h6 class='collapse-format-1'>&nbsp;" + getData.faqlist[i].question} + "</h6><pre class='fulljustify'>+ getData.faqlist[0].answer + "</pre></div>";
                                                                       }
                                                                   
