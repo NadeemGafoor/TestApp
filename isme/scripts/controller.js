@@ -1,3 +1,5 @@
+
+
 function showItem(){
     alert(document.getElementById("selCountry").value);
 }
@@ -212,6 +214,8 @@ function onSelectTabStrip2(e) {
 }
 
 function onSelectTabStrip4(e) {
+  
+
     var i = $(e.item).index();
     if (i === 0) {
         if (window.localStorage.getItem("segmentcode")==="1000") {
@@ -5292,6 +5296,7 @@ function completeRedemption() {
                                                 }else {  
                                                     saveLater();
                                                 }
+                                              
                                             },
                                             enableSave:function() {
                                                 window.localStorage.setItem("issaved", "0");
@@ -5395,7 +5400,8 @@ function completeRedemption() {
                                                     window.localStorage.setItem("op", "1");
                                                 }
                                                 setMemberPreference(y, "RD" + window.localStorage.getItem("oc"));
-                                            }
+                                            },
+   
                                             
                                         });  
     
