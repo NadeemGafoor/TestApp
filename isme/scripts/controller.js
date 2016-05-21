@@ -225,8 +225,8 @@ function onSelectTabStrip4(e) {
         loadFavorites();
     }
     
-    var ts = $("#mainTab").data("kendoTabStrip");
-ts.enable(ts.tabGroup.children(i), true); // enable tab 1
+  //  var ts = $("#mainTab").data("kendoTabStrip");
+//ts.enable(ts.tabGroup.children(i), true); // enable tab 1
 
 //ts.enable(ts.tabGroup.children("li:eq(tabIndex)"), false); // disable tab 1
 }
@@ -7380,8 +7380,8 @@ function completeRedemption() {
     }
     
     function disableTabstrip(){
-            var ts = $("#mainTab").data("kendoTabStrip");
-ts.enable(ts.tabGroup.children(5), true); // enable tab 1
+         // var tabStrip = $("#mainTab").kendoTabStrip().data("kendoTabStrip");
+   // tabStrip.enable(tabStrip.tabGroup.children().eq(5), false);
     }
     
     function spendBar() {
