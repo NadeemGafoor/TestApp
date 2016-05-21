@@ -2347,6 +2347,8 @@ tile-frame-inner
     height:20px;
     line-height:20px;
     font-size:90%;
+    margin-left:0px;
+    margin-right:0px;
 }
 
 .pl-logo-image-holder{
