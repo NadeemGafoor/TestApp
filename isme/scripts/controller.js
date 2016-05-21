@@ -209,6 +209,7 @@ function onSelectTabStrip2(e) {
 }
 
 function onSelectTabStrip4(e) {
+   
     var i = $(e.item).index();
     if (i === 0) {
         if (window.localStorage.getItem("segmentcode")==="1000") {
@@ -336,6 +337,9 @@ function loadFilterView() {
     $("#modalviewfilter").data("kendoMobileModalView").open();
 } 
 
+//function loadLocationView() {
+//   $("#modalviewcountry").data("kendoMobileModalView").open();
+//}
 
 function loadCuisineView() {
     $("#modalviewcuisine").data("kendoMobileModalView").open();
@@ -350,7 +354,7 @@ function loadTypeView() {
 }   
 
 function offerFilterView() {
-   
+
         $("#modalviewofferfilter").data("kendoMobileModalView").open();          
 
 }
@@ -455,7 +459,7 @@ function loadHistoryDetail() {
                                                        'direction': 'up',
                                                        'href': '#views/pl-historyitem.html'
                                                    });
-    
+
    
 }
 
@@ -829,42 +833,51 @@ function completeRedemption() {
     var emailsubject = "Let's meet here!";
     var emailsubjectoffer = "Check this offer on isme by Jumeirah!";
   
-       
-    function plhideOutletDetail() {
+    function doOneBackPre() {
+        $(".sharehead").slideUp("slow");
+      
+        elems = document.getElementsByClassName('sharehead');
 
+        for (i = 0; i < elems.length; i++) {
+            elems[i].style.zIndex = -1000;
+        }  
+    }
+    
+    function plhideOutletDetail() {
+        doOneBackPre();  
         document.getElementById("pl-outlet-detail-div").style.display = "none";
     }
     
     function plhideOfferDetail() {
-
+        doOneBackPre();
         document.getElementById("pl-offer-detail-div").style.display = "none";
         document.getElementById("pl-offer-location-div").style.display = "none";
     }
     
     function plhideMyRewardDetail() {
-
+        doOneBackPre();
         document.getElementById("wallet-voucher-div").style.display = "none";
         document.getElementById("myvoucher-location-div").style.display = "none";
     }
     
     function plhideBrandDetail() {
-
+        doOneBackPre();
         document.getElementById("pl-property-detail-div").style.display = "none";
     }
     
     function hideOutletDetail() {
- 
+        doOneBackPre();  
         document.getElementById("outlet-detail-div").style.display = "none";
     }
     
     function hideOfferDetail() {
-
+        doOneBackPre();
         document.getElementById("offer-detail-div").style.display = "none";
         document.getElementById("offer-location-div").style.display = "none";
     }
     
     function hideBrandDetail() {
-
+        doOneBackPre();
         document.getElementById("property-detail-div").style.display = "none";
     }
     
@@ -1071,7 +1084,8 @@ function completeRedemption() {
                                            },
                      
                                            destroybranddetail:function() {
-                                                 $("#branddetail-theme").remove();
+                                               hideBrandDetail();
+                                               //  $("#branddetail-theme").remove();
                                            },
                                            destroyexplorelist:function() {
                                                $("#explorelist-view").remove();
@@ -1117,7 +1131,8 @@ function completeRedemption() {
                                                $("#device-theme").remove();
                                            },
                                            destroyofferdetail:function() {
-                                            
+                                               // document.getElementById("detail-title").innerHTML = "";
+                                               // hideOfferDetail();
                                                $("#offerdetail-theme").remove();
                                            },       
                                            destroyofferlist:function() {
@@ -1125,7 +1140,8 @@ function completeRedemption() {
                                            },
         
                                            destroyoutletdetail:function() {
-                                              
+                                               //    document.getElementById("detail-title").innerHTML = "";
+                                               //    hideOutletDetail();
                                                $("#outletdetail-theme").remove();
                                            },
         
@@ -1699,7 +1715,7 @@ function completeRedemption() {
                                              
                                                    window.localStorage.setItem("brand", e.view.params.brand);  
                                                    window.localStorage.setItem("category", e.view.params.category); 
-                                                 
+                                                  
                                                 
                                           
                                                $.ajax({ 
@@ -1795,10 +1811,10 @@ function completeRedemption() {
                                            showAllLeisure
                                            : function (e) {
                                                showSpin(); 
-                                           
+                                              
                                                    window.localStorage.setItem("brand", e.view.params.brand);  
                                                    window.localStorage.setItem("category", e.view.params.category); 
-                                                 
+                                                  
                                              
                                                $.ajax({ 
                                                           type: "POST",
@@ -2049,8 +2065,8 @@ function completeRedemption() {
         
                                            propertyList
                                            : function () {
-                                             
-                                               
+                                               // clearListFilter();
+                                              
                                                showSpin();
                                                 
                                                $.ajax({ 
@@ -2099,6 +2115,7 @@ function completeRedemption() {
                                                offercode = "";
                                                offertype = "1";
                                               
+                                                
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -2640,7 +2657,7 @@ function completeRedemption() {
         
                                            validateUser
                                            : function () {
-                                              
+                                               window.localStorage.setItem("appopen", "0");   
                                                if (window.localStorage.getItem("loginmode") == "") {
                                                    if (!this.username) {
                                                        navigator.notification.alert("Please enter a valid Membership number.", function() {
@@ -3240,14 +3257,16 @@ function completeRedemption() {
                                             },
         
                                             destroyploutletdetail:function() {
+                                                // document.getElementById("pl-detail-title").innerHTML = "";
+                                                //plhideOutletDetail();
                                                 $("#pl-outletdetail-theme").remove();
                                             },
                                             destroyploutletlist:function() {
-                                               
+                                                //doOneBack();
                                                 $("#pl-outletlist-theme").remove();
                                             },
                                             destroyploutletlistb:function() {
-                                               
+                                                // doOneBack();
                                                 $("#pl-outletlistb-theme").remove();
                                             },
                                             destroyplsetting:function() {
@@ -3258,7 +3277,7 @@ function completeRedemption() {
                                             },  
         
                                             destroypltermsandcondition:function() {
-                                          
+                                                //doOneBack();
                                                  disableTabstrip();
                                                 
                                                 $("#pl-termsconditions-theme").remove();
@@ -3341,7 +3360,6 @@ function completeRedemption() {
                                                                        window.localStorage.setItem("maxspend", getData.maxspend);
                                                                        window.localStorage.setItem("spendmb", getData.spendbalance);
                                                                        window.localStorage.setItem("spendn", getData.spendbalanceN);
-                                                                 
                                                                        spendBarPlus();    
                                                                  
                                                                        hideSpin(); //hide loading popup
@@ -3473,7 +3491,6 @@ function completeRedemption() {
                                                                homecountryname = "";
                                                                residentcityname = "";
                                                                showsummary = "";
-                                                               disableTabstrip();
                                                                window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                                                 "duration"         :  500, // in milliseconds (ms), default 400
                                                                                                                                 "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -6905,6 +6922,7 @@ function completeRedemption() {
         emailid = this.emailid1.value;         
         mobilenumber = this.mobile1.value;                                             
         magicnumber = this.hotelnumber1.value;
+       disableTabstrip();
         $.ajax({ 
                    type: "POST",
                    cache:false,
