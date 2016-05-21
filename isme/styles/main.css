@@ -194,14 +194,12 @@ a
 .km-customfav:after
 {
     content: "\e044";
-        color: #fff;
 }
 
 .km-customhistory:before,
 .km-customhistory:after
 {
     content: "\e307";
-        color: #fff;
 }
 
 
@@ -209,7 +207,6 @@ a
 .km-customreward:after
 {
     content: "\e0c4";
-    color: #fff;
 }
 
 
@@ -224,7 +221,6 @@ a
 .km-customlocation:after
 {
     content: "\f041";
-    color: #fff;
 }
 
 
@@ -232,7 +228,6 @@ a
 .km-customsetting:after
 {
     content: "\e0a4";
-    color: #fff;
 }
 
 .km-customcall:before,

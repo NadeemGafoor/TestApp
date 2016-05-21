@@ -209,7 +209,7 @@ function onSelectTabStrip2(e) {
     var currentItem = tabstrip.currentItem();
 }
 
-function onSelectTabStrip1(e) {
+function onSelectTabStrip4(e) {
     var i = $(e.item).index();
     if (i === 0) {
         
