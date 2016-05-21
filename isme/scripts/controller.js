@@ -225,8 +225,11 @@ function onSelectTabStrip4(e) {
         loadFavorites();
     }
     
+      var ts = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
+    //var currentItem = tabstrip.currentItem();
+    
   //  var ts = $("#mainTab").data("kendoTabStrip");
-//ts.enable(ts.tabGroup.children(i), true); // enable tab 1
+ts.enable(ts.tabGroup.children(i), true); // enable tab 1
 
 //ts.enable(ts.tabGroup.children("li:eq(tabIndex)"), false); // disable tab 1
 }
