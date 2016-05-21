@@ -224,6 +224,11 @@ function onSelectTabStrip4(e) {
     } else if (i===4) {
         loadFavorites();
     }
+    
+    var ts = $("#mainTab").data("kendoTabStrip");
+ts.enable(ts.tabGroup.children(i), true); // enable tab 1
+
+//ts.enable(ts.tabGroup.children("li:eq(tabIndex)"), false); // disable tab 1
 }
 
 function onSelectTabStrip3(e) {
