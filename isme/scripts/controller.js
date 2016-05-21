@@ -3415,12 +3415,14 @@ function completeRedemption() {
                                             },
                                             destroyplsetting:function() {
                                                 //doOneBack();
+                                                 disableTabstrip();
                                                 window.localStorage.setItem("appopen", "0");  
                                                 $("#pl-setting-theme").remove();
                                             },  
         
                                             destroypltermsandcondition:function() {
                                                 //doOneBack();
+                                                 disableTabstrip();
                                                 window.localStorage.setItem("appopen", "0");  
                                                 $("#pl-termsconditions-theme").remove();
                                             },             
@@ -5235,7 +5237,7 @@ function completeRedemption() {
                                             },
            
                                            
-                                            initPref: function () {
+                                            initPref: function () {  
                                                 changeCard();
                                                 showSpin();
                                                 window.localStorage.setItem("selfredeem", "D"); 
@@ -5250,7 +5252,9 @@ function completeRedemption() {
                                             },
                                          
                                             saveMySetting:function() {
+                                                           disableTabstrip();
                                                 saveSetting();
+                                      
                                             },
                                             showScreen:function() {
                                                 showSpin();
