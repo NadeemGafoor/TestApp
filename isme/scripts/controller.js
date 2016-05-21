@@ -209,7 +209,7 @@ function onSelectTabStrip2(e) {
 }
 
 function onSelectTabStrip4(e) {
-   
+   alert("ffff");
     var i = $(e.item).index();
     if (i === 0) {
         if (window.localStorage.getItem("segmentcode")==="1000") {
@@ -3473,6 +3473,7 @@ function completeRedemption() {
                                                                homecountryname = "";
                                                                residentcityname = "";
                                                                showsummary = "";
+                                                               disableTabstrip();
                                                                window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                                                 "duration"         :  500, // in milliseconds (ms), default 400
                                                                                                                                 "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
