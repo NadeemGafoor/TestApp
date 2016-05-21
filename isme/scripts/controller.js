@@ -205,8 +205,6 @@ function onSelectTabStrip2(e) {
     } else if (i === 2) {
         customerCareOutlet();
     }
-    var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
-    var currentItem = tabstrip.currentItem();
 }
 
 function onSelectTabStrip4(e) {
@@ -219,9 +217,7 @@ function onSelectTabStrip4(e) {
         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
     }               
     }
-    var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
-    var currentItem = tabstrip.currentItem();
-        alert(currentItem);
+
 }
 
 function onSelectTabStrip3(e) {
@@ -233,8 +229,6 @@ function onSelectTabStrip3(e) {
     } else if (i === 2) {
         customerCare();
     }
-    var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
-    var currentItem = tabstrip.currentItem();
 }
 
 function onSelectTabStrip1(e) {
