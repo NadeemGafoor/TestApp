@@ -5727,7 +5727,6 @@ function completeRedemption() {
                                document.getElementById("selCountry").value = homecountry;
                                hideSpin();
                            }else {
-                               plus
                                navigator.notification.alert("Unable to display country list. Please restart your app and try again. " + getData.statusdesc, function() {
                                }, "isme by Jumeirah", "Dismiss")          
                                hideSpin(); //hide loading popup
