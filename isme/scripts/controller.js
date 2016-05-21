@@ -2298,8 +2298,9 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
                                                                   $("#offer-list-view").kendoMobileListView({
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
-                                                                                                                template: $("#offerListTemplate").html()
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.offerlist,serverPaging: true,pageSize: 10}),
+                                                                                                                template: $("#offerListTemplate").html(),
+                                                                                                                  endlessScroll: true
                                                                                                                     
                                                                                                             });
                                                                   hideSpin(); //hide loading popup
@@ -3209,8 +3210,9 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                   //fill the outlet template
                                                                   if (getData.faqlist.length > 0) {
                                                                       $("#faqlist-all").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#faqTemplate").html()
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist,serverPaging: true,pageSize: 10}),
+                                                                                                                template: $("#faqTemplate").html(),
+                                                                                      endlessScroll: true
                                                                                                             });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
@@ -3258,8 +3260,9 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                   //fill the outlet template
                                                                   if (getData.faqlist.length > 0) {
                                                                       $("#pl-faqlist-all").kendoMobileListView({
-                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                   template: $("#pl-faqTemplate").html()
+                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.faqlist,serverPaging: true,pageSize: 10}),
+                                                                                                                   template: $("#pl-faqTemplate").html(),
+                                                                                      endlessScroll: true
                                                                                                                });
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
@@ -3912,8 +3915,9 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
                                                                    $("#pl-offer-list-view").kendoMobileListView({
-                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
-                                                                                                                    template: $("#pl-offerListTemplate").html()
+                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offerlist,serverPaging: true,pageSize: 10}),
+                                                                                                                    template: $("#pl-offerListTemplate").html(),
+                                                                                                                    endlessScroll: true
                                                                                                                     
                                                                                                                 });
                                                                    hideSpin(); //hide loading popup
@@ -4539,9 +4543,9 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.mywalletvouchers.length > 0) {
                                                                        $("#mywallet-voucher-list").kendoMobileListView({
-                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                                                           template: $("#mywallet-voucherlist-Template").html()
-                                                                           // endlessScroll: true
+                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers,serverPaging: true,pageSize: 10}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                                                                                           template: $("#mywallet-voucherlist-Template").html(),
+                                                                            endlessScroll: true
                                                                                                                          
                                                                                                                        });
                                                                        hideSpin(); //hide loading popup
