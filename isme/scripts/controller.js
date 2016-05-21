@@ -3522,6 +3522,7 @@ function completeRedemption() {
         
                                             loadProfile
                                             :function() {
+                                                disableTabstrip();
                                                 changeCard(window.localStorage.getItem("segmentcode"));  
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backz").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -3676,6 +3677,7 @@ function completeRedemption() {
         
                                             benefitdetail  
                                             : function (e) { 
+                                                disableTabstrip();
                                                 changeCard();
                                                 benefitcode = window.localStorage.getItem("segmentcode"); 
                                                 showSpin(); //show loading popup
@@ -3816,6 +3818,7 @@ function completeRedemption() {
         
                                             rewardList
                                             : function (e) {
+                                                disableTabstrip();
                                                 changeCard();
                                                 showSpin();
                                                 offercode = "";
@@ -3951,6 +3954,7 @@ function completeRedemption() {
         
                                             propertyList
                                             : function () {
+                                                disableTabstrip();
                                                 changeCard();
                                                 //  clearListFilter();
                                                 window.localStorage.setItem("appopen", "811");
@@ -4006,6 +4010,7 @@ function completeRedemption() {
         
                                             showAllOutlet
                                             : function (e) {
+                                                disableTabstrip();
                                                 changeCard();
                                                 showSpin(); 
                                                 if (window.localStorage.getItem("appopen")==="0") {
@@ -4121,6 +4126,7 @@ function completeRedemption() {
                                             },
                                             showAllLeisure
                                             : function (e) {
+                                                disableTabstrip();
                                                 changeCard();
                                                 showSpin(); 
                                                 if (window.localStorage.getItem("appopen")==="0") {
@@ -4178,6 +4184,7 @@ function completeRedemption() {
         
                                             showAllLeisure1
                                             : function (e) {
+                                                disableTabstrip();
                                                 changeCard();
                                                 showSpin(); 
                                           
@@ -5057,6 +5064,7 @@ function completeRedemption() {
                                             showCard3
         
                                             : function () {
+                                                disableTabstrip();
                                                 changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backt").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -5069,6 +5077,7 @@ function completeRedemption() {
         
                                             showCard2
                                             : function () {
+                                                disableTabstrip();
                                                 changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backe").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -7368,6 +7377,11 @@ function completeRedemption() {
             }
         } 
         hideSpin();
+    }
+    
+    function disableTabstrip(){
+            var ts = $("#mainTab").data("kendoTabStrip");
+ts.enable(ts.tabGroup.children(5), true); // enable tab 1
     }
     
     function spendBar() {
