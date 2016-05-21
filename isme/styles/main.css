@@ -10,6 +10,12 @@
   box-shadow:none;
 }
 
+.km-ios7 .km-footer{
+    background-color:#000;
+    border-top:1px #fff solid;
+    color:#fff;
+}
+
 hr { background-color: #b6b2b4; height: 1px; border: 0; }
 a
 {
@@ -182,10 +188,20 @@ a
     font: .9em/.9em 'FontAwesome';
 }
 
+
+
+.km-customfav:before,
+.km-customfav:after
+{
+    content: "\e044";
+        color: #fff;
+}
+
 .km-customhistory:before,
 .km-customhistory:after
 {
     content: "\e307";
+        color: #fff;
 }
 
 
@@ -208,6 +224,14 @@ a
 .km-customlocation:after
 {
     content: "\f041";
+    color: #fff;
+}
+
+
+.km-customsetting:before,
+.km-customsetting:after
+{
+    content: "\e0a4";
     color: #fff;
 }
 
