@@ -3481,7 +3481,7 @@ var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
                                                 //doOneBack();
                                                 window.localStorage.setItem("appopen", "0");  
                                                 $("#pl-termsconditions-theme").remove();
-                                            },           
+                                            },             
         
            
         
