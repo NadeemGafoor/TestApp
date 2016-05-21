@@ -5258,6 +5258,7 @@ function completeRedemption() {
         
                                             savePreference:function() {
                                                 savePreferenceItem();
+                                                disableTabstrip();
                                             },
                                             checkSave:function() {
                                                 if (window.localStorage.getItem("issaved") ==="0") {
@@ -7081,7 +7082,7 @@ function completeRedemption() {
         emailid = this.emailid1.value;         
         mobilenumber = this.mobile1.value;                                             
         magicnumber = this.hotelnumber1.value;
-       
+       disableTabstrip();
         $.ajax({ 
                    type: "POST",
                    cache:false,
