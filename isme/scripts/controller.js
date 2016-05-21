@@ -209,6 +209,20 @@ function onSelectTabStrip2(e) {
     var currentItem = tabstrip.currentItem();
 }
 
+function onSelectTabStrip1(e) {
+    var i = $(e.item).index();
+    if (i === 0) {
+        
+        if (window.localStorage.getItem("segmentcode")==="1000") {
+        $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+    }else {
+        $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+    }               
+    }
+    var tabstrip = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
+    var currentItem = tabstrip.currentItem();
+}
+
 function onSelectTabStrip3(e) {
     var i = $(e.item).index();
     if (i === 0) {
@@ -297,10 +311,7 @@ function closeEnterPinForRedemption() {
     $("#modalviewenterpin").data("kendoMobileModalView").close();
 }
 
-//function enterStaffPinForRedemption() {
-//   $("#modalviewenterpin").data("kendoMobileModalView").close();
-//   $("#modalviewstaffpin").data("kendoMobileModalView").open();
-//}
+
 
 function closeStaffPinForRedemption() {
     $("#modalviewstaffpin").data("kendoMobileModalView").close();
@@ -330,33 +341,12 @@ function loadOfferView() {
     $("#modalviewoffertype").data("kendoMobileModalView").open();
 }
 
-//function closeOfferTypeView() {
-//   $("#modalviewoffertype").data("kendoMobileModalView").close();
-//}
+
 
 function loadTypeView() {
     $("#modalviewtype").data("kendoMobileModalView").open();
 }   
     
-//function closeModalStar() {
-//    $("#modalviewstar").data("kendoMobileModalView").close();
-//}
-
-//function closeFilterView() {
-//    $("#modalviewfilter").data("kendoMobileModalView").close();
-//} 
-
-//function closeLocationView() {
-//    $("#modalviewcountry").data("kendoMobileModalView").close();
-//}
-
-//function closeCuisineView() {
-//   $("#modalviewcuisine").data("kendoMobileModalView").close();
-//}
-
-//function closeTypeView() {
-//    $("#modalviewtype").data("kendoMobileModalView").close();
-//}
 
 function offerFilterView() {
     if (window.localStorage.getItem("appopen")==="90") {
@@ -366,9 +356,7 @@ function offerFilterView() {
     }
 }
 
-//function closeOfferFilterView() {
-//   $("#modalviewofferfilter").data("kendoMobileModalView").close();
-//} 
+
 
 function historyFilterView() {
     $("#modalviewhistoryfilter").data("kendoMobileModalView").open();
@@ -382,9 +370,7 @@ function loadCeleberationTypeView() {
     $("#modalviewceleberationtype").data("kendoMobileModalView").open();
 }
 
-///function closeCeleberationTypeView() {
-//   $("#modalviewceleberationtype").data("kendoMobileModalView").close();
-//}
+
 
 function shareClick() {
     $(".cardhead").slideUp("slow");
