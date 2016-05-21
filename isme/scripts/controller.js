@@ -1072,8 +1072,7 @@ function completeRedemption() {
                                            },
                      
                                            destroybranddetail:function() {
-                                               hideBrandDetail();
-                                               //  $("#branddetail-theme").remove();
+                                                 $("#branddetail-theme").remove();
                                            },
                                            destroyexplorelist:function() {
                                                $("#explorelist-view").remove();
@@ -1119,8 +1118,7 @@ function completeRedemption() {
                                                $("#device-theme").remove();
                                            },
                                            destroyofferdetail:function() {
-                                               // document.getElementById("detail-title").innerHTML = "";
-                                               // hideOfferDetail();
+                                            
                                                $("#offerdetail-theme").remove();
                                            },       
                                            destroyofferlist:function() {
@@ -1128,8 +1126,7 @@ function completeRedemption() {
                                            },
         
                                            destroyoutletdetail:function() {
-                                               //    document.getElementById("detail-title").innerHTML = "";
-                                               //    hideOutletDetail();
+                                              
                                                $("#outletdetail-theme").remove();
                                            },
         
