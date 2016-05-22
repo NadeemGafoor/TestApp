@@ -1,5 +1,5 @@
-$('selCountry').bind('change', function(){
-    alert("Hello");
+$('selCountry').bind('click', function(){
+    $('profile-alcohol').checked="false";
 });
 
 function FacebookErr() {
@@ -35,7 +35,7 @@ function showConfirm() {
         );
 }
 
-function onConfirm(buttonIndex) {
+function onConfirm(buttonIndex) {  
     if (buttonIndex===1) {
         loadLogin();
     } else if (buttonIndex===2) {
