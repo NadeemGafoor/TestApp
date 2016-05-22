@@ -1,6 +1,4 @@
-$("selCountry").click(function(){
-     $("#profile-alcohol").data("kendoMobileSwitch").check(true);
-});
+
 
 function FacebookErr() {
     navigator.notification.alert("Please make sure that you have installed the Facebook Mobile app on your smartphone.", function() {
@@ -3127,6 +3125,11 @@ function completeRedemption() {
                                             setpass:"",
                                             msgsequence:"",
                                             lifestyle:"",
+        noAlcohol:function(){
+
+     $("#profile-alcohol").data("kendoMobileSwitch").check(false);
+  
+        },
         
                                             destroyplaboutisme:function() {
                                               
