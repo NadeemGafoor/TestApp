@@ -209,8 +209,6 @@ function onSelectTabStrip2(e) {
     }
 }
 
-
-
 function onSelectTabStrip3(e) {
     var i = $(e.item).index();
     if (i === 0) {
@@ -229,7 +227,6 @@ function onSelectTabStrip1(e) {
     } else if (i === 1) {
         customerCare();
     }
-
 }
 
 function supportEmailA() {
@@ -329,9 +326,7 @@ function loadTypeView() {
 }   
 
 function offerFilterView() {
-
-        $("#modalviewofferfilter").data("kendoMobileModalView").open();          
-
+    $("#modalviewofferfilter").data("kendoMobileModalView").open();          
 }
 
 function historyFilterView() {
@@ -394,188 +389,159 @@ function cardClick() {
 }
 
 function loadExploreDetail() {
- 
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                       'direction': 'up',
-                                                       'href': '#views/pl-branddetail.html'
-                                                   });
-       
-    }
-
+                                                   'direction': 'up',
+                                                   'href': '#views/pl-branddetail.html'
+                                               });
+}
 
 function loadMessageDetail() {  
-  
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                       'direction': 'up',
-                                                       'href': '#views/pl-messageitem.html'
-                                                   });
-         
-    }
-
+                                                   'direction': 'up',
+                                                   'href': '#views/pl-messageitem.html'
+                                               });
+}
 
 function loadHistoryDetail() {  
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                       'direction': 'up',
-                                                       'href': '#views/pl-historyitem.html'
-                                                   });
-
-   
+                                                   'direction': 'up',
+                                                   'href': '#views/pl-historyitem.html'
+                                               });
 }
 
 function loadOfferDetail(e) {  
-  
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                       'direction': 'up',
-                                                       'href': '#views/pl-offerdetail.html?cpn=' + e
-                                                   });
-       
+                                                   'direction': 'up',
+                                                   'href': '#views/pl-offerdetail.html?cpn=' + e
+                                               });
 }
 
 function loadOutletDetail() {
-  
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                       'direction': 'up',
-                                                       'href': '#views/pl-outletdetail.html'
-                                                   });
-    
+                                                   'direction': 'up',
+                                                   'href': '#views/pl-outletdetail.html'
+                                               });
 }
 
 function loadLeisureDetail() {
-   
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70pppp
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70pppp
 
-                                                       'direction': 'up',
-                                                       'href': '#views/pl-outletdetail.html'
-                                                   });
-       
+                                                   'direction': 'up',
+                                                   'href': '#views/pl-outletdetail.html'
+                                               });
 }
 
 function loadMyProfile() {
-   
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                       'direction': 'up',
-                                                       'href': '#views/pl-myprofile.html'
-                                                   });
-      
+                                                   'direction': 'up',
+                                                   'href': '#views/pl-myprofile.html'
+                                               });
 }
 
 function loadMyReward() {  
-   
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                       'direction': 'up',
-                                                       'href': '#views/pl-myreward.html'
-                                                   });
-       
+                                                   'direction': 'up',
+                                                   'href': '#views/pl-myreward.html'
+                                               });
 }
 
 function loadMyBenefit() {
-   
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                       'direction': 'up',
-                                                       'href': '#views/pl-benefitdetail.html'
-                                                   });
-      
+                                                   'direction': 'up',
+                                                   'href': '#views/pl-benefitdetail.html'
+                                               });
 }
 
 function loadMyMessages() {
-    
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                       'direction': 'up',
-                                                       'href': '#views/pl-mymessagelist.html'
-                                                   });
-     
+                                                   'direction': 'up',
+                                                   'href': '#views/pl-mymessagelist.html'
+                                               });
 }
 
 function loadSetting() {
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                       'direction': 'up',
-                                                       'href': '#views/pl-setting.html'
-                                                   });
-      
+                                                   'direction': 'up',
+                                                   'href': '#views/pl-setting.html'
+                                               });
 }
 
 function loadHistory() {
-   
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                       'direction': 'up',
-                                                       'href': '#views/pl-historylist.html'
-                                                   });
-   
+                                                   'direction': 'up',
+                                                   'href': '#views/pl-historylist.html'
+                                               });
 }
 
 function loadFavorites() {
-    
-        window.plugins.nativepagetransitions.slide({
-                                                       "duration"         :  500, // in milliseconds (ms), default 400
-                                                       "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                       "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                       "androiddelay"     :  150, // same as above but for Android, default 70
+    window.plugins.nativepagetransitions.slide({
+                                                   "duration"         :  500, // in milliseconds (ms), default 400
+                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                   "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                       'direction': 'up',
-                                                       'href': '#views/pl-favorites.html'
-                                                   });
-       
+                                                   'direction': 'up',
+                                                   'href': '#views/pl-favorites.html'
+                                               });
 }
 
 function preLoginBack() {
@@ -614,32 +580,26 @@ function postLoginBack() {
 }
 
 function exploreListBack() {
-
     $("body").data("kendoMobilePane").navigate("views/pl-explorelist.html");                                                                           
 }
 
 function brandDetailBack() {
-
     $("body").data("kendoMobilePane").navigate("views/pl-branddetail.html?od=" + window.localStorage.getItem("brandcode"));                                                                           
 }
 
 function myrewardListBack() {
-
     $("body").data("kendoMobilePane").navigate("views/pl-myreward.html");                                                                           
 }
 
 function outletListBack(e) {
-
     $("body").data("kendoMobilePane").navigate("views/pl-outletlist.html?brand=" + window.localStorage.getItem("brandcode") + "&category=" + window.localStorage.getItem("category"));                                                                           
 }
 
 function offerListBack() {
-
     $("body").data("kendoMobilePane").navigate("views/pl-offerlist.html");                                                                           
 }
 
 function messageListBack() {
-
     $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");                                                                           
 }
 
@@ -649,31 +609,23 @@ function hideBenefitDetail() {
 }
 
 function plhideOutletDetail() {
-
     document.getElementById("pl-outlet-detail-div").style.display = "none";
 }
 
 function plhideLeisureDetail() {
-
     document.getElementById("pl-outlet-detail-div").style.display = "none";
 }
 
 function plhideOfferDetail() {
-
     document.getElementById("pl-offer-detail-div").style.display = "none";
     document.getElementById("pl-offer-location-div").style.display = "none";
 }
-
 
 function hideLeisureDetail() {
     document.getElementById("outlet-detail-div").style.display = "none";
 }
 
-
-
 function postLoginBackMessage() {
-
-
     window.plugins.nativepagetransitions.slide({
                                                    "duration"         :  500, // in milliseconds (ms), default 400
                                                    "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -685,7 +637,6 @@ function postLoginBackMessage() {
 }
 
 function postLoginBackMessage() {
-
     window.plugins.nativepagetransitions.slide({
                                                    "duration"         :  500, // in milliseconds (ms), default 400
                                                    "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -1685,13 +1636,9 @@ function completeRedemption() {
                                            showAllOutlet
                                            : function (e) {
                                                showSpin();  
-                               
                                              
-                                             
-                                                   window.localStorage.setItem("brand", e.view.params.brand);  
-                                                   window.localStorage.setItem("category", e.view.params.category); 
-                                                  
-                                                
+                                               window.localStorage.setItem("brand", e.view.params.brand);  
+                                               window.localStorage.setItem("category", e.view.params.category); 
                                           
                                                $.ajax({ 
                                                           type: "POST",
@@ -1787,9 +1734,8 @@ function completeRedemption() {
                                            : function (e) {
                                                showSpin(); 
                                               
-                                                   window.localStorage.setItem("brand", e.view.params.brand);  
-                                                   window.localStorage.setItem("category", e.view.params.category); 
-                                                  
+                                               window.localStorage.setItem("brand", e.view.params.brand);  
+                                               window.localStorage.setItem("category", e.view.params.category); 
                                              
                                                $.ajax({ 
                                                           type: "POST",
@@ -2041,7 +1987,6 @@ function completeRedemption() {
                                            propertyList
                                            : function () {
                                                // clearListFilter();
-                                              
                                                showSpin();
                                                 
                                                $.ajax({ 
@@ -2089,7 +2034,6 @@ function completeRedemption() {
                                                showSpin();
                                                offercode = "";
                                                offertype = "1";
-                                              
                                                 
                                                $.ajax({ 
                                                           type: "POST",
@@ -2301,6 +2245,7 @@ function completeRedemption() {
                                                    window.localStorage.setItem("loginmode", "");
                                                    window.localStorage.setItem("static_social_msg", static_social_msg);
                                                    fbCleanVariables();
+                                                   noAlcoholCountry();
                                                    $.ajax({    
                                                               type: "POST",
                                                               cache:false,
@@ -2632,7 +2577,7 @@ function completeRedemption() {
         
                                            validateUser
                                            : function () {
-                                              // window.localStorage.setItem("appopen", "0");   
+                                               // window.localStorage.setItem("appopen", "0");   
                                                if (window.localStorage.getItem("loginmode") == "") {
                                                    if (!this.username) {
                                                        navigator.notification.alert("Please enter a valid Membership number.", function() {
@@ -3103,7 +3048,6 @@ function completeRedemption() {
                                                                                     });
                                            }                                    
                                        });
-    
         
     window.postLogin = kendo.observable({ 
                                             outlettelephone:"",
@@ -3125,117 +3069,96 @@ function completeRedemption() {
                                             setpass:"",
                                             msgsequence:"",
                                             lifestyle:"",
-        noAlcohol:function(){
-           
-    if (document.getElementById("selCountry").value.length === 6){
-             $("#profile-alcohol").data("kendoMobileSwitch").check(false);
-        }
-  alert(document.getElementById("selCountry").value.length);
-        },
+                                            noAlcohol:function() {
+                                                var noalcohollist = window.localStorage.getItem("noalcohollist");
+                                                for (var i = 0;i < noalcohollist.preflist.length; i++) {
+                                                    if (document.getElementById("selCountry").value === noalcohollist.preflist[i].code) {
+                                                        $("#profile-alcohol").data("kendoMobileSwitch").check(false);
+                                                        break;
+                                                    }
+                                                }
+                                            },
         
                                             destroyplaboutisme:function() {
-                                              
                                                 $("#pl-aboutisme-theme").remove();
                                             },
                                             destroyplbenefitdetail:function() {
-       
                                                 $("#pl-benefit-theme").remove();
                                             },
                                             destroyplconfirmdiscount:function() {
-             
                                                 $("#pl-confirmredemption-view").remove();
                                             },
                                             destroyplconfirmdiscountblack:function() {
-                                               
                                                 $("#pl-confirmredemptionblack-view").remove();
                                             },
                                             destroyplconfirmpage:function() {
-                                                
                                                 $("#pl-confirmpage-view").remove();
                                             },
                                             destroyplconfirmvoucher:function() {
-                                               
                                                 $("#pl-voucheredeem-view").remove();
                                             },
                                             destroyplconfirmvoucherblack:function() {
-                                              
                                                 $("#pl-voucheredeemblack-view").remove();
                                             },
         
                                             destroyplbranddetail:function() {
-                                                                                               $("#pl-branddetail-theme").remove();
+                                                $("#pl-branddetail-theme").remove();
                                             },
                                             destroyplcustomerservice:function() {
-                                               
                                                 $("#pl-customerservice-theme").remove();
                                             },
                                             destroyplexplorelist:function() {
-                                                
                                                 $("#pl-explorelist-view").remove();
                                             },
     
                                             destroyplfavorites:function() {
-                                              
                                                 $("#myfavorite-view").remove();
                                             },
         
                                             destroyplhistorylist:function() {
-                                               
                                                 $("#history-theme").remove();
                                             },
         
                                             destroyplhome:function() {
-                                               
                                                 $("#pl-home-view").remove();
                                             },
         
                                             destroyplhomeplus:function() {
-                                                
                                                 $("#pl-home-view-plus").remove();
                                             },
         
                                             destroyplleisurelist:function() {
-                                               
                                                 $("#liesurelist-theme").remove();
                                             },
                                             destroyplleisurelistb:function() {
-                                              
                                                 $("#pl-liesurelistb-theme").remove();
                                             },
         
                                             destroyplmessageitem:function() {
-                                                
-                                              
                                                 $("#messageitem-theme").remove();
                                             },
         
                                             destroymymessagelist:function() {
-                                               
                                                 $("#mymessagelist-theme").remove();
                                             },
         
                                             destroyplmyprofile:function() {
-                                                
                                                 $("#pl-myprofile-view").remove();
                                             },
         
                                             destroyplmyreward:function() {
-                                               
                                                 $("#pl-mywallet-theme").remove();
                                             },
         
                                             destroyplmyvoucherdetail:function() {
-                                               
                                                 $("#pl-myvoucherdetail-theme").remove();
                                             },
         
                                             destroyplofferdetail:function() {
-                                                
                                                 $("#pl-offerdetail-theme").remove();
                                             },
         
                                             destroyplofferlist:function() {
-                                                
                                                 $("#pl-offerlist-view").remove();
                                             },
         
@@ -3253,16 +3176,11 @@ function completeRedemption() {
                                                 $("#pl-outletlistb-theme").remove();
                                             },
                                             destroyplsetting:function() {
-                                               
-                                                  
-                                              
                                                 $("#pl-setting-theme").remove();
                                             },  
         
                                             destroypltermsandcondition:function() {
                                                 //doOneBack();
-                                                  
-                                                
                                                 $("#pl-termsconditions-theme").remove();
                                             },             
         
@@ -3365,7 +3283,6 @@ function completeRedemption() {
         
                                             loadProfile
                                             :function() {
-                                                 
                                                 changeCard(window.localStorage.getItem("segmentcode"));  
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backz").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -3513,7 +3430,6 @@ function completeRedemption() {
         
                                             benefitdetail  
                                             : function (e) { 
-                                                 
                                                 changeCard();
                                                 benefitcode = window.localStorage.getItem("segmentcode"); 
                                                 showSpin(); //show loading popup
@@ -3654,12 +3570,10 @@ function completeRedemption() {
         
                                             rewardList
                                             : function (e) {
-                                                 
                                                 changeCard();
                                                 showSpin();
                                                 offercode = "";
                                                 offertype = "3"; 
-                                               
                                       
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backp").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -3788,7 +3702,6 @@ function completeRedemption() {
         
                                             propertyList
                                             : function () {
-                                                 
                                                 changeCard();
                                                 //  clearListFilter();
                                                
@@ -3844,11 +3757,10 @@ function completeRedemption() {
         
                                             showAllOutlet
                                             : function (e) {
-                                                 
                                                 changeCard();
                                                 showSpin(); 
-                                                    window.localStorage.setItem("brand", e.view.params.brand);  
-                                                    window.localStorage.setItem("category", e.view.params.category); 
+                                                window.localStorage.setItem("brand", e.view.params.brand);  
+                                                window.localStorage.setItem("category", e.view.params.category); 
                                               
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backr").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -3958,13 +3870,11 @@ function completeRedemption() {
                                             },
                                             showAllLeisure
                                             : function (e) {
-                                                 
                                                 changeCard();
                                                 showSpin(); 
 
-                                                    window.localStorage.setItem("brand", e.view.params.brand);  
-                                                    window.localStorage.setItem("category", e.view.params.category); 
-                                             
+                                                window.localStorage.setItem("brand", e.view.params.brand);  
+                                                window.localStorage.setItem("category", e.view.params.category); 
                                                 
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backi").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -4015,7 +3925,6 @@ function completeRedemption() {
         
                                             showAllLeisure1
                                             : function (e) {
-                                                 
                                                 changeCard();
                                                 showSpin(); 
                                           
@@ -4894,7 +4803,6 @@ function completeRedemption() {
                                             showCard3
         
                                             : function () {
-                                                 
                                                 changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backt").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -4907,7 +4815,6 @@ function completeRedemption() {
         
                                             showCard2
                                             : function () {
-                                                 
                                                 changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backe").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -5078,9 +4985,7 @@ function completeRedemption() {
                                             },
                                          
                                             saveMySetting:function() {
-                                                            
                                                 saveSetting();
-                                      
                                             },
                                             showScreen:function() {
                                                 showSpin();
@@ -5088,7 +4993,6 @@ function completeRedemption() {
         
                                             savePreference:function() {
                                                 savePreferenceItem();
-                                                 
                                             },
                                             checkSave:function() {
                                                 if (window.localStorage.getItem("issaved") ==="0") {
@@ -5114,7 +5018,6 @@ function completeRedemption() {
                                                 }else {  
                                                     saveLater();
                                                 }
-                                              
                                             },
                                             enableSave:function() {
                                                 window.localStorage.setItem("issaved", "0");
@@ -5531,6 +5434,39 @@ function completeRedemption() {
                });
     }
     
+    function noAlcoholCountry() {
+        showSpin(); //show loading popup
+                                      
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/noAlcoholList.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,customerid:customer,mdevice:window.localStorage.getItem("mdevicestat")
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
+                       if (getData.statuscode == "000") {
+                           window.localStorage.setItem("noalcohollist", getData);
+                           hideSpin();
+                       }else {
+                           navigator.notification.alert("Unable to display no alcohol country list. Please restart your app and try again. " + getData.statusdesc, function() {
+                           }, "isme by Jumeirah", "Dismiss")          
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error:
+                   function (error) {
+                       navigator.notification.alert("Due to a system error, Unable to display no alcohol country list. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                       }, "isme by Jumeirah", "Dismiss")
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
+    
     function listCountry() {
         showSpin(); //show loading popup
                                       
@@ -5553,7 +5489,7 @@ function completeRedemption() {
                                for (var i = 0;i < getData.countrylist.length;i++) {
                                    var x = document.getElementById("selCountry");
                                    var opt = document.createElement("option");
-                                   opt.value = getData.countrylist[i].countryname+getData.countrylist[i].noalcohol;    
+                                   opt.value = getData.countrylist[i].countryname;    
                                    opt.text = getData.countrylist[i].countrycode;
                                    x.add(opt);
                                }  
@@ -6726,14 +6662,12 @@ function completeRedemption() {
             elems[i].style.zIndex = 10000;
             elems[i].style.textAlign = "center";
         }
-    
-       
 
-         if (window.localStorage.getItem("segmentcode")==="1000") {
-                                                    $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                                                }else {
-                                                    $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                }
+        if (window.localStorage.getItem("segmentcode")==="1000") {
+            $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+        }else {
+            $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+        }
         hideSpin();
     }
     //$("body").data("kendoMobilePane").navigate("#:back");
@@ -6885,7 +6819,7 @@ function completeRedemption() {
         }   
         if (document.getElementById("selCountry").value != "") {
             homecountry1 = document.getElementById("selCountry").value;
-            homecountry1 = homecountry1.substring(0,3);
+            homecountry1 = homecountry1.substring(0, 3);
         }else {
             homecountry1 = ""
         }
@@ -7199,11 +7133,11 @@ function completeRedemption() {
         hideSpin();
     }
     
-    function disableTabstrip(){
-         // var tabStrip = $("#mainTab").kendoTabStrip().data("kendoTabStrip");
-   // tabStrip.enable(tabStrip.tabGroup.children().eq(5), false);
-    //var tabstrip = app.view().footer.find(".km-tabstrip").data("kendoMobileTabStrip");
-  //  tabstrip.clear();
+    function disableTabstrip() {
+        // var tabStrip = $("#mainTab").kendoTabStrip().data("kendoTabStrip");
+        // tabStrip.enable(tabStrip.tabGroup.children().eq(5), false);
+        //var tabstrip = app.view().footer.find(".km-tabstrip").data("kendoMobileTabStrip");
+        //  tabstrip.clear();
     }
     
     function spendBar() {
