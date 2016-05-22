@@ -208,6 +208,16 @@ function onSelectTabStrip2(e) {
     }
 }
 
+
+function showWallet(e){
+        if (window.localStorage.getItem("segmentcode")==="1000") {
+            $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
+        }else {
+            $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+        }
+}
+
+
 function onSelectTabStrip4(e) {
    
     var i = $(e.item).index();
@@ -217,14 +227,7 @@ function onSelectTabStrip4(e) {
         }else {
             $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
         } 
-    } else if (i===1) {
-        loadMyMessages();
-    } else if (i===2) {
-        loadHistory();
-    } else if (i===3) {
-        loadSetting();
-    } else if (i===4) {
-        loadFavorites();
+  
     }
     
 
