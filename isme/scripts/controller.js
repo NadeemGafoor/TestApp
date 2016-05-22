@@ -1,3 +1,6 @@
+$('selCountry').bind('change', function(){
+    alert("Hello");
+});
 
 function FacebookErr() {
     navigator.notification.alert("Please make sure that you have installed the Facebook Mobile app on your smartphone.", function() {
