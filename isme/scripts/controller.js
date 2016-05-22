@@ -1,4 +1,4 @@
-$("selCountry").bind("click", function(){
+$("selCountry").click(function(){
      $("#profile-alcohol").data("kendoMobileSwitch").check(true);
 });
 
