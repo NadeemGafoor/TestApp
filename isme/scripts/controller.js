@@ -2657,7 +2657,7 @@ function completeRedemption() {
         
                                            validateUser
                                            : function () {
-                                               window.localStorage.setItem("appopen", "0");   
+                                              // window.localStorage.setItem("appopen", "0");   
                                                if (window.localStorage.getItem("loginmode") == "") {
                                                    if (!this.username) {
                                                        navigator.notification.alert("Please enter a valid Membership number.", function() {
@@ -2784,6 +2784,7 @@ function completeRedemption() {
                                                                   window.localStorage.setItem("homecountryname", homecountryname);
                                                                   window.localStorage.setItem("fullname", fullname);
                                                                   window.localStorage.setItem("residentcityname", residentcityname);
+                                                                 
                                                                   pushSettings = {
                                                                       iOS: {
                                                                           badge: "true",
@@ -3271,14 +3272,14 @@ function completeRedemption() {
                                             },
                                             destroyplsetting:function() {
                                                
-                                                 disableTabstrip();
+                                                  
                                               
                                                 $("#pl-setting-theme").remove();
                                             },  
         
                                             destroypltermsandcondition:function() {
                                                 //doOneBack();
-                                                 disableTabstrip();
+                                                  
                                                 
                                                 $("#pl-termsconditions-theme").remove();
                                             },             
@@ -3382,7 +3383,7 @@ function completeRedemption() {
         
                                             loadProfile
                                             :function() {
-                                                disableTabstrip();
+                                                 
                                                 changeCard(window.localStorage.getItem("segmentcode"));  
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backz").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -3537,7 +3538,7 @@ function completeRedemption() {
         
                                             benefitdetail  
                                             : function (e) { 
-                                                disableTabstrip();
+                                                 
                                                 changeCard();
                                                 benefitcode = window.localStorage.getItem("segmentcode"); 
                                                 showSpin(); //show loading popup
@@ -3678,7 +3679,7 @@ function completeRedemption() {
         
                                             rewardList
                                             : function (e) {
-                                                disableTabstrip();
+                                                 
                                                 changeCard();
                                                 showSpin();
                                                 offercode = "";
@@ -3812,7 +3813,7 @@ function completeRedemption() {
         
                                             propertyList
                                             : function () {
-                                                disableTabstrip();
+                                                 
                                                 changeCard();
                                                 //  clearListFilter();
                                                
@@ -3868,7 +3869,7 @@ function completeRedemption() {
         
                                             showAllOutlet
                                             : function (e) {
-                                                disableTabstrip();
+                                                 
                                                 changeCard();
                                                 showSpin(); 
                                                     window.localStorage.setItem("brand", e.view.params.brand);  
@@ -3982,7 +3983,7 @@ function completeRedemption() {
                                             },
                                             showAllLeisure
                                             : function (e) {
-                                                disableTabstrip();
+                                                 
                                                 changeCard();
                                                 showSpin(); 
 
@@ -4039,7 +4040,7 @@ function completeRedemption() {
         
                                             showAllLeisure1
                                             : function (e) {
-                                                disableTabstrip();
+                                                 
                                                 changeCard();
                                                 showSpin(); 
                                           
@@ -4918,7 +4919,7 @@ function completeRedemption() {
                                             showCard3
         
                                             : function () {
-                                                disableTabstrip();
+                                                 
                                                 changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backt").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -4931,7 +4932,7 @@ function completeRedemption() {
         
                                             showCard2
                                             : function () {
-                                                disableTabstrip();
+                                                 
                                                 changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backe").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
@@ -5102,7 +5103,7 @@ function completeRedemption() {
                                             },
                                          
                                             saveMySetting:function() {
-                                                           disableTabstrip();
+                                                            
                                                 saveSetting();
                                       
                                             },
@@ -5112,7 +5113,7 @@ function completeRedemption() {
         
                                             savePreference:function() {
                                                 savePreferenceItem();
-                                                disableTabstrip();
+                                                 
                                             },
                                             checkSave:function() {
                                                 if (window.localStorage.getItem("issaved") ==="0") {
@@ -6922,7 +6923,7 @@ function completeRedemption() {
         emailid = this.emailid1.value;         
         mobilenumber = this.mobile1.value;                                             
         magicnumber = this.hotelnumber1.value;
-       disableTabstrip();
+
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -7218,6 +7219,7 @@ function completeRedemption() {
                 document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K";
             }
         } 
+        alert("222");
         hideSpin();
     }
     
