@@ -3126,7 +3126,7 @@ function completeRedemption() {
                                             msgsequence:"",
                                             lifestyle:"",
         noAlcohol:function(){
-
+    
      $("#profile-alcohol").data("kendoMobileSwitch").check(false);
   
         },
@@ -5551,7 +5551,7 @@ function completeRedemption() {
                                for (var i = 0;i < getData.countrylist.length;i++) {
                                    var x = document.getElementById("selCountry");
                                    var opt = document.createElement("option");
-                                   opt.value = getData.countrylist[i].countryname;    
+                                   opt.value = getData.countrylist[i].countryname+getData.countrylist[i].noalcohol;    
                                    opt.text = getData.countrylist[i].countrycode;
                                    x.add(opt);
                                }  
