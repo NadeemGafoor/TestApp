@@ -685,6 +685,7 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
+                           var noalcohollist=[];
     //    var gurl = "https://ismemobileapp.jumeirah.com";
     // var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
     var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
@@ -3070,13 +3071,13 @@ function completeRedemption() {
                                             msgsequence:"",
                                             lifestyle:"",
                                             noAlcohol:function() {
-                                                var noalcohollist = window.localStorage.getItem("noalcohollist");
-                                                 alert(noalcohollist.preflist[0].code);
-                                                for (var i = 0;i < noalcohollist.preflist.length; i++) {
+                                                for (var i = 0;i < noalcohollist.length; i++) {
                                                     
-                                                    if (document.getElementById("selCountry").value === noalcohollist.preflist[i].code) {
+                                                    if (document.getElementById("selCountry").value === noalcohollist[i]) {
                                                         $("#profile-alcohol").data("kendoMobileSwitch").check(false);
                                                         break;
+                                                    } else{
+                                                        $("#profile-alcohol").data("kendoMobileSwitch").check(true);
                                                     }
                                                 }
                                             },
@@ -5438,7 +5439,7 @@ function completeRedemption() {
     
     function noAlcoholCountry() {
         showSpin(); //show loading popup
-                                      
+                                
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -5451,8 +5452,13 @@ function completeRedemption() {
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
+
                        if (getData.statuscode == "000") {
-                           window.localStorage.setItem("noalcohollist", getData);
+                           for (i=0; i < getData.preflist.length;i++){
+                               
+                               noalcohollist[i]=getData.preflist[i].code;
+                           }
+                           
                             hideSpin();
                        }else {
                            navigator.notification.alert("Unable to display no alcohol country list. Please restart your app and try again. " + getData.statusdesc, function() {
