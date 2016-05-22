@@ -3070,15 +3070,15 @@ function completeRedemption() {
                                             setpass:"",
                                             msgsequence:"",
                                             lifestyle:"",
+                                            noAlcoholStart:function(){
+                                                        $("#profile-alcohol").data("kendoMobileSwitch").check(true);   
+                                            },
                                             noAlcohol:function() {
                                                 for (var i = 0;i < noalcohollist.length; i++) {
-                                                    
                                                     if (document.getElementById("selCountry").value === noalcohollist[i]) {
                                                         $("#profile-alcohol").data("kendoMobileSwitch").check(false);
                                                         break;
-                                                    } else{
-                                                        $("#profile-alcohol").data("kendoMobileSwitch").check(true);
-                                                    }
+                                                   }
                                                 }
                                             },
         
