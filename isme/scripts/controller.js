@@ -7224,8 +7224,8 @@ function completeRedemption() {
     function disableTabstrip(){
          // var tabStrip = $("#mainTab").kendoTabStrip().data("kendoTabStrip");
    // tabStrip.enable(tabStrip.tabGroup.children().eq(5), false);
-    var tabstrip = app.view().footer.find(".km-tabstrip").data("kendoMobileTabStrip");
-    tabstrip.clear();
+    //var tabstrip = app.view().footer.find(".km-tabstrip").data("kendoMobileTabStrip");
+  //  tabstrip.clear();
     }
     
     function spendBar() {
