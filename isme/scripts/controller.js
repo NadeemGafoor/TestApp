@@ -3126,8 +3126,9 @@ function completeRedemption() {
                                             msgsequence:"",
                                             lifestyle:"",
         noAlcohol:function(){
-    
-     $("#profile-alcohol").data("kendoMobileSwitch").check(false);
+    if (document.getElementById("selCountry").value.length > 3){
+             $("#profile-alcohol").data("kendoMobileSwitch").check(false);
+        }
   
         },
         
@@ -6883,6 +6884,7 @@ function completeRedemption() {
         }   
         if (document.getElementById("selCountry").value != "") {
             homecountry1 = document.getElementById("selCountry").value;
+            homecountry1 = homecountry1.substring(0,3);
         }else {
             homecountry1 = ""
         }
