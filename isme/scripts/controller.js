@@ -1,5 +1,5 @@
-$('selCountry').bind('click', function(){
-    $('profile-alcohol').checked="false";
+$("selCountry").bind("click", function(){
+     $("#profile-alcohol").data("kendoMobileSwitch").check(true);
 });
 
 function FacebookErr() {
