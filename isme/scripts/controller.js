@@ -3071,7 +3071,9 @@ function completeRedemption() {
                                             lifestyle:"",
                                             noAlcohol:function() {
                                                 var noalcohollist = window.localStorage.getItem("noalcohollist");
+                                                 alert(noalcohollist.preflist.length);
                                                 for (var i = 0;i < noalcohollist.preflist.length; i++) {
+                                                    
                                                     if (document.getElementById("selCountry").value === noalcohollist.preflist[i].code) {
                                                         $("#profile-alcohol").data("kendoMobileSwitch").check(false);
                                                         break;
@@ -5451,7 +5453,7 @@ function completeRedemption() {
                        var getData = JSON.parse(data);
                        if (getData.statuscode == "000") {
                            window.localStorage.setItem("noalcohollist", getData);
-                           hideSpin();
+                            hideSpin();
                        }else {
                            navigator.notification.alert("Unable to display no alcohol country list. Please restart your app and try again. " + getData.statusdesc, function() {
                            }, "isme by Jumeirah", "Dismiss")          
