@@ -229,7 +229,7 @@ function onSelectTabStrip4(e) {
         } 
   
     }
-    
+    alert(i);
 
 }
 
