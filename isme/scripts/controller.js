@@ -227,13 +227,7 @@ function onSelectTabStrip4(e) {
         loadFavorites();
     }
     
- //    var ts = e.view.footer.find(".km-tabstrip").data("kendoMobileTabStrip");
- //   var currentItem = ts.currentItem();
-    
-  //  var ts = $("#mainTab").data("kendoTabStrip");
-//ts.enable(ts.tabGroup.children(i), true); // enable tab 1
 
-//ts.enable(ts.tabGroup.children("li:eq(tabIndex)"), false); // disable tab 1
 }
 
 function onSelectTabStrip3(e) {
@@ -3492,15 +3486,7 @@ function completeRedemption() {
                                                                homecountryname = "";
                                                                residentcityname = "";
                                                                showsummary = "";
-                                                               window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                                                                                "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                                                "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                                                "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                                                "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                                                                                'direction': 'right',
-                                                                                                                                'href': '#views/home.html'
-                                                                                                                            }), 500);  
+                                                               $("body").data("kendoMobilePane").navigate("views/home.html");   
                                                                hideSpin(); //hide loading popup
                                                            },
                                                            error: function (errormsg) {
@@ -7219,7 +7205,7 @@ function completeRedemption() {
                 document.getElementById("spend-amount-p").innerHTML = window.localStorage.getItem("currency") + " " + window.localStorage.getItem("spend") + "K";
             }
         } 
-        alert("222");
+       
         hideSpin();
     }
     
