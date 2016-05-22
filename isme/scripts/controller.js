@@ -3070,7 +3070,15 @@ function completeRedemption() {
                                             msgsequence:"",
                                             lifestyle:"",
                                             noAlcohol:function() {
-                                               alert("hello");
+                                                var noalcohollist = window.localStorage.getItem("noalcohollist");
+                                                 alert(noalcohollist.preflist[0].code);
+                                                for (var i = 0;i < noalcohollist.preflist.length; i++) {
+                                                    
+                                                    if (document.getElementById("selCountry").value === noalcohollist.preflist[i].code) {
+                                                        $("#profile-alcohol").data("kendoMobileSwitch").check(false);
+                                                        break;
+                                                    }
+                                                }
                                             },
         
                                             destroyplaboutisme:function() {
