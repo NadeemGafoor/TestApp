@@ -215,11 +215,11 @@ function showWallet(e){
         }else {
             $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
         }
+    
 }
 
 
 function onSelectTabStrip4(e) {
-   
     var i = $(e.item).index();
     if (i === 0) {
         if (window.localStorage.getItem("segmentcode")==="1000") {
@@ -229,8 +229,6 @@ function onSelectTabStrip4(e) {
         } 
   
     }
-    alert(i);
-
 }
 
 function onSelectTabStrip3(e) {
@@ -3489,6 +3487,7 @@ function completeRedemption() {
                                                                homecountryname = "";
                                                                residentcityname = "";
                                                                showsummary = "";
+                                                          
                                                                $("body").data("kendoMobilePane").navigate("views/home.html");   
                                                                hideSpin(); //hide loading popup
                                                            },
