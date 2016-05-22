@@ -209,27 +209,6 @@ function onSelectTabStrip2(e) {
 }
 
 
-function showWallet(e){
-        if (window.localStorage.getItem("segmentcode")==="1000") {
-            $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-        }else {
-            $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-        }
-    
-}
-
-
-function onSelectTabStrip4(e) {
-    var i = $(e.item).index();
-    if (i === 0) {
-        if (window.localStorage.getItem("segmentcode")==="1000") {
-            $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-        }else {
-            $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-        } 
-  
-    }
-}
 
 function onSelectTabStrip3(e) {
     var i = $(e.item).index();
