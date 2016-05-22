@@ -3126,10 +3126,11 @@ function completeRedemption() {
                                             msgsequence:"",
                                             lifestyle:"",
         noAlcohol:function(){
-    if (document.getElementById("selCountry").value.length > 3){
+           
+    if (document.getElementById("selCountry").value.length === 6){
              $("#profile-alcohol").data("kendoMobileSwitch").check(false);
         }
-  
+  alert(document.getElementById("selCountry").value.length);
         },
         
                                             destroyplaboutisme:function() {
