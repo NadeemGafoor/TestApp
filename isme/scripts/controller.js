@@ -1720,6 +1720,10 @@ function completeRedemption() {
                                                                                                             template: $("#outletTemplate").html(),
                                                                                                             endlessScroll: true
                                                                                                         });
+                                                                  
+                                                                     for (var i=0;i<getData.outletlist.length;i++){
+                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
+                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
@@ -1767,6 +1771,9 @@ function completeRedemption() {
                                                                                                               template: $("#outletTemplate-b").html(),
                                                                                                               endlessScroll: true
                                                                                                           });
+                                                                     for (var i=0;i<getData.outletlist.length;i++){
+                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
+                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
@@ -1814,6 +1821,10 @@ function completeRedemption() {
                                                                                                              template: $("#leisureTemplate").html(),
                                                                                                              endlessScroll: true
                                                                                                          });
+                                                                  
+                                                                     for (var i=0;i<getData.outletlist.length;i++){
+                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
+                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("There are no Leisure venues available for the selected property.", function() {
@@ -1862,6 +1873,10 @@ function completeRedemption() {
                                                                                                                endlessScroll: true
                                                                                                               
                                                                                                            });
+                                                                  
+                                                                     for (var i=0;i<getData.outletlist.length;i++){
+                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
+                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("There are no Leisure venues available for the selected property.", function() {
@@ -3861,6 +3876,10 @@ function completeRedemption() {
                                                                                                                 endlessScroll: true
                                                                                                         
                                                                                                             });
+                                                                   
+                                                                      for (var i=0;i<getData.outletlist.length;i++){
+                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
+                                                                   }
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
                                                                        navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
@@ -3918,6 +3937,10 @@ function completeRedemption() {
                                                                                                                   template: $("#pl-outletTemplate-b").html(),
                                                                                                                   endlessScroll: true
                                                                                                               });
+                                                                   
+                                                                      for (var i=0;i<getData.outletlist.length;i++){
+                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
+                                                                   }
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
                                                                        navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
@@ -3977,6 +4000,10 @@ function completeRedemption() {
                                                                                                                  template: $("#pl-leisureTemplate").html(),
                                                                                                                  endlessScroll: true
                                                                                                              });
+                                                                   
+                                                                      for (var i=0;i<getData.outletlist.length;i++){
+                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
+                                                                   }
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again. " + getData.statusdesc, function() {
@@ -4031,6 +4058,10 @@ function completeRedemption() {
                                                                                                                    template: $("#pl-leisureTemplate-b").html(),
                                                                                                                    endlessScroll: true
                                                                                                                });
+                                                                   
+                                                                      for (var i=0;i<getData.outletlist.length;i++){
+                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
+                                                                   }
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again. " + getData.statusdesc, function() {
