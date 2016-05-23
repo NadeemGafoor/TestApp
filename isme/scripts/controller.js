@@ -215,7 +215,7 @@ function mapInitializeA() {
         center: latlng,
         panControl: false,
         zoomControl: true,
-        zoom: 12,
+        zoom: 8,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         streetViewControl: false,
         mapTypeControl: true,
@@ -225,10 +225,7 @@ function mapInitializeA() {
     var map = new google.maps.Map(document.getElementById("map_canvas2"),
                                   myOptions);
 
-    setMarkers(map);
-}
-
-function setMarkers(map) {
+   
     var marker, i
     
     for (i = 0; i < propertygeo.length; i++) {  
@@ -238,12 +235,9 @@ function setMarkers(map) {
         var add = spropertygeo[0]
         latlngset = new google.maps.LatLng(lat, long);
          marker = new google.maps.Marker({  
-                                                map: map, title: loan , position: latlngset  
+                                                map: map,  position: latlngset  
                                             });
-          markers.push(marker);
-    marker.setMap(map);     
-    marker.setVisible(true);
-    map.setCenter(marker.position);  
+
         map.setCenter(marker.getPosition())
 
         var content = add   
