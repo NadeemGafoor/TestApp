@@ -2067,6 +2067,10 @@ function completeRedemption() {
                                                                                                                   template: $("#explorelisttemplate").html()
                                                                                                                     
                                                                                                               });
+                                                                      
+                                                                         for (var i=0;i<getData.propertylist.length;i++){
+                                                                       propertygeo[i] = getData.propertylist[i].msgtitle + "#" + getData.propertylist[i].lat + "#" + getData.propertylist[i].lon;
+                                                                   }
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       navigator.notification.alert("Due to a system error, these details cannot be displayed. ", function() {
@@ -3796,6 +3800,10 @@ function completeRedemption() {
                                                                                                                   endlessScroll: true
                                                                                                                     
                                                                                                               });
+                                                                   for (var i=0;i<getData.propertylist.length;i++){
+                                                                       propertygeo[i] = getData.propertylist[i].msgtitle + "#" + getData.propertylist[i].lat + "#" + getData.propertylist[i].lon;
+                                                                   }
+                                                                   
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.propertylist.length === 0) {
                                                                        navigator.notification.alert("Due to a system error, the Property details cannot be displayed. ", function() {
