@@ -164,10 +164,10 @@ function getLocation5() {
 function getLocation6() {
     $("#modalviewmapA").data("kendoMobileModalView").open();
     document.getElementById("map_canvas2").style.backgroundColor = "#e9e5dc";
-    for (i=0;i <= 1;i++) {
+   // for (i=0;i <= 1;i++) {
         document.getElementById("map_canvas2").innerHTML = "";  
         mapInitializeA();
-    }
+   // }
 }
 
 function mapInitialize() {
@@ -219,24 +219,23 @@ function mapInitializeA() {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         streetViewControl: false,
         mapTypeControl: true,
-    }; 
+    };   
 
 
     var map = new google.maps.Map(document.getElementById("map_canvas2"),
                                   myOptions);
-
-    setMarkers(map)
+alert(propertygeo.length);
+    setMarkers(map);
 }
 
 function setMarkers(map) {
     var marker, i
-
+    
     for (i = 0; i < propertygeo.length; i++) {  
         var spropertygeo = propertygeo[i].split("#");
         var lat = spropertygeo[1]
         var long = spropertygeo[2]
         var add = spropertygeo[0]
-
         latlngset = new google.maps.LatLng(lat, long);
 
          marker = new google.maps.Marker({  
@@ -360,7 +359,7 @@ function closeModalMap() {
     $("#modalviewmap").data("kendoMobileModalView").close();
 }    
 
-function closeModalMap() {
+function closeModalMapA() {
     $("#modalviewmapA").data("kendoMobileModalView").close();
 }  
 
