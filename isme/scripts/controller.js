@@ -161,14 +161,21 @@ function getLocation5() {
     }
 }
 
+function getLocation6() {
+    $("#modalviewmapA").data("kendoMobileModalView").open();
+    document.getElementById("map_canvas2").style.backgroundColor = "#e9e5dc";
+    for (i=0;i <= 1;i++) {
+        document.getElementById("map_canvas2").innerHTML = "";  
+        mapInitializeA();
+    }
+}
+
 function mapInitialize() {
     lat = window.localStorage.getItem("lat");
     lon = window.localStorage.getItem("lon");
-    
     var latlng = new google.maps.LatLng(
         lat,
         lon);
-    
     var mapOptions = {
         sensor: true,
         center: latlng,
@@ -178,24 +185,76 @@ function mapInitialize() {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         streetViewControl: false,
         mapTypeControl: true,
-    
     }; 
     
     var map = new google.maps.Map(
         document.getElementById("map_canvas1"),
         mapOptions
         );
-        
     var marker = new google.maps.Marker({
                                             position: latlng,
                                             map: map
                                         });
-    
     markers.push(marker);
     marker.setMap(map);     
     marker.setVisible(true);
     map.setCenter(marker.position);  
     google.maps.event.trigger(map, 'resize');
+}
+
+function mapInitializeA() {
+    lat = window.localStorage.getItem("lat");
+    lon = window.localStorage.getItem("lon");
+    
+    
+     var latlng = new google.maps.LatLng(
+        lat,
+        lon);
+    var myOptions = {
+        sensor: true,
+        center: latlng,
+        panControl: false,
+        zoomControl: true,
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        streetViewControl: false,
+        mapTypeControl: true,
+    }; 
+
+
+    var map = new google.maps.Map(document.getElementById("map_canvas2"),
+                                  myOptions);
+
+    setMarkers(map)
+}
+
+function setMarkers(map) {
+    var marker, i
+
+    for (i = 0; i < propertygeo.length; i++) {  
+        var spropertygeo = propertygeo[i].split("#");
+        var lat = spropertygeo[1]
+        var long = spropertygeo[2]
+        var add = spropertygeo[0]
+
+        latlngset = new google.maps.LatLng(lat, long);
+
+         marker = new google.maps.Marker({  
+                                                map: map, title: loan , position: latlngset  
+                                            });
+        map.setCenter(marker.getPosition())
+
+        var content = add[i]   
+
+        var infowindow = new google.maps.InfoWindow()
+
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+            return function() {
+                infowindow.setContent(content);
+                infowindow.open(map, marker);
+            };
+        })(marker, content, infowindow)); 
+    }
 }
 
 function onSelectTabStrip2(e) {
@@ -301,9 +360,9 @@ function closeModalMap() {
     $("#modalviewmap").data("kendoMobileModalView").close();
 }    
 
-function loadMapView() {
-    $("#modalviewmap").data("kendoMobileModalView").open();
-}    
+function closeModalMap() {
+    $("#modalviewmapA").data("kendoMobileModalView").close();
+}  
 
 function loadFilterView() {
     $("#modalviewfilter").data("kendoMobileModalView").open();
@@ -685,7 +744,8 @@ function completeRedemption() {
     var mversion = "";
     var mdevicestat = "";
     var ctr = 0;
-                           var noalcohollist=[];
+    var noalcohollist = [];
+    var propertygeo = [];
     //    var gurl = "https://ismemobileapp.jumeirah.com";
     // var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
     var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
@@ -2334,6 +2394,7 @@ function completeRedemption() {
                                                                           if (getData.propertylist.length > 0) {
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   //Stop Geo Fence Monitor
+                                                                                  propertygeo[i] = getData.propertylist[i].msgtitle + "#" + getData.propertylist[i].lat + "#" + getData.propertylist[i].lon
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
                                                                                   window.plugins.DGGeofencing.stopMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
@@ -3070,15 +3131,15 @@ function completeRedemption() {
                                             setpass:"",
                                             msgsequence:"",
                                             lifestyle:"",
-                                            noAlcoholStart:function(){
-                                                        $("#profile-alcohol").data("kendoMobileSwitch").check(true);   
+                                            noAlcoholStart:function() {
+                                                $("#profile-alcohol").data("kendoMobileSwitch").check(true);   
                                             },
                                             noAlcohol:function() {
                                                 for (var i = 0;i < noalcohollist.length; i++) {
                                                     if (document.getElementById("selCountry").value === noalcohollist[i]) {
                                                         $("#profile-alcohol").data("kendoMobileSwitch").check(false);
                                                         break;
-                                                   }
+                                                    }
                                                 }
                                             },
         
@@ -5124,6 +5185,7 @@ function completeRedemption() {
                                                     window.localStorage.setItem("op", "1");
                                                 }
                                                 setMemberPreference(y, "RD" + window.localStorage.getItem("oc"));
+                                                showTop("Location added to your favourites");
                                             },
    
                                             
@@ -5454,12 +5516,11 @@ function completeRedemption() {
                        var getData = JSON.parse(data);
 
                        if (getData.statuscode == "000") {
-                           for (i=0; i < getData.preflist.length;i++){
-                               
-                               noalcohollist[i]=getData.preflist[i].code;
+                           for (i=0; i < getData.preflist.length;i++) {
+                               noalcohollist[i] = getData.preflist[i].code;
                            }
                            
-                            hideSpin();
+                           hideSpin();
                        }else {
                            navigator.notification.alert("Unable to display no alcohol country list. Please restart your app and try again. " + getData.statusdesc, function() {
                            }, "isme by Jumeirah", "Dismiss")          
