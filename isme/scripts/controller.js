@@ -1720,7 +1720,7 @@ function completeRedemption() {
                                                                                                             template: $("#outletTemplate").html(),
                                                                                                             endlessScroll: true
                                                                                                         });
-                                                                  
+                                                                  propertygeo = [];
                                                                      for (var i=0;i<getData.outletlist.length;i++){
                                                                        propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
                                                                    }
@@ -1771,6 +1771,7 @@ function completeRedemption() {
                                                                                                               template: $("#outletTemplate-b").html(),
                                                                                                               endlessScroll: true
                                                                                                           });
+                                                                  propertygeo = [];
                                                                      for (var i=0;i<getData.outletlist.length;i++){
                                                                        propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
                                                                    }
@@ -1809,7 +1810,8 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
+                                                                                  // merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
+                                                                                  merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
@@ -1821,7 +1823,7 @@ function completeRedemption() {
                                                                                                              template: $("#leisureTemplate").html(),
                                                                                                              endlessScroll: true
                                                                                                          });
-                                                                  
+                                                                  propertygeo = [];
                                                                      for (var i=0;i<getData.outletlist.length;i++){
                                                                        propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
                                                                    }
@@ -1860,7 +1862,8 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
+                                                                                   // merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
+                                                                                  merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
@@ -1873,7 +1876,7 @@ function completeRedemption() {
                                                                                                                endlessScroll: true
                                                                                                               
                                                                                                            });
-                                                                  
+                                                                  propertygeo = [];
                                                                      for (var i=0;i<getData.outletlist.length;i++){
                                                                        propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
                                                                    }
@@ -2082,7 +2085,7 @@ function completeRedemption() {
                                                                                                                   template: $("#explorelisttemplate").html()
                                                                                                                     
                                                                                                               });
-                                                                      
+                                                                      propertygeo = [];
                                                                          for (var i=0;i<getData.propertylist.length;i++){
                                                                        propertygeo[i] = getData.propertylist[i].msgtitle + "#" + getData.propertylist[i].lat + "#" + getData.propertylist[i].lon;
                                                                    }
@@ -2391,7 +2394,7 @@ function completeRedemption() {
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
-                                            
+                                            propertygeo = [];
                                                        $.ajax({
                                                                   type: "POST",
                                                                   cache: false,
@@ -3815,6 +3818,7 @@ function completeRedemption() {
                                                                                                                   endlessScroll: true
                                                                                                                     
                                                                                                               });
+                                                                   propertygeo = [];
                                                                    for (var i=0;i<getData.propertylist.length;i++){
                                                                        propertygeo[i] = getData.propertylist[i].msgtitle + "#" + getData.propertylist[i].lat + "#" + getData.propertylist[i].lon;
                                                                    }
@@ -3876,7 +3880,7 @@ function completeRedemption() {
                                                                                                                 endlessScroll: true
                                                                                                         
                                                                                                             });
-                                                                   
+                                                                   propertygeo = [];
                                                                       for (var i=0;i<getData.outletlist.length;i++){
                                                                        propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
                                                                    }
@@ -3937,7 +3941,7 @@ function completeRedemption() {
                                                                                                                   template: $("#pl-outletTemplate-b").html(),
                                                                                                                   endlessScroll: true
                                                                                                               });
-                                                                   
+                                                                   propertygeo = [];
                                                                       for (var i=0;i<getData.outletlist.length;i++){
                                                                        propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
                                                                    }
@@ -3983,7 +3987,8 @@ function completeRedemption() {
                                                            url: gurl + "/outletlist.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
+                                                                                     // merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
+                                                                                  merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4000,7 +4005,7 @@ function completeRedemption() {
                                                                                                                  template: $("#pl-leisureTemplate").html(),
                                                                                                                  endlessScroll: true
                                                                                                              });
-                                                                   
+                                                                   propertygeo = [];
                                                                       for (var i=0;i<getData.outletlist.length;i++){
                                                                        propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
                                                                    }
@@ -4041,7 +4046,8 @@ function completeRedemption() {
                                                            url: gurl + "/outletlist.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
+                                                                                     // merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
+                                                                                  merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4058,7 +4064,7 @@ function completeRedemption() {
                                                                                                                    template: $("#pl-leisureTemplate-b").html(),
                                                                                                                    endlessScroll: true
                                                                                                                });
-                                                                   
+                                                                   propertygeo = [];
                                                                       for (var i=0;i<getData.outletlist.length;i++){
                                                                        propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
                                                                    }
