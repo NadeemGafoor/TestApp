@@ -1,4 +1,4 @@
-
+var propertygeo = [];
 
 function FacebookErr() {
     navigator.notification.alert("Please make sure that you have installed the Facebook Mobile app on your smartphone.", function() {
@@ -224,13 +224,13 @@ function mapInitializeA() {
 
     var map = new google.maps.Map(document.getElementById("map_canvas2"),
                                   myOptions);
-alert(propertygeo.length);
+
     setMarkers(map);
 }
 
 function setMarkers(map) {
     var marker, i
-    
+    alert(propertygeo.length);
     for (i = 0; i < propertygeo.length; i++) {  
         var spropertygeo = propertygeo[i].split("#");
         var lat = spropertygeo[1]
@@ -744,7 +744,7 @@ function completeRedemption() {
     var mdevicestat = "";
     var ctr = 0;
     var noalcohollist = [];
-    var propertygeo = [];
+ 
     //    var gurl = "https://ismemobileapp.jumeirah.com";
     // var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
     var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
@@ -2393,7 +2393,8 @@ function completeRedemption() {
                                                                           if (getData.propertylist.length > 0) {
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   //Stop Geo Fence Monitor
-                                                                                  propertygeo[i] = getData.propertylist[i].msgtitle + "#" + getData.propertylist[i].lat + "#" + getData.propertylist[i].lon
+                                                                                  propertygeo[i] = getData.propertylist[i].msgtitle + "#" + getData.propertylist[i].lat + "#" + getData.propertylist[i].lon;
+                                                                                  //alert(propertygeo[i]);
                                                                                   params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
                                                                                   window.plugins.DGGeofencing.stopMonitoringRegion(params, function(result) {
                                                                                   }, function(error) {
