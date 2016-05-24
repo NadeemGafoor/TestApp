@@ -249,6 +249,13 @@ a
     color: #fff;
 }
 
+.km-customstar:before,
+.km-customstar:after
+{
+    content: "\e30c";
+    color: #fff;
+}
+
 *
 {
     font-family: "Gotham-Book";
