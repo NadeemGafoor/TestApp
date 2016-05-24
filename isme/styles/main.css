@@ -231,7 +231,21 @@ a
 .km-customcall:before,
 .km-customcall:after
 {
-    content: "\f095";
+    content: "\e326";
+    color: #fff;
+}
+
+.km-customoenvelope:before,
+.km-customoenvelope:after
+{
+    content: "\e099";
+    color: #fff;
+}
+
+.km-customomap:before,
+.km-customomap:after
+{
+    content: "\e0b4";
     color: #fff;
 }
 
@@ -240,6 +254,8 @@ a
     font-family: "Gotham-Book";
     font-size:98%;
 }
+
+
   
 ul
 {
