@@ -1,4 +1,4 @@
-<div data-role="view" data-reload="true" id="outletdetail-theme"   data-title="" data-layout="pre-layout" data-model="preLogin" data-show="preLogin.showOutletItem" style="background-color:#fff" data-hide="preLogin.destroyoutletdetail" data-after-show="disableBackButton" data-before-hide="enableBackButton">
+<div data-role="view" data-reload="true" id="outletdetail-theme"  data-init="initOutletOfferGroup" data-title="" data-layout="pre-layout" data-model="preLogin" data-show="preLogin.showOutletItem" style="background-color:#fff" data-hide="preLogin.destroyoutletdetail" data-after-show="disableBackButton" data-before-hide="enableBackButton">
       <header data-role="header">
                 <div data-role="navbar">
                     <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff" data-click="preLoginBack">
@@ -44,7 +44,14 @@
 
                 </div>
            </header>
-   
+    <ul data-role="buttongroup" data-index="0" id="myoutlettab" class="button-group">
+        <li>
+            Details
+        </li>
+        <li data-bind="click: showOutletOffers">
+            Rewards 
+        </li>
+     </ul>
         <ul data-role="listview"    style="margin-top:5px;display:none;background-color:#fff" id="outlet-detail-div" >
             <div class="hero-image">
                 <img id="outletimage" src="images\large_logo_placeholder.png" />
@@ -62,7 +69,9 @@
             </li>
             <div></div>
         </ul>
-                
+                  <ul data-role="listview" style="margin-top:0px;display:none" id="outlet-offer" >
+      
+    </ul>
                 <div data-role="footer">
                      <div data-role="tabstrip" style="background-color:#000" data-selected-index="5" data-select="onSelectTabStrip2">
                     <a data-icon="customomap" data-role="button"></a>
@@ -73,3 +82,17 @@
 
 </div>
 
+    <script>
+    function initOutletOfferGroup() {
+        var listviews = this.element.find("ul.km-listview");
+
+        $("#myoutlettab").kendoMobileButtonGroup({
+                                                  select: function (e) {
+                                                      listviews.hide()
+                                                          .eq(e.index)
+                                                          .show();
+                                                  },
+                                                  index: 0
+                                              });
+    }  
+</script>

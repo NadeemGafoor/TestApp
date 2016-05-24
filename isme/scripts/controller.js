@@ -2122,8 +2122,8 @@ function completeRedemption() {
                                                           url: gurl + "/offerListGeo.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   //merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
-                                                                                   merchantcode :window.localStorage.getItem("merchant"),offercode:offercode,offertype:offertype,mdevice:window.localStorage.getItem("mdevicestat"),city:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),segmentcode:segmentcode,customer:window.localStorage.getItem("customer")
+                                                                                   merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                   //merchantcode :window.localStorage.getItem("merchant"),offercode:offercode,offertype:offertype,mdevice:window.localStorage.getItem("mdevicestat"),city:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),segmentcode:segmentcode,customer:window.localStorage.getItem("customer")
                                                               
                                                                                }),
                                                           success: function (data) { 
@@ -2156,6 +2156,8 @@ function completeRedemption() {
                                                           }
                                                       });
                                            },
+        
+        
         
                                            showOfferItem
                                            : function (e) {
