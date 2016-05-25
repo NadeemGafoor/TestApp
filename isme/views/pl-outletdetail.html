@@ -1,4 +1,4 @@
-<div data-role="view" id="pl-outletdetail-theme"    data-title="" data-layout="pl-main-layout" data-model="postLogin" data-reload="true" data-show="postLogin.showOutletItem" style="background-color:#fff" data-hide="postLogin.destroyploutletdetail" data-after-show="disableBackButton" data-before-hide="enableBackButton">
+<div data-role="view" id="pl-outletdetail-theme"  data-init="initplOutletOfferGroup"  data-title="" data-layout="pl-main-layout" data-model="postLogin" data-reload="true" data-show="postLogin.showOutletItem" style="background-color:#fff" data-hide="postLogin.destroyploutletdetail" data-after-show="disableBackButton" data-before-hide="enableBackButton">
 
     <header data-role="header">
         <div data-role="navbar">
@@ -74,7 +74,14 @@
                     </a>
                 </div>
     </header>
-
+  <ul data-role="buttongroup" data-index="0" id="myploutlettab" class="button-group">
+        <li>
+            Details
+        </li>
+        <li data-bind="click: showOutletOffer">
+            All Rewards 
+        </li>
+     </ul>
     <ul data-role="listview"    style="display:none;background-color:#fff" id="pl-outlet-detail-div" >
         <div class="hero-image">
             <img id="pl-outletimage" src="images\large_logo_placeholder.png" />
@@ -86,22 +93,37 @@
                     <a data-icon="customcall" data-role="button"></a>
             <a id="outfav" data-icon="customstar" data-role="button" data-bind="click:setOutletFavourite"></a>
         </div>
-        <li>
+        <li style="background-color:#fff">
             <div id="pl-outlet-short-1"></div>
         </li>
-        <li>
-
-        <li>
+        <li style="background-color:#fff">
             <div id="pl-outlet-long-1">
             </div>
         </li>
-        <div></div>
+     <li style="background-color:#fff;height:80px">
+              
+            </li>
     </ul>
 
 
-
-     
+  <ul data-role="listview" style="margin-top:0px;display:none" id="pl-outlet-offer" >
+      
+    </ul>
       
 
 </div>
 
+    <script>
+    function initplOutletOfferGroup() {
+        var listviews = this.element.find("ul.km-listview");
+
+        $("#myploutlettab").kendoMobileButtonGroup({
+                                                  select: function (e) {
+                                                      listviews.hide()
+                                                          .eq(e.index)
+                                                          .show();
+                                                  },
+                                                  index: 0
+                                              });
+    }  
+</script>
