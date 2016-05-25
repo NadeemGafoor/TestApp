@@ -4171,7 +4171,6 @@ function completeRedemption() {
                                         
                                             showMyOutletOffer:function(){
             showSpin();
-            alert(outletcode);
             $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
