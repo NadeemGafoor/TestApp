@@ -1474,7 +1474,7 @@ function completeRedemption() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        clearEnrolPage();
                                                        return;
-                                                   }
+                                                   }   
                                                }
                                                //alert(window.localStorage.getItem("FBValidated"));
                                                if (window.localStorage.getItem("FBValidated") == "Y") {
@@ -2012,46 +2012,7 @@ function completeRedemption() {
                                                           }
                                                       });
                                            },
-        showMyOutletOffer:function(){
-            $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/mywalletvouchers.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:window.localStorage.getItem("mdevicestat"),outletcode:outletcode
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode == "000") {
-                                                                   if (getData.mywalletvouchers.length > 0) {
-                                                                       $("#mywallet-voucher-list-outlet").kendoMobileListView({
-                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers,serverPaging: true,pageSize: 40}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                                                           template: $("#mywallet-voucherlist-Template-outlet").html(),
-                                                                                                                           endlessScroll: true
-                                                                                                                         
-                                                                                                                       });
-                                                                       hideSpin(); //hide loading popup
-                                                                   }else {
-                                                                       navigator.notification.alert("No Vouchers are currently available in your Wallet for the selected venue.", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
-                                                                       hideSpin(); //hide loading popup
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Due to a system error, your Wallet could not be displayed. Please restart the app and try again.  " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (errormsg) {
-                                                               navigator.notification.alert("Due to a system error, your Wallet cannot be displayed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
-                                                               hideSpin(); //hide loading popup
-                                                           }
-                                                       });  
-        },
+       
         
                                            showOutletOffer
                                            : function () {
@@ -4208,7 +4169,48 @@ function completeRedemption() {
                                                 }
                                             },
                                         
-                                           
+                                            showMyOutletOffer:function(){
+            showSpin();
+            alert(outletcode);
+            $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/mywalletvouchers.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:window.localStorage.getItem("mdevicestat"),outletcode:outletcode
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   if (getData.mywalletvouchers.length > 0) {
+                                                                       $("#mywallet-voucher-list-outlet").kendoMobileListView({
+                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers,serverPaging: true,pageSize: 40}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                                                                                           template: $("#mywallet-voucherlist-Template-outlet").html(),
+                                                                                                                           endlessScroll: true
+                                                                                                                         
+                                                                                                                       });
+                                                                       hideSpin(); //hide loading popup
+                                                                   }else {
+                                                                       navigator.notification.alert("No Vouchers are currently available in your Wallet for the selected venue.", function() {
+                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       hideSpin(); //hide loading popup
+                                                                   }
+                                                               }else {
+                                                                   navigator.notification.alert("Due to a system error, your Wallet could not be displayed. Please restart the app and try again.  " + getData.statusdesc, function() {
+                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Due to a system error, your Wallet cannot be displayed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });  
+        },
                                            
 
                                             showOutletOffer
