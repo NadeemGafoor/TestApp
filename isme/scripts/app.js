@@ -22,7 +22,7 @@ var destroysplashmovie = function() {
     $("#splash-screen").remove();
 };
 var playmovie = function() {  
-window.setTimeout(stopmovie(), 5000);  //hide Loading Popup
+window.setTimeout(stopmovie(), 1000);  //hide Loading Popup
 
 }
 
@@ -38,16 +38,11 @@ var stopmovie = function() {
         // hide the splash screen as soon as the app is ready. otherwise
         // Cordova will wait 5 very long seconds to do it for you.
         //hideNav();      
-        hideNav();      
+        hideNav();        
        
         // Initialize the Backend Services SDK
    
-        if (!bsApiKey || bsApiKey === 'BACKEND_SERVICES_API_KEY') {
-            navigator.notification.alert("Unable to register for Notification Services, you may not be able to receive Notifications from IHG Dining Rewards");
-        } else if ((!googleApiProjectNumber || googleApiProjectNumber === 'GOOGLE_API_PROJECT_NUMBER') && device.platform.toLowerCase() == "android") {
-            navigator.notification.alert("Unable to register for Notification Services, you may not be able to receive Notifications from IHG Dining Rewards");
-        }
-       
+             
         app = new kendo.mobile.Application(document.body, {
                                                platform: 'ios7',
                                                layout:'main-layout',
@@ -69,6 +64,6 @@ var stopmovie = function() {
     function hideNav() {
         setTimeout(function() {
             navigator.splashscreen.hide();  
-        }, 100);  //hide Loading Popup
+        }, 2000);  //hide Loading Popup
     }
 }());
