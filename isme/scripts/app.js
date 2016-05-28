@@ -27,7 +27,6 @@ window.setTimeout(stopmovie(), 5000);  //hide Loading Popup
 }
 
 var stopmovie = function() {
-    alert("Hello"); 
     $("body").data("kendoMobilePane").navigate("views/home.html");      
 }
 
