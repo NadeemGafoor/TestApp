@@ -2010,7 +2010,7 @@ tile-frame-inner
 
 .general-text-line
 {
-    width: 100%;
+    width: auto;
     text-align: left; 
     height: 20px;
     line-height: 20px;
@@ -2338,7 +2338,7 @@ tile-frame-inner
 .home-page-holder
 {
     height:40px;
-    width:100%;
+    width:auto;
     color:#fff;
     font-size:1em;
 }
@@ -2411,7 +2411,7 @@ tile-frame-inner
 
 .pl-logo-image-holder-w{
     background-image:url(../images/home_page_logo_white.png);
-    width:100%;
+    width:auto;
     margin:10px auto;
     background-repeat:no-repeat;
     background-size:auto;

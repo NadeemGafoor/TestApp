@@ -13,7 +13,7 @@
 .pl-logo-top
 {
     height: 450px;
-    width: 100%;
+    width: auto;
     display: block;
     position: relative;
     float: none;

@@ -2161,7 +2161,7 @@ function completeRedemption() {
                                                                                                                 template: $("#offerListTemplate").html(),
                                                                                                                 endlessScroll: true,
                                                                        filterable: {
-                                       autoFilter: true,
+                                       autoFilter: false,
                                        placeholder:"Search By Reward",                                         
                                        field: "itemname",
                                        operator: "contains",
