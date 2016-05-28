@@ -21,14 +21,14 @@ var enableBackButton = function() {
 var destroysplashmovie = function() {
     $("#splash-screen").remove();
 };
-var playmovie = function() {  
-setTimeout(stopmovie(), 1000);  //hide Loading Popup
 
+function playmovie() {  
+setTimeout(function() {
+           $("body").data("kendoMobilePane").navigate("views/home.html");
+        }, 1000);  //hide Loading Popup
 }
 
-var stopmovie = function() {
-    $("body").data("kendoMobilePane").navigate("views/home.html");      
-}
+
 
 (function () {
     // store a reference to the application object that will be created
