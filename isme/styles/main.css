@@ -193,27 +193,27 @@ a
 .km-customfav:before,
 .km-customfav:after
 {
-    content: "\e047";
+    content: "\f219";
 }
 
 .km-customhistory:before,
 .km-customhistory:after
 {
-    content: "\e01d";
+    content: "\f1da";
 }
 
 
 .km-customreward:before,
 .km-customreward:after
 {
-    content: "\e30b";
+    content: "\f06b";
 }
 
 
 .km-customenvelope:before,
 .km-customenvelope:after
 {
-    content: "\e09a";
+    content: "\f187";
 }
 
 .km-customlocation:before,
@@ -226,34 +226,27 @@ a
 .km-customsetting:before,
 .km-customsetting:after
 {
-    content: "\e0a4";
+    content: "\f0ad";
 }
 
 .km-customcall:before,
 .km-customcall:after
 {
-    content: "\e326";
-    color: #fff;
-}
-
-.km-customoenvelope:before,
-.km-customoenvelope:after
-{
-    content: "\e099";
+    content: "\f095";
     color: #fff;
 }
 
 .km-customomap:before,
 .km-customomap:after
 {
-    content: "\e0b4";
+    content: "\f041";
     color: #fff;
 }
 
 .km-customstar:before,
 .km-customstar:after
 {
-    content: "\e30c";
+    content: "\f005";
 }
 
 *
