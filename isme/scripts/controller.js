@@ -4416,7 +4416,16 @@ function completeRedemption() {
                                                                        $("#mywallet-voucher-list").kendoMobileListView({
                                                                                                                            dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers,serverPaging: true,pageSize: 40}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
                                                                                                                            template: $("#mywallet-voucherlist-Template").html(),
-                                                                                                                           endlessScroll: true
+                                                                                                                           endlessScroll: true,
+                                                                       filterable: {
+                                       autoFilter: false,
+                                       placeholder:"Search By Reward",                                         
+                                       field: "itemname",
+                                       operator: "contains",
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 40
+                                   }
                                                                                                                          
                                                                                                                        });
                                                                        hideSpin(); //hide loading popup
