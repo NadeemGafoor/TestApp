@@ -1740,9 +1740,18 @@ function completeRedemption() {
                                                                   //alert(getData.outletlist[0].imageurll);
                                                                   $("#outlet-list").kendoMobileListView({
                                                                              
-                                                                                                            dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),
+                                                                                                            dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                             template: $("#outletTemplate").html(),
-                                                                                                            endlessScroll: true
+                                                                       filterable: {
+                                       autoFilter: true,
+                                       placeholder:"Search By Restaurant",                                         
+                                       field: "outletname",
+                                       operator: "contains",
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 40,
+                                         endlessScroll: true                                 
+                                   }
                                                                                                         });
                                                                   propertygeo = [];
                                                                      for (var i=0;i<getData.outletlist.length;i++){
@@ -1791,9 +1800,17 @@ function completeRedemption() {
                                                                   //fill the outlet template
                                                                   $("#outlet-list-b").kendoMobileListView({
                                                                              
-                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),
+                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                               template: $("#outletTemplate-b").html(),
-                                                                                                              endlessScroll: true
+                                                                       filterable: {
+                                       autoFilter: true,
+                                       placeholder:"Search By Spa & Leisure",                                         
+                                       field: "outletname",
+                                       operator: "contains",
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 40
+                                   }
                                                                                                           });
                                                                   propertygeo = [];
                                                                      for (var i=0;i<getData.outletlist.length;i++){
@@ -2157,11 +2174,10 @@ function completeRedemption() {
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
                                                                   $("#offer-list-view").kendoMobileListView({
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.offerlist,serverPaging: true,pageSize: 40}),
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
                                                                                                                 template: $("#offerListTemplate").html(),
-                                                                                                                endlessScroll: true,
                                                                        filterable: {
-                                       autoFilter: false,
+                                       autoFilter: true,
                                        placeholder:"Search By Reward",                                         
                                        field: "itemname",
                                        operator: "contains",
@@ -3717,9 +3733,8 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
                                                                    $("#pl-offer-list-view").kendoMobileListView({
-                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offerlist,serverPaging: true,pageSize: 40}),
+                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
                                                                                                                     template: $("#pl-offerListTemplate").html(),
-                                                                                                                    endlessScroll: true,
                                                                        filterable: {
                                        autoFilter: true,
                                        placeholder:"Search By Reward",                                         
@@ -3727,7 +3742,7 @@ function completeRedemption() {
                                        operator: "contains",
                                        serverPaging: true,
                                        serverSorting: true,
-                                       pageSize: 25
+                                       pageSize: 40
                                    }
                                                                                                                     
                                                                                                                 });
@@ -3920,9 +3935,18 @@ function completeRedemption() {
                                                                    //fill the outlet template
                                                                    $("#pl-outlet-list").kendoMobileListView({
                                                                              
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),//serverPaging:true,pageSize:25
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist}),//serverPaging:true,pageSize:25
                                                                                                                 template: $("#pl-outletTemplate").html(),
-                                                                                                                endlessScroll: true
+                                                                       filterable: {
+                                       autoFilter: true,
+                                       placeholder:"Search By Restaurant",                                         
+                                       field: "outletname",
+                                       operator: "contains",
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 40,
+                                         endlessScroll: true                                 
+                                   }
                                                                                                         
                                                                                                             });
                                                                    propertygeo = [];
@@ -3982,9 +4006,18 @@ function completeRedemption() {
                                                                    //fill the outlet template
                                                                    $("#pl-outlet-list-b").kendoMobileListView({
                                                                              
-                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),
+                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                                   template: $("#pl-outletTemplate-b").html(),
-                                                                                                                  endlessScroll: true
+                                                                       filterable: {
+                                       autoFilter: true,
+                                       placeholder:"Search By Spa & Leisure",                                         
+                                       field: "outletname",
+                                       operator: "contains",
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 40,
+                                         endlessScroll: true                                 
+                                   }
                                                                                                               });
                                                                    propertygeo = [];
                                                                       for (var i=0;i<getData.outletlist.length;i++){
@@ -4414,11 +4447,10 @@ function completeRedemption() {
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.mywalletvouchers.length > 0) {
                                                                        $("#mywallet-voucher-list").kendoMobileListView({
-                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers,serverPaging: true,pageSize: 40}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
                                                                                                                            template: $("#mywallet-voucherlist-Template").html(),
-                                                                                                                           endlessScroll: true,
                                                                        filterable: {
-                                       autoFilter: false,
+                                       autoFilter: true,
                                        placeholder:"Search By Reward",                                         
                                        field: "itemname",
                                        operator: "contains",
