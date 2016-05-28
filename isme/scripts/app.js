@@ -22,7 +22,7 @@ var destroysplashmovie = function() {
     $("#splash-screen").remove();
 };
 var playmovie = function() {  
-window.setTimeout(stopmovie(), 1000);  //hide Loading Popup
+setTimeout(stopmovie(), 1000);  //hide Loading Popup
 
 }
 
