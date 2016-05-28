@@ -2159,7 +2159,16 @@ function completeRedemption() {
                                                                   $("#offer-list-view").kendoMobileListView({
                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.offerlist,serverPaging: true,pageSize: 40}),
                                                                                                                 template: $("#offerListTemplate").html(),
-                                                                                                                endlessScroll: true
+                                                                                                                endlessScroll: true,
+                                                                       filterable: {
+                                       autoFilter: true,
+                                       placeholder:"Search By Reward",                                         
+                                       field: "itemname",
+                                       operator: "contains",
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 40
+                                   }
                                                                                                                     
                                                                                                             });
                                                                   hideSpin(); //hide loading popup
@@ -3710,7 +3719,16 @@ function completeRedemption() {
                                                                    $("#pl-offer-list-view").kendoMobileListView({
                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.offerlist,serverPaging: true,pageSize: 40}),
                                                                                                                     template: $("#pl-offerListTemplate").html(),
-                                                                                                                    endlessScroll: true
+                                                                                                                    endlessScroll: true,
+                                                                       filterable: {
+                                       autoFilter: true,
+                                       placeholder:"Search By Reward",                                         
+                                       field: "itemname",
+                                       operator: "contains",
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 25
+                                   }
                                                                                                                     
                                                                                                                 });
                                                                    hideSpin(); //hide loading popup
