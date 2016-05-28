@@ -22,9 +22,7 @@ var destroysplashmovie = function() {
     $("#splash-screen").remove();
 };
 var playmovie = function() {
-    var myVideo = document.getElementById("video1"); 
-    myVideo.play(); 
-setTimeout(stopmovie, 10000);  //hide Loading Popup
+setTimeout(stopmovie, 5000);  //hide Loading Popup
 }
 
 var stopmovie = function() {
@@ -39,7 +37,7 @@ var stopmovie = function() {
         // hide the splash screen as soon as the app is ready. otherwise
         // Cordova will wait 5 very long seconds to do it for you.
         //hideNav();      
-        hideNav();      
+        //hideNav();      
        
         // Initialize the Backend Services SDK
    
