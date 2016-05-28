@@ -62,7 +62,6 @@
     "cordova-plugin-geolocation",
     "cordova-plugin-inappbrowser",
     "cordova-plugin-network-information",
-    "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
     "cordova-plugin-whitelist",
     "de.appplant.cordova.plugin.local-notification@0.8.4",

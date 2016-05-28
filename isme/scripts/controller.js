@@ -3733,7 +3733,7 @@ function completeRedemption() {
                                                        });
                                             },
                                             showOutletItem
-                                            : function (e) {
+                                            : function (e) {  
                                                 changeCard();
                                                 showSpin();
                                                 outletcode = e.view.params.od;
@@ -3752,7 +3752,7 @@ function completeRedemption() {
 
                                                                if (getData.statuscode == "000") {
                                                                    m = getData.outletlist[0].geolocation.split(",");  
-                                                                                                                                                             
+                                                                                                                                                              
                                                                    lat = m[0];
                                                                    lon = m[1];
                                                                    document.getElementById("pl-outlet-detail-div").style.display = "block";

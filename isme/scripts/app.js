@@ -13,6 +13,30 @@ var currentDevice;
 var emptyFunc = function () { };
 var disableBackButton = function() { document.addEventListener("backbutton", emptyFunc, false); };
 var enableBackButton = function() { document.removeEventListener("backbutton", emptyFunc); };
+var destroysplashmovie=function(){ $("#splash-screen").remove();};
+var playmovie = function(){
+    var myVideo = document.getElementById("video1"); 
+    myVideo.play();
+    setTimeout(function() {
+            stopmovie();
+        }, 10000);  //hide Loading Popup
+}
+
+
+var stopmovie = function(){
+   function loadBenefits() {
+    window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'up',
+                                                                     'href': '#views/home.html'
+                                                                 }), 500);
+}
+}
+
 
 (function () {
     // store a reference to the application object that will be created

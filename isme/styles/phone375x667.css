@@ -2,6 +2,11 @@
 
     /* Styles -Samsung & iPhone 6 */
 
+.dim-splash{
+    height:667;
+    width:375;
+}
+
 .km-ios7 .km-navbar .km-button .km-text
 {
     color: #fff;
