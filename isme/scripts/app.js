@@ -25,16 +25,8 @@ var playmovie = function(){
 
 var stopmovie = function(){
    function loadBenefits() {
-    window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                     "duration"         :  500, // in milliseconds (ms), default 400
-                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                     'direction': 'up',
-                                                                     'href': '#views/home.html'
-                                                                 }), 500);
-}
+       $("body").data("kendoMobilePane").navigate("views/home.html");      
+   
 }
 
 
@@ -59,7 +51,7 @@ var stopmovie = function(){
         app = new kendo.mobile.Application(document.body, {
                                                platform: 'ios7',
                                                layout:'main-layout',
-                                               initial: "views/home.html",
+                                               initial: "views/splashMovie.html",
                                                useNativeScrolling: false
                                            });
         
