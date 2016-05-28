@@ -1750,7 +1750,7 @@ function completeRedemption() {
                                        serverPaging: true,
                                        serverSorting: true,
                                        pageSize: 40,
-                                         endlessScroll: true                                 
+                                       endlessScroll: true                                 
                                    }
                                                                                                         });
                                                                   propertygeo = [];
@@ -1804,12 +1804,13 @@ function completeRedemption() {
                                                                                                               template: $("#outletTemplate-b").html(),
                                                                        filterable: {
                                        autoFilter: true,
-                                       placeholder:"Search By Spa & Leisure",                                         
+                                       placeholder:"Search By Restaurant",                                         
                                        field: "outletname",
                                        operator: "contains",
                                        serverPaging: true,
                                        serverSorting: true,
-                                       pageSize: 40
+                                       pageSize: 40,
+                                                                           endlessScroll: true      
                                    }
                                                                                                           });
                                                                   propertygeo = [];
@@ -1860,9 +1861,18 @@ function completeRedemption() {
                                                               if (getData.statuscode === "000") {
                                                                   $("#leisure-list").kendoMobileListView({
                                                                              
-                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),
+                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                              template: $("#leisureTemplate").html(),
-                                                                                                             endlessScroll: true
+                                                                       filterable: {
+                                       autoFilter: true,
+                                       placeholder:"Search By Spa & Leisure",                                         
+                                       field: "outletname",
+                                       operator: "contains",
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 40,
+                                                                           endlessScroll: true      
+                                   }
                                                                                                          });
                                                                   propertygeo = [];
                                                                      for (var i=0;i<getData.outletlist.length;i++){
@@ -1912,10 +1922,18 @@ function completeRedemption() {
                                                               if (getData.statuscode === "000") {
                                                                   $("#leisure-list-b").kendoMobileListView({
                                                                              
-                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),
+                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                                template: $("#leisureTemplate-b").html(),
-                                                                                                               endlessScroll: true
-                                                                                                              
+                                                                       filterable: {
+                                       autoFilter: true,
+                                       placeholder:"Search By Spa & Leisure",                                         
+                                       field: "outletname",
+                                       operator: "contains",
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 40,
+                                                                           endlessScroll: true      
+                                   }
                                                                                                            });
                                                                   propertygeo = [];
                                                                      for (var i=0;i<getData.outletlist.length;i++){
@@ -4079,9 +4097,18 @@ function completeRedemption() {
                                                                    //fill the outlet template
                                                                    $("#pl-leisure-list").kendoMobileListView({
                                                                              
-                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),
+                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                                  template: $("#pl-leisureTemplate").html(),
-                                                                                                                 endlessScroll: true
+                                                                       filterable: {
+                                       autoFilter: true,
+                                       placeholder:"Search By Spa & Leisure",                                         
+                                       field: "outletname",
+                                       operator: "contains",
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 40,
+                                                                           endlessScroll: true      
+                                   }
                                                                                                              });
                                                                    propertygeo = [];
                                                                       for (var i=0;i<getData.outletlist.length;i++){
@@ -4138,9 +4165,18 @@ function completeRedemption() {
                                                                    //fill the outlet template
                                                                    $("#pl-leisure-list-b").kendoMobileListView({
                                                                              
-                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist,serverPaging: true,pageSize: 40}),
+                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                                    template: $("#pl-leisureTemplate-b").html(),
-                                                                                                                   endlessScroll: true
+                                                                       filterable: {
+                                       autoFilter: true,
+                                       placeholder:"Search By Spa & Leisure",                                         
+                                       field: "outletname",
+                                       operator: "contains",
+                                       serverPaging: true,
+                                       serverSorting: true,
+                                       pageSize: 40,
+                                                                           endlessScroll: true      
+                                   }
                                                                                                                });
                                                                    propertygeo = [];
                                                                       for (var i=0;i<getData.outletlist.length;i++){
@@ -4456,7 +4492,8 @@ function completeRedemption() {
                                        operator: "contains",
                                        serverPaging: true,
                                        serverSorting: true,
-                                       pageSize: 40
+                                       pageSize: 40,
+                                                                           endlessScroll: true   
                                    }
                                                                                                                          
                                                                                                                        });
