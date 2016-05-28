@@ -25,7 +25,7 @@ var destroysplashmovie = function() {
 function playmovie() {  
 setTimeout(function() {
            $("body").data("kendoMobilePane").navigate("views/home.html");
-        }, 1000);  //hide Loading Popup
+        }, 2000);  //hide Loading Popup
 }
 
 
