@@ -24,7 +24,6 @@ var playmovie = function(){
 
 
 var stopmovie = function(){
-   function loadBenefits() {
        $("body").data("kendoMobilePane").navigate("views/home.html");      
    
 }
