@@ -222,11 +222,17 @@ a
     content: "\f041";
 }
 
+.km-customoenvelope:before,
+.km-customoenvelope:after
+{
+    content: "\f0e0";
+        color: #fff;
+}
 
 .km-customsetting:before,
 .km-customsetting:after
 {
-    content: "\f0ad";
+    content: "\f0ad";  
 }
 
 .km-customcall:before,
@@ -240,7 +246,7 @@ a
 .km-customomap:after
 {
     content: "\f041";
-    color: #fff;
+        color: #fff;
 }
 
 .km-customstar:before,
