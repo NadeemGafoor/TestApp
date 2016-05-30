@@ -1,68 +1,62 @@
 <!--Explore View-->
 <div data-role="view" data-layout="pl-main-layout" id="pl-home-view-plus" data-model="postLogin" data-show="postLogin.getSummaryplus"  data-hide="postLogin.destroyplhomeplus" data-after-show="disableBackButton" data-before-hide="enableBackButton">
-     <div data-role="navbar" style="background-color:transparent !important">
-            <a  data-role="button" data-align="left" data-rel="drawer"  data-click-on="down" href="#appdrawer">
-                <i class="fa fa-reorder fa-lg cwhite"></i>
-            </a>
-            <span style="color:#fff" id="main-title-p"></span>
+    <div data-role="navbar" style="background-color:transparent !important">
+        <a  data-role="button" data-align="left" data-rel="drawer"  data-click-on="down" href="#appdrawer">
+            <i class="fa fa-reorder fa-lg cwhite"></i>
+        </a>
+        <span style="color:#fff" id="main-title-p"></span>
+    </div>
+
+    <div class="share-menu-line-3">
+        <div class="share-menu-line-3-a" style="text-align:left" id="profile-number-p"></div>
+        <div class="share-menu-line-3-a" style="text-align:right" id="profile-type-p"></div>
+    </div>
+    <div class="pl-logo-top">
+        <div class="pl-logo-image-holder-w"></div>
+        <div class="share-menu-line-3">
+            <div class="share-menu-line-3-a" style="text-align:center" id="main-title-p"></div>
         </div>
-    
-      <div class="share-menu-line-3">
-                        <div class="share-menu-line-3-a" style="text-align:left" id="profile-number-p"></div>
-                        <div class="share-menu-line-3-a" style="text-align:right" id="profile-type-p"></div>
-                </div>
-        <div class="pl-logo-top">
-            <div class="pl-logo-image-holder-w"></div>
-   <div class="share-menu-line-3">
-                        <div class="share-menu-line-3-a" style="text-align:center" id="main-title-p"></div>
-                </div>
-            
-                                <div class="share-menu-line-1-pl">
-                        <div class="share-menu-line-1-pl" style="height:10px">&nbsp;</div>
-                        <div class="button-frame-inline-round-menu">
-                            <a data-role="button" data-click="loadMyReward" style="background:transparent !important">
-                                <i class="fa fa-mobile fa-2x"></i>
-                            </a><br>My Rewards
-                        </div>
-                        <div class="button-frame-inline-round-menu">
-                            <a  data-role="button" data-click="loadMyBenefit" style="background:transparent !important">
-                                <i class="fa fa-check-square-o fa-2x"></i>
-                            </a><br>My Benefits
-                        </div>
-                        <div class="button-frame-inline-round-menu">
-                            <a data-role="button" data-click="loadMyMessages" style="background:transparent !important">
-                                <i class="fa fa-envelope fa-2x"></i>
-                            </a><br>My Messages
-                        </div>
-                    </div>
-                    <div class="share-menu-line-1-pl" style="height:40px">&nbsp;</div>
-                    <div class="share-menu-line-1-pl">
-                        <div class="button-frame-inline-round-menu">
-                            <a data-role="button" data-click="loadHistory"style="background:transparent !important">
-                                <i class="fa fa-history fa-2x"></i>
-                            </a><br>My History
-                        </div>
-                        <div class="button-frame-inline-round-menu">
-                            <a  data-role="button" data-click="loadSetting" style="background:transparent !important">
-                                <i class="fa fa-gear fa-2x"></i>
-                            </a><br>My Preferences
-                        </div>
-                        <div class="button-frame-inline-round-menu">
-                            <a data-role="button" data-click="loadFavorites" style="background:transparent !important">
-                                <i class="fa fa-star fa-2x "></i>
-                            </a><br>My Favourites
-                        </div>
-                    </div>
-            
-            
-            <div class="share-menu-line-3">
-                        <div class="share-menu-line-3-a" style="text-align:center">I have 15 Rewards in my Wallet</div>
-                        <div class="share-menu-line-3-a" style="text-align:center">My next Reward expires in 10 days</div>
-                </div>
+
+        <div class="share-menu-line-1-pl">
+            <div class="share-menu-line-1-pl" style="height:10px">&nbsp;</div>
+            <div class="button-frame-inline-round-menu">
+                <a data-role="button" data-click="loadMyReward" style="background:transparent !important">
+                    <i class="fa fa-mobile fa-2x"></i>
+                </a><br>Bars & Nightlife
+            </div>
+            <div class="button-frame-inline-round-menu">
+                <a  data-role="button" data-click="loadMyBenefit" style="background:transparent !important">
+                    <i class="fa fa-glass fa-2x"></i>
+                </a><br>Dining
+            </div>
+            <div class="button-frame-inline-round-menu">
+                <a data-role="button" data-click="loadMyMessages" style="background:transparent !important">
+                    <i class="fa fa-leaf fa-2x"></i>
+                </a><br>Spa & Wellness
+            </div>
         </div>
-        <div class="button-frame-login">
-            <a data-click="enterPinForRedemption" data-role="button">Apply Discount</a>
+        <div class="share-menu-line-1-pl" style="height:40px">&nbsp;</div>
+        <div class="share-menu-line-1-pl">
+            <div class="button-frame-inline-round-menu">
+                <a data-role="button" data-click="loadHistory"style="background:transparent !important">
+                    <i class="fa fa-support fa-2x"></i>
+                </a><br>Leisure
+            </div>
+            <div class="button-frame-inline-round-menu">
+                <a data-role="button" data-click="loadFavorites" style="background:transparent !important">
+                    <i class="fa fa-hotel fa-2x "></i>
+                </a><br>Hotel Stay
+            </div>
         </div>
-       
+
+        <div class="share-menu-line-3">
+            <div class="share-menu-line-3-a" style="text-align:center">I have 15 Rewards in my Wallet</div>
+            <div class="share-menu-line-3-a" style="text-align:center">My next Reward expires in 10 days</div>
+        </div>
+    </div>
+    <div class="button-frame-login">
+        <a data-click="enterPinForRedemption" data-role="button">Apply Discount</a>
+    </div>
+
 </div>
 

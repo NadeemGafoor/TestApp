@@ -650,11 +650,9 @@ function postLoginBack() {
         elems[i].style.textAlign = "center";
     }
     
-    if (window.localStorage.getItem("segmentcode")==="1000") {
-        $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-    }else {
+
         $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-    }                                                               
+                                                               
     //$("body").data("kendoMobilePane").navigate("#:back");
 }
 
@@ -2592,11 +2590,9 @@ function completeRedemption() {
                                                        homecountryname = window.localStorage.getItem("homecountryname");
                                                        residentcityname = window.localStorage.getItem("residentcityname");
                                                    
-                                                       if (window.localStorage.getItem("segmentcode")==="1000") {
-                                                           $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                                                       }else {
+                                                    
                                                            $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                       }                                                                  
+                                                                                                                  
                                                    } else {
                                                        outletcode = "";
                                                        brandcode = "";
@@ -2907,11 +2903,9 @@ function completeRedemption() {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password);
                                                                       window.localStorage.setItem("loggedin", "1");                                                                   
-                                                                      if (window.localStorage.getItem("segmentcode")==="1000") {
-                                                                          $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                                                                      }else {
+                                                                   
                                                                           $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                                      }
+                                                      
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                               }else {
@@ -2967,11 +2961,9 @@ function completeRedemption() {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                       window.localStorage.setItem("loggedin", "1");
-                                                                      if (window.localStorage.getItem("segmentcode")==="1000") {
-                                                                          $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                                                                      }else {
+                                                  
                                                                           $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                                      }                                                                  
+                                                                                                                                
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       $("body").data("kendoMobilePane").navigate("views/setpin.html");  
@@ -5365,11 +5357,9 @@ function completeRedemption() {
                                                     elems[i].style.zIndex = 10000;
                                                     elems[i].style.textAlign = "center";
                                                 }
-                                                if (window.localStorage.getItem("segmentcode")==="1000") {
-                                                    $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                                                }else {
+                                              
                                                     $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                }
+                                          
                                                 //$("body").data("kendoMobilePane").navigate("#:back");
                                             },
                                             setOutletFavourite:function() {
@@ -5470,17 +5460,7 @@ function completeRedemption() {
         }
         window.localStorage.setItem("errorPreference", "1");
         window.localStorage.setItem("issaved", "1");
-        if (window.localStorage.getItem("segmentcode")==="1000") {
-            window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                             "duration"         :  500, // in milliseconds (ms), default 400
-                                                                             "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                             "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                             "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                             'direction': 'up',
-                                                                             'href': '#views/pl-home.html'
-                                                                         }), 500);                                                                 
-        }else {
+      
             window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                              "duration"         :  500, // in milliseconds (ms), default 400
                                                                              "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -5490,7 +5470,7 @@ function completeRedemption() {
                                                                              'direction': 'up',
                                                                              'href': '#views/pl-homeplus.html'
                                                                          }), 500);                                                                 
-        }    
+      
     }
     
     function redeemDiscount() {
@@ -5650,11 +5630,9 @@ function completeRedemption() {
                            navigator.notification.alert("PIN has been successfully set", function() {
                            }, "isme by Jumeirah", "Dismiss")         
                            if (y === "0") {
-                               if (window.localStorage.getItem("segmentcode")==="1000") {
-                                   $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-                               }else {
+                             
                                    $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                               }                                                                    
+                                                                                                 
                                                                       
                                hideSpin(); //hide loading popup
                            }else {
@@ -6937,11 +6915,9 @@ function completeRedemption() {
             elems[i].style.textAlign = "center";
         }
 
-        if (window.localStorage.getItem("segmentcode")==="1000") {
-            $("body").data("kendoMobilePane").navigate("views/pl-home.html");                                                                       
-        }else {
+    
             $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-        }
+
         hideSpin();
     }
     //$("body").data("kendoMobilePane").navigate("#:back");
