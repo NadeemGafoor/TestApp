@@ -5024,6 +5024,7 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
+                                                                    document.getElementById("ytd-spend").innerHTML = "My isme by Jumeirah  spend:" + window.localStorage.getItem("spendmb");
                                                                    if (getData.historylist.length > 0) {
                                                                        $("#pl-history-list").kendoMobileListView({
                                                                                                                      dataSource: kendo.data.DataSource.create({data: getData.historylist}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
