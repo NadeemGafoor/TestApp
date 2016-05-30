@@ -725,9 +725,9 @@ img
 {
     padding-top: 10px;
     margin: auto;
-    height: 80px;
-    line-height: 70px;
-    width: 80px;
+    height: 60px;
+    line-height: 45px;
+    width: 60px;
     display: block;
     text-align: center;
     -webkit-border-radius: 70px;
@@ -742,9 +742,9 @@ img
 .button-frame-inline-round .km-button
 {
     margin: auto;
-    height: 70px;
-    width: 70px;
-    line-height:70px;
+    height: 60px;
+    width: 60px;
+    line-height:45px;
     display: block;
     text-align: center;
     -webkit-border-radius: 100px;
@@ -2153,7 +2153,7 @@ tile-frame-inner
 
 .strip-item-a
 {
-    line-height: 25px;
+    line-height: 20px;
     position: relative;
     float: left;
     background-color: #000;
