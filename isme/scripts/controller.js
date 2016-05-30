@@ -7339,9 +7339,9 @@ function completeRedemption() {
     function spendBarPlus() {
         firsttime = "1"; 
         showsummary = "1";                 
-        if (window.localStorage.getItem("fbid") != "99") {
-            document.getElementById("fblink-show-p").style.display = "none";
-        }
+     //   if (window.localStorage.getItem("fbid") != "99") {
+    //      document.getElementById("fblink-show-p").style.display = "none";
+   //     }
 
         window.localStorage.setItem("selfredeem", ""); 
         document.getElementById("main-title-p").innerHTML = "Welcome, " + window.localStorage.getItem("firstname");

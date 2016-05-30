@@ -717,7 +717,8 @@ img
     width: 33%;
     position: relative;
     float: left;
-    color: #fff
+    color: #fff;
+    text-align:center;
 }
 
 .button-frame-inline-round-menu .km-button
@@ -2141,6 +2142,26 @@ tile-frame-inner
     z-index:10000;
 }
 
+.strip-item
+{
+    height: 20px;
+    position: relative;
+    float: none;
+    width: 100%;
+    border: 0px;
+}
+
+.strip-item-a
+{
+    line-height: 25px;
+    position: relative;
+    float: left;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold; 
+}
+
+
 .share-menu-line-3 a
 {
     background-color: transparent !important;
@@ -2148,7 +2169,7 @@ tile-frame-inner
 
 .share-menu-line-4
 {
-    height: 25px;
+    height: 20px;
     position: relative;
     float: none;
     width: 100%;
@@ -2416,7 +2437,7 @@ tile-frame-inner
     background-repeat:no-repeat;
     background-size:auto;
     background-position:center;
-    background-size:50%;
+    background-size:40%;
 }
 
 .progress-bar-holder
