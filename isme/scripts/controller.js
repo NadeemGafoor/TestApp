@@ -7359,23 +7359,30 @@ function completeRedemption() {
             }
             
             
-         elems = document.getElementsByClassName('strip-item-a');
+        elems = document.getElementsByClassName('strip-item-a');
         for (i = 0; i < elems.length; i++) {
             elems[i].style.backgroundColor="#fff";
                elems[i].style.color="#000";
         }
             
-               elems = document.getElementsByClassName('cwhite');
+        elems = document.getElementsByClassName('cwhite');
         for (i = 0; i < elems.length; i++) {
                elems[i].style.color="#000";
         }
             
             
-                       elems = document.getElementsByClassName('searchbox');
+        elems = document.getElementsByClassName('searchbox');
         for (i = 0; i < elems.length; i++) {
                elems[i].style.border="1px solid #999";
         }
         
+        elems = document.getElementsByClassName('pl-logo-image-holder-w');
+        for (i = 0; i < elems.length; i++) {
+            alert(elems.length);
+               elems[i].style.backgroundImage="url(../images/home_page_logo_black.png)";
+        }
+           
+            
         }else {
             document.getElementById("profile-type-p").innerHTML = "isme Elite";
         }
