@@ -7350,11 +7350,32 @@ function completeRedemption() {
         document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
        // document.getElementById("profile-init-p").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
         if (window.localStorage.getItem("segmentcode") === "1000") {
-            alert("heello");
             document.getElementById("profile-type-p").innerHTML = "isme ";
-            document.getElementsById("pl-home-view-plus").style.backgroundColor="#fff";
-            document.getElementsByClassName("strip-item-a").style.backgroundColor="#fff";
-            document.getElementsByClassName("strip-item-a").style.color="#000";
+            elems = document.getElementById("pl-home-view-plus");
+            
+            elclass=elems.getElementsByClassName('km-content');
+            for (i = 0; i < elclass.length; i++) {
+                elclass[i].style.backgroundColor="#fff";
+            }
+            
+            
+         elems = document.getElementsByClassName('strip-item-a');
+        for (i = 0; i < elems.length; i++) {
+            elems[i].style.backgroundColor="#fff";
+               elems[i].style.color="#000";
+        }
+            
+               elems = document.getElementsByClassName('cwhite');
+        for (i = 0; i < elems.length; i++) {
+               elems[i].style.color="#000";
+        }
+            
+            
+                       elems = document.getElementsByClassName('searchbox');
+        for (i = 0; i < elems.length; i++) {
+               elems[i].style.border="1px solid #999";
+        }
+        
         }else {
             document.getElementById("profile-type-p").innerHTML = "isme Elite";
         }
