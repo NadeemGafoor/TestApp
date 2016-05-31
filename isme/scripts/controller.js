@@ -7350,7 +7350,11 @@ function completeRedemption() {
         document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
        // document.getElementById("profile-init-p").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
         if (window.localStorage.getItem("segmentcode") === "1000") {
+            alert("heello");
             document.getElementById("profile-type-p").innerHTML = "isme ";
+            document.getElementsById("pl-home-view-plus").style.backgroundColor="#fff";
+            document.getElementsByClassName("strip-item-a").style.backgroundColor="#fff";
+            document.getElementsByClassName("strip-item-a").style.color="#000";
         }else {
             document.getElementById("profile-type-p").innerHTML = "isme Elite";
         }
@@ -7379,7 +7383,11 @@ function completeRedemption() {
         document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
         document.getElementById("profile-init").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
         if (window.localStorage.getItem("segmentcode") === "1000") {
+            alert("Hello");
             document.getElementById("profile-type").innerHTML = "isme ";
+            document.getElementsById("pl-home-view-plus").style.backgroundColor="#fff";
+            document.getElementsByClassName("strip-item-a").style.backgroundColor="#fff";
+            document.getElementsByClassName("strip-item-a").style.color="#000";
         }else {
             document.getElementById("profile-type").innerHTML = "isme Elite";
         }
