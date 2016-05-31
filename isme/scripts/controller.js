@@ -7382,6 +7382,11 @@ function completeRedemption() {
         }
            
             
+               elems = document.getElementsByClassName('button-frame-inline-round-menu.km-button');
+        for (i = 0; i < elems.length; i++) {
+               elems[i].style.border="1px solid #000";
+        }
+            
         }else {
             document.getElementById("profile-type-p").innerHTML = "isme Elite";
         }
