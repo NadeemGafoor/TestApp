@@ -7378,7 +7378,6 @@ function completeRedemption() {
         
         elems = document.getElementsByClassName('pl-logo-image-holder-w');
         for (i = 0; i < elems.length; i++) {
-            alert(elems.length);
                elems[i].style.backgroundImage="url(../images/home_page_logo_black.png)";
         }
            
