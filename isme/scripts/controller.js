@@ -915,13 +915,14 @@ function completeRedemption() {
     
     function getFBUserData() {
         var graphPath = "me/?fields=id,email,first_name,last_name,gender,age_range,link,locale"; 
-        facebookConnectPlugin.api(graphPath, ["public_profile"], 
+        facebookConnectPlugin.api(graphPath, ["public_profile"]["email"],
                                   function(response) { 
                                       if (response.error) { 
                                           navigator.notification.alert("There is an error accessing Facebook account. " + response.error, function() {
                                           }, "isme by Jumeirah", "Dismiss");
                                       } else { 
                                           FBData = JSON.parse(JSON.stringify(response));  
+                                          //alert(JSON.stringify(response));
                                           window.localStorage.setItem("FBuserID", FBData.id);
                                           window.localStorage.setItem("FBemail", FBData.email);
                                           window.localStorage.setItem("FBFirstNme", FBData.first_name);
@@ -940,7 +941,7 @@ function completeRedemption() {
                                           if (mgender == 'female') {
                                               document.getElementById("selGender").value = "F";
                                           }else if (mgender == 'male') {
-                                              document.getElementById("selGender").value = "M";
+                                              document.getElementById("selGender").value = "M";  
                                           } else {
                                               document.getElementById("selGender").value = "U";
                                           }
@@ -1398,8 +1399,8 @@ function completeRedemption() {
                                                
                                                //   facebookConnectPlugin.getApplicationSignature(function(response) {
                                                //  console.log("Signature: " + response);
-                                               //          window.localStorage.setItem("signature", response);
-                                               //     });
+                                               //        window.localStorage.setItem("signature", response);
+                                               //    });
                                                
                                                if (window.localStorage.getItem("FBValidated")==="Y") {
                                                    navigator.notification.alert("You have already enrolled or validated your Facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your isme membership if already enrolled.", function() {
@@ -4676,7 +4677,11 @@ function completeRedemption() {
                                                 document.getElementById("expiry7-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
                                                 document.getElementById("segment7-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
                                                 document.getElementById("mycard7-qr").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
-                                                document.getElementById("mycard7-qr").style.backgroundSize = "cover";    
+                                                document.getElementById("mycard7-qr").style.backgroundSize = "cover";  
+                                                
+                                                     if (window.localStorage.getItem("fbid") != "99") {
+          document.getElementById("fblink-show-p").style.display = "none";
+        }
 
                                                 if (window.localStorage.getItem("magicnumber") != "") {
                                                     document.getElementById("hotelnumber1").disabled = true; 
@@ -7340,9 +7345,7 @@ function completeRedemption() {
     function spendBarPlus() {
         firsttime = "1"; 
         showsummary = "1";                 
-     //   if (window.localStorage.getItem("fbid") != "99") {
-    //      document.getElementById("fblink-show-p").style.display = "none";
-   //     }
+  
 
         window.localStorage.setItem("selfredeem", ""); 
         document.getElementById("main-title-p").innerHTML = "Welcome, " + window.localStorage.getItem("firstname");
