@@ -2,7 +2,7 @@ var propertygeo = [];
 
 function SearchPage(){
     var sr= document.getElementById("input_search_word").value;
-     window.setTimeout(window.plugins.nativepagetransitions.slide({
+    window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                      "duration"         :  500, // in milliseconds (ms), default 400
                                                                      "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
                                                                      "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
@@ -3219,18 +3219,7 @@ function completeRedemption() {
                                             setpass:"",
                                             msgsequence:"",
                                             lifestyle:"",
-                                            searchReward:function(){
-                                                  var sr= document.getElementById("input_search_word").value;
-     window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                     "duration"         :  500, // in milliseconds (ms), default 400
-                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                     'direction': 'up',
-                                                                     'href': '#views/pl-myreward.html?mcategory=&mname='+sr
-                                                                 }), 500);
-                                                },
+                                            
         
                                             noAlcoholStart:function() {
                                                 $("#profile-alcohol").data("kendoMobileSwitch").check(true);   
@@ -4470,9 +4459,10 @@ function completeRedemption() {
                                                 //document.getElementById("offer-3").innerHTML = postLogin.couponcategory;
                                             },
                                             mywalletofferlist
-                                            : function () {
+                                            : function (e) {
                                                 changeCard();
                                                 showSpin();
+                                                                                             
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backm").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backm").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -4480,8 +4470,7 @@ function completeRedemption() {
                                                 document.getElementById("segment-backm").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
                                                 document.getElementById("mycard-qrm").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrm").style.backgroundSize = "cover";      
-                                                alert(e.view.params.mcategory);
-                                                alert(e.view.params.mname);
+                                               
                                                 mcategory=e.view.params.mcategory;         
                                                 mname=e.view.params.mname;         
                                                 $.ajax({ 
