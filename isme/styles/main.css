@@ -2429,6 +2429,7 @@ tile-frame-inner
 }
 
 .pl-logo-image-holder-w{
+    background-image:url(../images/home_page_logo_white.png);
     width:auto;
     margin:10px auto;
     background-repeat:no-repeat;
