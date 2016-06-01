@@ -4470,7 +4470,7 @@ function completeRedemption() {
                                                 document.getElementById("segment-backm").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
                                                 document.getElementById("mycard-qrm").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrm").style.backgroundSize = "cover";      
-                                               
+                                             
                                                 mcategory=e.view.params.mcategory;         
                                                 mname=e.view.params.mname;         
                                                 $.ajax({ 
