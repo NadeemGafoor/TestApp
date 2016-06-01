@@ -1,7 +1,16 @@
 var propertygeo = [];
 
-function SearchPage(kw){
-    alert(kw);
+function SearchPage(){
+    var sr= document.getElementById("input_search_word").value;
+     window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'up',
+                                                                     'href': '#views/pl-myreward.html?mcategory=&mname='+sr
+                                                                 }), 500);
 }
 
 function FacebookErr() {
@@ -555,17 +564,6 @@ function loadMyProfile() {
                                                });
 }
 
-function loadMyReward() {  
-    window.plugins.nativepagetransitions.slide({
-                                                   "duration"         :  500, // in milliseconds (ms), default 400
-                                                   "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                   "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                   "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                   'direction': 'up',
-                                                   'href': '#views/pl-myreward.html'
-                                               });
-}
 
 function loadMyBenefit() {
     window.plugins.nativepagetransitions.slide({
@@ -666,10 +664,6 @@ function exploreListBack() {
 
 function brandDetailBack() {
     $("body").data("kendoMobilePane").navigate("views/pl-branddetail.html?od=" + window.localStorage.getItem("brandcode"));                                                                           
-}
-
-function myrewardListBack() {
-    $("body").data("kendoMobilePane").navigate("views/pl-myreward.html");                                                                           
 }
 
 function outletListBack(e) {
@@ -3221,6 +3215,19 @@ function completeRedemption() {
                                             setpass:"",
                                             msgsequence:"",
                                             lifestyle:"",
+                                            searchReward:function(){
+                                                  var sr= document.getElementById("input_search_word").value;
+     window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'up',
+                                                                     'href': '#views/pl-myreward.html?mcategory=&mname='+sr
+                                                                 }), 500);
+                                                },
+        
                                             noAlcoholStart:function() {
                                                 $("#profile-alcohol").data("kendoMobileSwitch").check(true);   
                                             },
