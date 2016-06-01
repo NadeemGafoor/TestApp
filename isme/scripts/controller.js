@@ -2172,8 +2172,8 @@ function completeRedemption() {
                                                showSpin();
                                                offercode = "";
                                                offertype = "1";
-                                                mcategory=e.view.params.mcategory;         
-                                                mname=e.view.params.mname;         
+                                                mcategory=window.localStorage.getItem("mcategory");         
+                                                mname=window.localStorage.getItem("mname");         
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
