@@ -1046,7 +1046,10 @@ function completeRedemption() {
     function clearAllVariables() {
         window.localStorage.setItem("category", "")
         window.localStorage.setItem("brand", "")
-        window.localStorage.setItem("brandcode", "");
+       window.localStorage.setItem("brandcode", "");
+        window.localStorage.setItem("mcategory","");         
+    window.localStorage.setItem("mname","");         
+
     }
        
     window.preLogin = kendo.observable({
@@ -7348,8 +7351,6 @@ function completeRedemption() {
     function spendBarPlus() {
         firsttime = "1"; 
         showsummary = "1";                 
-  
-
         window.localStorage.setItem("selfredeem", ""); 
         document.getElementById("main-title-p").innerHTML = "Welcome, " + window.localStorage.getItem("firstname");
         //document.getElementById("profile-name-p").innerHTML = window.localStorage.getItem("customername");
