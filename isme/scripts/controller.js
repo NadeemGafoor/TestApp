@@ -7353,6 +7353,7 @@ function completeRedemption() {
             document.getElementById("profile-type-p").innerHTML = "isme ";
              document.getElementById("post-redeem").style.backgroundColor = "#000";
             document.getElementById("post-redeem").style.color = "#fff";
+            document.getElementById("post-image").style.backgroundImage="url('images/home_page_logo_black.png')";
             elems = document.getElementById("pl-home-view-plus");
             
             elclass=elems.getElementsByClassName('km-content');
@@ -7378,11 +7379,7 @@ function completeRedemption() {
                elems[i].style.border="1px solid #999";
         }
         
-        elems = document.getElementsByClassName('pl-logo-image-holder-w');
-        for (i = 0; i < elems.length; i++) {
-               elems[i].style.backgroundImage="url(../images/home_page_logo_black.png)";
-        }
-           
+                
         elems = document.getElementById("home-plus-box");   
         elclass = elems.getElementsByClassName('km-button');
         for (i = 0; i < elclass.length; i++) {
@@ -7398,6 +7395,7 @@ function completeRedemption() {
             
         }else {
             document.getElementById("profile-type-p").innerHTML = "isme Elite";
+                        document.getElementById("post-image").style.backgroundImage="url('images/home_page_logo_white.png')";
         }
       
         hideSpin();
