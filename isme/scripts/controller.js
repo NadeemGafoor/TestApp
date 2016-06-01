@@ -7351,6 +7351,8 @@ function completeRedemption() {
        // document.getElementById("profile-init-p").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
         if (window.localStorage.getItem("segmentcode") === "1000") {
             document.getElementById("profile-type-p").innerHTML = "isme ";
+             document.getElementById("post-redeem").style.backgroundColor = "#000";
+            document.getElementById("post-redeem").style.color = "#fff";
             elems = document.getElementById("pl-home-view-plus");
             
             elclass=elems.getElementsByClassName('km-content');
@@ -7381,11 +7383,18 @@ function completeRedemption() {
                elems[i].style.backgroundImage="url(../images/home_page_logo_black.png)";
         }
            
-           
-        elems = document.getElementsByClassName('km-button');
-        for (i = 0; i < elems.length; i++) {
-               elems[i].style.border="1px solid #000";
+        elems = document.getElementById("home-plus-box");   
+        elclass = elems.getElementsByClassName('km-button');
+        for (i = 0; i < elclass.length; i++) {
+               elclass[i].style.border="1px solid #000";
         }
+            
+        elems = document.getElementsByClassName('button-frame-inline-round-menu');
+        for (i = 0; i < elems.length; i++) {
+               elems[i].style.color="#000";
+        }
+
+            
             
         }else {
             document.getElementById("profile-type-p").innerHTML = "isme Elite";
