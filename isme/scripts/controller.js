@@ -2172,7 +2172,8 @@ function completeRedemption() {
                                                showSpin();
                                                offercode = "";
                                                offertype = "1";
-                                                
+                                                mcategory=e.view.params.mcategory;         
+                                                mname=e.view.params.mname;         
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -2181,7 +2182,7 @@ function completeRedemption() {
                                                           url: gurl + "/offerListGeo.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat
+                                                                                   merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat,mcategory:mcategory,mname:mname
                                                                                    //merchantcode :window.localStorage.getItem("merchant"),offercode:offercode,offertype:offertype,mdevice:window.localStorage.getItem("mdevicestat"),city:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),segmentcode:segmentcode,customer:window.localStorage.getItem("customer")
                                                               
                                                                                }),
@@ -3720,7 +3721,8 @@ function completeRedemption() {
                                                 showSpin();
                                                 offercode = "";
                                                 offertype = "3"; 
-                                      
+                                       mcategory=e.view.params.mcategory;         
+                                                mname=e.view.params.mname;    
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backp").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backp").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -3736,7 +3738,7 @@ function completeRedemption() {
                                                            url: gurl + "/offerListGeo.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                     merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:window.localStorage.getItem("mdevicestat")
+                                                                                     merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:window.localStorage.getItem("mdevicestat"),mcategory:mcategory,mname:mname
                                                                                     //merchantcode :window.localStorage.getItem("merchant"),offercode:offercode,offertype:offertype,mdevice:window.localStorage.getItem("mdevicestat"),city:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),segmentcode:segmentcode,customer:window.localStorage.getItem("customer")
                                                                                 }),
                                                            success: function (data) { 
@@ -4460,7 +4462,8 @@ function completeRedemption() {
                                                 document.getElementById("segment-backm").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
                                                 document.getElementById("mycard-qrm").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrm").style.backgroundSize = "cover";      
-                                                         
+                                                mcategory=e.view.params.mcategory;         
+                                                mname=e.view.params.mname;         
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4469,7 +4472,7 @@ function completeRedemption() {
                                                            url: gurl + "/mywalletvouchers.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
+                                                                                    merchantcode :merchant,customerid:customer,password:password,mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",mcategory:mcategory,mname:mname
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
