@@ -666,6 +666,10 @@ function brandDetailBack() {
     $("body").data("kendoMobilePane").navigate("views/pl-branddetail.html?od=" + window.localStorage.getItem("brandcode"));                                                                           
 }
 
+function myrewardListBack() {
+    $("body").data("kendoMobilePane").navigate("views/pl-myreward.html");                                                                           
+}
+
 function outletListBack(e) {
     $("body").data("kendoMobilePane").navigate("views/pl-outletlist.html?brand=" + window.localStorage.getItem("brandcode") + "&category=" + window.localStorage.getItem("category"));                                                                           
 }
