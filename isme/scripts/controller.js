@@ -394,6 +394,7 @@ function loadTypeView() {
 }   
 
 function offerFilterView() {
+    window.localStorage.setItem("mcategory", ""); 
     $("#modalviewofferfilter").data("kendoMobileModalView").open();          
 }
 
