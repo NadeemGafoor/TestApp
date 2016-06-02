@@ -3785,7 +3785,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                                 window.localStorage.setItem("mcategory","");
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
-                                                                   ALERT(window.localStorage.getItem("offer-reload"));
+                                                                   alert(window.localStorage.getItem("offer-reload"));
                                                                      if(window.localStorage.getItem("offer-reload")!="1"){
                                                                    $("#pl-offer-list-view").kendoMobileListView({
                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
@@ -5428,6 +5428,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                     } 
                                                  
                                                     window.localStorage.setItem("op", "");
+                                                     showTop("Location removed from your favourites");
                                                 }else {
                                                     y = "1";
                                                     elems = document.getElementsByClassName('km-customstar');
@@ -5435,11 +5436,12 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                         elems[i].style.color = '#fff000';
                                                     } 
                                                     window.localStorage.setItem("op", "1");
+                                                     showTop("Location added to your favourites");
                                                 }
                                                 setMemberPreference(y, "RD" + window.localStorage.getItem("oc"));
-                                                showTop("Location added to your favourites");
+                                               
                                             },
-    closeOfferFilterView:function(){
+    closeOfferFilterView1:function(){
              window.localStorage.setItem("mcategory", ""); 
              window.localStorage.setItem("offer-reload", "1"); 
               ul = document.getElementById("pl-offer-filter");
@@ -5455,8 +5457,8 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
      
    $("#plmodalviewofferfilter").data("kendoMobileModalView").close();    
           postLogin.rewardList();
-        },
-                                            
+        }
+                                           
                                         });  
     
     function onConfirm2 (buttonIndex) {
