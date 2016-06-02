@@ -3790,7 +3790,7 @@ function completeRedemption() {
                                                                window.localStorage.setItem("mcategory", "");
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
-                                                                   alert(window.localStorage.getItem("offer-reload"));
+                                                            
                                                                    if (window.localStorage.getItem("offer-reload") != "1") {
                                                                        $("#pl-offer-list-view").kendoMobileListView({
                                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
