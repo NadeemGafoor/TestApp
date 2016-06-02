@@ -1101,7 +1101,7 @@ function completeRedemption() {
                                                    }
                                                }
      
-  
+   $("#modalviewofferfilter").data("kendoMobileModalView").close();    
             $("body").data("kendoMobilePane").navigate("views/offerlist.html");   
         },
                                            destroyaboutisme:function() {
@@ -2194,7 +2194,7 @@ function completeRedemption() {
                                                showSpin();
                                                offercode = "";
                                                offertype = "1";
-                                               alert(window.localStorage.getItem("mcategory"));
+                                               alert("fgfgfgfg");
                                                 mcategory=window.localStorage.getItem("mcategory");         
                                                 mname=window.localStorage.getItem("mname");         
                                                $.ajax({ 
