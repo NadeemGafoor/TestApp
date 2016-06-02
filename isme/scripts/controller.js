@@ -3849,10 +3849,13 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
 
                                                                if (getData.statuscode == "000") {
+                                                                   alert("Here");                                                                   
                                                                    m = getData.outletlist[0].geolocation.split(",");  
+                                                                   
                                                                                                                                                               
                                                                    lat = m[0];
                                                                    lon = m[1];
+
                                                                    document.getElementById("pl-outlet-detail-div").style.display = "block";
                                                                    window.localStorage.setItem("selfredeem", "D"); 
                                                                    document.getElementById("name-backq").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
