@@ -1102,8 +1102,8 @@ function completeRedemption() {
                                                    }
                                                }
      
-              $("#modalviewofferfilter").data("kendoMobileModalView").close();     
-              preLogin.rewardList();
+            $("#modalviewofferfilter").data("kendoMobileModalView").close();    
+            $("body").data("kendoMobilePane").navigate("views/offerlist.html");   
             
         },
                                            destroyaboutisme:function() {
