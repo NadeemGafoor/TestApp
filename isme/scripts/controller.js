@@ -1,7 +1,7 @@
 var propertygeo = [];
 
-function SearchPage(){
-    var sr= document.getElementById("input_search_word").value;
+function SearchPage() {
+    var sr = document.getElementById("input_search_word").value;
     window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                      "duration"         :  500, // in milliseconds (ms), default 400
                                                                      "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -9,7 +9,7 @@ function SearchPage(){
                                                                      "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                                      'direction': 'up',
-                                                                     'href': '#views/pl-myreward.html?mcategory=&mname='+sr
+                                                                     'href': '#views/pl-myreward.html?mcategory=&mname=' + sr
                                                                  }), 500);
 }
 
@@ -177,10 +177,10 @@ function getLocation5() {
 function getLocation6() {
     $("#modalviewmapA").data("kendoMobileModalView").open();
     document.getElementById("map_canvas2").style.backgroundColor = "#e9e5dc";
-   // for (i=0;i <= 1;i++) {
-        document.getElementById("map_canvas2").innerHTML = "";  
-        mapInitializeA();
-   // }
+    // for (i=0;i <= 1;i++) {
+    document.getElementById("map_canvas2").innerHTML = "";  
+    mapInitializeA();
+    // }
 }
 
 function mapInitialize() {
@@ -219,8 +219,7 @@ function mapInitializeA() {
     lat = window.localStorage.getItem("lat");
     lon = window.localStorage.getItem("lon");
     
-    
-     var latlng = new google.maps.LatLng(
+    var latlng = new google.maps.LatLng(
         lat,
         lon);
     var myOptions = {
@@ -234,10 +233,8 @@ function mapInitializeA() {
         mapTypeControl: true,
     };   
 
-
     var map = new google.maps.Map(document.getElementById("map_canvas2"),
                                   myOptions);
-
    
     var marker, i
     
@@ -247,9 +244,9 @@ function mapInitializeA() {
         var long = spropertygeo[2]
         var add = spropertygeo[0]
         latlngset = new google.maps.LatLng(lat, long);
-         marker = new google.maps.Marker({  
-                                                map: map,  position: latlngset  
-                                            });
+        marker = new google.maps.Marker({  
+                                            map: map,  position: latlngset  
+                                        });
 
         map.setCenter(marker.getPosition())
 
@@ -570,7 +567,6 @@ function loadMyProfile() {
                                                });
 }
 
-
 function loadMyBenefit() {
     window.plugins.nativepagetransitions.slide({
                                                    "duration"         :  500, // in milliseconds (ms), default 400
@@ -657,10 +653,8 @@ function postLoginBack() {
         elems[i].style.zIndex = 10000;
         elems[i].style.textAlign = "center";
     }
-    
 
-        $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                               
+    $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
     //$("body").data("kendoMobilePane").navigate("#:back");
 }
 
@@ -1054,10 +1048,10 @@ function completeRedemption() {
     function clearAllVariables() {
         window.localStorage.setItem("category", "")
         window.localStorage.setItem("brand", "")
-       window.localStorage.setItem("brandcode", "");
-        window.localStorage.setItem("mcategory","");         
-    window.localStorage.setItem("mname","");         
-
+        window.localStorage.setItem("brandcode", "");
+        window.localStorage.setItem("mcategory", "");         
+        window.localStorage.setItem("mname", "");     
+          window.localStorage.setItem("offer-reload", "")
     }
        
     window.preLogin = kendo.observable({
@@ -1093,23 +1087,23 @@ function completeRedemption() {
                                            checkcuisine:false,
                                            checkcelebration:false,
                                            checklifestyle:false,
-        closeOfferFilterView:function(){
-             window.localStorage.setItem("mcategory", ""); 
-             window.localStorage.setItem("offer-reload", "1"); 
-              ul = document.getElementById("offer-filter");
+                                           closeOfferFilterView:function() {
+                                               window.localStorage.setItem("mcategory", ""); 
+                                               window.localStorage.setItem("offer-reload", "1"); 
+                                               ul = document.getElementById("offer-filter");
                                                items = ul.getElementsByTagName("input");
 
                                                //check where checked
                                                for (i = 0; i < items.length; i++) {
                                                    y = items[i].checked ? "1" : "0";
                                                    if (y === "1") {
-                                                     window.localStorage.setItem("mcategory", items[i].value); 
+                                                       window.localStorage.setItem("mcategory", items[i].value); 
                                                    }
                                                }
      
-   $("#modalviewofferfilter").data("kendoMobileModalView").close();    
-          preLogin.rewardList();
-        },
+                                               $("#modalviewofferfilter").data("kendoMobileModalView").close();    
+                                               preLogin.rewardList();
+                                           },
                                            destroyaboutisme:function() {
                                                $("#aboutisme-theme").remove();
                                            },
@@ -1769,21 +1763,21 @@ function completeRedemption() {
                                                                              
                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                             template: $("#outletTemplate").html(),
-                                                                       filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Restaurant",                                         
-                                       field: "outletname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 40,
-                                       endlessScroll: true                                 
-                                   }
+                                                                                                            filterable: {
+                                                                          autoFilter: true,
+                                                                          placeholder:"Search By Restaurant",                                         
+                                                                          field: "outletname",
+                                                                          operator: "contains",
+                                                                          serverPaging: true,
+                                                                          serverSorting: true,
+                                                                          pageSize: 40,
+                                                                          endlessScroll: true                                 
+                                                                      }
                                                                                                         });
                                                                   propertygeo = [];
-                                                                     for (var i=0;i<getData.outletlist.length;i++){
-                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
-                                                                   }
+                                                                  for (var i = 0;i < getData.outletlist.length;i++) {
+                                                                      propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
+                                                                  }
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
@@ -1829,21 +1823,21 @@ function completeRedemption() {
                                                                              
                                                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                               template: $("#outletTemplate-b").html(),
-                                                                       filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Restaurant",                                         
-                                       field: "outletname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 40,
-                                                                           endlessScroll: true      
-                                   }
+                                                                                                              filterable: {
+                                                                          autoFilter: true,
+                                                                          placeholder:"Search By Restaurant",                                         
+                                                                          field: "outletname",
+                                                                          operator: "contains",
+                                                                          serverPaging: true,
+                                                                          serverSorting: true,
+                                                                          pageSize: 40,
+                                                                          endlessScroll: true      
+                                                                      }
                                                                                                           });
                                                                   propertygeo = [];
-                                                                     for (var i=0;i<getData.outletlist.length;i++){
-                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
-                                                                   }
+                                                                  for (var i = 0;i < getData.outletlist.length;i++) {
+                                                                      propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
+                                                                  }
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
@@ -1879,8 +1873,8 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                  // merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
-                                                                                  merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
+                                                                                   // merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
@@ -1890,21 +1884,21 @@ function completeRedemption() {
                                                                              
                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                              template: $("#leisureTemplate").html(),
-                                                                       filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Spa & Leisure",                                         
-                                       field: "outletname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 40,
-                                                                           endlessScroll: true      
-                                   }
+                                                                                                             filterable: {
+                                                                          autoFilter: true,
+                                                                          placeholder:"Search By Spa & Leisure",                                         
+                                                                          field: "outletname",
+                                                                          operator: "contains",
+                                                                          serverPaging: true,
+                                                                          serverSorting: true,
+                                                                          pageSize: 40,
+                                                                          endlessScroll: true      
+                                                                      }
                                                                                                          });
                                                                   propertygeo = [];
-                                                                     for (var i=0;i<getData.outletlist.length;i++){
-                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
-                                                                   }
+                                                                  for (var i = 0;i < getData.outletlist.length;i++) {
+                                                                      propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
+                                                                  }
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("There are no Leisure venues available for the selected property.", function() {
@@ -1941,7 +1935,7 @@ function completeRedemption() {
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
                                                                                    // merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
-                                                                                  merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
@@ -1951,21 +1945,21 @@ function completeRedemption() {
                                                                              
                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                                template: $("#leisureTemplate-b").html(),
-                                                                       filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Spa & Leisure",                                         
-                                       field: "outletname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 40,
-                                                                           endlessScroll: true      
-                                   }
+                                                                                                               filterable: {
+                                                                          autoFilter: true,
+                                                                          placeholder:"Search By Spa & Leisure",                                         
+                                                                          field: "outletname",
+                                                                          operator: "contains",
+                                                                          serverPaging: true,
+                                                                          serverSorting: true,
+                                                                          pageSize: 40,
+                                                                          endlessScroll: true      
+                                                                      }
                                                                                                            });
                                                                   propertygeo = [];
-                                                                     for (var i=0;i<getData.outletlist.length;i++){
-                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
-                                                                   }
+                                                                  for (var i = 0;i < getData.outletlist.length;i++) {
+                                                                      propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
+                                                                  }
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("There are no Leisure venues available for the selected property.", function() {
@@ -2173,9 +2167,9 @@ function completeRedemption() {
                                                                                                                     
                                                                                                               });
                                                                       propertygeo = [];
-                                                                         for (var i=0;i<getData.propertylist.length;i++){
-                                                                       propertygeo[i] = getData.propertylist[i].msgtitle + "#" + getData.propertylist[i].lat + "#" + getData.propertylist[i].lon;
-                                                                   }
+                                                                      for (var i = 0;i < getData.propertylist.length;i++) {
+                                                                          propertygeo[i] = getData.propertylist[i].msgtitle + "#" + getData.propertylist[i].lat + "#" + getData.propertylist[i].lon;
+                                                                      }
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       navigator.notification.alert("Due to a system error, these details cannot be displayed. ", function() {
@@ -2200,8 +2194,8 @@ function completeRedemption() {
                                                showSpin();
                                                offercode = "";
                                                offertype = "1";
-                                                mcategory=window.localStorage.getItem("mcategory");         
-                                                mname=window.localStorage.getItem("mname");         
+                                               mcategory = window.localStorage.getItem("mcategory");         
+                                               mname = window.localStorage.getItem("mname");         
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -2216,31 +2210,28 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                              window.localStorage.setItem("mcategory","");
+                                                              window.localStorage.setItem("mcategory", "");
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
-                                                                 
-                                                              if(window.localStorage.getItem("offer-reload")!="1"){
-                                                                  $("#offer-list-view").kendoMobileListView({
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
-                                                                                                                template: $("#offerListTemplate").html(),
-                                                                       filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Reward",                                         
-                                       field: "itemname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 40
-                                   }
+                                                                  if (window.localStorage.getItem("offer-reload") != "1") {
+                                                                      $("#offer-list-view").kendoMobileListView({
+                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
+                                                                                                                    template: $("#offerListTemplate").html(),
+                                                                                                                    filterable: {
+                                                                              autoFilter: true,
+                                                                              placeholder:"Search By Reward",                                         
+                                                                              field: "itemname",
+                                                                              operator: "contains",
+                                                                              serverPaging: true,
+                                                                              serverSorting: true,
+                                                                              pageSize: 40
+                                                                          }
                                                                                                                     
-                                                                                                            });
-                                                              }else{
-                                                              
-$("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerlist);
-                                                  
-                                                                                                            }
-                                                                  window.localStorage.setItem("offer-reload","");
+                                                                                                                });
+                                                                  }else {
+                                                                      $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerlist);
+                                                                  }
+                                                                  window.localStorage.setItem("offer-reload", "");
                                                                   
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.offerlist.length == 0) {
@@ -2501,7 +2492,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                                                        lat = position.coords.latitude;                                  
                                                        lon = position.coords.longitude;
-                                            propertygeo = [];
+                                                       propertygeo = [];
                                                        $.ajax({
                                                                   type: "POST",
                                                                   cache: false,
@@ -2628,10 +2619,8 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                        alcohol = window.localStorage.getItem("alcohol");
                                                        homecountryname = window.localStorage.getItem("homecountryname");
                                                        residentcityname = window.localStorage.getItem("residentcityname");
-                                                   
                                                     
-                                                           $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                                                                                  
+                                                       $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
                                                    } else {
                                                        outletcode = "";
                                                        brandcode = "";
@@ -2943,8 +2932,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                                       window.localStorage.setItem("password", password);
                                                                       window.localStorage.setItem("loggedin", "1");                                                                   
                                                                    
-                                                                          $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                      
+                                                                      $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                               }else {
@@ -3001,7 +2989,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                                       window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                       window.localStorage.setItem("loggedin", "1");
                                                   
-                                                                          $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                                      $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
                                                                                                                                 
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
@@ -3251,7 +3239,24 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                             setpass:"",
                                             msgsequence:"",
                                             lifestyle:"",
-                                            
+                                           
+    closeOfferFilterView1:function(){
+             window.localStorage.setItem("mcategory", ""); 
+             window.localStorage.setItem("offer-reload", "1"); 
+              ul = document.getElementById("pl-offer-filter");
+                                               items = ul.getElementsByTagName("input");
+
+                                               //check where checked
+                                               for (i = 0; i < items.length; i++) {
+                                                   y = items[i].checked ? "1" : "0";
+                                                   if (y === "1") {
+                                                     window.localStorage.setItem("mcategory", items[i].value); 
+                                                   }
+                                               }
+     
+   $("#plmodalviewofferfilter").data("kendoMobileModalView").close();    
+          postLogin.rewardList();
+        },
         
                                             noAlcoholStart:function() {
                                                 $("#profile-alcohol").data("kendoMobileSwitch").check(true);   
@@ -3760,8 +3765,8 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                 showSpin();
                                                 offercode = "";
                                                 offertype = "3"; 
-                                                mcategory=window.localStorage.getItem("mcategory");         
-                                                mname=window.localStorage.getItem("mname");         
+                                                mcategory = window.localStorage.getItem("mcategory");         
+                                                mname = window.localStorage.getItem("mname");         
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backp").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backp").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -3777,34 +3782,34 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                            url: gurl + "/offerListGeo.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                     merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:window.localStorage.getItem("mdevicestat"),mcategory:mcategory,mname:mname
+                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:window.localStorage.getItem("mdevicestat"),mcategory:mcategory,mname:mname
                                                                                     //merchantcode :window.localStorage.getItem("merchant"),offercode:offercode,offertype:offertype,mdevice:window.localStorage.getItem("mdevicestat"),city:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),segmentcode:segmentcode,customer:window.localStorage.getItem("customer")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
-                                                                window.localStorage.setItem("mcategory","");
+                                                               window.localStorage.setItem("mcategory", "");
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
                                                                    alert(window.localStorage.getItem("offer-reload"));
-                                                                     if(window.localStorage.getItem("offer-reload")!="1"){
-                                                                   $("#pl-offer-list-view").kendoMobileListView({
-                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
-                                                                                                                    template: $("#pl-offerListTemplate").html(),
-                                                                       filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Reward",                                         
-                                       field: "itemname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 40
-                                   }
+                                                                   if (window.localStorage.getItem("offer-reload") != "1") {
+                                                                       $("#pl-offer-list-view").kendoMobileListView({
+                                                                                                                        dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
+                                                                                                                        template: $("#pl-offerListTemplate").html(),
+                                                                                                                        filterable: {
+                                                                               autoFilter: true,
+                                                                               placeholder:"Search By Reward",                                         
+                                                                               field: "itemname",
+                                                                               operator: "contains",
+                                                                               serverPaging: true,
+                                                                               serverSorting: true,
+                                                                               pageSize: 40
+                                                                           }
                                                                                                                     
-                                                                                                                });
-                                                                         }else{
-                                                                             $("#pl-offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerlist);
-                                                                         }
-                                                                   window.localStorage.setItem("offer-reload","")
+                                                                                                                    });
+                                                                   }else {
+                                                                       $("#pl-offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerlist);
+                                                                   }
+                                                                   window.localStorage.setItem("offer-reload", "")
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.offerlist.length == 0) {
                                                                        navigator.notification.alert("No rewards are currently available.", function() {
@@ -3828,6 +3833,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                             : function (e) {  
                                                 changeCard();
                                                 showSpin();
+                                                alert(e.view.params.od);
                                                 outletcode = e.view.params.od;
                                                 $.ajax({ 
                                                            type: "POST",
@@ -3938,7 +3944,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                                                                                     
                                                                                                               });
                                                                    propertygeo = [];
-                                                                   for (var i=0;i<getData.propertylist.length;i++){
+                                                                   for (var i = 0;i < getData.propertylist.length;i++) {
                                                                        propertygeo[i] = getData.propertylist[i].msgtitle + "#" + getData.propertylist[i].lat + "#" + getData.propertylist[i].lon;
                                                                    }
                                                                    
@@ -3996,20 +4002,20 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                                              
                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.outletlist}),//serverPaging:true,pageSize:25
                                                                                                                 template: $("#pl-outletTemplate").html(),
-                                                                       filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Restaurant",                                         
-                                       field: "outletname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 40,
-                                         endlessScroll: true                                 
-                                   }
+                                                                                                                filterable: {
+                                                                           autoFilter: true,
+                                                                           placeholder:"Search By Restaurant",                                         
+                                                                           field: "outletname",
+                                                                           operator: "contains",
+                                                                           serverPaging: true,
+                                                                           serverSorting: true,
+                                                                           pageSize: 40,
+                                                                           endlessScroll: true                                 
+                                                                       }
                                                                                                         
                                                                                                             });
                                                                    propertygeo = [];
-                                                                      for (var i=0;i<getData.outletlist.length;i++){
+                                                                   for (var i = 0;i < getData.outletlist.length;i++) {
                                                                        propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
                                                                    }
                                                                    hideSpin(); //hide loading popup
@@ -4067,19 +4073,19 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                                              
                                                                                                                   dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                                   template: $("#pl-outletTemplate-b").html(),
-                                                                       filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Spa & Leisure",                                         
-                                       field: "outletname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 40,
-                                         endlessScroll: true                                 
-                                   }
+                                                                                                                  filterable: {
+                                                                           autoFilter: true,
+                                                                           placeholder:"Search By Spa & Leisure",                                         
+                                                                           field: "outletname",
+                                                                           operator: "contains",
+                                                                           serverPaging: true,
+                                                                           serverSorting: true,
+                                                                           pageSize: 40,
+                                                                           endlessScroll: true                                 
+                                                                       }
                                                                                                               });
                                                                    propertygeo = [];
-                                                                      for (var i=0;i<getData.outletlist.length;i++){
+                                                                   for (var i = 0;i < getData.outletlist.length;i++) {
                                                                        propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
                                                                    }
                                                                    hideSpin(); //hide loading popup
@@ -4124,8 +4130,8 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                            url: gurl + "/outletlist.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                     // merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
-                                                                                  merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
+                                                                                    // merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4140,19 +4146,19 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                                              
                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                                  template: $("#pl-leisureTemplate").html(),
-                                                                       filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Spa & Leisure",                                         
-                                       field: "outletname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 40,
+                                                                                                                 filterable: {
+                                                                           autoFilter: true,
+                                                                           placeholder:"Search By Spa & Leisure",                                         
+                                                                           field: "outletname",
+                                                                           operator: "contains",
+                                                                           serverPaging: true,
+                                                                           serverSorting: true,
+                                                                           pageSize: 40,
                                                                            endlessScroll: true      
-                                   }
+                                                                       }
                                                                                                              });
                                                                    propertygeo = [];
-                                                                      for (var i=0;i<getData.outletlist.length;i++){
+                                                                   for (var i = 0;i < getData.outletlist.length;i++) {
                                                                        propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
                                                                    }
                                                                    hideSpin(); //hide loading popup
@@ -4192,8 +4198,8 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                            url: gurl + "/outletlist.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                     // merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
-                                                                                  merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
+                                                                                    // merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4208,19 +4214,19 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                                              
                                                                                                                    dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
                                                                                                                    template: $("#pl-leisureTemplate-b").html(),
-                                                                       filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Spa & Leisure",                                         
-                                       field: "outletname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 40,
+                                                                                                                   filterable: {
+                                                                           autoFilter: true,
+                                                                           placeholder:"Search By Spa & Leisure",                                         
+                                                                           field: "outletname",
+                                                                           operator: "contains",
+                                                                           serverPaging: true,
+                                                                           serverSorting: true,
+                                                                           pageSize: 40,
                                                                            endlessScroll: true      
-                                   }
+                                                                       }
                                                                                                                });
                                                                    propertygeo = [];
-                                                                      for (var i=0;i<getData.outletlist.length;i++){
+                                                                   for (var i = 0;i < getData.outletlist.length;i++) {
                                                                        propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
                                                                    }
                                                                    hideSpin(); //hide loading popup
@@ -4321,9 +4327,9 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                 }
                                             },
                                         
-                                            showMyOutletOffer:function(){
-            showSpin();
-            $.ajax({ 
+                                            showMyOutletOffer:function() {
+                                                showSpin();
+                                                $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
                                                            async:true,
@@ -4338,11 +4344,11 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                                if (getData.statuscode == "000") {
                                                                    if (getData.mywalletvouchers.length > 0) {
                                                                        $("#mywallet-voucher-list-outlet").kendoMobileListView({
-                                                                                                                           dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers,serverPaging: true,pageSize: 40}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
-                                                                                                                           template: $("#mywallet-voucherlist-Template-outlet").html(),
-                                                                                                                           endlessScroll: true
+                                                                                                                                  dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers,serverPaging: true,pageSize: 40}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
+                                                                                                                                  template: $("#mywallet-voucherlist-Template-outlet").html(),
+                                                                                                                                  endlessScroll: true
                                                                                                                          
-                                                                                                                       });
+                                                                                                                              });
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No Vouchers are currently available in your Wallet for the selected venue.", function() {
@@ -4361,7 +4367,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });  
-        },
+                                            },
                                            
 
                                             showOutletOffer
@@ -4379,7 +4385,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                            url: gurl + "/offerListOutlet.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                   merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat,outletcode:outletcode
+                                                                                    merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:mdevicestat,outletcode:outletcode
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4510,8 +4516,8 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                 document.getElementById("mycard-qrm").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrm").style.backgroundSize = "cover";      
                                              
-                                                mcategory=e.view.params.mcategory;         
-                                                mname=e.view.params.mname;         
+                                                mcategory = e.view.params.mcategory;         
+                                                mname = e.view.params.mname;         
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -4529,16 +4535,16 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                                        $("#mywallet-voucher-list").kendoMobileListView({
                                                                                                                            dataSource: kendo.data.DataSource.create({data: getData.mywalletvouchers}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
                                                                                                                            template: $("#mywallet-voucherlist-Template").html(),
-                                                                       filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Reward",                                         
-                                       field: "itemname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 40,
-                                                                           endlessScroll: true   
-                                   }
+                                                                                                                           filterable: {
+                                                                               autoFilter: true,
+                                                                               placeholder:"Search By Reward",                                         
+                                                                               field: "itemname",
+                                                                               operator: "contains",
+                                                                               serverPaging: true,
+                                                                               serverSorting: true,
+                                                                               pageSize: 40,
+                                                                               endlessScroll: true   
+                                                                           }
                                                                                                                          
                                                                                                                        });
                                                                        hideSpin(); //hide loading popup
@@ -4730,9 +4736,9 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                 document.getElementById("mycard7-qr").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard7-qr").style.backgroundSize = "cover";  
                                                 
-                                                     if (window.localStorage.getItem("fbid") != "99") {
-          document.getElementById("fblink-show-p").style.display = "none";
-        }
+                                                if (window.localStorage.getItem("fbid") != "99") {
+                                                    document.getElementById("fblink-show-p").style.display = "none";
+                                                }
 
                                                 if (window.localStorage.getItem("magicnumber") != "") {
                                                     document.getElementById("hotelnumber1").disabled = true; 
@@ -5080,7 +5086,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
-                                                                    document.getElementById("ytd-spend").innerHTML = "My isme by Jumeirah  spend:" + window.localStorage.getItem("spendmb");
+                                                                   document.getElementById("ytd-spend").innerHTML = "My isme by Jumeirah  spend:" + window.localStorage.getItem("spendmb");
                                                                    if (getData.historylist.length > 0) {
                                                                        $("#pl-history-list").kendoMobileListView({
                                                                                                                      dataSource: kendo.data.DataSource.create({data: getData.historylist}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
@@ -5415,8 +5421,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                     elems[i].style.textAlign = "center";
                                                 }
                                               
-                                                    $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                          
+                                                $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
                                                 //$("body").data("kendoMobilePane").navigate("#:back");
                                             },
                                             setOutletFavourite:function() {
@@ -5428,7 +5433,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                     } 
                                                  
                                                     window.localStorage.setItem("op", "");
-                                                     showTop("Location removed from your favourites");
+                                                    showTop("Location removed from your favourites");
                                                 }else {
                                                     y = "1";
                                                     elems = document.getElementsByClassName('km-customstar');
@@ -5436,28 +5441,10 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                         elems[i].style.color = '#fff000';
                                                     } 
                                                     window.localStorage.setItem("op", "1");
-                                                     showTop("Location added to your favourites");
+                                                    showTop("Location added to your favourites");
                                                 }
                                                 setMemberPreference(y, "RD" + window.localStorage.getItem("oc"));
-                                               
-                                            },
-    closeOfferFilterView1:function(){
-             window.localStorage.setItem("mcategory", ""); 
-             window.localStorage.setItem("offer-reload", "1"); 
-              ul = document.getElementById("pl-offer-filter");
-                                               items = ul.getElementsByTagName("input");
-
-                                               //check where checked
-                                               for (i = 0; i < items.length; i++) {
-                                                   y = items[i].checked ? "1" : "0";
-                                                   if (y === "1") {
-                                                     window.localStorage.setItem("mcategory", items[i].value); 
-                                                   }
-                                               }
-     
-   $("#plmodalviewofferfilter").data("kendoMobileModalView").close();    
-          postLogin.rewardList();
-        }
+                                            }
                                            
                                         });  
     
@@ -5536,16 +5523,15 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
         window.localStorage.setItem("errorPreference", "1");
         window.localStorage.setItem("issaved", "1");
       
-            window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                             "duration"         :  500, // in milliseconds (ms), default 400
-                                                                             "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                             "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                             "androiddelay"     :  150, // same as above but for Android, default 70
+        window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                         "duration"         :  500, // in milliseconds (ms), default 400
+                                                                         "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                         "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                         "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                                             'direction': 'up',
-                                                                             'href': '#views/pl-homeplus.html'
-                                                                         }), 500);                                                                 
-      
+                                                                         'direction': 'up',
+                                                                         'href': '#views/pl-homeplus.html'
+                                                                     }), 500);                                                                 
     }
     
     function redeemDiscount() {
@@ -5705,9 +5691,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                            navigator.notification.alert("PIN has been successfully set", function() {
                            }, "isme by Jumeirah", "Dismiss")         
                            if (y === "0") {
-                             
-                                   $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                                                                 
+                               $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
                                                                       
                                hideSpin(); //hide loading popup
                            }else {
@@ -6989,9 +6973,8 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
             elems[i].style.zIndex = 10000;
             elems[i].style.textAlign = "center";
         }
-
     
-            $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+        $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
 
         hideSpin();
     }
@@ -7418,54 +7401,48 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
         document.getElementById("main-title-p").innerHTML = "Welcome, " + window.localStorage.getItem("firstname");
         //document.getElementById("profile-name-p").innerHTML = window.localStorage.getItem("customername");
         document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
-       // document.getElementById("profile-init-p").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
+        // document.getElementById("profile-init-p").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
         if (window.localStorage.getItem("segmentcode") === "1000") {
             document.getElementById("profile-type-p").innerHTML = "isme ";
-             document.getElementById("post-redeem").style.backgroundColor = "#000";
+            document.getElementById("post-redeem").style.backgroundColor = "#000";
             document.getElementById("post-redeem").style.color = "#fff";
-            document.getElementById("post-image").style.backgroundImage="url(images/home_page_logo_black.png)";
+            document.getElementById("post-image").style.backgroundImage = "url(images/home_page_logo_black.png)";
             elems = document.getElementById("pl-home-view-plus");
             
-            elclass=elems.getElementsByClassName('km-content');
+            elclass = elems.getElementsByClassName('km-content');
             for (i = 0; i < elclass.length; i++) {
-                elclass[i].style.backgroundColor="#fff";
+                elclass[i].style.backgroundColor = "#fff";
             }
             
+            elems = document.getElementsByClassName('strip-item-a');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.backgroundColor = "#fff";
+                elems[i].style.color = "#000";
+            }
             
-        elems = document.getElementsByClassName('strip-item-a');
-        for (i = 0; i < elems.length; i++) {
-            elems[i].style.backgroundColor="#fff";
-               elems[i].style.color="#000";
-        }
+            elems = document.getElementsByClassName('cwhite');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.color = "#000";
+            }
             
-        elems = document.getElementsByClassName('cwhite');
-        for (i = 0; i < elems.length; i++) {
-               elems[i].style.color="#000";
-        }
-            
-            
-        elems = document.getElementsByClassName('searchbox');
-        for (i = 0; i < elems.length; i++) {
-               elems[i].style.border="1px solid #999";
-        }
-        
+            elems = document.getElementsByClassName('searchbox');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.border = "1px solid #999";
+            }
                 
-        elems = document.getElementById("home-plus-box");   
-        elclass = elems.getElementsByClassName('km-button');
-        for (i = 0; i < elclass.length; i++) {
-               elclass[i].style.border="1px solid #000";
-        }
+            elems = document.getElementById("home-plus-box");   
+            elclass = elems.getElementsByClassName('km-button');
+            for (i = 0; i < elclass.length; i++) {
+                elclass[i].style.border = "1px solid #000";
+            }
             
-        elems = document.getElementsByClassName('button-frame-inline-round-menu');
-        for (i = 0; i < elems.length; i++) {
-               elems[i].style.color="#000";
-        }
-
-            
-            
+            elems = document.getElementsByClassName('button-frame-inline-round-menu');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.color = "#000";
+            }
         }else {
             document.getElementById("profile-type-p").innerHTML = "isme Elite";
-            document.getElementById("post-image").style.backgroundImage="url(images/home_page_logo_white.png)";
+            document.getElementById("post-image").style.backgroundImage = "url(images/home_page_logo_white.png)";
         }
       
         hideSpin();
@@ -7494,9 +7471,9 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
         if (window.localStorage.getItem("segmentcode") === "1000") {
             alert("Hello");
             document.getElementById("profile-type").innerHTML = "isme ";
-            document.getElementsById("pl-home-view-plus").style.backgroundColor="#fff";
-            document.getElementsByClassName("strip-item-a").style.backgroundColor="#fff";
-            document.getElementsByClassName("strip-item-a").style.color="#000";
+            document.getElementsById("pl-home-view-plus").style.backgroundColor = "#fff";
+            document.getElementsByClassName("strip-item-a").style.backgroundColor = "#fff";
+            document.getElementsByClassName("strip-item-a").style.color = "#000";
         }else {
             document.getElementById("profile-type").innerHTML = "isme Elite";
         }
