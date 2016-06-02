@@ -3833,7 +3833,7 @@ function completeRedemption() {
                                             : function (e) {  
                                                 changeCard();
                                                 showSpin();
-                                                alert(e.view.params.od);
+                           
                                                 outletcode = e.view.params.od;
                                                 $.ajax({ 
                                                            type: "POST",
@@ -3849,7 +3849,7 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
 
                                                                if (getData.statuscode == "000") {
-                                                                   alert("Here");                                                                   
+                                                                                                                   
                                                                    m = getData.outletlist[0].geolocation.split(",");  
                                                                    
                                                                                                                                                               
