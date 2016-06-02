@@ -943,6 +943,7 @@ img
 .switch-frame
 {
     display:block;
+    height:4em;
     line-height: 4em;
     width: 60%;
     position:relative;
@@ -981,7 +982,8 @@ img
 .switch-frame label,
 .switch-frame-1 label
 {
-    line-height: 2em;
+    height: 3em;
+    line-height: 2.5em;
     color: #fff;
 }
 .switch-frame-i
