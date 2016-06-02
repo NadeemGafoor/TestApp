@@ -398,6 +398,11 @@ function offerFilterView() {
     $("#modalviewofferfilter").data("kendoMobileModalView").open();          
 }
 
+function plofferFilterView() {
+    window.localStorage.setItem("mcategory", ""); 
+    $("#plmodalviewofferfilter").data("kendoMobileModalView").open();          
+}
+
 function historyFilterView() {
     $("#modalviewhistoryfilter").data("kendoMobileModalView").open();
 }
@@ -1090,6 +1095,7 @@ function completeRedemption() {
                                            checklifestyle:false,
         closeOfferFilterView:function(){
              window.localStorage.setItem("mcategory", ""); 
+             window.localStorage.setItem("offer-reload", "1"); 
               ul = document.getElementById("offer-filter");
                                                items = ul.getElementsByTagName("input");
 
@@ -2213,8 +2219,8 @@ function completeRedemption() {
                                                               window.localStorage.setItem("mcategory","");
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
-                                                                  $("#offer-list-view").data("kendoMobileListView").destroy();
-                                              
+                                                                 
+                                                              if(window.localStorage.getItem("offer-reload")!="1"){
                                                                   $("#offer-list-view").kendoMobileListView({
                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
                                                                                                                 template: $("#offerListTemplate").html(),
@@ -2229,6 +2235,13 @@ function completeRedemption() {
                                    }
                                                                                                                     
                                                                                                             });
+                                                              }else{
+                                                              
+$("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerlist);
+                                                  
+                                                                                                            }
+                                                                  window.localStorage.setItem("offer-reload","");
+                                                                  
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.offerlist.length == 0) {
                                                                       navigator.notification.alert("No rewards are currently available for the selected venue. ", function() {
@@ -3772,6 +3785,7 @@ function completeRedemption() {
                                                                 window.localStorage.setItem("mcategory","");
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
+                                                                     if(window.localStorage.getItem("offer-reload")!="1"){
                                                                    $("#pl-offer-list-view").kendoMobileListView({
                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
                                                                                                                     template: $("#pl-offerListTemplate").html(),
@@ -3786,6 +3800,10 @@ function completeRedemption() {
                                    }
                                                                                                                     
                                                                                                                 });
+                                                                         }else{
+                                                                             $("#pl-offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerlist);
+                                                                         }
+                                                                   window.localStorage.setItem("offer-reload","")
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.offerlist.length == 0) {
                                                                        navigator.notification.alert("No rewards are currently available.", function() {
@@ -5420,7 +5438,23 @@ function completeRedemption() {
                                                 setMemberPreference(y, "RD" + window.localStorage.getItem("oc"));
                                                 showTop("Location added to your favourites");
                                             },
-   
+    closeOfferFilterView:function(){
+             window.localStorage.setItem("mcategory", ""); 
+             window.localStorage.setItem("offer-reload", "1"); 
+              ul = document.getElementById("pl-offer-filter");
+                                               items = ul.getElementsByTagName("input");
+
+                                               //check where checked
+                                               for (i = 0; i < items.length; i++) {
+                                                   y = items[i].checked ? "1" : "0";
+                                                   if (y === "1") {
+                                                     window.localStorage.setItem("mcategory", items[i].value); 
+                                                   }
+                                               }
+     
+   $("#plmodalviewofferfilter").data("kendoMobileModalView").close();    
+          postLogin.rewardList();
+        },
                                             
                                         });  
     
