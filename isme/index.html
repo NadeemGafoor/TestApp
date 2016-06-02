@@ -33,11 +33,11 @@
         <div data-role="layout" data-id="pre-layout">
 
         </div>
-          <div data-role="layout" data-id="pl-main-layout">
-            
-               <footer data-role="footer" style="background:#000 !important;border-top:1px solid #fff">
+        <div data-role="layout" data-id="pl-main-layout">
+
+            <footer data-role="footer" style="background:#000 !important;border-top:1px solid #fff">
                 <div data-role="tabstrip" data-selected-index="0" style="background-color:#000 !important">
-                   <a  class="fa" href="views/pl-homeplus.html" data-icon="customreward" data-role="button" >My Wallet</a>
+                    <a  class="fa" href="views/pl-homeplus.html" data-icon="customreward" data-role="button" >My Wallet</a>
                     <a class="fa" href="views/pl-mymessagelist.html" data-icon="customenvelope" data-role="button">Messages</a>
                     <a class="fa" href="views/pl-historylist.html" data-icon="customhistory" data-role="button">History</a>
                     <a class="fa" href="views/pl-setting.html" data-icon="customsetting" data-role="button">Settings</a>
@@ -120,7 +120,7 @@
                     &nbsp;&nbsp;My Profile
                 </a>
             </div>
-              <div class="li-div">
+            <div class="li-div">
                 <a href="views/pl-benefitdetail.html"  data-transition="slide" >
                     &nbsp;&nbsp;My Benefits
                 </a>
@@ -219,52 +219,52 @@
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#000">
                     <span>Reward Categories</span>
-                    <a data-bind="click:queryOfferFilter" data-role="button" data-align="right" data-animated="true">
+                    <a data-bind="click:closeOfferFilterView" data-role="button" data-align="right" data-animated="true">
                         Go
                     </a>
                 </div>
             </div>
 
-           <ul>
+            <ul data-role="listview" data-style="inset" id="offer-filter">
                 <li>
                     <label>
-                        <input id="mcategory" type="radio" checked="checked" value=""/>
+                        <input name="mcategory" type="radio" checked="checked" value=""/>
                         All Categories
                     </label>
                 </li>
                 <li>
-                        <label>
-                        <input id="mcategory" type="radio" value="1" />
+                    <label>
+                        <input name="mcategory" type="radio" value="1" />
                         Bars & Nightlife
                     </label>
                 </li>
                 <li>
-                        <label>
-                        <input id="mcategory" type="radio" value="2" />
+                    <label>
+                        <input name="mcategory" type="radio" value="2" />
                         Dining
                     </label>
                 </li>
                 <li>
-                        <label>
-                        <input id="mcategory" type="radio" value="3" />
+                    <label>
+                        <input name="mcategory" type="radio" value="3" />
                         SPA & Wellness
                     </label>
                 </li>
-                               <li>
-                        <label>
-                        <input id="mcategory" type="radio" value="4" />
+                <li>
+                    <label>
+                        <input name="mcategory" type="radio" value="4" />
                         Leisure
                     </label>
                 </li>
-   <li>
-                        <label>
-                        <input id="mcategory" type="radio" value="5" />
+                <li>
+                    <label>
+                        <input name="mcategory" type="radio" value="5" />
                         Hotel Stay
                     </label>
                 </li>
 
-               </ul>
-       
+            </ul>
+
         </div>
 
         <div data-role="modalview" id="modalviewcuisine" style="height:80%;width:90%" data-model="preLogin">
@@ -341,8 +341,8 @@
             </div>
 
         </div>
-        
-         <div data-role="modalview" id="modalviewmapA" data-title="Map"  style="height:100%;width:100%">
+
+        <div data-role="modalview" id="modalviewmapA" data-title="Map"  style="height:100%;width:100%">
             <div data-role="header">
                 <div data-role="navbar">
                     <span data-role="view-title"></span>
@@ -703,12 +703,12 @@
         </script>
 
         <script type="text/x-kendo-template" id="faqTemplate">
-             <div data-role="collapsible" data-collapse-icon="arrow-up" data-expand-icon="arrow-down">            
-              <h6 class="collapse-format-1">&nbsp;${question}</h6>
-                 <pre class="fulljustify">
-                     ${answer}
-            </pre>
-                </div>
+            <div data-role="collapsible" data-collapse-icon="arrow-up" data-expand-icon="arrow-down">
+                <h6 class="collapse-format-1">&nbsp;${question}</h6>
+                <pre class="fulljustify">
+                    ${answer}
+                </pre>
+            </div>
         </script>
 
         <script type="text/x-kendo-template" id="pl-faqTemplate">
@@ -719,7 +719,7 @@
                 </pre>
             </div>
         </script>
-        
+
         <script type="text/x-kendo-template" id="outletTemplate">
             <div class="button-frame-inline height-80 button-frame-inline-long">
                 <a  href="views/outletdetail.html?od=${outletcode}" data-transition="slide:up" id="mobile-button1" data-role="button" >${outletname}</a>
@@ -775,8 +775,8 @@
             </div>
             
         </script>
-        
-         <script type="text/x-kendo-template" id="outletOfferTemplate">
+
+        <script type="text/x-kendo-template" id="outletOfferTemplate">
             <div class="outer-frame">
                 <div class="voucher-text">${itemname}</div>
                 <div class=" detail-text">
@@ -788,8 +788,8 @@
             </div>
             <hr/>
         </script>
-        
-  <script type="text/x-kendo-template" id="pl-outletOfferTemplate">
+
+        <script type="text/x-kendo-template" id="pl-outletOfferTemplate">
             <div class="outer-frame">
                 <div class="voucher-text">${itemname}</div>
                 <div class=" detail-text">
@@ -801,8 +801,7 @@
             </div>
             <hr/>
         </script>
-        
-        
+
         <script type="text/x-kendo-template" id="offerListTemplate">
         
             
@@ -853,8 +852,8 @@
             </div>
             
         </script>
-        
-          <script type="text/x-kendo-template" id="mywallet-voucherlist-Template-outlet">
+
+        <script type="text/x-kendo-template" id="mywallet-voucherlist-Template-outlet">
         
             
             <div class="outer-frame">

@@ -1087,6 +1087,26 @@ function completeRedemption() {
                                            checkcuisine:false,
                                            checkcelebration:false,
                                            checklifestyle:false,
+        closeOfferFilterView:function(){
+             window.localStorage.setItem("mcategory", ""); 
+              ul = document.getElementById("offer-filter");
+                                               items = ul.getElementsByTagName("input");
+                                              
+                                              
+
+                                               //check where checked
+                                               for (i = 0; i < items.length; i++) {
+                                                   y = items[i].checked ? "1" : "0";
+                                                   if (y === "1") {
+                                                       alert(items[i].value);
+                                                     window.localStorage.setItem("mcategory", items[i].value); 
+                                                   }
+                                               }
+     
+              $("#modalviewofferfilter").data("kendoMobileModalView").close();     
+            
+            
+        },
                                            destroyaboutisme:function() {
                                                $("#aboutisme-theme").remove();
                                            },
