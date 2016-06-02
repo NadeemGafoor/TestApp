@@ -1102,7 +1102,7 @@ function completeRedemption() {
                                                }
      
    $("#modalviewofferfilter").data("kendoMobileModalView").close();    
-            $("body").data("kendoMobilePane").navigate("views/offerlist.html");   
+          preLogin.rewardList();
         },
                                            destroyaboutisme:function() {
                                                $("#aboutisme-theme").remove();
@@ -2194,7 +2194,6 @@ function completeRedemption() {
                                                showSpin();
                                                offercode = "";
                                                offertype = "1";
-                                               alert("fgfgfgfg");
                                                 mcategory=window.localStorage.getItem("mcategory");         
                                                 mname=window.localStorage.getItem("mname");         
                                                $.ajax({ 
@@ -2214,6 +2213,8 @@ function completeRedemption() {
                                                               window.localStorage.setItem("mcategory","");
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
+                                                                  $("#offer-list-view").data("kendoMobileListView").destroy();
+                                              
                                                                   $("#offer-list-view").kendoMobileListView({
                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
                                                                                                                 template: $("#offerListTemplate").html(),
@@ -3741,7 +3742,7 @@ function completeRedemption() {
                                             },
         
                                             rewardList
-                                            : function (e) {
+                                            : function () {
                                                 changeCard();
                                                 showSpin();
                                                 offercode = "";
