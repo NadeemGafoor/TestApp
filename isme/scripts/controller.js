@@ -2190,7 +2190,7 @@ function completeRedemption() {
                                                       });
                                            },
                                            rewardList   
-                                           : function (e) {
+                                           : function () {
                                                showSpin();
                                                offercode = "";
                                                offertype = "1";
