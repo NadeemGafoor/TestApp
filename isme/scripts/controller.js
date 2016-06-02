@@ -1104,7 +1104,6 @@ function completeRedemption() {
      
             $("#modalviewofferfilter").data("kendoMobileModalView").close();    
             $("body").data("kendoMobilePane").navigate("views/offerlist.html");   
-            
         },
                                            destroyaboutisme:function() {
                                                $("#aboutisme-theme").remove();
