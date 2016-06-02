@@ -1097,13 +1097,12 @@ function completeRedemption() {
                                                for (i = 0; i < items.length; i++) {
                                                    y = items[i].checked ? "1" : "0";
                                                    if (y === "1") {
-                                                       alert(items[i].value);
                                                      window.localStorage.setItem("mcategory", items[i].value); 
                                                    }
                                                }
      
   
-            $("body").data("kendoMobilePane").navigate("views/offerlist1.html");   
+            $("body").data("kendoMobilePane").navigate("views/offerlist.html");   
         },
                                            destroyaboutisme:function() {
                                                $("#aboutisme-theme").remove();
