@@ -1092,8 +1092,6 @@ function completeRedemption() {
              window.localStorage.setItem("mcategory", ""); 
               ul = document.getElementById("offer-filter");
                                                items = ul.getElementsByTagName("input");
-                                              
-                                              
 
                                                //check where checked
                                                for (i = 0; i < items.length; i++) {
@@ -1105,7 +1103,7 @@ function completeRedemption() {
                                                }
      
               $("#modalviewofferfilter").data("kendoMobileModalView").close();     
-            
+              preLogin.rewardList();
             
         },
                                            destroyaboutisme:function() {
@@ -2214,7 +2212,7 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                              
+                                                              window.localStorage.setItem("mcategory","");
                                                               if (getData.statuscode == "000") {
                                                                   //fill the outlet template
                                                                   $("#offer-list-view").kendoMobileListView({
@@ -3749,8 +3747,8 @@ function completeRedemption() {
                                                 showSpin();
                                                 offercode = "";
                                                 offertype = "3"; 
-                                       mcategory=e.view.params.mcategory;         
-                                                mname=e.view.params.mname;    
+                                                mcategory=window.localStorage.getItem("mcategory");         
+                                                mname=window.localStorage.getItem("mname");         
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backp").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backp").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -3771,6 +3769,7 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
+                                                                window.localStorage.setItem("mcategory","");
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
                                                                    $("#pl-offer-list-view").kendoMobileListView({
