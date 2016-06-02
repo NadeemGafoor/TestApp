@@ -3785,6 +3785,7 @@ $("#offer-list-view").data("kendoMobileListView").dataSource.data(getData.offerl
                                                                 window.localStorage.setItem("mcategory","");
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
+                                                                   ALERT(window.localStorage.getItem("offer-reload"));
                                                                      if(window.localStorage.getItem("offer-reload")!="1"){
                                                                    $("#pl-offer-list-view").kendoMobileListView({
                                                                                                                     dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
