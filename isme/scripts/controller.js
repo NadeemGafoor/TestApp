@@ -3433,7 +3433,8 @@ function completeRedemption() {
                                                 //  clearListFilter();
                                                
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
-                                            
+                                            alert(showsummary);
+                                                alert(firsttime);
                                                 if (firsttime==="" || showsummary==="") {
                                                     $.ajax({ 
                                                                type: "POST",
@@ -3454,7 +3455,8 @@ function completeRedemption() {
                                                                        window.localStorage.setItem("spendn", getData.spendbalanceN);
                                                                        window.localStorage.setItem("vouchercount", getData.vouchercount);
                                                                        window.localStorage.setItem("expirycount", getData.expirycount);                                                                       
-                                                                       window.localStorage.setItem("expirydays", getData.expirydays);                                                                       
+                                                                       window.localStorage.setItem("expirydays", getData.expirydays);    
+                                                                       alert("First Here");
                                                                        spendBarPlus();    
                                                                  
                                                                        hideSpin(); //hide loading popup
