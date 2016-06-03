@@ -3135,16 +3135,16 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  if (getData.faqlist.length > 0) {
-                                                                      for (var i = 0; i < getData.faqlist.length; i++) {
-                                                                          document.getElementById("faql").innerHTML += '<div id=col' + i + ' data-role="collapsible" data-collapsed="true" data-collapse-icon="arrow-up" data-expand-icon="arrow-down"><h3 class="collapse-format-1">&nbsp;' + getData.faqlist[i].question + '</h3><pre class="fulljustify">' + getData.faqlist[0].answer + '</pre></div>';
-                                                                      }
+                                                                  
+                                                                  
+                                                                    $("#faqlist-all").kendoMobileListView({  
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#faqTemplate").html()
+                                                                                                            });
+                                                                  
+                                                                 
                                                                       hideSpin(); //hide loading popup
-                                                                  }else {
-                                                                      navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. ", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
-                                                                      hideSpin(); //hide loading popup
-                                                                  }
+                                                                
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
