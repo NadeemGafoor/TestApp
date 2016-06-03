@@ -7404,6 +7404,10 @@ function completeRedemption() {
         firsttime = "1"; 
         showsummary = "1";                 
         window.localStorage.setItem("selfredeem", ""); 
+        
+        alert(window.localStorage.getItem("vouchercount"));
+        alert(window.localStorage.getItem("expirycount"));
+        alert(window.localStorage.getItem("expirydays"));
         document.getElementById("main-title-p").innerHTML = "Welcome, " + window.localStorage.getItem("firstname");
         document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
         document.getElementById("my-voucher-count").innerHTML = "I have " + window.localStorage.getItem("vouchercount") + " Rewards in my Wallet";
