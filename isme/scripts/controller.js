@@ -3452,6 +3452,9 @@ function completeRedemption() {
                                                                        window.localStorage.setItem("maxspend", getData.maxspend);
                                                                        window.localStorage.setItem("spendmb", getData.spendbalance);
                                                                        window.localStorage.setItem("spendn", getData.spendbalanceN);
+                                                                       window.localStorage.setItem("vouchercount", getData.vouchercount);
+window.localStorage.setItem("expirycount", getData.expirycount);                                                                       
+                                                                       window.localStorage.setItem("expirydays", getData.expirydays);                                                                       
                                                                        spendBarPlus();    
                                                                  
                                                                        hideSpin(); //hide loading popup
