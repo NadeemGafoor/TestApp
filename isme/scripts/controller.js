@@ -3471,9 +3471,10 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            });
-                                                }
+                                                }else{
                                               
                                                 spendBarPlus();
+                                                    }
                                             },
         
                                             loadProfile
@@ -5609,7 +5610,7 @@ function completeRedemption() {
                            window.localStorage.setItem("self-authorization", getData.transactionref);
                            window.localStorage.setItem("self-outletname", getData.outletname);
                            postLogin.set("depin1", "");
-                        
+                           showsummary = ""; 
                            if (window.localStorage.getItem("segmentcode")==="1000") {
                                $("body").data("kendoMobilePane").navigate("views/pl-confirmvoucher.html");      
                            } else {
@@ -5652,6 +5653,7 @@ function completeRedemption() {
                            window.localStorage.setItem("self-authorization", getData.transactionref);
                            window.localStorage.setItem("self-outletname", getData.outletname);
                            postLogin.set("depin1", "");
+                           showsummary = ""; 
                            if (window.localStorage.getItem("segmentcode")==="1000") {
                                $("body").data("kendoMobilePane").navigate("views/pl-confirmvoucher.html");      
                            } else {
@@ -7405,10 +7407,7 @@ function completeRedemption() {
         firsttime = "1"; 
         showsummary = "1";                 
         window.localStorage.setItem("selfredeem", ""); 
-        
-        alert(window.localStorage.getItem("vouchercount"));
-        alert(window.localStorage.getItem("expirycount"));
-        alert(window.localStorage.getItem("expirydays"));
+
         document.getElementById("main-title-p").innerHTML = "Welcome, " + window.localStorage.getItem("firstname");
         document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
         document.getElementById("my-voucher-count").innerHTML = "I have " + window.localStorage.getItem("vouchercount") + " Rewards in my Wallet";
