@@ -3453,7 +3453,7 @@ function completeRedemption() {
                                                                        window.localStorage.setItem("spendmb", getData.spendbalance);
                                                                        window.localStorage.setItem("spendn", getData.spendbalanceN);
                                                                        window.localStorage.setItem("vouchercount", getData.vouchercount);
-window.localStorage.setItem("expirycount", getData.expirycount);                                                                       
+                                                                       window.localStorage.setItem("expirycount", getData.expirycount);                                                                       
                                                                        window.localStorage.setItem("expirydays", getData.expirydays);                                                                       
                                                                        spendBarPlus();    
                                                                  
@@ -7405,9 +7405,9 @@ window.localStorage.setItem("expirycount", getData.expirycount);
         showsummary = "1";                 
         window.localStorage.setItem("selfredeem", ""); 
         document.getElementById("main-title-p").innerHTML = "Welcome, " + window.localStorage.getItem("firstname");
-        //document.getElementById("profile-name-p").innerHTML = window.localStorage.getItem("customername");
         document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
-        // document.getElementById("profile-init-p").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
+        document.getElementById("my-voucher-count").innerHTML = "I have " + window.localStorage.getItem("vouchercount") + " Rewards in my Wallet";
+        document.getElementById("my-voucher-expiry").innerHTML = "My next " + window.localStorage.getItem("expirycount") + " Rewards expires in " + window.localStorage.getItem("expirydays") + " days";
         if (window.localStorage.getItem("segmentcode") === "1000") {
             document.getElementById("profile-type-p").innerHTML = "isme ";
             document.getElementById("post-redeem").style.backgroundColor = "#000";
