@@ -3433,9 +3433,7 @@ function completeRedemption() {
                                                 //  clearListFilter();
                                                
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
-                                            alert(showsummary);
-                                                alert(firsttime);
-                                                if (firsttime=="" || showsummary=="") {
+                                         alert("First Here");  
                                                     $.ajax({ 
                                                                type: "POST",
                                                                cache:false,
@@ -3448,8 +3446,9 @@ function completeRedemption() {
                                                                                     }),   
                                                                success: function (data) { 
                                                                    var getData = JSON.parse(data);
+                                                                    
                                                                    if (getData.statuscode == "000") {
-                                                                       alert("First Here");                                                                       
+                                                                                                                                          
                                                                        window.localStorage.setItem("spend", getData.spenda);
                                                                        window.localStorage.setItem("maxspend", getData.maxspend);
                                                                        window.localStorage.setItem("spendmb", getData.spendbalance);
@@ -3473,7 +3472,7 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            });
-                                                }
+                                               
                                               
                                                 spendBarPlus();
                                             },
