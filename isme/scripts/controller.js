@@ -1643,8 +1643,7 @@ function completeRedemption() {
                                            : function (e) { 
                                                benefitcode = "1000"; 
                                                showSpin(); //show loading popup
-                                        
-document.getElementById("b1").style.display = "none";
+
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1668,7 +1667,9 @@ document.getElementById("b1").style.display = "none";
                                                                                                                 template: $("#benefit1").html()
                                                                                                             });
                                                                   
-                                                                 
+                                                                    document.getElementById("benefit-detail-view").style.display = "block";
+                                               document.getElementById("benefit-detail-view-1").style.display = "none";
+                                                  
                                                                       hideSpin(); //hide loading popup
                                                                 
                                                               }else {
@@ -1683,17 +1684,14 @@ document.getElementById("b1").style.display = "none";
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                      document.getElementById("benefit-detail-view").style.display = "block";
-                                               document.getElementById("benefit-detail-view-1").style.display = "none";
-                                                  document.getElementById("b1").style.display = "block";
+                                                   
                                            },
         
                                            benefitdetail1
                                            : function (e) { 
                                                benefitcode = "1001"; 
                                                showSpin(); //show loading popup
-                                                                           
-document.getElementById("b2").style.display = "none";
+
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1717,7 +1715,8 @@ document.getElementById("b2").style.display = "none";
                                                                                                                 template: $("#benefit2").html()
                                                                                                             });
                                                                   
-                                                                 
+                                                                   document.getElementById("benefit-detail-view-1").style.display = "block";
+                                               document.getElementById("benefit-detail-view").style.display = "none"; 
                                                                       hideSpin(); //hide loading popup
                                                                 
                                                               }else {
@@ -1732,9 +1731,7 @@ document.getElementById("b2").style.display = "none";
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                  document.getElementById("benefit-detail-view-1").style.display = "block";
-                                               document.getElementById("benefit-detail-view").style.display = "none"; 
-                                                                                              document.getElementById("b2").style.display = "block";
+                                                
                                            },
             
                                            showAllOutlet
