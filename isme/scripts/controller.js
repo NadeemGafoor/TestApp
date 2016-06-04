@@ -4174,7 +4174,7 @@ function completeRedemption() {
                                                                        document.getElementById("segment-back9").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
                                                                        document.getElementById("mycard-qr9").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                                        document.getElementById("mycard-qr9").style.backgroundSize = "cover";        
-                                                                  
+                                                                      document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].segmentname;
                                                                   
                                                                     $("#benefit-all").kendoMobileListView({  
                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
