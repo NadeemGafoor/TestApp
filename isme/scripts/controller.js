@@ -4150,22 +4150,23 @@ function completeRedemption() {
                                                 changeCard();
                                                 benefitcode = window.localStorage.getItem("segmentcode"); 
                                                 showSpin(); //show loading popup
-                                                $.ajax({ 
-                                                           type: "POST",
-                                                           cache:false,
-                                                           async:true,
-                                                           timeout:20000,
-                                                           url: gurl + "/benefitlist.aspx",
-                                                           contentType: "application/json; charset=utf-8",
-                                                           data: JSON.stringify({
-                                                                                    merchantcode :merchant,benefitcode:benefitcode,mdevice:window.localStorage.getItem("mdevicestat")
-                                                                                }),
-                                                           success: function (data) { 
-                                                               var getData = JSON.parse(data);
-                                                               if (getData.statuscode == "000") {
-                                                                   //fill the outlet template
-                                                                   if (getData.benefitlist.length > 0) {
-                                                                       document.getElementById("pl-benefit-detail-view").style.display = "block";
+                                                                                             
+                                                      $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/benefitlistnew.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,benefitcode:benefitcode,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                                                                                
+                                                              if (getData.statuscode === "000") {  
+                                                                  //fill the outlet template
+                                                                     document.getElementById("pl-benefit-detail-view").style.display = "block";
                                                                        window.localStorage.setItem("selfredeem", "D"); 
                                                                        document.getElementById("name-back9").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                                        document.getElementById("number-back9").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -4173,32 +4174,28 @@ function completeRedemption() {
                                                                        document.getElementById("segment-back9").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
                                                                        document.getElementById("mycard-qr9").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                                        document.getElementById("mycard-qr9").style.backgroundSize = "cover";        
-                                                                       
-                                                                       document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].titlename;
-                                                                       document.getElementById("benefit-text6").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
-                                                                       window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
-                                                            
-                                                                       window.localStorage.setItem("social_message", "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>");
-                                                                       window.localStorage.setItem("social_image", getData.benefitlist[0].imageurll); 
-                                                               
-                                                                       hideSpin(); //hide loading popup
-                                                                   }else {
-                                                                       navigator.notification.alert("There are no Benefits for the selected Programme.", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
-                                                                       hideSpin(); //hide loading popup
-                                                                   }
-                                                               }else {
-                                                                   navigator.notification.alert("Due to a system error, the Benefit details are not available. Please close the app and log in again. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
-                                                                   hideSpin(); //hide loading popup
-                                                               }
-                                                           },
-                                                           error: function (error) {
-                                                               navigator.notification.alert("Due to a system error, the Benefit details are not available.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
-                                                               hideSpin(); //hide loading popup                                          
-                                                           }
-                                                       });
+                                                                  
+                                                                  
+                                                                    $("#benefit-all").kendoMobileListView({  
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
+                                                                                                                template: $("#benefit3").html()
+                                                                                                            });
+                                                                  
+                                                                 
+                                                                      hideSpin(); //hide loading popup
+                                                                
+                                                              }else {
+                                                                  navigator.notification.alert("Due to a system error, the benefits cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Due to a system error, the benefits cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup                                          
+                                                          }
+                                                      });
                                             },
         
                                             showOfferOutlet: function() {
