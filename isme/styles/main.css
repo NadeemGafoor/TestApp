@@ -2420,10 +2420,16 @@ tile-frame-inner
     height:auto;
 }
 
+.font-med{
+    margin-top:0;
+    margin-bottom:5px;
+    font-size:90%;
+    height:auto;
+}
+
 .collapse-format{
     height:30px;
     line-height:30px;
-    margin-left:3px;
     width:100%;
 }
 
