@@ -2416,6 +2416,9 @@ tile-frame-inner
     font-size:90%;
     margin-left:0px;
     margin-right:0px;
+    width:100%;
+    border-top:0px;
+    border-bottom:0px;
 }
 
 .pl-logo-image-holder{
