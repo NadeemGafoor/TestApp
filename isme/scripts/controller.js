@@ -3429,7 +3429,7 @@ function completeRedemption() {
                                                document.getElementById("segment-backg").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
                                                document.getElementById("mycard-qrg").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                document.getElementById("mycard-qrg").style.backgroundSize = "cover";    
-                                               $.ajax({ 
+                                             $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3437,24 +3437,284 @@ function completeRedemption() {
                                                           url: gurl + "/faqlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,mdevice:mdevicestat,category:window.localStorage.getItem("faqcategory")
+                                                                                   merchantcode :merchant,mdevice:mdevicestat,category:"1"
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  if (getData.faqlist.length > 0) {
-                                                                      for (var i = 0; i < getData.faqlist.length; i++) {
-                                                                          document.getElementById("pl-faql").innerHTML += '<div data-role="collapsible" data-collapse-icon="arrow-up" data-expand-icon="arrow-down"><h6 class="collapse-format-1">&nbsp;' + getData.faqlist[i].question + '</h6><pre class="fulljustify">' + getData.faqlist[0].answer + '</pre></div>';
-                                                                      }
                                                                   
+                                                                  
+                                                                  
+                                                                    $("#pfaqlist1").kendoMobileListView({  
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#pfaqTemplate1").html()
+                                                                                                            });
+                                                                  
+                                                                 
                                                                       hideSpin(); //hide loading popup
-                                                                  }else {
-                                                                      navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. ", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                
+                                                              }else {
+                                                                  navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Due to a system error, the FAQs cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup                                          
+                                                          }
+                                                      });
+                                                  $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/faqlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,mdevice:mdevicestat,category:"2"
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                                                                                
+                                                              if (getData.statuscode === "000") {  
+                                                                  //fill the outlet template
+                                                                  
+                                                                  
+                                                                    $("#pfaqlist2").kendoMobileListView({  
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#pfaqTemplate2").html()
+                                                                                                            });
+                                                                  
+                                                                 
                                                                       hideSpin(); //hide loading popup
-                                                                  }
+                                                                
+                                                              }else {
+                                                                  navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Due to a system error, the FAQs cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup                                          
+                                                          }
+                                                      });
+                                                 $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/faqlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,mdevice:mdevicestat,category:"3"
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                                                                                
+                                                              if (getData.statuscode === "000") {  
+                                                                  //fill the outlet template
+                                                                  
+                                                                  
+                                                                    $("#pfaqlist3").kendoMobileListView({  
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#pfaqTemplate3").html()
+                                                                                                            });
+                                                                  
+                                                                 
+                                                                      hideSpin(); //hide loading popup
+                                                                
+                                                              }else {
+                                                                  navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Due to a system error, the FAQs cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup                                          
+                                                          }
+                                                      });
+                                               
+                                                 $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/faqlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,mdevice:mdevicestat,category:"4"
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                                                                                
+                                                              if (getData.statuscode === "000") {  
+                                                                  //fill the outlet template
+                                                                  
+                                                                  
+                                                                    $("#pfaqlist4").kendoMobileListView({  
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#pfaqTemplate4").html()
+                                                                                                            });
+                                                                  
+                                                                 
+                                                                      hideSpin(); //hide loading popup
+                                                                
+                                                              }else {
+                                                                  navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Due to a system error, the FAQs cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup                                          
+                                                          }
+                                                      });
+                                                 $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/faqlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,mdevice:mdevicestat,category:"5"
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                                                                                
+                                                              if (getData.statuscode === "000") {  
+                                                                  //fill the outlet template
+                                                                  
+                                                                  
+                                                                    $("#pfaqlist5").kendoMobileListView({  
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#pfaqTemplate5").html()
+                                                                                                            });
+                                                                  
+                                                                 
+                                                                      hideSpin(); //hide loading popup
+                                                                
+                                                              }else {
+                                                                  navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Due to a system error, the FAQs cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup                                          
+                                                          }
+                                                      });
+                                                  $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/faqlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,mdevice:mdevicestat,category:"6"
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                                                                                
+                                                              if (getData.statuscode === "000") {  
+                                                                  //fill the outlet template
+                                                                  
+                                                                  
+                                                                    $("#pfaqlist6").kendoMobileListView({  
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#pfaqTemplate6").html()
+                                                                                                            });
+                                                                  
+                                                                 
+                                                                      hideSpin(); //hide loading popup
+                                                                
+                                                              }else {
+                                                                  navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Due to a system error, the FAQs cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup                                          
+                                                          }
+                                                      });
+                                                  $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/faqlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,mdevice:mdevicestat,category:"7"
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                                                                                
+                                                              if (getData.statuscode === "000") {  
+                                                                  //fill the outlet template
+                                                                  
+                                                                  
+                                                                    $("#pfaqlist7").kendoMobileListView({  
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#pfaqTemplate7").html()
+                                                                                                            });
+                                                                  
+                                                                 
+                                                                      hideSpin(); //hide loading popup
+                                                                
+                                                              }else {
+                                                                  navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("Due to a system error, the FAQs cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup                                          
+                                                          }
+                                                      });
+                                                  $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/faqlist.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,mdevice:mdevicestat,category:"8"
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                                                                                
+                                                              if (getData.statuscode === "000") {  
+                                                                  //fill the outlet template
+                                                                  
+                                                                  
+                                                                    $("#pfaqlist8").kendoMobileListView({  
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#pfaqTemplate8").html()
+                                                                                                            });
+                                                                  
+                                                                 
+                                                                      hideSpin(); //hide loading popup
+                                                                
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
