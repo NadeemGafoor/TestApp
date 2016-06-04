@@ -1,4 +1,4 @@
-<div data-role="view" data-title="FAQ" data-layout="pre-layout" id="faq-theme" data-model="preLogin" data-before-show="preLogin.getfaq" data-hide="preLogin.destroyfaq" data-after-show="disableBackButton" data-before-hide="enableBackButton">
+<div data-role="view" data-title="FAQ" data-layout="pre-layout" id="faq-theme" data-model="preLogin" data-show="preLogin.getfaq" data-hide="preLogin.destroyfaq" data-after-show="disableBackButton" data-before-hide="enableBackButton">
     <div data-role="header">
         <div data-role="navbar">
             <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff"></a>
@@ -9,15 +9,18 @@
         </div>
     </div>
 
-      <div data-role="content">
-        <div id="tipps_komplett"></div>
+    <div data-role="collapsible" data-collapse-icon="arrow-up" data-expand-icon="arrow-down">
+        <h3 class="collapse-format">About isme by Jumeirah</h3>
+        <ul data-role="listview" id="faqlist1">
+        </ul>
+        <div style="height:50px">&nbsp;</div>
     </div>
-    </div>
+
     <div data-role="collapsible" data-collapse-icon="arrow-up" data-expand-icon="arrow-down"  >
         <h3 class="collapse-format">About the isme by Jumeirah Mobile App</h3>
         <ul data-role="listview" id="faqlist2" >
         </ul>
-        <div style="height:50px">&nbsp;</div>
+        <div style="height:100px">&nbsp;</div>
     </div>
 
     <div data-role="collapsible" data-collapse-icon="arrow-up" data-expand-icon="arrow-down"  >

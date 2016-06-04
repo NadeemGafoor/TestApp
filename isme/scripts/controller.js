@@ -3134,29 +3134,16 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
-                                                                  var DIV_tipps_komplett = $("#tipps_komplett");
-
-    var kategorie_ID = 1;
-    var kategorie_NAME = 'Beleuchtung';
-
-    var collapsible_HTML = $('<div data-role="collapsible"></div>');
-    var kategorie_Ueberschrift_HTML = $('<h3>' + kategorie_NAME + '</h3>');
-    var tipps_kategorie_HTML = $('<div id="tipps_kategorie' + kategorie_ID + '" data-role="collapsible-set"></div>');
-
-    
-    
-    var tipp_Ueberschrift_Text_HTML = '<div data-role="collapsible"><h3>Kurzes Luften...</h3><p>Kurze, intensive...</p><br></div>';
-    tipps_kategorie_HTML.append(tipp_Ueberschrift_Text_HTML);
-
-    var tipp_Ueberschrift_Text_HTML2 = '<div data-role="collapsible"><h3>KAnother Sub...</h3><p>Description goes here...</p><br></div>';
-    tipps_kategorie_HTML.append(tipp_Ueberschrift_Text_HTML2);
-    
-    
-    collapsible_HTML.append(kategorie_Ueberschrift_HTML);
-    collapsible_HTML.append(tipps_kategorie_HTML);
-    DIV_tipps_komplett.append(collapsible_HTML);
-
-    DIV_tipps_komplett.trigger('create');
+                                                                  //fill the outlet template
+                                                                  
+                                                                  
+                                                                  
+                                                                    $("#faqlist1").kendoMobileListView({  
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#faqTemplate1").html()
+                                                                                                            });
+                                                                  
+                                                                 
                                                                       hideSpin(); //hide loading popup
                                                                 
                                                               }else {
