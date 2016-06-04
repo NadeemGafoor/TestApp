@@ -2403,11 +2403,10 @@ tile-frame-inner
 
 
 .collapse-format{
-
     height:30px;
     line-height:30px;
-    margin-left:15px;
-    font-size:125%;
+    margin-left:3px;
+    width:100%;
 }
 
 .collapse-format-1{
