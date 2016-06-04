@@ -2411,11 +2411,8 @@ tile-frame-inner
 
 .collapse-format-1{
 
-    height:20px;
-    line-height:20px;
-    font-size:90%;
-    margin-left:0px;
-    margin-right:0px;
+    height:auto;
+    font-size:80%;
     width:100%;
     border-top:0px;
     border-bottom:0px;
