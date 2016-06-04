@@ -3135,15 +3135,11 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                  
-                                                                    $("#faqlist1").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#faqTemplate1").html()
-                                                                                                            });
-                                                                  
-                                                                 
+                                                                   var fq1 = $("#faqlist1");
+                                                                    var f1 = '<div data-role="collapsible" data-collapsed="true" data-collapse-icon="arrow-up" data-expand-icon="arrow-down"><h6 class="collapse-format-1">&nbsp;' + getData.faqlist[i].question + '</h6><pre class="fulljustify">' + getData.faqlist[0].answer + '</pre></div>';
+                                                                    fq1.append(f1);
+                                                         
+                                                                  $("#faqlist1").trigger('create');
                                                                       hideSpin(); //hide loading popup
                                                                 
                                                               }else {
