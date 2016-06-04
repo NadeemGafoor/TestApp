@@ -1646,41 +1646,41 @@ function completeRedemption() {
                                                document.getElementById("benefit-detail-view").style.display = "block";
                                                document.getElementById("benefit-detail-view-1").style.display = "none";
                     
+                                             showSpin(); //show loading popup
                                                $.ajax({ 
-                                                          type: "POST",   
+                                                          type: "POST",
                                                           cache:false,
                                                           async:true,
                                                           timeout:20000,
-                                                          url: gurl + "/benefitlist.aspx",
+                                                          url: gurl + "/benefitlistnew.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
                                                                                    merchantcode :merchant,benefitcode:benefitcode,mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                              if (getData.statuscode == "000") {
+                                                                                                                
+                                                              if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  if (getData.benefitlist.length > 0) {                                                                     
-                                                                      document.getElementById("benefit-text3").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
-                                                                      window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
-                                                            
-                                                                      window.localStorage.setItem("social_message", "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>");
-                                                                      window.localStorage.setItem("social_image", getData.benefitlist[0].imageurll); 
-
+                                                                  
+                                                                  
+                                                                  
+                                                                    $("#benefit-1000").kendoMobileListView({  
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#benefit1").html()
+                                                                                                            });
+                                                                  
+                                                                 
                                                                       hideSpin(); //hide loading popup
-                                                                  }else {
-                                                                      navigator.notification.alert("There are no Benefits for the selected Programme. ", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
-                                                                      hideSpin(); //hide loading popup
-                                                                  }
+                                                                
                                                               }else {
-                                                                  navigator.notification.alert("Due to a system error, the Benefit details are not available. Please close the app and log in again. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, the benefits cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Due to a system error, the Benefit details are not available. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, the benefits cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
@@ -1693,42 +1693,41 @@ function completeRedemption() {
                                                showSpin(); //show loading popup
                                                document.getElementById("benefit-detail-view-1").style.display = "block";
                                                document.getElementById("benefit-detail-view").style.display = "none";                                               
+                                                showSpin(); //show loading popup
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
                                                           timeout:20000,
-                                                          url: gurl + "/benefitlist.aspx",
+                                                          url: gurl + "/benefitlistnew.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
                                                                                    merchantcode :merchant,benefitcode:benefitcode,mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                              if (getData.statuscode == "000") {
+                                                                                                                
+                                                              if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  if (getData.benefitlist.length > 0) {
-                                                                      document.getElementById("benefit-text5").innerHTML = "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>";
-                   
-                                                                      window.localStorage.setItem("social_shortmsg", getData.benefitlist[0].shortdes1);
-                                                            
-                                                                      window.localStorage.setItem("social_message", "<pre class='fulljustify'>" + getData.benefitlist[0].longdes1 + ' ' + getData.benefitlist[0].longdes2 + "</pre>");
-                                                                      window.localStorage.setItem("social_image", getData.benefitlist[0].imageurll); 
-
+                                                                  
+                                                                  
+                                                                  
+                                                                    $("#benefit-1001").kendoMobileListView({  
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                template: $("#benefit2").html()
+                                                                                                            });
+                                                                  
+                                                                 
                                                                       hideSpin(); //hide loading popup
-                                                                  }else {
-                                                                      navigator.notification.alert("There are no Benefits for the selected Programme.", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
-                                                                      hideSpin(); //hide loading popup
-                                                                  }
+                                                                
                                                               }else {
-                                                                  navigator.notification.alert("Due to a system error, the Benefit details are not available. Please close the app and log in again. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("Due to a system error, the benefits cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
-                                                              navigator.notification.alert("Due to a system error, the Benefit details are not available. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Due to a system error, the benefits cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }

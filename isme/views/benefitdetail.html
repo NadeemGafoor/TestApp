@@ -16,12 +16,11 @@
         </li>
 
     </ul>
-    <ul data-role="listview"   style="background-color:#fff;margin-top:0px" id="benefit-detail-view">
+    <div style="background-color:#fff;margin-top:0px" id="benefit-detail-view">
 
-        <li>
-            <div id="benefit-text3"></div>
-        </li>
-
+     
+       <ul data-role="listview" id="benefit-1000"></ul>
+  
         <div>
             <li>
                 <div class="button-frame-login">
@@ -29,13 +28,11 @@
                 </div>
             </li>
         </div>
-    </ul>
+    </div>
 
-    <ul data-role="listview"   style="background-color:#fff;margin-top:0px" id="benefit-detail-view-1">
+    <div data-role="listview"   style="background-color:#fff;margin-top:0px" id="benefit-detail-view-1">
 
-        <li>
-            <div id="benefit-text5"></div>
-        </li>
+        <ul data-role="listview" id="benefit-1001"></ul>
         <div>
             <li>
                 <div class="button-frame-login">
@@ -44,7 +41,7 @@
             </li>
         </div>
 
-    </ul>
+    </div>
 
 </div>
 
@@ -63,3 +60,25 @@
     }  
 </script>
 
+
+<script type="text/x-kendo-template" id="benefit1">
+    <div data-role="collapsible">
+        <h6 class="collapse-format">${question}</h6>
+
+        <pre class="fulljustify">
+            ${answer}
+        </pre>
+
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="benefit2">
+    <div data-role="collapsible">
+        <h6 class="collapse-format">${question}</h6>
+
+        <pre class="fulljustify">
+            ${answer}
+        </pre>
+
+    </div>
+</script>
