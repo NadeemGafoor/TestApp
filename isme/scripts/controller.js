@@ -1666,7 +1666,7 @@ function completeRedemption() {
                                                                   
                                                                   
                                                                     $("#benefit-1000").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
                                                                                                                 template: $("#benefit1").html()
                                                                                                             });
                                                                   
@@ -1713,7 +1713,7 @@ function completeRedemption() {
                                                                   
                                                                   
                                                                     $("#benefit-1001").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
                                                                                                                 template: $("#benefit2").html()
                                                                                                             });
                                                                   
