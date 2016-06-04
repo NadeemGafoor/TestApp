@@ -3136,7 +3136,6 @@ function completeRedemption() {
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
                                                                   
-                                                                  
                                                                     $("#faqlist1").kendoMobileListView({  
                                                                                                                 dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
                                                                                                                 template: $("#faqTemplate1").html()

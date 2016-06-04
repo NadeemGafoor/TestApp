@@ -2402,6 +2402,8 @@ tile-frame-inner
 }
 
 .font-small{
+    margin-top:0;
+    margin-bottom:0;
     font-size:80%;
 }
 
@@ -2415,6 +2417,7 @@ tile-frame-inner
 .collapse-format-1{
 
     height:auto;
+    line-height:15px;
     font-size:80%;
     width:100%;
     border-top:0px;
