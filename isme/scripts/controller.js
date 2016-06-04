@@ -3136,10 +3136,15 @@ function completeRedemption() {
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
                                                                   
-                                                                    $("#faqlist1").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#faqTemplate1").html()
-                                                                                                            });
+                                                                         var ihtml="";
+                                                                  if (getData.faqlist.length > 0) {
+                                                                      for (var i = 0; i < getData.faqlist.length; i++) {
+                                                                          ihtml =ihtml +  '<div data-role="collapsible"><h3 class="collapse-format-1">' + getData.faqlist[i].question + '</h3><pre class="fulljustify">' + getData.faqlist[0].answer + '</pre></div>';
+                                                                      }
+                                                                      document.getElementById("faqlist1").innerHTML=ihtml;
+                                                                  }
+                                                                  
+                                                                
                                                                   
                                                                  
                                                                       hideSpin(); //hide loading popup
