@@ -249,6 +249,18 @@ a
         color: #fff;
 }
 
+.km-customplus:before,
+.km-customplus:after
+{
+    content: "\f068";
+}
+
+.km-customminus:before,
+.km-customminus:after
+{
+    content: "\f067";
+}
+
 .km-customstar:before,
 .km-customstar:after
 {
