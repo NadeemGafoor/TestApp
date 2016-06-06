@@ -1729,8 +1729,8 @@ function completeRedemption() {
                                            : function (e) {
                                                showSpin();  
                                                window.localStorage.setItem("appopen", "01");
-                                            prefiltercheck();
-                                               
+                                             
+                                                prefiltercheck(e);
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1748,6 +1748,7 @@ function completeRedemption() {
                                                               if (getData.statuscode === "000") {
                                                                   //fill the outlet template
                                                                   //alert(getData.outletlist[0].imageurll);
+                                                                  if(window.localStorage.setItem("outlet")===""){
                                                                   $("#outlet-list").kendoMobileListView({
                                                                              
                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
@@ -1763,6 +1764,9 @@ function completeRedemption() {
                                                                           endlessScroll: true                                 
                                                                       }
                                                                                                         });
+                                                                      }else{
+                                                                           $("#outlet-list").data("kendoMobileListView").dataSource.data(getData.outletlist);
+                                                                      }
                                                                   propertygeo = [];
                                                                   for (var i = 0;i < getData.outletlist.length;i++) {
                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
@@ -7951,7 +7955,7 @@ function completeRedemption() {
         hideSpin();
     }
     
-    function prefiltercheck(){
+    function prefiltercheck(e){
    if (window.localStorage.getItem("outlet")==="") {
                                                    window.localStorage.setItem("brand", e.view.params.brand);  
                                                    window.localStorage.setItem("category", e.view.params.category);
