@@ -1748,7 +1748,7 @@ function completeRedemption() {
                                                               if (getData.statuscode === "000") {
                                                                   //fill the outlet template
                                                                   //alert(getData.outletlist[0].imageurll);
-                                                                  if(window.localStorage.setItem("outlet")===""){
+                                                                  if(window.localStorage.getItem("outlet")===""){
                                                                   $("#outlet-list").kendoMobileListView({
                                                                              
                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
@@ -1854,9 +1854,9 @@ function completeRedemption() {
                                            showAllLeisure
                                            : function (e) {
                                                showSpin(); 
-                                              
-                                               window.localStorage.setItem("brand", e.view.params.brand);  
-                                               window.localStorage.setItem("category", e.view.params.category); 
+                                              window.localStorage.setItem("appopen", "02");
+                                             
+                                                prefiltercheck(e);
                                              
                                                $.ajax({ 
                                                           type: "POST",
@@ -1866,13 +1866,14 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   // merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
-                                                                                   merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brandcode"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brand"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:"",prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:""
+                                                                                   //merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brand"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                            
+                                                             cleanoutletfilter();
                                                               if (getData.statuscode === "000") {
+                                                                   if(window.localStorage.getItem("outlet")===""){
                                                                   $("#leisure-list").kendoMobileListView({
                                                                              
                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
@@ -1888,6 +1889,9 @@ function completeRedemption() {
                                                                           endlessScroll: true      
                                                                       }
                                                                                                          });
+                                                                          }else{
+                                                                           $("#leisure-list").data("kendoMobileListView").dataSource.data(getData.outletlist);
+                                                                      }
                                                                   propertygeo = [];
                                                                   for (var i = 0;i < getData.outletlist.length;i++) {
                                                                       propertygeo[i] = getData.outletlist[i].outletname + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
@@ -7964,6 +7968,10 @@ function completeRedemption() {
                                                    window.localStorage.setItem("restaurant", "");
                                                    window.localStorage.setItem("latl", "");    
                                                    window.localStorage.setItem("lonl", "");    
+                                               } else{
+                                                      alert(window.localStorage.getItem("distance"));
+                                                   alert(window.localStorage.getItem("cuisine"));
+                                                   alert(window.localStorage.getItem("restaurant"));
                                                }
         }
     
