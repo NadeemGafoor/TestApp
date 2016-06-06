@@ -2703,3 +2703,7 @@ tile-frame-inner
     float:left;
     position:relative;
 }
+
+.center-line{
+    line-height:20px;
+}
