@@ -1211,15 +1211,14 @@ function completeRedemption() {
                                                if (window.localStorage.getItem("appopen")==="01") {
                                                    window.localStorage.setItem("outlet", "1");                                                     
                                                    preLogin.showAllOutlet();
-                                               } else if (window.localStorage.getItem("appopen")==="81") {
+                                               } else if (window.localStorage.getItem("appopen")==="02") {
+                                                   window.localStorage.setItem("outlet", "1");   
                                                    preLogin.showAllLeisure();
-                                               } else if (window.localStorage.getItem("appopen")==="82") {
-                                                   //alert(window.localStorage.getItem("restaurant"));   
-                                                   //alert(window.localStorage.getItem("cuisine")); 
-                                                   //alert(window.localStorage.getItem("celebration")); 
-                                                   //alert(window.localStorage.getItem("distance"));      
+                                               } else if (window.localStorage.getItem("appopen")==="03") {
+                                                   window.localStorage.setItem("outlet", "1");                                                      
                                                    postLogin.showAllOutlet();
-                                               }else if (window.localStorage.getItem("appopen")==="83") {
+                                               }else if (window.localStorage.getItem("appopen")==="04") {
+                                                   window.localStorage.setItem("outlet", "1");                                                                                                         
                                                    postLogin.showAllLeisure();
                                                }else if (window.localStorage.getItem("appopen")==="801") {
                                                    window.localStorage.setItem("category", "0"); 
