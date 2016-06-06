@@ -1046,12 +1046,13 @@ function completeRedemption() {
     }
     
     function clearAllVariables() {
-        window.localStorage.setItem("category", "")
-        window.localStorage.setItem("brand", "")
+          window.localStorage.setItem("outlet", "");
+        window.localStorage.setItem("category", "");
+        window.localStorage.setItem("brand", "");
         window.localStorage.setItem("brandcode", "");
         window.localStorage.setItem("mcategory", "");         
         window.localStorage.setItem("mname", "");     
-          window.localStorage.setItem("offer-reload", "")
+        window.localStorage.setItem("offer-reload", "")
     }
        
     window.preLogin = kendo.observable({
@@ -1207,7 +1208,8 @@ function completeRedemption() {
                                              
                                                $("#modalviewfilter").data("kendoMobileModalView").close();
  
-                                               if (window.localStorage.getItem("appopen")==="80") {
+                                               if (window.localStorage.getItem("appopen")==="01") {
+                                                   window.localStorage.setItem("outlet", "1");                                                     
                                                    preLogin.showAllOutlet();
                                                } else if (window.localStorage.getItem("appopen")==="81") {
                                                    preLogin.showAllLeisure();
@@ -1659,19 +1661,15 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
+                                                                  $("#benefit-1000").kendoMobileListView({  
+                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
+                                                                                                             template: $("#benefit1").html()
+                                                                                                         });
                                                                   
-                                                                  
-                                                                  
-                                                                    $("#benefit-1000").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
-                                                                                                                template: $("#benefit1").html()
-                                                                                                            });
-                                                                  
-                                                                    document.getElementById("benefit-detail-view").style.display = "block";
-                                               document.getElementById("benefit-detail-view-1").style.display = "none";
+                                                                  document.getElementById("benefit-detail-view").style.display = "block";
+                                                                  document.getElementById("benefit-detail-view-1").style.display = "none";
                                                   
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the benefits cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -1684,7 +1682,6 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                   
                                            },
         
                                            benefitdetail1
@@ -1707,18 +1704,14 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
+                                                                  $("#benefit-1001").kendoMobileListView({  
+                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
+                                                                                                             template: $("#benefit2").html()
+                                                                                                         });
                                                                   
-                                                                  
-                                                                  
-                                                                    $("#benefit-1001").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
-                                                                                                                template: $("#benefit2").html()
-                                                                                                            });
-                                                                  
-                                                                   document.getElementById("benefit-detail-view-1").style.display = "block";
-                                               document.getElementById("benefit-detail-view").style.display = "none"; 
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  document.getElementById("benefit-detail-view-1").style.display = "block";
+                                                                  document.getElementById("benefit-detail-view").style.display = "none"; 
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the benefits cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -1731,17 +1724,14 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                
                                            },
             
                                            showAllOutlet
                                            : function (e) {
                                                showSpin();  
-                                             
-                                               window.localStorage.setItem("brand", e.view.params.brand);  
-                                               window.localStorage.setItem("category", e.view.params.category);
-
-                                          
+                                               window.localStorage.setItem("appopen", "01");
+                                            prefiltercheck();
+                                               
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1755,7 +1745,7 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                             
+                                                              cleanoutletfilter();
                                                               if (getData.statuscode === "000") {
                                                                   //fill the outlet template
                                                                   //alert(getData.outletlist[0].imageurll);
@@ -3135,17 +3125,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                  
-                                                                    $("#faqlist1").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#faqTemplate1").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#faqlist1").kendoMobileListView({  
+                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                         template: $("#faqTemplate1").html()
+                                                                                                     });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3158,7 +3143,7 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                  $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3173,16 +3158,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#faqlist2").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#faqTemplate2").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#faqlist2").kendoMobileListView({  
+                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                         template: $("#faqTemplate2").html()
+                                                                                                     });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3195,7 +3176,7 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                 $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3210,16 +3191,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#faqlist3").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#faqTemplate3").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#faqlist3").kendoMobileListView({  
+                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                         template: $("#faqTemplate3").html()
+                                                                                                     });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3233,7 +3210,7 @@ function completeRedemption() {
                                                           }
                                                       });
                                                
-                                                 $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3248,16 +3225,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#faqlist4").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#faqTemplate4").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#faqlist4").kendoMobileListView({  
+                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                         template: $("#faqTemplate4").html()
+                                                                                                     });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3270,7 +3243,7 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                 $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3285,16 +3258,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#faqlist5").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#faqTemplate5").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#faqlist5").kendoMobileListView({  
+                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                         template: $("#faqTemplate5").html()
+                                                                                                     });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3307,7 +3276,7 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                  $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3322,16 +3291,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#faqlist6").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#faqTemplate6").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#faqlist6").kendoMobileListView({  
+                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                         template: $("#faqTemplate6").html()
+                                                                                                     });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3344,7 +3309,7 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                  $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3359,16 +3324,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#faqlist7").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#faqTemplate7").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#faqlist7").kendoMobileListView({  
+                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                         template: $("#faqTemplate7").html()
+                                                                                                     });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3381,7 +3342,7 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                  $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3396,16 +3357,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#faqlist8").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#faqTemplate8").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#faqlist8").kendoMobileListView({  
+                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                         template: $("#faqTemplate8").html()
+                                                                                                     });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3429,7 +3386,7 @@ function completeRedemption() {
                                                document.getElementById("segment-backg").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
                                                document.getElementById("mycard-qrg").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                document.getElementById("mycard-qrg").style.backgroundSize = "cover";    
-                                             $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3444,17 +3401,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                  
-                                                                    $("#pfaqlist1").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#pfaqTemplate1").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#pfaqlist1").kendoMobileListView({  
+                                                                                                          dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                          template: $("#pfaqTemplate1").html()
+                                                                                                      });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3467,7 +3419,7 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                  $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3482,16 +3434,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#pfaqlist2").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#pfaqTemplate2").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#pfaqlist2").kendoMobileListView({  
+                                                                                                          dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                          template: $("#pfaqTemplate2").html()
+                                                                                                      });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3504,7 +3452,7 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                 $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3519,16 +3467,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#pfaqlist3").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#pfaqTemplate3").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#pfaqlist3").kendoMobileListView({  
+                                                                                                          dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                          template: $("#pfaqTemplate3").html()
+                                                                                                      });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3542,7 +3486,7 @@ function completeRedemption() {
                                                           }
                                                       });
                                                
-                                                 $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3557,16 +3501,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#pfaqlist4").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#pfaqTemplate4").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#pfaqlist4").kendoMobileListView({  
+                                                                                                          dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                          template: $("#pfaqTemplate4").html()
+                                                                                                      });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3579,7 +3519,7 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                 $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3594,16 +3534,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#pfaqlist5").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#pfaqTemplate5").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#pfaqlist5").kendoMobileListView({  
+                                                                                                          dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                          template: $("#pfaqTemplate5").html()
+                                                                                                      });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3616,7 +3552,7 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                  $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3631,16 +3567,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#pfaqlist6").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#pfaqTemplate6").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#pfaqlist6").kendoMobileListView({  
+                                                                                                          dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                          template: $("#pfaqTemplate6").html()
+                                                                                                      });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3653,7 +3585,7 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                  $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3668,16 +3600,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#pfaqlist7").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#pfaqTemplate7").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#pfaqlist7").kendoMobileListView({  
+                                                                                                          dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                          template: $("#pfaqTemplate7").html()
+                                                                                                      });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3690,7 +3618,7 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                                  $.ajax({ 
+                                               $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
@@ -3705,16 +3633,12 @@ function completeRedemption() {
                                                                                                                 
                                                               if (getData.statuscode === "000") {  
                                                                   //fill the outlet template
-                                                                  
-                                                                  
-                                                                    $("#pfaqlist8").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
-                                                                                                                template: $("#pfaqTemplate8").html()
-                                                                                                            });
-                                                                  
+                                                                  $("#pfaqlist8").kendoMobileListView({  
+                                                                                                          dataSource: kendo.data.DataSource.create({data: getData.faqlist}),
+                                                                                                          template: $("#pfaqTemplate8").html()
+                                                                                                      });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
+                                                                  hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")          
@@ -3761,23 +3685,23 @@ function completeRedemption() {
                                             msgsequence:"",
                                             lifestyle:"",
                                            
-    closeOfferFilterView1:function(){
-             window.localStorage.setItem("mcategory", ""); 
-             window.localStorage.setItem("offer-reload", "1"); 
-              ul = document.getElementById("pl-offer-filter");
-                                               items = ul.getElementsByTagName("input");
+                                            closeOfferFilterView1:function() {
+                                                window.localStorage.setItem("mcategory", ""); 
+                                                window.localStorage.setItem("offer-reload", "1"); 
+                                                ul = document.getElementById("pl-offer-filter");
+                                                items = ul.getElementsByTagName("input");
 
-                                               //check where checked
-                                               for (i = 0; i < items.length; i++) {
-                                                   y = items[i].checked ? "1" : "0";
-                                                   if (y === "1") {
-                                                     window.localStorage.setItem("mcategory", items[i].value); 
-                                                   }
-                                               }
+                                                //check where checked
+                                                for (i = 0; i < items.length; i++) {
+                                                    y = items[i].checked ? "1" : "0";
+                                                    if (y === "1") {
+                                                        window.localStorage.setItem("mcategory", items[i].value); 
+                                                    }
+                                                }
      
-   $("#plmodalviewofferfilter").data("kendoMobileModalView").close();    
-          postLogin.rewardList();
-        },
+                                                $("#plmodalviewofferfilter").data("kendoMobileModalView").close();    
+                                                postLogin.rewardList();
+                                            },
         
                                             noAlcoholStart:function() {
                                                 $("#profile-alcohol").data("kendoMobileSwitch").check(true);   
@@ -3954,7 +3878,7 @@ function completeRedemption() {
                                                 //  clearListFilter();
                                                
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
-                                                if (firsttime=="" || showsummary=="") {
+                                                if (firsttime == "" || showsummary == "") {
                                                     $.ajax({ 
                                                                type: "POST",
                                                                cache:false,
@@ -3968,7 +3892,6 @@ function completeRedemption() {
                                                                success: function (data) { 
                                                                    var getData = JSON.parse(data);
                                                                    if (getData.statuscode == "000") {
-                                                                     
                                                                        window.localStorage.setItem("spend", getData.spenda);
                                                                        window.localStorage.setItem("maxspend", getData.maxspend);
                                                                        window.localStorage.setItem("spendmb", getData.spendbalance);
@@ -3992,10 +3915,9 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            });
-                                                }else{
-                                              
-                                                spendBarPlus();
-                                                    }
+                                                }else {
+                                                    spendBarPlus();
+                                                }
                                             },
         
                                             loadProfile
@@ -4151,51 +4073,49 @@ function completeRedemption() {
                                                 benefitcode = window.localStorage.getItem("segmentcode"); 
                                                 showSpin(); //show loading popup
                                                                                              
-                                                      $.ajax({ 
-                                                          type: "POST",
-                                                          cache:false,
-                                                          async:true,
-                                                          timeout:20000,
-                                                          url: gurl + "/benefitlistnew.aspx",
-                                                          contentType: "application/json; charset=utf-8",
-                                                          data: JSON.stringify({
-                                                                                   merchantcode :merchant,benefitcode:benefitcode,mdevice:mdevicestat
-                                                                               }),
-                                                          success: function (data) { 
-                                                              var getData = JSON.parse(data);
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/benefitlistnew.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :merchant,benefitcode:benefitcode,mdevice:mdevicestat
+                                                                                }),
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
                                                                                                                 
-                                                              if (getData.statuscode === "000") {  
-                                                                  //fill the outlet template
-                                                                     document.getElementById("pl-benefit-detail-view").style.display = "block";
-                                                                       window.localStorage.setItem("selfredeem", "D"); 
-                                                                       document.getElementById("name-back9").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
-                                                                       document.getElementById("number-back9").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
-                                                                       document.getElementById("expiry-back9").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                                       document.getElementById("segment-back9").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
-                                                                       document.getElementById("mycard-qr9").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
-                                                                       document.getElementById("mycard-qr9").style.backgroundSize = "cover";        
-                                                                      document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].segmentname;
+                                                               if (getData.statuscode === "000") {  
+                                                                   //fill the outlet template
+                                                                   document.getElementById("pl-benefit-detail-view").style.display = "block";
+                                                                   window.localStorage.setItem("selfredeem", "D"); 
+                                                                   document.getElementById("name-back9").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                                   document.getElementById("number-back9").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                                   document.getElementById("expiry-back9").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
+                                                                   document.getElementById("segment-back9").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                                   document.getElementById("mycard-qr9").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                                   document.getElementById("mycard-qr9").style.backgroundSize = "cover";        
+                                                                   document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].segmentname;
                                                                   
-                                                                    $("#benefit-all").kendoMobileListView({  
-                                                                                                                dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
-                                                                                                                template: $("#benefit3").html()
-                                                                                                            });
-                                                                  
+                                                                   $("#benefit-all").kendoMobileListView({  
+                                                                                                             dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
+                                                                                                             template: $("#benefit3").html()
+                                                                                                         });
                                                                  
-                                                                      hideSpin(); //hide loading popup
-                                                                
-                                                              }else {
-                                                                  navigator.notification.alert("Due to a system error, the benefits cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
-                                                                  hideSpin(); //hide loading popup
-                                                              }
-                                                          },
-                                                          error: function (error) {
-                                                              navigator.notification.alert("Due to a system error, the benefits cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
-                                                              hideSpin(); //hide loading popup                                          
-                                                          }
-                                                      });
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Due to a system error, the benefits cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
+                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   hideSpin(); //hide loading popup
+                                                               }
+                                                           },
+                                                           error: function (error) {
+                                                               navigator.notification.alert("Due to a system error, the benefits cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               hideSpin(); //hide loading popup                                          
+                                                           }
+                                                       });
                                             },
         
                                             showOfferOutlet: function() {
@@ -4313,7 +4233,6 @@ function completeRedemption() {
                                                                window.localStorage.setItem("mcategory", "");
                                                                if (getData.statuscode == "000") {
                                                                    //fill the outlet template
-                                                            
                                                                    if (window.localStorage.getItem("offer-reload") != "1") {
                                                                        $("#pl-offer-list-view").kendoMobileListView({
                                                                                                                         dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
@@ -4372,9 +4291,7 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
 
                                                                if (getData.statuscode == "000") {
-                                                                                                                   
                                                                    m = getData.outletlist[0].geolocation.split(",");  
-                                                                   
                                                                                                                                                               
                                                                    lat = m[0];
                                                                    lon = m[1];
@@ -8034,5 +7951,27 @@ function completeRedemption() {
         }               
         hideSpin();
     }
+    
+    function prefiltercheck(){
+   if (window.localStorage.getItem("outlet")==="") {
+                                                   window.localStorage.setItem("brand", e.view.params.brand);  
+                                                   window.localStorage.setItem("category", e.view.params.category);
+                                                   window.localStorage.setItem("distance", "");
+                                                   window.localStorage.setItem("cuisine", "");
+                                                   window.localStorage.setItem("restaurant", "");
+                                                   window.localStorage.setItem("latl", "");    
+                                                   window.localStorage.setItem("lonl", "");    
+                                               }
+        }
+    
+    function cleanoutletfilter(){
+                                                   window.localStorage.setItem("distance", "");
+                                                   window.localStorage.setItem("cuisine", "");
+                                                   window.localStorage.setItem("restaurant", "");
+                                                   window.localStorage.setItem("latl", "");    
+                                                   window.localStorage.setItem("lonl", "");    
+                                               };
+        
+    
 }
     )(window);
