@@ -996,7 +996,7 @@ function completeRedemption() {
     
     function clearListFilter() {
         //clear Locations Near Me
-        window.localStorage.setItem("distance", "");
+       
         document.getElementById("olocation").checked = false;
         window.localStorage.setItem("brand", "");  
         window.localStorage.setItem("category", ""); 
@@ -1053,7 +1053,8 @@ function completeRedemption() {
         window.localStorage.setItem("mcategory", "");         
         window.localStorage.setItem("mname", "");     
         window.localStorage.setItem("offer-reload", "")
-           window.localStorage.setItem("appopen", "")
+        window.localStorage.setItem("appopen", "")
+        window.localStorage.setItem("distance", "");
     }
        
     window.preLogin = kendo.observable({
@@ -1108,6 +1109,17 @@ function completeRedemption() {
                                            },
                                            destroyaboutisme:function() {
                                                $("#aboutisme-theme").remove();
+                                           },
+        
+           destroymodelviewfilter:function() {
+                                               $("#modalviewfilter").remove();
+                                           },
+        
+           destroymodalviewcuisine:function() {
+                                               $("#modalviewcuisine").remove();
+                                           },
+         destroymodalviewtype:function() {
+                                               $("#modalviewtype").remove();
                                            },
                                            destroybenefitdetail:function() {
                                                $("#benefit-theme").remove();
@@ -2180,7 +2192,7 @@ function completeRedemption() {
         
                                            propertyList
                                            : function () {
-                                               // clearListFilter();
+                                        
                                                showSpin();
                                                 window.localStorage.setItem("appopen","05")
                                                $.ajax({ 
@@ -2436,7 +2448,7 @@ function completeRedemption() {
                                            : function() {
                                                showSpin();
                                                clearAllVariables();
-                                               // clearListFilter();
+                                              
                                                if (firsttime === "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
@@ -3877,8 +3889,7 @@ function completeRedemption() {
                                             getSummary:function () {
                                                 showSpin();
                                                 clearAllVariables();                                            
-                                                //  clearListFilter();
-                                               
+                                                                                              
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
                                                 if (firsttime==="" || showsummary==="") {
                                                     $.ajax({ 
@@ -3923,8 +3934,7 @@ function completeRedemption() {
                                             getSummaryplus:function () {
                                                 showSpin();
                                                 clearAllVariables();                                            
-                                                //  clearListFilter();
-                                               
+                                                                                              
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
                                                 if (firsttime == "" || showsummary == "") {
                                                     $.ajax({ 
@@ -4043,7 +4053,7 @@ function completeRedemption() {
                                                                window.localStorage.setItem("homecountryname", "");
                                                                window.localStorage.setItem("residentcityname", "");
                                                                window.localStorage.setItem("fullname", "");
-                                                               //     clearListFilter();
+                                                               
                                                                fbCleanVariables();
                                                                customer = "9999999999";
                                                                customername = "Guest";
@@ -4402,7 +4412,7 @@ function completeRedemption() {
                                             propertyList
                                             : function () {
                                                 changeCard();
-                                                //  clearListFilter();
+                                               
                                                window.localStorage.setItem("appopen","06")
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backf").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;

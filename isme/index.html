@@ -179,7 +179,7 @@
         <div data-role="modalview" id="modalsavesettings" data-title=""  style="height:100%;width:100%" data-model="postLogin" data-show="postLogin.saveSettings">
         </div>
 
-        <div data-role="modalview" id="modalviewfilter" style="height:50%;width:90%" data-model="preLogin">
+        <div data-role="modalview" id="modalviewfilter" style="height:50%;width:90%" data-model="preLogin" data-hide="preLogin.destroymodalviewfilter">
             <div data-role="header" >
                 <div data-role="navbar" style="background-color:#000">
                     <span >Filters</span>
@@ -324,7 +324,7 @@
         
         
 
-        <div data-role="modalview" id="modalviewcuisine" style="height:50%;width:90%" data-model="preLogin">
+        <div data-role="modalview" id="modalviewcuisine" style="height:80%;width:90%" data-model="preLogin" data-hide="preLogin.destroymodalviewcuisine">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#000">
                     <span >Select Cuisine</span>
@@ -339,7 +339,7 @@
 
         </div>
 
-        <div data-role="modalview" id="modalviewtype" style="height:80%;width:90%;" data-model="preLogin">
+        <div data-role="modalview" id="modalviewtype" style="height:80%;width:90%;" data-model="preLogin" data-hide="preLogin.destroymodalviewtype">
             <div data-role="header">
                 <div  data-role="navbar" style="background-color:#000">
                     <span >isme Preferences</span>
