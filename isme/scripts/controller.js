@@ -1126,6 +1126,7 @@ function completeRedemption() {
                                            },
                      
                                            destroybranddetail:function() {
+                                               window.localStorage.setItem("outlet", "");     
                                                hideBrandDetail();
                                                //  $("#branddetail-theme").remove();
                                            },
@@ -1980,7 +1981,7 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brand"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:"",prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:""
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("branda"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:"",prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:""
                                                                                    //merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brand"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
                                                                                }),
                                                           success: function (data) { 
@@ -2044,7 +2045,7 @@ function completeRedemption() {
                                                           url: gurl + "/propertyitem.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,brandcode: window.localStorage.getItem("brand"),mdevice:mdevicestat
+                                                                                   merchantcode :merchant,brandcode: window.localStorage.getItem("branda"),mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
@@ -3798,6 +3799,7 @@ function completeRedemption() {
                                             },
         
                                             destroyplbranddetail:function() {
+                                                window.localStorage.setItem("outlet", "");     
                                                 $("#pl-branddetail-theme").remove();
                                             },
                                             destroyplcustomerservice:function() {
@@ -4735,8 +4737,7 @@ function completeRedemption() {
                                                            url: gurl + "/outletlist.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    // merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brand"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
-                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brand"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:""
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("branda"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:"",prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:""
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4802,7 +4803,7 @@ function completeRedemption() {
                                                            url: gurl + "/propertyitem.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,brandcode: window.localStorage.getItem("brand"),mdevice:window.localStorage.getItem("mdevicestat")
+                                                                                    merchantcode :merchant,brandcode: window.localStorage.getItem("branda"),mdevice:window.localStorage.getItem("mdevicestat")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
