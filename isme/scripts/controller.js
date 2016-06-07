@@ -1183,7 +1183,7 @@ function completeRedemption() {
         
                                            destroyoutletdetail:function() {
                                                //    document.getElementById("detail-title").innerHTML = "";
-                                               //    hideOutletDetail();
+                                                window.localStorage.setItem("outlet", "");       
                                                $("#outletdetail-theme").remove();
                                            },
         
@@ -3860,7 +3860,7 @@ function completeRedemption() {
         
                                             destroyploutletdetail:function() {
                                                 // document.getElementById("pl-detail-title").innerHTML = "";
-                                                //plhideOutletDetail();
+                                               window.localStorage.setItem("outlet", "");       
                                                 $("#pl-outletdetail-theme").remove();
                                             },
                                             destroyploutletlist:function() {
