@@ -8062,6 +8062,8 @@ function completeRedemption() {
             window.localStorage.setItem("latl", "");    
             window.localStorage.setItem("lonl", "");    
         } else {
+            //alert(window.localStorage.getItem("brand"));
+            //alert(window.localStorage.getItem("category"));
           //  alert(window.localStorage.getItem("distance"));
           //  alert(window.localStorage.getItem("cuisine"));
           //  alert(window.localStorage.getItem("restaurant"));
