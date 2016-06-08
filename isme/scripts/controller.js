@@ -129,7 +129,7 @@ function loadEnrol() {
 function faceBookClick() {
     window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("static_social_msg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
-        navigator.notification.alert("There is an error loading Facebook on this device or the Facebook app is not installed. Please check and re-try.", function() {
+        navigator.notification.alert("Unable to complete the Facebook request due to the request cancelled by user or Facebook is not installed . Please check and re-try.", function() {
         }, "isme By Jumeirah" , "Dismiss"); 
     });
 }
@@ -138,7 +138,7 @@ function twitterClick() {
     var m = window.localStorage.getItem("social_shortmsg");
     window.plugins.socialsharing.shareViaTwitter("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App!  It’s Jumeirah at your fingertips! \n\n" + "Join the fun and download the isme by Jumeirah Mobile App today at " + window.localStorage.getItem("appad_location") , ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
-        navigator.notification.alert("There is an error loading Twitter on this device or the Twitter app is not installed. Please check and re-try.", function() {
+        navigator.notification.alert("Unable to complete the Twitter request due to the request cancelled by user or Twitter is not installed. Please check and re-try.", function() {
         }, "isme By Jumeirah" , "Dismiss");   
     });
 }
@@ -159,7 +159,7 @@ function emailClick() {
         function (msg) {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
         function (msg) {
-            navigator.notification.alert("There is an error loading Email on this device or the Email app is not installed. Please check and re-try.", function() {
+            navigator.notification.alert("Unable to complete the email request due to the request cancelled by user or email is not installed. Please check and re-try.", function() {
             }, "isme By Jumeirah" , "Dismiss"); 
         } // called when sh*t hits the fan
         );
