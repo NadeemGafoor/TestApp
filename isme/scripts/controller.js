@@ -3768,7 +3768,7 @@ function completeRedemption() {
                                                 $("#profile-alcohol").data("kendoMobileSwitch").check(true);   
                                             },
                                             noAlcohol:function() {
-                                                 $("#profile-alcohol").data("kendoMobileSwitch").check(true);   
+ 
                                                 for (var i = 0;i < noalcohollist.length; i++) {
                                                     if (document.getElementById("selCountry").value === noalcohollist[i]) {
                                                         $("#profile-alcohol").data("kendoMobileSwitch").check(false);
