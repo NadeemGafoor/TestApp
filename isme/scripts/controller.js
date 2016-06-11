@@ -2405,8 +2405,7 @@ function completeRedemption() {
         
                                            showOfferOutlet
                                            : function() {
-                                               alert(window.localStorage.getItem("latl"));
-                                               alert(window.localStorage.getItem("lonl"));
+                                            
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -8063,8 +8062,6 @@ function completeRedemption() {
             window.localStorage.setItem("distance", "");
             window.localStorage.setItem("cuisine", "");
             window.localStorage.setItem("restaurant", "");
-            window.localStorage.setItem("latl", "");    
-            window.localStorage.setItem("lonl", "");    
         } else {
             //alert(window.localStorage.getItem("brand"));
             //alert(window.localStorage.getItem("category"));
@@ -8077,9 +8074,7 @@ function completeRedemption() {
     function cleanoutletfilter() {
         window.localStorage.setItem("distance", "");
         window.localStorage.setItem("cuisine", "");
-        window.localStorage.setItem("restaurant", "");
-        window.localStorage.setItem("latl", "");    
-        window.localStorage.setItem("lonl", "");    
+        window.localStorage.setItem("restaurant", "");   
     };
 }
     )(window);
