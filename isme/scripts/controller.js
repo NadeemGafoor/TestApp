@@ -8066,8 +8066,8 @@ function completeRedemption() {
             //alert(window.localStorage.getItem("brand"));
             //alert(window.localStorage.getItem("category"));
           //  alert(window.localStorage.getItem("distance"));
-          //  alert(window.localStorage.getItem("cuisine"));
-          //  alert(window.localStorage.getItem("restaurant"));
+            alert(window.localStorage.getItem("cuisine"));
+            alert(window.localStorage.getItem("restaurant"));
         }
     }
     
