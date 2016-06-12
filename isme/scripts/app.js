@@ -46,7 +46,7 @@ setTimeout(function() {
         app = new kendo.mobile.Application(document.body, {
                                                platform: 'ios7',
                                                layout:'main-layout',
-                                               initial: "views/splashMovie.html",
+                                               initial: "views/home.html",
                                                useNativeScrolling: false
                                            });
         
