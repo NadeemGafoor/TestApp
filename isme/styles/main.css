@@ -2413,35 +2413,15 @@ tile-frame-inner
     border:none;
 }
 
-.font-small{
-    margin-top:0;
-    margin-bottom:5px;
-    font-size:80%;
-    height:auto;
-}
-
-.font-med{
-    margin-top:0;
-    margin-bottom:5px;
-    font-size:90%;
-    height:auto;
-}
 
 .collapse-format{
     height:30px;
     line-height:30px;
     width:100%;
+    margin-left:0px;    
 }
 
-.collapse-format-1{
 
-    height:auto;
-    line-height:15px;
-    font-size:80%;
-    width:100%;
-    border-top:0px;
-    border-bottom:0px;
-}
 
 .pl-logo-image-holder{
     background-image:url(../images/home_page_logo_black.png);

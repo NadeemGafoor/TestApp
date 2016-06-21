@@ -1,7 +1,7 @@
 /* Smartphones (portrait and landscape) ----------- */
 
     /* Styles -Galaxy Tab 2 10' */
-
+  
 
 .km-ios7 .km-navbar .km-button .km-text
 {
@@ -283,3 +283,20 @@
     font-size:100%;
 }
 
+.font-small{
+    margin-top:0;
+    margin-bottom:5px;
+    font-size:80%;
+    height:auto;
+}
+
+.collapse-format-1{
+
+    height:auto;
+    line-height:15px;
+    font-size:80%;
+    width:100%;
+    border-top:0px;
+    border-bottom:0px;
+    margin-left:0px;
+}

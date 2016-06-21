@@ -344,5 +344,22 @@
     }
 
 .font-med{
-    font-size:60%;
+    font-size:65%;
+}
+
+.font-small{
+    margin-top:0;
+    margin-bottom:5px;
+    font-size:65%;
+    height:auto;
+}
+.collapse-format-1{
+
+    height:auto;
+    line-height:15px;
+    font-size:65%;
+    width:100%;
+    border-top:0px;
+    border-bottom:0px;
+    margin-left:0px;
 }
