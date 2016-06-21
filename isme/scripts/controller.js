@@ -825,10 +825,10 @@ function completeRedemption() {
     var appad_location = "isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
     //  var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-    //  var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
+   //   var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     
     var share_image = "http://hdrewards.ddns.net:8088/jumismemobile/images/large_logo_placeholder.png";
-    var flag_image = "http://hdrewards.ddns.net:8088/jumismemobile/flagimages/";
+   var flag_image = "http://hdrewards.ddns.net:8088/jumismemobile/flagimages/";
     
     var short_msg = "isme By Jumeirah";
     var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at http://isme.jumeirah.com";
@@ -8066,8 +8066,8 @@ function completeRedemption() {
             //alert(window.localStorage.getItem("brand"));
             //alert(window.localStorage.getItem("category"));
           //  alert(window.localStorage.getItem("distance"));
-            alert(window.localStorage.getItem("cuisine"));
-            alert(window.localStorage.getItem("restaurant"));
+          //  alert(window.localStorage.getItem("cuisine"));
+          //  alert(window.localStorage.getItem("restaurant"));
         }
     }
     
