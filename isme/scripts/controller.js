@@ -663,7 +663,7 @@ function exploreListBack() {
 }
 
 function brandDetailBack() {
-    $("body").data("kendoMobilePane").navigate("views/pl-branddetail.html?od=" + window.localStorage.getItem("brand"));                                                                           
+    $("body").data("kendoMobilePane").navigate("views/pl-branddetail.html?od=" + window.localStorage.getItem("branda"));                                                                           
 }
 
 function myrewardListBack() {
@@ -4606,7 +4606,7 @@ function completeRedemption() {
                                                                                                                   template: $("#pl-outletTemplate-b").html(),
                                                                                                                   filterable: {
                                                                            autoFilter: true,
-                                                                           placeholder:"Search By Spa & Leisure",                                         
+                                                                           placeholder:"Search By Restaurant",                                         
                                                                            field: "outletname",
                                                                            operator: "contains",
                                                                            serverPaging: true,
