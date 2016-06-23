@@ -2237,12 +2237,13 @@ tile-frame-inner
 
 .list-group
 {
-    height: 40px;
-    line-height: 40px;
+
+    line-height: 30px;
     background-color: #ccc;
     color: #000;
     font-weight: bold;
     font-size:80%;
+    width:100%;
 }    
 
 .filter-item-holder
