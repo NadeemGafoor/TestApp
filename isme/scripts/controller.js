@@ -168,19 +168,19 @@ function emailClick() {
 function getLocation5() {
     $("#modalviewmap").data("kendoMobileModalView").open();
     document.getElementById("map_canvas1").style.backgroundColor = "#e9e5dc";
-    for (i=0;i <= 1;i++) {
+   // for (i=0;i <= 5;i++) {
         document.getElementById("map_canvas1").innerHTML = "";  
         mapInitialize();
-    }
+   // }
 }
 
 function getLocation6() {
     $("#modalviewmapA").data("kendoMobileModalView").open();
     document.getElementById("map_canvas2").style.backgroundColor = "#e9e5dc";
-    for (i=0;i <= 1;i++) {
+  //  for (i=0;i <= 5;i++) {
     document.getElementById("map_canvas2").innerHTML = "";  
     mapInitializeA();
-     }
+  //   }
 }
 
 function mapInitialize() {
