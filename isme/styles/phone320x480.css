@@ -347,7 +347,7 @@
     }
 
 .font-med{
-    font-size:65%;
+       font-size:65% !important;
 }
 
 .font-small{
