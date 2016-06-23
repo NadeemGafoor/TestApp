@@ -2237,7 +2237,7 @@ tile-frame-inner
 
 .list-group
 {
-
+    height:40px;
     line-height: 30px;
     background-color: #ccc;
     color: #000;
