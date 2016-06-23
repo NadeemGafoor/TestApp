@@ -177,10 +177,10 @@ function getLocation5() {
 function getLocation6() {
     $("#modalviewmapA").data("kendoMobileModalView").open();
     document.getElementById("map_canvas2").style.backgroundColor = "#e9e5dc";
-    // for (i=0;i <= 1;i++) {
+    for (i=0;i <= 1;i++) {
     document.getElementById("map_canvas2").innerHTML = "";  
     mapInitializeA();
-    // }
+     }
 }
 
 function mapInitialize() {
