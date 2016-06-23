@@ -186,6 +186,7 @@ function getLocation6() {
 function mapInitialize() {
     lat = window.localStorage.getItem("lat");
     lon = window.localStorage.getItem("lon");
+    alert("gege");
     var latlng = new google.maps.LatLng(
         lat,
         lon);
@@ -218,7 +219,7 @@ function mapInitialize() {
 function mapInitializeA() {
     lat = window.localStorage.getItem("lat");
     lon = window.localStorage.getItem("lon");
-    
+        alert("gege");
     var latlng = new google.maps.LatLng(
         lat,
         lon);
