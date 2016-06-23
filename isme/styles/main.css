@@ -2242,6 +2242,7 @@ tile-frame-inner
     background-color: #ccc;
     color: #000;
     font-weight: bold;
+    font-size:80%;
 }    
 
 .filter-item-holder
