@@ -373,10 +373,9 @@ function closeModalMapA() {
 
 function loadFilterView() {
     
-     window.setTimeout(function() {
+
     $("#modalviewfilter").data("kendoMobileModalView").open();
-    }, 1000); 
-    
+   
 
 } 
 
@@ -385,7 +384,10 @@ function loadFilterView() {
 //}
 
 function loadCuisineView() {
-    $("#modalviewcuisine").data("kendoMobileModalView").open();
+ window.setTimeout(function() {
+   $("#modalviewcuisine").data("kendoMobileModalView").open();
+    }, 500); 
+   
 }
 
 function loadOfferView() {
@@ -393,7 +395,10 @@ function loadOfferView() {
 }
 
 function loadTypeView() {
+        window.setTimeout(function() {
     $("#modalviewtype").data("kendoMobileModalView").open();
+    }, 500); 
+
 }   
 
 function offerFilterView() {
