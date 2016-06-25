@@ -825,8 +825,8 @@ function completeRedemption() {
     var fullname = "";
     var appad_location = "isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
-      var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-      var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
+    var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+    var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     
    // var share_image = "http://hdrewards.ddns.net:8088/jumismemobile/images/large_logo_placeholder.png";
    //var flag_image = "http://hdrewards.ddns.net:8088/jumismemobile/flagimages/";
