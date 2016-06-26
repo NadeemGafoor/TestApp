@@ -1009,8 +1009,6 @@ function completeRedemption() {
         //clear Locations Near Me
        
         document.getElementById("olocation").checked = false;
-        window.localStorage.setItem("brand", "");  
-        window.localStorage.setItem("category", ""); 
         //Clear Restaurant Filter
         window.localStorage.setItem("restaurant", ""); 
         document.getElementById("orestauranttype").innerHTML = "All";        
@@ -1033,28 +1031,9 @@ function completeRedemption() {
             items[i].checked = false;
         }
         
-        //Clear Celebration Filter
-        window.localStorage.setItem("celebration", ""); 
-        //document.getElementById("ocelebration").innerHTML = "All";        
-        ul = document.getElementById("Celebration-Filter");
-        items = ul.getElementsByTagName("input");                                    
-
-        //check where checked
-        for (i = 0; i < items.length; i++) {
-            items[i].checked = false;
-        }
+     
         
-        //Clear Life Style Filter
-        window.localStorage.setItem("lifestyle", ""); 
-        document.getElementById("olifestyle").innerHTML = "All";        
-        ul = document.getElementById("Offer-Filter");
-        items = ul.getElementsByTagName("input");                                    
-
-        //check where checked
-        for (i = 0; i < items.length; i++) {
-            items[i].checked = false;
-        }
-    }
+       }
     
     function clearAllVariables() {
         window.localStorage.setItem("outlet", "");
