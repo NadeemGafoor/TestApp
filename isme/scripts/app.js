@@ -28,7 +28,11 @@ setTimeout(function() {
         }, 2000);  //hide Loading Popup
 }
 
-
+function handleOpenURL(url) {
+  setTimeout(function() {
+    alert("received url: " + url);
+  }, 0);
+}
 
 (function () {
     // store a reference to the application object that will be created
