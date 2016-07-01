@@ -3939,46 +3939,46 @@ function completeRedemption() {
                                                 clearAllVariables();                                            
                                                                                               
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
-                                             //   if (firsttime == "" || showsummary == "") {
-                                                    $.ajax({ 
-                                                               type: "POST",
-                                                               cache:false,
-                                                               async:true,
-                                                               timeout:20000,
-                                                               url: gurl + "/summaryReport.aspx",
-                                                               contentType: "application/json; charset=utf-8",
-                                                               data: JSON.stringify({
-                                                                                        merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mdevice:window.localStorage.getItem("mdevicestat")
-                                                                                    }),   
-                                                               success: function (data) { 
-                                                                   var getData = JSON.parse(data);
-                                                                   if (getData.statuscode == "000") {
-                                                                       window.localStorage.setItem("spend", getData.spenda);
-                                                                       window.localStorage.setItem("maxspend", getData.maxspend);
-                                                                       window.localStorage.setItem("spendmb", getData.spendbalance);
-                                                                       window.localStorage.setItem("spendn", getData.spendbalanceN);
-                                                                       window.localStorage.setItem("vouchercount", getData.vouchercount);
-                                                                       window.localStorage.setItem("expirycount", getData.expirycount);                                                                       
-                                                                       window.localStorage.setItem("expirydays", getData.expirydays);    
+                                                //   if (firsttime == "" || showsummary == "") {
+                                                $.ajax({ 
+                                                           type: "POST",
+                                                           cache:false,
+                                                           async:true,
+                                                           timeout:20000,
+                                                           url: gurl + "/summaryReport.aspx",
+                                                           contentType: "application/json; charset=utf-8",
+                                                           data: JSON.stringify({
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),customerid:window.localStorage.getItem("customer"),password:window.localStorage.getItem("password"),mdevice:window.localStorage.getItem("mdevicestat")
+                                                                                }),   
+                                                           success: function (data) { 
+                                                               var getData = JSON.parse(data);
+                                                               if (getData.statuscode == "000") {
+                                                                   window.localStorage.setItem("spend", getData.spenda);
+                                                                   window.localStorage.setItem("maxspend", getData.maxspend);
+                                                                   window.localStorage.setItem("spendmb", getData.spendbalance);
+                                                                   window.localStorage.setItem("spendn", getData.spendbalanceN);
+                                                                   window.localStorage.setItem("vouchercount", getData.vouchercount);
+                                                                   window.localStorage.setItem("expirycount", getData.expirycount);                                                                       
+                                                                   window.localStorage.setItem("expirydays", getData.expirydays);    
 
-                                                                       spendBarPlus();    
+                                                                   spendBarPlus();    
                                                                  
-                                                                       hideSpin(); //hide loading popup
-                                                                   }else {
-                                                                       navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")          
-                                                                       hideSpin(); //hide loading popup
-                                                                   }
-                                                               },
-                                                               error: function (errormsg) {
-                                                                   navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")
+                                                                   hideSpin(); //hide loading popup
+                                                               }else {
+                                                                   navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
-                                                           });
-                                              //  }else {
-                                                    spendBarPlus();
-                                             //   }
+                                                           },
+                                                           error: function (errormsg) {
+                                                               navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               hideSpin(); //hide loading popup
+                                                           }
+                                                       });
+                                                //  }else {
+                                                spendBarPlus();
+                                                //   }
                                             },
         
                                             loadProfile
@@ -4131,15 +4131,6 @@ function completeRedemption() {
                                             benefitdetail  
                                             : function (e) { 
                                                 changeCard();
-                                                                                                                   document.getElementById("pl-benefit-detail-view").style.display = "block";
-                                                    window.localStorage.setItem("selfredeem", "D"); 
-                                                                   document.getElementById("name-back9").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
-                                                                   document.getElementById("number-back9").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
-                                                                   document.getElementById("expiry-back9").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                                   document.getElementById("segment-back9").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
-                                                                   document.getElementById("mycard-qr9").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
-                                                                   document.getElementById("mycard-qr9").style.backgroundSize = "cover";        
-                                                                   document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].segmentname;
                                                 benefitcode = window.localStorage.getItem("segmentcode"); 
                                                 showSpin(); //show loading popup
                                                                                              
@@ -4156,10 +4147,18 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                                                                 
-                                                               if (getData.statuscode === "000" && getData.benefitlist.length>0) {  
+                                                               if (getData.statuscode === "000" && getData.benefitlist.length > 0) {  
                                                                    //fill the outlet template
-                                                             
-                                                                  
+                                                                   document.getElementById("pl-benefit-detail-view").style.display = "block";
+                                                                   window.localStorage.setItem("selfredeem", "D"); 
+                                                                   document.getElementById("name-back9").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                                   document.getElementById("number-back9").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                                   document.getElementById("expiry-back9").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
+                                                                   document.getElementById("segment-back9").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                                   document.getElementById("mycard-qr9").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                                   document.getElementById("mycard-qr9").style.backgroundSize = "cover";        
+                                                                   document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].segmentname;
+                                                                   
                                                                    $("#benefit-all").kendoMobileListView({  
                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
                                                                                                              template: $("#benefit3").html()
