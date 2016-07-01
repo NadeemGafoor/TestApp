@@ -3917,13 +3917,13 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
-                                                                       }, "HD Rewards", "Dismiss")          
+                                                                       }, "isme by Jumeirah", "Dismiss")          
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                },
                                                                error: function (errormsg) {
                                                                    navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                                   }, "HD Rewards", "Dismiss")
+                                                                   }, "isme by Jumeirah", "Dismiss")
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            });
@@ -3966,13 +3966,13 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
-                                                                       }, "HD Rewards", "Dismiss")          
+                                                                       }, "isme by Jumeirah", "Dismiss")          
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                },
                                                                error: function (errormsg) {
                                                                    navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                                   }, "HD Rewards", "Dismiss")
+                                                                   }, "isme by Jumeirah", "Dismiss")
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            });
