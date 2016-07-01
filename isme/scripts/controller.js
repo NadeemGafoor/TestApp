@@ -1686,7 +1686,7 @@ function completeRedemption() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                                                                                 
-                                                              if (getData.statuscode === "000") {  
+                                                              if (getData.statuscode === "000" && getData.benefitlist.length>0) {  
                                                                   //fill the outlet template
                                                                   $("#benefit-1000").kendoMobileListView({  
                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
@@ -1729,7 +1729,7 @@ function completeRedemption() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                                                                                 
-                                                              if (getData.statuscode === "000") {  
+                                                              if (getData.statuscode === "000" && getData.benefitlist.length>0) {  
                                                                   //fill the outlet template
                                                                   $("#benefit-1001").kendoMobileListView({  
                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
