@@ -382,7 +382,7 @@ function loadFilterView() {
 function loadCuisineView() {
     window.setTimeout(function() {
         $("#modalviewcuisine").data("kendoMobileModalView").open();
-    }, 300); 
+    }, 100); 
 }
 
 function loadOfferView() {
@@ -392,7 +392,7 @@ function loadOfferView() {
 function loadTypeView() {
     window.setTimeout(function() {
         $("#modalviewtype").data("kendoMobileModalView").open();
-    }, 300); 
+    }, 100);   
 }   
 
 function offerFilterView() {
@@ -2450,7 +2450,7 @@ function completeRedemption() {
                                            : function() {
                                                showSpin();
                                                clearAllVariables();
-                                              
+                                            
                                                if (firsttime === "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
@@ -3937,7 +3937,7 @@ function completeRedemption() {
                                             getSummaryplus:function () {
                                                 showSpin();
                                                 clearAllVariables();                                            
-                                                                                              
+                                            
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
                                                 //   if (firsttime == "" || showsummary == "") {
                                                 $.ajax({ 
