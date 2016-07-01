@@ -4131,6 +4131,15 @@ function completeRedemption() {
                                             benefitdetail  
                                             : function (e) { 
                                                 changeCard();
+                                                                                                                   document.getElementById("pl-benefit-detail-view").style.display = "block";
+                                                    window.localStorage.setItem("selfredeem", "D"); 
+                                                                   document.getElementById("name-back9").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
+                                                                   document.getElementById("number-back9").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
+                                                                   document.getElementById("expiry-back9").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
+                                                                   document.getElementById("segment-back9").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                                   document.getElementById("mycard-qr9").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
+                                                                   document.getElementById("mycard-qr9").style.backgroundSize = "cover";        
+                                                                   document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].segmentname;
                                                 benefitcode = window.localStorage.getItem("segmentcode"); 
                                                 showSpin(); //show loading popup
                                                                                              
@@ -4147,17 +4156,9 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                                                                 
-                                                               if (getData.statuscode === "000") {  
+                                                               if (getData.statuscode === "000" && getData.benefitlist.length>0) {  
                                                                    //fill the outlet template
-                                                                   document.getElementById("pl-benefit-detail-view").style.display = "block";
-                                                                   window.localStorage.setItem("selfredeem", "D"); 
-                                                                   document.getElementById("name-back9").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
-                                                                   document.getElementById("number-back9").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
-                                                                   document.getElementById("expiry-back9").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                                   document.getElementById("segment-back9").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
-                                                                   document.getElementById("mycard-qr9").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
-                                                                   document.getElementById("mycard-qr9").style.backgroundSize = "cover";        
-                                                                   document.getElementById("benefit-head").innerHTML = getData.benefitlist[0].segmentname;
+                                                             
                                                                   
                                                                    $("#benefit-all").kendoMobileListView({  
                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
