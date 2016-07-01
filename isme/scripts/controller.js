@@ -1003,7 +1003,8 @@ function completeRedemption() {
         document.getElementById("olocation").checked = false;
         //Clear Restaurant Filter
         window.localStorage.setItem("restaurant", ""); 
-        document.getElementById("orestauranttype").innerHTML = "All";        
+        window.localStorage.setItem("orestauranttype", "All"); 
+        document.getElementById("orestauranttype").innerHTML = window.localStorage.getItem("orestauranttype");        
         ul = document.getElementById("RestType-Filter");
         items = ul.getElementsByTagName("input");                                    
 
@@ -1014,7 +1015,8 @@ function completeRedemption() {
         
         //Clear Cuisine Filter
         window.localStorage.setItem("cuisine", ""); 
-        document.getElementById("ocuisine").innerHTML = "All";        
+        window.localStorage.setItem("ocuisine", "All");         
+        document.getElementById("ocuisine").innerHTML = window.localStorage.getItem("ocuisine");                 
         ul = document.getElementById("Cuisine-Filter");
         items = ul.getElementsByTagName("input");                                    
 
@@ -1271,7 +1273,7 @@ function completeRedemption() {
                                                items = ul.getElementsByTagName("input");
                                               
                                                window.localStorage.setItem("restaurant", ""); 
-                                               document.getElementById("orestauranttype").innerHTML = "All";
+                                                window.localStorage.setItem("orestauranttype", "All");    
 
                                                //check where checked
                                                for (i = 0; i < items.length; i++) {
@@ -1290,7 +1292,7 @@ function completeRedemption() {
                                                if (x > 1) {
                                                    itemconcat = itemconcat + vclose;
                                                    window.localStorage.setItem("restaurant", itemconcat);
-                                                   document.getElementById("orestauranttype").innerHTML = "Filter";
+                                                window.localStorage.setItem("orestauranttype", "Filter");    
                                                }
                                               
                                                $("#modalviewtype").data("kendoMobileModalView").close();
@@ -1304,7 +1306,7 @@ function completeRedemption() {
                                                var vclose = "')";
                                                ul = document.getElementById("Cuisine-Filter");
                                                items = ul.getElementsByTagName("input");
-                                               document.getElementById("ocuisine").innerHTML = "All";                                              
+                                                window.localStorage.setItem("ocuisine", "All");                                            
                                                window.localStorage.setItem("cuisine", ""); 
                                                //check where checked
                                                for (i = 0; i < items.length; i++) {
@@ -1321,7 +1323,7 @@ function completeRedemption() {
                                                }
                                                if (x > 1) {
                                                    itemconcat = itemconcat + vclose;
-                                                   document.getElementById("ocuisine").innerHTML = "Filter";
+                                                window.localStorage.setItem("ocuisine", "Filter");                                            
                                                    window.localStorage.setItem("cuisine", itemconcat);    
                                                }
                                               
