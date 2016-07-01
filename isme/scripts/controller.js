@@ -3939,7 +3939,7 @@ function completeRedemption() {
                                                 clearAllVariables();                                            
                                                                                               
                                                 //changeCard(window.localStorage.getItem("segmentcode"));  
-                                                if (firsttime == "" || showsummary == "") {
+                                             //   if (firsttime == "" || showsummary == "") {
                                                     $.ajax({ 
                                                                type: "POST",
                                                                cache:false,
@@ -3976,9 +3976,9 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            });
-                                                }else {
+                                              //  }else {
                                                     spendBarPlus();
-                                                }
+                                             //   }
                                             },
         
                                             loadProfile
