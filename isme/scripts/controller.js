@@ -383,6 +383,8 @@ function loadCuisineView() {
   //  window.setTimeout(function() {    
         $("#modalviewcuisine").data("kendoMobileModalView").open(); 
  //   }, 100); 
+    
+    
   
 }  
       
