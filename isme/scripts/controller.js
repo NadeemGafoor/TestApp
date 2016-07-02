@@ -380,9 +380,12 @@ function loadFilterView() {
 //}
 
 function loadCuisineView() {   
-   window.setTimeout(function() {     }, 500); 
+  // window.setTimeout(function() { 
+   
         $("#modalviewcuisine").data("kendoMobileModalView").open(); 
 
+ //  }, 100); 
+       
     
     
   
@@ -393,8 +396,10 @@ function loadOfferView() {
 }
 
 function loadTypeView() {
- window.setTimeout(function() {  }, 500);      
-       $("#modalviewtype").data("kendoMobileModalView").open();
+//window.setTimeout(function() {   
+   $("#modalviewtype").data("kendoMobileModalView").open();
+ //}, 100);      
+      
  
 }   
 
