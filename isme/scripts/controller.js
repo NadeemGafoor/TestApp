@@ -1096,10 +1096,10 @@ function completeRedemption() {
                                            },
         
                                            destroymodalviewcuisine:function() {
-                                               $("#modalviewcuisine").remove();
+                                               $("#modalviewcuisine").destroy();
                                            },
                                            destroymodalviewtype:function() {
-                                               $("#modalviewtype").remove();
+                                               $("#modalviewtype").destroy();
                                            },
                                            destroybenefitdetail:function() {
                                                $("#benefit-theme").remove();
