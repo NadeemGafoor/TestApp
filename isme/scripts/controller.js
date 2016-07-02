@@ -379,8 +379,8 @@ function loadFilterView() {
 //   $("#modalviewcountry").data("kendoMobileModalView").open();
 //}
 
-function loadCuisineView() {
-   window.setTimeout(function() {     e.preventDefault();    }, 500); 
+function loadCuisineView() {   
+   window.setTimeout(function() {     }, 500); 
         $("#modalviewcuisine").data("kendoMobileModalView").open(); 
 
     
@@ -393,7 +393,7 @@ function loadOfferView() {
 }
 
 function loadTypeView() {
- window.setTimeout(function() {   e.preventDefault();  }, 500);      
+ window.setTimeout(function() {  }, 500);      
        $("#modalviewtype").data("kendoMobileModalView").open();
  
 }   
@@ -1098,12 +1098,7 @@ function completeRedemption() {
                                                $("#modalviewfilter").remove();
                                            },
         
-                                           destroymodalviewcuisine:function() {
-                                               $("#modalviewcuisine").destroy();
-                                           },
-                                           destroymodalviewtype:function() {
-                                               $("#modalviewtype").destroy();
-                                           },
+                                         
                                            destroybenefitdetail:function() {
                                                $("#benefit-theme").remove();
                                            },
