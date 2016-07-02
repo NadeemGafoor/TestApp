@@ -1049,8 +1049,7 @@ function completeRedemption() {
                                            clearListFilter:function() {
                                                document.getElementById("olocation").checked = false;
                                                //Clear Restaurant Filter
-                                               window.localStorage.setItem("restaurant", ""); 
-                                               document.getElementById("orestauranttype").innerHTML = "All";        
+                                            
                                                ul = document.getElementById("RestType-Filter");
                                                items = ul.getElementsByTagName("input");                                    
 
@@ -1060,8 +1059,7 @@ function completeRedemption() {
                                                }
         
                                                //Clear Cuisine Filter
-                                               window.localStorage.setItem("cuisine", ""); 
-                                               document.getElementById("ocuisine").innerHTML = "All";        
+                                          
                                                ul = document.getElementById("Cuisine-Filter");
                                                items = ul.getElementsByTagName("input");                                    
 
