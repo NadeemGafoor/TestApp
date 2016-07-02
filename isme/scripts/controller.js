@@ -380,6 +380,7 @@ function loadFilterView() {
 //}
 
 function loadCuisineView() {
+    alert("Hello");
     window.setTimeout(function() {  }, 500); 
         $("#modalviewcuisine").data("kendoMobileModalView").open();
   
