@@ -380,20 +380,20 @@ function loadFilterView() {
 //}
 
 function loadCuisineView() {
-    window.setTimeout(function() {    
+  //  window.setTimeout(function() {    
         $("#modalviewcuisine").data("kendoMobileModalView").open(); 
-    }, 500); 
+ //   }, 100); 
   
 }  
-
+      
 function loadOfferView() {
     $("#modalviewoffertype").data("kendoMobileModalView").open();
 }
 
 function loadTypeView() {
-   window.setTimeout(function() {      
-       $("#modalviewcuisine").data("kendoMobileModalView").open();
-   }, 500);  
+  // window.setTimeout(function() {      
+       $("#modalviewtype").data("kendoMobileModalView").open();
+  // }, 100);  
 }   
 
 function offerFilterView() {
