@@ -1193,6 +1193,8 @@ function completeRedemption() {
         
                                          
                                            queryOutletFilter:function() {
+                                               preLogin.restaurantCritFilter();
+                                               preLogin.cuisineCritFilter();
                                                if (document.getElementById("olocation").checked) {
                                                    window.localStorage.setItem("distance", "1"); 
                                                    getlocationparams();
@@ -1247,7 +1249,7 @@ function completeRedemption() {
                                                items = ul.getElementsByTagName("input");
                                               
                                                window.localStorage.setItem("restaurant", ""); 
-                                                window.localStorage.setItem("orestauranttype", "All");    
+   
 
                                                //check where checked
                                                for (i = 0; i < items.length; i++) {
@@ -1266,10 +1268,9 @@ function completeRedemption() {
                                                if (x > 1) {
                                                    itemconcat = itemconcat + vclose;
                                                    window.localStorage.setItem("restaurant", itemconcat);
-                                                window.localStorage.setItem("orestauranttype", "Filter");    
+                                          
                                                }
-                                               document.getElementById("orestauranttype").innerHTML = window.localStorage.getItem("orestauranttype");   
-                                               $("#modalviewtype").data("kendoMobileModalView").close();
+                                            
                                            },
         
                                            cuisineCritFilter:function() {
@@ -1280,7 +1281,7 @@ function completeRedemption() {
                                                var vclose = "')";
                                                ul = document.getElementById("Cuisine-Filter");
                                                items = ul.getElementsByTagName("input");
-                                                window.localStorage.setItem("ocuisine", "All");                                            
+                                       
                                                window.localStorage.setItem("cuisine", ""); 
                                                //check where checked
                                                for (i = 0; i < items.length; i++) {
@@ -1297,11 +1298,9 @@ function completeRedemption() {
                                                }
                                                if (x > 1) {
                                                    itemconcat = itemconcat + vclose;
-                                                window.localStorage.setItem("ocuisine", "Filter");                                            
+                                        
                                                    window.localStorage.setItem("cuisine", itemconcat);    
                                                }
-                                               document.getElementById("ocuisine").innerHTML = window.localStorage.getItem("ocuisine");   
-                                               $("#modalviewcuisine").data("kendoMobileModalView").close();
                                            },
         
         

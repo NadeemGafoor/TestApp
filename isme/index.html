@@ -201,54 +201,17 @@
                 </div>
             </div>
             <div class="list-group">&nbsp;isme&nbsp;Preferences</div>
-            <div class="filter-item-holder">
-                <a data-click="loadTypeView" data-role="button">
-                    <div class="list-group-data-item ">Select isme Preferences...</div>
-                    <div class="list-group-data-item-1" id="orestauranttype">All</div>
-                </a>
-            </div>
-
+                           <ul id="RestType-Filter" data-bind="value:getRestTypeFilter">
+            </ul>
             <div class="list-group">&nbsp;Cuisine&nbsp;Type</div>
-            <div class="filter-item-holder">
-                <a data-click="loadCuisineView" data-role="button">
-                    <div class="list-group-data-item ">Select Cuisine...</div>
-                    <div class="list-group-data-item-1" id="ocuisine">All</div>
-                </a>
+
+              <ul id="Cuisine-Filter"  data-bind="value:getRestCuisineFilter">
+            </ul>
             </div>
 
-        </div>
+
         
-          <div data-role="modalview" id="modalviewcuisine" style="height:90%;width:90%" data-model="preLogin" data-hide="preLogin.destroymodalviewcuisine">
-            <div data-role="header">
-                <div data-role="navbar" style="background-color:#000">
-                    <span >Select Cuisine</span>
-                    <a  data-role="button" data-align="right" data-animated="true" data-bind="click:cuisineCritFilter">
-                        Go
-                    </a>
-                </div>
-            </div>
-
-            <ul id="Cuisine-Filter"  data-bind="value:getRestCuisineFilter">
-            </ul>
-
-        </div>
-
-        <div data-role="modalview" id="modalviewtype" style="height:90%;width:90%;" data-model="preLogin" data-hide="preLogin.destroymodalviewtype">
-            <div data-role="header">
-                <div  data-role="navbar" style="background-color:#000">
-                    <span >isme Preferences</span>
-                    <a data-role="button" data-align="right" data-animated="true" data-bind="click:restaurantCritFilter">
-                        Go
-                    </a>
-                </div>
-            </div>
-
-            <ul id="RestType-Filter" data-bind="value:getRestTypeFilter">
-            </ul>
-
-        </div>
-
-
+        
         <div data-role="modalview" id="modalviewofferfilter" style="height:50%;width:90%" data-model="preLogin">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#000">
