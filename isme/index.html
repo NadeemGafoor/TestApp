@@ -201,12 +201,12 @@
                 </div>
             </div>
               <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa " style="width:100%">
-            <h3 class="collapse-format font-med">isme Preferences</h3>
+            <h3 class="collapse-format">isme Preferences</h3>
                            <ul id="RestType-Filter" data-bind="value:getRestTypeFilter">
             </ul>
                   </div>
               <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa " style="width:100%">
-            <h3 class="collapse-format font-med">Cuisine Type</h3>
+            <h3 class="collapse-format">Cuisine Type</h3>
 
               <ul id="Cuisine-Filter"  data-bind="value:getRestCuisineFilter">
             </ul>
@@ -685,7 +685,7 @@
         <script type="text/x-kendo-template" id="CuisineFilter-Template">
             <label class="k-checkbox-label" >
                 ${desc}
-                <input type="checkbox"  id="${code}"  value="${code}" data-bind="text:checkcuisine" class="k-checkbox center-line"/>
+                <input type="checkbox"  id="${code}"  value="${code}" class="k-checkbox center-line"/>
             </label>
             
         </script>
@@ -693,7 +693,7 @@
         <script type="text/x-kendo-template" id="RestFilter-Template">
             <label class="k-checkbox-label" >
                 ${desc}
-                <input type="checkbox"  id="${code}"  value="${code}" data-bind="text:checkrestaurant" class="k-checkbox center-line"/>
+                <input type="checkbox"  id="${code}"  value="${code}" class="k-checkbox center-line"/>
             </label>
             
         </script>

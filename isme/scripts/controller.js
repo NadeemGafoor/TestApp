@@ -375,25 +375,13 @@ function loadFilterView() {
     $("#modalviewfilter").data("kendoMobileModalView").open();
 } 
 
-//function loadLocationView() {
-//   $("#modalviewcountry").data("kendoMobileModalView").open();
-//}
 
-function loadCuisineView() {
-    window.setTimeout(function() {  }, 300); 
-        $("#modalviewcuisine").data("kendoMobileModalView").open();
-
-}
 
 function loadOfferView() {
     $("#modalviewoffertype").data("kendoMobileModalView").open();
 }
 
-function loadTypeView() {
-   window.setTimeout(function() { }, 300);   
-        $("#modalviewtype").data("kendoMobileModalView").open();
-   
-}   
+ 
 
 function offerFilterView() {
     window.localStorage.setItem("mcategory", ""); 
