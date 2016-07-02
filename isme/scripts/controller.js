@@ -759,7 +759,7 @@ function completeRedemption() {
 
 (function (global) {  
     var positionOption = { maximumAge:60000,timeout: 7000, enableHighAccuracy: false};
-    var gpsErrorShow = "";
+    var gpsErrorShow = "";  
     var gpsErrorShowApp = "";
     var magicnumber = "";
     var googleapikey = "";
