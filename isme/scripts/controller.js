@@ -130,7 +130,7 @@ function faceBookClick() {
     window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("static_social_msg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
         navigator.notification.alert("Unable to complete the Facebook request due to the request cancelled by user or Facebook is not installed . Please check and re-try.", function() {
-        }, "isme By Jumeirah" , "Dismiss"); 
+        }, "isme by Jumeirah" , "Dismiss"); 
     });
 }
   
@@ -139,7 +139,7 @@ function twitterClick() {
     window.plugins.socialsharing.shareViaTwitter("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App!  It’s Jumeirah at your fingertips! \n\n" + "Join the fun and download the isme by Jumeirah Mobile App today at " + window.localStorage.getItem("appad_location") , ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
         navigator.notification.alert("Unable to complete the Twitter request due to the request cancelled by user or Twitter is not installed. Please check and re-try.", function() {
-        }, "isme By Jumeirah" , "Dismiss");   
+        }, "isme by Jumeirah" , "Dismiss");   
     });
 }
 
@@ -147,7 +147,7 @@ function whatsappClick() {
     window.plugins.socialsharing.shareViaWhatsApp("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App!  It’s Jumeirah at your fingertips! \n\n" + "Join the fun and download the isme by Jumeirah Mobile App today at " + window.localStorage.getItem("appad_location") , "", "", function () {
     }, function (errormsg) {
         navigator.notification.alert(JSON.stringify(errormsg), function() {
-        }, "isme By Jumeirah" , "Dismiss"); 
+        }, "isme by Jumeirah" , "Dismiss"); 
     });
 }
 
@@ -160,7 +160,7 @@ function emailClick() {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
         function (msg) {
             navigator.notification.alert("Unable to complete the email request due to the request cancelled by user or email is not installed. Please check and re-try.", function() {
-            }, "isme By Jumeirah" , "Dismiss"); 
+            }, "isme by Jumeirah" , "Dismiss"); 
         } // called when sh*t hits the fan
         );
 }
@@ -297,7 +297,7 @@ function onSelectTabStrip1(e) {
 
 function supportEmailA() {
     window.plugins.socialsharing.shareViaEmail(
-        "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email") + "\n\n" + "Download the isme by Jumeirah Mobile App at " + window.localStorage.getItem("appad_location"), 
+        "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), 
         "isme by Jumeirah", [window.localStorage.getItem("social_email")], null, null, // TO: must be null or an array
         window.localStorage.getItem("share_image"), // FILES: can be null, a string, or an array
         function (msg) {
@@ -780,8 +780,8 @@ function completeRedemption() {
     var noalcohollist = [];
  
     //    var gurl = "https://ismemobileapp.jumeirah.com";
-     var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
-    //var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
+    /// var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
+    var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
@@ -837,13 +837,13 @@ function completeRedemption() {
     var fullname = "";
     var appad_location = "isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
-   var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-    var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
+   //var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+   // var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     
-  //  var share_image = "http://hdrewards.ddns.net:8088/jumismemobile/images/large_logo_placeholder.png";
-  //  var flag_image = "http://hdrewards.ddns.net:8088/jumismemobile/flagimages/";
+    var share_image = "http://hdrewards.ddns.net:8088/jumismemobile/images/large_logo_placeholder.png";
+    var flag_image = "http://hdrewards.ddns.net:8088/jumismemobile/flagimages/";
     
-    var short_msg = "isme By Jumeirah";
+    var short_msg = "isme by Jumeirah";
     var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at http://isme.jumeirah.com";
     var offertelephone = "8004763";
     var enrollmenttelephone = "8004763";
@@ -923,7 +923,7 @@ function completeRedemption() {
                    error: function (errormsg) {
                        window.localStorage.setItem("FBValidated", "N");
                        navigator.notification.alert("Your Facebook User ID could not be validated due to a system error. Please try again. " + errormsg.statusText, function() {
-                       }, "isme By Jumeirah" , "Dismiss");     
+                       }, "isme by Jumeirah" , "Dismiss");     
                    }
                });
     }
@@ -5189,18 +5189,18 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No Vouchers are currently available in your Wallet.", function() {
-                                                                       }, "isme By Jumeirah", "Dismiss")    
+                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, your Wallet could not be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
-                                                                   }, "isme By Jumeirah", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, your Wallet cannot be displayed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme By Jumeirah", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -5446,7 +5446,7 @@ function completeRedemption() {
                                             : function () {
                                                 if (!this.srpin1) {
                                                     navigator.notification.alert("Invalid PIN Number. Please re-enter a valid PIN number. ", function() {
-                                                    }, "isme By Jumeirah", "Dismiss");
+                                                    }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
                                                 showSpin();
@@ -5469,14 +5469,14 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Invalid Redemption PIN", function() {
-                                                                   }, "isme By Jumeirah", "Dismiss");
+                                                                   }, "isme by Jumeirah", "Dismiss");
                                                                    postLogin.set("srpin1", "");
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error. Cannot verify Redemption PIN [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme By Jumeirah", "Dismiss");
+                                                               }, "isme by Jumeirah", "Dismiss");
                                                                postLogin.set("srpin1", "");
                                                                hideSpin(); //hide loading popup
                                                            }
@@ -5487,7 +5487,7 @@ function completeRedemption() {
                                             : function () {
                                                 if (!this.depin1) {
                                                     navigator.notification.alert("Invalid Outlet identifier. Please enter valid outlet identifier.", function() {
-                                                    }, "isme By Jumeirah", "Dismiss");
+                                                    }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
                                        
@@ -5500,7 +5500,7 @@ function completeRedemption() {
                                                     redeemVoucher();
                                                 } else {
                                                     navigator.notification.alert("Invalid Outlet identifier. Please try again.", function() {
-                                                    }, "isme By Jumeirah", "Dismiss");
+                                                    }, "isme by Jumeirah", "Dismiss");
                                                     return;  
                                                 }
                                             },
@@ -5619,18 +5619,18 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No transaction history available for your membership.", function() {
-                                                                       }, "isme By Jumeirah", "Dismiss")    
+                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to system error, transaction history cannot be displayed. " + getData.statusdesc, function() {
-                                                                   }, "isme By Jumeirah", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to system error, transaction history cannot be displayed.  [" + errormsg.responseText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme By Jumeirah", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -5709,16 +5709,16 @@ function completeRedemption() {
                                                                                                                  });
                                                                    }else {
                                                                        navigator.notification.alert("No message history for your Membership. ", function() {
-                                                                       }, "isme By Jumeirah", "Dismiss")    
+                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to system error, message history cannot be displayed. Please try again. " + getData.statusdesc, function() {
-                                                                   }, "isme By Jumeirah", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to system error, message history cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme By Jumeirah", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
@@ -5764,18 +5764,18 @@ function completeRedemption() {
                                                                        hideSpin();
                                                                    }else {
                                                                        navigator.notification.alert("No message history for your Membership. ", function() {
-                                                                       }, "isme By Jumeirah", "Dismiss")    
+                                                                       }, "isme by Jumeirah", "Dismiss")    
                                                                        hideSpin();
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to system error, message item cannot be displayed. Please try again. " + getData.statusdesc, function() {
-                                                                   }, "isme By Jumeirah", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                    hideSpin();
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to system error, message item cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme By Jumeirah", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin();
                                                            }
                                                        });
@@ -5803,13 +5803,13 @@ function completeRedemption() {
                                                                    $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");  
                                                                }else {
                                                                    navigator.notification.alert("Cannot delete message. " + getData.statusdesc, function() {
-                                                                   }, "isme By Jumeirah", "Dismiss")          
+                                                                   }, "isme by Jumeirah", "Dismiss")          
                                                                }
                                                                hideSpin(); //hide loading popup
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("System error, cannot delete message. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme By Jumeirah", "Dismiss")
+                                                               }, "isme by Jumeirah", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -5899,23 +5899,23 @@ function completeRedemption() {
                                                                        if (getData.statuscode === "000") {
                                                                            window.localStorage.setItem("fbLoginModeEnabled", "Y");
                                                                            navigator.notification.alert("The Facebook account on this device is successfully linked to your isme membership.", function() {
-                                                                           }, "isme By Jumeirah" , "Dismiss");     
+                                                                           }, "isme by Jumeirah" , "Dismiss");     
                                                                            hideSpin();
                                                                        }else {
                                                                            navigator.notification.alert("The Facebook account in this device is already linked to another isme membership.", function() {
-                                                                           }, "isme By Jumeirah" , "Dismiss");  
+                                                                           }, "isme by Jumeirah" , "Dismiss");  
                                                                            hideSpin();
                                                                        }
                                                                    },
                                                                    error: function (errormsg) {
                                                                        navigator.notification.alert("Due to a system error, we are unable to validate the Facebook account. " + errormsg.statusText, function() {
-                                                                       }, "isme By Jumeirah" , "Dismiss");     
+                                                                       }, "isme by Jumeirah" , "Dismiss");     
                                                                        hideSpin();
                                                                    }
                                                                });
                                                     } else { 
                                                         navigator.notification.alert("Error accessing Facebook " + response.status, function() {
-                                                        }, "isme By Jumeirah", "Dismiss");
+                                                        }, "isme by Jumeirah", "Dismiss");
                                                         return;
                                                     } 
                                                 }); 
@@ -6037,10 +6037,10 @@ function completeRedemption() {
         }
         if (window.localStorage.getItem("errorPreference") === "1") {
             navigator.notification.alert("Your preferences were saved successfully.", function() {
-            }, "isme By Jumeirah", "Dismiss") ;                         
+            }, "isme by Jumeirah", "Dismiss") ;                         
         } else {
             navigator.notification.alert("Your Preferences Were Saved Successfully", function() {
-            }, "isme By Jumeirah" , "Dismiss") ;   
+            }, "isme by Jumeirah" , "Dismiss") ;   
         }
         window.localStorage.setItem("errorPreference", "1");
         window.localStorage.setItem("issaved", "1");
@@ -6089,14 +6089,14 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Unable to Validate Discount. Please try again.  " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss");
+                           }, "isme by Jumeirah", "Dismiss");
                            postLogin.set("depin1", "");
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Due to a system error, we are unable to Validate Discount  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss");
+                       }, "isme by Jumeirah", "Dismiss");
                        postLogin.set("depin1", "");
                        hideSpin(); //hide loading popup
                    }
@@ -6134,14 +6134,14 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Unable to Redeem Voucher. Please try again. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")
+                           }, "isme by Jumeirah", "Dismiss")
                            postLogin.set("depin1", "");
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("System Error: unable to Redeem Voucher.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        postLogin.set("depin1", "");
                        hideSpin(); //hide loading popup
                    }
@@ -6176,14 +6176,14 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Unable to Redeem Voucher. Please try again. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")
+                           }, "isme by Jumeirah", "Dismiss")
                            postLogin.set("depin1", "");
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("System Error: unable to Redeem Voucher.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        postLogin.set("depin1", "");
                        hideSpin(); //hide loading popup
                    }
@@ -6252,13 +6252,13 @@ function completeRedemption() {
                        var getData = JSON.parse(data);
                        if (getData.statuscode != "000") {
                            navigator.notification.alert("Image change could not be updated due to system error. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                        }
                        hideSpin(); //hide loading popup
                    },
                    error: function (error) {
                        navigator.notification.alert("Image change could not be updated due to system error. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -7088,16 +7088,16 @@ function completeRedemption() {
                                                         });
                            }else {
                                navigator.notification.alert("Restaurant Type Preference List not available", function() {
-                               }, "isme By Jumeirah", "Dismiss")    
+                               }, "isme by Jumeirah", "Dismiss")    
                            }
                        }else {
                            navigator.notification.alert("Cannot get Restaurant Type Preference List. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Restaurant Type Preference List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                    }
                });
     }
@@ -7126,17 +7126,17 @@ function completeRedemption() {
                                                         });
                            }else {
                                navigator.notification.alert("Lifestyle Preference List not available", function() {
-                               }, "isme By Jumeirah", "Dismiss")    
+                               }, "isme by Jumeirah", "Dismiss")    
                            }
                        }else {
                            navigator.notification.alert("Cannot get Lifestyle Preference List. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                        }
                        hideSpin(); //hide loading popup
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Lifestyle Preference List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -7166,16 +7166,16 @@ function completeRedemption() {
                                                         });
                            }else {
                                navigator.notification.alert("Restaurant Details List not available", function() {
-                               }, "isme By Jumeirah", "Dismiss")    
+                               }, "isme by Jumeirah", "Dismiss")    
                            }
                        }else {
                            navigator.notification.alert("Cannot get Restaurant Details List. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Restaurant Details List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                    }
                });
     }
@@ -7204,16 +7204,16 @@ function completeRedemption() {
                                                         });
                            }else {
                                navigator.notification.alert("Cuisine Type List not available", function() {
-                               }, "isme By Jumeirah", "Dismiss")    
+                               }, "isme by Jumeirah", "Dismiss")    
                            }
                        }else {
                            navigator.notification.alert("Cannot get Cuisine Type List. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Cuisine Type List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                    }
                });
     }
@@ -7242,16 +7242,16 @@ function completeRedemption() {
                                                         });
                            }else {
                                navigator.notification.alert("Celebration Type List not available", function() {
-                               }, "isme By Jumeirah", "Dismiss")    
+                               }, "isme by Jumeirah", "Dismiss")    
                            }
                        }else {
                            navigator.notification.alert("Cannot get Celebration Type List. " + getData.statusdesc, function() {
-                           }, "isme By Jumeirah", "Dismiss")          
+                           }, "isme by Jumeirah", "Dismiss")          
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Celebration Type List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme By Jumeirah", "Dismiss")
+                       }, "isme by Jumeirah", "Dismiss")
                    }
                });
     }
@@ -7274,14 +7274,14 @@ function completeRedemption() {
                            // hideSpin();
                        }else {
                            //  navigator.notification.alert("ERROR : One or more preferences could not be saved!"  +getData.statusdesc, function() {
-                           //                           }, "isme By Jumeirah" , "Dismiss");     
+                           //                           }, "isme by Jumeirah" , "Dismiss");     
                            window.localStorage.setItem("errorPreference", getData.statusdesc);                                      
                            // hideSpin();                           
                        }
                    },
                    error: function (errormsg) {
                        // navigator.notification.alert("ERROR : One or more preferences could not be saved!"  +errormsg.statusText, function() {
-                       //                             }, "isme By Jumeirah" , "Dismiss");     
+                       //                             }, "isme by Jumeirah" , "Dismiss");     
                        window.localStorage.setItem("errorPreference", errormsg.statusText);                                      
                    }
                });
@@ -7322,13 +7322,13 @@ function completeRedemption() {
                            setRestaurantPreference("#restaurantdetail-filter", "#restaurantdetailfilter-template");
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
-                           }, "isme By Jumeirah" , "Dismiss");     
+                           }, "isme by Jumeirah" , "Dismiss");     
                            document.getElementById("prefsave").style.display = "none";
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
-                       }, "isme By Jumeirah" , "Dismiss");     
+                       }, "isme by Jumeirah" , "Dismiss");     
                        document.getElementById("prefsave").style.display = "none";
                    }
                });
@@ -7370,14 +7370,14 @@ function completeRedemption() {
                            hideSpin();
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
-                           }, "isme By Jumeirah" , "Dismiss");     
+                           }, "isme by Jumeirah" , "Dismiss");     
                            document.getElementById("prefsave").style.display = "none";
                            hideSpin();
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
-                       }, "isme By Jumeirah" , "Dismiss");     
+                       }, "isme by Jumeirah" , "Dismiss");     
                        document.getElementById("prefsave").style.display = "none";
                        hideSpin();
                    }
@@ -7419,13 +7419,13 @@ function completeRedemption() {
                            setCuisineTypePreference("#cuisinetype-filter", "#cuisinetypefilter-template");                                           
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
-                           }, "isme By Jumeirah" , "Dismiss");     
+                           }, "isme by Jumeirah" , "Dismiss");     
                            document.getElementById("prefsave").style.display = "none";
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
-                       }, "isme By Jumeirah" , "Dismiss");     
+                       }, "isme by Jumeirah" , "Dismiss");     
                        document.getElementById("prefsave").style.display = "none";
                    }
                });
@@ -7465,13 +7465,13 @@ function completeRedemption() {
                            setCelebrationTypePreference("#celebrationtype-filter", "#celebrationtype-template");
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
-                           }, "isme By Jumeirah" , "Dismiss");     
+                           }, "isme by Jumeirah" , "Dismiss");     
                            document.getElementById("prefsave").style.display = "none";
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
-                       }, "isme By Jumeirah" , "Dismiss");     
+                       }, "isme by Jumeirah" , "Dismiss");     
                        document.getElementById("prefsave").style.display = "none";
                    }
                });
