@@ -2700,7 +2700,7 @@ tile-frame-inner
     margin-top:0;
     margin-bottom:5px;
     font-size:80%;
-    height:12em !important;
+    height:auto !important;
     color:#000 !important;
 }
 
