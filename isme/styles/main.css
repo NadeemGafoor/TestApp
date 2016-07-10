@@ -2700,7 +2700,9 @@ tile-frame-inner
     margin-top:0;
     margin-bottom:5px;
     font-size:80%;
+    max-height:12em;
     height:auto;
+    color:#000;
 }
 
 .collapse-format-1{
