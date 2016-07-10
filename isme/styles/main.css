@@ -2702,7 +2702,7 @@ tile-frame-inner
     font-size:80%;
     max-height:12em;
     height:auto;
-    color:#000;
+    color:#000 !important;
 }
 
 .collapse-format-1{
