@@ -76,7 +76,7 @@
  </div>
 
 <script type="text/x-kendo-template" id="faqTemplate1">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false">
+    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false" data-expand="onExpand">
         <h8 class="collapse-format-1">${question}</h8>
             <div data-role="scroller" class="fulljustify font-small"  >
             ${answer}
@@ -85,7 +85,7 @@
 </script>
 
 <script type="text/x-kendo-template" id="faqTemplate2">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false">
+    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false" data-expand="onExpand">
         <h8 class="collapse-format-1">${question}</h8>
           <div data-role="scroller" class="fulljustify font-small"  >
             ${answer}
@@ -95,7 +95,7 @@
 </script>
 
 <script type="text/x-kendo-template" id="faqTemplate3">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false">
+    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false" data-expand="onExpand">
         <h8 class="collapse-format-1">${question}</h8>
 
                <div data-role="scroller" class="fulljustify font-small"  >
@@ -106,7 +106,7 @@
 </script>
 
 <script type="text/x-kendo-template" id="faqTemplate4">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false">
+    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false" data-expand="onExpand">
         <h8 class="collapse-format-1">${question}</h8>
 
            <div data-role="scroller" class="fulljustify font-small"  >
@@ -117,7 +117,7 @@
 </script>
 
 <script type="text/x-kendo-template" id="faqTemplate5">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false">
+    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false" data-expand="onExpand">
         <h8 class="collapse-format-1">${question}</h8>
 
          <div data-role="scroller" class="fulljustify font-small"  >
@@ -129,7 +129,7 @@
 </script>
 
 <script type="text/x-kendo-template" id="faqTemplate6">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "   data-collapsed="false">
+    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "   data-collapsed="false" data-expand="onExpand">
         <h8 class="collapse-format-1">${question}</h8>
 
             <div data-role="scroller" class="fulljustify font-small"  >
@@ -139,7 +139,7 @@
 </script>
 
 <script type="text/x-kendo-template" id="faqTemplate7">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false">
+    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false" data-expand="onExpand">
         <h8 class="collapse-format-1">${question}</h8>
           <div data-role="scroller" class="fulljustify font-small"  >
             ${answer}
@@ -148,7 +148,7 @@
 </script>
 
 <script type="text/x-kendo-template" id="faqTemplate8">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false">
+    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="false" data-expand="onExpand">
         <h8 class="collapse-format-1">${question}</h8>
 
           <div data-role="scroller" class="fulljustify font-small"  >
@@ -156,4 +156,14 @@
         </div>
 
     </div>
+</script>
+
+
+<script>
+    function onExpand() {
+        var that = this;
+        setTimeout(function() {
+            that.resize();
+        });
+    }
 </script>
