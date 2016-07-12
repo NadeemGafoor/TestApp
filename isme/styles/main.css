@@ -634,7 +634,9 @@ img
 #login-theme .input-frame-enrol-1 input,
 #resetpassword-theme .input-frame-enrol-1 input,
 #pl-myprofile-theme .input-frame-1 input,
-#pin-theme .input-frame-enrol-1 input
+#pin-theme .input-frame-enrol-1 input,
+#faq-theme .input-frame-1 input,
+#pl-faq-theme .input-frame-1 input
 {  
     display: block;
     width: 95%;
@@ -644,6 +646,18 @@ img
     z-index: 0;
     text-align:left;
     color: #fff;
+ }
+
+#faq-theme .input-frame-1 input,
+#pl-faq-theme .input-frame-1 input
+{  
+
+    width: 100%;
+    height:3em;
+    line-height:1.5em;
+    font-size:125%;
+    color:#000;
+
  }
 
 #pl-setting-theme .input-frame-enrol-1 input

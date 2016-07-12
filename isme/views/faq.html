@@ -8,98 +8,22 @@
             </a>
         </div>
     </div>
-    <ul data-role="listview" >
-        <li>
-            About isme by Jumeirah
+        <div class="input-frame-1">
+                    <select id="selCountry" style="display:block;width:100%;height: 2.3em;line-height: 1.5em;border: 1px solid #ccc;background-color: #f7f3f1" data-bind="events: {change: getfaq}">
+                        <option value="" selected="true">&nbsp;All FAQ's</option>
+                        <option value="1">&nbsp;About isme by Jumeirah</option>
+                        <option value="2">&nbsp;About the isme by Jumeirah Mobile App</option>
+                        <option value="3">&nbsp;Enrolment</option>
+                        <option value="4">&nbsp;Tier Privilege</option>
+                        <option value="5">&nbsp;Membership</option>
+                        <option value="6">&nbsp;Jumeirah Sirius and isme by Jumeirah</option>
+                        <option value="7">&nbsp;Programme tiers & benefits</option>
+                        <option value="8">&nbsp;Customer Service Support</option>
 
-                    <div style="height: auto;">
-                        <ul data-role="listview" id="faqlist1" data-inset="true">
-                        </ul>
-                    </div>
-
-        </li>
-
-        <li>
-            About the isme by Jumeirah Mobile App
-
-                    <div    style="height: auto;">
-                        <ul data-role="listview" id="faqlist2" data-inset="true">
-                        </ul>
-                    </div>
+                    </select>
+            </div>
+    <ul data-role="listview" id="faqlist1">
   
-        </li>
-
-        <li>
-            Enrolment
-            <ul>
-                <li>
-                    <div    style="height: auto;">
-                        <ul data-role="listview" id="faqlist3" data-inset="true">
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-
-        <li>
-            Tier Privilege
-            <ul>
-                <li>
-                    <div    style="height: auto;">
-                        <ul data-role="listview" id="faqlist4" data-inset="true">
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-
-        <li>
-            Membership
-            <ul>
-                <li>
-                    <div    style="height: auto;">
-                        <ul data-role="listview" id="faqlist5" data-inset="true">
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-
-        <li>
-            Jumeirah Sirius and isme by Jumeirah
-            <ul>
-                <li>
-                    <div    style="height: auto;">
-                        <ul data-role="listview" id="faqlist6" data-inset="true">
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-
-        <li>
-            Programme tiers & benefits
-            <ul>
-                <li>
-                    <div    style="height: auto;">
-                        <ul data-role="listview" id="faqlist7" data-inset="true">
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-
-        <li>
-            Customer service support
-            <ul>
-                <li>
-                    <div    style="height: auto;">
-                        <ul data-role="listview" id="faqlist8" data-inset="true">
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
     
     </ul>
 </div>
@@ -113,76 +37,5 @@
     </div>
 </script>
 
-<script type="text/x-kendo-template" id="faqTemplate2">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="true"   >
-        <h8 class="collapse-format-1">${question}</h8>
-        <div    class="fulljustify font-small"  >
-            ${answer}
-        </div>
 
-    </div>
-</script>
-
-<script type="text/x-kendo-template" id="faqTemplate3">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="true"   >
-        <h8 class="collapse-format-1">${question}</h8>
-
-        <div    class="fulljustify font-small"  >
-            ${answer}
-        </div>
-
-    </div>
-</script>
-
-<script type="text/x-kendo-template" id="faqTemplate4">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="true"   >
-        <h8 class="collapse-format-1">${question}</h8>
-
-        <div    class="fulljustify font-small"  >
-            ${answer}
-        </div>
-
-    </div>
-</script>
-
-<script type="text/x-kendo-template" id="faqTemplate5">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="true"   >
-        <h8 class="collapse-format-1">${question}</h8>
-
-        <div    class="fulljustify font-small"  >
-            ${answer}
-        </div>
-
-    </div>
-</script>
-
-<script type="text/x-kendo-template" id="faqTemplate6">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "   data-collapsed="true"   >
-        <h8 class="collapse-format-1">${question}</h8>
-    
-        <div    class="fulljustify font-small"  >
-            ${answer}
-        </div>
-    </div>
-</script>
-
-<script type="text/x-kendo-template" id="faqTemplate7">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="true"   >
-        <h8 class="collapse-format-1">${question}</h8>
-        <div    class="fulljustify font-small"  >
-            ${answer}
-        </div>
-    </div>
-</script>
-
-<script type="text/x-kendo-template" id="faqTemplate8">
-    <div data-role="collapsible" data-collapse-icon="customplus" data-expand-icon="customminus" class="fa "    data-collapsed="true"   >
-        <h8 class="collapse-format-1">${question}</h8>
-    
-        <div    class="fulljustify font-small"  >
-            ${answer}
-        </div>
-    
-    </div>
-</script>
 
