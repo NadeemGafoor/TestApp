@@ -136,7 +136,7 @@ function faceBookClick() {
   
 function twitterClick() {
     var m = window.localStorage.getItem("social_shortmsg");
-    window.plugins.socialsharing.shareViaTwitter("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App!  It’s Jumeirah at your fingertips! \n\n" + "Join the fun and download the isme by Jumeirah Mobile App today at " + window.localStorage.getItem("appad_location") , ["https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
+    window.plugins.socialsharing.shareViaTwitter("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App! Join the fun and download the App today at " + window.localStorage.getItem("appad_location") , ["https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
         navigator.notification.alert("Unable to complete the Twitter request due to the request cancelled by user or Twitter is not installed. Please check and re-try.", function() {
         }, "isme by Jumeirah" , "Dismiss");   
