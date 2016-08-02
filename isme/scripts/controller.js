@@ -127,7 +127,7 @@ function loadEnrol() {
 }
 
 function faceBookClick() {
-    window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("static_social_msg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
+    window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("static_social_msg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), ["https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
         navigator.notification.alert("Unable to complete the Facebook request due to the request cancelled by user or Facebook is not installed . Please check and re-try.", function() {
         }, "isme by Jumeirah" , "Dismiss"); 
@@ -136,7 +136,7 @@ function faceBookClick() {
   
 function twitterClick() {
     var m = window.localStorage.getItem("social_shortmsg");
-    window.plugins.socialsharing.shareViaTwitter("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App!  It’s Jumeirah at your fingertips! \n\n" + "Join the fun and download the isme by Jumeirah Mobile App today at " + window.localStorage.getItem("appad_location") , ["http://exclusiveu.dynns.com:8088/mobilePortalServiceJumeirah/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
+    window.plugins.socialsharing.shareViaTwitter("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App!  It’s Jumeirah at your fingertips! \n\n" + "Join the fun and download the isme by Jumeirah Mobile App today at " + window.localStorage.getItem("appad_location") , ["https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
         navigator.notification.alert("Unable to complete the Twitter request due to the request cancelled by user or Twitter is not installed. Please check and re-try.", function() {
         }, "isme by Jumeirah" , "Dismiss");   
@@ -160,7 +160,7 @@ function emailClick() {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
         function (msg) {
             navigator.notification.alert("Unable to complete the email request due to the request cancelled by user or email is not installed. Please check and re-try.", function() {
-            }, "isme by Jumeirah" , "Dismiss"); 
+           }, "isme by Jumeirah" , "Dismiss"); 
         } // called when sh*t hits the fan
         );
 }
@@ -838,8 +838,8 @@ function completeRedemption() {
     var appad_location = "isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
     
-   //var share_image = "https://ismemobileapp.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-   //var flag_image = "https://ismemobileapp.jumeirah.com/ismemobileportal/flagimages/";
+    //var share_image = "https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png";
+    //var flag_image = "https://ismemobileapp.jumeirah.com/flagimages/";
    //var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
    //var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     
