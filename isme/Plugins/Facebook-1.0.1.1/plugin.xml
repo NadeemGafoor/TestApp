@@ -82,11 +82,11 @@
         <source-file src="platforms/ios/HelloCordova/Plugins/com.phonegap.plugins.facebookconnect/FacebookConnectPlugin.m" />
 
         <config-file target="*-Info.plist" parent="FacebookAppID">
-            <string>247095372320962</string>
+            <string>1738460076383554</string>
         </config-file>
 
         <config-file target="*-Info.plist" parent="FacebookDisplayName">
-            <string>Test isme</string>
+            <string>isme by Jumeirah</string>
         </config-file>
 
         <config-file target="*-Info.plist" parent="CFBundleURLTypes">
