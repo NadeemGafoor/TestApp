@@ -778,8 +778,8 @@ function completeRedemption() {
     var mdevicestat = "";
     var ctr = 0;
     var noalcohollist = [];
-    var gurl = "https://ismemobileapp.jumeirah.com";
-   
+    //var gurl = "https://ismemobileapp.jumeirah.com";
+   var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
@@ -836,8 +836,8 @@ function completeRedemption() {
     var appad_location = "isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
     
-    var share_image = "https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png";
-    var flag_image = "https://ismemobileapp.jumeirah.com/flagimages/";
+    var share_image = "http://hdrewards.ddns.net:8088/jumismemobile/images/large_logo_placeholder.png";
+    var flag_image = "http://hdrewards.ddns.net:8088/jumismemobile/flagimages/";
   
     
     var short_msg = "isme by Jumeirah";
