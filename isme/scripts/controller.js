@@ -1819,9 +1819,11 @@ function completeRedemption() {
                                            showAllOutlet1
                                            : function (e) {
                                                showSpin();  
+                                              
                                                window.localStorage.setItem("appopen", "07");
                                                window.localStorage.setItem("category", "0"); 
                                                prefiltercheck(e);
+               
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -1836,6 +1838,7 @@ function completeRedemption() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               cleanoutletfilter();
+                                                              alert("Came Here");
                                                               if (getData.statuscode === "000") {
                                                                   //fill the outlet template
                                                                   if (window.localStorage.getItem("outlet")==="") {
@@ -4093,7 +4096,7 @@ function completeRedemption() {
                                                 window.localStorage.setItem("appopen", "09");
                                                 window.localStorage.setItem("category", "0"); 
                                                 prefiltercheck(e); 
-                                                   
+                                                alert("After Pre Filter Check");   
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backs").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backs").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -4116,6 +4119,8 @@ function completeRedemption() {
                                                                cleanoutletfilter();
                                                                if (getData.statuscode === "000") {
                                                                    //fill the outlet template
+                                                                   alert("Came from Server");
+;
                                                                    if (window.localStorage.getItem("outlet")==="") {
                                                                        $("#pl-outlet-list-b").kendoMobileListView({
                                                                              
@@ -7572,18 +7577,12 @@ function completeRedemption() {
     }
     
     function prefiltercheck(e) {
-        if (window.localStorage.getItem("outlet")==="") {
+        if (window.localStorage.getItem("outlet")=="") {
             window.localStorage.setItem("brand", e.view.params.brand);  
             window.localStorage.setItem("category", e.view.params.category);
             window.localStorage.setItem("distance", "");
             window.localStorage.setItem("cuisine", "");
             window.localStorage.setItem("restaurant", "");
-        } else {
-            //alert(window.localStorage.getItem("brand"));
-            //alert(window.localStorage.getItem("category"));
-            //  alert(window.localStorage.getItem("distance"));
-            //  alert(window.localStorage.getItem("cuisine"));
-            //  alert(window.localStorage.getItem("restaurant"));
         }
     }
     
