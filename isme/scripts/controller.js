@@ -1837,7 +1837,7 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                              alert("Came after Service");
+                                                             
                                                               cleanoutletfilter();
 
                                                               if (getData.statuscode === "000") {
@@ -4126,7 +4126,7 @@ function completeRedemption() {
                                                                cleanoutletfilter();
                                                                if (getData.statuscode === "000") {
                                                                    //fill the outlet template
-                                                                   alert("Came from Server");
+
 ;
                                                                    if (window.localStorage.getItem("outlet")==="") {
                                                                        $("#pl-outlet-list-b").kendoMobileListView({
