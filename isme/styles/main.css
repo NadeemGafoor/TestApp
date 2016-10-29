@@ -100,7 +100,14 @@ a
     background-color: #fff;
 }
 
- #enrol-theme .km-content, #home-view .km-content, #login-theme .km-content, #resetpassword-theme .km-content,#token-theme .km-content,#pin-theme .km-content, #enrolmentpage-view .km-content
+ #home-view .km-content
+{
+    background: url(../images/home_bg.png) no-repeat center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+ #enrol-theme .km-content,  #login-theme .km-content, #resetpassword-theme .km-content,#token-theme .km-content,#pin-theme .km-content, #enrolmentpage-view .km-content
 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/640x960_bg.png) no-repeat center center;
     background-size: cover;
@@ -2727,4 +2734,33 @@ tile-frame-inner
     border-top:0px;
     border-bottom:0px;
     margin-left:0px;
+}
+
+.home-page-logo-text-holder
+{
+    margin:5px auto;
+    font-family:'Didot';
+    font-size:2.5em;
+    font-weight:bold;
+    text-align:center;
+}
+
+.button-frame-inline-home
+{
+    height: auto;
+    line-height: 2em;
+    width: 100%;
+    text-align: center;
+    background-color:#fff;
+}
+
+.button-frame-inline-home .km-button
+{
+    line-height: 1.8em;
+    width: 49%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+    margin: 0px;
 }

@@ -159,7 +159,7 @@
 
 .logo-top
 {
-    height: 450px;
+    height: 475px;
     width: 100%;
     display: block;
     position: relative;
@@ -212,14 +212,7 @@
   
 }
 
-.home-page-logo-text-holder
-{
-    margin:5px auto;
-    font-family:'Didot';
-    font-size:2.5em;
-    font-weight:bold;
-    text-align:center;
-}
+
 
 .discover-back-height
 {
