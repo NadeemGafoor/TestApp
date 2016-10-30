@@ -2743,23 +2743,22 @@ tile-frame-inner
     height:auto;
     line-height: 2.2em;
     width: 100%;
-    text-align: center;
-         display: inline;
+    display: inline;
 }
 
 .button-frame-inline-home1
 {
-    height:auto;
+    height:2.2em;
     line-height: 2.2em;
     width:50%;
-     display: inline;
+    display: inline;
 }
 
 
 .button-frame-inline-home .km-button
 {
     line-height: 2.2em;
-    width: 99%;
+    width: 100%;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
@@ -2767,4 +2766,5 @@ tile-frame-inner
     color: #fff;
     margin: 0px;
     border:none;
+    border-radius:0px;
 }
