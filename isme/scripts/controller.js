@@ -1189,7 +1189,7 @@ function completeRedemption() {
                                            destroytokenpage:function() {
                                                $("#token-theme").remove();
                                            }, 
-         destroysmspage:function() {
+                                           destroysmspage:function() {
                                                $("#sms-theme").remove();
                                            }, 
         
@@ -1511,35 +1511,34 @@ function completeRedemption() {
                                            showEnrol
                                            :function() {
                                                showSpin();
-                                                window.localStorage.setItem("mfirstname","");
-                                               window.localStorage.setItem("mlastname","");
-                                               window.localStorage.setItem("memailid","");
-                                               window.localStorage.setItem("mmobile","");
+                                               window.localStorage.setItem("mfirstname", "");
+                                               window.localStorage.setItem("mlastname", "");
+                                               window.localStorage.setItem("memailid", "");
+                                               window.localStorage.setItem("mmobile", "");
                                                hideSpin(); //hide loading popup
                                            },
         
         
         
-         confirmEnrolPre
+                                           confirmEnrolPre
                                            :function() {
-                                              
-                                                    if (!this.firstname) {
-                                                       navigator.notification.alert("Please enter your First Name. ", function() {
-                                                       }, "isme by Jumeirah", "Dismiss")
-                                                       return;
-                                                   }
+                                               if (!this.firstname) {
+                                                   navigator.notification.alert("Please enter your First Name. ", function() {
+                                                   }, "isme by Jumeirah", "Dismiss")
+                                                   return;
+                                               }
                                                
-                                                   if (!this.lastname) {
-                                                       navigator.notification.alert("Please enter your Last Name.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss")
-                                                       return;
-                                                   }
+                                               if (!this.lastname) {
+                                                   navigator.notification.alert("Please enter your Last Name.", function() {
+                                                   }, "isme by Jumeirah", "Dismiss")
+                                                   return;
+                                               }
                                                
-                                                   if (!this.emailid) {
-                                                       navigator.notification.alert("Please enter your Email address.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss")
-                                                       return;
-                                                   }
+                                               if (!this.emailid) {
+                                                   navigator.notification.alert("Please enter your Email address.", function() {
+                                                   }, "isme by Jumeirah", "Dismiss")
+                                                   return;
+                                               }
 
                                                if (!this.mobile) {
                                                    navigator.notification.alert("Please enter your mobile number.", function() {
@@ -1560,22 +1559,20 @@ function completeRedemption() {
                                                }
                                                
                                                //Assign variables to localstorage for later update
-                                                window.localStorage.setItem("mfirstname",this.firstname);
-                                               window.localStorage.setItem("mlastname",this.lastname);
-                                               window.localStorage.setItem("memailid",this.emailid);
-                                               window.localStorage.setItem("mmobile",this.mobile);
+                                               window.localStorage.setItem("mfirstname", this.firstname);
+                                               window.localStorage.setItem("mlastname", this.lastname);
+                                               window.localStorage.setItem("memailid", this.emailid);
+                                               window.localStorage.setItem("mmobile", this.mobile);
                                                
-                                                window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                     "duration"         :  500, // in milliseconds (ms), default 400
-                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+                                               window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                                                                "duration"         :  500, // in milliseconds (ms), default 400
+                                                                                                                "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                                                                "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                                                                "androiddelay"     :  150, // same as above but for Android, default 70
 
-                                                                     'direction': 'up',
-                                                                     'href': '#views/smsvalidation.html'
-                                                                 }), 500);
-                                               
-                                            
+                                                                                                                'direction': 'up',
+                                                                                                                'href': '#views/smsvalidation.html'
+                                                                                                            }), 500);
                                            },
         
                                            confirmEnrol
@@ -2831,42 +2828,39 @@ function completeRedemption() {
                                                preLogin.set("tokennum", "");
                                            },
         
-                                         initSMS
+                                           initSMS
                                            :function() {
+                                               showSpin();
                                                window.localStorage.setItem("smsreference", "");  
-                                            
-                                                  $.ajax({ 
-                       type: "POST",
-                       cache:false,
-                       async:true,
-                       timeout:20000,
-                       url: gurl + "/sendSMS.aspx",
-                       contentType: "application/json; charset=utf-8",
-                       data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("firstname"),lastname:window.localStorage.getItem("lastname"),mobile:window.localStorage.getItem("mobile"),emailid:window.localStorage.getItem("emailid"),mdevice:mdevicestat
-                                            }),
-                       success: function (data) {
-                           var getData = JSON.parse(data);
-                           alert(getData);
-                           if (getData.statuscode === "000") {
-                              window.localStorage.setItem("smsreference", getData.referencenumber); 
-                               alert(window.localStorage.getItem("smsreference", getData.referencenumber));
-                           } else {
-                               navigator.notification.alert("There was an error generating the SMS Code.  Please try again later", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
-                           }
-                       },
-                       error: function (error) {
-                              navigator.notification.alert("There was an error generating the SMS Code. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/sendSMS.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("firstname"),lastname:window.localStorage.getItem("lastname"),mobile:window.localStorage.getItem("mobile"),emailid:window.localStorage.getItem("emailid"),mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) {
+                                                              var getData = JSON.parse(data);
+                                                              alert(getData);
+                                                              if (getData.statuscode === "000") {
+                                                                  window.localStorage.setItem("smsreference", getData.referencenumber); 
+                                                                  alert(window.localStorage.getItem("smsreference", getData.referencenumber));
+                                                                  hideSpin(); //hide loading popup
+                                                              } else {
+                                                                  navigator.notification.alert("There was an error generating the SMS Code.  Please try again later", function() {
+                                                                  }, "isme by Jumeirah", "Dismiss");
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("There was an error generating the SMS Code. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
-                       }
-                   });        
-                                               
-                                               
-                                               
-                                               
-                                               
+                                                          }
+                                                      });        
                                            },
                                            initPin
                                            :function() {
