@@ -5,6 +5,7 @@
 @font-face { font-family: 'Gotham-Light'; src: url('../styles/fonts/Gotham-Light.ttf')  format('truetype'); } /* Safari, Android, iOS */
 @font-face { font-family: 'Gotham-LightItalic'; src: url('../styles/fonts/Gotham-Book.otf')  format('opentype'); } /* Safari, Android, iOS */
 @font-face { font-family: 'Didot'; src: url('../styles/fonts/Didot.ttc')  format('truetype'); } /* Safari, Android, iOS */
+@font-face { font-family: 'Georgia'; src: url('../styles/fonts/Georgia.ttf')  format('truetype'); } /* Safari, Android, iOS */
 
 .km-ios7 .km-list>li:last-child{
   box-shadow:none;
@@ -2649,14 +2650,6 @@ tile-frame-inner
 
   margin:5px auto;
     
-}
-
-.logo-image-holder
-{
-    width:100%;
-    margin:10px auto;
-    background: url(../images/home_page_logo_home.png) no-repeat center center;
-    background-size:48%;
 }
 
  .km-arrow-up:after,
