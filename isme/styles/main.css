@@ -800,7 +800,7 @@ img
 
 .button-frame
 {
-    height: 30px;
+    height: 40px;
     line-height: 30px;
     width: 100%;
     position: relative;
@@ -997,12 +997,14 @@ img
     float: none;
     color:#fff;
     font-size:95%;
+    
 }
 
 .switch-frame-1 label
 {
     color:#fff;
     font-size:95%;
+    margin-left:0px;
 }
 
 .switch-frame-voucher
