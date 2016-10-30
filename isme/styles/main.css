@@ -96,7 +96,7 @@ a
 
 #benefit-theme .km-content, #customerservice-theme .km-content, #offerdetail-theme .km-content,  #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content, #pl-benefit-theme .km-content, #mymessagelist-theme .km-content, #messageitem-theme .km-content, #pl-setting-theme .km-content, #device-theme .km-content,
 #history-theme .km-content, #historyitem-theme .km-content, #modalviewhistoryfilter .km-content, #myfavorite-view .km-content, #pl-confirmpage-view .km-content, #pl-customerservice-theme .km-content, #pl-confirmredemption-view .km-content, #modalviewfaq .km-content,#branddetail-theme .km-content, #aboutisme-theme .km-content, #pl-aboutisme-theme .km-content, #pl-termsconditions-theme .km-content,#pl-voucheredeem-view .km-content,#pl-home-view .km-content,#tcisme-theme .km-content,
-#faq-theme .km-content,#pl-faq-theme .km-content,#modalviewdataprotection .km-content
+#faq-theme .km-content,#pl-faq-theme .km-content,#modalviewdataprotection .km-content, #enrol-theme .km-content, #login-theme .km-content, #resetpassword-theme .km-content,#token-theme .km-content,#pin-theme .km-content, #enrolmentpage-view .km-content 
 {
     background-color: #fff;
 }
@@ -108,12 +108,7 @@ a
     -webkit-background-size: cover;
 }
 
- #enrol-theme .km-content,  #login-theme .km-content, #resetpassword-theme .km-content,#token-theme .km-content,#pin-theme .km-content, #enrolmentpage-view .km-content
-{
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/640x960_bg.png) no-repeat center center;
-    background-size: cover;
-    -webkit-background-size: cover;
-}
+
 
 #outletlist-theme .km-content,
 #outletlistb-theme .km-content,
@@ -639,7 +634,7 @@ img
 #resetpassword-theme .input-frame-enrol-1,
 #pin-theme .input-frame-enrol-1
 {  
-        border-bottom: 2px solid #fff;
+        border-bottom: 2px solid #000;
  }
 
 
