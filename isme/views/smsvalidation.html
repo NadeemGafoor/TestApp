@@ -8,31 +8,28 @@
 
     <div class="reward-summary-a">
         <div class="reward-summary-1">
-            <pre class="fulljustify" style="color:#fff">Please enter the activation token number you have received on your email address. We ensure that your account is secured. You are getting this screen because you are signing in on a different device.</pre>
+            <pre class="fulljustify" style="color:#fff">Please enter the SMS Code we just sent you.</pre>
         </div>
     </div>
     <ul data-role="listview" dta-style="inset" style="background-color:#fff">
         <li>
             <div class="input-frame-enrol-1">
 
-                <input type="password" id="tokennum" data-bind="value: tokennum" placeholder="Token Number"/>
+                <input type="password" id="smsnum" data-bind="value: smsnum" placeholder="SMS Code"/>
             </div>
         </li>
         <li>
-            <div class="button-frame-login">
-                <a data-role="button" data-bind="click: validateToken" style="background-color:transparent !important">Validate</a>
+            <div class="button-frame">
+                <a data-role="button" data-bind="click: validateSMS" style="background-color:#eb046d">Continue</a>
             </div>
+             
         </li>
         <li>
-            <div class="button-frame-login">
-
-                <a data-transition="slide:up"  href="views/home.html" data-role="button" style="background-color:transparent !important">Cancel</a>
-            </div>
+            <a  data-bind="click: initSMS" style="background-color:transparent !important">
+                <div class="switch-frame one-line" style="color:#000">Send me a new SMS Code</div>  
+            </a>
 
         </li>
-        <div>
-            <li></li>
-        </div>
     </ul>
 
 </div>
