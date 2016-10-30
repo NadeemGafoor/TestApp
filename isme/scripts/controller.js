@@ -2833,7 +2833,7 @@ function completeRedemption() {
         
                                          initSMS
                                            :function() {
-                                               window.localStorage.setItem("smstoken", "");  
+                                               window.localStorage.setItem("smsreference", "");  
                                                
                                                   $.ajax({ 
                        type: "POST",
@@ -2847,24 +2847,18 @@ function completeRedemption() {
                                             }),
                        success: function (data) {
                            var getData = JSON.parse(data);
-                           var i = 0;
                            if (getData.statuscode === "000") {
-                               if (getData.beaconoffers.length > 0) {
-                                   //Start Monitor
-                                   while (i <= getData.beaconoffers.length - 1) {
-                                       window.plugin.notification.local.add({
-                                                                                // title:   getData.beaconoffers[i].msgtitle,
-                                                                                message: getData.beaconoffers[i].msgnotification
-                                                                            });
-                                       
-                                       i++;
-                                   }
-                               } 
+                              window.localStorage.setItem("smsreference", getData.referencenumber); 
+                               alert(window.localStorage.getItem("smsreference", getData.referencenumber));
                            } else {
-                               // showTop("Error Retrieving Beacon Message" + getData.statuscode + getData.statusdesc);
+                               navigator.notification.alert("There was an error generating the SMS Code.  Please try again later", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
                            }
                        },
                        error: function (error) {
+                              navigator.notification.alert("There was an error generating the SMS Code. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
                        }
                    });        
                                                
