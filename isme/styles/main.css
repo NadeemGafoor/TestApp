@@ -655,6 +655,7 @@ img
     z-index: 0;
     text-align:left;
     color: #fff;
+    padding-left:25px;
  }
 
 #faq-theme .input-frame-1 input,
