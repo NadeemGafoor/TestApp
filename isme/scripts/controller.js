@@ -2833,7 +2833,45 @@ function completeRedemption() {
         
                                          initSMS
                                            :function() {
-                                               window.localStorage.setItem("smstoken", "");   
+                                               window.localStorage.setItem("smstoken", "");  
+                                               
+                                                  $.ajax({ 
+                       type: "POST",
+                       cache:false,
+                       async:true,
+                       timeout:20000,
+                       url: gurl + "/sendSMS.aspx",
+                       contentType: "application/json; charset=utf-8",
+                       data: JSON.stringify({
+                                                merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("firstname"),lastname:window.localStorage.getItem("lastname"),mobile:window.localStorage.getItem("mobile"),emailid:window.localStorage.getItem("emailid"),mdevice:mdevicestat,segment:"1000"
+                                            }),
+                       success: function (data) {
+                           var getData = JSON.parse(data);
+                           var i = 0;
+                           if (getData.statuscode === "000") {
+                               if (getData.beaconoffers.length > 0) {
+                                   //Start Monitor
+                                   while (i <= getData.beaconoffers.length - 1) {
+                                       window.plugin.notification.local.add({
+                                                                                // title:   getData.beaconoffers[i].msgtitle,
+                                                                                message: getData.beaconoffers[i].msgnotification
+                                                                            });
+                                       
+                                       i++;
+                                   }
+                               } 
+                           } else {
+                               // showTop("Error Retrieving Beacon Message" + getData.statuscode + getData.statusdesc);
+                           }
+                       },
+                       error: function (error) {
+                       }
+                   });        
+                                               
+                                               
+                                               
+                                               
+                                               
                                            },
                                            initPin
                                            :function() {
