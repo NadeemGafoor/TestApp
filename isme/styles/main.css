@@ -2740,7 +2740,7 @@ tile-frame-inner
 
 .button-frame-inline-home
 {
-   height:auto;
+    height:auto;
     line-height: 2.2em;
     width: 100%;
     text-align: center;
