@@ -1099,6 +1099,11 @@ function completeRedemption() {
                                                $("#aboutisme-theme").remove();
                                            },
         
+        
+         destroytcisme:function() {
+                                               $("#tcisme-theme").remove();
+                                           },
+        
                                            destroymodelviewfilter:function() {
                                                $("#modalviewfilter").remove();
                                            },
