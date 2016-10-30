@@ -1189,6 +1189,9 @@ function completeRedemption() {
                                            destroytokenpage:function() {
                                                $("#token-theme").remove();
                                            }, 
+         destroysmspage:function() {
+                                               $("#sms-theme").remove();
+                                           }, 
         
                                          
                                            queryOutletFilter:function() {
@@ -1508,10 +1511,71 @@ function completeRedemption() {
                                            showEnrol
                                            :function() {
                                                showSpin();
-                                               // kendo.mobile.application.showLoading(); //show loading popup
-                                               listCity("UAE", document.getElementById("selEmirate"));
-                                               
+                                                window.localStorage.setItem("mfirstname","");
+                                               window.localStorage.setItem("mlastname","");
+                                               window.localStorage.setItem("memailid","");
+                                               window.localStorage.setItem("mmobile","");
                                                hideSpin(); //hide loading popup
+                                           },
+        
+        
+        
+         confirmEnrolPre
+                                           :function() {
+                                              
+                                                    if (!this.firstname) {
+                                                       navigator.notification.alert("Please enter your First Name. ", function() {
+                                                       }, "isme by Jumeirah", "Dismiss")
+                                                       return;
+                                                   }
+                                               
+                                                   if (!this.lastname) {
+                                                       navigator.notification.alert("Please enter your Last Name.", function() {
+                                                       }, "isme by Jumeirah", "Dismiss")
+                                                       return;
+                                                   }
+                                               
+                                                   if (!this.emailid) {
+                                                       navigator.notification.alert("Please enter your Email address.", function() {
+                                                       }, "isme by Jumeirah", "Dismiss")
+                                                       return;
+                                                   }
+
+                                               if (!this.mobile) {
+                                                   navigator.notification.alert("Please enter your mobile number.", function() {
+                                                   }, "isme by Jumeirah", "Dismiss")
+                                                   return;
+                                               }
+                                            
+                                               if (!document.getElementById("enrol-tandc-accept").checked) {
+                                                   navigator.notification.alert("Please Accept the Terms & Conditions to proceed.", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
+                                               
+                                               if (!document.getElementById("enrol-tandc-accept-c").checked) {
+                                                   navigator.notification.alert("Please Accept the Data Protection Policy to proceed", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
+                                               
+                                               //Assign variables to localstorage for later update
+                                                window.localStorage.setItem("mfirstname",this.firstname);
+                                               window.localStorage.setItem("mlastname",this.lastname);
+                                               window.localStorage.setItem("memailid",this.emailid);
+                                               window.localStorage.setItem("mmobile",this.mobile);
+                                               
+                                                window.setTimeout(window.plugins.nativepagetransitions.slide({
+                                                                     "duration"         :  500, // in milliseconds (ms), default 400
+                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
+                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
+
+                                                                     'direction': 'up',
+                                                                     'href': '#views/smsvalidation.html'
+                                                                 }), 500);
+                                               
+                                            
                                            },
         
                                            confirmEnrol
@@ -2765,6 +2829,11 @@ function completeRedemption() {
                                            initToken
                                            :function() {
                                                preLogin.set("tokennum", "");
+                                           },
+        
+                                         initSMS
+                                           :function() {
+                                               window.localStorage.setItem("smstoken", "");   
                                            },
                                            initPin
                                            :function() {
