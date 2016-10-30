@@ -2834,7 +2834,7 @@ function completeRedemption() {
                                          initSMS
                                            :function() {
                                                window.localStorage.setItem("smsreference", "");  
-                                               
+                                            
                                                   $.ajax({ 
                        type: "POST",
                        cache:false,
@@ -2843,10 +2843,11 @@ function completeRedemption() {
                        url: gurl + "/sendSMS.aspx",
                        contentType: "application/json; charset=utf-8",
                        data: JSON.stringify({
-                                                merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("firstname"),lastname:window.localStorage.getItem("lastname"),mobile:window.localStorage.getItem("mobile"),emailid:window.localStorage.getItem("emailid"),mdevice:mdevicestat,segment:"1000"
+                                                merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("firstname"),lastname:window.localStorage.getItem("lastname"),mobile:window.localStorage.getItem("mobile"),emailid:window.localStorage.getItem("emailid"),mdevice:mdevicestat
                                             }),
                        success: function (data) {
                            var getData = JSON.parse(data);
+                           alert(getData);
                            if (getData.statuscode === "000") {
                               window.localStorage.setItem("smsreference", getData.referencenumber); 
                                alert(window.localStorage.getItem("smsreference", getData.referencenumber));

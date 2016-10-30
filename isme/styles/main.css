@@ -636,7 +636,6 @@ img
     width: 60%;
     border-bottom: 2px solid #000;
     float:none;
-    position:relative;
     text-align:center;
      margin-left:20%;
 }
@@ -651,7 +650,7 @@ img
     z-index: 0;
     text-align:left;
     color: #000;
-    text-align:center;
+    text-align:left;
    
  }
 
