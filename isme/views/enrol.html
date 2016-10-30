@@ -23,43 +23,17 @@
                 <input type="email" id="emailid" data-bind="value: emailid" placeholder="Email *" />
             </div>
         </li>
-          <li>
-            <div class="input-frame-enrol-1 ">
-                <input type="email" id="emailida" data-bind="value: emailida" placeholder="Re-enter Email *" />
-            </div>
-        </li>
         <li>
             <div class="input-frame-enrol-1 ">
                 <input type="number" id="mobile" data-bind="value: mobile" placeholder="Mobile (Eg:9715XXXXXXXX) *" />
             </div>
         </li>
-        <li>
-            <div class="input-frame-enrol-1">
-                <select id="selEmirate">
-                    <option value="" selected="true" >Select Emirate *</option>
-                </select>
-            </div>
-        </li>
-        <li>
-            <div class="input-frame-enrol-1 ">
-                <input type="number" id="siriusnumber" data-bind="value: siriusnumber" placeholder="Jumeirah Sirius Member ID (if any)"/>
-            </div>
-        </li>
-        <li>
-            <div class="input-frame-enrol-1">
-                <select id="selGender">
-                    <option value="" selected="true">Select Gender *</option>
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                     <option value="U">Unspecified</option>  
-                </select>
-            </div>
-        </li>
-        <li>
+      
+          <li>
             <div class="switch-frame-1" >
                 <label  class="whitecolor" style="color:#fff">
                     Agree to
-                    <a data-role="button" data-click="onClick" style="color:#fff;border:0px !important;background-color:transparent !important">
+                    <a data-role="button" data-click="onClick" style="color:#000;border:0px !important;background-color:transparent !important">
                         Terms & Conditions
                     </a>
                     <input data-role="switch" id="enrol-tandc-accept" type="checkbox"/>
@@ -70,7 +44,7 @@
             <div class="switch-frame-1" >
                 <label  class="whitecolor" style="color:#fff">
                     Agree to
-                    <a data-role="button" data-click="onClick1" style="color:#fff;border:0px !important;background-color:transparent !important">
+                    <a data-role="button" data-click="onClick1" style="color:#000;border:0px !important;background-color:transparent !important">
                         Data Protection Policy
                     </a>
                     <input data-role="switch" id="enrol-tandc-accept-c" type="checkbox"/>
@@ -80,28 +54,12 @@
 
 
         <li>
-            <div class="button-frame-login">
-                <a  id="mobile-button1" data-role="button" data-bind="click:confirmEnrol">Continue</a>
+            <div class="button-frame">
+                <a  id="mobile-button1" data-role="button" data-bind="click:confirmEnrol" style="background-color:#eb046d">Continue</a>
             </div>
         </li>
-        <li>
-            <div class="button-frame-login">
-                <a id="mobile-button1" data-role="button" class="button-loginwithfacebook" data-bind="click:getFBUserDataA">Enrol Using Facebook</a>
-            </div>
-        </li>
-
-        <li>
-            <div class="switch-frame-i one-line">Already have an Account?</div>
-        </li>
-        <li>
-            <div class="button-frame-login">
-                <a data-transition="slide:up" id="mobile-button1" href="views/login.html" data-role="button">Log In</a>
-            </div>
-        </li>
-        <div>
-            <li></li>
-        </div>
-    </ul>
+     
+           </ul>
 </div>
 
 <style scoped>
@@ -112,8 +70,8 @@
     #enrol-theme .switch-frame .km-button
     {
         border: 0px;
-        color: #fff000;
-        font-size: 1em;
+        color: #fff;
+        font-size: 125%;
     }
     
     #enrol-theme .switch-frame a
