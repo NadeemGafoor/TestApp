@@ -2740,20 +2740,20 @@ tile-frame-inner
 
 .button-frame-inline-home
 {
-    height: auto;
-    line-height: 2em;
+   height:auto;
+    line-height: 2.2em;
     width: 100%;
     text-align: center;
-    background-color:#fff;
 }
 
 .button-frame-inline-home .km-button
 {
-    line-height: 1.8em;
-    width: 49%;
+    line-height: 2.2em;
+    width: 49.40%;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
+    font-size:125%;
     color: #fff;
     margin: 0px;
 }
