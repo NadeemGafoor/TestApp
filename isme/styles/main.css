@@ -269,6 +269,13 @@ a
     content: "\f067";
 }
 
+.km-customrestlist:before,
+.km-customrestlist:after
+{
+    content: "\e077";
+    color: #fff;
+}
+
 .km-customstar:before,
 .km-customstar:after
 {
@@ -2742,8 +2749,8 @@ tile-frame-inner
 {
     height:auto;
     line-height: 2.2em;
-    width: 100%;
-    display: inline;
+    width: 104%;
+    display: inline-block;
 }
 
 .button-frame-inline-home1
@@ -2758,13 +2765,13 @@ tile-frame-inner
 .button-frame-inline-home .km-button
 {
     line-height: 2.2em;
-    width: 100%;
+    width: 49.4%;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
     font-size:125%;
     color: #fff;
-    margin: 0px;
+    margin:0px;
     border:none;
     border-radius:0px;
 }
