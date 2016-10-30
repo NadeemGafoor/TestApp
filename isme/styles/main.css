@@ -2744,17 +2744,27 @@ tile-frame-inner
     line-height: 2.2em;
     width: 100%;
     text-align: center;
+         display: inline;
+}
+
+.button-frame-inline-home1
+{
+    height:auto;
+    line-height: 2.2em;
+    width:50%;
+     display: inline;
 }
 
 
 .button-frame-inline-home .km-button
 {
     line-height: 2.2em;
-    width: 49.40%;
+    width: 99%;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
     font-size:125%;
     color: #fff;
     margin: 0px;
+    border:none;
 }
