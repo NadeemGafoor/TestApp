@@ -136,7 +136,7 @@ function faceBookClick() {
   
 function twitterClick() {
     var m = window.localStorage.getItem("social_shortmsg");
-    window.plugins.socialsharing.shareViaTwitter("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App! Join the fun and download now " + window.localStorage.getItem("appad_location") , ["https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png"],null, function () {
+    window.plugins.socialsharing.shareViaTwitter("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App! Join the fun and download now " + window.localStorage.getItem("appad_location") , ["https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png"], null, function () {
     }, function (errormsg) {
         navigator.notification.alert("Unable to complete the Twitter request due to the request cancelled by user or Twitter is not installed. Please check and re-try.", function() {
         }, "isme by Jumeirah" , "Dismiss");   
@@ -160,7 +160,7 @@ function emailClick() {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
         function (msg) {
             navigator.notification.alert("Unable to complete the email request due to the request cancelled by user or email is not installed. Please check and re-try.", function() {
-           }, "isme by Jumeirah" , "Dismiss"); 
+            }, "isme by Jumeirah" , "Dismiss"); 
         } // called when sh*t hits the fan
         );
 }
@@ -380,15 +380,9 @@ function loadFilterView() {
 //}
 
 function loadCuisineView() {   
-  // window.setTimeout(function() { 
-   
-        $("#modalviewcuisine").data("kendoMobileModalView").open(); 
-
- //  }, 100); 
-       
-    
-    
-  
+    // window.setTimeout(function() { 
+    $("#modalviewcuisine").data("kendoMobileModalView").open(); 
+    //  }, 100); 
 }  
       
 function loadOfferView() {
@@ -396,11 +390,9 @@ function loadOfferView() {
 }
 
 function loadTypeView() {
-//window.setTimeout(function() {   
-   $("#modalviewtype").data("kendoMobileModalView").open();
- //}, 100);      
-      
- 
+    //window.setTimeout(function() {   
+    $("#modalviewtype").data("kendoMobileModalView").open();
+    //}, 100);      
 }   
 
 function offerFilterView() {
@@ -778,9 +770,9 @@ function completeRedemption() {
     var mdevicestat = "";
     var ctr = 0;
     var noalcohollist = [];
-   // var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
+    // var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
     //var gurl = "https://ismemobileapp.jumeirah.com";
-   var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
+    var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
@@ -840,8 +832,8 @@ function completeRedemption() {
     var share_image = "http://hdrewards.ddns.net:8088/jumismemobile/images/large_logo_placeholder.png";
     var flag_image = "http://hdrewards.ddns.net:8088/jumismemobile/flagimages/";
   
-   //var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
- // var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
+    //var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+    // var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     
     var short_msg = "isme by Jumeirah";
     var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at https://isme.jumeirah.com";
@@ -1006,7 +998,6 @@ function completeRedemption() {
         $("#enrol-tandc-accept").data("kendoMobileSwitch").check(false);
         fbCleanVariables();
     }
-    
        
     function clearAllVariables() {
         window.localStorage.setItem("outlet", "");
@@ -1100,10 +1091,10 @@ function completeRedemption() {
                                            },
         
         
-         destroytcisme:function() {
+                                           destroytcisme:function() {
                                                $("#tcisme-theme").remove();
                                            },
-        
+                                           
                                            destroymodelviewfilter:function() {
                                                $("#modalviewfilter").remove();
                                            },
@@ -1255,7 +1246,7 @@ function completeRedemption() {
                                                items = ul.getElementsByTagName("input");
                                               
                                                window.localStorage.setItem("restaurant", ""); 
-                                                window.localStorage.setItem("orestauranttype", "All");    
+                                               window.localStorage.setItem("orestauranttype", "All");    
 
                                                //check where checked
                                                for (i = 0; i < items.length; i++) {
@@ -1274,7 +1265,7 @@ function completeRedemption() {
                                                if (x > 1) {
                                                    itemconcat = itemconcat + vclose;
                                                    window.localStorage.setItem("restaurant", itemconcat);
-                                                window.localStorage.setItem("orestauranttype", "Filter");    
+                                                   window.localStorage.setItem("orestauranttype", "Filter");    
                                                }
                                                document.getElementById("orestauranttype").innerHTML = window.localStorage.getItem("orestauranttype");   
                                                $("#modalviewtype").data("kendoMobileModalView").close();
@@ -1288,7 +1279,7 @@ function completeRedemption() {
                                                var vclose = "')";
                                                ul = document.getElementById("Cuisine-Filter");
                                                items = ul.getElementsByTagName("input");
-                                                window.localStorage.setItem("ocuisine", "All");                                            
+                                               window.localStorage.setItem("ocuisine", "All");                                            
                                                window.localStorage.setItem("cuisine", ""); 
                                                //check where checked
                                                for (i = 0; i < items.length; i++) {
@@ -1305,7 +1296,7 @@ function completeRedemption() {
                                                }
                                                if (x > 1) {
                                                    itemconcat = itemconcat + vclose;
-                                                window.localStorage.setItem("ocuisine", "Filter");                                            
+                                                   window.localStorage.setItem("ocuisine", "Filter");                                            
                                                    window.localStorage.setItem("cuisine", itemconcat);    
                                                }
                                                document.getElementById("ocuisine").innerHTML = window.localStorage.getItem("ocuisine");   
@@ -1670,7 +1661,7 @@ function completeRedemption() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                                                                                 
-                                                              if (getData.statuscode === "000" && getData.benefitlist.length>0) {  
+                                                              if (getData.statuscode === "000" && getData.benefitlist.length > 0) {  
                                                                   //fill the outlet template
                                                                   $("#benefit-1000").kendoMobileListView({  
                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
@@ -1713,7 +1704,7 @@ function completeRedemption() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                                                                                 
-                                                              if (getData.statuscode === "000" && getData.benefitlist.length>0) {  
+                                                              if (getData.statuscode === "000" && getData.benefitlist.length > 0) {  
                                                                   //fill the outlet template
                                                                   $("#benefit-1001").kendoMobileListView({  
                                                                                                              dataSource: kendo.data.DataSource.create({data: getData.benefitlist}),
@@ -3160,7 +3151,7 @@ function completeRedemption() {
                                            getfaq
                                            : function () {
                                                showSpin(); //show loading popup
-                                                 var t = document.getElementById("selCountry").value;
+                                               var t = document.getElementById("selCountry").value;
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -3194,12 +3185,11 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                             
                                            },
                                            plgetfaq
                                            : function () {
                                                showSpin(); //show loading popup
-                                                var t = document.getElementById("selCountry1").value;
+                                               var t = document.getElementById("selCountry1").value;
                                                window.localStorage.setItem("selfredeem", "D"); 
                                                document.getElementById("name-backg").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                document.getElementById("number-backg").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
@@ -3240,7 +3230,6 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
-                                              
                                            },
                                            getFAQFilter:function() {   
                                                var dataSource = new kendo.data.DataSource({ data: getFAQData() });
@@ -3683,7 +3672,6 @@ function completeRedemption() {
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
-
                                                                
                                                                if (getData.statuscode === "000" && getData.benefitlist.length > 0) {  
                                                                    //fill the outlet template
@@ -4131,8 +4119,7 @@ function completeRedemption() {
                                                                cleanoutletfilter();
                                                                if (getData.statuscode === "000") {
                                                                    //fill the outlet template
-
-;
+                                                                   ;
                                                                    if (window.localStorage.getItem("outlet")==="") {
                                                                        $("#pl-outlet-list-b").kendoMobileListView({
                                                                              
@@ -7589,7 +7576,7 @@ function completeRedemption() {
     }
     
     function prefiltercheck(e) {
-        if (window.localStorage.getItem("outlet")=="") {
+        if (window.localStorage.getItem("outlet") == "") {
             window.localStorage.setItem("brand", e.view.params.brand);  
             window.localStorage.setItem("category", e.view.params.category);
             window.localStorage.setItem("distance", "");
