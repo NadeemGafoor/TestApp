@@ -2832,15 +2832,20 @@ function completeRedemption() {
                                            :function() {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
+                                               alert(window.localStorage.getItem("mfirstname"));
+                                               alert(window.localStorage.getItem("mlastname"));
+                                               alert(window.localStorage.getItem("memailid"));
+                                               alert(window.localStorage.getItem("mmobile"));
+                                               alert(mdevicestat);
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
                                                           async:true,
                                                           timeout:20000,
-                                                          url: gurl + "/sendSMS.aspx",
+                                                          url: gurl + "/sendSMS1.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("firstname"),lastname:window.localStorage.getItem("lastname"),mobile:window.localStorage.getItem("mobile"),emailid:window.localStorage.getItem("emailid"),mdevice:mdevicestat
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mmobile"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) {
                                                               var getData = JSON.parse(data);
