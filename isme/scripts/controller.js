@@ -2842,7 +2842,7 @@ function completeRedemption() {
                                                           cache:false,
                                                           async:true,
                                                           timeout:20000,
-                                                          url: gurl + "/sendSMS1.aspx",
+                                                          url: gurl + "/sendSMSEnrolment.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
                                                                                    merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mmobile"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat
@@ -3138,7 +3138,60 @@ function completeRedemption() {
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
-                                           },  
+                                           }, 
+        
+        
+        
+         validateSMSEnrolment
+                                           : function () {
+                                               if (!this.tokennum) {
+                                                   navigator.notification.alert("Please enter a valid SMS Code. ", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
+
+                                               showSpin();
+                                               
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/validateSMSEnrolment.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                 
+                                                                  
+                                                                 
+                                                                                   merchantcode :merchant,tokenreference: window.localStorage.getItem("smsreference"),token:this.smsnum,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:mvalidaterequest
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") { //Login Successful  
+                                                                  if (getData.pinnumber.length > 0) {
+                                                                      password = getData.certificate;
+                                                                      window.localStorage.setItem("password", password); //Get and Store Certificate
+                                                                      window.localStorage.setItem("loggedin", "1");
+                                                  
+                                                                      $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                                                                                                
+                                                                      hideSpin(); //hide loading popup
+                                                                  }else {
+                                                                      $("body").data("kendoMobilePane").navigate("views/setpin.html");  
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("Login failed. Please try entering your login details again. " + getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")         
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Login failed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
         
                                            savePIN 
                                            : function () {
