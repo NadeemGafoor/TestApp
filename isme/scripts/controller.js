@@ -3137,7 +3137,7 @@ function completeRedemption() {
         
         
         
-         validateSMS
+                                         validateSMS
                                            : function () {
                                                if (!this.smsnum) {
                                                    navigator.notification.alert("Please enter a valid Code received on SMS. ", function() {
@@ -3194,7 +3194,6 @@ function completeRedemption() {
                                            
                                                showSpin();
                                                if (window.localStorage.getItem("setpintype")=="0"){
-                                                   alert("Came to Create Customer");
                                                    doExecute();
                                                }
                                             
@@ -6685,7 +6684,6 @@ function completeRedemption() {
         var gender = "";
         var fbuserid = "";
         var fbaccesstoken = "";
-      
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6694,7 +6692,7 @@ function completeRedemption() {
                    url: gurl + "/firsttime.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mmobile"),emailid:window.localStorage.getItem("memailid"),emirate:emirate,gender:gender,siriusmember:this.siriusnumber.value,mdevice:mdevicestat,segment:"1000",fbuserid:fbuserid,fbaccesstoken:fbaccesstoken
+                                            merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mmobile"),emailid:window.localStorage.getItem("memailid"),emirate:emirate,gender:gender,siriusmember:"",mdevice:mdevicestat,segment:"1000",fbuserid:fbuserid,fbaccesstoken:fbaccesstoken
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
