@@ -3159,11 +3159,9 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                              alert(getData);
                                                               if (getData.statuscode == "000") {  
                                                                      window.localStorage.setItem("smsreference","");
-                                                                   alert(window.localStorage.getItem("smsreference"));
-                                                                  if (window.localStorage.getItem("smspintype")=="0"){
+                                                                  if (window.localStorage.getItem("setpintype")=="0"){
                                                                      $("body").data("kendoMobilePane").navigate("views/setpin.html");  
                                                               }
                                                               }else {
