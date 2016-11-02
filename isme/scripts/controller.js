@@ -1558,12 +1558,30 @@ function completeRedemption() {
                                                    return;
                                                }
                                                
-                                               //Assign variables to localstorage for later update
+                                                  showSpin();
+                                               window.localStorage.setItem("smsreference", ""); 
                                                window.localStorage.setItem("mfirstname", this.firstname);
                                                window.localStorage.setItem("mlastname", this.lastname);
                                                window.localStorage.setItem("memailid", this.emailid);
                                                window.localStorage.setItem("mmobile", this.mobile);
                                                 window.localStorage.setItem("setpintype", "0"); //enrollment
+                                             
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/sendSMSEnrolment.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mmobile"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) {
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode === "000") {
+                                                                  window.localStorage.setItem("smsreference", getData.referencenumber); 
+                                                                    //Assign variables to localstorage for later update
+                                               
                                                window.setTimeout(window.plugins.nativepagetransitions.slide({
                                                                                                                 "duration"         :  500, // in milliseconds (ms), default 400
                                                                                                                 "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
@@ -1573,6 +1591,26 @@ function completeRedemption() {
                                                                                                                 'direction': 'up',
                                                                                                                 'href': '#views/smsvalidation.html'
                                                                                                             }), 500);
+                                                                  hideSpin(); //hide loading popup
+                                                              } else {
+                                                                  navigator.notification.alert("There was an error generating the SMS Code.  Please try again later " + errormsg.statusText, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss");
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("There was an error generating the SMS Code. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });        
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                             
                                            },
         
                                            confirmEnrol
