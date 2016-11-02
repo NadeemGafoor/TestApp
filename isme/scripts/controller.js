@@ -2832,11 +2832,7 @@ function completeRedemption() {
                                            :function() {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
-                                             //  alert(window.localStorage.getItem("mfirstname"));
-                                             //  alert(window.localStorage.getItem("mlastname"));
-                                            //   alert(window.localStorage.getItem("memailid"));
-                                             //  alert(window.localStorage.getItem("mmobile"));
-                                             //  alert(mdevicestat);
+                                             
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -2851,7 +2847,6 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode === "000") {
                                                                   window.localStorage.setItem("smsreference", getData.referencenumber); 
-                                                                  alert(window.localStorage.getItem("smsreference", getData.referencenumber));
                                                                   hideSpin(); //hide loading popup
                                                               } else {
                                                                   navigator.notification.alert("There was an error generating the SMS Code.  Please try again later", function() {
