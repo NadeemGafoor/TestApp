@@ -6841,18 +6841,12 @@ function completeRedemption() {
                                                                   }
                                                                   window.localStorage.setItem("loginmode", "");
                                                                   window.localStorage.setItem("FBuserID", "");
-                                                                   
-                                                                  if ((getData.deviceinfo.length === 0)) {
-                                                                      $("body").data("kendoMobilePane").navigate("views/tokenpage.html");      
-                                                                  }else if (pinnumber.length===0) {
-                                                                      $("body").data("kendoMobilePane").navigate("views/setpin.html");                                                                            
-                                                                  }else {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password);
                                                                       window.localStorage.setItem("loggedin", "1");                                                                   
                                                                    
                                                                       $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                                  }
+                                                                
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Login failed. Please try entering your login details again. " + getData.statusdesc, function() {
