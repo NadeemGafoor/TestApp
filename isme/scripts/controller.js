@@ -5885,25 +5885,13 @@ function completeRedemption() {
                    url: gurl + "/savePIN.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                         merchantcode :merchant,customer:window.localStorage.GetItem("newmemberid"),token:x,mdevice:window.localStorage.getItem("mdevicestat"),mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
+                                         merchantcode :merchant,customer:window.localStorage.getItem("newmemberid"),token:x,mdevice:window.localStorage.getItem("mdevicestat"),mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
                                          
                        if (getData.statuscode == "000") { //Login Successful  
-                           password = getData.certificate;
-                           window.localStorage.setItem("password", password); //Get and Store Certificate
-                           window.localStorage.setItem("loggedin", "1");
-                            window.localStorage.setItem("mobilelogin",window.localStorage.getItem("mmobile"));
-                     //      navigator.notification.alert("PIN has been successfully set", function() {
-                     //      }, "isme by Jumeirah", "Dismiss")         
-                           if (y === "0") {
-                               $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html");                             
-                               hideSpin(); //hide loading popup
-                           }else {
-                               $("#modalviewpin").data("kendoMobileModalView").close();
-                               hideSpin();
-                           }
+                              window.localStorage.setItem("mobilelogin",window.localStorage.getItem("mmobile"));
                        }else {
                            navigator.notification.alert("Due to a system error, we are unable to set PIN. " + getData.statusdesc, function() {
                            }, "isme by Jumeirah", "Dismiss")         
@@ -6702,8 +6690,9 @@ function completeRedemption() {
                            window.localStorage.setItem("newmemberid", getData.customerid);
                            window.localStorage.setItem("newmembername", getData.customername);
                            window.localStorage.setItem("newmembersegment", getData.segment);
-                           firstlogin();
-                             createPIN(m, "0");
+                                   createPIN(m, "0");
+                           firstlogin(getData.customerid,m);
+                     
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Due to a system error, your enrolment could not be completed.  " + getData.statusdesc + ". Please try again.", function() {
