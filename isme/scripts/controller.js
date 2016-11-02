@@ -6676,9 +6676,7 @@ function completeRedemption() {
             doExit();
         }
     }
-    function doExecute() {
-        
-                                                 
+    function doExecute() {                               
         showSpin();                                       
         var emirate = "";
         var gender = "";
@@ -6692,7 +6690,7 @@ function completeRedemption() {
                    url: gurl + "/firsttime.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mmobile"),emailid:window.localStorage.getItem("memailid"),emirate:emirate,gender:gender,siriusmember:"",mdevice:mdevicestat,segment:"1000",fbuserid:fbuserid,fbaccesstoken:fbaccesstoken
+                                            merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mmobile"),emailid:window.localStorage.getItem("memailid"),emirate:emirate,gender:gender,siriusmember:"",mdevice:mdevicestat,segment:"1000",fbuserid:fbuserid,fbaccesstoken:fbaccesstoken,mypin:this.pin2.value
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -6703,8 +6701,8 @@ function completeRedemption() {
                            window.localStorage.setItem("newmembername", getData.customername);
                            window.localStorage.setItem("newmembersegment", getData.segment);
                              createPIN(this.pin2, "0");
-                                               preLogin.set("pin1", "");
-                                               preLogin.set("pin2", ""); 
+                             preLogin.set("pin1", "");
+                             preLogin.set("pin2", ""); 
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Due to a system error, your enrolment could not be completed.  " + getData.statusdesc + ". Please try again.", function() {
