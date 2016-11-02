@@ -5899,6 +5899,7 @@ function completeRedemption() {
                            password = getData.certificate;
                            window.localStorage.setItem("password", password); //Get and Store Certificate
                            window.localStorage.setItem("loggedin", "1");
+                            window.localStorage.setItem("mobilelogin",window.localStorage.getItem("mmobile"));
                      //      navigator.notification.alert("PIN has been successfully set", function() {
                      //      }, "isme by Jumeirah", "Dismiss")         
                            if (y === "0") {
