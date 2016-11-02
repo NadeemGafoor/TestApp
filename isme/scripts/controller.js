@@ -2849,7 +2849,7 @@ function completeRedemption() {
                                                                   window.localStorage.setItem("smsreference", getData.referencenumber); 
                                                                   hideSpin(); //hide loading popup
                                                               } else {
-                                                                  navigator.notification.alert("There was an error generating the SMS Code.  Please try again later", function() {
+                                                                  navigator.notification.alert("There was an error generating the SMS Code.  Please try again later " + errormsg.statusText, function() {
                                                                   }, "isme by Jumeirah", "Dismiss");
                                                                   hideSpin(); //hide loading popup
                                                               }
