@@ -3155,9 +3155,6 @@ function completeRedemption() {
                                                           url: gurl + "/validateSMS.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                 
-                                                                  
-                                                                 
                                                                                    merchantcode :merchant,tokenreference: window.localStorage.getItem("smsreference"),token:this.smsnum,mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) { 
@@ -3199,7 +3196,8 @@ function completeRedemption() {
                                            
                                                showSpin();
                                                if (window.localStorage.getItem("setpintype")=="0"){
-                                                   createCustomer();
+                                                   alert("Came to Create Customer");
+                                                   doExecute();
                                                }
                                             
                                            },
