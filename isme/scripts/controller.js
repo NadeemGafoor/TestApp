@@ -3139,7 +3139,7 @@ function completeRedemption() {
         
          validateSMS
                                            : function () {
-                                               if (!this.tokennum) {
+                                               if (!this.smsnum) {
                                                    navigator.notification.alert("Please enter a valid Code received on SMS. ", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
@@ -3162,9 +3162,11 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
+                                                              alert(getData);
                                                               if (getData.statuscode == "000") {  
                                                                      window.localStorage.setItem("smsreference","");
-                                                                  if (window.localStorage.getItem("smsreference")=="0"){
+                                                                   alert(window.localStorage.getItem("smsreference"));
+                                                                  if (window.localStorage.getItem("smspintype")=="0"){
                                                                      $("body").data("kendoMobilePane").navigate("views/setpin.html");  
                                                               }
                                                               }else {
