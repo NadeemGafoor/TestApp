@@ -3165,13 +3165,13 @@ function completeRedemption() {
                                                                      $("body").data("kendoMobilePane").navigate("views/setpin.html");  
                                                               }
                                                               }else {
-                                                                  navigator.notification.alert("Login failed. Please try entering your login details again. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert("The Validation Code entered is incorrect, please enter the correct Validation Code.", function() {
                                                                   }, "isme by Jumeirah", "Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
-                                                              navigator.notification.alert("Login failed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              navigator.notification.alert("Unable to validate the Code.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                               }, "isme by Jumeirah", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
