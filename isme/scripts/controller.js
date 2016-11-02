@@ -2870,7 +2870,7 @@ function completeRedemption() {
                                            :function() {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
-                                              this.smsnum="";
+                                                preLogin.set("smsnum", "");
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
