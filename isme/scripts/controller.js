@@ -1593,7 +1593,7 @@ function completeRedemption() {
                                                                                                             }), 500);
                                                                   hideSpin(); //hide loading popup
                                                               } else {
-                                                                  navigator.notification.alert("There was an error generating the SMS Code.  Please try again later " + errormsg.statusText, function() {
+                                                                  navigator.notification.alert("There was an error generating the SMS Code.  Please try again later " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss");
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -2870,7 +2870,7 @@ function completeRedemption() {
                                            :function() {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
-                                             
+                                              this.smsnum="";
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -3216,7 +3216,7 @@ function completeRedemption() {
                                                       });
                                            },
         
-                                           savePIN 
+                                           savePIN    
                                            : function () {
                                                if (!this.pin1 || !this.pin2) {
                                                    navigator.notification.alert("Invalid PIN Number or empty", function() {
@@ -3232,7 +3232,6 @@ function completeRedemption() {
                                            
                                                showSpin();
                                                if (window.localStorage.getItem("setpintype")=="0"){
-                                                   alert(this.pin2);
                                                    doExecute(this.pin2);
                                                }
                                                  preLogin.set("pin1", "");
@@ -4753,7 +4752,7 @@ function completeRedemption() {
                                             : function (e) {
                                                 changeCard();
                                                 showSpin();
-                                                                                             
+                                                                                        
                                                 window.localStorage.setItem("selfredeem", "D"); 
                                                 document.getElementById("name-backm").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number-backm").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
