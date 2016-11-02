@@ -2832,11 +2832,11 @@ function completeRedemption() {
                                            :function() {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
-                                               alert(window.localStorage.getItem("mfirstname"));
-                                               alert(window.localStorage.getItem("mlastname"));
-                                               alert(window.localStorage.getItem("memailid"));
-                                               alert(window.localStorage.getItem("mmobile"));
-                                               alert(mdevicestat);
+                                             //  alert(window.localStorage.getItem("mfirstname"));
+                                             //  alert(window.localStorage.getItem("mlastname"));
+                                            //   alert(window.localStorage.getItem("memailid"));
+                                             //  alert(window.localStorage.getItem("mmobile"));
+                                             //  alert(mdevicestat);
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -3189,7 +3189,7 @@ function completeRedemption() {
                                            savePIN 
                                            : function () {
                                                if (!this.pin1 || !this.pin2) {
-                                                   navigator.notification.alert("Invalid PIN Number", function() {
+                                                   navigator.notification.alert("Invalid PIN Number or empty", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
@@ -3201,9 +3201,10 @@ function completeRedemption() {
                                                }
                                            
                                                showSpin();
-                                               createPIN(this.pin2, "0");
-                                               preLogin.set("pin1", "");
-                                               preLogin.set("pin2", ""); 
+                                               if (window.localStorage.getItem("setpintype")=="0"){
+                                                   createCustomer();
+                                               }
+                                            
                                            },
     
                                            requestPasswordChangeURL:
@@ -5127,7 +5128,7 @@ function completeRedemption() {
                                                 }
                                            
                                                 showSpin();
-                                                createPIN(this.newpin2, "1");
+                                                createPIN(this.newpin2, "0");
                                                 postLogin.set("newpin1", "");
                                                 postLogin.set("newpin2", ""); 
                                             },
@@ -5889,10 +5890,7 @@ function completeRedemption() {
                    url: gurl + "/savePIN.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                                                 
-                                                                  
-                                                                 
-                                            merchantcode :merchant,customer:customer,token:x,mdevice:window.localStorage.getItem("mdevicestat"),mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
+                                         merchantcode :merchant,customer:customer,token:x,mdevice:window.localStorage.getItem("mdevicestat"),mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -5901,11 +5899,10 @@ function completeRedemption() {
                            password = getData.certificate;
                            window.localStorage.setItem("password", password); //Get and Store Certificate
                            window.localStorage.setItem("loggedin", "1");
-                           navigator.notification.alert("PIN has been successfully set", function() {
-                           }, "isme by Jumeirah", "Dismiss")         
+                     //      navigator.notification.alert("PIN has been successfully set", function() {
+                     //      }, "isme by Jumeirah", "Dismiss")         
                            if (y === "0") {
-                               $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
-                                                                      
+                               $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html");                             
                                hideSpin(); //hide loading popup
                            }else {
                                $("#modalviewpin").data("kendoMobileModalView").close();
@@ -6687,26 +6684,13 @@ function completeRedemption() {
         }
     }
     function doExecute() {
-        fn = !this.firstname ? postLogin.firstname : this.firstname
-        ln = !this.lastname ? postLogin.lastname : this.lastname
         
-        if (fn.value === "" || fn.value == undefined) {
-            navigator.notification.alert("Please enter your First Name. ", function() {
-            }, "isme by Jumeirah", "Dismiss")
-            return;
-        }
-                                               
-        if (ln.value === "" || ln.value == undefined) {
-            navigator.notification.alert("Please enter your Last Name.", function() {
-            }, "isme by Jumeirah", "Dismiss")
-            return;
-        }
-                                               
+                                                 
         showSpin();                                       
-        var emirate = document.getElementById("selEmirate").value;
-        var gender = document.getElementById("selGender").value;
-        var fbuserid = window.localStorage.getItem("FBuserID");
-        var fbaccesstoken = window.localStorage.getItem("FBAccessToken");
+        var emirate = "";
+        var gender = "";
+        var fbuserid = "";
+        var fbaccesstoken = "";
       
         $.ajax({ 
                    type: "POST",
@@ -6716,7 +6700,7 @@ function completeRedemption() {
                    url: gurl + "/firsttime.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),firstname:fn.value,lastname:ln.value,mobile:this.mobile.value,emailid:this.emailid.value,emirate:emirate,gender:gender,siriusmember:this.siriusnumber.value,mdevice:mdevicestat,segment:"1000",fbuserid:fbuserid,fbaccesstoken:fbaccesstoken
+                                            merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mmobile"),emailid:window.localStorage.getItem("memailid"),emirate:emirate,gender:gender,siriusmember:this.siriusnumber.value,mdevice:mdevicestat,segment:"1000",fbuserid:fbuserid,fbaccesstoken:fbaccesstoken
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -6726,17 +6710,9 @@ function completeRedemption() {
        
                            window.localStorage.setItem("newmembername", getData.customername);
                            window.localStorage.setItem("newmembersegment", getData.segment);
-                           clearEnrolPage();                                         
-                           window.plugins.nativepagetransitions.slide({
-                                                                          "duration"         :  500, // in milliseconds (ms), default 400
-                                                                          "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                          "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                          "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                          'direction': 'up',
-                                                                          'href': '#views/confirmEnrollment.html'
-                                                                      });
-                                                              
+                             createPIN(this.pin2, "0");
+                                               preLogin.set("pin1", "");
+                                               preLogin.set("pin2", ""); 
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Due to a system error, your enrolment could not be completed.  " + getData.statusdesc + ". Please try again.", function() {
