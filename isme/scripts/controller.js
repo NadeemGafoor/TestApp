@@ -6700,7 +6700,7 @@ function completeRedemption() {
        
                            window.localStorage.setItem("newmembername", getData.customername);
                            window.localStorage.setItem("newmembersegment", getData.segment);
-                             createPIN(this.pin2, "0");
+                             createPIN(this.pin2.value, "0");
                              preLogin.set("pin1", "");
                              preLogin.set("pin2", ""); 
                            hideSpin(); //hide loading popup
