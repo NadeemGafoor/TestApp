@@ -637,7 +637,6 @@ img
     border-bottom: 2px solid #000;
     float:none;
     margin-left:20%;
-    text-align:center !important;
 }
 
 #sms-theme .input-frame-enrol-2 input,
@@ -649,7 +648,7 @@ img
     background-color: transparent !important;
     z-index: 0;
     color: #000;
-    text-align:center !important;
+    text-align:left !important;
  }
 
 .input-frame-enrol label 
