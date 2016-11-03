@@ -2846,3 +2846,11 @@ tile-frame-inner
 .pic2 { background: url(../images/exp2.png) no-repeat center center; }
 .pic3 { background: url(../images/exp3.png) no-repeat center center; }
 .pic4 { background: url(../images/exp4.png) no-repeat center center; }
+
+
+ .localcls{
+         margin-top:0px;
+        height:25%;
+        padding-top:0px;
+      
+    }
