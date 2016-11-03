@@ -2802,10 +2802,10 @@ tile-frame-inner
 }
 
 .picthalf1{
-    float:none ;
-    position:relative;
-    height:100% ; 
-    margin:auto ;
+    float:none !important;
+    position:relative !important;
+    height:100% !important; 
+    margin:auto !important;
 }
 
 .toptext{
@@ -2818,7 +2818,7 @@ tile-frame-inner
     color:#000;
     font-weight:bold;
     text-align:center;
-    margin: 10px auto;
+    margin: auto;
   
 }
 
@@ -2832,7 +2832,7 @@ tile-frame-inner
     color:#000;
     text-align:center;
     line-height:1.5em;
-    margin:10px auto;
+    margin: auto;
     
 }
 
