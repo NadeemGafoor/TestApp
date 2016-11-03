@@ -5884,6 +5884,7 @@ function completeRedemption() {
     }
     
     function createPIN(x, y) {
+        alert(window.localStorage.getItem("mobilelogin"));
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -5892,7 +5893,7 @@ function completeRedemption() {
                    url: gurl + "/savePIN.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                         merchantcode :merchant,customer:window.localStorage.getItem("customer"),token:x,mdevice:window.localStorage.getItem("mdevicestat"),mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
+                                         merchantcode :merchant,customer:window.localStorage.getItem("mobilelogin"),token:x,mdevice:window.localStorage.getItem("mdevicestat"),mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -5900,7 +5901,9 @@ function completeRedemption() {
                        if (getData.statuscode == "000") { //Login Successful  
                               window.localStorage.setItem("mobilelogin",window.localStorage.getItem("mobilelogin"));
                               alert(window.localStorage.getItem("mobilelogin"));
+                              alert(x);
                                if (window.localStorage.getItem("setpintype")=="1"){
+
                                                    firstlogin(window.localStorage.getItem("mobilelogin"),x);
                                }
                        }else {

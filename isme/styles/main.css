@@ -636,6 +636,7 @@ img
     width: 60%;
     border-bottom: 2px solid #000;
     float:none;
+        position:relative;
     margin-left:20%;
 
 }
@@ -649,7 +650,7 @@ img
     background-color: transparent !important;
     z-index: 0;
     color: #000;
-    text-align:left !important;
+    text-align:center !important;
  }
 
 .input-frame-enrol label 
