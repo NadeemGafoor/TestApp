@@ -640,7 +640,9 @@ img
     position:relative;
 }
 
-.input-frame-enrol-2 input
+#sms-theme .input-frame-2 input,
+#pin-theme .input-frame-2 input
+
 {  
      width: 60%;
     height: 2em;
