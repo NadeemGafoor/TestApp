@@ -2802,14 +2802,14 @@ tile-frame-inner
 }
 
 .picthalf{
-    display:inline-block;
-    width:50%;
+    display:inline-block !important;
+    width:50% !important;
     background-color:#ccc !important;
-    height:100%; 
-    margin:auto;
-    background-size: 100%;
-    float:left;
-    position:relative;
+    height:100% !important; 
+    margin:auto !important;
+    background-size: 100% !important;
+    float:left !important;
+    position:relative !important;
 
 }
 
