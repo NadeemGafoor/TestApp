@@ -636,6 +636,8 @@ img
     width: 60%;
     border-bottom: 2px solid #000;
     float:none;
+    margin-left:20%;
+
 }
 
 #sms-theme .input-frame-enrol-2 input,
