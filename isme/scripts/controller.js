@@ -5899,6 +5899,9 @@ function completeRedemption() {
                                          
                        if (getData.statuscode == "000") { //Login Successful  
                               window.localStorage.setItem("mobilelogin",window.localStorage.getItem("mobilelogin"));
+                               if (window.localStorage.getItem("setpintype")=="1"){
+                                                    $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html");  
+                               }
                        }else {
                            navigator.notification.alert("Due to a system error, we are unable to set PIN. " + getData.statusdesc, function() {
                            }, "isme by Jumeirah", "Dismiss")         
