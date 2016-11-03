@@ -2858,7 +2858,7 @@ function completeRedemption() {
                                                preLogin.set("tokennum", "");
                                            },
         
-                                           initSMS
+                                           initSMS  
                                            :function() {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
