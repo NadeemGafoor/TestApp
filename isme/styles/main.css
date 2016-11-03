@@ -2858,6 +2858,23 @@ tile-frame-inner
     }
 
 .homeexp-pos {
-   border:none;    
+   border:none;  
 }
 
+
+#explist a{
+    height:25%;
+    border:none;
+}
+
+
+  #explist .km-listview-link::after
+    {
+        display: none;
+    }
+    
+       
+     #explist a:active{
+     background-color: transparent !important;
+}
+    
