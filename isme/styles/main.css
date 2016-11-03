@@ -652,7 +652,9 @@ img
     z-index: 0;
     color: #000;
     text-align:center !important;
-    margin-left:5px;
+   float:none;
+    position:relative;
+
  }
 
 .input-frame-enrol label 
