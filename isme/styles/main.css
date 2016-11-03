@@ -640,7 +640,8 @@ img
      margin-left:20%;
 }
 
-#sms-theme .input-frame-enrol-2 input
+#sms-theme .input-frame-enrol-2 input,
+#pin-theme .input-frame-enrol-2 input
 {  
     display: block;
     width: 60%;
@@ -650,7 +651,7 @@ img
     z-index: 0;
     text-align:left;
     color: #000;
-    text-align:left;
+    text-align:center;
    
  }
 
