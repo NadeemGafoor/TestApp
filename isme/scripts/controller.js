@@ -3201,7 +3201,9 @@ function completeRedemption() {
                                                showSpin();
                                                if (window.localStorage.getItem("setpintype")=="0"){
                                                    doExecute(this.pin2);
-                                               }
+                                               }else ifif (window.localStorage.getItem("setpintype")=="1"){
+                                                   createPIN(this.pin2, "0");
+                                                   }
                                                  preLogin.set("pin1", "");
                                                  preLogin.set("pin2", ""); 
                                             
@@ -5890,7 +5892,7 @@ function completeRedemption() {
                    url: gurl + "/savePIN.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                         merchantcode :merchant,customer:window.localStorage.getItem("newmemberid"),token:x,mdevice:window.localStorage.getItem("mdevicestat"),mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
+                                         merchantcode :merchant,customer:window.localStorage.getItem("customer"),token:x,mdevice:window.localStorage.getItem("mdevicestat"),mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -6693,6 +6695,7 @@ function completeRedemption() {
                                         
                        if (getData.statuscode === "000") {
                            window.localStorage.setItem("newmemberid", getData.customerid);
+                           window.localStorage.setItem("customer", getData.customerid);
                            window.localStorage.setItem("newmembername", getData.customername);
                            window.localStorage.setItem("newmembersegment", getData.segment);
                                    createPIN(m, "0");
