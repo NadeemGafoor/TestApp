@@ -18,6 +18,13 @@
     background-color:transparent;
 }
 
+.homeexp-pos 
+    {
+        height: 800px;
+        width: 100%;
+        display:block;
+        margin:auto;
+     }
 
 .pl-logo-image-holder.pl-logo-image-holder-w
 {

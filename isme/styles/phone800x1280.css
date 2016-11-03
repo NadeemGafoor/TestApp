@@ -20,6 +20,14 @@
     background-color: transparent;
 }
 
+.homeexp-pos 
+    {
+        height: 850px;
+        width: 100%;
+        display:block;
+        margin:auto;
+     }
+
 .home-pos 
     {
         position:absolute;
