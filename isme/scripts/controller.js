@@ -5910,7 +5910,6 @@ function completeRedemption() {
     }
     
     function createPIN(x, y) {
-        alert(window.localStorage.getItem("mobilelogin"));
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -5926,8 +5925,6 @@ function completeRedemption() {
                                          
                        if (getData.statuscode == "000") { //Login Successful  
                               window.localStorage.setItem("mobilelogin",window.localStorage.getItem("mobilelogin"));
-                              alert(window.localStorage.getItem("mobilelogin"));
-                              alert(x);
                                if (window.localStorage.getItem("setpintype")=="1"){
 
                                                    firstlogin(window.localStorage.getItem("mobilelogin"),x);
@@ -6732,7 +6729,7 @@ function completeRedemption() {
                            window.localStorage.setItem("newmembername", getData.customername);
                            window.localStorage.setItem("newmembersegment", getData.segment);
                                    createPIN(m, "0");
-                           firstlogin(getData.customerid,m);
+                           firstlogin(window.localStorage.getItem("mobilelogin"),m);
                      
                            hideSpin(); //hide loading popup
                        }else {
