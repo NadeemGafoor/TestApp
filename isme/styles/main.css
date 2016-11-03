@@ -2808,6 +2808,8 @@ tile-frame-inner
     display:block;
     margin:auto;
     background-size: auto;
+    float:left;
+    position:relative;
 
 }
 
@@ -2822,6 +2824,8 @@ tile-frame-inner
     text-align:center;
     display:block;
     margin:auto;
+       float:left;
+    position:relative;
 }
 
 .bottomtext{
@@ -2834,6 +2838,8 @@ tile-frame-inner
     text-align:center;
     line-height:1.5em;
     margin:auto;
+       float:left;
+    position:relative;
 }
 
 .pic1 { background: url(../images/exp1.png) no-repeat center center; }
