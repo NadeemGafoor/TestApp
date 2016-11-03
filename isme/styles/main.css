@@ -2807,15 +2807,17 @@ tile-frame-inner
     height:auto; 
     display:block;
     margin:auto;
-    background-size: 80% 80%;
+    background-size: auto;
+
 }
 
 .toptext{
+    display:block;
     width:50%;
     height:50%;
     background-color:transparent !important;
-    font-size:100%;
-    font-family:"Didot";
+    font-size:125%;
+    color:#000;
     font-weight:bold;
     text-align:center;
     display:block;
@@ -2823,11 +2825,12 @@ tile-frame-inner
 }
 
 .bottomtext{
+    display:block;
     width:50%;
     height:50%;
     background-color:transparent !important;
-    font-size:90%;
-       font-family:"Didot";
+    font-size:100%;
+    color:#000;
     text-align:center;
     line-height:1.5em;
     margin:auto;
