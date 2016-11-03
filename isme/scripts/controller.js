@@ -1021,7 +1021,7 @@ function completeRedemption() {
                                            social_shortmsg:short_msg,
                                            social_telephone:"",
                                            social_email:"",
-                                           username:"",
+                                           username:window.localStorage.getItem("mobilelogin"),
                                            username1:"",
                                            emailid1:"",
                                            password:"",
