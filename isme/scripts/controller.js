@@ -2922,17 +2922,23 @@ function completeRedemption() {
                                            : function () {
                                              
                                                    if (!this.username) {
-                                                       navigator.notification.alert("Please enter a valid Mobile number.", function() {
+                                                       navigator.notification.alert("Please enter a valid Mobile Number.", function() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }
                                                    if (!this.password) {
-                                                       navigator.notification.alert("Please enter a valid Password.", function() {
+                                                       navigator.notification.alert("Please enter a valid 4 digit numeric PIN", function() {
+                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       return;
+                                                   }
+                                               
+                                                   if (isNaN(this.password)) {
+                                                       navigator.notification.alert("Please enter a valid 4 digit numeric PIN", function() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }
                                                    
-                                                   customer = this.username;
+                                                   customer =  window.localStorage.setItem("mobilelogin");
                                                    password = this.password;
 
                                                showSpin();
@@ -3198,7 +3204,13 @@ function completeRedemption() {
                                            savePIN    
                                            : function () {
                                                if (!this.pin1 || !this.pin2) {
-                                                   navigator.notification.alert("Invalid PIN Number or empty", function() {
+                                                   navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
+                                               
+                                                 if (isNaN(this.pin1) || isNaN(this.pin2)) {
+                                                   navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
