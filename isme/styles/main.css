@@ -2804,11 +2804,13 @@ tile-frame-inner
 .picthalf1{
     float:none !important;
     position:relative !important;
+    display:table;
     height:100% !important; 
     margin:auto !important;
 }
 
 .toptext{
+    display:table-row;
     float:left;
     position:relative;
     width:100%;
@@ -2823,6 +2825,7 @@ tile-frame-inner
 }
 
 .bottomtext{
+    display:table-row;    
     float:left;
     position:relative;
     width:100%;
@@ -2862,4 +2865,5 @@ tile-frame-inner
      #explist a:active{
      background-color: transparent !important;
 }
+
     
