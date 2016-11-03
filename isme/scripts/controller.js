@@ -2862,9 +2862,8 @@ function completeRedemption() {
                                            initSMS  
                                            :function() {
                                                showSpin();
-                                               alert("Here");
                                                window.localStorage.setItem("smsreference", "");  
-                                                preLogin.set("smsnum", "");
+                                               // preLogin.set("smsnum", "");
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
