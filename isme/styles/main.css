@@ -2805,14 +2805,12 @@ tile-frame-inner
     float:none ;
     position:relative;
     height:100% ; 
-    display:block ;
     margin:auto ;
 }
 
 .toptext{
     float:left;
     position:relative;
-    display:block;
     width:100%;
     height:50%;
     background-color:transparent !important;
@@ -2827,11 +2825,10 @@ tile-frame-inner
 .bottomtext{
     float:left;
     position:relative;
-    display:block;
     width:100%;
     height:50%;
     background-color:transparent !important;
-    font-size:100%;
+    font-size:125%;
     color:#000;
     text-align:center;
     line-height:1.5em;
@@ -2847,7 +2844,6 @@ tile-frame-inner
 
  .localcls{
         height:25%;
-     
     }
 
 .homeexp-pos .km-button{
