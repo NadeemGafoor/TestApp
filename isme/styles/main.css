@@ -2825,7 +2825,6 @@ tile-frame-inner
     color:#000;
     font-weight:bold;
     text-align:center;
-    display:block;
     margin:auto;
   
 }
@@ -2840,7 +2839,7 @@ tile-frame-inner
     font-size:100%;
     color:#000;
     text-align:center;
-    line-height:1.5em;
+    line-height:2em;
     margin:auto;
     
 }
