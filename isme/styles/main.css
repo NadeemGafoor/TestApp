@@ -2857,14 +2857,15 @@ tile-frame-inner
       
     }
 
-.homeexp-pos {
+.homeexp-pos .km-button{
    border:none;  
+   height:100%;
+     background-color: transparent !important;
 }
 
 
 #explist a{
-    height:100%;
-    border:none;
+ 
 }
 
 
