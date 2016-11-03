@@ -2807,7 +2807,7 @@ tile-frame-inner
     background-color:#ccc !important;
     height:100%; 
     margin:auto;
-    background-size: cover;
+    background-size: 100%;
     float:left;
     position:relative;
 
