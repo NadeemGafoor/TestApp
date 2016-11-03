@@ -10,65 +10,27 @@
 
         <li>
             <div class="input-frame-enrol-1">
-                <input type="number" id="username" data-bind="value: username" placeholder="Member ID"/>
+                <i class="fa fa-phone-square fa-lg cblack">&nbsp;&nbsp;</i><input type="number" id="username" data-bind="value: username" placeholder="Mobile (Eg:009715XXXXXXXX)" style="letter-spacing:2px;text-align:center"/>
             </div>
         </li>
         <li>
             <div class="input-frame-enrol-1">
-                <input type="password" id="password" data-bind="value: password" placeholder="Password"/>
+                <i class="fa fa-phone-square fa-lg cblack">&nbsp;&nbsp;</i><input type="password" id="password" data-bind="value: password" placeholder="4 Digit PIN" style="letter-spacing:4px;text-align:center" maxlength="4"/>
             </div>
         </li>
         <div class="filler10"></div>
            <li>
-            <div class="button-frame-login">
+            <div class="button-frame">
                 <a  data-role="button" data-bind="click: validateUser" style="background-color:transparent !important">Login</a>
             </div>
         </li>
              <li>
-            <a  data-transition="slide:up"   id="mobile-button1" href="views/resetpassword.html" style="background-color:transparent !important">
-                <div class="switch-frame one-line">RESET PASSWORD</div>  
+            <a  data-transition="slide:up"   id="mobile-button1" href="views/smsvalidation.html" style="background-color:transparent !important">
+                <div class="switch-frame one-line">Help I've forgotten my PIN!</div>  
             </a>
         </li>
         
-        <li>
-            <div class="switch-frame-1" >
-                <label  class="white-color" style="color:#fff">
-                    Remember Me
-                    <input data-role="switch" name="rememberme" id="profile-rememberme" type="checkbox" data-bind="events: {change: updateRememberMe}" checked="false"/>
-                </label>
-            </div>
-        </li>
-
-       <li>
-            <div class="switch-frame-1" >
-                <label  class="whitecolor" style="color:#fff">
-                    Agree to
-                    <a data-role="button" data-click="onClick" style="color:#fff;border:0px !important;background-color:transparent !important">
-                        Terms & Conditions
-                    </a>
-                    <input data-role="switch" id="enrol-tandc-accept-a" type="checkbox" checked="true" />
-                </label>
-            </div>
-        </li>
-
-         <li>
-            <div class="switch-frame-1" >
-                <label  class="whitecolor" style="color:#fff">
-                    Agree to
-                    <a data-role="button" data-click="onClick1" style="color:#fff;border:0px !important;background-color:transparent !important">
-                        Data Protection Policy
-                    </a>
-                    <input data-role="switch" id="enrol-tandc-accept-b" type="checkbox" checked="true"/>
-                </label>
-            </div>
-        </li>
-
-        <li>
-            <div class="button-frame-login">
-                <a data-role="button" data-bind="click: fbLoginD" class="button-loginwithfacebook">Login Using Facebook</a>
-            </div>
-        </li>
-    
+          
 
         <div>
             <li></li>
