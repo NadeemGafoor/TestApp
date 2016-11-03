@@ -2819,7 +2819,7 @@ tile-frame-inner
     display:block;
     width:100%;
     min-height:50%;
-    background-color:#fff000 !important;
+    background-color:transparent !important;
     font-size:200%;
     color:#000;
     font-weight:bold;
@@ -2834,7 +2834,7 @@ tile-frame-inner
     display:block;
     width:100%;
     min-height:50%;
-    background-color:#999999 !important;
+    background-color:transparent !important;
     font-size:100%;
     color:#000;
     text-align:center;
