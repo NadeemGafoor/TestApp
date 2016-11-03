@@ -9,6 +9,15 @@
     line-height:1em;
 }
 
+.homeexp-pos 
+    {
+        height: 420px;
+        width: 100%;
+        display:block;
+        margin:auto;
+     }
+
+
 .home-pos 
     {
         position:absolute;
