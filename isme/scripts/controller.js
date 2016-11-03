@@ -2852,7 +2852,7 @@ function completeRedemption() {
                                            loginInit
                                            :function() {
                                                  window.localStorage.setItem("setpintype", "0");
-                                               preLoginBack.set("password","");
+                                               preLogin.set("password","");
                                            },   
                                            initToken
                                            :function() {
