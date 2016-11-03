@@ -635,6 +635,7 @@ img
     line-height: 1em;
     width: 60%;
     border-bottom: 2px solid #000;
+    margin-left:20%;
     float:none;
     position:relative;
      text-align:center !important;
@@ -651,7 +652,6 @@ img
     z-index: 0;
     color: #000;
     text-align:center !important;
-    background-color:#fff000;
     float:none;
     position:relative;
  }
