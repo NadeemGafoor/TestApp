@@ -2809,7 +2809,7 @@ tile-frame-inner
     width:50% !important;
     background-color:transparent !important;
     margin:auto !important;
-    background-size: 75% !important;
+    background-size: 90% !important;
    
 
 }
@@ -2844,7 +2844,7 @@ tile-frame-inner
     
 }
 
-.pic1 { background: url(../images/exp1.png) no-repeat right bottom; }
+.pic1 { background: url(../images/exp1.png) no-repeat left bottom; }
 .pic2 { background: url(../images/exp2.png) no-repeat left bottom; }
 .pic3 { background: url(../images/exp3.png) no-repeat right bottom; }
 .pic4 { background: url(../images/exp4.png) no-repeat left bottom; }
