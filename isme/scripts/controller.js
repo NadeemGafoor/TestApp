@@ -1514,7 +1514,7 @@ function completeRedemption() {
                                                window.localStorage.setItem("mfirstname", "");
                                                window.localStorage.setItem("mlastname", "");
                                                window.localStorage.setItem("memailid", "");
-                                               window.localStorage.setItem("mmobile", "");
+                                               window.localStorage.setItem("mobilelogin", "");
                                                hideSpin(); //hide loading popup
                                            },
         
@@ -1563,7 +1563,7 @@ function completeRedemption() {
                                                window.localStorage.setItem("mfirstname", this.firstname);
                                                window.localStorage.setItem("mlastname", this.lastname);
                                                window.localStorage.setItem("memailid", this.emailid);
-                                               window.localStorage.setItem("mmobile", this.mobile);
+                                               window.localStorage.setItem("mobilelogin", this.mobile);
                                                 window.localStorage.setItem("setpintype", "0"); //enrollment
                                              
                                                $.ajax({ 
@@ -1574,7 +1574,7 @@ function completeRedemption() {
                                                           url: gurl + "/sendSMSEnrolment.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mmobile"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mobilelogin"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) {
                                                               var getData = JSON.parse(data);
@@ -2872,7 +2872,7 @@ function completeRedemption() {
                                                           url: gurl + "/sendSMSEnrolment.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mmobile"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mobilelogin"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) {
                                                               var getData = JSON.parse(data);
@@ -6686,7 +6686,7 @@ function completeRedemption() {
                    url: gurl + "/firsttime.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mmobile"),emailid:window.localStorage.getItem("memailid"),emirate:emirate,gender:gender,siriusmember:"",mdevice:mdevicestat,segment:"1000",fbuserid:fbuserid,fbaccesstoken:fbaccesstoken,mypin:m
+                                            merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mobilelogin"),emailid:window.localStorage.getItem("memailid"),emirate:emirate,gender:gender,siriusmember:"",mdevice:mdevicestat,segment:"1000",fbuserid:fbuserid,fbaccesstoken:fbaccesstoken,mypin:m
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
