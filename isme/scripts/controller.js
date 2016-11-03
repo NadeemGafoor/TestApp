@@ -2908,8 +2908,7 @@ function completeRedemption() {
         
                                            validateUser
                                            : function () {
-                                               // window.localStorage.setItem("appopen", "0");   
-                                               if (window.localStorage.getItem("loginmode") == "") {
+                                             
                                                    if (!this.username) {
                                                        navigator.notification.alert("Please enter a valid Membership number.", function() {
                                                        }, "isme by Jumeirah", "Dismiss");
@@ -2923,31 +2922,7 @@ function completeRedemption() {
                                                    
                                                    customer = this.username;
                                                    password = this.password;
-                                               }
-                                               
-                                               if (!document.getElementById("enrol-tandc-accept-a").checked) {
-                                                   navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
-                                                   hideSpin();
-                                                   return;
-                                               }
-                                               
-                                               if (!document.getElementById("enrol-tandc-accept-b").checked) {
-                                                   navigator.notification.alert("Please Accept Data Protection Policy to proceed", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
-                                                   hideSpin();
-                                                   return;
-                                               }
-                                               
-                                               if ($("#profile-rememberme").data("kendoMobileSwitch").check()) {
-                                                   window.localStorage.setItem("memberID", this.username);
-                                               } else {
-                                                   window.localStorage.setItem("memberID", "");
-                                               }
-                                     
-                                               // window.localStorage.setItem("memberID", this.username);"1000","3"
-                                               // m = window.localStorage.getItem("memberID");
-                                               //  alert(m);
+
                                                showSpin();
                                                $.ajax({ 
                                                           type: "POST",
