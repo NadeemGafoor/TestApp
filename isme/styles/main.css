@@ -2843,7 +2843,7 @@ tile-frame-inner
     
 }
 
-.pic1 { background: url(../images/exp1.png) no-repeat right bottom; background-size: auto !important; }
+.pic1 { background: url(../images/exp1.png) no-repeat left bottom; background-size: auto !important; }
 .pic2 { background: url(../images/exp2.png) no-repeat center bottom; background-size: auto !important; }
 .pic3 { background: url(../images/exp3.png) no-repeat center bottom; background-size: auto !important; }
 .pic4 { background: url(../images/exp4.png) no-repeat center bottom;  background-size: auto !important;}
