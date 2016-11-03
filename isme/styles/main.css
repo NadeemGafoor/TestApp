@@ -2804,7 +2804,7 @@ tile-frame-inner
 .picthalf{
     width:50%;
     background-color:#ccc !important;
-    height:auto; 
+    height:100%; 
     display:block;
     margin:auto;
     background-size: auto;
