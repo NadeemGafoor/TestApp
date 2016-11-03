@@ -1564,7 +1564,7 @@ function completeRedemption() {
                                                window.localStorage.setItem("mlastname", this.lastname);
                                                window.localStorage.setItem("memailid", this.emailid);
                                                window.localStorage.setItem("mobilelogin", this.mobile);
-                                                window.localStorage.setItem("setpintype", "0"); //enrollment
+                                               window.localStorage.setItem("setpintype", "0"); //enrollment
                                              
                                                $.ajax({ 
                                                           type: "POST",
@@ -5896,7 +5896,7 @@ function completeRedemption() {
                        var getData = JSON.parse(data);
                                          
                        if (getData.statuscode == "000") { //Login Successful  
-                              window.localStorage.setItem("mobilelogin",window.localStorage.getItem("mmobile"));
+                              window.localStorage.setItem("mobilelogin",window.localStorage.getItem("mobilelogin"));
                        }else {
                            navigator.notification.alert("Due to a system error, we are unable to set PIN. " + getData.statusdesc, function() {
                            }, "isme by Jumeirah", "Dismiss")         
