@@ -3573,7 +3573,10 @@ function completeRedemption() {
                                             },             
         
            
-        
+          homeViewDestroy:function() {
+                                                //doOneBack();
+                                                $("#pl-explore-view").remove();
+                                            },  
         
         
         
