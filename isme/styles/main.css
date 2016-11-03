@@ -2798,7 +2798,7 @@ tile-frame-inner
     color: #fff;
     margin:0px;
     border:none;
-    border-radius:0px;
+    border-radius:0px;  
 }
 
 .picthalf1{
@@ -2820,7 +2820,7 @@ tile-frame-inner
     color:#000;
     font-weight:bold;
     text-align:center;
-    margin: auto;
+    margin:10px auto;
   
 }
 
