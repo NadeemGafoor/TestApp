@@ -2907,11 +2907,22 @@ function completeRedemption() {
                                                }
                                            },  
         
+        validateMobile
+                                           : function () {
+                                             
+                                                   if (!this.username) {
+                                                       navigator.notification.alert("Please enter a valid Mobile number.", function() {
+                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       return;
+                                                   }
+                                                 $("body").data("kendoMobilePane").navigate("views/smsvalidation.html");
+                                               },
+        
                                            validateUser
                                            : function () {
                                              
                                                    if (!this.username) {
-                                                       navigator.notification.alert("Please enter a valid Membership number.", function() {
+                                                       navigator.notification.alert("Please enter a valid Mobile number.", function() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }
