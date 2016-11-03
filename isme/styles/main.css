@@ -636,7 +636,7 @@ img
     width: 60%;
     border-bottom: 2px solid #000;
     margin-left:20%;
-       float:none;
+    float:none;
     position:relative;
 }
 
@@ -644,7 +644,7 @@ img
 #pin-theme .input-frame-2 input
 
 {  
-     width: 60%;
+    width: 60%;
     height: 2em;
     line-height: 1em;
     z-index: 0;
