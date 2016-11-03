@@ -2803,8 +2803,8 @@ tile-frame-inner
 
 .picthalf{
     display:inline-block !important;
-    width:50% !important;
-    background-color:#ccc !important;
+    width:48% !important;
+    background-color:transparent !important;
     height:100% !important; 
     margin:auto !important;
     background-size: 100% !important;
@@ -2815,7 +2815,7 @@ tile-frame-inner
 
 .toptext{
     display:inline-block;
-    width:50%;
+    width:100%;
     height:50%;
     background-color:#fff000 !important;
     font-size:125%;
@@ -2830,7 +2830,7 @@ tile-frame-inner
 
 .bottomtext{
     display:inline-block;
-    width:50%;
+    width:100%;
     height:50%;
     background-color:#999999 !important;
     font-size:100%;
