@@ -2907,7 +2907,7 @@ function completeRedemption() {
                                                }
                                            },  
         
-                            validateMobile
+                                            validateMobile
                                            : function () {
                                              
                                                    if (!this.username) {
