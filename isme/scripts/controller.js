@@ -5899,6 +5899,7 @@ function completeRedemption() {
                                          
                        if (getData.statuscode == "000") { //Login Successful  
                               window.localStorage.setItem("mobilelogin",window.localStorage.getItem("mobilelogin"));
+                              alert(window.localStorage.getItem("mobilelogin"));
                                if (window.localStorage.getItem("setpintype")=="1"){
                                                     $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html");  
                                }
