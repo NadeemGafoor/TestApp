@@ -2863,11 +2863,6 @@ tile-frame-inner
 }
 
 
-#explist a{
- 
-}
-
-
   #explist .km-listview-link::after
     {
         display: none;
