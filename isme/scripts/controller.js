@@ -3167,9 +3167,9 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {  
                                                                      window.localStorage.setItem("smsreference","");
-                                                                  if (window.localStorage.getItem("setpintype")=="0"){
+                                                               //   if (window.localStorage.getItem("setpintype")=="0"){
                                                                      $("body").data("kendoMobilePane").navigate("views/setpin.html");  
-                                                              }
+                                                             // }
                                                               }else {
                                                                   navigator.notification.alert("The Validation Code entered is incorrect, please enter the correct Validation Code.", function() {
                                                                   }, "isme by Jumeirah", "Dismiss")         
@@ -3201,7 +3201,7 @@ function completeRedemption() {
                                                showSpin();
                                                if (window.localStorage.getItem("setpintype")=="0"){
                                                    doExecute(this.pin2);
-                                               }else ifif (window.localStorage.getItem("setpintype")=="1"){
+                                               }else if (window.localStorage.getItem("setpintype")=="1"){
                                                    createPIN(this.pin2, "0");
                                                    }
                                                  preLogin.set("pin1", "");
