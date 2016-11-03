@@ -2802,12 +2802,12 @@ tile-frame-inner
 }
 
 .picthalf{
-     float:none !important;
-    position:relative !important;
-        min-height:100% !important; 
-    display:block !important;
-    background-color:#ccc !important;
-    margin:auto !important;
+    float:none ;
+    position:relative;
+    height:100% ; 
+    display:block ;
+    background-color:#ccc ;
+    margin:auto ;
    
    
 
@@ -2818,7 +2818,7 @@ tile-frame-inner
     position:relative;
     display:block;
     width:100%;
-    min-height:50%;
+    height:50%;
     background-color:transparent !important;
     font-size:200%;
     color:#000;
@@ -2829,11 +2829,11 @@ tile-frame-inner
 }
 
 .bottomtext{
-       float:left;
+    float:left;
     position:relative;
     display:block;
     width:100%;
-    min-height:50%;
+    height:50%;
     background-color:transparent !important;
     font-size:100%;
     color:#000;
@@ -2850,17 +2850,13 @@ tile-frame-inner
 
 
  .localcls{
-         margin-top:0px;
         height:25%;
-        padding-top:0px;
-     width:100%;
-      
+     
     }
 
 .homeexp-pos .km-button{
    border:none;  
    height:100%;
-    width:fit-content;
    background-color: transparent !important;
 }
 
