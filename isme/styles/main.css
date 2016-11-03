@@ -629,20 +629,13 @@ img
     padding-left:25px;
  }
 
-.input-frame-enrol-2 
-{
-    height: 2em;
-    line-height: 1em;
-    width: 60%;
-    border-bottom: 2px solid #000;
-    margin-left:20%;
 
-}
 
 #sms-theme .input-frame-enrol-2 input,
 #pin-theme .input-frame-enrol-2 input
 {  
-     width: 60%;
+    border-bottom: 2px solid #000;
+    width: 60%;
     display: block;
     height: 2em;
     line-height: 1em;
