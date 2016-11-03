@@ -631,7 +631,6 @@ img
 
 .input-frame-enrol-2 
 {
-    display:block;
     height: 2em;
     line-height: 1em;
     width: 60%;
@@ -641,14 +640,12 @@ img
     position:relative;
 }
 
-#sms-theme .input-frame-enrol-2 input,
-#pin-theme .input-frame-enrol-2 input
+.input-frame-enrol-2 input
 {  
      width: 60%;
     display: block;
     height: 2em;
     line-height: 1em;
-margin-left:0px;
     z-index: 0;
     color: #000;
     text-align:center !important;
