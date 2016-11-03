@@ -2851,15 +2851,7 @@ function completeRedemption() {
                                           
                                            loginInit
                                            :function() {
-                                               if (window.localStorage.getItem("memberID") != undefined && window.localStorage.getItem("memberID").length > 0) {
-                                                   $("#profile-rememberme").data("kendoMobileSwitch").check(true);          
-                                                   preLogin.set("username", window.localStorage.getItem("memberID"));
-                                                   preLogin.set("password", "");     
-                                               }else {
-                                                   preLogin.set("username", "");
-                                                   preLogin.set("password", "");
-                                                   $("#profile-rememberme").data("kendoMobileSwitch").check(false);                                                          
-                                               }
+                                                 window.localStorage.setItem("setpintype", "0");
                                            },   
                                            initToken
                                            :function() {
