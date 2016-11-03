@@ -2801,14 +2801,16 @@ tile-frame-inner
     border-radius:0px;
 }
 
-.picthalf1{
+.picthalf{
     float:none ;
     position:relative;
     height:100% ; 
     display:block ;
+    background-color:#ccc ;
     margin:auto ;
-   background: url(../images/exp1.png) no-repeat center bottom; 
-    background-size: auto !important;
+   
+   
+
 }
 
 .toptext{
