@@ -2802,10 +2802,10 @@ tile-frame-inner
 }
 
 .picthalf{
+    display:inline-block;
     width:50%;
     background-color:#ccc !important;
     height:100%; 
-    display:block;
     margin:auto;
     background-size: auto;
     float:left;
@@ -2814,7 +2814,7 @@ tile-frame-inner
 }
 
 .toptext{
-    display:block;
+    display:inline-block;
     width:50%;
     height:50%;
     background-color:#fff000 !important;
@@ -2829,7 +2829,7 @@ tile-frame-inner
 }
 
 .bottomtext{
-    display:block;
+    display:inline-block;
     width:50%;
     height:50%;
     background-color:#999999 !important;
@@ -2845,4 +2845,4 @@ tile-frame-inner
 .pic1 { background: url(../images/exp1.png) no-repeat center center; }
 .pic2 { background: url(../images/exp2.png) no-repeat center center; }
 .pic3 { background: url(../images/exp3.png) no-repeat center center; }
-.pic3 { background: url(../images/exp4.png) no-repeat center center; }
+.pic4 { background: url(../images/exp4.png) no-repeat center center; }
