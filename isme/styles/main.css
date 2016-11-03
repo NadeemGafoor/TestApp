@@ -2806,7 +2806,6 @@ tile-frame-inner
     position:relative !important;
         min-height:100% !important; 
     display:block !important;
-    width:50% !important;
     background-color:transparent !important;
     margin:auto !important;
    
