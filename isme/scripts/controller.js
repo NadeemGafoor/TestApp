@@ -2864,7 +2864,6 @@ function completeRedemption() {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
                                                preLogin.set("smsnum", "");
-                                               alert("Here");
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
