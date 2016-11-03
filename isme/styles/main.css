@@ -2800,3 +2800,40 @@ tile-frame-inner
     border:none;
     border-radius:0px;
 }
+
+.picthalf{
+    width:50%;
+    background-color:transparent !important;
+    height:auto; 
+    display:block;
+    margin:auto;
+    background-size: 80% 80%;
+}
+
+.toptext{
+    width:50%;
+    height:50%;
+    background-color:transparent !important;
+    font-size:100%;
+    font-family:"Didot";
+    font-weight:bold;
+    text-align:center;
+    display:block;
+    margin:auto;
+}
+
+.bottomtext{
+    width:50%;
+    height:50%;
+    background-color:transparent !important;
+    font-size:90%;
+       font-family:"Didot";
+    text-align:center;
+    line-height:1.5em;
+    margin:auto;
+}
+
+.pic1 { background: url(../images/exp1.png) no-repeat center center; }
+.pic2 { background: url(../images/exp2.png) no-repeat center center; }
+.pic3 { background: url(../images/exp3.png) no-repeat center center; }
+.pic3 { background: url(../images/exp4.png) no-repeat center center; }
