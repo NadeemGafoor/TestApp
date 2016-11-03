@@ -2938,7 +2938,7 @@ function completeRedemption() {
                                                        return;
                                                    }
                                                    
-                                                   customer =  window.localStorage.setItem("mobilelogin");
+                                                   customer =  window.localStorage.getItem("mobilelogin");
                                                    password = this.password;
 
                                                showSpin();
