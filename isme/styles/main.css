@@ -645,7 +645,7 @@ img
     display: block;
     height: 2em;
     line-height: 1em;
-
+margin-left:0px;
     z-index: 0;
     color: #000;
     text-align:center !important;
