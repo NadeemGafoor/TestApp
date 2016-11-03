@@ -2802,7 +2802,7 @@ tile-frame-inner
 }
 
 .picthalf{
-    display:block !important;
+    display:flex !important;
     width:50% !important;
     background-color:transparent !important;
     height:100% !important; 
@@ -2814,7 +2814,7 @@ tile-frame-inner
 }
 
 .toptext{
-    display:block;
+    display:flex;
     width:100%;
     height:50%;
     background-color:#fff000 !important;
@@ -2829,7 +2829,7 @@ tile-frame-inner
 }
 
 .bottomtext{
-    display:block;
+    display:flex;
     width:100%;
     height:50%;
     background-color:#999999 !important;
