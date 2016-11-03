@@ -11,25 +11,27 @@
 
         <li>
             <div class="input-frame-enrol-1">
-                <i class="fa fa-phone-square fa-lg cblack">&nbsp;&nbsp;</i><input type="number" id="username" data-bind="value: username" placeholder="Mobile (Eg:009715XXXXXXXX)" />
+                <i class="fa fa-phone-square fa-lg">&nbsp;&nbsp;</i><input type="number" id="username" data-bind="value: username" placeholder="Mobile (Eg:009715XXXXXXXX)" />
             </div>
         </li>
             <div class="filler"></div>
         <li>
             <div class="input-frame-enrol-1">
-                <i class="fa fa-phone-square fa-lg cblack">&nbsp;&nbsp;</i><input type="password" id="password" data-bind="value: password" placeholder="4 Digit PIN" style="letter-spacing:4px" maxlength="4"/>
+                <i class="fa fa-lock fa-lg">&nbsp;&nbsp;</i><input type="password" id="password" data-bind="value: password" placeholder="4 Digit PIN" style="letter-spacing:2px" maxlength="4"/>
             </div>
         </li>
-        <div class="filler0"></div>
+        <div class="filler"></div>
+          <div class="filler"></div>
            <li>
             <div class="button-frame">
                 <a  data-role="button" data-bind="click: validateUser" style="background-color:#eb046d">Login</a>
             </div>
         </li>
             <div class="filler"></div>
+          <div class="filler"></div>
              <li>
-            <a  data-transition="slide:up"   id="mobile-button1" href="views/smsvalidation.html" style="background-color:transparent !important">
-                <div class="switch-frame one-line">Help I've forgotten my PIN!</div>  
+            <a  data-transition="slide:up" id="mobile-button1" href="views/smsvalidation.html" style="background-color:transparent !important">
+                <div class="switch-frame one-line" style="color:#000">Help I've forgotten my PIN!</div>  
             </a>
         </li>
         
@@ -42,3 +44,16 @@
 
 </div>
 
+<style scoped>
+   
+    
+   
+    
+    #login-theme .km-button
+    {
+        border: 0px;
+        color: #fff;
+        font-size: 125%;
+    }
+    
+</style>
