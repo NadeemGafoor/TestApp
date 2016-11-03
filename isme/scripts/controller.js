@@ -484,7 +484,7 @@ function plhomeClick() {
                                                    "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                    'direction': 'up',
-                                                   'href': '#views/pl-homeplus.html'
+                                                   'href': '#views/pl-explore.html'
                                                });
 }
 
@@ -659,7 +659,7 @@ function postLoginBack() {
         elems[i].style.textAlign = "center";
     }
 
-    $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+    $("body").data("kendoMobilePane").navigate("views/pl-explore.html"); 
     //$("body").data("kendoMobilePane").navigate("#:back");
 }
 
@@ -2750,7 +2750,7 @@ function completeRedemption() {
                                                        homecountryname = window.localStorage.getItem("homecountryname");
                                                        residentcityname = window.localStorage.getItem("residentcityname");
                                                     
-                                                       $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                       $("body").data("kendoMobilePane").navigate("views/pl-explore.html"); 
                                                    } else {
                                                        outletcode = "";
                                                        brandcode = "";
@@ -3081,7 +3081,7 @@ function completeRedemption() {
                                                                       window.localStorage.setItem("password", password);
                                                                       window.localStorage.setItem("loggedin", "1");                                                                   
                                                                    
-                                                                      $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                                      $("body").data("kendoMobilePane").navigate("views/pl-explore.html"); 
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                               }else {
@@ -3138,7 +3138,7 @@ function completeRedemption() {
                                                                       window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                       window.localStorage.setItem("loggedin", "1");
                                                   
-                                                                      $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                                      $("body").data("kendoMobilePane").navigate("views/pl-explore.html"); 
                                                                                                                                 
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
@@ -5659,7 +5659,7 @@ function completeRedemption() {
                                                     elems[i].style.textAlign = "center";
                                                 }
                                               
-                                                $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                $("body").data("kendoMobilePane").navigate("views/pl-explore.html"); 
                                                 //$("body").data("kendoMobilePane").navigate("#:back");
                                             },
                                             setOutletFavourite:function() {
@@ -5768,7 +5768,7 @@ function completeRedemption() {
                                                                          "androiddelay"     :  150, // same as above but for Android, default 70
 
                                                                          'direction': 'up',
-                                                                         'href': '#views/pl-homeplus.html'
+                                                                         'href': '#views/pl-explore.html'
                                                                      }), 500);                                                                 
     }
     
@@ -6883,7 +6883,7 @@ function completeRedemption() {
                                                                       window.localStorage.setItem("password", password);
                                                                       window.localStorage.setItem("loggedin", "1");                                                                   
                                                                    
-                                                                      $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+                                                                      $("body").data("kendoMobilePane").navigate("views/pl-explore.html"); 
                                                                 
                                                                   hideSpin(); //hide loading popup
                                                               }else {
@@ -7337,7 +7337,7 @@ function completeRedemption() {
             elems[i].style.textAlign = "center";
         }
     
-        $("body").data("kendoMobilePane").navigate("views/pl-homeplus.html"); 
+        $("body").data("kendoMobilePane").navigate("views/pl-explore.html"); 
 
         hideSpin();
     }
