@@ -5901,7 +5901,7 @@ function completeRedemption() {
                               window.localStorage.setItem("mobilelogin",window.localStorage.getItem("mobilelogin"));
                               alert(window.localStorage.getItem("mobilelogin"));
                                if (window.localStorage.getItem("setpintype")=="1"){
-                                                   firstlogin(window.localStorage.getItem("mobilelogin"),y);
+                                                   firstlogin(window.localStorage.getItem("mobilelogin"),x);
                                }
                        }else {
                            navigator.notification.alert("Due to a system error, we are unable to set PIN. " + getData.statusdesc, function() {
