@@ -646,7 +646,7 @@ img
 
 {  
     display:block;
-    width: fit-content !important;
+    width:100% !important;
     height: 2em;
     line-height: 1em;
     z-index: 0;
