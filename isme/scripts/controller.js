@@ -3645,6 +3645,7 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
+                                                                 
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
                                                                    window.localStorage.setItem("spendmb", getData.spendbalance);
@@ -3669,7 +3670,7 @@ function completeRedemption() {
                                                            }
                                                        });
                                                 //  }else {
-                                                spendBarPlus();
+                                                //spendBarPlus();
                                                 //   }
                                             },
         
@@ -7766,13 +7767,14 @@ function completeRedemption() {
         document.getElementById("profile-number-p").innerHTML = window.localStorage.getItem("customer");
         document.getElementById("my-voucher-count").innerHTML = "I have " + window.localStorage.getItem("vouchercount") + " Rewards in my Wallet";
         document.getElementById("my-voucher-expiry").innerHTML = "My next " + window.localStorage.getItem("expirycount") + " Rewards expires in " + window.localStorage.getItem("expirydays") + " days";
+         alert("HERE");
         if (window.localStorage.getItem("segmentcode") === "1000") {
             document.getElementById("profile-type-p").innerHTML = "isme ";
             document.getElementById("post-redeem").style.backgroundColor = "#000";
             document.getElementById("post-redeem").style.color = "#fff";
             document.getElementById("post-image").style.backgroundImage = "url(images/home_page_logo_black.png)";
             elems = document.getElementById("pl-home-view-plus");
-            
+             
             elclass = elems.getElementsByClassName('km-content');
             for (i = 0; i < elclass.length; i++) {
                 elclass[i].style.backgroundColor = "#fff";
