@@ -2912,7 +2912,7 @@ function completeRedemption() {
                                             validateMobile
                                            : function () {
                                              
-                                                   if (!this.username) {
+                                                   if (this.username) {
                                                        navigator.notification.alert("Please enter a valid Mobile number.", function() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
@@ -3189,9 +3189,10 @@ function completeRedemption() {
                                                               if (getData.statuscode == "000") {  
                                                                      window.localStorage.setItem("smsreference","");
                                                                   if (window.localStorage.getItem("setpintype")=="3"){
-                                                                     $("body").data("kendoMobilePane").navigate("views/setpin.html");  
+                                                                     $("body").data("kendoMobilePane").navigate("views/pl-explore.html");  
                                                               }else{
-                                                                   $("body").data("kendoMobilePane").navigate("views/pl-explore.html");  
+                                                                   $("body").data("kendoMobilePane").navigate("views/setpin.html");  
+                                                                  
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("The Validation Code entered is incorrect, please enter the correct Validation Code.", function() {
