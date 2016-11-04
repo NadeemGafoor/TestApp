@@ -277,6 +277,37 @@ a
     content: "\f005";
 }
 
+
+.km-customhome:before,
+.km-customhome:after
+{
+    content: "\f015";
+}
+
+.km-customtag:before,
+.km-customtag:after
+{
+    content: "\f02b";
+}
+
+.km-customgift:before,
+.km-customgift:after
+{
+    content: "\f06b";
+}
+
+.km-customexp:before,
+.km-customexp:after
+{
+    content: "\f0ac";
+}
+
+.km-customdis:before,
+.km-customdis:after
+{
+    content: "\f0ac";
+}
+
 *
 {
     font-family: "Gotham-Book";

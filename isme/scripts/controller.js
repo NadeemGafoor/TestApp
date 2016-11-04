@@ -7810,7 +7810,7 @@ function completeRedemption() {
             document.getElementById("profile-type-p").innerHTML = "isme Elite";
             document.getElementById("post-image").style.backgroundImage = "url(images/home_page_logo_white.png)";
         }
-                   alert("Here");
+
         hideSpin();
     }
     
