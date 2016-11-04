@@ -2537,7 +2537,7 @@ function completeRedemption() {
                                                showSpin();
                                                clearAllVariables();
                                                if(window.localStorage.getItem("mobilelogin") === null){
-                                                   alert(window.localStorage.getItem("mobilelogin"));
+                                                   
                                                    window.localStorage.setItem("mobilelogin","");
                                                }
                                                if (firsttime === "") { //Register Access and device in the platform
