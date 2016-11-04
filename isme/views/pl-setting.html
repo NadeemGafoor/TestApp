@@ -39,11 +39,7 @@
                 </div>
             </header>
     <ul data-role="listview">
-        <li>
-               <div class="button-frame-login" id="fblink-show-p">
-            <a data-role="button" class="button-loginwithfacebook" data-bind="click:fbLoginDA" style="background-color:#0d68c5">Link Facebook</a>
-        </div>
-        </li>
+
         <li>
             <div class="button-frame-login">
                 <a data-role="button"   data-click="openEnterModalPassword" style="background-color:#000 !important">Change PIN</a>
@@ -70,7 +66,7 @@
         </li>
         <li>
             <div class="input-frame-enrol-1">
-                <input type="number" id="mobile1" placeholder="Mobile (Eg:9715XXXXXXXX) *" data-bind="value:mobile1 , click:enableSaveSetting"/>
+                <input type="number" id="mobile1" placeholder="Mobile (Eg:9715XXXXXXXX) *" data-bind="value:mobile1 , click:enableSaveSetting" readonly="true"/>
             </div>
         </li>
        

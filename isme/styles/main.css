@@ -1039,8 +1039,8 @@ img
 .switch-frame
 {
     display:block;
-    height:4em;
-    line-height: 4em;
+    height:40px;
+    line-height: 40px;
     width: 60%;
     position:relative;
     float: none;
@@ -1051,12 +1051,13 @@ img
 .switch-frame-1
 {
     display:block;
-    line-height: 4em;
+     height:40px;
+    line-height: 40px;
     width: 95%;
     position:relative;
     float: none;
     color:#fff;
-    font-size:95%;
+    font-size:90%;
     
 }
 
