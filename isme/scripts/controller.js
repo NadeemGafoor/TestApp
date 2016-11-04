@@ -2951,7 +2951,7 @@ function completeRedemption() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }
-                                           
+                                           alert(window.localStorage.getItem("mobilelogin").length);
                                                if(window.localStorage.getItem("mobilelogin").length=0){
                                                    window.localStorage.setItem("mobilelogin",this.username);
                                                }
