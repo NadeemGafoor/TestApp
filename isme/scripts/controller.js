@@ -5111,6 +5111,11 @@ function completeRedemption() {
                                                     }, "isme by Jumeirah", "Dismiss")  
                                                     return;
                                                 }
+                                                  if (isNaN(this.setpass)) {
+                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
+                                                    }, "isme by Jumeirah", "Dismiss")  
+                                                    return;
+                                                }
                                                 showSpin(); 
                                              
                                                 $.ajax({ 
@@ -5158,7 +5163,7 @@ function completeRedemption() {
                                                     }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
-                                           
+                                            window.localStorage.setItem("setpintype", "2");
                                                 showSpin();
                                                 createPIN(this.newpin2, "0");
                                                 postLogin.set("newpin1", "");
@@ -5944,7 +5949,14 @@ function completeRedemption() {
                                if (window.localStorage.getItem("setpintype")=="1"){
 
                                                    firstlogin(window.localStorage.getItem("mobilelogin"),x);
-                               }
+                               } if (window.localStorage.getItem("setpintype")=="2"){
+                                   
+                                   navigator.notification.alert("PIN changes successfully", function() {
+                           }, "isme by Jumeirah", "Dismiss") 
+                                   
+                           hideSpin(); //hide loading popup
+                                   $("#modalviewpin").data("kendoMobileModalView").close();
+                                   }
                        }else {
                            navigator.notification.alert("Due to a system error, we are unable to set PIN. " + getData.statusdesc, function() {
                            }, "isme by Jumeirah", "Dismiss")         
@@ -6744,7 +6756,7 @@ function completeRedemption() {
                            window.localStorage.setItem("customer", getData.customerid);
                            window.localStorage.setItem("newmembername", getData.customername);
                            window.localStorage.setItem("newmembersegment", getData.segment);
-                                   createPIN(m, "0");
+                           createPIN(m, "0");
                            firstlogin(window.localStorage.getItem("mobilelogin"),m);
                      
                            hideSpin(); //hide loading popup
