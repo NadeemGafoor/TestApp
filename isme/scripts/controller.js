@@ -2924,7 +2924,7 @@ function completeRedemption() {
                                             validateMobile
                                            : function () {
                                              
-                                                   if (this.username) {
+                                                   if (!this.username) {
                                                        navigator.notification.alert("Please enter a valid Mobile number.", function() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
@@ -2952,10 +2952,15 @@ function completeRedemption() {
                                                        return;
                                                    }
                                            
-                                               
+                                               if(window.localStorage.getItem("mobilelogin").length=0){
+                                                   window.localStorage.setItem("mobilelogin",this.username);
+                                               }
                                               
                                                    customer =  window.localStorage.getItem("mobilelogin");
                                                    password = this.password;
+                                               alert(customer);
+                                               alert(this.username);
+                                               alert( window.localStorage.getItem("mobilelogin"));
 
                                                showSpin();
                                                $.ajax({ 
