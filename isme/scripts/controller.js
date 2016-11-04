@@ -1022,7 +1022,7 @@ function completeRedemption() {
                                            social_shortmsg:short_msg,
                                            social_telephone:"",
                                            social_email:"",
-                                           username:"(+" + window.localStorage.getItem("mobilelogin").substring(0,3)+") " + window.localStorage.getItem("mobilelogin").substring(3,window.localStorage.getItem("mobilelogin").length-3),
+                                           username:window.localStorage.getItem("mobilelogin");//"(+" + window.localStorage.getItem("mobilelogin").substring(0,3)+") " + window.localStorage.getItem("mobilelogin").substring(3,window.localStorage.getItem("mobilelogin").length-3),
                                            username1:"",
                                            emailid1:"",
                                            password:"",
