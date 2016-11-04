@@ -776,6 +776,7 @@ function completeRedemption() {
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
+    var formattedmobile="";
     var displaybirthdate = "";
     var password = "";
     var segmentcode = "";
@@ -1021,7 +1022,7 @@ function completeRedemption() {
                                            social_shortmsg:short_msg,
                                            social_telephone:"",
                                            social_email:"",
-                                           username:window.localStorage.getItem("mobilelogin"),
+                                           username:"(+" + window.localStorage.getItem("mobilelogin").substring(0,3)+") " + window.localStorage.getItem("mobilelogin").substring(3,window.localStorage.getItem("mobilelogin").length-3),
                                            username1:"",
                                            emailid1:"",
                                            password:"",
@@ -2967,7 +2968,8 @@ function completeRedemption() {
                                                                   cuspict = getData.imageurl;
                                                                   cusqr = getData.qrurl;
                                                                   emailid = getData.emailid;
-                                                                  mobilenumber = getData.mobilenumber;                                                                    
+                                                                  mobilenumber = getData.mobilenumber;
+                                                                  formattedmobile="(+" + mobilenumber.substring(0,3)+") " + mobilenumber.substring(3,mobilenumber.length-3);
                                                                   memberexpiry = getData.memberexpiry; 
                                                                   segmentimage = getData.segmentimage; 
                                                                   pushoffer = getData.pushoffer;
@@ -4966,10 +4968,9 @@ function completeRedemption() {
                                                 showSpin(); 
                                                 listCountry();
                                                 window.localStorage.setItem("isset", "0");
-                                               
                                                 listCity("UAE", document.getElementById("selCity"));  
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
-                                                postLogin.set("mobile1", window.localStorage.getItem("mobilenumber"));
+                                                postLogin.set("mobile1",formattedmobile);
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
                                                 postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));
                                                 window.localStorage.setItem("selfredeem", "D"); 
@@ -6790,7 +6791,8 @@ function completeRedemption() {
                                                                   cuspict = getData.imageurl;
                                                                   cusqr = getData.qrurl;
                                                                   emailid = getData.emailid;
-                                                                  mobilenumber = getData.mobilenumber;                                                                    
+                                                                  mobilenumber = getData.mobilenumber;  
+                                                                  
                                                                   memberexpiry = getData.memberexpiry; 
                                                                   segmentimage = getData.segmentimage; 
                                                                   pushoffer = getData.pushoffer;

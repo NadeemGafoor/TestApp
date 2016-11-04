@@ -305,7 +305,7 @@ a
 .km-customdis:before,
 .km-customdis:after
 {
-    content: "\f0ac";
+    content: "\f295";
 }
 
 *
@@ -657,7 +657,6 @@ img
     z-index: 0;
     text-align:left;
     color: #000;
-    padding-left:25px;
  }
 
 .input-frame-enrol-2 
