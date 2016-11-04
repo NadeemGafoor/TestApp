@@ -2951,14 +2951,15 @@ function completeRedemption() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }
-                                           alert(window.localStorage.getItem("mobilelogin").length);
-                                               if(window.localStorage.getItem("mobilelogin").length=0){
+                                           
+                                               if(window.localStorage.getItem("mobilelogin").length===0){
+                                                   alert(window.localStorage.getItem("mobilelogin").length);
                                                    window.localStorage.setItem("mobilelogin",this.username);
                                                }
                                               
                                                    customer =  window.localStorage.getItem("mobilelogin");
                                                    password = this.password;
-                                               alert(customer);
+
                                                alert(this.username);
                                                alert( window.localStorage.getItem("mobilelogin"));
 
