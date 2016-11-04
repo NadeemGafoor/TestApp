@@ -1,4 +1,4 @@
-<div data-role="view" data-title="New Device Validation" data-layout="pre-layout" id="token-theme" data-model="preLogin" data-show="preLogin.initToken" data-hide="preLogin.destroytokenpage" data-after-show="disableBackButton" data-before-hide="enableBackButton">
+<div data-role="view" data-title="New Device Validation" data-layout="pre-layout" id="token-theme" data-model="preLogin" data-init="preLogin.initToken" data-show="preLogin.initSMS" data-hide="preLogin.destroytokenpage" data-after-show="disableBackButton" data-before-hide="enableBackButton">
 
      
     
@@ -13,7 +13,7 @@
         <div class="filler"></div>
         
         <div class="reward-summary-1">
-            <pre style="color:#000;text-align:center;font-size:125%">>Please enter the SMS Code sent on your mobile. We ensure that your account is secured. You are getting this screen because you are signing in on a different device.</pre>
+            <pre style="color:#000;text-align:center;font-size:125%">>Please enter the Validation Code sent on SMS. We ensure that your account is secured. You are getting this screen because you are signing in on a different device.</pre>
         </div>
     </div>
       <div class="filler"></div>
@@ -22,21 +22,21 @@
         <li>
             <div class="input-frame-enrol-2">
 
-                 <input type="password" id="tokennum" data-bind="value: tokennum" placeholder="SMS Code"/>
+                 <input type="password" id="tokennum" data-bind="value: tokennum" placeholder="Validation Code"/>
             </div>
         </li>
           <div class="filler"></div>
       <div class="filler"></div>
         <li>
             <div class="button-frame">
-                <a data-role="button" data-bind="click: validateToken" style="background-color:#eb046d;font-size:125%;color:#fff">Continue</a>
+                <a data-role="button" data-bind="click: validateSMS" style="background-color:#eb046d;font-size:125%;color:#fff">Continue</a>
             </div>
              
         </li>
               <div class="filler"></div>
         <li>
             <a  data-bind="click: initSMS" style="background-color:transparent !important">
-                <div class="switch-frame one-line" style="color:#000" data-bind="click: initToken">Send me a new SMS Code</div>  
+                <div class="switch-frame one-line" style="color:#000" data-bind="click: initSMS">Send me a new Validation Code</div>  
             </a>
 
         </li>

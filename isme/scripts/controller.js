@@ -2858,6 +2858,7 @@ function completeRedemption() {
                                            initToken
                                            :function() {
                                                preLogin.set("tokennum", "");
+                                               window.localStorage.setItem("setpintype","3");
                                            },
         
                                            initSMS  
@@ -3186,9 +3187,11 @@ function completeRedemption() {
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {  
                                                                      window.localStorage.setItem("smsreference","");
-                                                               //   if (window.localStorage.getItem("setpintype")=="0"){
+                                                                  if (window.localStorage.getItem("setpintype")=="3"){
                                                                      $("body").data("kendoMobilePane").navigate("views/setpin.html");  
-                                                             // }
+                                                              }else{
+                                                                   $("body").data("kendoMobilePane").navigate("views/pl-explore.html");  
+                                                                  }
                                                               }else {
                                                                   navigator.notification.alert("The Validation Code entered is incorrect, please enter the correct Validation Code.", function() {
                                                                   }, "isme by Jumeirah", "Dismiss")         
