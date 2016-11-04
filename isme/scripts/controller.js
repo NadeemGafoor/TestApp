@@ -2854,6 +2854,12 @@ function completeRedemption() {
                                            :function() {
                                                window.localStorage.setItem("setpintype", "1");
                                                preLogin.set("password","");
+                                               preLogin.set("username",window.localStorage.getItem("mobilelogin"));
+                                               //alert(this.username.length);
+                                                if (window.localStorage.getItem("mobilelogin").length>0){
+                                                   document.getElementById("username").readOnly="true";
+                                                    document.getElementById("username").style.color="#ccc";
+                                               }
                                            },   
                                            initToken
                                            :function() {
@@ -2940,6 +2946,8 @@ function completeRedemption() {
                                                        return;
                                                    }
                                            
+                                               
+                                              
                                                    customer =  window.localStorage.getItem("mobilelogin");
                                                    password = this.password;
 
