@@ -2536,7 +2536,7 @@ function completeRedemption() {
                                            : function() {
                                                showSpin();
                                                clearAllVariables();
-                                            
+                                               alert(window.localStorage.getItem("mobilelogin"));
                                                if (firsttime === "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
@@ -2874,7 +2874,6 @@ function completeRedemption() {
                                                window.localStorage.setItem("setpintype", "1");
                                                preLogin.set("password","");
                                                preLogin.set("username",window.localStorage.getItem("mobilelogin"));
-                                               //alert(this.username.length);
                                                 if (window.localStorage.getItem("mobilelogin").length>0){
                                                    document.getElementById("username").readOnly="true";
                                                     document.getElementById("username").style.color="#ccc";
