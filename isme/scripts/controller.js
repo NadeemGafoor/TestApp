@@ -349,8 +349,9 @@ function closeFAQView() {
 }
 
 function enterPinForRedemption() {
-    window.localStorage.setItem("selfredeem", "D"); 
-    $("#modalviewenterpin").data("kendoMobileModalView").open(); 
+    alert("GERRERER");
+   // window.localStorage.setItem("selfredeem", "D"); 
+  // $("#modalviewenterpin").data("kendoMobileModalView").open(); 
 }
 
 function openEnterModalPassword() {
