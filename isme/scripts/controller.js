@@ -2939,7 +2939,7 @@ function completeRedemption() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }
-                                                   
+                                           
                                                    customer =  window.localStorage.getItem("mobilelogin");
                                                    password = this.password;
 
