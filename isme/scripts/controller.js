@@ -2536,7 +2536,10 @@ function completeRedemption() {
                                            : function() {
                                                showSpin();
                                                clearAllVariables();
-                                               alert(window.localStorage.getItem("mobilelogin"));
+                                               if(window.localStorage.getItem("mobilelogin") === null){
+                                                   alert(window.localStorage.getItem("mobilelogin"));
+                                                   window.localStorage.setItem("mobilelogin","");
+                                               }
                                                if (firsttime === "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
