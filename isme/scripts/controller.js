@@ -2953,15 +2953,14 @@ function completeRedemption() {
                                                    }
                                            
                                                if(window.localStorage.getItem("mobilelogin").length===0){
-                                                   alert(window.localStorage.getItem("mobilelogin").length);
+                                                 
                                                    window.localStorage.setItem("mobilelogin",this.username);
                                                }
                                               
                                                    customer =  window.localStorage.getItem("mobilelogin");
                                                    password = this.password;
 
-                                               alert(this.username);
-                                               alert( window.localStorage.getItem("mobilelogin"));
+                                           
 
                                                showSpin();
                                                $.ajax({ 
