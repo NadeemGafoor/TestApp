@@ -3465,7 +3465,9 @@ function completeRedemption() {
                                                     }
                                                 }
                                             },
-        
+          destroyhowitworks:function() {
+                                                $("#pl-howitworks").remove();
+                                            },
                                             destroyplaboutisme:function() {
                                                 $("#pl-aboutisme-theme").remove();
                                             },
