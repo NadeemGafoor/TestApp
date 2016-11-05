@@ -5225,6 +5225,19 @@ function completeRedemption() {
                                                 postLogin.set("newpin1", "");
                                                 postLogin.set("newpin2", ""); 
                                             },
+            initStaffPIN 
+                                            : function () {
+                                              
+                                                postLogin.set("depin1", "");
+
+                                            },
+        
+          initMemberPIN 
+                                            : function () {
+                                              
+                                                postLogin.set("srpin1", "");
+
+                                            },
         
                                             validateredemptionpin
                                             : function () {
