@@ -3166,7 +3166,7 @@ function completeRedemption() {
                                                                  
                                                                   
                                                                  
-                                                                                   merchantcode :merchant,customer:customer,token:this.tokennum,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:mvalidaterequest
+                                                                                   merchantcode :merchant,customer:customer,token:this.tokennum,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:mvalidaterequest,tokenreference: window.localStorage.getItem("smsreference")
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
