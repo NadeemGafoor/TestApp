@@ -5278,22 +5278,18 @@ function completeRedemption() {
         
                                             completeRedemptionDiscount
                                             : function () {
-                                                alert(this.depin1);
+                                               alert(window.localStorage.getItem("selfredeem"));
                                                 if (!this.depin1) {
                                                     navigator.notification.alert("Invalid Outlet identifier. Please enter valid outlet identifier.", function() {
                                                     }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
-                                                if (window.localStorage.getItem("selfredeem")==="D") {
-                                                    redeemDiscount();
-                                                } else if (window.localStorage.getItem("selfredeem")==="V") {
+                                                if (window.localStorage.getItem("selfredeem")==="V") {
                                                     activateRedeemVoucher();
                                                 } else if (window.localStorage.getItem("selfredeem")==="M") {
                                                     redeemVoucher();
                                                 } else {
-                                                    navigator.notification.alert("Invalid Outlet identifier. Please try again.", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
-                                                    return;  
+                                                   redeemDiscount();
                                                 }
                                             },
         
