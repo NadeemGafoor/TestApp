@@ -5009,8 +5009,8 @@ function completeRedemption() {
                                                 window.localStorage.setItem("isset", "0");
                                                 listCity("UAE", document.getElementById("selCity"));  
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
-                                                alert("(+" + mobilenumber.substring(0,3)+")");
-                                                postLogin.set("mobile1","(+" + mobilenumber.substring(0,3)+")");
+                                                alert(formattedmobile);
+                                                postLogin.set("mobile1",mobilenumber);
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
                                                 postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));
                                                 window.localStorage.setItem("selfredeem", "D"); 
