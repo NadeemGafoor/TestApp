@@ -41,7 +41,7 @@
                     <a class="fa" href="views/pl-offerlist.html" data-icon="customtag" data-role="button">Offers</a>
                     <a class="fa" href="views/pl-myreward.html" data-icon="customreward" data-role="button">My Rewards</a>
                     <a class="fa" href="views/pl-explorelist.html" data-icon="customexp" data-role="button">Explore</a>
-                    <a class="fa" data-bind="click: enterPinForRedemption" data-icon="customdis" data-role="button">Discount</a>
+                    <a class="fa" href="views/pl-pl-discountpinmember.html" data-icon="customdis" data-role="button">Discount</a>
                 </div>
             </footer>
 
@@ -462,32 +462,7 @@
             <div style="height:10px">&nbsp;</div>
         </div>
 
-        <div data-role="modalview" id="modalviewenterpin" style="height:100%;width:100%" data-model="postLogin" data-title="Member PIN">
-            <div data-role="header">
-                <div data-role="navbar" style="background-color:#000">
-                    <span data-role="view-title"></span>
-
-                    <a data-click="closeEnterPinForRedemption" data-role="button" data-align="right">
-                        <i class="fa fa-times-circle fa-lg" style="color:#fff"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="home-page-holder"></div>
-            <div class="input-frame-modal"  >
-                <input type="number" id="srpin1" data-bind="value: srpin1" placeholder="Enter Member PIN"/>
-            </div>
-            <div class="home-page-holder"></div>
-            <div class="button-frame-inline-modal">
-                <a data-role="button"  data-bind="click:validateredemptionpin">Continue</a>
-            </div>
-            <div class="home-page-holder"></div>
-            <div class="fulljustify whitecolor">
-                After your successful PIN verification, please hand to hotel colleague to enter their outlet identifier
-            </div>
-            <div style="height:10px">&nbsp;</div>
-        </div>
-
-      
+             
         <div data-role="modalview" id="modalviewpassword" style="height:100%;width:100%" data-model="postLogin" data-title="Enter PIN">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#000">
