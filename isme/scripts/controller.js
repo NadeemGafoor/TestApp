@@ -6102,7 +6102,9 @@ function completeRedemption() {
                                    opt.text = getData.countrylist[i].countrycode;
                                    x.add(opt);
                                }  
+                               if (homecountry.length>0){
                                document.getElementById("selCountry").value = homecountry;
+                                   }
                                hideSpin();
                            }else {
                                navigator.notification.alert("Unable to display country list. Please restart your app and try again. " + getData.statusdesc, function() {
