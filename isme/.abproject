@@ -6,8 +6,8 @@
   "DisplayName": "V3 isme by Jumeirah",
   "Author": "Hospitality Dynamics",
   "Description": "V3 isme by Jumeirah",
-  "BundleVersion": "1.0",
-  "AndroidVersionCode": "1",
+  "BundleVersion": "1.3",
+  "AndroidVersionCode": "7",
   "iOSDeviceFamily": [
     "1"
   ],
