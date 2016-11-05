@@ -5239,7 +5239,7 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode === "000") { //Login Successful
                                                                    postLogin.set("srpin1", "");
-                                                                   $("#modalviewstaffpin").data("kendoMobileModalView").open();  
+                                                                   $("body").data("kendoMobilePane").navigate("views/pl-discountpinstaff.html"); 
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Invalid Redemption PIN", function() {
