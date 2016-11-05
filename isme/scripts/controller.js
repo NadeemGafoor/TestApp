@@ -5009,7 +5009,7 @@ function completeRedemption() {
                                                 window.localStorage.setItem("isset", "0");
                                                 listCity("UAE", document.getElementById("selCity"));  
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
-                                                alert(formattedmobile);
+                                                alert("(+" + mobilenumber.substring(0,3)+") " + mobilenumber.substring(3,mobilenumber.length-3));
                                                 postLogin.set("mobile1",mobilenumber);
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
                                                 postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));
