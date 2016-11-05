@@ -5264,8 +5264,6 @@ function completeRedemption() {
                                                     }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
-                                       
-                                                $("#modalviewstaffpin").data("kendoMobileModalView").close();
                                                 if (window.localStorage.getItem("selfredeem")==="D") {
                                                     redeemDiscount();
                                                 } else if (window.localStorage.getItem("selfredeem")==="V") {
