@@ -2876,7 +2876,7 @@ function completeRedemption() {
                                            :function() {
                                                window.localStorage.setItem("setpintype", "1");
                                                preLogin.set("password","");
-                                               preLogin.set("username",window.localStorage.getItem("mobilelogin"));
+                                               preLogin.set("username","00"+window.localStorage.getItem("mobilelogin"));
                                                 if (window.localStorage.getItem("mobilelogin").length>0){
                                                    document.getElementById("username").readOnly="true";
                                                     document.getElementById("username").style.color="#ccc";
@@ -3004,7 +3004,7 @@ function completeRedemption() {
                                                                   cusqr = getData.qrurl;
                                                                   emailid = getData.emailid;
                                                                   mobilenumber = getData.mobilenumber;
-                                                                  formattedmobile="(+" + mobilenumber.substring(0,3)+") " + mobilenumber.substring(3,mobilenumber.length-3);
+                                                                  formattedmobile="00" + mobilenumber;
                                                                   memberexpiry = getData.memberexpiry; 
                                                                   segmentimage = getData.segmentimage; 
                                                                   pushoffer = getData.pushoffer;
@@ -5009,7 +5009,6 @@ function completeRedemption() {
                                                 window.localStorage.setItem("isset", "0");
                                                 listCity("UAE", document.getElementById("selCity"));  
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
-                                                alert(formattedmobile);
                                                 postLogin.set("mobile1",formattedmobile);
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
                                                 postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));
@@ -6844,7 +6843,8 @@ function completeRedemption() {
                                                                   cusqr = getData.qrurl;
                                                                   emailid = getData.emailid;
                                                                   mobilenumber = getData.mobilenumber;  
-                                                                  formattedmobile="(+" + mobilenumber.substring(0,3)+") " + mobilenumber.substring(3,mobilenumber.length);
+                                                                  formattedmobile="00" + mobilenumber;
+                                                                  //"(+" + mobilenumber.substring(0,3)+") " + mobilenumber.substring(3,mobilenumber.length);
                                                                   memberexpiry = getData.memberexpiry; 
                                                                   segmentimage = getData.segmentimage; 
                                                                   pushoffer = getData.pushoffer;
