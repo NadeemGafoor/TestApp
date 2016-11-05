@@ -1383,8 +1383,10 @@ li
     line-height: 1.3em; /* vert-center */
     margin-left: 8px;
     margin-right: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
     white-space: pre-line;
-    text-align: justify;
+    text-align: left;
     color: #000;
     font-size:95%;
     height:auto;
