@@ -5278,7 +5278,6 @@ function completeRedemption() {
         
                                             completeRedemptionDiscount
                                             : function () {
-                                               alert(window.localStorage.getItem("selfredeem"));
                                                 if (!this.depin1) {
                                                     navigator.notification.alert("Invalid Outlet identifier. Please enter valid outlet identifier.", function() {
                                                     }, "isme by Jumeirah", "Dismiss");
