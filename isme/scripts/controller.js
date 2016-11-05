@@ -2879,7 +2879,7 @@ function completeRedemption() {
                                                preLogin.set("username","00"+window.localStorage.getItem("mobilelogin"));
                                                 if (window.localStorage.getItem("mobilelogin").length>0){
                                                    document.getElementById("username").readOnly="true";
-                                                    document.getElementById("username").style.color="#ccc";
+                                                    document.getElementById("username").style.color="#343232";
                                                }
                                            },   
                                            initToken
