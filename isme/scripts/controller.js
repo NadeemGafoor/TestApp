@@ -5281,6 +5281,7 @@ function completeRedemption() {
         
                                             completeRedemptionDiscount
                                             : function () {
+                                                alert(this.depin1);
                                                 if (!this.depin1) {
                                                     navigator.notification.alert("Invalid Outlet identifier. Please enter valid outlet identifier.", function() {
                                                     }, "isme by Jumeirah", "Dismiss");
