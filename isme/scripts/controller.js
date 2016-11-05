@@ -5260,20 +5260,17 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode === "000") { //Login Successful
-                                                                   postLogin.set("srpin1", "");
                                                                    $("body").data("kendoMobilePane").navigate("views/pl-discountpinstaff.html"); 
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Invalid Redemption PIN", function() {
                                                                    }, "isme by Jumeirah", "Dismiss");
-                                                                   postLogin.set("srpin1", "");
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error. Cannot verify Redemption PIN [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                }, "isme by Jumeirah", "Dismiss");
-                                                               postLogin.set("srpin1", "");
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
