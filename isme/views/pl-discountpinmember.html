@@ -1,9 +1,9 @@
- <div data-role="view" id="modalviewenterpin" data-model="postLogin" data-title="Member PIN" data-layout="pl-main-layout">
+ <div data-role="view" id="modalviewenterpin" data-model="postLogin" data-title="Member PIN" data-layout="pl-main-layout" data-hide="postLogin.destroydiscountpinmember" data-after-show="disableBackButton" data-before-hide="enableBackButton">
             <div data-role="header">
                 <div data-role="navbar" style="background-color:#000">
                     <span data-role="view-title"></span>
 
-                    <a  data-role="button" data-align="left" style="color:#fff" data-icon="back" data-click="postLoginBack">
+                    <a  data-role="button" data-align="left" style="color:#fff" data-icon="back" href="views/pl-explore.html">
                     </a>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                 <a data-role="button"  data-bind="click:validateredemptionpin">Continue</a>
             </div>
             <div class="home-page-holder"></div>
-            <div class="fulljustify whitecolor">
+            <div class="whitecolor">
                 After your successful PIN verification, please hand to hotel colleague to enter their outlet identifier
             </div>
             <div style="height:10px">&nbsp;</div>
