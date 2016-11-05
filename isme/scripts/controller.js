@@ -4778,7 +4778,7 @@ function completeRedemption() {
                                                     return;
                                                 }
                                                 window.localStorage.setItem("selfredeem", "V"); 
-                                                $("#modalviewenterpin").data("kendoMobileModalView").open(); 
+                                                $("body").data("kendoMobilePane").navigate("views/pl-discountpinmember.html"); 
                                             },
                                             walletRedeem
                                             : function () {
@@ -4788,7 +4788,7 @@ function completeRedemption() {
                                                     return;
                                                 }
                                                 window.localStorage.setItem("selfredeem", "M"); 
-                                                $("#modalviewenterpin").data("kendoMobileModalView").open(); 
+                                               $("body").data("kendoMobilePane").navigate("views/pl-discountpinmember.html"); 
                                             },
         
                                             confirmIssueResponse
