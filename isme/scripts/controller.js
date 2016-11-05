@@ -1574,20 +1574,7 @@ function completeRedemption() {
                                                window.localStorage.setItem("mobilelogin", this.mobile);
                                                window.localStorage.setItem("setpintype", "0"); //enrollment
                                              
-                                               $.ajax({ 
-                                                          type: "POST",
-                                                          cache:false,
-                                                          async:true,
-                                                          timeout:20000,
-                                                          url: gurl + "/sendSMSEnrolment.aspx",
-                                                          contentType: "application/json; charset=utf-8",
-                                                          data: JSON.stringify({
-                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mobilelogin"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat
-                                                                               }),
-                                                          success: function (data) {
-                                                              var getData = JSON.parse(data);
-                                                              if (getData.statuscode === "000") {
-                                                                  window.localStorage.setItem("smsreference", getData.referencenumber); 
+                                             
                                                                     //Assign variables to localstorage for later update
                                                
                                                window.setTimeout(window.plugins.nativepagetransitions.slide({
@@ -1599,20 +1586,7 @@ function completeRedemption() {
                                                                                                                 'direction': 'up',
                                                                                                                 'href': '#views/smsvalidation.html'
                                                                                                             }), 500);
-                                                                  hideSpin(); //hide loading popup
-                                                              } else {
-                                                                  navigator.notification.alert("There was an error generating the SMS Code.  Please try again later " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss");
-                                                                  hideSpin(); //hide loading popup
-                                                              }
-                                                          },
-                                                          error: function (error) {
-                                                              navigator.notification.alert("There was an error generating the SMS Code. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
-                                                              hideSpin(); //hide loading popup
-                                                          }
-                                                      });        
-                                               
+                                                          
                                                
                                                
                                                
