@@ -3171,7 +3171,7 @@ function completeRedemption() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") { //Login Successful  
-                                                                  if (getData.pinnumber.length > 0) {
+                                                                 // if (getData.pinnumber.length > 0) {
                                                                       password = getData.certificate;
                                                                       window.localStorage.setItem("password", password); //Get and Store Certificate
                                                                       window.localStorage.setItem("loggedin", "1");
@@ -3179,9 +3179,9 @@ function completeRedemption() {
                                                                       $("body").data("kendoMobilePane").navigate("views/pl-explore.html"); 
                                                                                                                                 
                                                                       hideSpin(); //hide loading popup
-                                                                  }else {
-                                                                      $("body").data("kendoMobilePane").navigate("views/setpin.html");  
-                                                                  }
+                                                               //   }else {
+                                                              //        $("body").data("kendoMobilePane").navigate("views/setpin.html");  
+                                                             //     }
                                                               }else {
                                                                   navigator.notification.alert("Login failed. Please try entering your login details again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")         
