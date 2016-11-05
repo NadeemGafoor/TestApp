@@ -5239,7 +5239,6 @@ function completeRedemption() {
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode === "000") { //Login Successful
                                                                    postLogin.set("srpin1", "");
-                                                                   $("#modalviewenterpin").data("kendoMobileModalView").close();
                                                                    $("#modalviewstaffpin").data("kendoMobileModalView").open();  
                                                                    hideSpin(); //hide loading popup
                                                                }else {

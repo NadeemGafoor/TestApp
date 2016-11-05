@@ -1,0 +1,23 @@
+ <div data-role="view" id="modalviewenterpin" style="height:100%;width:100%" data-model="postLogin" data-title="Member PIN" data-layout="pl-main-layout">
+            <div data-role="header">
+                <div data-role="navbar" style="background-color:#000">
+                    <span data-role="view-title"></span>
+
+                    <a  data-role="button" data-align="left" style="color:#fff" data-icon="back" data-click="postLoginBack">
+                    </a>
+                </div>
+            </div>
+            <div class="home-page-holder"></div>
+            <div class="input-frame-modal"  >
+                <input type="number" id="srpin1" data-bind="value: srpin1" placeholder="Enter Member PIN"/>
+            </div>
+            <div class="home-page-holder"></div>
+            <div class="button-frame-inline-modal">
+                <a data-role="button"  data-bind="click:validateredemptionpin">Continue</a>
+            </div>
+            <div class="home-page-holder"></div>
+            <div class="fulljustify whitecolor">
+                After your successful PIN verification, please hand to hotel colleague to enter their outlet identifier
+            </div>
+            <div style="height:10px">&nbsp;</div>
+        </div>
