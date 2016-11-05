@@ -5010,7 +5010,7 @@ function completeRedemption() {
                                                 listCity("UAE", document.getElementById("selCity"));  
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
                                                 alert("(+" + mobilenumber.substring(0,3)+")");
-                                                postLogin.set("mobile1",formattedmobile);
+                                                postLogin.set("mobile1","(+" + mobilenumber.substring(0,3)+")");
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
                                                 postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));
                                                 window.localStorage.setItem("selfredeem", "D"); 
