@@ -3514,6 +3514,15 @@ function completeRedemption() {
                                                     }
                                                 }
                                             },
+        
+         destroydiscountpinmember:function() {
+                                                $("#modalviewenterpin").remove();
+                                            },
+        
+         destroydiscountpinstaff:function() {
+                                                $("#modalviewstaffpin").remove();
+                                            },
+        
           destroyhowitworks:function() {
                                                 $("#pl-howitworks").remove();
                                             },
