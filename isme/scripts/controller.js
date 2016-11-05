@@ -3476,6 +3476,14 @@ function completeRedemption() {
                                             setpass:"",
                                             msgsequence:"",
                                             lifestyle:"",
+        
+        
+        
+         enterPinForRedemption:function() {
+  
+    window.localStorage.setItem("selfredeem", "D"); 
+   $("#modalviewenterpin").data("kendoMobileModalView").open(); 
+},
                                            
                                             closeOfferFilterView1:function() {
                                                 window.localStorage.setItem("mcategory", ""); 
@@ -6818,7 +6826,7 @@ function completeRedemption() {
         return;
     }
     
-    function firstlogin(m,n){
+    function firstlogin(m,n){  
       $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -6845,7 +6853,7 @@ function completeRedemption() {
                                                                   cusqr = getData.qrurl;
                                                                   emailid = getData.emailid;
                                                                   mobilenumber = getData.mobilenumber;  
-                                                                  formattedmobile="00" + mobilenumber;
+                                                                  formattedmobile="00" + window.localStorage.getItem("mobilelogin");
                                                                   //"(+" + mobilenumber.substring(0,3)+") " + mobilenumber.substring(3,mobilenumber.length);
                                                                   memberexpiry = getData.memberexpiry; 
                                                                   segmentimage = getData.segmentimage; 
