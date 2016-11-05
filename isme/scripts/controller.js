@@ -7517,12 +7517,7 @@ function completeRedemption() {
             return;
         }
                                                 
-        if (!this.mobile1) {
-            navigator.notification.alert("Mobile Number is required.  Re-enter", function() {
-            }, "isme by Jumeirah", "Dismiss")
-            return;
-        }
-     
+           
         if (document.getElementById("selCity").value === "") {
             navigator.notification.alert("Select Resident City", function() {
             }, "isme by Jumeirah", "Dismiss");
