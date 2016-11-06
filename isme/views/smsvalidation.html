@@ -1,7 +1,7 @@
 <div data-role="view" data-title="Validation" data-layout="pre-layout" id="sms-theme" data-model="preLogin" data-show="preLogin.initSMS" data-hide="preLogin.destroysmspage" data-after-show="disableBackButton" data-before-hide="enableBackButton">
 
         <div data-role="navbar" style="background-color:transparent !important">
-             <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#000"></a>
+             <a data-role="button" data-align="left" style="color:#000" href="views/home.html" data-icon="back"></a>
             <span data-role="view-title" style="color:#000"></span>
     </div>
 
@@ -32,7 +32,7 @@
               <div class="filler"></div>
         <li>
             <a  data-bind="click: initSMS" style="background-color:transparent !important">
-                <div class="switch-frame one-line" style="color:#000" data-bind="click: initSMS">Re-send Validation Code on SMS</div>  
+                <div class="switch-frame one-line" style="color:#000" data-bind="click: initSMS">Re-send Code on SMS</div>  
             </a>
 
         </li>
