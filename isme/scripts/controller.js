@@ -103,15 +103,7 @@ function loadRewards() {
 }
 
 function loadLogin() {
-    window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                     "duration"         :  500, // in milliseconds (ms), default 400
-                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                     'direction': 'up',
-                                                                     'href': '#views/login.html'
-                                                                 }), 500);
+      $("body").data("kendoMobilePane").navigate("views/login.html"); 
 }
 
 function loadEnrol() {
@@ -121,15 +113,7 @@ if (window.localStorage.getItem("mobilelogin").length>0){
     return;
 
                                                }
-    window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                     "duration"         :  500, // in milliseconds (ms), default 400
-                                                                     "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                     "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                     "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                     'direction': 'up',
-                                                                     'href': '#views/enrol.html'
-                                                                 }), 500);
+   $("body").data("kendoMobilePane").navigate("views/enrol.html"); 
 }
 
 function faceBookClick() {
