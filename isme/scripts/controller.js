@@ -3202,7 +3202,7 @@ function completeRedemption() {
                                                       });
                                            },
         
-                                           savePIN    
+                                           savePIN      
                                            : function () {
                                                if (!this.pin1 || !this.pin2) {
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
@@ -3225,7 +3225,6 @@ function completeRedemption() {
                                                showSpin();
                                                if (window.localStorage.getItem("setpintype")=="0"){
                                                    doExecute(this.pin2);
-                                                   alert("Executed");
                                                }else if (window.localStorage.getItem("setpintype")=="1"){
                                                    createPIN(this.pin2, "0");
                                                    }
