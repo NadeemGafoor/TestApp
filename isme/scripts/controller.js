@@ -3225,6 +3225,7 @@ function completeRedemption() {
                                                showSpin();
                                                if (window.localStorage.getItem("setpintype")=="0"){
                                                    doExecute(this.pin2);
+                                                   alert("Executed");
                                                }else if (window.localStorage.getItem("setpintype")=="1"){
                                                    createPIN(this.pin2, "0");
                                                    }
