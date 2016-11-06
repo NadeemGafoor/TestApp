@@ -1013,7 +1013,7 @@ function completeRedemption() {
                                            social_shortmsg:short_msg,
                                            social_telephone:"",
                                            social_email:"",
-                                           username:window.localStorage.getItem("mobilelogin"),//"(+" + window.localStorage.getItem("mobilelogin").substring(0,3)+") " + window.localStorage.getItem("mobilelogin").substring(3,window.localStorage.getItem("mobilelogin").length-3),
+                                           username:window.localStorage.getItem("mobileloginA"),//"(+" + window.localStorage.getItem("mobilelogin").substring(0,3)+") " + window.localStorage.getItem("mobilelogin").substring(3,window.localStorage.getItem("mobilelogin").length-3),
                                            username1:"",
                                            emailid1:"",
                                            password:"",
@@ -2497,6 +2497,7 @@ function completeRedemption() {
                                                if(window.localStorage.getItem("mobilelogin") === null){
                                                    
                                                    window.localStorage.setItem("mobilelogin","");
+                                                   window.localStorage.setItem("mobileloginA","");
                                                }
                                                if (firsttime === "") { //Register Access and device in the platform
                                                    mdevice = device.model;
@@ -2928,6 +2929,7 @@ function completeRedemption() {
                                                if(window.localStorage.getItem("mobilelogin").length===0){
                                                  
                                                    window.localStorage.setItem("mobilelogin",this.username);
+                                                   window.localStorage.setItem("mobileloginA",this.username);
                                                }
                                               
                                                    customer =  window.localStorage.getItem("mobilelogin");
@@ -3165,7 +3167,7 @@ function completeRedemption() {
                                                }
 
                                                showSpin();
-                                               
+                                               alert("Here123");
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -3179,6 +3181,7 @@ function completeRedemption() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {  
+                                                                  alert("Here");
                                                                      window.localStorage.setItem("smsreference","");
                                                                   if (window.localStorage.getItem("setpintype")=="3"){
                                                                      $("body").data("kendoMobilePane").navigate("views/pl-explore.html");  
@@ -6775,6 +6778,7 @@ function completeRedemption() {
                            window.localStorage.setItem("customer", getData.customerid);
                            window.localStorage.setItem("newmembername", getData.customername);
                            window.localStorage.setItem("newmembersegment", getData.segment);
+                           window.localStorage.setItem("mobileloginA", window.localStorage.getItem("mobilelogin"));
                            createPIN(m, "0");
                            firstlogin(window.localStorage.getItem("mobilelogin"),m);
                      
