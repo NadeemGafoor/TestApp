@@ -2868,12 +2868,15 @@ function completeRedemption() {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
                                                preLogin.set("smsnum", "");
-
+                                               
+                                                alert(window.localStorage.getItem("enrolmentcomplete"));
                                                 if (window.localStorage.getItem("enrolmentcomplete")===null){
                                                 window.localStorage.setItem("mfirstname", "");
                                                window.localStorage.setItem("mlastname", "");
                                                window.localStorage.setItem("memailid", "");
-                                               }
+                                                alert(window.localStorage.getItem("mobilelogin"));
+                                                }
+                                               
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
