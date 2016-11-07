@@ -6806,6 +6806,7 @@ function completeRedemption() {
                            window.localStorage.setItem("newmembersegment", getData.segment);
                            window.localStorage.setItem("enrolmentcomplete", "1");
                            createPIN(m, "0");
+                           alert(window.localStorage.getItem("mobilelogin"));
                            firstlogin(window.localStorage.getItem("mobilelogin"),m);
                      
                            hideSpin(); //hide loading popup
