@@ -3207,6 +3207,7 @@ function completeRedemption() {
         
                                            savePIN      
                                            : function () {
+                                                alert(this.newpin1.length);
                                                if (!this.pin1 || !this.pin2) {
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
@@ -5171,12 +5172,12 @@ function completeRedemption() {
                                             ,
                                             plsavePIN 
                                             : function () {
+                                               
                                                 if (!this.newpin1 || !this.newpin2) {
                                                     navigator.notification.alert("Invalid PIN Number. Please re-enter a valid PIN number. ", function() {
                                                     }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
-                                               
                                                 if (this.newpin1 != this.newpin2) {
                                                     navigator.notification.alert("PIN Numbers do not match, please re-enter a valid PIN number.", function() {
                                                     }, "isme by Jumeirah", "Dismiss");
