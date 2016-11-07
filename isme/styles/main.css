@@ -2460,6 +2460,14 @@ tile-frame-inner
    
 }
 
+.info-page
+{
+    height:300px;
+    width:auto;
+    color:#fff;
+    background-color:rgba(0,0,0,0.7);
+}
+
 .home-page-holder
 {
     height:40px;
