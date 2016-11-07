@@ -107,12 +107,7 @@ function loadLogin() {
 }
 
 function loadEnrol() {
-if (window.localStorage.getItem("mobilelogin").length>0){
-                                                                          navigator.notification.alert("This device is already registered with another member.  You cannot create a new Subscription.", function() {
-                       }, "isme by Jumeirah" , "Dismiss");   
-    return;
 
-                                               }
    $("body").data("kendoMobilePane").navigate("views/enrol.html"); 
 }
 
@@ -1514,6 +1509,12 @@ function completeRedemption() {
         
                                            confirmEnrolPre
                                            :function() {
+                                               if (window.localStorage.setItem("enrolmentcomplete","1")){
+                                               navigator.notification.alert("This device is already registered with another member.  You cannot create a new Subscription.", function() {
+                                               }, "isme by Jumeirah" , "Dismiss");   
+                                                return;
+
+                                               }
                                                if (!this.firstname) {
                                                    navigator.notification.alert("Please enter your First Name. ", function() {
                                                    }, "isme by Jumeirah", "Dismiss")
