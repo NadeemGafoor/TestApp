@@ -1509,7 +1509,7 @@ function completeRedemption() {
         
                                            confirmEnrolPre
                                            :function() {  
-
+ alert(this.firstname);
                                                if (window.localStorage.getItem("enrolmentcomplete")==="1"){
                                                navigator.notification.alert("This device is already registered with another member.  You cannot create a new Subscription.", function() {
                                                }, "isme by Jumeirah" , "Dismiss");   
@@ -3207,7 +3207,7 @@ function completeRedemption() {
         
                                            savePIN      
                                            : function () {
-                                                alert(this.newpin1.length);
+                                               
                                                if (!this.pin1 || !this.pin2) {
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
