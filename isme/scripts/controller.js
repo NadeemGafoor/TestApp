@@ -6597,8 +6597,6 @@ function completeRedemption() {
                            }
                        },
                        error: function (error) {
-                           navigator.notification.alert("Platform Error, Services may not be available. [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
-                           }, "isme by Jumeirah", "Dismiss")
                        }
                    });
         }
