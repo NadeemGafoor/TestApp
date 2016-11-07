@@ -1501,7 +1501,11 @@ function completeRedemption() {
                                                window.localStorage.setItem("mfirstname", "");
                                                window.localStorage.setItem("mlastname", "");
                                                window.localStorage.setItem("memailid", "");
-                                               window.localStorage.setItem("mobilelogin", "");
+
+                                                if (window.localStorage.getItem("enrolmentcomplete")===null){
+                                                   window.localStorage.setItem("mobilelogin","");   
+
+                                               }
                                                hideSpin(); //hide loading popup
                                            },
         
@@ -3238,7 +3242,7 @@ function completeRedemption() {
                                                 if(String(this.pin2).length!=4){
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
-                                               $("body").data("kendoMobilePane").navigate("views/setpin.html"); 
+  
                                                    return;
 
                                                     
@@ -5201,7 +5205,7 @@ function completeRedemption() {
                                                     }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
-                                                  if(String(this.pin2).length!=4){
+                                                  if(String(this.newpin2).length!=4){
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
