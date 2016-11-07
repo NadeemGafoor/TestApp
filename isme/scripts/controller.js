@@ -1509,8 +1509,7 @@ function completeRedemption() {
         
                                            confirmEnrolPre
                                            :function() {  
-                                               mversion=this.pin2.value;
-                                               alert(mversion);
+                                             
                                                //alert(mn.length);
                                                if (window.localStorage.getItem("enrolmentcomplete")==="1"){
                                                navigator.notification.alert("This device is already registered with another member.  You cannot create a new Subscription.", function() {
@@ -2573,13 +2572,13 @@ function completeRedemption() {
                                                                   }else if (getData.statuscode === "047") {
                                                                       $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
                                                                   } else {
-                                                                      navigator.notification.alert("Platform Error. Please close the app and log in again. " + getData.statusText, function() {
+                                                                      navigator.notification.alert("Platform Error 1. Please close the app and log in again. " + getData.statusText, function() {
                                                                       }, "isme by Jumeirah", "Dismiss")          
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               },
                                                               error: function (errormsg) {
-                                                                  navigator.notification.alert("Platform Error. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                                  navigator.notification.alert("Platform Error 2. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
                                                                   }, "isme by Jumeirah", "Dismiss")
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -3232,8 +3231,11 @@ function completeRedemption() {
                                             
                                                    return;
                                                }
+                                               
+                                               
+                                               
 
-                                                if(preLogin.get("pin2").length!=4){
+                                                if(String(this.pin2).length!=4){
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                $("body").data("kendoMobilePane").navigate("views/setpin.html"); 
@@ -5199,7 +5201,7 @@ function completeRedemption() {
                                                     }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
-                                                 if(postLogin.get("newpin2").length!=4){
+                                                  if(String(this.pin2).length!=4){
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
