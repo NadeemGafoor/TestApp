@@ -1509,7 +1509,7 @@ function completeRedemption() {
         
                                            confirmEnrolPre
                                            :function() {  
-                                              alert(preLoginBack.get("firstname"));
+                                             
                                                //alert(mn.length);
                                                if (window.localStorage.getItem("enrolmentcomplete")==="1"){
                                                navigator.notification.alert("This device is already registered with another member.  You cannot create a new Subscription.", function() {
@@ -3226,6 +3226,13 @@ function completeRedemption() {
                                                    }, "isme by Jumeirah", "Dismiss");
                                                    return;
                                                }
+                                                if(preLogin.get("pin2").length!=4){
+                                                   navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+
+                                                    
+                                                }
                                            
                                                showSpin();
                                                if (window.localStorage.getItem("setpintype")=="0"){
@@ -5183,6 +5190,13 @@ function completeRedemption() {
                                                     navigator.notification.alert("PIN Numbers do not match, please re-enter a valid PIN number.", function() {
                                                     }, "isme by Jumeirah", "Dismiss");
                                                     return;
+                                                }
+                                                 if(postLogin.get("newpin2").length!=4){
+                                                   navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+
+                                                    
                                                 }
                                             window.localStorage.setItem("setpintype", "2");
                                                 showSpin();
