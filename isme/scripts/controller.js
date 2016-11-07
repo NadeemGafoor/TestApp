@@ -2510,7 +2510,12 @@ function completeRedemption() {
                                                var d = new Date();
                                                var n = d.getDate(); 
                                                var m = d.getMonth(); 
-
+       if(window.localStorage.getItem("mobilelogin") === null){
+                                                   window.localStorage.setItem("mobilelogin","");
+                                               }
+                                               if (window.localStorage.getItem("enrolmentcomplete")===null){
+                                                   window.localStorage.setItem("mobilelogin","");   
+                                               }
                                                if (window.localStorage.getItem("newinfo")===null && n<=20 && m===10){
                                                      $("#modalviewinfo").data("kendoMobileModalView").open();
                                                      //window.localStorage.setItem("newinfo","1");
@@ -2518,12 +2523,7 @@ function completeRedemption() {
                                                    }
                                                showSpin();
                                                clearAllVariables();
-                                               if(window.localStorage.getItem("mobilelogin") === null){
-                                                   window.localStorage.setItem("mobilelogin","");
-                                               }
-                                               if (window.localStorage.getItem("enrolmentcomplete")===null){
-                                                   window.localStorage.setItem("mobilelogin","");   
-                                               }
+                                        
                                                if (firsttime === "") { //Register Access and device in the platform
                                                    mdevice = device.model;
                                                    muuid = device.uuid;
@@ -2851,7 +2851,7 @@ function completeRedemption() {
                                                window.localStorage.setItem("setpintype", "1");
                                                preLogin.set("password","");
                                                preLogin.set("username","");
-                                                if (window.localStorage.getItem("mobilelogin")!=null){
+                                                if (window.localStorage.getItem("mobilelogin").length>0){
                                                    preLogin.set("username","00"+window.localStorage.getItem("mobilelogin"));
                                                    document.getElementById("username").readOnly="true";
                                                     document.getElementById("username").style.color="#343232";
@@ -2868,13 +2868,11 @@ function completeRedemption() {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
                                                preLogin.set("smsnum", "");
-                                               
-                                                alert(window.localStorage.getItem("enrolmentcomplete"));
+                                               alert(window.localStorage.getItem("mobilelogin"));
                                                 if (window.localStorage.getItem("enrolmentcomplete")===null){
                                                 window.localStorage.setItem("mfirstname", "");
                                                window.localStorage.setItem("mlastname", "");
                                                window.localStorage.setItem("memailid", "");
-                                                alert(window.localStorage.getItem("mobilelogin"));
                                                 }
                                                
                                                $.ajax({ 
@@ -2928,6 +2926,7 @@ function completeRedemption() {
                                                        }, "isme by Jumeirah", "Dismiss");
                                                        return;
                                                    }
+                                                window.localStorage.set("mobilelogin",this.username);
                                                  $("body").data("kendoMobilePane").navigate("views/smsvalidation.html");
                                                },
         
