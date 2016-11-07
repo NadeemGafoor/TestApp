@@ -2503,10 +2503,9 @@ function completeRedemption() {
                                         
                                            varInit
                                            : function() {
-                                               
                                                if (window.localStorage.getItem("newinfo")===null){
                                                      $("#modalviewinfo").data("kendoMobileModalView").open();
-                                                     
+                                                     window.localStorage.setItem("newinfo","1");
                                                    }
                                                showSpin();
                                                clearAllVariables();
