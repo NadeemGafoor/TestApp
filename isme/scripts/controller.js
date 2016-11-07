@@ -353,6 +353,10 @@ function closeModalMap() {
     $("#modalviewmap").data("kendoMobileModalView").close();
 }    
 
+function closeInforPage() {
+    $("#modalviewinfo").data("kendoMobileModalView").close();
+} 
+
 function closeModalMapA() {
     $("#modalviewmapA").data("kendoMobileModalView").close();
 }  
@@ -2499,6 +2503,11 @@ function completeRedemption() {
                                         
                                            varInit
                                            : function() {
+                                               
+                                               if (window.localStorage.getItem("newinfo")===null){
+                                                     $("#modalviewinfo").data("kendoMobileModalView").open();
+                                                     
+                                                   }
                                                showSpin();
                                                clearAllVariables();
                                                
