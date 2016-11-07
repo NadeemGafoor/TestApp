@@ -2508,11 +2508,12 @@ function completeRedemption() {
                                            varInit
                                            : function() {
                                                var d = new Date();
-var n = d.getDate(); 
+                                               var n = d.getDate(); 
+                                               var m = d.getMonth(); 
 
-                                               if (window.localStorage.getItem("newinfo")===null && n<=20){
+                                               if (window.localStorage.getItem("newinfo")===null && n<=20 && m===10){
                                                      $("#modalviewinfo").data("kendoMobileModalView").open();
-                                                     window.localStorage.setItem("newinfo","1");
+                                                     //window.localStorage.setItem("newinfo","1");
                                                    return;
                                                    }
                                                showSpin();
