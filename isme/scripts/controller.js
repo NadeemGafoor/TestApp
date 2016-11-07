@@ -2518,7 +2518,6 @@ function completeRedemption() {
                                                    }
                                                showSpin();
                                                clearAllVariables();
-                                               
                                                if(window.localStorage.getItem("mobilelogin") === null){
                                                    window.localStorage.setItem("mobilelogin","");
                                                }
@@ -2852,7 +2851,7 @@ function completeRedemption() {
                                                window.localStorage.setItem("setpintype", "1");
                                                preLogin.set("password","");
                                                preLogin.set("username","");
-                                                if (window.localStorage.getItem("mobilelogin").length>0){
+                                                if (window.localStorage.getItem("mobilelogin")!=null){
                                                    preLogin.set("username","00"+window.localStorage.getItem("mobilelogin"));
                                                    document.getElementById("username").readOnly="true";
                                                     document.getElementById("username").style.color="#343232";
@@ -2869,6 +2868,12 @@ function completeRedemption() {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
                                                preLogin.set("smsnum", "");
+
+                                                if (window.localStorage.getItem("enrolmentcomplete")===null){
+                                                window.localStorage.setItem("mfirstname", "");
+                                               window.localStorage.setItem("mlastname", "");
+                                               window.localStorage.setItem("memailid", "");
+                                               }
                                                $.ajax({ 
                                                           type: "POST",
                                                           cache:false,
@@ -2943,12 +2948,8 @@ function completeRedemption() {
                                                        return;
                                                    }
                                            
-                                               if(window.localStorage.getItem("mobilelogin").length===0){
-                                                 
-                                                   window.localStorage.setItem("mobilelogin",this.username);
-                                               }
-                                              
-                                                   customer =  window.localStorage.getItem("mobilelogin");
+                                                                                          
+                                                   customer = this.username
                                                    password = this.password;
 
                                            
