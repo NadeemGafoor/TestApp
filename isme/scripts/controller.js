@@ -3212,23 +3212,29 @@ function completeRedemption() {
                                                if (!this.pin1 || !this.pin2) {
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
+                                              
+
                                                    return;
                                                }
                                                
                                                  if (isNaN(this.pin1) || isNaN(this.pin2)) {
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
+                                                
+  
                                                    return;
                                                }
                                                
                                                if (this.pin1 != this.pin2) {
                                                    navigator.notification.alert("PIN Numbers do not match, please re-enter a valid PIN.", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
+                                            
                                                    return;
                                                }
                                                 if(preLogin.get("pin2").length!=4){
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
+                                               $("body").data("kendoMobilePane").navigate("views/setpin.html"); 
                                                    return;
 
                                                     
@@ -5178,7 +5184,7 @@ function completeRedemption() {
                                                 hideSpin(); //hide loading popup
                                             }
                                             ,
-                                            plsavePIN 
+                                            plsavePIN   
                                             : function () {
                                                
                                                 if (!this.newpin1 || !this.newpin2) {
