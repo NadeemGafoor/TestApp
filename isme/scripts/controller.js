@@ -2512,7 +2512,7 @@ var n = d.getDate();
 
                                                if (window.localStorage.getItem("newinfo")===null && n<=20){
                                                      $("#modalviewinfo").data("kendoMobileModalView").open();
-                                                     //window.localStorage.setItem("newinfo","1");
+                                                     window.localStorage.setItem("newinfo","1");
                                                    return;
                                                    }
                                                showSpin();
