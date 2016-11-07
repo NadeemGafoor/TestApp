@@ -353,9 +353,7 @@ function closeModalMap() {
     $("#modalviewmap").data("kendoMobileModalView").close();
 }    
 
-function closeInforPage() {
-    $("#modalviewinfo").data("kendoMobileModalView").close();
-} 
+
 
 function closeModalMapA() {
     $("#modalviewmapA").data("kendoMobileModalView").close();
@@ -2500,12 +2498,19 @@ function completeRedemption() {
                                                       });
                                            },
          
-                                        
+                                          closeInfoPage
+                                           : function() {
+                                               
+                                             
+    $("#modalviewinfo").data("kendoMobileModalView").close();
+                                            preLogin.varinit
+                                               },
                                            varInit
                                            : function() {
                                                if (window.localStorage.getItem("newinfo")===null){
                                                      $("#modalviewinfo").data("kendoMobileModalView").open();
-                                                     window.localStorage.setItem("newinfo","1");
+                                                     //window.localStorage.setItem("newinfo","1");
+                                                   return;
                                                    }
                                                showSpin();
                                                clearAllVariables();
