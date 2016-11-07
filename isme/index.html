@@ -392,12 +392,14 @@
 
         </div>
         
-          <div data-role="modalview" id="modalviewinfo" data-title="Map"  style="height:100%;width:100%">
-             <div class="info-page">
-                 Dear Existing Members,  Please use your mobile number as your login ID and your existing 4 digit redemption PIN to login to isme by Jumeirah. For queries please contact 800ISME(800 4763). <br/>Thank You
+          <div data-role="modalview" id="modalviewinfo" data-title=""  style="height:100%;width:100%"  data-model="preLogin">
+             <div class="info-page logo-top">
+                 <div style="padding:20px">Dear Existing Members. <br/><br/>  Please use your mobile number as your login ID and your existing 4 digit redemption PIN to login to isme by Jumeirah.<br/><br/>For queries please contact 800ISME(800 4763). <br/><br/>Thank You</div>
             </div>
-            <div class="button-frame-inline-modal">
-                <a data-role="button" data-click="closeInfoPage">Continue</a>
+               <div class="filler10">&nbsp;</div>
+              
+            <div class="button-frame">
+                <a data-role="button" data-bind="click: closeInfoPage" style="font-size:125%;color:#fff;background-color:#eb046d">Continue</a>
             </div>
           
 

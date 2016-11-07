@@ -110,7 +110,7 @@ a
 
 #modalviewinfo .km-content
 {
-    background-color:rgba(0,0,0,0.6);
+    background-color:rgba(255,255,255,1);
 }
 
 #outletlist-theme .km-content,
@@ -2465,14 +2465,14 @@ tile-frame-inner
 
 .info-page
 {
-    height:300px;
-    width:auto;
-    color:#fff;
-    margin-top:40px;
-    font-size:300%;
+
+    color:#000;
+    margin-top:50px;
+    font-size:150%;
     font-weight:bold;
+    line-height:1.7em;
     text-align:center;
-    
+
 }
 
 .home-page-holder

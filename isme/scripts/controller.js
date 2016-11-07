@@ -2503,7 +2503,7 @@ function completeRedemption() {
                                                
                                              
     $("#modalviewinfo").data("kendoMobileModalView").close();
-                                            preLogin.varinit
+                                            preLogin.varinit;
                                                },
                                            varInit
                                            : function() {
