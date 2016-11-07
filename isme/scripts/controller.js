@@ -1509,7 +1509,8 @@ function completeRedemption() {
         
                                            confirmEnrolPre
                                            :function() {  
-                                             alert(this.firstname.value.length);
+                                              alert(preLoginBack.get("firstname"));
+                                               //alert(mn.length);
                                                if (window.localStorage.getItem("enrolmentcomplete")==="1"){
                                                navigator.notification.alert("This device is already registered with another member.  You cannot create a new Subscription.", function() {
                                                }, "isme by Jumeirah" , "Dismiss");   
