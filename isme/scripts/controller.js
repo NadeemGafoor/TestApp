@@ -2547,17 +2547,7 @@ function completeRedemption() {
                                                                
                                                                   if (getData.statuscode === "000") {
                                                                       
-                                                                      if (getData.deviceexist === "1" && window.localStorage.getItem("newinfo")!="1"){
-                                                                          navigator.notification.alert("Dear Member,  Please use your mobile number as your login ID and your 4 digit redemption PIN to login to isme by Jumeirah. Thank you. For queries please contact " + enrollmenttelephone, function() {
-                                                                          }, "isme by Jumeirah", "Dismiss")
-                                                                           if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
-                                                                          postLogin.logMeOut();
-                                                                               }
-                                                                          window.localStorage.setItem("newinfo","1");
-                                                                          hideSpin(); //hide loading popup
-                                                                          }
-                                                                      window.localStorage.setItem("newinfo","1");
-                                                                      
+                                                                    
                                                                       //  firsttime = "1";  
                                                                       googleapikey = getData.googleapikey;  
                                                                       city = getData.citycode;

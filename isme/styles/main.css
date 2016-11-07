@@ -108,7 +108,10 @@ a
     -webkit-background-size: cover;
 }
 
-
+#modalviewinfo .km-content
+{
+    background-color:rgba(0,0,0,0.6);
+}
 
 #outletlist-theme .km-content,
 #outletlistb-theme .km-content,
@@ -2465,7 +2468,11 @@ tile-frame-inner
     height:300px;
     width:auto;
     color:#fff;
-    background-color:rgba(0,0,0,0.7);
+    margin-top:40px;
+    font-size:300%;
+    font-weight:bold;
+    text-align:center;
+    
 }
 
 .home-page-holder
