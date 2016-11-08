@@ -6848,6 +6848,7 @@ function completeRedemption() {
                            homecountryname = getData.homecountryname;
                            residentcityname = getData.residentcityname;
                            //set Local Storage as cookies to retain login
+                           window.localStorage.setItem("enrolmentcomplete", "1");
                            window.localStorage.setItem("customer", customer);
                            window.localStorage.setItem("mobilelogin", mobilenumber);
                            window.localStorage.setItem("customername", customername);
