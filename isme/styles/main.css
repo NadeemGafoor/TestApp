@@ -2839,10 +2839,11 @@ tile-frame-inner
 
 .button-frame-inline-home .km-button
 {
+    float:none;
+    position:relative;
     line-height: 2.2em;
     width: 49.5%;
     display: inline-block;
-    vertical-align: middle;
     text-align: center;
     font-size:125%;
     color: #fff;
