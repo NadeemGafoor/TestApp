@@ -2940,7 +2940,7 @@ function completeRedemption() {
                                                           url: gurl + "/validateUser.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,customer:customer,password:password,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification"),mmagicnumber:"",fbuserid:window.localStorage.getItem("FBuserID"),loginmode:window.localStorage.getItem("loginmode")
+                                                                                   merchantcode :merchant,customer:customer,password:password,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification"),mmagicnumber:"Y",fbuserid:window.localStorage.getItem("FBuserID"),loginmode:window.localStorage.getItem("loginmode")
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
