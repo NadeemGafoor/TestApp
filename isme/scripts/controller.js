@@ -2514,7 +2514,7 @@ function completeRedemption() {
                                                    window.localStorage.setItem("faqcategory", "");
                                                    window.localStorage.setItem("loginmode", "");
                                                    window.localStorage.setItem("static_social_msg", static_social_msg);
-                                                   alert(window.localStorage.getItem("merchant"));
+                                                  
                                                    fbCleanVariables();
                                                    noAlcoholCountry();
                                                    $.ajax({    
