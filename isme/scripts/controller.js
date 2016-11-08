@@ -2538,6 +2538,7 @@ function completeRedemption() {
                                                                       positiono = getData.position.split(",");
                                                                       lat = positiono[0];
                                                                       lon = positiono[1];
+                                                                      window.localStorage.setItem("activateinfo", getData.activateInfo);
                                                                       window.localStorage.setItem("latl", lat);
                                                                       window.localStorage.setItem("lonl", lon);
                                                                       window.localStorage.setItem("isfenceset", "0");
@@ -2808,10 +2809,8 @@ function completeRedemption() {
                                                        window.localStorage.setItem("isfenceset", "1");
                                                    }
                                                }
-                                               var d = new Date();
-                                               var n = d.getDate(); 
-                                               var m = d.getMonth(); 
-                                               if (window.localStorage.getItem("newinfo")===null && n <= 20 && m===10) {
+
+                                               if (window.localStorage.getItem("newinfo")===null &&  window.localStorage.getItem("activateinfo")==="1") {
                                                    $("#modalviewinfo").data("kendoMobileModalView").open();
                                                }
                                                
