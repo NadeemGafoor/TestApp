@@ -103,12 +103,11 @@ function loadRewards() {
 }
 
 function loadLogin() {
-      $("body").data("kendoMobilePane").navigate("views/login.html"); 
+    $("body").data("kendoMobilePane").navigate("views/login.html"); 
 }
 
 function loadEnrol() {
-
-   $("body").data("kendoMobilePane").navigate("views/enrol.html"); 
+    $("body").data("kendoMobilePane").navigate("views/enrol.html"); 
 }
 
 function faceBookClick() {
@@ -328,9 +327,8 @@ function closeFAQView() {
 }
 
 function enterPinForRedemption() {
-  
     window.localStorage.setItem("selfredeem", "D"); 
-   $("#modalviewenterpin").data("kendoMobileModalView").open(); 
+    $("#modalviewenterpin").data("kendoMobileModalView").open(); 
 }
 
 function openEnterModalPassword() {
@@ -352,8 +350,6 @@ function closeStaffPinForRedemption() {
 function closeModalMap() {
     $("#modalviewmap").data("kendoMobileModalView").close();
 }    
-
-
 
 function closeModalMapA() {
     $("#modalviewmapA").data("kendoMobileModalView").close();
@@ -764,7 +760,7 @@ function completeRedemption() {
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
-    var formattedmobile="";
+    var formattedmobile = "";
     var displaybirthdate = "";
     var password = "";
     var segmentcode = "";
@@ -1504,9 +1500,8 @@ function completeRedemption() {
                                                window.localStorage.setItem("mlastname", "");
                                                window.localStorage.setItem("memailid", "");
 
-                                                if (window.localStorage.getItem("enrolmentcomplete")===null){
-                                                   window.localStorage.setItem("mobilelogin","");   
-
+                                               if (window.localStorage.getItem("enrolmentcomplete")===null) {
+                                                   window.localStorage.setItem("mobilelogin", "");   
                                                }
                                                hideSpin(); //hide loading popup
                                            },
@@ -1515,13 +1510,11 @@ function completeRedemption() {
         
                                            confirmEnrolPre
                                            :function() {  
-                                             
                                                //alert(mn.length);
-                                               if (window.localStorage.getItem("enrolmentcomplete")==="1"){
-                                               navigator.notification.alert("This device is already registered with another member.  You cannot create a new Subscription.", function() {
-                                               }, "isme by Jumeirah" , "Dismiss");   
-                                                return;
-
+                                               if (window.localStorage.getItem("enrolmentcomplete")==="1") {
+                                                   navigator.notification.alert("This device is already registered with another member.  You cannot create a new Subscription.", function() {
+                                                   }, "isme by Jumeirah" , "Dismiss");   
+                                                   return;
                                                }
                                                if (!this.firstname) {
                                                    navigator.notification.alert("Please enter your First Name. ", function() {
@@ -1559,7 +1552,7 @@ function completeRedemption() {
                                                    return;
                                                }
                                                
-                                                  showSpin();
+                                               showSpin();
                                                window.localStorage.setItem("smsreference", ""); 
                                                window.localStorage.setItem("mfirstname", this.firstname);
                                                window.localStorage.setItem("mlastname", this.lastname);
@@ -1567,25 +1560,9 @@ function completeRedemption() {
                                                window.localStorage.setItem("mobilelogin", this.mobile);
                                                window.localStorage.setItem("setpintype", "0"); //enrollment
                                              
-                                             
-                                                                    //Assign variables to localstorage for later update
+                                               //Assign variables to localstorage for later update
                                                
-                                               window.setTimeout(window.plugins.nativepagetransitions.slide({
-                                                                                                                "duration"         :  500, // in milliseconds (ms), default 400
-                                                                                                                "slowdownfactor"   :    3, // overlap views (higher number is more) or no overlap (1), default 4
-                                                                                                                "iosdelay"         :  100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-                                                                                                                "androiddelay"     :  150, // same as above but for Android, default 70
-
-                                                                                                                'direction': 'up',
-                                                                                                                'href': '#views/smsvalidation.html'
-                                                                                                            }), 500);
-                                                          
-                                               
-                                               
-                                               
-                                               
-                                               
-                                             
+                                               $("body").data("kendoMobilePane").navigate("views/smsvalidation.html");
                                            },
         
                                            confirmEnrol
@@ -2498,29 +2475,20 @@ function completeRedemption() {
                                                       });
                                            },
          
-                                          closeInfoPage
+                                           closeInfoPage
                                            : function() {
-                                               
-                                             
-    $("#modalviewinfo").data("kendoMobileModalView").close();
-                                            preLogin.varinit;
-                                               },
+                                               //window.localStorage.setItem("newinfo", "1");
+                                               $("#modalviewinfo").data("kendoMobileModalView").close();
+                                           },
                                            varInit
                                            : function() {
-                                               var d = new Date();
-                                               var n = d.getDate(); 
-                                               var m = d.getMonth(); 
-       if(window.localStorage.getItem("mobilelogin") === null){
-                                                   window.localStorage.setItem("mobilelogin","");
+                                               if (window.localStorage.getItem("mobilelogin") === null) {
+                                                   window.localStorage.setItem("mobilelogin", "");
                                                }
-                                               if (window.localStorage.getItem("enrolmentcomplete")===null){
-                                                   window.localStorage.setItem("mobilelogin","");   
+                                               if (window.localStorage.getItem("enrolmentcomplete")===null) {
+                                                   window.localStorage.setItem("mobilelogin", "");   
                                                }
-                                               if (window.localStorage.getItem("newinfo")===null && n<=20 && m===10){
-                                                     $("#modalviewinfo").data("kendoMobileModalView").open();
-                                                     //window.localStorage.setItem("newinfo","1");
-                                                   return;
-                                                   }
+    
                                                showSpin();
                                                clearAllVariables();
                                         
@@ -2546,6 +2514,7 @@ function completeRedemption() {
                                                    window.localStorage.setItem("faqcategory", "");
                                                    window.localStorage.setItem("loginmode", "");
                                                    window.localStorage.setItem("static_social_msg", static_social_msg);
+                                                   alert(window.localStorage.getItem("merchant"));
                                                    fbCleanVariables();
                                                    noAlcoholCountry();
                                                    $.ajax({    
@@ -2562,8 +2531,6 @@ function completeRedemption() {
                                                                   var getData = JSON.parse(data);
                                                                
                                                                   if (getData.statuscode === "000") {
-                                                                      
-                                                                    
                                                                       //  firsttime = "1";  
                                                                       googleapikey = getData.googleapikey;  
                                                                       city = getData.citycode;
@@ -2841,6 +2808,12 @@ function completeRedemption() {
                                                        window.localStorage.setItem("isfenceset", "1");
                                                    }
                                                }
+                                               var d = new Date();
+                                               var n = d.getDate(); 
+                                               var m = d.getMonth(); 
+                                               if (window.localStorage.getItem("newinfo")===null && n <= 20 && m===10) {
+                                                   $("#modalviewinfo").data("kendoMobileModalView").open();
+                                               }
                                                
                                                hideSpin();
                                                return;
@@ -2849,18 +2822,18 @@ function completeRedemption() {
                                            loginInit
                                            :function() {
                                                window.localStorage.setItem("setpintype", "1");
-                                               preLogin.set("password","");
-                                               preLogin.set("username","");
-                                                if (window.localStorage.getItem("mobilelogin").length>0){
-                                                   preLogin.set("username","00"+window.localStorage.getItem("mobilelogin"));
-                                                   document.getElementById("username").readOnly="true";
-                                                    document.getElementById("username").style.color="#343232";
+                                               preLogin.set("password", "");
+                                               preLogin.set("username", "");
+                                               if (window.localStorage.getItem("mobilelogin").length > 0) {
+                                                   preLogin.set("username", "00" + window.localStorage.getItem("mobilelogin"));
+                                                   document.getElementById("username").readOnly = "true";
+                                                   document.getElementById("username").style.color = "#343232";
                                                }
                                            },   
                                            initToken
                                            :function() {
                                                preLogin.set("tokennum", "");
-                                               window.localStorage.setItem("setpintype","3");
+                                               window.localStorage.setItem("setpintype", "3");
                                            },
         
                                            initSMS  
@@ -2868,12 +2841,18 @@ function completeRedemption() {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
                                                preLogin.set("smsnum", "");
-                                               alert(window.localStorage.getItem("mobilelogin"));
-                                                if (window.localStorage.getItem("enrolmentcomplete")===null){
-                                                window.localStorage.setItem("mfirstname", "");
-                                               window.localStorage.setItem("mlastname", "");
-                                               window.localStorage.setItem("memailid", "");
-                                                }
+
+                                               if (window.localStorage.getItem("mfirstname") === null) {
+                                                   window.localStorage.setItem("mfirstname", "1");
+                                               }
+                                               
+                                               if (window.localStorage.getItem("mlastname") === null) {
+                                                   window.localStorage.setItem("mlastname", "2");
+                                               }
+                                               
+                                               if (window.localStorage.getItem("memailid") === null) {
+                                                   window.localStorage.setItem("memailid", "3");
+                                               }
                                                
                                                $.ajax({ 
                                                           type: "POST",
@@ -2884,6 +2863,7 @@ function completeRedemption() {
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
                                                                                    merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mobilelogin"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat
+                                                                                   // merchantcode :"JUMEI02000",firstname:"",lastname:"",mobile:window.localStorage.getItem("mobilelogin"),emailid:"",mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) {
                                                               var getData = JSON.parse(data);
@@ -2918,43 +2898,38 @@ function completeRedemption() {
                                                }
                                            },  
         
-                                            validateMobile
+                                           validateMobile
                                            : function () {
-                                             
-                                                   if (!this.username) {
-                                                       navigator.notification.alert("Please enter a valid Mobile number.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss");
-                                                       return;
-                                                   }
-                                                window.localStorage.set("mobilelogin",String(this.username));
-                                                 $("body").data("kendoMobilePane").navigate("views/smsvalidation.html");
-                                               },
+                                               if (!this.username) {
+                                                   navigator.notification.alert("Please enter a valid Mobile number.", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
+                                               window.localStorage.setItem("mobilelogin", String(this.username));
+                                               $("body").data("kendoMobilePane").navigate("views/smsvalidation.html");
+                                           },
         
                                            validateUser
                                            : function () {
-                                             
-                                                   if (!this.username) {
-                                                       navigator.notification.alert("Please enter a valid Mobile Number.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss");
-                                                       return;
-                                                   }
-                                                   if (!this.password) {
-                                                       navigator.notification.alert("Please enter a valid 4 digit numeric PIN", function() {
-                                                       }, "isme by Jumeirah", "Dismiss");
-                                                       return;
-                                                   }
+                                               if (!this.username) {
+                                                   navigator.notification.alert("Please enter a valid Mobile Number.", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
+                                               if (!this.password) {
+                                                   navigator.notification.alert("Please enter a valid 4 digit numeric PIN", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
                                                
-                                                   if (isNaN(this.password)) {
-                                                       navigator.notification.alert("Please enter a valid 4 digit numeric PIN", function() {
-                                                       }, "isme by Jumeirah", "Dismiss");
-                                                       return;
-                                                   }
-                                           
+                                               if (isNaN(this.password)) {
+                                                   navigator.notification.alert("Please enter a valid 4 digit numeric PIN", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
                                                                                           
-                                                   customer = this.username
-                                                   password = this.password;
-
-                                           
+                                               customer = this.username
+                                               password = this.password;
 
                                                showSpin();
                                                $.ajax({ 
@@ -2983,7 +2958,7 @@ function completeRedemption() {
                                                                   cusqr = getData.qrurl;
                                                                   emailid = getData.emailid;
                                                                   mobilenumber = getData.mobilenumber;
-                                                                  formattedmobile="00" + mobilenumber;
+                                                                  formattedmobile = "00" + mobilenumber;
                                                                   memberexpiry = getData.memberexpiry; 
                                                                   segmentimage = getData.segmentimage; 
                                                                   pushoffer = getData.pushoffer;
@@ -3007,7 +2982,7 @@ function completeRedemption() {
                                                                   homecountryname = getData.homecountryname;
                                                                   residentcityname = getData.residentcityname;
                                                                   //set Local Storage as cookies to retain login
-                                                                  window.localStorage.setItem("enrolmentcomplete","1");
+                                                                  window.localStorage.setItem("enrolmentcomplete", "1");
                                                                   window.localStorage.setItem("mobilelogin", mobilenumber);
                                                                   window.localStorage.setItem("customer", customer);
                                                                   window.localStorage.setItem("customername", customername);
@@ -3151,17 +3126,17 @@ function completeRedemption() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") { //Login Successful  
-                                                                 // if (getData.pinnumber.length > 0) {
-                                                                      password = getData.certificate;
-                                                                      window.localStorage.setItem("password", password); //Get and Store Certificate
-                                                                      window.localStorage.setItem("loggedin", "1");
+                                                                  // if (getData.pinnumber.length > 0) {
+                                                                  password = getData.certificate;
+                                                                  window.localStorage.setItem("password", password); //Get and Store Certificate
+                                                                  window.localStorage.setItem("loggedin", "1");
                                                   
-                                                                      $("body").data("kendoMobilePane").navigate("views/pl-explore.html"); 
+                                                                  $("body").data("kendoMobilePane").navigate("views/pl-explore.html"); 
                                                                                                                                 
-                                                                      hideSpin(); //hide loading popup
-                                                               //   }else {
-                                                              //        $("body").data("kendoMobilePane").navigate("views/setpin.html");  
-                                                             //     }
+                                                                  hideSpin(); //hide loading popup
+                                                                  //   }else {
+                                                                  //        $("body").data("kendoMobilePane").navigate("views/setpin.html");  
+                                                                  //     }
                                                               }else {
                                                                   navigator.notification.alert("Login failed. Please try entering your login details again. " + getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")         
@@ -3178,7 +3153,7 @@ function completeRedemption() {
         
         
         
-                                         validateSMS
+                                           validateSMS
                                            : function () {
                                                if (!this.smsnum) {
                                                    navigator.notification.alert("Please enter a valid Code received on SMS. ", function() {
@@ -3199,12 +3174,11 @@ function completeRedemption() {
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
                                                               if (getData.statuscode == "000") {  
-                                                                     window.localStorage.setItem("smsreference","");
-                                                                  if (window.localStorage.getItem("setpintype")=="3"){
-                                                                     $("body").data("kendoMobilePane").navigate("views/pl-explore.html");  
-                                                              }else{
-                                                                   $("body").data("kendoMobilePane").navigate("views/setpin.html");  
-                                                                  
+                                                                  window.localStorage.setItem("smsreference", "");
+                                                                  if (window.localStorage.getItem("setpintype") == "3") {
+                                                                      $("body").data("kendoMobilePane").navigate("views/pl-explore.html");  
+                                                                  }else {
+                                                                      $("body").data("kendoMobilePane").navigate("views/setpin.html");  
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("The Validation Code entered is incorrect, please enter the correct Validation Code.", function() {
@@ -3222,19 +3196,16 @@ function completeRedemption() {
         
                                            savePIN      
                                            : function () {
-                                               
                                                if (!this.pin1 || !this.pin2) {
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
-                                              
 
                                                    return;
                                                }
                                                
-                                                 if (isNaN(this.pin1) || isNaN(this.pin2)) {
+                                               if (isNaN(this.pin1) || isNaN(this.pin2)) {
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
-                                                
   
                                                    return;
                                                }
@@ -3245,28 +3216,22 @@ function completeRedemption() {
                                             
                                                    return;
                                                }
-                                               
-                                               
-                                               
 
-                                                if(String(this.pin2).length!=4){
+                                               if (String(this.pin2).length != 4) {
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                    }, "isme by Jumeirah", "Dismiss");
   
                                                    return;
-
-                                                    
-                                                }
+                                               }
                                            
                                                showSpin();
-                                               if (window.localStorage.getItem("setpintype")=="0"){
+                                               if (window.localStorage.getItem("setpintype") == "0") {
                                                    doExecute(this.pin2);
-                                               }else if (window.localStorage.getItem("setpintype")=="1"){
+                                               }else if (window.localStorage.getItem("setpintype") == "1") {
                                                    createPIN(this.pin2, "0");
-                                                   }
-                                                 preLogin.set("pin1", "");
-                                                 preLogin.set("pin2", ""); 
-                                            
+                                               }
+                                               preLogin.set("pin1", "");
+                                               preLogin.set("pin2", ""); 
                                            },
     
                                            requestPasswordChangeURL:
@@ -3475,11 +3440,10 @@ function completeRedemption() {
         
         
         
-         enterPinForRedemption:function() {
-  
-    window.localStorage.setItem("selfredeem", "D"); 
-   $("#modalviewenterpin").data("kendoMobileModalView").open(); 
-},
+                                            enterPinForRedemption:function() {
+                                                window.localStorage.setItem("selfredeem", "D"); 
+                                                $("#modalviewenterpin").data("kendoMobileModalView").open(); 
+                                            },
                                            
                                             closeOfferFilterView1:function() {
                                                 window.localStorage.setItem("mcategory", ""); 
@@ -3511,15 +3475,15 @@ function completeRedemption() {
                                                 }
                                             },
         
-         destroydiscountpinmember:function() {
+                                            destroydiscountpinmember:function() {
                                                 $("#modalviewenterpin").remove();
                                             },
         
-         destroydiscountpinstaff:function() {
+                                            destroydiscountpinstaff:function() {
                                                 $("#modalviewstaffpin").remove();
                                             },
         
-          destroyhowitworks:function() {
+                                            destroyhowitworks:function() {
                                                 $("#pl-howitworks").remove();
                                             },
                                             destroyplaboutisme:function() {
@@ -3629,7 +3593,7 @@ function completeRedemption() {
                                             },             
         
            
-          homeViewDestroy:function() {
+                                            homeViewDestroy:function() {
                                                 //doOneBack();
                                                 $("#pl-explore-view").remove();
                                             },  
@@ -3701,7 +3665,6 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
-                                                                 
                                                                    window.localStorage.setItem("spend", getData.spenda);
                                                                    window.localStorage.setItem("maxspend", getData.maxspend);
                                                                    window.localStorage.setItem("spendmb", getData.spendbalance);
@@ -4784,7 +4747,7 @@ function completeRedemption() {
                                                     return;
                                                 }
                                                 window.localStorage.setItem("selfredeem", "M"); 
-                                               $("body").data("kendoMobilePane").navigate("views/pl-discountpinmember.html"); 
+                                                $("body").data("kendoMobilePane").navigate("views/pl-discountpinmember.html"); 
                                             },
         
                                             confirmIssueResponse
@@ -5022,7 +4985,7 @@ function completeRedemption() {
                                                 window.localStorage.setItem("isset", "0");
                                                 listCity("UAE", document.getElementById("selCity"));  
                                                 postLogin.set("emailid1", window.localStorage.getItem("emailid"));
-                                                postLogin.set("mobile1",formattedmobile);
+                                                postLogin.set("mobile1", formattedmobile);
                                                 postLogin.set("date1", window.localStorage.getItem("birthdate"));
                                                 postLogin.set("hotelnumber1", window.localStorage.getItem("magicnumber"));
                                                 window.localStorage.setItem("selfredeem", "D"); 
@@ -5163,7 +5126,7 @@ function completeRedemption() {
                                                     }, "isme by Jumeirah", "Dismiss")  
                                                     return;
                                                 }
-                                                  if (isNaN(this.setpass)) {
+                                                if (isNaN(this.setpass)) {
                                                     navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
                                                     }, "isme by Jumeirah", "Dismiss")  
                                                     return;
@@ -5204,7 +5167,6 @@ function completeRedemption() {
                                             ,
                                             plsavePIN   
                                             : function () {
-                                               
                                                 if (!this.newpin1 || !this.newpin2) {
                                                     navigator.notification.alert("Invalid PIN Number. Please re-enter a valid PIN number. ", function() {
                                                     }, "isme by Jumeirah", "Dismiss");
@@ -5215,31 +5177,25 @@ function completeRedemption() {
                                                     }, "isme by Jumeirah", "Dismiss");
                                                     return;
                                                 }
-                                                  if(String(this.newpin2).length!=4){
-                                                   navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
-                                                   return;
-
-                                                    
+                                                if (String(this.newpin2).length != 4) {
+                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
+                                                    }, "isme by Jumeirah", "Dismiss");
+                                                    return;
                                                 }
-                                            window.localStorage.setItem("setpintype", "2");
+                                                window.localStorage.setItem("setpintype", "2");
                                                 showSpin();
                                                 createPIN(this.newpin2, "0");
                                                 postLogin.set("newpin1", "");
                                                 postLogin.set("newpin2", ""); 
                                             },
-            initStaffPIN 
+                                            initStaffPIN 
                                             : function () {
-                                              
                                                 postLogin.set("depin1", "");
-
                                             },
         
-          initMemberPIN 
+                                            initMemberPIN 
                                             : function () {
-                                              
                                                 postLogin.set("srpin1", "");
-
                                             },
         
                                             validateredemptionpin
@@ -5291,7 +5247,7 @@ function completeRedemption() {
                                                 } else if (window.localStorage.getItem("selfredeem")==="M") {
                                                     redeemVoucher();
                                                 } else {
-                                                   redeemDiscount();
+                                                    redeemDiscount();
                                                 }
                                             },
         
@@ -5448,7 +5404,7 @@ function completeRedemption() {
                                                 document.getElementById("mycard-qrt").style.backgroundSize = "cover";      
                                             },
         
-                                                    showCard9
+                                            showCard9
                                             : function () {
                                                 changeCard();
                                                 window.localStorage.setItem("selfredeem", "D"); 
@@ -6001,24 +5957,23 @@ function completeRedemption() {
                    url: gurl + "/savePIN.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                         merchantcode :merchant,customer:window.localStorage.getItem("mobilelogin"),token:x,mdevice:window.localStorage.getItem("mdevicestat"),mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
+                                            merchantcode :merchant,customer:window.localStorage.getItem("mobilelogin"),token:x,mdevice:window.localStorage.getItem("mdevicestat"),mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,validatetype:""
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
                                          
                        if (getData.statuscode == "000") { //Login Successful  
-                              window.localStorage.setItem("mobilelogin",window.localStorage.getItem("mobilelogin"));
-                               if (window.localStorage.getItem("setpintype")=="1"){
-
-                                                   firstlogin(window.localStorage.getItem("mobilelogin"),x);
-                               } if (window.localStorage.getItem("setpintype")=="2"){
+                           window.localStorage.setItem("mobilelogin", window.localStorage.getItem("mobilelogin"));
+                           if (window.localStorage.getItem("setpintype") == "1") {
+                               firstlogin(window.localStorage.getItem("mobilelogin"), x);
+                           }
+                           if (window.localStorage.getItem("setpintype") == "2") {
+                               navigator.notification.alert("PIN changes successfully", function() {
+                               }, "isme by Jumeirah", "Dismiss") 
                                    
-                                   navigator.notification.alert("PIN changes successfully", function() {
-                           }, "isme by Jumeirah", "Dismiss") 
-                                   
-                           hideSpin(); //hide loading popup
-                                   $("#modalviewpin").data("kendoMobileModalView").close();
-                                   }
+                               hideSpin(); //hide loading popup
+                               $("#modalviewpin").data("kendoMobileModalView").close();
+                           }
                        }else {
                            navigator.notification.alert("Due to a system error, we are unable to set PIN. " + getData.statusdesc, function() {
                            }, "isme by Jumeirah", "Dismiss")         
@@ -6125,9 +6080,9 @@ function completeRedemption() {
                                    opt.text = getData.countrylist[i].countrycode;
                                    x.add(opt);
                                }  
-                               if (homecountry.length>0){
-                               document.getElementById("selCountry").value = homecountry;
-                                   }
+                               if (homecountry.length > 0) {
+                                   document.getElementById("selCountry").value = homecountry;
+                               }
                                hideSpin();
                            }else {
                                navigator.notification.alert("Unable to display country list. Please restart your app and try again. " + getData.statusdesc, function() {
@@ -6821,7 +6776,7 @@ function completeRedemption() {
                            window.localStorage.setItem("enrolmentcomplete", "1");
                            createPIN(m, "0");
                          
-                           firstlogin(window.localStorage.getItem("mobilelogin"),m);
+                           firstlogin(window.localStorage.getItem("mobilelogin"), m);
                      
                            hideSpin(); //hide loading popup
                        }else {
@@ -6841,164 +6796,164 @@ function completeRedemption() {
         return;
     }
     
-    function firstlogin(m,n){  
-      $.ajax({ 
-                                                          type: "POST",
-                                                          cache:false,
-                                                          async:true,
-                                                          timeout:20000,
-                                                          url: gurl + "/validateUser.aspx",
-                                                          contentType: "application/json; charset=utf-8",
-                                                          data: JSON.stringify({
-                                                                                   merchantcode :merchant,customer:m,password:n,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification"),mmagicnumber:"",fbuserid:window.localStorage.getItem("FBuserID"),loginmode:window.localStorage.getItem("loginmode")
-                                                                               }),
-                                                          success: function (data) { 
-                                                              var getData = JSON.parse(data);
+    function firstlogin(m, n) {  
+        $.ajax({ 
+                   type: "POST",
+                   cache:false,
+                   async:true,
+                   timeout:20000,
+                   url: gurl + "/validateUser.aspx",
+                   contentType: "application/json; charset=utf-8",
+                   data: JSON.stringify({
+                                            merchantcode :merchant,customer:m,password:n,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification"),mmagicnumber:"",fbuserid:window.localStorage.getItem("FBuserID"),loginmode:window.localStorage.getItem("loginmode")
+                                        }),
+                   success: function (data) { 
+                       var getData = JSON.parse(data);
                                                                 
-                                                              if (getData.statuscode == "000") { //Login Successful
-                                                                  customer = getData.customerid;
-                                                                  customername = getData.customername;
-                                                                  fullname = getData.fullname;
-                                                                  segmentcode = getData.segmentcode;
-                                                                  segmentname = getData.segmentname;
-                                                                  currency = getData.currency;
-                                                                  nationality = getData.nationality;
-                                                                  pointvalue = getData.pointvalue;
-                                                                  cuspict = getData.imageurl;
-                                                                  cusqr = getData.qrurl;
-                                                                  emailid = getData.emailid;
-                                                                  mobilenumber = getData.mobilenumber;  
-                                                                  formattedmobile="00" + window.localStorage.getItem("mobilelogin");
-                                                                  //"(+" + mobilenumber.substring(0,3)+") " + mobilenumber.substring(3,mobilenumber.length);
-                                                                  memberexpiry = getData.memberexpiry; 
-                                                                  segmentimage = getData.segmentimage; 
-                                                                  pushoffer = getData.pushoffer;
-                                                                  remindexpiry = getData.remindexpiry;
-                                                                  showprofile = getData.showprofile;
-                                                                  autolocation = getData.autolocation;
-                                                                  city = getData.city;
-                                                                  country = getData.country;
-                                                                  magicnumber = getData.magicnumber;
-                                                                  firstname = getData.firstname;
-                                                                  initdate = getData.initdate;
-                                                                  homecountry = getData.homecountry;
-                                                                  birthdate = getData.dateofbirth;
-                                                                  displaybirthdate = getData.displaydateofbirth;
-                                                                  residentcity = getData.residentcity;
-                                                                  pinnumber = getData.pinnumber;
-                                                                  spend = getData.spend;
-                                                                  maxspend = getData.maxspend;
-                                                                  fbid = getData.fbid;  
-                                                                  alcohol = getData.alcohol;
-                                                                  homecountryname = getData.homecountryname;
-                                                                  residentcityname = getData.residentcityname;
-                                                                  //set Local Storage as cookies to retain login
-                                                                  window.localStorage.setItem("customer", customer);
-                                                                  window.localStorage.setItem("mobilelogin", mobilenumber);
-                                                                  window.localStorage.setItem("customername", customername);
-                                                                  window.localStorage.setItem("segmentcode", segmentcode);
-                                                                  window.localStorage.setItem("segmentname", segmentname);
-                                                                  window.localStorage.setItem("currency", currency);
-                                                                  window.localStorage.setItem("nationality", nationality);
-                                                                  window.localStorage.setItem("pointvalue", pointvalue);
-                                                                  window.localStorage.setItem("cuspict", cuspict);
-                                                                  window.localStorage.setItem("cusqr", cusqr);
-                                                                  window.localStorage.setItem("emailid", emailid);
-                                                                  window.localStorage.setItem("mobilenumber", mobilenumber);  
-                                                                  window.localStorage.setItem("memberexpiry", memberexpiry); 
-                                                                  window.localStorage.setItem("segmentimage", segmentimage); 
-                                                                  window.localStorage.setItem("pushoffer", pushoffer);
-                                                                  window.localStorage.setItem("remindexpiry", remindexpiry);
-                                                                  window.localStorage.setItem("showprofile", showprofile);
-                                                                  window.localStorage.setItem("mdevice", mdevice);
-                                                                  window.localStorage.setItem("muuid", muuid);
-                                                                  window.localStorage.setItem("mversion", mversion);
-                                                                  window.localStorage.setItem("mplatform", mplatform);
-                                                                  window.localStorage.setItem("autolocation", autolocation);
-                                                                  window.localStorage.setItem("city", city);
-                                                                  window.localStorage.setItem("country", country);
-                                                                  window.localStorage.setItem("magicnumber", magicnumber);
-                                                                  window.localStorage.setItem("residentcity", residentcity);
-                                                                  window.localStorage.setItem("homecountry", homecountry);
-                                                                  window.localStorage.setItem("birthdate", birthdate);
-                                                                  window.localStorage.setItem("displaybirthdate", displaybirthdate);
-                                                                  window.localStorage.setItem("firstname", firstname);
-                                                                  window.localStorage.setItem("initdate", initdate);
-                                                                  window.localStorage.setItem("spend", spend);
-                                                                  window.localStorage.setItem("maxspend", maxspend);
-                                                                  window.localStorage.setItem("fbid", fbid);
-                                                                  window.localStorage.setItem("alcohol", alcohol);
-                                                                  window.localStorage.setItem("homecountryname", homecountryname);
-                                                                  window.localStorage.setItem("fullname", fullname);
-                                                                  window.localStorage.setItem("residentcityname", residentcityname);
+                       if (getData.statuscode == "000") { //Login Successful
+                           customer = getData.customerid;
+                           customername = getData.customername;
+                           fullname = getData.fullname;
+                           segmentcode = getData.segmentcode;
+                           segmentname = getData.segmentname;
+                           currency = getData.currency;
+                           nationality = getData.nationality;
+                           pointvalue = getData.pointvalue;
+                           cuspict = getData.imageurl;
+                           cusqr = getData.qrurl;
+                           emailid = getData.emailid;
+                           mobilenumber = getData.mobilenumber;  
+                           formattedmobile = "00" + window.localStorage.getItem("mobilelogin");
+                           //"(+" + mobilenumber.substring(0,3)+") " + mobilenumber.substring(3,mobilenumber.length);
+                           memberexpiry = getData.memberexpiry; 
+                           segmentimage = getData.segmentimage; 
+                           pushoffer = getData.pushoffer;
+                           remindexpiry = getData.remindexpiry;
+                           showprofile = getData.showprofile;
+                           autolocation = getData.autolocation;
+                           city = getData.city;
+                           country = getData.country;
+                           magicnumber = getData.magicnumber;
+                           firstname = getData.firstname;
+                           initdate = getData.initdate;
+                           homecountry = getData.homecountry;
+                           birthdate = getData.dateofbirth;
+                           displaybirthdate = getData.displaydateofbirth;
+                           residentcity = getData.residentcity;
+                           pinnumber = getData.pinnumber;
+                           spend = getData.spend;
+                           maxspend = getData.maxspend;
+                           fbid = getData.fbid;  
+                           alcohol = getData.alcohol;
+                           homecountryname = getData.homecountryname;
+                           residentcityname = getData.residentcityname;
+                           //set Local Storage as cookies to retain login
+                           window.localStorage.setItem("customer", customer);
+                           window.localStorage.setItem("mobilelogin", mobilenumber);
+                           window.localStorage.setItem("customername", customername);
+                           window.localStorage.setItem("segmentcode", segmentcode);
+                           window.localStorage.setItem("segmentname", segmentname);
+                           window.localStorage.setItem("currency", currency);
+                           window.localStorage.setItem("nationality", nationality);
+                           window.localStorage.setItem("pointvalue", pointvalue);
+                           window.localStorage.setItem("cuspict", cuspict);
+                           window.localStorage.setItem("cusqr", cusqr);
+                           window.localStorage.setItem("emailid", emailid);
+                           window.localStorage.setItem("mobilenumber", mobilenumber);  
+                           window.localStorage.setItem("memberexpiry", memberexpiry); 
+                           window.localStorage.setItem("segmentimage", segmentimage); 
+                           window.localStorage.setItem("pushoffer", pushoffer);
+                           window.localStorage.setItem("remindexpiry", remindexpiry);
+                           window.localStorage.setItem("showprofile", showprofile);
+                           window.localStorage.setItem("mdevice", mdevice);
+                           window.localStorage.setItem("muuid", muuid);
+                           window.localStorage.setItem("mversion", mversion);
+                           window.localStorage.setItem("mplatform", mplatform);
+                           window.localStorage.setItem("autolocation", autolocation);
+                           window.localStorage.setItem("city", city);
+                           window.localStorage.setItem("country", country);
+                           window.localStorage.setItem("magicnumber", magicnumber);
+                           window.localStorage.setItem("residentcity", residentcity);
+                           window.localStorage.setItem("homecountry", homecountry);
+                           window.localStorage.setItem("birthdate", birthdate);
+                           window.localStorage.setItem("displaybirthdate", displaybirthdate);
+                           window.localStorage.setItem("firstname", firstname);
+                           window.localStorage.setItem("initdate", initdate);
+                           window.localStorage.setItem("spend", spend);
+                           window.localStorage.setItem("maxspend", maxspend);
+                           window.localStorage.setItem("fbid", fbid);
+                           window.localStorage.setItem("alcohol", alcohol);
+                           window.localStorage.setItem("homecountryname", homecountryname);
+                           window.localStorage.setItem("fullname", fullname);
+                           window.localStorage.setItem("residentcityname", residentcityname);
                                                                  
-                                                                  pushSettings = {
-                                                                      iOS: {
-                                                                          badge: "true",
-                                                                          sound: "true",
-                                                                          alert: "true",
-                                                                          clearBadge: "true"
-                                                                      },
-                                                                      android: {
-                                                                          senderID: googleApiProjectNumber
-                                                                      },
-                                                                      wp8: {
-                                                                          channelName: 'EverlivePushChannel'
-                                                                      },
-                                                                      notificationCallbackIOS: onPushNotificationReceived,
-                                                                      notificationCallbackAndroid:onPushNotificationReceived,
-                                                                      notificationCallbackWP8: onPushNotificationReceived,
-                                                                      customParameters: {
-                                                                          Memberid: customer,
-                                                                          Merchant:merchant,
-                                                                          Segment:segmentcode,
-                                                                          devicecode:muuid
-                                                                      }
-                                                                  };
+                           pushSettings = {
+                               iOS: {
+                                   badge: "true",
+                                   sound: "true",
+                                   alert: "true",
+                                   clearBadge: "true"
+                               },
+                               android: {
+                                   senderID: googleApiProjectNumber
+                               },
+                               wp8: {
+                                   channelName: 'EverlivePushChannel'
+                               },
+                               notificationCallbackIOS: onPushNotificationReceived,
+                               notificationCallbackAndroid:onPushNotificationReceived,
+                               notificationCallbackWP8: onPushNotificationReceived,
+                               customParameters: {
+                                   Memberid: customer,
+                                   Merchant:merchant,
+                                   Segment:segmentcode,
+                                   devicecode:muuid
+                               }
+                           };
                                                                   
-                                                                  if (window.localStorage.getItem("notification")==="1") {
-                                                                      //Re-register the device with updates
-                                                                      currentDevice.getRegistration(function() {
-                                                                          currentDevice.unregister().then(function() {
-                                                                          }, function (err) {
-                                                                          });
-                                                                          currentDevice.enableNotifications(pushSettings, function (data) {
-                                                                              currentDevice.register(pushSettings, function (data) {
-                                                                              }, function (err) {
-                                                                              }); 
-                                                                          }, function (err) {
-                                                                          });
-                                                                      }, function(err) {
-                                                                      });
-                                                                      window.localStorage.setItem("notification", "1");
-                                                                  }
-                                                                  window.localStorage.setItem("loginmode", "");
-                                                                  window.localStorage.setItem("FBuserID", "");
-                                                                      password = getData.certificate;
-                                                                      window.localStorage.setItem("password", password);
-                                                                      window.localStorage.setItem("loggedin", "1");                                                                   
+                           if (window.localStorage.getItem("notification")==="1") {
+                               //Re-register the device with updates
+                               currentDevice.getRegistration(function() {
+                                   currentDevice.unregister().then(function() {
+                                   }, function (err) {
+                                   });
+                                   currentDevice.enableNotifications(pushSettings, function (data) {
+                                       currentDevice.register(pushSettings, function (data) {
+                                       }, function (err) {
+                                       }); 
+                                   }, function (err) {
+                                   });
+                               }, function(err) {
+                               });
+                               window.localStorage.setItem("notification", "1");
+                           }
+                           window.localStorage.setItem("loginmode", "");
+                           window.localStorage.setItem("FBuserID", "");
+                           password = getData.certificate;
+                           window.localStorage.setItem("password", password);
+                           window.localStorage.setItem("loggedin", "1");                                                                   
                                                                    
-                                                                      $("body").data("kendoMobilePane").navigate("views/pl-explore.html"); 
+                           $("body").data("kendoMobilePane").navigate("views/pl-explore.html"); 
                                                                 
-                                                                  hideSpin(); //hide loading popup
-                                                              }else {
-                                                                  navigator.notification.alert("Login failed. Please try entering your login details again. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")
-                                                                  window.localStorage.setItem("loginmode", "");
-                                                                  window.localStorage.setItem("FBuserID", "");
-                                                                  hideSpin(); //hide loading popup
-                                                              }
-                                                          },
-                                                          error: function (errormsg) {
-                                                              navigator.notification.alert("Login failed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
-                                                              window.localStorage.setItem("loginmode", "");
-                                                              window.localStorage.setItem("FBuserID", "");
+                           hideSpin(); //hide loading popup
+                       }else {
+                           navigator.notification.alert("Login failed. Please try entering your login details again. " + getData.statusdesc, function() {
+                           }, "isme by Jumeirah", "Dismiss")
+                           window.localStorage.setItem("loginmode", "");
+                           window.localStorage.setItem("FBuserID", "");
+                           hideSpin(); //hide loading popup
+                       }
+                   },
+                   error: function (errormsg) {
+                       navigator.notification.alert("Login failed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                       }, "isme by Jumeirah", "Dismiss")
+                       window.localStorage.setItem("loginmode", "");
+                       window.localStorage.setItem("FBuserID", "");
                                                               
-                                                              hideSpin(); //hide loading popup
-                                                          }
-                                                      });
-        }
+                       hideSpin(); //hide loading popup
+                   }
+               });
+    }
     
     function getRestaurantType(x, y) {
         $.ajax({ 
@@ -7541,7 +7496,6 @@ function completeRedemption() {
             }, "isme by Jumeirah", "Dismiss");
             return;
         }
-                                                
            
         if (document.getElementById("selCity").value === "") {
             navigator.notification.alert("Select Resident City", function() {
@@ -7859,8 +7813,8 @@ function completeRedemption() {
          
         if (window.localStorage.getItem("segmentcode") === "1000") {
             document.getElementById("profile-type-p").innerHTML = "isme";
-          //  document.getElementById("post-redeem").style.backgroundColor = "#000";
-          //  document.getElementById("post-redeem").style.color = "#fff";
+            //  document.getElementById("post-redeem").style.backgroundColor = "#000";
+            //  document.getElementById("post-redeem").style.color = "#fff";
             document.getElementById("post-image").style.backgroundImage = "url(images/home_page_logo_black.png)";
             elems = document.getElementById("pl-home-view-plus");
 
