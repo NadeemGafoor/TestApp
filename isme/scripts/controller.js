@@ -2538,7 +2538,7 @@ function completeRedemption() {
                                                                       positiono = getData.position.split(",");
                                                                       lat = positiono[0];
                                                                       lon = positiono[1];
-                                                                      window.localStorage.setItem("activateinfo", getData.activateInfo);
+                                                                      window.localStorage.setItem("activateinfo", getData.activateinfo);
                                                                       window.localStorage.setItem("latl", lat);
                                                                       window.localStorage.setItem("lonl", lon);
                                                                       window.localStorage.setItem("isfenceset", "0");
