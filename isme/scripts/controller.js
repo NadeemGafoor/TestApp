@@ -2477,7 +2477,7 @@ function completeRedemption() {
          
                                            closeInfoPage
                                            : function() {
-                                               //window.localStorage.setItem("newinfo", "1");
+                                               window.localStorage.setItem("newinfo", "1");
                                                $("#modalviewinfo").data("kendoMobileModalView").close();
                                            },
                                            varInit
