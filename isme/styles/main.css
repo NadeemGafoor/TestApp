@@ -2826,6 +2826,7 @@ tile-frame-inner
     line-height: 2.2em;
     width: 104%;
     display: inline-block;
+    background-color:#666666;
 }
 
 .button-frame-inline-home1
