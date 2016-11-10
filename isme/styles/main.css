@@ -2822,6 +2822,8 @@ tile-frame-inner
 
 .button-frame-inline-home
 {
+     float:left;
+    position:relative;
     height:auto;
     line-height: 2.2em;
     width: 100%;
@@ -2840,10 +2842,10 @@ tile-frame-inner
 
 .button-frame-inline-home .km-button
 {
-    float:none;
+    float:left;
     position:relative;
     line-height: 2.2em;
-    width: 49.5%;
+    width: 49%;
     display: inline-block;
     text-align: center;
     font-size:125%;
