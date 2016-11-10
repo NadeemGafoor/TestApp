@@ -2547,6 +2547,11 @@ function completeRedemption() {
                                                                       window.localStorage.setItem("appad_location", appad_location);
                                                                       window.localStorage.setItem("appad_location_short", appad_location_short);
                                                                       hideSpin(); //hide loading popup
+                                                                      
+                                                                      
+                                                                             if (window.localStorage.getItem("newinfo")===null &&  window.localStorage.getItem("activateinfo")==="1") {
+                                                   $("#modalviewinfo").data("kendoMobileModalView").open();
+                                               }
                                                                   }else if (getData.statuscode === "047") {
                                                                       $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
                                                                   } else {
@@ -2604,9 +2609,6 @@ function completeRedemption() {
                                                                       if (getData.statuscode === "000") {
                                                                           
                                                                           
-                                                                             if (window.localStorage.getItem("newinfo")===null &&  window.localStorage.getItem("activateinfo")==="1") {
-                                                   $("#modalviewinfo").data("kendoMobileModalView").open();
-                                               }
                                                                           
                                                                           if (getData.propertylist.length > 0) {
                                                                               while (i <= getData.propertylist.length - 1) {
