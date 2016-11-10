@@ -2602,6 +2602,12 @@ function completeRedemption() {
                                                                       var getData = JSON.parse(data);
                                                                       var i = 0;
                                                                       if (getData.statuscode === "000") {
+                                                                          
+                                                                          
+                                                                             if (window.localStorage.getItem("newinfo")===null &&  window.localStorage.getItem("activateinfo")==="1") {
+                                                   $("#modalviewinfo").data("kendoMobileModalView").open();
+                                               }
+                                                                          
                                                                           if (getData.propertylist.length > 0) {
                                                                               while (i <= getData.propertylist.length - 1) {
                                                                                   //Stop Geo Fence Monitor
@@ -2810,9 +2816,7 @@ function completeRedemption() {
                                                    }
                                                }
 
-                                               if (window.localStorage.getItem("newinfo")===null &&  window.localStorage.getItem("activateinfo")==="1") {
-                                                   $("#modalviewinfo").data("kendoMobileModalView").open();
-                                               }
+                                            
                                                
                                                hideSpin();
                                                return;
