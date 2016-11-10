@@ -2824,7 +2824,7 @@ tile-frame-inner
 {
     height:auto;
     line-height: 2.2em;
-    width: 104%;
+    width: 100%;
     display: inline-block;
     background-color:#666666;
 }
