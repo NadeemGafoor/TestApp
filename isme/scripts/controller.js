@@ -4950,37 +4950,7 @@ function completeRedemption() {
                                                        });
                                             },
         
-                                            myofferOutlet:
-                                            function () {
-                                                changeCard();
-                                                showSpin(); //show loading popup
-                                                
-                                                if (autolocation==="1") {
-                                                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                        lat = position.coords.latitude;                                  
-                                                        lon = position.coords.longitude;
-                                                         
-                                                        myOfferListOutlet();
-                                                    }
-                                                                                             , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
-                                                                                                 //  if (err.code == "1") {
-                                                                                                 //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
-                                                                                                 //  } else if (err.code == "2") {
-                                                                                                 //      navigator.notification.alert("Device is unable to get the GPS position");  
-                                                                                                 //  }
-                                                                                                 gpsError();
-                                                                                                 lat = window.localStorage.getItem("lat");
-                                                                                                 lon = window.localStorage.getItem("lon");
-                                                                                                  
-                                                                                                 myOfferListOutlet();
-                                                                                             }, positionOption);
-                                                }else {
-                                                    lat = window.localStorage.getItem("lat");
-                                                    lon = window.localStorage.getItem("lon");
-                                                    myOfferListOutlet();
-                                                }
-                                            },
-                                         
+                                     
         
                                             editsettingdata
                                             :function() {
@@ -6197,143 +6167,8 @@ function completeRedemption() {
     }
     
       
-    function pllistOffer() {
-        offercode = "";
-        offertype = "1";
-        //alert(customer);
-        //alert(password);
-        showSpin();
-                                                
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/offerListGeo.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,offercode:offercode,offertype:offertype,segmentcode:segmentcode,mdevice:window.localStorage.getItem("mdevicestat"),city:geocity,country:geocountry,lat:lat,lon:lon
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                       if (getData.statuscode == "000") {
-                           if (getData.offerlist.length > 0) {
-                               //fill the outlet template
-                               $("#pl-offer-list-view").kendoMobileListView({
-                                                                                dataSource: kendo.data.DataSource.create({data: getData.offerlist}),
-                                                                                template: $("#plofferListTemplate").html(),
-                                                                          
-                                                                                filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Offer Name",                                         
-                                       field: "itemname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 40
-                                   }
-                                                                                                                    
-                                                                            });
-                               hideSpin(); //hide loading popup
-                           }else {
-                               navigator.notification.alert("No Offers currently exist", function() {
-                               }, "isme by Jumeirah", "Dismiss")    
-                               hideSpin(); //hide loading popup
-                           }
-                       }else {
-                           navigator.notification.alert("Cannot get Offer List." + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
-                           hideSpin(); //hide loading popup
-                       }
-                   },
-                   error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Offer List.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
-                       hideSpin(); //hide loading popup
-                   }
-               });
-    }
-    
-    function pllistOfferOutlet() {
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/offeroutletlist_Geo.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,offercode:offercode,mdevice:window.localStorage.getItem("mdevicestat"),lat:lat,lon:lon
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                       if (getData.statuscode == "000") {
-                           //fill the outlet template
-                           if (getData.offeroutletlist.length > 0) {
-                               $("#pl-offer-outlet-list-view").kendoMobileListView({
-                                                                                       dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
-                                                                                       template: $("#plofferOutletTemplate").html()
-                                                                                   });
-                               hideSpin(); //hide loading popup
-                           }else {
-                               navigator.notification.alert("There are no Restaurant for the selected offer.", function() {
-                               }, "isme by Jumeirah", "Dismiss")    
-                               hideSpin(); //hide loading popup
-                           }
-                       }else {
-                           navigator.notification.alert("Cannot get Restaurant List. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
-                           hideSpin(); //hide loading popup
-                       }
-                   },
-                   error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
-                       hideSpin(); //hide loading popup
-                   }
-               });
-    }
-        
-    function myOfferListOutlet() {
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/offeroutletlist_Geo.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,offercode:offercode,mdevice:window.localStorage.getItem("mdevicestat"),lat:lat,lon:lon
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                       if (getData.statuscode == "000") {
-                           //fill the outlet template
-                           if (getData.offeroutletlist.length > 0) {
-                               $("#my-offer-outlet-list-view").kendoMobileListView({
-                                                                                       dataSource: kendo.data.DataSource.create({data: getData.offeroutletlist}),
-                                                                                       template: $("#my-offerOutletTemplate").html()
-                                                                                   });
-                               hideSpin(); //hide loading popup
-                           }else {
-                               navigator.notification.alert("There are no Restaurants for the selected offer.", function() {
-                               }, "isme by Jumeirah", "Dismiss")    
-                               hideSpin(); //hide loading popup
-                           }
-                       }else {
-                           navigator.notification.alert("Cannot get Restaurants List." + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
-                           hideSpin(); //hide loading popup
-                       }
-                   },
-                   error: function (error) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurants List. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
-                       hideSpin(); //hide loading popup
-                   }
-               });
-    }
-    
+           
+     
     function gpsError() {
         if (gpsErrorShow==="") {
             showTop("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
@@ -7360,7 +7195,6 @@ function completeRedemption() {
         data.push({code: "RD1005",desc:"OpenAir Dining"});
         data.push({code: "RD1006",desc:"Romantic Dining"});
         data.push({code: "RD1007",desc:"Scenic View"});
-        data.push({code: "RD1006",desc:"Romantic Dining"});
         data.push({code: "RD1009",desc:"Spa"});
         data.push({code: "RD1008",desc:"Theme Park"});
         data.push({code: "RD1010",desc:"Night life/Night Club"});
