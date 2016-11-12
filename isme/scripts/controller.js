@@ -5324,7 +5324,7 @@ function completeRedemption() {
                                                            url: gurl + "/archivehistory.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:window.localStorage.getItem("mdevicestat"),mexcl:"('SP')"
+                                                                                    merchantcode :merchant,customerid:customer,password:password,history:t,mdevice:window.localStorage.getItem("mdevicestat"),mexcl:"0"
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
