@@ -6196,59 +6196,7 @@ function completeRedemption() {
         return true;
     }
     
-    function pllistOutlet() {
-        $.ajax({ 
-                   type: "POST",
-                   cache:false,
-                   async:true,
-                   timeout:20000,
-                   url: gurl + "/outletlistGeo.aspx",
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify({
-                                            merchantcode :merchant,brandcode:brandcode,mdevice:window.localStorage.getItem("mdevicestat"),city:geocity,country:geocountry,lat:lat,lon:lon
-                                        }),
-                   success: function (data) { 
-                       var getData = JSON.parse(data);
-                                                            
-                       if (getData.statuscode == "000") {
-                           if (getData.outletlist.length > 0) {
-                               //fill the outlet template
-                               $("#pl-outletlist-all").kendoMobileListView({
-                                                                             
-                                                                               dataSource: kendo.data.DataSource.create({data: getData.outletlist}),
-                                                                               template: $("#pl-outletListAllTemplate").html(),
-                                                                          
-                                                                               filterable: {
-                                       autoFilter: true,
-                                       placeholder:"Search By Restaurant Name",                                         
-                                       field: "outletname",
-                                       operator: "contains",
-                                       serverPaging: true,
-                                       serverSorting: true,
-                                       pageSize: 40
-                                   }
-                                                                                                                    
-                                                                           });
-                               hideSpin(); //hide loading popup
-                           }else {
-                               navigator.notification.alert("There are no Restaurant for the selected Hotel", function() {
-                               }, "isme by Jumeirah", "Dismiss")    
-                               hideSpin(); //hide loading popup
-                           }
-                       }else {
-                           navigator.notification.alert("Cannot get Restaurant List. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
-                           hideSpin(); //hide loading popup
-                       }
-                   },
-                   error: function (errormsg) {
-                       navigator.notification.alert("Unknown Error, Cannot get Restaurant List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
-                       hideSpin(); //hide loading popup
-                   }
-               });
-    }
-   
+      
     function pllistOffer() {
         offercode = "";
         offertype = "1";
