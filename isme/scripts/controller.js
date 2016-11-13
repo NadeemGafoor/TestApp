@@ -754,9 +754,9 @@ function completeRedemption() {
     var mdevicestat = "";
     var ctr = 0;
     var noalcohollist = [];
-     var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
+    // var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
     //var gurl = "https://ismemobileapp.jumeirah.com";
-    //var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
+    var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
@@ -814,11 +814,11 @@ function completeRedemption() {
     var appad_location = "isme\.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
     
-   //var share_image = "http://hdrewards.ddns.net:8088/jumismemobile/images/large_logo_placeholder.png";
-   // var flag_image = "http://hdrewards.ddns.net:8088/jumismemobile/flagimages/";
+   var share_image = "http://hdrewards.ddns.net:8088/jumismemobile/images/large_logo_placeholder.png";
+    var flag_image = "http://hdrewards.ddns.net:8088/jumismemobile/flagimages/";
   
-    var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-    var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
+    //var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
+    //var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     
     var short_msg = "isme by Jumeirah";
     var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at https://isme.jumeirah.com";
@@ -3655,8 +3655,48 @@ function completeRedemption() {
                                                 showSpin();
                                                 clearAllVariables();                                            
                                             
-                                                //changeCard(window.localStorage.getItem("segmentcode"));  
-                                                //   if (firsttime == "" || showsummary == "") {
+                                               if (window.localStorage.getItem("segmentcode") === "1000") {
+            document.getElementById("profile-type-p").innerHTML = "isme";
+        
+            document.getElementById("post-image").style.backgroundImage = "url(images/home_page_logo_black.png)";
+            elems = document.getElementById("pl-home-view-plus");
+
+            elclass = elems.getElementsByClassName('km-content');
+            for (i = 0; i < elclass.length; i++) {
+                elclass[i].style.backgroundColor = "#fff";
+            }
+            
+            elems = document.getElementsByClassName('strip-item-a');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.backgroundColor = "#fff";
+                elems[i].style.color = "#000";
+            }
+            
+            elems = document.getElementsByClassName('cwhite');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.color = "#000";
+            }
+            
+            elems = document.getElementsByClassName('searchbox');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.border = "1px solid #999";
+            }
+                
+            elems = document.getElementById("home-plus-box");   
+            elclass = elems.getElementsByClassName('km-button');
+            for (i = 0; i < elclass.length; i++) {
+                elclass[i].style.border = "1px solid #000";
+            }
+            
+            elems = document.getElementsByClassName('button-frame-inline-round-menu');
+            for (i = 0; i < elems.length; i++) {
+                elems[i].style.color = "#000";
+            }
+        }else {
+            document.getElementById("profile-type-p").innerHTML = "isme Elite";
+            document.getElementById("post-image").style.backgroundImage = "url(images/home_page_logo_white.png)";
+        }
+                                                
                                                 $.ajax({ 
                                                            type: "POST",
                                                            cache:false,
@@ -6568,7 +6608,7 @@ function completeRedemption() {
                      
                            hideSpin(); //hide loading popup
                        }else {
-                           navigator.notification.alert("Due to a system error, your enrolment could not be completed.  " + getData.statusdesc + ". Please try again.", function() {
+                           navigator.notification.alert("Due to a system error, your enrolment could not be completed.  " + getData.statusdesc + " Please try again.", function() {
                            }, "isme by Jumeirah", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
@@ -7602,49 +7642,7 @@ function completeRedemption() {
         document.getElementById("my-voucher-count").innerHTML = "I have " + window.localStorage.getItem("vouchercount") + " Rewards in my Wallet";
         document.getElementById("my-voucher-expiry").innerHTML = "My next " + window.localStorage.getItem("expirycount") + " Rewards expires in " + window.localStorage.getItem("expirydays") + " days";
          
-        if (window.localStorage.getItem("segmentcode") === "1000") {
-            document.getElementById("profile-type-p").innerHTML = "isme";
-            //  document.getElementById("post-redeem").style.backgroundColor = "#000";
-            //  document.getElementById("post-redeem").style.color = "#fff";
-            document.getElementById("post-image").style.backgroundImage = "url(images/home_page_logo_black.png)";
-            elems = document.getElementById("pl-home-view-plus");
-
-            elclass = elems.getElementsByClassName('km-content');
-            for (i = 0; i < elclass.length; i++) {
-                elclass[i].style.backgroundColor = "#fff";
-            }
-            
-            elems = document.getElementsByClassName('strip-item-a');
-            for (i = 0; i < elems.length; i++) {
-                elems[i].style.backgroundColor = "#fff";
-                elems[i].style.color = "#000";
-            }
-            
-            elems = document.getElementsByClassName('cwhite');
-            for (i = 0; i < elems.length; i++) {
-                elems[i].style.color = "#000";
-            }
-            
-            elems = document.getElementsByClassName('searchbox');
-            for (i = 0; i < elems.length; i++) {
-                elems[i].style.border = "1px solid #999";
-            }
-                
-            elems = document.getElementById("home-plus-box");   
-            elclass = elems.getElementsByClassName('km-button');
-            for (i = 0; i < elclass.length; i++) {
-                elclass[i].style.border = "1px solid #000";
-            }
-            
-            elems = document.getElementsByClassName('button-frame-inline-round-menu');
-            for (i = 0; i < elems.length; i++) {
-                elems[i].style.color = "#000";
-            }
-        }else {
-            document.getElementById("profile-type-p").innerHTML = "isme Elite";
-            document.getElementById("post-image").style.backgroundImage = "url(images/home_page_logo_white.png)";
-        }
-
+       
         hideSpin();
     }
     
