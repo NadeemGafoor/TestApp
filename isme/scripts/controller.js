@@ -1244,7 +1244,7 @@ function completeRedemption() {
                                                        if (x===1) {
                                                            itemconcat = vopen + items[i].value;
                                                        }else {
-                                                           itemconcat = itemconcat + "','" + items[i].value;
+                                                           itemconcat = itemconcat + "," + items[i].value;
                                                        }
                                                        x++;
                                                    }
@@ -1277,7 +1277,7 @@ function completeRedemption() {
                                                        if (x===1) {
                                                            itemconcat = vopen + items[i].value;
                                                        }else {
-                                                           itemconcat = itemconcat + "','" + items[i].value;
+                                                           itemconcat = itemconcat + "," + items[i].value;
                                                        }
                                                        x++;
                                                    }
@@ -1310,7 +1310,7 @@ function completeRedemption() {
                                                        if (x===1) {
                                                            itemconcat = vopen + items[i].value;
                                                        }else {
-                                                           itemconcat = itemconcat + "','" + items[i].value;
+                                                           itemconcat = itemconcat + "," + items[i].value;
                                                        }
                                                        x++;
                                                    }
@@ -1342,7 +1342,7 @@ function completeRedemption() {
                                                        if (x===1) {
                                                            itemconcat = vopen + items[i].value;
                                                        }else {
-                                                           itemconcat = itemconcat + "','" + items[i].value;
+                                                           itemconcat = itemconcat + "," + items[i].value;
                                                        }
                                                        x++;
                                                    }
