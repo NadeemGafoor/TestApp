@@ -1228,8 +1228,8 @@ function completeRedemption() {
                                                //Restaurant Type Filter
                                                var itemconcat = "";
                                                var x = 1;
-                                               var vopen = "('";
-                                               var vclose = "')";
+                                               var vopen = "";
+                                               var vclose = "";
                                                ul = document.getElementById("RestType-Filter");
                                                items = ul.getElementsByTagName("input");
                                               
@@ -1263,8 +1263,8 @@ function completeRedemption() {
                                                //Cuisine Type Filter
                                                var itemconcat = "";
                                                var x = 1;
-                                               var vopen = "('";
-                                               var vclose = "')";
+                                               var vopen = "";
+                                               var vclose = "";
                                                ul = document.getElementById("Cuisine-Filter");
                                                items = ul.getElementsByTagName("input");
                                                window.localStorage.setItem("ocuisine", "All");                                            
@@ -1296,8 +1296,8 @@ function completeRedemption() {
                                                //Celebration Type Filter
                                                var itemconcat = "";
                                                var x = 1;
-                                               var vopen = "('";
-                                               var vclose = "')";
+                                               var vopen = "";
+                                               var vclose = "";
                                                ul = document.getElementById("Celebration-Filter");
                                                items = ul.getElementsByTagName("input");
                                                //document.getElementById("ocelebration").innerHTML = "All";                                              
@@ -1328,8 +1328,8 @@ function completeRedemption() {
                                                //Lifestyle Type Filter
                                                var itemconcat = "";
                                                var x = 1;
-                                               var vopen = "('";
-                                               var vclose = "')";
+                                               var vopen = "";
+                                               var vclose = "";
                                                ul = document.getElementById("Offer-Filter");
                                                items = ul.getElementsByTagName("input");
                                                document.getElementById("olifestyle").innerHTML = "All";                                              
