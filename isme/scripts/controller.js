@@ -2549,7 +2549,7 @@ function completeRedemption() {
                                                                       hideSpin(); //hide loading popup
                                                                       
                                                                       
-                                                                             if (window.localStorage.getItem("activateinfo")==="1") {
+                                                                             if (window.localStorage.getItem("newinfo")===null &&  window.localStorage.getItem("activateinfo")==="1") {
                                                    $("#modalviewinfo").data("kendoMobileModalView").open();
                                                }
                                                                   }else if (getData.statuscode === "047") {
