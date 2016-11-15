@@ -2993,7 +2993,7 @@ function completeRedemption() {
                                                           url: gurl + "/validateUser.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,customer:customer,password:password,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification"),mmagicnumber:"Y",fbuserid:window.localStorage.getItem("FBuserID"),loginmode:window.localStorage.getItem("loginmode")
+                                                                                   merchantcode :merchant,customer:customer,password:password,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification"),mmagicnumber:"Y",fbuserid:window.localStorage.getItem("FBuserID"),loginmode:window.localStorage.getItem("loginmode"),pinverified:"N"
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
@@ -6723,7 +6723,7 @@ function completeRedemption() {
                    url: gurl + "/validateUser.aspx",
                    contentType: "application/json; charset=utf-8",
                    data: JSON.stringify({
-                                            merchantcode :merchant,customer:m,password:n,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification"),mmagicnumber:"",fbuserid:window.localStorage.getItem("FBuserID"),loginmode:window.localStorage.getItem("loginmode")
+                                            merchantcode :merchant,customer:m,password:n,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification"),mmagicnumber:"",fbuserid:window.localStorage.getItem("FBuserID"),loginmode:window.localStorage.getItem("loginmode"),pinverified:"Y"
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
@@ -6741,7 +6741,7 @@ function completeRedemption() {
                            cusqr = getData.qrurl;
                            emailid = getData.emailid;
                            mobilenumber = getData.mobilenumber;  
-                           formattedmobile = "00" + window.localStorage.getItem("mobilelogin");
+                           formattedmobile = window.localStorage.getItem("mobilelogin");
                            //"(+" + mobilenumber.substring(0,3)+") " + mobilenumber.substring(3,mobilenumber.length);
                            memberexpiry = getData.memberexpiry; 
                            segmentimage = getData.segmentimage; 
