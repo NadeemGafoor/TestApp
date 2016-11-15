@@ -678,7 +678,8 @@ img
 
 #sms-theme .input-frame-enrol-2 input,
 #pin-theme .input-frame-enrol-2 input,
-#token-theme .input-frame-enrol-2 input
+#token-theme .input-frame-enrol-2 input,
+#sms-theme1 .input-frame-enrol-2 input
 {  
     display:block;
     width:90% ;
