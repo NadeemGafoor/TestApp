@@ -1562,7 +1562,7 @@ function completeRedemption() {
                                              
                                                //Assign variables to localstorage for later update
                                                
-                                               $("body").data("kendoMobilePane").navigate("views/smsvalidation.html?ffrom=Y");
+                                               $("body").data("kendoMobilePane").navigate("views/smsvalidation.html");
                                            },
         
                                            confirmEnrol
@@ -2847,7 +2847,7 @@ function completeRedemption() {
                                                window.localStorage.setItem("smsreference", "");  
                                                preLogin.set("smsnum", "");
                                                var z = m.view.params.ffrom;
-                                               alert(z);
+                                               alert(z);  
 
                                                if (window.localStorage.getItem("mfirstname") === null) {
                                                    window.localStorage.setItem("mfirstname", "");
@@ -2878,7 +2878,55 @@ function completeRedemption() {
                                                                   window.localStorage.setItem("smsreference", getData.referencenumber); 
                                                                   hideSpin(); //hide loading popup
                                                               } else {
-                                                                  navigator.notification.alert("There was an error generating the SMS Code.  Please try again later " + errormsg.statusText, function() {
+                                                                  navigator.notification.alert(getData.statusdesc, function() {
+                                                                  }, "isme by Jumeirah", "Dismiss");
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (error) {
+                                                              navigator.notification.alert("There was an error generating the SMS Code. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });        
+                                           },
+         initSMS1  
+                                           :function() {
+                                               showSpin();
+                                               window.localStorage.setItem("smsreference", "");  
+                                               preLogin.set("smsnum", "");
+ 
+
+                                               if (window.localStorage.getItem("mfirstname") === null) {
+                                                   window.localStorage.setItem("mfirstname", "");
+                                               }
+                                               
+                                               if (window.localStorage.getItem("mlastname") === null) {
+                                                   window.localStorage.setItem("mlastname", "");
+                                               }
+                                               
+                                               if (window.localStorage.getItem("memailid") === null) {
+                                                   window.localStorage.setItem("memailid", "");
+                                               }
+                                               
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/sendSMSEnrolment1.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mobilelogin"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat
+                                                                                   // merchantcode :"JUMEI02000",firstname:"",lastname:"",mobile:window.localStorage.getItem("mobilelogin"),emailid:"",mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) {
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode === "000") {
+                                                                  window.localStorage.setItem("smsreference", getData.referencenumber); 
+                                                                  hideSpin(); //hide loading popup
+                                                              } else {
+                                                                  navigator.notification.alert(getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss");
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -2913,7 +2961,7 @@ function completeRedemption() {
                                                    return;
                                                }
                                                window.localStorage.setItem("mobilelogin", String(this.username));
-                                               $("body").data("kendoMobilePane").navigate("views/smsvalidation.html?ffrom=N");
+                                               $("body").data("kendoMobilePane").navigate("views/smsvalidation1.html");
                                            },
         
                                            validateUser

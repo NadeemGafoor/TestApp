@@ -1,0 +1,41 @@
+<div data-role="view" data-title="Validation" data-layout="pre-layout" id="sms-theme" data-model="preLogin" data-show="preLogin.initSMS1" data-hide="preLogin.destroysmspage" data-after-show="disableBackButton" data-before-hide="enableBackButton">
+
+        <div data-role="navbar" style="background-color:transparent !important">
+             <a data-role="button" data-align="left"  href="views/home.html" data-transition="slide"> <i class="fa fa-chevron-left fa-lg" style="color:#000"></i></a>
+            <span data-role="view-title" style="color:#000"></span>
+    </div>
+
+    <div class="reward-summary-a">  
+        <div class="filler"></div>
+        <div class="filler"></div>
+        
+        <div class="reward-summary-1">
+            <pre style="color:#000;text-align:center;font-size:110%">Please enter the Validation Code <br> we just sent you on SMS.</pre>
+        </div>
+    </div>
+      <div class="filler"></div>
+      <div class="filler"></div>
+    <ul data-role="listview" style="background-color:#fff">
+        <li>
+            <div class="input-frame-enrol-2">
+                <input type="number" id="smsnum1" data-bind="value: smsnum" placeholder="Validation Code" style="text-align:center" maxlength="6"/>
+            </div>
+        </li>
+          <div class="filler"></div>
+      <div class="filler"></div>
+        <li>
+            <div class="button-frame">
+                <a data-role="button" data-bind="click: validateSMS" style="background-color:#eb046d;font-size:125%;color:#fff">Continue</a>
+            </div>
+             
+        </li>
+              <div class="filler"></div>
+        <li>
+            <a  data-bind="click: initSMS1" style="background-color:transparent !important">
+                <div class="switch-frame one-line" style="color:#000" data-bind="click: initSMS">Re-send Code on SMS</div>  
+            </a>
+
+        </li>
+    </ul>
+
+</div>
