@@ -2892,7 +2892,7 @@ function completeRedemption() {
                                            :function() {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
-                                               preLogin.set("smsnum", "");
+                                               preLogin.set("smsnum1", "");
  
 
                                                if (window.localStorage.getItem("mfirstname") === null) {
@@ -2959,7 +2959,7 @@ function completeRedemption() {
                                                    return;
                                                }
                                                window.localStorage.setItem("mobilelogin", String(this.username));
-                                               $("body").data("kendoMobilePane").navigate("views/smsvalidation1.html");
+                                               $("body").data("kendoMobilePane").navigate("views/smsValidation1.html");
                                            },
         
                                            validateUser
@@ -3246,6 +3246,48 @@ function completeRedemption() {
                                                           }
                                                       });
                                            },
+        
+           validateSMS1
+                                           : function () {
+                                               if (!this.smsnum1) {
+                                                   navigator.notification.alert("Please enter a valid Code received on SMS. ", function() {
+                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   return;
+                                               }
+                                               showSpin();
+                                               $.ajax({ 
+                                                          type: "POST",
+                                                          cache:false,
+                                                          async:true,
+                                                          timeout:20000,
+                                                          url: gurl + "/validateSMS.aspx",
+                                                          contentType: "application/json; charset=utf-8",
+                                                          data: JSON.stringify({
+                                                                                   merchantcode :merchant,tokenreference: window.localStorage.getItem("smsreference"),token:this.smsnum1,mdevice:mdevicestat
+                                                                               }),
+                                                          success: function (data) { 
+                                                              var getData = JSON.parse(data);
+                                                              if (getData.statuscode == "000") {  
+                                                                  window.localStorage.setItem("smsreference", "");
+                                                                  if (window.localStorage.getItem("setpintype") == "3") {
+                                                                      $("body").data("kendoMobilePane").navigate("views/pl-explore.html");  
+                                                                  }else {
+                                                                      $("body").data("kendoMobilePane").navigate("views/setpin.html");  
+                                                                  }
+                                                              }else {
+                                                                  navigator.notification.alert("The Validation Code entered is incorrect, please enter the correct Validation Code.", function() {
+                                                                  }, "isme by Jumeirah", "Dismiss")         
+                                                                  hideSpin(); //hide loading popup
+                                                              }
+                                                          },
+                                                          error: function (errormsg) {
+                                                              navigator.notification.alert("Unable to validate the Code.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
+                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              hideSpin(); //hide loading popup
+                                                          }
+                                                      });
+                                           },
+        
         
                                            savePIN      
                                            : function () {
