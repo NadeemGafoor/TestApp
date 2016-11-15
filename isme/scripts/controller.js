@@ -1562,7 +1562,7 @@ function completeRedemption() {
                                              
                                                //Assign variables to localstorage for later update
                                                
-                                               $("body").data("kendoMobilePane").navigate("views/smsvalidation.html");
+                                               $("body").data("kendoMobilePane").navigate("views/smsvalidation.html?ffrom=Y");
                                            },
         
                                            confirmEnrol
@@ -2842,21 +2842,23 @@ function completeRedemption() {
                                            },
         
                                            initSMS  
-                                           :function() {
+                                           :function(m) {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
                                                preLogin.set("smsnum", "");
+                                               var z = m.view.params.ffrom;
+                                               alert(z);
 
                                                if (window.localStorage.getItem("mfirstname") === null) {
-                                                   window.localStorage.setItem("mfirstname", "1");
+                                                   window.localStorage.setItem("mfirstname", "");
                                                }
                                                
                                                if (window.localStorage.getItem("mlastname") === null) {
-                                                   window.localStorage.setItem("mlastname", "2");
+                                                   window.localStorage.setItem("mlastname", "");
                                                }
                                                
                                                if (window.localStorage.getItem("memailid") === null) {
-                                                   window.localStorage.setItem("memailid", "3");
+                                                   window.localStorage.setItem("memailid", "");
                                                }
                                                
                                                $.ajax({ 
@@ -2867,7 +2869,7 @@ function completeRedemption() {
                                                           url: gurl + "/sendSMSEnrolment.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mobilelogin"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mobilelogin"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat,isnew:z
                                                                                    // merchantcode :"JUMEI02000",firstname:"",lastname:"",mobile:window.localStorage.getItem("mobilelogin"),emailid:"",mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) {
@@ -2911,7 +2913,7 @@ function completeRedemption() {
                                                    return;
                                                }
                                                window.localStorage.setItem("mobilelogin", String(this.username));
-                                               $("body").data("kendoMobilePane").navigate("views/smsvalidation.html");
+                                               $("body").data("kendoMobilePane").navigate("views/smsvalidation.html?ffrom=N");
                                            },
         
                                            validateUser
