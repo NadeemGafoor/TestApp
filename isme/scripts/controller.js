@@ -2842,12 +2842,10 @@ function completeRedemption() {
                                            },
         
                                            initSMS  
-                                           :function(m) {
+                                           :function() {
                                                showSpin();
                                                window.localStorage.setItem("smsreference", "");  
                                                preLogin.set("smsnum", "");
-                                               var z = m.view.params.ffrom;
-                                               alert(z);  
 
                                                if (window.localStorage.getItem("mfirstname") === null) {
                                                    window.localStorage.setItem("mfirstname", "");
@@ -2869,7 +2867,7 @@ function completeRedemption() {
                                                           url: gurl + "/sendSMSEnrolment.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mobilelogin"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat,isnew:z
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),firstname:window.localStorage.getItem("mfirstname"),lastname:window.localStorage.getItem("mlastname"),mobile:window.localStorage.getItem("mobilelogin"),emailid:window.localStorage.getItem("memailid"),mdevice:mdevicestat
                                                                                    // merchantcode :"JUMEI02000",firstname:"",lastname:"",mobile:window.localStorage.getItem("mobilelogin"),emailid:"",mdevice:mdevicestat
                                                                                }),
                                                           success: function (data) {
