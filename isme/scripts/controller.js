@@ -1711,7 +1711,7 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                                         alert(getData.benefitlist.length);                                       
+                                                                                                              
                                                               if (getData.statuscode === "000" && getData.benefitlist.length > 0) {  
                                                                   //fill the outlet template
                                                                   $("#benefit-1000").kendoMobileListView({  
