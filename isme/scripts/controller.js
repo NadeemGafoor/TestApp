@@ -1711,7 +1711,7 @@ function completeRedemption() {
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
-                                                                                                                
+                                                                         alert(getData.benefitlist.length);                                       
                                                               if (getData.statuscode === "000" && getData.benefitlist.length > 0) {  
                                                                   //fill the outlet template
                                                                   $("#benefit-1000").kendoMobileListView({  
@@ -2830,7 +2830,7 @@ function completeRedemption() {
                                                preLogin.set("password", "");
                                                preLogin.set("username", "");
                                                if (window.localStorage.getItem("mobilelogin").length > 0) {
-                                                   preLogin.set("username", "00" + window.localStorage.getItem("mobilelogin"));
+                                                   preLogin.set("username", window.localStorage.getItem("mobilelogin"));
                                                    document.getElementById("username").readOnly = "true";
                                                    document.getElementById("username").style.color = "#343232";
                                                }
@@ -3011,7 +3011,7 @@ function completeRedemption() {
                                                                   cusqr = getData.qrurl;
                                                                   emailid = getData.emailid;
                                                                   mobilenumber = getData.mobilenumber;
-                                                                  formattedmobile = "00" + mobilenumber;
+                                                                  formattedmobile = mobilenumber;
                                                                   memberexpiry = getData.memberexpiry; 
                                                                   segmentimage = getData.segmentimage; 
                                                                   pushoffer = getData.pushoffer;
