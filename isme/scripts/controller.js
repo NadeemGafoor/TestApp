@@ -2549,7 +2549,7 @@ function completeRedemption() {
                                                                       hideSpin(); //hide loading popup
                                                                       
                                                                       
-                                                                             if (window.localStorage.getItem("newinfo")===null &&  window.localStorage.getItem("activateinfo")==="1") {
+                                                                             if ( window.localStorage.getItem("activateinfo")==="1") {
                                                    $("#modalviewinfo").data("kendoMobileModalView").open();
                                                }
                                                                   }else if (getData.statuscode === "047") {
@@ -2993,7 +2993,7 @@ function completeRedemption() {
                                                           url: gurl + "/validateUser.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :merchant,customer:customer,password:password,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification"),mmagicnumber:"Y",fbuserid:window.localStorage.getItem("FBuserID"),loginmode:window.localStorage.getItem("loginmode"),pinverified:"N"
+                                                                                   merchantcode :merchant,customer:customer,password:password,mdevice:mdevicestat,mdevicef:mdevice,muuid:muuid,mversion:mversion,mplatform:mplatform,mfirsttime: window.localStorage.getItem("notification"),mmagicnumber:"Y",fbuserid:window.localStorage.getItem("FBuserID"),loginmode:window.localStorage.getItem("loginmode"),pinverified:"N",newapp:"Y"
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
