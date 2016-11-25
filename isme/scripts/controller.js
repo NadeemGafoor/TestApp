@@ -754,9 +754,9 @@ function completeRedemption() {
     var mdevicestat = "";
     var ctr = 0;
     var noalcohollist = [];
-     var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
+    var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
     //var gurl = "https://ismemobileapp.jumeirah.com";
-    //var gurl = "http://hdrewards.ddns.net:8088/jumismemobile";
+    //var gurl = "http://hdrewards.ddns.net:8088/jumismemobileold";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
@@ -2549,7 +2549,7 @@ function completeRedemption() {
                                                                       hideSpin(); //hide loading popup
                                                                       
                                                                       
-                                                                             if ( window.localStorage.getItem("activateinfo")==="1") {
+                                                                             if ( window.localStorage.getItem("newinfo")=== null &&  window.localStorage.getItem("activateinfo")==="1") {
                                                    $("#modalviewinfo").data("kendoMobileModalView").open();
                                                }
                                                                   }else if (getData.statuscode === "047") {
