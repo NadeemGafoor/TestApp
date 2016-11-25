@@ -3131,7 +3131,7 @@ function completeRedemption() {
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                               }else {
-                                                                  navigator.notification.alert("Login failed. Please try entering your login details again. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert(getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")
                                                                   window.localStorage.setItem("loginmode", "");
                                                                   window.localStorage.setItem("FBuserID", "");
@@ -3191,7 +3191,7 @@ function completeRedemption() {
                                                                   //        $("body").data("kendoMobilePane").navigate("views/setpin.html");  
                                                                   //     }
                                                               }else {
-                                                                  navigator.notification.alert("Login failed. Please try entering your login details again. " + getData.statusdesc, function() {
+                                                                  navigator.notification.alert(getData.statusdesc, function() {
                                                                   }, "isme by Jumeirah", "Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
@@ -6859,7 +6859,7 @@ function completeRedemption() {
                            
                            hideSpin(); //hide loading popup
                        }else {
-                           navigator.notification.alert("Login failed. Please try entering your login details again. " + getData.statusdesc, function() {
+                           navigator.notification.alert(getData.statusdesc, function() {
                            }, "isme by Jumeirah", "Dismiss")
                            window.localStorage.setItem("loginmode", "");
                            window.localStorage.setItem("FBuserID", "");
