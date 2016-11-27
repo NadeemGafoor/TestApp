@@ -195,12 +195,12 @@
 
 .logo-top
 {
-    height: 400px;
+    height: 440px;
     width: 100%;
     display: block;
     position: relative;
     float: none;
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 .logo-top-list
@@ -226,7 +226,7 @@
 
 .logo-image-holder
 {
-    height:350px;
+    height:300px;
  
 }
 
