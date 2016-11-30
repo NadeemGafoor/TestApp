@@ -754,8 +754,8 @@ function completeRedemption() {
     var mdevicestat = "";
     var ctr = 0;
     var noalcohollist = [];
-  
-    var gurl = "https://ismemobileapp.jumeirah.com";
+    var gurl = "http://hdrewards.ddns.net:8088/jumismemobileold";
+    //var gurl = "https://ismemobileapp.jumeirah.com";
 
     var merchant = "JUMEI02000";
     var customer = "9999999999";
@@ -813,9 +813,12 @@ function completeRedemption() {
     var fullname = "";
     var appad_location = "isme.jumeirah.com";
     var appad_location_short = "isme.jumeirah.com";  
-    var share_image = "https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png";
-    var flag_image = "https://ismemobileapp.jumeirah.com/flagimages/";
+   // var share_image = "https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png";
+   // var flag_image = "https://ismemobileapp.jumeirah.com/flagimages/";
     
+
+        var share_image = "http://hdrewards.ddns.net:8088/jumismemobile/images/large_logo_placeholder.png";
+       var flag_image = "http://hdrewards.ddns.net:8088/jumismemobile/flagimages/";
     var short_msg = "isme by Jumeirah";
     var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at https://isme.jumeirah.com";
     var offertelephone = "8004763";
@@ -5093,18 +5096,20 @@ function completeRedemption() {
                                                 document.getElementById("name7-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number7-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry7-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
+                                              
                                                 document.getElementById("segment7-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
                                                 document.getElementById("mycard7-qr").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard7-qr").style.backgroundSize = "cover";  
                                                 
-                                                if (window.localStorage.getItem("fbid") != "99") {
-                                                    document.getElementById("fblink-show-p").style.display = "none";
-                                                }
+                                                //if (window.localStorage.getItem("fbid") != "99") {
+                                                //    document.getElementById("fblink-show-p").style.display = "none";
+                                               // }
 
                                                 if (window.localStorage.getItem("magicnumber") != "") {
                                                     document.getElementById("hotelnumber1").disabled = true; 
                                                     // document.getElementById("hotelnumber1").style.color = '#999'; 
                                                 }
+
                                                 if (pushoffer == "1") {
                                                     $("#profile-pushoffer").data("kendoMobileSwitch").check(true);
                                                 }else {
@@ -5128,6 +5133,7 @@ function completeRedemption() {
                                                 }else {
                                                     $("#profile-alcohol").data("kendoMobileSwitch").check(false);
                                                 }
+                                                 
                                                 hideSpin();
                                             },
                                             getCity
@@ -5223,7 +5229,7 @@ function completeRedemption() {
         
                                             closeEnterModalPasswordandEnterPIN:function() {
                                                 if (!this.setpass) {
-                                                    navigator.notification.alert("Invalid Password or Empty", function() {
+                                                    navigator.notification.alert("Invalid PIN or Empty", function() {
                                                     }, "isme by Jumeirah", "Dismiss")  
                                                     return;
                                                 }
