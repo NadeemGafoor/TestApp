@@ -2,10 +2,10 @@
   "ProjectName": "isme",
   "ProjectGuid": "37d24e92-f8a1-4d2a-a04b-ab545fe1b60e",
   "projectVersion": 1,
-  "AppIdentifier": "com.jumeirah.ismestagingv3",
-  "DisplayName": "V3 isme by Jumeirah",
+  "AppIdentifier": "com.jumeirah.isme",
+  "DisplayName": "isme by Jumeirah",
   "Author": "Hospitality Dynamics",
-  "Description": "V3 isme by Jumeirah",
+  "Description": "isme by Jumeirah",
   "BundleVersion": "1.3",
   "AndroidVersionCode": "7",
   "iOSDeviceFamily": [
