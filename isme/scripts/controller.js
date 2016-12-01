@@ -6161,8 +6161,7 @@ function completeRedemption() {
     }
     
     function listCountry() {
-        showSpin(); //show loading popup
-                                      
+        showSpin(); //show loading popup                       
         $.ajax({ 
                    type: "POST",
                    cache:false,
@@ -6175,8 +6174,10 @@ function completeRedemption() {
                                         }),
                    success: function (data) { 
                        var getData = JSON.parse(data);
+                    
                        if (getData.statuscode == "000") {
                            //fill the outlet template
+
                            if (getData.statuscode == "000") {
                                //fill the select dropdown for country
                                for (var i = 0;i < getData.countrylist.length;i++) {
