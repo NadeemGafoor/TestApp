@@ -2892,7 +2892,7 @@ tile-frame-inner
     color:#000;
     font-weight:bold;
     text-align:center;
-
+ padding:20px;
   
 }
 
@@ -2939,4 +2939,5 @@ tile-frame-inner
      background-color: transparent !important;
 }
 
+.picx {width:180px}
     
