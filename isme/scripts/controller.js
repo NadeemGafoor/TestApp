@@ -6609,7 +6609,6 @@ function completeRedemption() {
                    },
                    error  
                    : function (errormsg) {
-                       alert(JSON.stringify(errormsg));
                        if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                            $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
                        } else {
