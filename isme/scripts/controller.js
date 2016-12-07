@@ -6608,7 +6608,7 @@ function completeRedemption() {
                    },
                    error  
                    : function (errormsg) {
-                       alert(JSON.stringify(errormsg));
+                       //alert(JSON.stringify(errormsg));
                        if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                            $("body").data().kendoMobilePane.navigate("views/pl-mymessagelist.html");  
                        } else {
@@ -7601,10 +7601,7 @@ function completeRedemption() {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
             lat = position.coords.latitude;                                  
             lon = position.coords.longitude
-            alert(lat);
-            alert(lon);
             var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
-            alert(geocodingAPI);
             $.getJSON(geocodingAPI, function (json) {
                 if (json.status === "OK") {
                     //Check result 0
@@ -7759,7 +7756,6 @@ function completeRedemption() {
         document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
         document.getElementById("profile-init").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
         if (window.localStorage.getItem("segmentcode") === "1000") {
-            alert("Hello");
             document.getElementById("profile-type").innerHTML = "isme ";
             document.getElementsById("pl-home-view-plus").style.backgroundColor = "#fff";
             document.getElementsByClassName("strip-item-a").style.backgroundColor = "#fff";
