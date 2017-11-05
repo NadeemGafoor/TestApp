@@ -2553,9 +2553,9 @@ function completeRedemption() {
                                                                       hideSpin(); //hide loading popup
                                                                       
                                                                       
-                                                                             if ( window.localStorage.getItem("newinfo")=== null &&  window.localStorage.getItem("activateinfo")==="1") {
-                                                   $("#modalviewinfo").data("kendoMobileModalView").open();
-                                               }
+                                                                          //   if ( window.localStorage.getItem("newinfo")=== null &&  window.localStorage.getItem("activateinfo")==="1") {
+                                            //       $("#modalviewinfo").data("kendoMobileModalView").open();
+                                            //   }
                                                                   }else if (getData.statuscode === "047") {
                                                                       $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
                                                                   } else {
@@ -2571,122 +2571,7 @@ function completeRedemption() {
                                                               }
                                                           });
                                                                                                
-                                                   window.plugins.DGGeofencing.initCallbackForRegionMonitoring(new Array(), processRegionMonitorCallback, function(error) {
-                                                       callBackError(error) ;
-                                                   });
-                                               
-                                                   var delegate = new cordova.plugins.locationManager.Delegate();
 
-                                                   delegate.didDetermineStateForRegion = function (pluginResult) {
-                                                       fdidEntera(pluginResult);
-                                                   };
-
-                                                   delegate.didStartMonitoringForRegion = function (pluginResult) {
-                                                       fdidEntera(pluginResult);
-                                                   };
-
-                                                   delegate.didRangeBeaconsInRegion = function (pluginResult) {
-                                                       fdidEntera(pluginResult);
-                                                   };
-                                                   
-                                                   cordova.plugins.locationManager.requestAlwaysAuthorization();
-                                                   
-                                                   cordova.plugins.locationManager.setDelegate(delegate);
-                                                                                                     
-                                                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                                                       lat = position.coords.latitude;                                  
-                                                       lon = position.coords.longitude;
-                                                       propertygeo = [];
-                                                       $.ajax({
-                                                                  type: "POST",
-                                                                  cache: false,
-                                                                  async: true,
-                                                                  timeout: 20000,
-                                                                  url: gurl + "/propertyList.aspx",
-                                                                  contentType: "application/json; charset=utf-8",
-                                                                  data: JSON.stringify({
-                                                                                           merchantcode: merchant, mdevice: mdevicestat,brandcode:window.localStorage.getItem("brand")
-                                                                                       }),
-                                                                  success: function (data) {
-                                                                      var getData = JSON.parse(data);
-                                                                      var i = 0;
-                                                                      if (getData.statuscode === "000") {
-                                                                          
-                                                                          
-                                                                          
-                                                                          if (getData.propertylist.length > 0) {
-                                                                              while (i <= getData.propertylist.length - 1) {
-                                                                                  //Stop Geo Fence Monitor
-                                                                                  propertygeo[i] = getData.propertylist[i].msgtitle + "#" + getData.propertylist[i].lat + "#" + getData.propertylist[i].lon;
-                                                                                  //alert(propertygeo[i]);
-                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
-                                                                                  window.plugins.DGGeofencing.stopMonitoringRegion(params, function(result) {
-                                                                                  }, function(error) {
-                                                                                      m = JSON.stringify(error);
-                                                                                      m = JSON.parse(m);
-                                                                                      showTop(m.message);   
-                                                                                  });
-                                                                                  
-                                                                                  //Start Geofence Monitoring
-                                                                                  params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon,  parseInt(getData.propertylist[i].radius)];
-                                                                                  //alert(getData.propertylist[i].brandcode + " " + getData.propertylist[i].lat +  " " +  getData.propertylist[i].lon + " " +   getData.propertylist[i].radius);
-                                                                                  window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
-                                                                                  }, function(error) {
-                                                                                      m = JSON.stringify(error);
-                                                                                      m = JSON.parse(m);
-                                                                                      showTop(m.message);   
-                                                                                  });
-                                                                                                                                                                 
-                                                                                  i++;
-                                                                              }
-                                                                              
-                                                                              i = 0;
-                                                                              
-                                                                              while (i <= getData.propertylist.length - 1) {
-                                                                                  uuid = getData.propertylist[i].UUID;
-                                                                                  identifier = getData.propertylist[i].BeaconName;
-                                                                                  minor = getData.propertylist[i].BeaconMinor;
-                                                                                  major = getData.propertylist[i].BeaconMajor;
-                                                                                   
-                                                                                  if (uuid.length > 0 && identifier.length > 0 && minor.length > 0 && major.length > 0) {
-                                                                                      beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
-                                                                                      cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
-                                                                                          .fail()
-                                                                                          .done();
-                                                                                      
-                                                                                      cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                                                          .fail()
-                                                                                          .done();
-                                                                                  }
-                                                                                  
-                                                                                  i++;
-                                                                              }
-                                                                      
-                                                                              window.localStorage.setItem("isfenceset", "1");
-                                   
-                                                                              hideSpin(); //hide loading popup
-                                                                          } else {
-                                                                              navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
-                                                                              }, "SNTTA Travel", "Dismiss")
-                                                                              hideSpin(); //hide loading popup
-                                                                          }
-                                                                      } else {
-                                                                          navigator.notification.alert("Due to a system error, the property details cannot be displayed. " + getData.statusdesc, function () {
-                                                                          }, "SNTTA Travel", "Dismiss")
-                                                                          hideSpin(); //hide loading popup
-                                                                      }
-                                                                  },
-                                                                  error: function (error) {
-                                                                      navigator.notification.alert("Due to a system error, the property details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
-                                                                      }, "SNTTA Travel", "Dismiss")
-                                                                  }
-                                                              });
-                                                   }
-                                                                                            , function onErrorShowMap(error) {
-                                                                                                gpsError();
-                                                                                            }, positionOption); 
-                                   
-                                                   // }
                            
                                                    if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                                                        customer = window.localStorage.getItem("customer");
