@@ -71,7 +71,7 @@
     "nl.x-services.plugins.socialsharing@5.1.1",
     "nl.x-services.plugins.toast@2.5.2"
   ],
-  "iOSDeploymentTarget": "7.0",
+  "iOSDeploymentTarget": "6.0",
   "CordovaPluginVariables": {
     "nl.x-services.plugins.launchmyapp": {
       "URL_SCHEME": "ismebyjumeirah"
