@@ -15,7 +15,7 @@ function SearchPage() {
 
 function FacebookErr() {
     navigator.notification.alert("Please make sure that you have installed the Facebook Mobile app on your smartphone.", function() {
-    }, "isme by Jumeirah", "Dismiss");    
+    }, "SNTTA Travel", "Dismiss");    
 }
 function hideSpin() {
     window.setTimeout(function() {
@@ -26,7 +26,7 @@ function hideSpin() {
 function showSpin() {
     if (!checkConnectionBool()) {
         navigator.notification.alert("Network weak or unavailable. Please check your network connection and try again.", function() {
-        }, "isme by Jumeirah", "Dismiss");  
+        }, "SNTTA Travel", "Dismiss");  
         //        //$("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
     } else {
         $("#mvwait").data("kendoMobileModalView").open();
@@ -35,13 +35,13 @@ function showSpin() {
 
 function showOutletMessage() {
     navigator.notification.alert("Please check the Reward's location details under the Bars & Dining or Leisure tab.", function() {
-    }, "isme by Jumeirah", "Dismiss");  
+    }, "SNTTA Travel", "Dismiss");  
 }
 function showConfirm() {
     navigator.notification.confirm(
         'Please enrol or login to activate this reward.', // message
         onConfirm, // callback to invoke with index of button pressed
-        'isme by Jumeirah', // title
+        'SNTTA Travel', // title
         'Login,Enrol'          // buttonLabels
         );
 }
@@ -111,40 +111,40 @@ function loadEnrol() {
 }
 
 function faceBookClick() {
-    window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("static_social_msg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), ["https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
+    window.plugins.socialsharing.shareViaFacebook(window.localStorage.getItem("static_social_msg") + "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), ["https://haalmeer.ddns.net:8089/HaalMeerMobile/images/large_logo_placeholder.png"], window.localStorage.getItem("appad_location"), function () {
     }, function (errormsg) {
         navigator.notification.alert("Unable to complete the Facebook request due to the request cancelled by user or Facebook is not installed . Please check and re-try.", function() {
-        }, "isme by Jumeirah" , "Dismiss"); 
+        }, "SNTTA Travel" , "Dismiss"); 
     });
 }
   
 function twitterClick() {
     var m = window.localStorage.getItem("social_shortmsg");
-    window.plugins.socialsharing.shareViaTwitter("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App! Join the fun and download now " + window.localStorage.getItem("appad_location") , ["https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png"], null, function () {
+    window.plugins.socialsharing.shareViaTwitter("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my SNTTA Travel Mobile App! Join the fun and download now " + window.localStorage.getItem("appad_location") , ["https://haalmeer.ddns.net:8089/HaalMeerMobile//images/large_logo_placeholder.png"], null, function () {
     }, function (errormsg) {
         navigator.notification.alert("Unable to complete the Twitter request due to the request cancelled by user or Twitter is not installed. Please check and re-try.", function() {
-        }, "isme by Jumeirah" , "Dismiss");   
+        }, "SNTTA Travel" , "Dismiss");   
     });
 }
 
 function whatsappClick() {
-    window.plugins.socialsharing.shareViaWhatsApp("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my isme by Jumeirah Mobile App!  It’s Jumeirah at your fingertips! \n\n" + "Join the fun and download the isme by Jumeirah Mobile App today at " + window.localStorage.getItem("appad_location") , "", "", function () {
+    window.plugins.socialsharing.shareViaWhatsApp("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my SNTTA Travel Mobile App!  It’s SNTTA at your fingertips! \n\n" + "Join the fun and download the SNTTA Travel Mobile App today at " + window.localStorage.getItem("appad_location") , "", "", function () {
     }, function (errormsg) {
         navigator.notification.alert(JSON.stringify(errormsg), function() {
-        }, "isme by Jumeirah" , "Dismiss"); 
+        }, "SNTTA Travel" , "Dismiss"); 
     });
 }
 
 function emailClick() {
     window.plugins.socialsharing.shareViaEmail(
-        "<pre>I'm looking at " + window.localStorage.getItem("social_email_message") + " on my <i>isme by Jumeirah</i> Mobile App!  It's Jumeirah at your finger tips!\n\n" + "Join the fun and download the <i>isme by Jumeirah</i> Mobile App today at " + window.localStorage.getItem("appad_location") + "</pre>", 
+        "<pre>I'm looking at " + window.localStorage.getItem("social_email_message") + " on my <i>SNTTA Travel</i> Mobile App!  It's SNTTA at your finger tips!\n\n" + "Join the fun and download the <i>SNTTA Travel</i> Mobile App today at " + window.localStorage.getItem("appad_location") + "</pre>", 
         window.localStorage.getItem("social_email_subject"), null, null, null, // TO: must be null or an array
         null, // FILES: can be null, a string, or an array
         function (msg) {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
         function (msg) {
             navigator.notification.alert("Unable to complete the email request due to the request cancelled by user or email is not installed. Please check and re-try.", function() {
-            }, "isme by Jumeirah" , "Dismiss"); 
+            }, "SNTTA Travel" , "Dismiss"); 
         } // called when sh*t hits the fan
         );
 }
@@ -282,7 +282,7 @@ function onSelectTabStrip1(e) {
 function supportEmailA() {
     window.plugins.socialsharing.shareViaEmail(
         "\n\n" + window.localStorage.getItem("social_telephone") + "\n" + window.localStorage.getItem("social_email"), 
-        "isme by Jumeirah", [window.localStorage.getItem("social_email")], null, null, // TO: must be null or an array
+        "SNTTA Travel", [window.localStorage.getItem("social_email")], null, null, // TO: must be null or an array
         window.localStorage.getItem("share_image"), // FILES: can be null, a string, or an array
         function (msg) {
         }, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
@@ -301,12 +301,12 @@ function customerCareOutlet() {
 
 function offerMessage() {
     navigator.notification.alert("To view offer details please select All Offers from the menu", function() {
-    }, "isme by Jumeirah", "Dismiss")    
+    }, "SNTTA Travel", "Dismiss")    
 }
 
 function outletMessage() {
     navigator.notification.alert("To view Restaurant details please select Restaurants List from the menu", function() {
-    }, "isme by Jumeirah", "Dismiss")    
+    }, "SNTTA Travel", "Dismiss")    
 }
 
 function closeSetPinForEnrollment() {
@@ -757,8 +757,8 @@ function completeRedemption() {
 
     //var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
 
-    var gurl = "https://ismemobileapp.jumeirah.com";
-    //var gurl = "http://hdrewards.ddns.net:8088/jumismemobileOld";
+//var gurl = "https://ismemobileapp.jumeirah.com";
+    var gurl = "http://haalmeer.ddns.net:8089/HaalMeerMobile";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
@@ -813,26 +813,26 @@ function completeRedemption() {
     var homecountryname = "";
     var residentcityname = "";
     var fullname = "";
-    var appad_location = "isme.jumeirah.com";
-    var appad_location_short = "isme.jumeirah.com";  
-    var share_image = "https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png";
-    var flag_image = "https://ismemobileapp.jumeirah.com/flagimages/";
+    var appad_location = "www.haalmeer.com";
+    var appad_location_short = "www.haalmeer.com";  
+    //var share_image = "https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png";
+    //var flag_image = "https://ismemobileapp.jumeirah.com/flagimages/";
     
-    //var share_image = "http://hdrewards.ddns.net:8088/jumismemobileOld/images/large_logo_placeholder.png";
-    //var flag_image = "http://hdrewards.ddns.net:8088/jumismemobileOld/flagimages/";
+    var share_image = "http://haalmeer.ddns.net:8089/HaalMeerMobile/images/large_logo_placeholder.png";
+    var flag_image = "http://haalmeer.ddns.net:8089/HaalMeerMobile/flagimages/";
 
     //var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
     //var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
     
-    var short_msg = "isme by Jumeirah";
-    var static_social_msg = "Make the most of your Jumeirah experiences with isme by Jumeirah App. Be more than a guest. Be different. Download the App now at https://isme.jumeirah.com";
-    var offertelephone = "8004763";
-    var enrollmenttelephone = "8004763";
-    var customercaretelephone = "8004763";
+    var short_msg = "SNTTA Travel";
+    var static_social_msg = "Make the most of your Travel experiences with SNTTA Travel App. Be more than a guest. Be different. Download the App now at https://www.haalmeer.com";
+    var offertelephone = "80076882";
+    var enrollmenttelephone = "80076882";
+    var customercaretelephone = "80076882";
     var cardimage = "";
-    var supportemail = "info@isme.jumeirah.com";
+    var supportemail = "info@haalmeer.com";
     var emailsubject = "Let's meet here!";
-    var emailsubjectoffer = "Check this offer on isme by Jumeirah!";
+    var emailsubjectoffer = "Check this offer on SNTTA Travel!";
   
     function doOneBackPre() {
         $(".sharehead").slideUp("slow");
@@ -904,7 +904,7 @@ function completeRedemption() {
                    error: function (errormsg) {
                        window.localStorage.setItem("FBValidated", "N");
                        navigator.notification.alert("Your Facebook User ID could not be validated due to a system error. Please try again. " + errormsg.statusText, function() {
-                       }, "isme by Jumeirah" , "Dismiss");     
+                       }, "SNTTA Travel" , "Dismiss");     
                    }
                });
     }
@@ -915,7 +915,7 @@ function completeRedemption() {
                                   function(response) { 
                                       if (response.error) { 
                                           navigator.notification.alert("There is an error accessing Facebook account. " + response.error, function() {
-                                          }, "isme by Jumeirah", "Dismiss");
+                                          }, "SNTTA Travel", "Dismiss");
                                       } else { 
                                           FBData = JSON.parse(JSON.stringify(response));  
                                           //alert(JSON.stringify(response));
@@ -943,7 +943,7 @@ function completeRedemption() {
                                           }
 
                                           navigator.notification.alert("You have been validated successfully with your Facebook account.  Please complete the missing details and continue with your subscription.", function() {
-                                          }, "isme by Jumeirah", "Dismiss");
+                                          }, "SNTTA Travel", "Dismiss");
                                       } 
                                   }); 
     }
@@ -967,7 +967,7 @@ function completeRedemption() {
                 getFBUserData();
             } else { 
                 navigator.notification.alert("There is an error accessing Facebook account.  " + response.status, function() {
-                }, "isme by Jumeirah", "Dismiss");
+                }, "SNTTA Travel", "Dismiss");
             } 
         }); 
     }
@@ -1421,8 +1421,8 @@ function completeRedemption() {
                                                //    });
                                                
                                                if (window.localStorage.getItem("FBValidated")==="Y") {
-                                                   navigator.notification.alert("You have already enrolled or validated your Facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your isme membership if already enrolled.", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   navigator.notification.alert("You have already enrolled or validated your Facebook account. Please continue to enter missing information and complete your subscription if you have still not enrolled. Login to your SNTTA membership if already enrolled.", function() {
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    hideSpin();
                                                    return;
                                                }
@@ -1438,7 +1438,7 @@ function completeRedemption() {
                                                        hideSpin();
                                                    } else { 
                                                        navigator.notification.alert("There is an error accessing Facebook account. " + response.status, function() {
-                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       }, "SNTTA Travel", "Dismiss");
                                                        hideSpin();
                                                        return;
                                                    } 
@@ -1475,7 +1475,7 @@ function completeRedemption() {
                                                                preLogin.validateUser();
                                                            } else { 
                                                                navigator.notification.alert("There is an error accessing Facebook account. " + response.status, function() {
-                                                               }, "isme by Jumeirah", "Dismiss");
+                                                               }, "SNTTA Travel", "Dismiss");
                                                                hideSpin();
                                                                return;
                                                            } 
@@ -1517,42 +1517,42 @@ function completeRedemption() {
                                                //alert(mn.length);
                                                if (window.localStorage.getItem("enrolmentcomplete")==="1") {
                                                    navigator.notification.alert("This device is already registered with another member.  You cannot create a new Subscription.", function() {
-                                                   }, "isme by Jumeirah" , "Dismiss");   
+                                                   }, "SNTTA Travel" , "Dismiss");   
                                                    return;
                                                }
                                                if (!this.firstname) {
                                                    navigator.notification.alert("Please enter your First Name. ", function() {
-                                                   }, "isme by Jumeirah", "Dismiss")
+                                                   }, "SNTTA Travel", "Dismiss")
                                                    return;
                                                }
                                                
                                                if (!this.lastname) {
                                                    navigator.notification.alert("Please enter your Last Name.", function() {
-                                                   }, "isme by Jumeirah", "Dismiss")
+                                                   }, "SNTTA Travel", "Dismiss")
                                                    return;
                                                }
                                                
                                                if (!this.emailid) {
                                                    navigator.notification.alert("Please enter your Email address.", function() {
-                                                   }, "isme by Jumeirah", "Dismiss")
+                                                   }, "SNTTA Travel", "Dismiss")
                                                    return;
                                                }
 
                                                if (!this.mobile) {
                                                    navigator.notification.alert("Please enter your mobile number.", function() {
-                                                   }, "isme by Jumeirah", "Dismiss")
+                                                   }, "SNTTA Travel", "Dismiss")
                                                    return;
                                                }
                                             
                                                if (!document.getElementById("enrol-tandc-accept").checked) {
                                                    navigator.notification.alert("Please Accept the Terms & Conditions to proceed.", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return;
                                                }
                                                
                                                if (!document.getElementById("enrol-tandc-accept-c").checked) {
                                                    navigator.notification.alert("Please Accept the Data Protection Policy to proceed", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return;
                                                }
                                                
@@ -1574,8 +1574,8 @@ function completeRedemption() {
                                                if (window.localStorage.getItem("FBValidated") === "Y") {
                                                    getFBUserExists();
                                                    if (window.localStorage.getItem("FBValidated")==="N") {
-                                                       navigator.notification.alert("There is an isme membership already associated with this Facebook account.  Unable to enrol using this Facebook account", function() {
-                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       navigator.notification.alert("There is an SNTTA membership already associated with this Facebook account.  Unable to enrol using this Facebook account", function() {
+                                                       }, "SNTTA Travel", "Dismiss");
                                                        clearEnrolPage();
                                                        return;
                                                    }   
@@ -1585,48 +1585,48 @@ function completeRedemption() {
                                                    //alert(postLogin.firstname);
                                                    if (postLogin.firstname == "") {
                                                        navigator.notification.alert("Please enter your First Name. ", function() {
-                                                       }, "isme by Jumeirah", "Dismiss")
+                                                       }, "SNTTA Travel", "Dismiss")
                                                        return;
                                                    }
                                                
                                                    if (postLogin.lastname == "") {
                                                        navigator.notification.alert("Please enter your Last Name.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss")
+                                                       }, "SNTTA Travel", "Dismiss")
                                                        return;
                                                    }
                                                
                                                    if (postLogin.emailid == "") {
                                                        navigator.notification.alert("Please enter your Email address.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss")
+                                                       }, "SNTTA Travel", "Dismiss")
                                                        return;
                                                    }
                                                   
                                                    if (!this.emailida) {
                                                        navigator.notification.alert("Please Re-enter your Email address.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss")
+                                                       }, "SNTTA Travel", "Dismiss")
                                                        return;
                                                    }
                                                } else {
                                                    if (!this.firstname) {
                                                        navigator.notification.alert("Please enter your First Name. ", function() {
-                                                       }, "isme by Jumeirah", "Dismiss")
+                                                       }, "SNTTA Travel", "Dismiss")
                                                        return;
                                                    }
                                                
                                                    if (!this.lastname) {
                                                        navigator.notification.alert("Please enter your Last Name.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss")
+                                                       }, "SNTTA Travel", "Dismiss")
                                                        return;
                                                    }
                                                
                                                    if (!this.emailid) {
                                                        navigator.notification.alert("Please enter your Email address.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss")
+                                                       }, "SNTTA Travel", "Dismiss")
                                                        return;
                                                    }
                                                    if (!this.emailida) {
                                                        navigator.notification.alert("Please Re-enter your Email address.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss")
+                                                       }, "SNTTA Travel", "Dismiss")
                                                        return;
                                                    }
                                                }
@@ -1635,51 +1635,51 @@ function completeRedemption() {
                                                if (!this.emailid) {
                                                    if (postLogin.emailid != this.emailida) {
                                                        navigator.notification.alert("Emails do not match, please re-enter correctly.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       }, "SNTTA Travel", "Dismiss");
                                                        return;
                                                    }
                                                }else {  
                                                    if (this.emailid != this.emailida) {
                                                        navigator.notification.alert("Emails do not match, please re-enter correctly.", function() {
-                                                       }, "isme by Jumeirah", "Dismiss");
+                                                       }, "SNTTA Travel", "Dismiss");
                                                        return;
                                                    }
                                                }
                                                
                                                if (!this.mobile) {
                                                    navigator.notification.alert("Please enter your mobile number.", function() {
-                                                   }, "isme by Jumeirah", "Dismiss")
+                                                   }, "SNTTA Travel", "Dismiss")
                                                    return;
                                                }
                                            
                                                if (document.getElementById("selEmirate").value === "") {
                                                    navigator.notification.alert("Please select your city of residence.", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return; 
                                                }
                                               
                                                if (document.getElementById("selGender").value === "") {
                                                    navigator.notification.alert("Please select your gender.", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return; 
                                                }
                                                
                                                if (!document.getElementById("enrol-tandc-accept").checked) {
                                                    navigator.notification.alert("Please Accept the Terms & Conditions to proceed.", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return;
                                                }
                                                
                                                if (!document.getElementById("enrol-tandc-accept-c").checked) {
                                                    navigator.notification.alert("Please Accept the Data Protection Policy to proceed", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return;
                                                }
                                                
                                                navigator.notification.confirm(
-                                                   'We are about to create a new isme membership for you. Click OK to proceed.', // message
+                                                   'We are about to create a new SNTTA membership for you. Click OK to proceed.', // message
                                                    onConfirm1, // callback to invoke with index of button pressed
-                                                   'isme by Jumeirah', // title
+                                                   'SNTTA Travel', // title
                                                    'OK,Return for Correction'          // buttonLabels
                                                    );
                                            },
@@ -1729,13 +1729,13 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the benefits cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
                                                               navigator.notification.alert("Due to a system error, the benefits cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
@@ -1771,13 +1771,13 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the benefits cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
                                                               navigator.notification.alert("Due to a system error, the benefits cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
@@ -1850,18 +1850,18 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      }, "SNTTA Travel", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again.  " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Due to a system error, the location details are not available for the selected property. [" + errormsg.statusText + "]  Please check your network connection and try again. ", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });                  
@@ -1919,18 +1919,18 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      }, "SNTTA Travel", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again.  " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Due to a system error, the location details are not available for the selected property. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });                  
@@ -1984,19 +1984,19 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("There are no Leisure venues available for the selected property.", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      }, "SNTTA Travel", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                                   //fill the outlet template
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again.  " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Due to a system error, the location details are not available for the selected property. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });                  
@@ -2050,19 +2050,19 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
                                                                       navigator.notification.alert("There are no Leisure venues available for the selected property.", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      }, "SNTTA Travel", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                                   //fill the outlet template
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again.  " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Due to a system error, the location details are not available for the selected property. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });                  
@@ -2112,13 +2112,13 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, these details cannot be displayed. Please close the app and log in again. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
                                                               navigator.notification.alert("Due to a system error, these details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -2168,13 +2168,13 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the location details are not available for the selected property. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
                                                               navigator.notification.alert("Due to a system error, the location details are not available for the selected property. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -2210,18 +2210,18 @@ function completeRedemption() {
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       navigator.notification.alert("No rewards are currently available for the selected venue. ", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      }, "SNTTA Travel", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, these details cannot be displayed. Please close the app and log in again " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Due to a system error, these details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -2259,18 +2259,18 @@ function completeRedemption() {
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       navigator.notification.alert("Due to a system error, these details cannot be displayed. ", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      }, "SNTTA Travel", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, these details cannot be displayed. close app and try again. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Due to a system error, these details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -2322,18 +2322,18 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.offerlist.length == 0) {
                                                                       navigator.notification.alert("No rewards are currently available for the selected venue. ", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      }, "SNTTA Travel", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, these details cannot be displayed. Please close the app and log in again " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Due to a system error, these details cannot be displayed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -2378,13 +2378,13 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("No rewards are currently available for the selected venue. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Due to a system error, these details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -2426,13 +2426,13 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("No rewards are currently available for the selected venue. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Due to a system error, these details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -2462,18 +2462,18 @@ function completeRedemption() {
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       navigator.notification.alert("No venues are currently available for the selected reward. ", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      }, "SNTTA Travel", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, these details cannot be displayed. clos app and login again" + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
                                                               navigator.notification.alert("Due to a system error, these details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -2560,13 +2560,13 @@ function completeRedemption() {
                                                                       $("body").data("kendoMobilePane").navigate("views/deviceBlock.html");  
                                                                   } else {
                                                                       navigator.notification.alert("Platform Error 1. Please close the app and log in again. " + getData.statusText, function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")          
+                                                                      }, "SNTTA Travel", "Dismiss")          
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               },
                                                               error: function (errormsg) {
                                                                   navigator.notification.alert("Platform Error 2. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")
+                                                                  }, "SNTTA Travel", "Dismiss")
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           });
@@ -2667,18 +2667,18 @@ function completeRedemption() {
                                                                               hideSpin(); //hide loading popup
                                                                           } else {
                                                                               navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
-                                                                              }, "isme by Jumeirah", "Dismiss")
+                                                                              }, "SNTTA Travel", "Dismiss")
                                                                               hideSpin(); //hide loading popup
                                                                           }
                                                                       } else {
                                                                           navigator.notification.alert("Due to a system error, the property details cannot be displayed. " + getData.statusdesc, function () {
-                                                                          }, "isme by Jumeirah", "Dismiss")
+                                                                          }, "SNTTA Travel", "Dismiss")
                                                                           hideSpin(); //hide loading popup
                                                                       }
                                                                   },
                                                                   error: function (error) {
                                                                       navigator.notification.alert("Due to a system error, the property details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
-                                                                      }, "isme by Jumeirah", "Dismiss")
+                                                                      }, "SNTTA Travel", "Dismiss")
                                                                   }
                                                               });
                                                    }
@@ -2881,13 +2881,13 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                               } else {
                                                                   navigator.notification.alert(getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss");
+                                                                  }, "SNTTA Travel", "Dismiss");
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
                                                               navigator.notification.alert("There was an error generating the SMS Code. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });        
@@ -2929,13 +2929,13 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                               } else {
                                                                   navigator.notification.alert(getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss");
+                                                                  }, "SNTTA Travel", "Dismiss");
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
                                                               navigator.notification.alert("There was an error generating the SMS Code. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });        
@@ -2959,7 +2959,7 @@ function completeRedemption() {
                                            : function () {
                                                if (!this.username) {
                                                    navigator.notification.alert("Please enter a valid Mobile number.", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return;
                                                }
                                                window.localStorage.setItem("mobilelogin", String(this.username));
@@ -2970,18 +2970,18 @@ function completeRedemption() {
                                            : function () {
                                                if (!this.username) {
                                                    navigator.notification.alert("Please enter a valid Mobile Number.", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return;
                                                }
                                                if (!this.password) {
                                                    navigator.notification.alert("Please enter a valid 4 digit numeric PIN", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return;
                                                }
                                                
                                                if (isNaN(this.password)) {
                                                    navigator.notification.alert("Please enter a valid 4 digit numeric PIN", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return;
                                                }
                                                                                           
@@ -3136,7 +3136,7 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert(getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")
+                                                                  }, "SNTTA Travel", "Dismiss")
                                                                   window.localStorage.setItem("loginmode", "");
                                                                   window.localStorage.setItem("FBuserID", "");
                                                                   hideSpin(); //hide loading popup
@@ -3144,7 +3144,7 @@ function completeRedemption() {
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Login failed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               window.localStorage.setItem("loginmode", "");
                                                               window.localStorage.setItem("FBuserID", "");
                                                               
@@ -3157,7 +3157,7 @@ function completeRedemption() {
                                            : function () {
                                                if (!this.tokennum) {
                                                    navigator.notification.alert("Please enter a valid Token number. ", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return;
                                                }
                             
@@ -3196,13 +3196,13 @@ function completeRedemption() {
                                                                   //     }
                                                               }else {
                                                                   navigator.notification.alert(getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")         
+                                                                  }, "SNTTA Travel", "Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Login failed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -3214,7 +3214,7 @@ function completeRedemption() {
                                            : function () {
                                                if (!this.smsnum) {
                                                    navigator.notification.alert("Please enter a valid Code received on SMS. ", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return;
                                                }
                                                showSpin();
@@ -3239,13 +3239,13 @@ function completeRedemption() {
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("The Validation Code entered is incorrect, please enter the correct Validation Code.", function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")         
+                                                                  }, "SNTTA Travel", "Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Unable to validate the Code.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -3255,7 +3255,7 @@ function completeRedemption() {
                                            : function () {
                                                if (!this.smsnum1) {
                                                    navigator.notification.alert("Please enter a valid Code received on SMS. ", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return;
                                                }
                                                showSpin();
@@ -3280,13 +3280,13 @@ function completeRedemption() {
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("The Validation Code entered is incorrect, please enter the correct Validation Code.", function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")         
+                                                                  }, "SNTTA Travel", "Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Unable to validate the Code.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -3297,28 +3297,28 @@ function completeRedemption() {
                                            : function () {
                                                if (!this.pin1 || !this.pin2) {
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
 
                                                    return;
                                                }
                                                
                                                if (isNaN(this.pin1) || isNaN(this.pin2)) {
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
   
                                                    return;
                                                }
                                                
                                                if (this.pin1 != this.pin2) {
                                                    navigator.notification.alert("PIN Numbers do not match, please re-enter a valid PIN.", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                             
                                                    return;
                                                }
 
                                                if (String(this.pin2).length != 4) {
                                                    navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
   
                                                    return;
                                                }
@@ -3337,7 +3337,7 @@ function completeRedemption() {
                                            function () {
                                                if (!this.emailid1) {
                                                    navigator.notification.alert("Please enter a valid email address.", function() {
-                                                   }, "isme by Jumeirah", "Dismiss");
+                                                   }, "SNTTA Travel", "Dismiss");
                                                    return;
                                                }
                              
@@ -3361,19 +3361,19 @@ function completeRedemption() {
                                                 
                                                               if (getData.statuscode == "000") { //Login Successful
                                                                   navigator.notification.alert("A URL has been sent to your registered email with a link to set your new password. ", function() {
-                                                                  }, "isme by Jumeirah", "Dismiss");   
+                                                                  }, "SNTTA Travel", "Dismiss");   
                                                                   preLogin.set("username1", "");
                                                                   preLogin.set("emailid1", "");
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Unable to send the password reset URL. Please restart the app and try resetting your password again. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")         
+                                                                  }, "SNTTA Travel", "Dismiss")         
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (errormsg) {
                                                               navigator.notification.alert("Unable to send the password reset URL. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -3405,18 +3405,18 @@ function completeRedemption() {
                                                                       hideSpin(); //hide loading popup
                                                                   }else {
                                                                       navigator.notification.alert("Due to a system error, the Benefit details are not available. Please close the app and log in again. ", function() {
-                                                                      }, "isme by Jumeirah", "Dismiss")    
+                                                                      }, "SNTTA Travel", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the Benefit details are not available. Please close the app and log in again. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
                                                               navigator.notification.alert("Due to a system error, the Benefit details are not available. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup
                                                           }
                                                       });
@@ -3448,13 +3448,13 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
                                                               navigator.notification.alert("Due to a system error, the FAQs cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
@@ -3467,7 +3467,7 @@ function completeRedemption() {
                                                document.getElementById("name-backg").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                //document.getElementById("number-backg").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                document.getElementById("expiry-backg").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                               document.getElementById("segment-backg").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                               document.getElementById("segment-backg").innerHTML = (window.localStorage.getItem("segmentcode") === "1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                document.getElementById("mycard-qrg").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                document.getElementById("mycard-qrg").style.backgroundSize = "cover";    
                                                $.ajax({ 
@@ -3493,13 +3493,13 @@ function completeRedemption() {
                                                                   hideSpin(); //hide loading popup
                                                               }else {
                                                                   navigator.notification.alert("Due to a system error, the FAQs cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
-                                                                  }, "isme by Jumeirah", "Dismiss")          
+                                                                  }, "SNTTA Travel", "Dismiss")          
                                                                   hideSpin(); //hide loading popup
                                                               }
                                                           },
                                                           error: function (error) {
                                                               navigator.notification.alert("Due to a system error, the FAQs cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                              }, "isme by Jumeirah", "Dismiss")
+                                                              }, "SNTTA Travel", "Dismiss")
                                                               hideSpin(); //hide loading popup                                          
                                                           }
                                                       });
@@ -3728,13 +3728,13 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")          
+                                                                       }, "SNTTA Travel", "Dismiss")          
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                },
                                                                error: function (errormsg) {
                                                                    navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")
+                                                                   }, "SNTTA Travel", "Dismiss")
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            });
@@ -3749,7 +3749,7 @@ function completeRedemption() {
                                                 showSpin();
                                                 clearAllVariables();                                            
                                             
-                                               if (window.localStorage.getItem("segmentcode") === "1000") {
+                                               if (window.localStorage.getItem("segmentcode") === "1003") {
             document.getElementById("profile-type-p").innerHTML = "";//isme";
         
             document.getElementById("post-image").style.backgroundImage = "url(images/home_page_logo_black.png)";
@@ -3817,13 +3817,13 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -3839,7 +3839,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backz").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backz").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backz").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backz").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backz").innerHTML = (window.localStorage.getItem("segmentcode") === "1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrz").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrz").style.backgroundSize = "cover";    
                                                 document.getElementById("profile-picture-1").src = window.localStorage.getItem("cuspict");
@@ -3850,11 +3850,11 @@ function completeRedemption() {
                                                 //document.getElementById("pro-number").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? "Member # : " + window.localStorage.getItem("customer") : "Member # : NA";
                                                 //document.getElementById("pro-init").innerHTML = (window.localStorage.getItem("initdate") != null && window.localStorage.getItem("initdate").length > 0) ? "Member Since : " + window.localStorage.getItem("initdate") : "Member Since : NA";
                                                 document.getElementById("pro-expiry").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("pro-hotelmember").innerHTML = (window.localStorage.getItem("magicnumber") != null && window.localStorage.getItem("magicnumber").length > 0) ? "Jumeirah Sirius No. : " + window.localStorage.getItem("magicnumber") : "Jumeirah Sirius No. : NA";
-                                                if (window.localStorage.getItem("segmentcode") === "1000") {
-                                                    document.getElementById("pro-type").innerHTML = "isme Member";
+                                                //document.getElementById("pro-hotelmember").innerHTML = (window.localStorage.getItem("magicnumber") != null && window.localStorage.getItem("magicnumber").length > 0) ? "Jumeirah Sirius No. : " + window.localStorage.getItem("magicnumber") : "Jumeirah Sirius No. : NA";
+                                                if (window.localStorage.getItem("segmentcode") === "1003") {
+                                                    document.getElementById("pro-type").innerHTML = "SNTTA Gold";
                                                 }else {
-                                                    document.getElementById("pro-type").innerHTML = "isme Elite Member";
+                                                    document.getElementById("pro-type").innerHTML = "SNTTA Elite";
                                                 }
                                             },
         
@@ -3948,7 +3948,7 @@ function completeRedemption() {
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error, Cannot Logout. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -3988,7 +3988,7 @@ function completeRedemption() {
                                                 document.getElementById("name-back9").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                // document.getElementById("number-back9").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-back9").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-back9").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-back9").innerHTML = (window.localStorage.getItem("segmentcode") === "1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qr9").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qr9").style.backgroundSize = "cover";        
 
@@ -4018,13 +4018,13 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the benefits cannot be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
                                                                navigator.notification.alert("Due to a system error, the benefits cannot be displayed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup                                          
                                                            }
                                                        });
@@ -4054,18 +4054,18 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("Due to a system error, the locations cannot be retrieved for the selected reward, please try again or contact support for assistance. ", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the locations cannot be retrieved for the selected reward. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
                                                                navigator.notification.alert("Due to a system error, the locations cannot be retrieved for the selected reward. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -4097,18 +4097,18 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("Due to a system error, the locations cannot be retrieved for the selected reward, please try again or contact support for assistance. ", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the locations cannot be retrieved for the selected reward. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
                                                                navigator.notification.alert("Unknown Error, Cannot get locations List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -4126,7 +4126,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backp").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backp").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backp").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backp").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backp").innerHTML = (window.localStorage.getItem("segmentcode") === "1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrp").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrp").style.backgroundSize = "cover";      
                                                 $.ajax({ 
@@ -4167,18 +4167,18 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.offerlist.length == 0) {
                                                                        navigator.notification.alert("No rewards are currently available.", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the rewards cannot be displayed. Please close the app and log in again.  " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, the rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -4213,7 +4213,7 @@ function completeRedemption() {
                                                                    document.getElementById("name-backq").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                                    //document.getElementById("number-backq").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                                    document.getElementById("expiry-backq").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                                   document.getElementById("segment-backq").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                                   document.getElementById("segment-backq").innerHTML = (window.localStorage.getItem("segmentcode") === "1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                                    document.getElementById("mycard-qrq").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                                    document.getElementById("mycard-qrq").style.backgroundSize = "cover"; 
                                                           
@@ -4251,13 +4251,13 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the location details are not available for the selected property. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
                                                                navigator.notification.alert("Due to a system error, the location details are not available for the selected property. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -4272,7 +4272,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backf").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backf").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backf").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backf").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backf").innerHTML = (window.localStorage.getItem("segmentcode") === "1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrf").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrf").style.backgroundSize = "cover";      
                                                 showSpin();
@@ -4306,18 +4306,18 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.propertylist.length === 0) {
                                                                        navigator.notification.alert("Due to a system error, the Property details cannot be displayed. ", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the Property details cannot be displayed. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, the Property details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -4335,7 +4335,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backr").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backr").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backr").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backr").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backr").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrr").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrr").style.backgroundSize = "cover";    
                                                 $.ajax({ 
@@ -4397,18 +4397,18 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
                                                                        navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }    
                                                        });                  
@@ -4433,7 +4433,7 @@ function completeRedemption() {
   
                                                 document.getElementById("expiry-backs").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
 
-                                                document.getElementById("segment-backs").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backs").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
    
                                                 document.getElementById("mycard-qrs").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrs").style.backgroundSize = "cover";    
@@ -4480,18 +4480,18 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                    if (getData.outletlist.length === 0) {
                                                                        navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }    
                                                        });                  
@@ -4508,7 +4508,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backi").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backi").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backi").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backi").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backi").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qri").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qri").style.backgroundSize = "cover";      
                                                 $.ajax({ 
@@ -4528,7 +4528,7 @@ function completeRedemption() {
                                                                if (getData.statuscode === "000") {
                                                                    if (getData.outletlist.length === 0) {
                                                                        navigator.notification.alert("There are no Leisure venues available for the selected property. ", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                    //fill the outlet template
@@ -4558,13 +4558,13 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again.   [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });                  
@@ -4583,7 +4583,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backj").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backj").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backj").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backj").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backj").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrj").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrj").style.backgroundSize = "cover";      
                                                 $.ajax({ 
@@ -4603,7 +4603,7 @@ function completeRedemption() {
                                                                    if (window.localStorage.getItem("outlet")==="") {
                                                                        if (getData.outletlist.length === 0) {
                                                                            navigator.notification.alert("There are no Leisure venues available for the selected property.", function() {
-                                                                           }, "isme by Jumeirah", "Dismiss")    
+                                                                           }, "SNTTA Travel", "Dismiss")    
                                                                            hideSpin(); //hide loading popup
                                                                        }
                                                                        //fill the outlet template
@@ -4632,13 +4632,13 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please close the app and log in again. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, the location details are not available for the selected property. Please check your network connection and try again.    [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });                  
@@ -4674,7 +4674,7 @@ function completeRedemption() {
                                                                    document.getElementById("name-backa").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                                    //document.getElementById("number-backa").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                                    document.getElementById("expiry-backa").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                                   document.getElementById("segment-backa").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                                   document.getElementById("segment-backa").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                                    document.getElementById("mycard-qra").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                                    document.getElementById("mycard-qra").style.backgroundSize = "cover";      
                                                                    
@@ -4699,13 +4699,13 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the Property details cannot be displayed.  " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (error) {
                                                                navigator.notification.alert("Due to a system error, the Property details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -4752,18 +4752,18 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No Vouchers are currently available in your Wallet for the selected venue.", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, your Wallet could not be displayed. Please restart the app and try again.  " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, your Wallet cannot be displayed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });  
@@ -4800,18 +4800,18 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No Offers currently exist for the selected Restaurant", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("There are no rewards for the selected location." + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, the Reward details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -4821,7 +4821,7 @@ function completeRedemption() {
                                             : function (e) {
                                                 if (!document.getElementById("pl-tandc-accept").checked) {
                                                     navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
+                                                    }, "SNTTA Travel", "Dismiss");
                                                     return;
                                                 }
                                                 showSpin();
@@ -4857,13 +4857,13 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, this reward could not be activated. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, this reward could not be activated.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup                                                                 
                                                            }
                                                        });
@@ -4872,7 +4872,7 @@ function completeRedemption() {
                                             : function () {
                                                 if (!document.getElementById("pl-tandc-accept").checked) {
                                                     navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
+                                                    }, "SNTTA Travel", "Dismiss");
                                                     return;
                                                 }
                                                 window.localStorage.setItem("selfredeem", "V"); 
@@ -4882,7 +4882,7 @@ function completeRedemption() {
                                             : function () {
                                                 if (!document.getElementById("wallet-tandc").checked) {
                                                     navigator.notification.alert("Please Accept Terms & Conditions to proceed", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
+                                                    }, "SNTTA Travel", "Dismiss");
                                                     return;
                                                 }
                                                 window.localStorage.setItem("selfredeem", "M"); 
@@ -4896,7 +4896,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backc").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backc").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backc").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backc").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backc").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrc").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrc").style.backgroundSize = "cover";      
                                                 document.getElementById("offer-1").innerHTML = postLogin.transactionref;
@@ -4912,7 +4912,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backm").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backm").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backm").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backm").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backm").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrm").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrm").style.backgroundSize = "cover";      
                                              
@@ -4950,18 +4950,18 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No Vouchers are currently available in your Wallet.", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, your Wallet could not be displayed. Please restart the app and try again.  " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, your Wallet cannot be displayed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -4975,7 +4975,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backo").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backo").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backo").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backo").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backo").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qro").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qro").style.backgroundSize = "cover";      
                                                 showSpin();
@@ -5010,13 +5010,13 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the Rewards cannot be displayed. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, the Rewards cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -5031,7 +5031,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backn").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backn").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backn").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backn").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backn").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrn").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrn").style.backgroundSize = "cover";    
                                                 $.ajax({ 
@@ -5067,18 +5067,18 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No Vouchers are currently available in your Wallet.", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, your Wallet could not be displayed. Please restart the app and try again. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, your Wallet cannot be displayed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -5102,7 +5102,7 @@ function completeRedemption() {
                                                 //document.getElementById("number7-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry7-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
                                               
-                                                document.getElementById("segment7-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment7-back").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard7-qr").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard7-qr").style.backgroundSize = "cover";  
                                                 
@@ -5235,12 +5235,12 @@ function completeRedemption() {
                                             closeEnterModalPasswordandEnterPIN:function() {
                                                 if (!this.setpass) {
                                                     navigator.notification.alert("Invalid PIN or Empty", function() {
-                                                    }, "isme by Jumeirah", "Dismiss")  
+                                                    }, "SNTTA Travel", "Dismiss")  
                                                     return;
                                                 }
                                                 if (isNaN(this.setpass)) {
                                                     navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
-                                                    }, "isme by Jumeirah", "Dismiss")  
+                                                    }, "SNTTA Travel", "Dismiss")  
                                                     return;
                                                 }
                                                 showSpin(); 
@@ -5264,13 +5264,13 @@ function completeRedemption() {
                                                                    hideSpin();
                                                                }else {
                                                                    navigator.notification.alert("Due to a system error, the PIN was not set. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin();
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to a system error, the PIN was not set.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin();
                                                            }
                                                        });
@@ -5281,17 +5281,17 @@ function completeRedemption() {
                                             : function () {
                                                 if (!this.newpin1 || !this.newpin2) {
                                                     navigator.notification.alert("Invalid PIN Number. Please re-enter a valid PIN number. ", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
+                                                    }, "SNTTA Travel", "Dismiss");
                                                     return;
                                                 }
                                                 if (this.newpin1 != this.newpin2) {
                                                     navigator.notification.alert("PIN Numbers do not match, please re-enter a valid PIN number.", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
+                                                    }, "SNTTA Travel", "Dismiss");
                                                     return;
                                                 }
                                                 if (String(this.newpin2).length != 4) {
                                                     navigator.notification.alert("Enter a valid 4 digit numeric PIN", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
+                                                    }, "SNTTA Travel", "Dismiss");
                                                     return;
                                                 }
                                                 window.localStorage.setItem("setpintype", "2");
@@ -5314,7 +5314,7 @@ function completeRedemption() {
                                             : function () {
                                                 if (!this.srpin1) {
                                                     navigator.notification.alert("Invalid PIN Number. Please re-enter a valid PIN number. ", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
+                                                    }, "SNTTA Travel", "Dismiss");
                                                     return;
                                                 }
                                                 showSpin();
@@ -5335,13 +5335,13 @@ function completeRedemption() {
                                                                    hideSpin(); //hide loading popup
                                                                }else {
                                                                    navigator.notification.alert("Invalid Redemption PIN", function() {
-                                                                   }, "isme by Jumeirah", "Dismiss");
+                                                                   }, "SNTTA Travel", "Dismiss");
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Unknown Error. Cannot verify Redemption PIN [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss");
+                                                               }, "SNTTA Travel", "Dismiss");
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -5351,7 +5351,7 @@ function completeRedemption() {
                                             : function () {
                                                 if (!this.depin1) {
                                                     navigator.notification.alert("Invalid Outlet identifier. Please enter valid outlet identifier.", function() {
-                                                    }, "isme by Jumeirah", "Dismiss");
+                                                    }, "SNTTA Travel", "Dismiss");
                                                     return;
                                                 }
                                                 if (window.localStorage.getItem("selfredeem")==="V") {
@@ -5370,7 +5370,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backb").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backb").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backb").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backb").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backb").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrb").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrb").style.backgroundSize = "cover";      
                                                 document.getElementById("discount-1").innerHTML = window.localStorage.getItem("self-authorization");
@@ -5385,7 +5385,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backy").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backy").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backy").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backy").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backy").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qry").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qry").style.backgroundSize = "cover";      
                                                 document.getElementById("discountb-1").innerHTML = window.localStorage.getItem("self-authorization");
@@ -5400,7 +5400,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backd").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backd").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backd").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backd").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backd").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrd").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrd").style.backgroundSize = "cover";           
                                                 document.getElementById("authcode").innerHTML = window.localStorage.getItem("self-authorization");
@@ -5422,7 +5422,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backx").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backx").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backx").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backx").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backx").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrx").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrx").style.backgroundSize = "cover";           
                                                 document.getElementById("authcodex").innerHTML = window.localStorage.getItem("self-authorization");
@@ -5450,7 +5450,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backh").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backh").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backh").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backh").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backh").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrh").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrh").style.backgroundSize = "cover";     
                                                 $.ajax({ 
@@ -5466,7 +5466,7 @@ function completeRedemption() {
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
                                                                if (getData.statuscode == "000") {
-                                                                   document.getElementById("ytd-spend").innerHTML = "My isme by Jumeirah  spend:" + window.localStorage.getItem("spendmb");
+                                                                   document.getElementById("ytd-spend").innerHTML = "My SNTTA Travel  spend:" + window.localStorage.getItem("spendmb");
                                                                    if (getData.historylist.length > 0) {
                                                                        $("#pl-history-list").kendoMobileListView({
                                                                                                                      dataSource: kendo.data.DataSource.create({data: getData.historylist}),//, serverPaging: true,pageSize:20 (this should be the datasource paramteres
@@ -5477,18 +5477,18 @@ function completeRedemption() {
                                                                        hideSpin(); //hide loading popup
                                                                    }else {
                                                                        navigator.notification.alert("No transaction history available for your membership.", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                        hideSpin(); //hide loading popup
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to system error, transaction history cannot be displayed. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin(); //hide loading popup
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to system error, transaction history cannot be displayed.  [" + errormsg.responseText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -5500,7 +5500,7 @@ function completeRedemption() {
                                                 document.getElementById("name-back8").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-back8").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-back8").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-back8").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-back8").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qr8").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qr8").style.backgroundSize = "cover";      
                                             },
@@ -5511,7 +5511,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backt").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backt").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backt").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backt").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backt").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrt").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrt").style.backgroundSize = "cover";      
                                             },
@@ -5523,7 +5523,7 @@ function completeRedemption() {
                                                 document.getElementById("name-back9").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-back9").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-back9").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-back9").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-back9").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qr9").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qr9").style.backgroundSize = "cover";      
                                             },
@@ -5536,7 +5536,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backe").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backe").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backe").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backe").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backe").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qre").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qre").style.backgroundSize = "cover";      
                                             },
@@ -5553,7 +5553,7 @@ function completeRedemption() {
                                                 document.getElementById("name-backl").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 //document.getElementById("number-backl").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry-backl").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment-backl").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment-backl").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qrl").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qrl").style.backgroundSize = "cover";      
                                                 $.ajax({ 
@@ -5579,16 +5579,16 @@ function completeRedemption() {
                                                                                                                  });
                                                                    }else {
                                                                        navigator.notification.alert("No message history for your Membership. ", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to system error, message history cannot be displayed. Please try again. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to system error, message history cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                            }
                                                        });
                                                 hideSpin(); //hide loading popup
@@ -5624,7 +5624,7 @@ function completeRedemption() {
                                                                        document.getElementById("name-backk").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                                        //document.getElementById("number-backk").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                                        document.getElementById("expiry-backk").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                                       document.getElementById("segment-backk").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                                       document.getElementById("segment-backk").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                                        document.getElementById("mycard-qrk").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                                        document.getElementById("mycard-qrk").style.backgroundSize = "cover";      
                                                                        document.getElementById("pl-messageitem-list").style.display = "block";
@@ -5634,18 +5634,18 @@ function completeRedemption() {
                                                                        hideSpin();
                                                                    }else {
                                                                        navigator.notification.alert("No message history for your Membership. ", function() {
-                                                                       }, "isme by Jumeirah", "Dismiss")    
+                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                        hideSpin();
                                                                    }
                                                                }else {
                                                                    navigator.notification.alert("Due to system error, message item cannot be displayed. Please try again. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                    hideSpin();
                                                                }
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("Due to system error, message item cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin();
                                                            }
                                                        });
@@ -5673,13 +5673,13 @@ function completeRedemption() {
                                                                    $("body").data("kendoMobilePane").navigate("views/pl-mymessagelist.html");  
                                                                }else {
                                                                    navigator.notification.alert("Cannot delete message. " + getData.statusdesc, function() {
-                                                                   }, "isme by Jumeirah", "Dismiss")          
+                                                                   }, "SNTTA Travel", "Dismiss")          
                                                                }
                                                                hideSpin(); //hide loading popup
                                                            },
                                                            error: function (errormsg) {
                                                                navigator.notification.alert("System error, cannot delete message. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                                                               }, "isme by Jumeirah", "Dismiss")
+                                                               }, "SNTTA Travel", "Dismiss")
                                                                hideSpin(); //hide loading popup
                                                            }
                                                        });
@@ -5693,7 +5693,7 @@ function completeRedemption() {
                                                 document.getElementById("name6-back").innerHTML = (window.localStorage.getItem("customername") != null && window.localStorage.getItem("customername").length > 0)? window.localStorage.getItem("customername") :"NA" ;
                                                 document.getElementById("number6-back").innerHTML = (window.localStorage.getItem("customer") != null && window.localStorage.getItem("customer").length > 0) ? window.localStorage.getItem("customer") : "NA";
                                                 document.getElementById("expiry6-back").innerHTML = (window.localStorage.getItem("memberexpiry") != null && window.localStorage.getItem("memberexpiry").length > 0) ? "Membership Expiry : " + window.localStorage.getItem("memberexpiry") : "Membership Expiry : No Expiry";
-                                                document.getElementById("segment6-back").innerHTML = (window.localStorage.getItem("segmentcode") === "1000") ? "isme" : "isme Elite";
+                                                document.getElementById("segment6-back").innerHTML = (window.localStorage.getItem("segmentcode") ==="1003") ? "SNTTA Gold" : "SNTTA Elite";
                                                 document.getElementById("mycard-qr6").style.background = "url(" + window.localStorage.getItem("cusqr") + ") no-repeat center center";        
                                                 document.getElementById("mycard-qr6").style.backgroundSize = "cover";                            
                                                 window.localStorage.setItem("issaved", "0");
@@ -5715,7 +5715,7 @@ function completeRedemption() {
                                                     navigator.notification.confirm(
                                                         'You have not saved your preferences?', // message
                                                         onConfirm2, // callback to invoke with index of button pressed
-                                                        'isme by Jumeirah', // title
+                                                        'SNTTA Travel', // title
                                                         'I will Save Later,Save now'          // buttonLabels
                                                         );
                                                 }else {  
@@ -5728,7 +5728,7 @@ function completeRedemption() {
                                                     navigator.notification.confirm(
                                                         'You have not saved your settings?', // message
                                                         onConfirm3, // callback to invoke with index of button pressed
-                                                        'isme by Jumeirah', // title
+                                                        'SNTTA Travel', // title
                                                         'I will Save Later,Save now'          // buttonLabels
                                                         );
                                                 }else {  
@@ -5769,23 +5769,23 @@ function completeRedemption() {
                                                                        if (getData.statuscode === "000") {
                                                                            window.localStorage.setItem("fbLoginModeEnabled", "Y");
                                                                            navigator.notification.alert("The Facebook account on this device is successfully linked to your isme membership.", function() {
-                                                                           }, "isme by Jumeirah" , "Dismiss");     
+                                                                           }, "SNTTA Travel" , "Dismiss");     
                                                                            hideSpin();
                                                                        }else {
                                                                            navigator.notification.alert("The Facebook account in this device is already linked to another isme membership.", function() {
-                                                                           }, "isme by Jumeirah" , "Dismiss");  
+                                                                           }, "SNTTA Travel" , "Dismiss");  
                                                                            hideSpin();
                                                                        }
                                                                    },
                                                                    error: function (errormsg) {
                                                                        navigator.notification.alert("Due to a system error, we are unable to validate the Facebook account. " + errormsg.statusText, function() {
-                                                                       }, "isme by Jumeirah" , "Dismiss");     
+                                                                       }, "SNTTA Travel" , "Dismiss");     
                                                                        hideSpin();
                                                                    }
                                                                });
                                                     } else { 
                                                         navigator.notification.alert("Error accessing Facebook " + response.status, function() {
-                                                        }, "isme by Jumeirah", "Dismiss");
+                                                        }, "SNTTA Travel", "Dismiss");
                                                         return;
                                                     } 
                                                 }); 
@@ -5907,10 +5907,10 @@ function completeRedemption() {
         }
         if (window.localStorage.getItem("errorPreference") === "1") {
             navigator.notification.alert("Your preferences were saved successfully.", function() {
-            }, "isme by Jumeirah", "Dismiss") ;                         
+            }, "SNTTA Travel", "Dismiss") ;                         
         } else {
             navigator.notification.alert("Your Preferences Were Saved Successfully", function() {
-            }, "isme by Jumeirah" , "Dismiss") ;   
+            }, "SNTTA Travel" , "Dismiss") ;   
         }
         window.localStorage.setItem("errorPreference", "1");
         window.localStorage.setItem("issaved", "1");
@@ -5959,14 +5959,14 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Unable to Validate Discount. Please try again.  " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss");
+                           }, "SNTTA Travel", "Dismiss");
                            postLogin.set("depin1", "");
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Due to a system error, we are unable to Validate Discount  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss");
+                       }, "SNTTA Travel", "Dismiss");
                        postLogin.set("depin1", "");
                        hideSpin(); //hide loading popup
                    }
@@ -6004,14 +6004,14 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Unable to Redeem Voucher. Please try again. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")
+                           }, "SNTTA Travel", "Dismiss")
                            postLogin.set("depin1", "");
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("System Error: unable to Redeem Voucher.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                        postLogin.set("depin1", "");
                        hideSpin(); //hide loading popup
                    }
@@ -6046,14 +6046,14 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Unable to Redeem Voucher. Please try again. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")
+                           }, "SNTTA Travel", "Dismiss")
                            postLogin.set("depin1", "");
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("System Error: unable to Redeem Voucher.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                        postLogin.set("depin1", "");
                        hideSpin(); //hide loading popup
                    }
@@ -6081,20 +6081,20 @@ function completeRedemption() {
                            }
                            if (window.localStorage.getItem("setpintype") == "2") {
                                navigator.notification.alert("PIN changes successfully", function() {
-                               }, "isme by Jumeirah", "Dismiss") 
+                               }, "SNTTA Travel", "Dismiss") 
                                    
                                hideSpin(); //hide loading popup
                                $("#modalviewpin").data("kendoMobileModalView").close();
                            }
                        }else {
                            navigator.notification.alert("Due to a system error, we are unable to set PIN. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")         
+                           }, "SNTTA Travel", "Dismiss")         
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Due to a system error, we are unable to set PIN. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -6117,13 +6117,13 @@ function completeRedemption() {
                        var getData = JSON.parse(data);
                        if (getData.statuscode != "000") {
                            navigator.notification.alert("Image change could not be updated due to system error. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
+                           }, "SNTTA Travel", "Dismiss")          
                        }
                        hideSpin(); //hide loading popup
                    },
                    error: function (error) {
                        navigator.notification.alert("Image change could not be updated due to system error. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -6153,14 +6153,14 @@ function completeRedemption() {
                            hideSpin();
                        }else {
                            navigator.notification.alert("Unable to display no alcohol country list. Please restart your app and try again. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
+                           }, "SNTTA Travel", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error:
                    function (error) {
                        navigator.notification.alert("Due to a system error, Unable to display no alcohol country list. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -6199,7 +6199,7 @@ function completeRedemption() {
                                hideSpin();
                            }else {
                                navigator.notification.alert("Unable to display country list. Please restart your app and try again. " + getData.statusdesc, function() {
-                               }, "isme by Jumeirah", "Dismiss")          
+                               }, "SNTTA Travel", "Dismiss")          
                                hideSpin(); //hide loading popup
                            }
                        }
@@ -6207,7 +6207,7 @@ function completeRedemption() {
                    error:
                    function (error) {
                        navigator.notification.alert("Due to a system error, Unable to display country list. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -6241,13 +6241,13 @@ function completeRedemption() {
                            document.getElementById("selCity").value = residentcity;
                        }else {
                            navigator.notification.alert("Unable to display city list. Please restart your app and try again. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
+                           }, "SNTTA Travel", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
                        navigator.notification.alert("Due to a system error, Unable to display city list. [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -6268,7 +6268,7 @@ function completeRedemption() {
     function showSpin() {
         if (!checkConnectionBool()) {
             navigator.notification.alert("Due to a network error cannot complete the request. Please check your network and re-try.", function() {
-            }, "isme by Jumeirah", "Dismiss");  
+            }, "SNTTA Travel", "Dismiss");  
             //        //$("body").data().kendoMobilePane.navigate("views/nonetwork.html");  
         } else {
             $("#mvwait").data("kendoMobileModalView").open();
@@ -6287,7 +6287,7 @@ function completeRedemption() {
         states[Connection.NONE] = 'No network connection';
         if (states[networkState] == "No network connection") {
             navigator.notification.alert(states[networkState], function() {
-            }, "isme by Jumeirah", "Dismiss");                     
+            }, "SNTTA Travel", "Dismiss");                     
             return false;
         } else {
             return true;
@@ -6311,7 +6311,7 @@ function completeRedemption() {
         if (gpsErrorShow==="") {
             showTop("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.");
             // navigator.notification.alert("Location Settings are disabled for this app. This will result in incorrect display of distance.  Please enable the Location settings for the app on the device Settings.", function() {
-            // }, "isme by Jumeirah", "Dismiss");
+            // }, "SNTTA Travel", "Dismiss");
             
             $.ajax({ 
                        type: "POST",
@@ -6336,7 +6336,7 @@ function completeRedemption() {
         if (gpsErrorShowApp==="") {    
             showTop("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.");
             //navigator.notification.alert("Autolocation is disabled for this app. This will result in incorrect display of distance.  Please enable the Autolocation settings for the app on the Settings page.", function() {
-            //}, "isme by Jumeirah", "Dismiss");
+            //}, "SNTTA Travel", "Dismiss");
             //gpsErrorShowApp = "1"; remove the comment if error message is required to be shown only once
         }
     }
@@ -6509,12 +6509,12 @@ function completeRedemption() {
                                    hideSpin(); //hide loading popup
                                } else {
                                    navigator.notification.alert("There are no Property for the selected Program!", function () {
-                                   }, "isme by Jumeirah", "Dismiss")
+                                   }, "SNTTA Travel", "Dismiss")
                                    hideSpin(); //hide loading popup
                                }
                            } else {
                                navigator.notification.alert("Cannot get Property List " + getData.statusdesc, function () {
-                               }, "isme by Jumeirah", "Dismiss")
+                               }, "SNTTA Travel", "Dismiss")
                                hideSpin(); //hide loading popup
                            }
                        },
@@ -6659,7 +6659,7 @@ function completeRedemption() {
     
     function getFAQData() {
         var data = [];
-        data.push({code: "1",desc:"About isme by Jumeirah"});
+        data.push({code: "1",desc:"About SNTTA Travel"});
         data.push({code: "2",desc:"Membership & Validity"});
         data.push({code: "3",desc:"Programme Benefits"});
         data.push({code: "4",desc:"Tier Privilege"});
@@ -6707,13 +6707,13 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Due to a system error, your enrolment could not be completed.  " + getData.statusdesc + " Please try again.", function() {
-                           }, "isme by Jumeirah", "Dismiss")          
+                           }, "SNTTA Travel", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
                        navigator.notification.alert("Due to a system error, your enrolment could not be completed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -6868,7 +6868,7 @@ function completeRedemption() {
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert(getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")
+                           }, "SNTTA Travel", "Dismiss")
                            window.localStorage.setItem("loginmode", "");
                            window.localStorage.setItem("FBuserID", "");
                            hideSpin(); //hide loading popup
@@ -6876,7 +6876,7 @@ function completeRedemption() {
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Login failed.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                        window.localStorage.setItem("loginmode", "");
                        window.localStorage.setItem("FBuserID", "");
                                                               
@@ -6908,16 +6908,16 @@ function completeRedemption() {
                                                         });
                            }else {
                                navigator.notification.alert("Restaurant Type Preference List not available", function() {
-                               }, "isme by Jumeirah", "Dismiss")    
+                               }, "SNTTA Travel", "Dismiss")    
                            }
                        }else {
                            navigator.notification.alert("Cannot get Restaurant Type Preference List. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
+                           }, "SNTTA Travel", "Dismiss")          
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Restaurant Type Preference List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                    }
                });
     }
@@ -6946,17 +6946,17 @@ function completeRedemption() {
                                                         });
                            }else {
                                navigator.notification.alert("Lifestyle Preference List not available", function() {
-                               }, "isme by Jumeirah", "Dismiss")    
+                               }, "SNTTA Travel", "Dismiss")    
                            }
                        }else {
                            navigator.notification.alert("Cannot get Lifestyle Preference List. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
+                           }, "SNTTA Travel", "Dismiss")          
                        }
                        hideSpin(); //hide loading popup
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Lifestyle Preference List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -6986,16 +6986,16 @@ function completeRedemption() {
                                                         });
                            }else {
                                navigator.notification.alert("Restaurant Details List not available", function() {
-                               }, "isme by Jumeirah", "Dismiss")    
+                               }, "SNTTA Travel", "Dismiss")    
                            }
                        }else {
                            navigator.notification.alert("Cannot get Restaurant Details List. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
+                           }, "SNTTA Travel", "Dismiss")          
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Restaurant Details List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                    }
                });
     }
@@ -7024,16 +7024,16 @@ function completeRedemption() {
                                                         });
                            }else {
                                navigator.notification.alert("Cuisine Type List not available", function() {
-                               }, "isme by Jumeirah", "Dismiss")    
+                               }, "SNTTA Travel", "Dismiss")    
                            }
                        }else {
                            navigator.notification.alert("Cannot get Cuisine Type List. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
+                           }, "SNTTA Travel", "Dismiss")          
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Cuisine Type List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                    }
                });
     }
@@ -7062,16 +7062,16 @@ function completeRedemption() {
                                                         });
                            }else {
                                navigator.notification.alert("Celebration Type List not available", function() {
-                               }, "isme by Jumeirah", "Dismiss")    
+                               }, "SNTTA Travel", "Dismiss")    
                            }
                        }else {
                            navigator.notification.alert("Cannot get Celebration Type List. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
+                           }, "SNTTA Travel", "Dismiss")          
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("Unknown Error, Cannot get Celebration Type List.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                    }
                });
     }
@@ -7094,14 +7094,14 @@ function completeRedemption() {
                            // hideSpin();
                        }else {
                            //  navigator.notification.alert("ERROR : One or more preferences could not be saved!"  +getData.statusdesc, function() {
-                           //                           }, "isme by Jumeirah" , "Dismiss");     
+                           //                           }, "SNTTA Travel" , "Dismiss");     
                            window.localStorage.setItem("errorPreference", getData.statusdesc);                                      
                            // hideSpin();                           
                        }
                    },
                    error: function (errormsg) {
                        // navigator.notification.alert("ERROR : One or more preferences could not be saved!"  +errormsg.statusText, function() {
-                       //                             }, "isme by Jumeirah" , "Dismiss");     
+                       //                             }, "SNTTA Travel" , "Dismiss");     
                        window.localStorage.setItem("errorPreference", errormsg.statusText);                                      
                    }
                });
@@ -7142,13 +7142,13 @@ function completeRedemption() {
                            setRestaurantPreference("#restaurantdetail-filter", "#restaurantdetailfilter-template");
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
-                           }, "isme by Jumeirah" , "Dismiss");     
+                           }, "SNTTA Travel" , "Dismiss");     
                            document.getElementById("prefsave").style.display = "none";
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
-                       }, "isme by Jumeirah" , "Dismiss");     
+                       }, "SNTTA Travel" , "Dismiss");     
                        document.getElementById("prefsave").style.display = "none";
                    }
                });
@@ -7190,14 +7190,14 @@ function completeRedemption() {
                            hideSpin();
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
-                           }, "isme by Jumeirah" , "Dismiss");     
+                           }, "SNTTA Travel" , "Dismiss");     
                            document.getElementById("prefsave").style.display = "none";
                            hideSpin();
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
-                       }, "isme by Jumeirah" , "Dismiss");     
+                       }, "SNTTA Travel" , "Dismiss");     
                        document.getElementById("prefsave").style.display = "none";
                        hideSpin();
                    }
@@ -7239,13 +7239,13 @@ function completeRedemption() {
                            setCuisineTypePreference("#cuisinetype-filter", "#cuisinetypefilter-template");                                           
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
-                           }, "isme by Jumeirah" , "Dismiss");     
+                           }, "SNTTA Travel" , "Dismiss");     
                            document.getElementById("prefsave").style.display = "none";
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
-                       }, "isme by Jumeirah" , "Dismiss");     
+                       }, "SNTTA Travel" , "Dismiss");     
                        document.getElementById("prefsave").style.display = "none";
                    }
                });
@@ -7285,13 +7285,13 @@ function completeRedemption() {
                            setCelebrationTypePreference("#celebrationtype-filter", "#celebrationtype-template");
                        }else {
                            navigator.notification.alert("ERROR : One or more preferences could not be set!" + getData.statusdesc, function() {
-                           }, "isme by Jumeirah" , "Dismiss");     
+                           }, "SNTTA Travel" , "Dismiss");     
                            document.getElementById("prefsave").style.display = "none";
                        }
                    },
                    error: function (errormsg) {
                        navigator.notification.alert("ERROR : One or more preferences could not be set!" + errormsg.statusText, function() {
-                       }, "isme by Jumeirah" , "Dismiss");     
+                       }, "SNTTA Travel" , "Dismiss");     
                        document.getElementById("prefsave").style.display = "none";
                    }
                });
@@ -7422,19 +7422,19 @@ function completeRedemption() {
     function saveSetting() {
         if (!this.emailid1) {
             navigator.notification.alert("Email is required.  Re-enter", function() {
-            }, "isme by Jumeirah", "Dismiss");
+            }, "SNTTA Travel", "Dismiss");
             return;
         }
            
         if (document.getElementById("selCity").value === "") {
             navigator.notification.alert("Select Resident City", function() {
-            }, "isme by Jumeirah", "Dismiss");
+            }, "SNTTA Travel", "Dismiss");
             return; 
         }
                                                                                                 
         if ((!document.getElementById("profile-pushoffer").checked) && (document.getElementById("profile-remindexpiry").checked)) {
             navigator.notification.alert("Please enable Push Notification to receive reminders for expirying vouchers", function() {
-            }, "isme by Jumeirah", "Dismiss");
+            }, "SNTTA Travel", "Dismiss");
             return;
         }
         
@@ -7585,19 +7585,19 @@ function completeRedemption() {
                            }
                                                                      
                            navigator.notification.alert("Profile changes successfully updated.", function() {
-                           }, "isme by Jumeirah", "Dismiss")   
+                           }, "SNTTA Travel", "Dismiss")   
                            window.localStorage.setItem("isset", "1");
                            $("body").data().kendoMobilePane.navigate("views/pl-myprofile.html");  
                            hideSpin(); //hide loading popup
                        }else {
                            navigator.notification.alert("Could not update profile changes due to error. " + getData.statusdesc, function() {
-                           }, "isme by Jumeirah", "Dismiss")          
+                           }, "SNTTA Travel", "Dismiss")          
                            hideSpin(); //hide loading popup
                        }
                    },
                    error: function (error) {
                        navigator.notification.alert("Unknown Error, Could not update profile.  [" + errormsg.statusText + "]  Please check your network connection and try again.", function() {
-                       }, "isme by Jumeirah", "Dismiss")
+                       }, "SNTTA Travel", "Dismiss")
                        hideSpin(); //hide loading popup
                    }
                });
@@ -7761,13 +7761,13 @@ function completeRedemption() {
         document.getElementById("profile-name").innerHTML = window.localStorage.getItem("customername");
         document.getElementById("profile-number").innerHTML = window.localStorage.getItem("customer");
         document.getElementById("profile-init").innerHTML = "Total Spend YTD:" + window.localStorage.getItem("spendmb");
-        if (window.localStorage.getItem("segmentcode") === "1000") {
+        if (window.localStorage.getItem("segmentcode") ==="1003") {
             document.getElementById("profile-type").innerHTML = "isme ";
             document.getElementsById("pl-home-view-plus").style.backgroundColor = "#fff";
             document.getElementsByClassName("strip-item-a").style.backgroundColor = "#fff";
             document.getElementsByClassName("strip-item-a").style.color = "#000";
         }else {
-            document.getElementById("profile-type").innerHTML = "isme Elite";
+            document.getElementById("profile-type").innerHTML = "SNTTA Elite";
         }
         //Generate Spend Bar        
       

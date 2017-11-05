@@ -45,7 +45,7 @@ a
 
 .km-ios7 .km-navbar
 {
-    background-color: #000;
+    background-color: #283880;
     border: none;
     height: 3em;
     line-height: 3em;
@@ -91,7 +91,7 @@ a
 }
 #appdrawer .km-content,#appdrawerN .km-content,#pl-home-view-plus .km-content, #pl-confirmredemptionblack-view .km-content,#pl-voucheredeemblack-view .km-content
 {
-    background-color:#000;
+    background-color:#283880;
 }
 
 #benefit-theme .km-content, #customerservice-theme .km-content, #offerdetail-theme .km-content,  #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content, #pl-benefit-theme .km-content, #mymessagelist-theme .km-content, #messageitem-theme .km-content, #pl-setting-theme .km-content, #device-theme .km-content, #sms-theme .km-content,#sms-theme1 .km-content,
@@ -157,7 +157,7 @@ a
 #modalviewterms .km-content
 {
      background-color: #fff !important;
-    color: #000;
+    color: #283880;
 }
 
 
@@ -183,7 +183,7 @@ a
 
 .km-ios7 .km-view .km-content
 {
-    background-color: #000;
+    background-color: #283880;
 }
 
 .fa .km-icon:after,
@@ -337,7 +337,7 @@ li
 h2
 {
     font-weight: bold;
-    color: #000;
+    color: #283880;
 }
 
 .km-ios7 .km-view ul
@@ -537,7 +537,7 @@ img
     background-color: rgba(0, 0, 0, 1);
     width: 80%;
     margin-left: 10%;
-    border: 1px solid #000;
+    border: 1px solid #283880;
     color: #fff;
     height: 30px;
     line-height: 30px;
@@ -556,7 +556,7 @@ img
 }
 .button-group .km-button.km-state-active
 {
-    background-color: #000;
+    background-color: #283880;
 }
 
 #modalview-offersocial img
@@ -636,7 +636,7 @@ img
     height: 2em;
     line-height: 1em;
     width: 90%;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #283880;
     float:none;
     position:relative;
     margin-left:5%;
@@ -659,7 +659,7 @@ img
     background-color: transparent !important;
     z-index: 0;
     text-align:left;
-    color: #000;
+    color: #283880;
     padding-left:25px;
  }
 
@@ -668,7 +668,7 @@ img
     height: 2em;
     line-height: 1em;
     width: 50%;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #283880;
     margin-left:25%;
     float:none;
     position:relative;
@@ -686,7 +686,7 @@ img
     height: 2em;
     line-height: 1em;
     z-index: 0;
-    color: #000;
+    color: #283880;
         text-align:center;
  }
 
@@ -715,7 +715,7 @@ img
 #resetpassword-theme .input-frame-enrol-1,
 #pin-theme .input-frame-enrol-1
 {  
-        border-bottom: 2px solid #000;
+        border-bottom: 2px solid #283880;
  }
 
 
@@ -729,13 +729,13 @@ img
     height:3em;
     line-height:1.5em;
     font-size:125%;
-    color:#000;
+    color:#283880;
 
  }
 
 #pl-setting-theme .input-frame-enrol-1 input
 {  
-    color:#000;
+    color:#283880;
  }
   
 
@@ -894,7 +894,7 @@ img
 .button-frame-login-w .km-button
 {
     background-color: #fff;
-    color: #000;
+    color: #283880;
     line-height: 30px;
     width: 80%;
     display: block;
@@ -916,7 +916,7 @@ img
 
 .button-frame-inline-modal .km-button
 {
-    background-color: #000;
+    background-color: #283880;
     color: #fff;
     line-height: 30px;
     width: 60%;
@@ -1058,7 +1058,7 @@ img
     height:40px;
     line-height: 40px;
     width: 80%;
-    color:#000;
+    color:#283880;
     text-align:center;
     font-size:90%;
     margin-left:10%;    
@@ -1071,7 +1071,7 @@ img
     width: 100%;
     position:relative;
     float: none;
-    color:#000;
+    color:#283880;
     font-size:90%;
     text-align:left !important;
     display:block;
@@ -1145,7 +1145,7 @@ img
 
 #pl-setting-theme .input-frame-enrol-1 select
 {
-    color: #000;
+    color: #283880;
 }
 
 .image-position
@@ -1165,7 +1165,7 @@ img
     white-space: -o-pre-wrap; /* Opera 7 */    
     text-align: justify !important;
     text-justify: inter-word;
-    color: #000;
+    color: #283880;
 }
 
 .gen-text
@@ -1265,7 +1265,7 @@ li
     padding: 2px;
     text-align: justify;
     background-color: #fff;
-    color: #000;
+    color: #283880;
     line-height: 1.2em;
 }
 
@@ -1371,7 +1371,7 @@ li
 
 .faqq
 {
-    color: #000;
+    color: #283880;
     width: 100%;
     height: auto;
     padding: .1em; 
@@ -1409,7 +1409,7 @@ li
     padding-right: 8px;
     white-space: pre-line;
     text-align: left;
-    color: #000;
+    color: #283880;
     font-size:95%;
     height:auto;
 }
@@ -1421,7 +1421,7 @@ li
     margin-right: 8px;
     white-space: pre-line;
     text-align: justify;
-    color: #000;
+    color: #283880;
     font-size:95%;
 }
 
@@ -1445,7 +1445,7 @@ li
     padding-right: .3em;
     white-space: pre-line;
     text-align: justify;
-    color: #000;
+    color: #283880;
     margin:0px;
     font-size:95%;
 }
@@ -1548,7 +1548,7 @@ li
     font-family: 'Georgia';
     font-style: italic;
     font-weight: bold;
-    color: #000;
+    color: #283880;
 }
 
 .prelogin-frame-image-2
@@ -1632,7 +1632,7 @@ li
     padding-left: .5em;
     position: relative;
     float: left;
-    color: #000;
+    color: #283880;
     font-size:90%
 }
     
@@ -1644,7 +1644,7 @@ li
     line-height: 1.5em;
      position: relative;
     float: left;
-    color: #000; 
+    color: #283880; 
        font-size:90%
 }
 
@@ -1831,7 +1831,7 @@ tile-frame-inner
     width: 100%;
     margin: 5px;
     text-align: justify;
-    color: #000;
+    color: #283880;
     font-size:90%;
 }
 
@@ -1868,7 +1868,7 @@ tile-frame-inner
     position: relative !important;
     float: none !important;
     width: 100% !important;
-    color: #000 !important;
+    color: #283880 !important;
     text-align: left !important;
     font-weight: bold !important;
 }
@@ -1890,7 +1890,7 @@ tile-frame-inner
     position: relative;
     float: none;
     width: 100%;
-    background-color: #000; 
+    background-color: #283880; 
     border-radius: 5px;
     -webkit-border-radius: 5px;
     overflow: hidden !important;
@@ -2015,7 +2015,7 @@ tile-frame-inner
 
 .dotcolor
 {
-    ;color: #000;
+    ;color: #283880;
 }
 
 .locationarrow
@@ -2161,7 +2161,7 @@ tile-frame-inner
     position: relative;
     width: 49%;
     text-align: justify;
-    color: #000; 
+    color: #283880; 
     height: auto; 
 }
 
@@ -2181,7 +2181,7 @@ tile-frame-inner
 .class-share-div
 {
     width: 100%;
-    background-color: #000;
+    background-color: #283880;
 }
 
 .class-card-div
@@ -2257,7 +2257,7 @@ tile-frame-inner
     float: none;
     width: 100%;
     background-color: #fff;
-    color: #000;
+    color: #283880;
     display: block;
     box-shadow: -1px 2px 2px #666365;
     border: 0px;
@@ -2278,7 +2278,7 @@ tile-frame-inner
     line-height: 20px;
     position: relative;
     float: left;
-    background-color: #000;
+    background-color: #283880;
     color: #fff;
     font-weight: bold; 
 }
@@ -2296,7 +2296,7 @@ tile-frame-inner
     float: none;
     width: 100%;
     background-color: #fff;
-    color: #000;
+    color: #283880;
     display: block;
 }
 
@@ -2307,7 +2307,7 @@ tile-frame-inner
     position: relative;
     float: left;
     background-color: transparent !important;
-    color: #000;
+    color: #283880;
     font-weight: bold; 
     display: block;
     margin: -5px 2px auto 2px;
@@ -2317,7 +2317,7 @@ tile-frame-inner
 {
     line-height: 20px;
     margin: 0px;
-    border: 2px #000 solid;
+    border: 2px #283880 solid;
     border-radius: 0px;
     width: auto;
     display: block;
@@ -2351,7 +2351,7 @@ tile-frame-inner
     height:40px;
     line-height: 30px;
     background-color: #ccc;
-    color: #000;
+    color: #283880;
     font-weight: bold;
     font-size:80%;
     width:100%;
@@ -2370,7 +2370,7 @@ tile-frame-inner
     position: relative;
     float: left;
     width: 80%;
-    color: #000;
+    color: #283880;
     height: 30px; 
     font-size:110%;
 }
@@ -2385,7 +2385,7 @@ tile-frame-inner
     position: relative;
     float: left;
     width: 20%;
-    color: #000;
+    color: #283880;
     height: 30px; 
     text-align: center; 
 
@@ -2395,7 +2395,7 @@ tile-frame-inner
 
 .list-group-data-item-2 .km-button
 {
-    color: #000;
+    color: #283880;
     height: 30px; 
     display:block;
     background-color:transparent !important;
@@ -2484,7 +2484,7 @@ tile-frame-inner
 .info-page  
 {
 
-    color:#000;
+    color:#283880;
     margin-top:30px;
     font-size:130%;
     font-weight:bold;
@@ -2516,7 +2516,7 @@ tile-frame-inner
     margin-right: auto;
     margin-left: auto;
     top: 43px; 
-    background-color: #000;
+    background-color: #283880;
     border: none;
 }
 
@@ -2535,7 +2535,7 @@ tile-frame-inner
     margin-right: auto;
     margin-left: auto;
     top: 43px; 
-    background-color: #000;
+    background-color: #283880;
     border:none;
 }
 
@@ -2586,7 +2586,7 @@ tile-frame-inner
 }
 
 .black-back{
-      background-color:#000;
+      background-color:#283880;
 }
 
 .progress-bar-data-holder
@@ -2616,7 +2616,7 @@ tile-frame-inner
 }
 
 .bborder{
-     border-right:2px solid #000;
+     border-right:2px solid #283880;
 }
 
 .wborder{
@@ -2635,7 +2635,7 @@ tile-frame-inner
 
 .cblack
 {
-    color: #000;
+    color: #283880;
 }
 
 .hanging-icon
@@ -2815,7 +2815,7 @@ tile-frame-inner
     margin-bottom:5px;
     font-size:80%;
     height:auto !important;
-    color:#000 !important;
+    color:#283880 !important;
 }
 
 .collapse-format-1{
@@ -2889,7 +2889,7 @@ tile-frame-inner
     height:50%;
     background-color:transparent !important;
     font-size:150%;
-    color:#000;
+    color:#283880;
     font-weight:bold;
     text-align:center;
  padding:20px;
@@ -2904,7 +2904,7 @@ tile-frame-inner
     height:50%;
     background-color:transparent !important;
     font-size:110%;
-    color:#000;
+    color:#283880;
     text-align:center;
     line-height:1.5em;
     margin: -10px auto;
