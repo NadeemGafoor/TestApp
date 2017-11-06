@@ -32,8 +32,6 @@ a
 .km-ios7 .km-navbar .km-icon
 {
     color: #fff;
-    border: 0px !important;
-    border: none !important;
     line-height: 25px !important;
 }
 
@@ -123,9 +121,7 @@ a
 #outletdetail-theme .km-content,
 #pl-outletdetail-theme .km-content
 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/barsdining_bg.png) no-repeat center center;
-    background-size: cover;
-    -webkit-background-size: cover;
+background-color:#fff;
 }
 
 #liesurelist-theme .km-content,

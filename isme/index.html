@@ -129,15 +129,8 @@
         <div class="list-group">&nbsp;isme&nbsp;Preferences</div>
         <div class="filter-item-holder">
             <a data-click="loadTypeView" data-role="button">
-                <div class="list-group-data-item ">Select isme Preferences...</div>
+                <div class="list-group-data-item ">Select Preferences...</div>
                 <div class="list-group-data-item-1" id="orestauranttype">All</div>
-            </a>
-        </div>
-        <div class="list-group">&nbsp;Cuisine&nbsp;Type</div>
-        <div class="filter-item-holder">
-            <a data-click="loadCuisineView" data-role="button">
-                <div class="list-group-data-item ">Select Cuisine...</div>
-                <div class="list-group-data-item-1" id="ocuisine">All</div>
             </a>
         </div>
     </div>
@@ -159,7 +152,7 @@
     </div>
     <div data-role="modalview" id="modalviewofferfilter" style="height:50%;width:90%" data-model="preLogin">
         <div data-role="header">
-            <div data-role="navbar" style="background-color:#253874"> <span>Reward Categories</span> <a data-bind="click:closeOfferFilterView" data-role="button" data-align="right"
+            <div data-role="navbar" style="background-color:#253874"> <span>Offer Categories</span> <a data-bind="click:closeOfferFilterView" data-role="button" data-align="right"
                     data-animated="true">
                         Go
                     </a> </div>
@@ -171,15 +164,15 @@
                     </label> </li>
             <li> <label>
                         <input name="mcategory" type="radio" value="1" />
-                        Bars & Nightlife
+                        Hotel Discounts
                     </label> </li>
             <li> <label>
                         <input name="mcategory" type="radio" value="2" />
-                        Dining
+                        Travel
                     </label> </li>
             <li> <label>
                         <input name="mcategory" type="radio" value="3" />
-                        Spa & Wellness
+                        Vacations
                     </label> </li>
             <li> <label>
                         <input name="mcategory" type="radio" value="4" />
@@ -422,15 +415,16 @@ You may opt out of receiving any marketing material from us at any time by infor
                 </pre> </div>
     </script>
     <script type="text/x-kendo-template" id="outletTemplate">
-               <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}" data-role="button" >
+               <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}"  >
         <div class="outer-frame">
             <div class="image-frame-list small-image-height">
                 <img src="${imageurl}" style="height:100%;width:100%"/>
             </div>
             <div class="inner-frame-1">${outletname}</div>
-            <div class="inner-frame-2">Mobile:${mobile}</div>
-            <div class="inner-frame-2">Email:${email}</div>
-            <div class="inner-frame-3">Distance ${distance} Km</div>
+            <div class="inner-frame-1">&nbsp;</div>
+            <div class="inner-frame-2">Mobile ${mobile}</div>
+            <div class="inner-frame-2">Email ${email}</div>
+            <div class="inner-frame-3">Distance  ${outletdistance} Km</div>
        </div>
     </a>
 
@@ -439,15 +433,16 @@ You may opt out of receiving any marketing material from us at any time by infor
         <div class="button-frame-inline height-80 button-frame-inline-long"> <a href="views/outletdetail.html?od=${outletcode}" data-transition="slide:up" id="mobile-button1" data-role="button">${outletname}</a>            </div>
     </script>
     <script type="text/x-kendo-template" id="pl-outletTemplate">
-        <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}" data-role="button" >
+        <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}" >
         <div class="outer-frame">
             <div class="image-frame-list small-image-height">
                 <img src="${imageurl}" style="height:100%;width:100%"/>
             </div>
             <div class="inner-frame-1">${outletname}</div>
+            <div class="inner-frame-1">&nbsp;</div>            
             <div class="inner-frame-2">Mobile:${mobile}</div>
             <div class="inner-frame-2">Email:${email}</div>
-            <div class="inner-frame-3">Distance ${distance} Km</div>
+            <div class="inner-frame-3">Distance  ${outletdistance} Km</div>
        </div>
     </a>
 
@@ -468,7 +463,7 @@ You may opt out of receiving any marketing material from us at any time by infor
         <div class="button-frame-inline height-80 button-frame-inline-long"> <a href="views/pl-outletdetail.html?od=${outletcode}" data-transition="slide:up" id="mobile-button1" data-role="button">${outletname}</a>            </div>
     </script>
     <script type="text/x-kendo-template" id="outletOfferTemplate">
-        <a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}" data-role="button"   class="a-class" style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important" >
+        <a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}"     style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important" >
                 <div class="outer-frame" style="background-color:white">
             <div class="image-frame-list small-image-height">
                 <img src="${imageurls}" style="height:100%;width:100%"/>
@@ -480,7 +475,7 @@ You may opt out of receiving any marketing material from us at any time by infor
         </div>
     </a></script>
     <script type="text/x-kendo-template" id="pl-outletOfferTemplate">
-     <a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}" data-role="button"   class="a-class" style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important">
+     <a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}"     style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important">
                 <div class="outer-frame" style="background-color:white">
             <div class="image-frame-list small-image-height">
                 <img src="${imageurls}" style="height:100%;width:100%"/>
@@ -492,7 +487,7 @@ You may opt out of receiving any marketing material from us at any time by infor
         </div>
     </a> </script>
     <script type="text/x-kendo-template" id="offerListTemplate">
-<a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}" data-role="button"   class="a-class"  style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important" >
+<a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}"       style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important" >
                 <div class="outer-frame" style="background-color:white">
             <div class="image-frame-list small-image-height">
                 <img src="${imageurls}" style="height:100%;width:100%"/>
@@ -504,34 +499,36 @@ You may opt out of receiving any marketing material from us at any time by infor
         </div>
     </a></script>
     <script type="text/x-kendo-template" id="MyVoucherOfferOutletTemplate">
-              <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}" data-role="button" >
+              <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}" >
         <div class="outer-frame">
             <div class="image-frame-list small-image-height">
                 <img src="${imageurl}" style="height:100%;width:100%"/>
             </div>
             <div class="inner-frame-1">${outletname}</div>
+                        <div class="inner-frame-1">&nbsp;</div>
             <div class="inner-frame-2">Mobile:${mobile}</div>
             <div class="inner-frame-2">Email:${email}</div>
-            <div class="inner-frame-3">Distance ${distance} Km</div>
+            <div class="inner-frame-3">Distance  ${outletdistance} Km</div>
        </div>
     </a>
 
     </script>
     <script type="text/x-kendo-template" id="offerOutletTemplate">
-       <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}" data-role="button" >
+       <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}"  >
         <div class="outer-frame">
             <div class="image-frame-list small-image-height">
                 <img src="${imageurl}" style="height:100%;width:100%"/>
             </div>
             <div class="inner-frame-1">${outletname}</div>
+                        <div class="inner-frame-1">&nbsp;</div>
             <div class="inner-frame-2">Mobile:${mobile}</div>
             <div class="inner-frame-2">Email:${email}</div>
-            <div class="inner-frame-3">Distance ${distance} Km</div>
+            <div class="inner-frame-3">Distance  ${outletdistance} Km</div>
        </div>
     </a>
     </script>
     <script type="text/x-kendo-template" id="pl-offerListTemplate">
-<a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}" data-role="button"   class="a-class" style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important">
+<a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}"    style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important">
                 <div class="outer-frame" style="background-color:white">
             <div class="image-frame-list small-image-height">
                 <img src="${imageurls}" style="height:100%;width:100%"/>
@@ -543,21 +540,22 @@ You may opt out of receiving any marketing material from us at any time by infor
         </div>
     </a> </script>
     <script type="text/x-kendo-template" id="plofferOutletTemplate">
-             <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}" data-role="button" >
+             <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}"  >
         <div class="outer-frame">
             <div class="image-frame-list small-image-height">
                 <img src="${imageurl}" style="height:100%;width:100%"/>
             </div>
             <div class="inner-frame-1">${outletname}</div>
+                        <div class="inner-frame-1">&nbsp;</div>
             <div class="inner-frame-2">Mobile:${mobile}</div>
             <div class="inner-frame-2">Email:${email}</div>
-            <div class="inner-frame-3">Distance ${distance} Km</div>
+            <div class="inner-frame-3">Distance  ${outletdistance} Km</div>
        </div>
     </a>
 
     </script>
     <script type="text/x-kendo-template" id="mywallet-voucherlist-Template-outlet">
-      <a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}" data-role="button"   class="a-class"  style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important" >
+      <a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}"      style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important" >
         <div class="outer-frame" style="background-color:white">
             <div class="image-frame-list small-image-height">
                 <img src="${imageurls}" style="height:100%;width:100%"/>
@@ -570,7 +568,7 @@ You may opt out of receiving any marketing material from us at any time by infor
     </a>
         </script>
     <script type="text/x-kendo-template" id="mywallet-voucherlist-Template">
-    <a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}" data-role="button"   class="a-class"  style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important" >
+    <a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}"       style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important" >
                 <div class="outer-frame" style="background-color:white">
             <div class="image-frame-list small-image-height">
                 <img src="${imageurls}" style="height:100%;width:100%"/>

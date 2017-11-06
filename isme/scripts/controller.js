@@ -292,7 +292,8 @@ function supportEmailA() {
 }
 
 function customerCare() {
-    window.open("tel:" + "8004763");
+//alert("HERE");
+    window.open('email:80076882');
 }
 
 function customerCareOutlet() {
@@ -1785,7 +1786,7 @@ function completeRedemption() {
             
                                            showAllOutlet
                                            : function (e) {
-                                               window.localStorage.setItem("category", "0"); 
+                                               
                                                showSpin();  
                                                if (window.localStorage.getItem("appopen") != "05") {
                                                    window.localStorage.setItem("appopen", "01");
@@ -1799,11 +1800,12 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:"",mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:"",prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:""
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),category:"",brandcode:"",mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:"",prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:""
                                                                                    
                                                                                }),
                                                           success: function (data) { 
                                                               var getData = JSON.parse(data);
+
                                                               cleanoutletfilter();
                                                               if (getData.statuscode === "000") {
                                                                   //fill the outlet template
@@ -1816,7 +1818,7 @@ function completeRedemption() {
                                                                                                                 template: $("#outletTemplate").html(),
                                                                                                                 filterable: {
                                                                               autoFilter: true,
-                                                                              placeholder:"Search By Agnt Location",                                         
+                                                                              placeholder:"Search By Branch",                                         
                                                                               field: "outletname",
                                                                               operator: "contains",
                                                                               serverPaging: true,
@@ -1832,7 +1834,7 @@ function completeRedemption() {
                                                                                                                 template: $("#outletTemplate").html(),
                                                                                                                 filterable: {
                                                                               autoFilter: true,
-                                                                              placeholder:"Search By Branch Location",                                         
+                                                                              placeholder:"Search By Branch",                                         
                                                                               field: "outletname",
                                                                               operator: "contains",
                                                                               serverPaging: true,
@@ -1850,7 +1852,7 @@ function completeRedemption() {
                                                                   }
                                                                   hideSpin(); //hide loading popup
                                                                   if (getData.outletlist.length === 0) {
-                                                                      navigator.notification.alert("There are no Bars & Dining venues available for the selected property.", function() {
+                                                                      navigator.notification.alert("There are no Branches available", function() {
                                                                       }, "SNTTA Travel", "Dismiss")    
                                                                       hideSpin(); //hide loading popup
                                                                   }
@@ -1884,7 +1886,7 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("branda"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:"",prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:""
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),category:"",brandcode:window.localStorage.getItem("branda"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:"",prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:""
                                                                                    
                                                                                }),
                                                           success: function (data) { 
@@ -2345,7 +2347,6 @@ function completeRedemption() {
                                            showOfferItem
                                            : function (e) {
                                                offercode = e.view.params.cpn; //offer code for single offer inquiry
-                                               alert(offercode);
                                                offertype = "2"; //single offer inquiry
                                                showSpin();
                                                
@@ -2373,7 +2374,6 @@ function completeRedemption() {
 
                                                                   document.getElementById("offer-expiry").innerHTML = "Reward Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                   document.getElementById("offer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
-alert("hello1");                                                                  
                                                                   window.localStorage.setItem("social_email_message", getData.offerlist[0].itemname);
                                                                   window.localStorage.setItem("social_email_subject", emailsubjectoffer); 
                                                                   window.localStorage.setItem("social_shortmsg", getData.offerlist[0].itemdescription);
@@ -2524,7 +2524,7 @@ alert("hello1");
                                                    window.localStorage.setItem("faqcategory", "");
                                                    window.localStorage.setItem("loginmode", "");
                                                    window.localStorage.setItem("static_social_msg", static_social_msg);
-                                                  
+                                                   window.localStorage.setItem("category", ""); 
                                                    fbCleanVariables();
                                                    noAlcoholCountry();
                                                    $.ajax({    
@@ -2539,7 +2539,7 @@ alert("hello1");
                                                                                    }),
                                                               success: function (data) { 
                                                                   var getData = JSON.parse(data);
-                                                               
+                                                    
                                                                   if (getData.statuscode === "000") {
                                                                       //  firsttime = "1";  
                                                                       googleapikey = getData.googleapikey;  
@@ -2577,7 +2577,7 @@ alert("hello1");
                                                               }
                                                           });
                                                                                                
-
+                                                    
                            
                                                    if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                                                        customer = window.localStorage.getItem("customer");
@@ -2617,9 +2617,9 @@ alert("hello1");
                                                        alcohol = window.localStorage.getItem("alcohol");
                                                        homecountryname = window.localStorage.getItem("homecountryname");
                                                        residentcityname = window.localStorage.getItem("residentcityname");
-                                                    
                                                        $("body").data("kendoMobilePane").navigate("views/pl-explore.html"); 
                                                    } else {
+                                                                                                           
                                                        outletcode = "";
                                                        brandcode = "";
                                                        offercode = "";
@@ -2673,7 +2673,7 @@ alert("hello1");
                                                            devicecode:muuid
                                                        } 
                                                    };
-                                            
+                                                    
                                                    if (window.localStorage.getItem("notification") == undefined || window.localStorage.getItem("notification") == '' || window.localStorage.getItem("notification") == 'null') {
                                                        //Enable and Register
                                                        currentDevice.enableNotifications(pushSettings, function (data) {
@@ -4237,7 +4237,7 @@ alert("hello1");
                                                            url: gurl + "/outletlist.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:"",mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:"",brandcode:"",mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
