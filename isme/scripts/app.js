@@ -63,6 +63,6 @@ setTimeout(function() {
     function hideNav() {
         setTimeout(function() {
             navigator.splashscreen.hide();  
-        }, 2000);  //hide Loading Popup
+        }, 100);  //hide Loading Popup
     }
 }());

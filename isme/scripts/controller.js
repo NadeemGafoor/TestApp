@@ -305,7 +305,7 @@ function offerMessage() {
 }
 
 function outletMessage() {
-    navigator.notification.alert("To view Restaurant details please select Restaurants List from the menu", function() {
+    navigator.notification.alert("To view Branch details please select Branch List from the menu", function() {
     }, "SNTTA Travel", "Dismiss")    
 }
 
@@ -1798,7 +1798,7 @@ function completeRedemption() {
                                                           url: gurl + "/outletlist.aspx",
                                                           contentType: "application/json; charset=utf-8",
                                                           data: JSON.stringify({
-                                                                                   merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brand"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:"",prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:""
+                                                                                   merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:"",mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:"",prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:""
                                                                                    
                                                                                }),
                                                           success: function (data) { 
@@ -1815,7 +1815,7 @@ function completeRedemption() {
                                                                                                                 template: $("#outletTemplate").html(),
                                                                                                                 filterable: {
                                                                               autoFilter: true,
-                                                                              placeholder:"Search By Restaurant",                                         
+                                                                              placeholder:"Search By Agnt Location",                                         
                                                                               field: "outletname",
                                                                               operator: "contains",
                                                                               serverPaging: true,
@@ -1831,7 +1831,7 @@ function completeRedemption() {
                                                                                                                 template: $("#outletTemplate").html(),
                                                                                                                 filterable: {
                                                                               autoFilter: true,
-                                                                              placeholder:"Search By Restaurant",                                         
+                                                                              placeholder:"Search By Branch Location",                                         
                                                                               field: "outletname",
                                                                               operator: "contains",
                                                                               serverPaging: true,
@@ -1900,7 +1900,7 @@ function completeRedemption() {
                                                                                                                   template: $("#outletTemplate-b").html(),
                                                                                                                   filterable: {
                                                                               autoFilter: true,
-                                                                              placeholder:"Search By Restaurant",                                         
+                                                                              placeholder:"Search By Branch Location",                                         
                                                                               field: "outletname",
                                                                               operator: "contains",
                                                                               serverPaging: true,
@@ -4231,7 +4231,7 @@ function completeRedemption() {
                                                            url: gurl + "/outletlist.aspx",
                                                            contentType: "application/json; charset=utf-8",
                                                            data: JSON.stringify({
-                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:window.localStorage.getItem("brand"),mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
+                                                                                    merchantcode :window.localStorage.getItem("merchant"),category:window.localStorage.getItem("category"),brandcode:"",mdevice:window.localStorage.getItem("mdevicestat"),outletcode:"",preflocation:window.localStorage.getItem("distance"),prefcuisine:window.localStorage.getItem("cuisine"),prefcelebration:window.localStorage.getItem("celebration"),prefrestaurant:window.localStorage.getItem("restaurant"),lat:window.localStorage.getItem("latl"),lon:window.localStorage.getItem("lonl"),customer:window.localStorage.getItem("customer")
                                                                                 }),
                                                            success: function (data) { 
                                                                var getData = JSON.parse(data);
@@ -4246,7 +4246,7 @@ function completeRedemption() {
                                                                                                                     template: $("#pl-outletTemplate").html(),
                                                                                                                     filterable: {
                                                                                autoFilter: true,
-                                                                               placeholder:"Search By Restaurant",                                         
+                                                                               placeholder:"Search By Branch Location",                                         
                                                                                field: "outletname",
                                                                                operator: "contains",
                                                                                serverPaging: true,
@@ -4262,7 +4262,7 @@ function completeRedemption() {
                                                                                                                     template: $("#pl-outletTemplate").html(),
                                                                                                                     filterable: {
                                                                                autoFilter: true,
-                                                                               placeholder:"Search By Restaurant",                                         
+                                                                               placeholder:"Search By Branch Location",                                         
                                                                                field: "outletname",
                                                                                operator: "contains",
                                                                                serverPaging: true,
@@ -4346,7 +4346,7 @@ function completeRedemption() {
                                                                                                                       template: $("#pl-outletTemplate-b").html(),
                                                                                                                       filterable: {
                                                                                autoFilter: true,
-                                                                               placeholder:"Search By Restaurant",                                         
+                                                                               placeholder:"Search By Branch Location",                                         
                                                                                field: "outletname",
                                                                                operator: "contains",
                                                                                serverPaging: true,
