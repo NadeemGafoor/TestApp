@@ -2305,7 +2305,7 @@ function completeRedemption() {
                                                                                                                     template: $("#offerListTemplate").html(),
                                                                                                                     filterable: {
                                                                               autoFilter: true,
-                                                                              placeholder:"Search By Reward",                                         
+                                                                              placeholder:"Search By Offer",                                         
                                                                               field: "itemname",
                                                                               operator: "contains",
                                                                               serverPaging: true,
@@ -2492,7 +2492,7 @@ function completeRedemption() {
                                                if (window.localStorage.getItem("enrolmentcomplete")===null) {
                                                    window.localStorage.setItem("mobilelogin", "");   
                                                }
-    
+   
                                                showSpin();
                                                clearAllVariables();
                                         
@@ -4036,7 +4036,7 @@ function completeRedemption() {
                                                                                                                         template: $("#pl-offerListTemplate").html(),
                                                                                                                         filterable: {
                                                                                autoFilter: true,
-                                                                               placeholder:"Search By Reward",                                         
+                                                                               placeholder:"Search By Offer",                                         
                                                                                field: "itemname",
                                                                                operator: "contains",
                                                                                serverPaging: true,
