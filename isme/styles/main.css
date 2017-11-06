@@ -143,9 +143,7 @@ a
 #pl-offerlist-view .km-content,
 #pl-mywallet-theme .km-content
 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/rewards_bg.png) no-repeat center center;
-    background-size: cover;
-    -webkit-background-size: cover;
+background-color:#fff;
 }
 
 #modalviewpin .km-content, #modalviewstaffpin .km-content, #modalviewpassword .km-content,#modalviewenterpin .km-content,#modalviewrepin .km-content
@@ -378,10 +376,10 @@ img
 
 .inner-frame-1
 {
-    padding-left: .4em;
-    padding-right: 0em;
-    height: 2.4em;
-    line-height: 1.2em;
+       padding: 5px;
+    height: 20px;
+    line-height: 20px;
+
     position: relative;
     float: left;
     width: 64%;
@@ -391,10 +389,9 @@ img
 }
 .inner-frame-2
 {
-    padding-left: .4em;
-    padding-right: 0em;
-    height: 2.4em;
-    line-height: 1.2em;
+    padding: 5px;
+    height: 20px;
+    line-height: 20px;
     position: relative;
     float: left;
     width: 64%;
@@ -405,10 +402,10 @@ img
 
 .inner-frame-3
 {
-    padding-left: .4em;
-    padding-right: 0em;
-    height: 1.5em;
-    line-height: 1.5em;
+       padding: 5px;
+    height: 20px;
+    line-height: 20px;
+
     position: relative;
     float: left;
     width: 64%; 

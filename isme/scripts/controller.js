@@ -1785,6 +1785,7 @@ function completeRedemption() {
             
                                            showAllOutlet
                                            : function (e) {
+                                               window.localStorage.setItem("category", "0"); 
                                                showSpin();  
                                                if (window.localStorage.getItem("appopen") != "05") {
                                                    window.localStorage.setItem("appopen", "01");
@@ -2362,12 +2363,13 @@ function completeRedemption() {
                                                               if (getData.statuscode == "000") {
                                                                   document.getElementById("offer-detail-div").style.display = "block";
                                                                   //document.getElementById("offerdetail-title").innerHTML = getData.outletlist[0].outletname;
-                                                               
+alert("hello");
                                                                   document.getElementById("offerimage").src = getData.offerlist[0].imageurll;
                                                                   document.getElementById("offer-short-1").innerHTML = "<pre class='fulljustifybold'>" + getData.offerlist[0].itemname + "</pre>";
                                                                   document.getElementById("offer-long-1").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].itemdescription + "</pre>";
                                                                   document.getElementById("offer-expiry").innerHTML = "Reward Expiry : " + getData.offerlist[0].couponexpirydate;
                                                                   document.getElementById("offer-remark").innerHTML = "<pre class='fulljustify'>" + getData.offerlist[0].remark + "</pre>";
+alert("hello");                                                                  
                                                                   window.localStorage.setItem("social_email_message", getData.offerlist[0].itemname);
                                                                   window.localStorage.setItem("social_email_subject", emailsubjectoffer); 
                                                                   window.localStorage.setItem("social_shortmsg", getData.offerlist[0].itemdescription);
