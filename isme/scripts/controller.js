@@ -759,8 +759,8 @@ function completeRedemption() {
     //var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
 
     //var gurl = "https://ismemobileapp.jumeirah.com";
-    var gurl = "http://inc38.ddns.net:8095/HaalMeerMobile";
-    var merchant = "SNTTA02001";
+    var gurl = "http://haalmeer.ddns.net:8089/HaalMeerMobile";
+    var merchant = "JUMEI02000";
     var customer = "9999999999";
     var customername = "Guest";
     var formattedmobile = "";
@@ -2525,6 +2525,7 @@ function completeRedemption() {
                 window.localStorage.setItem("loginmode", "");
                 window.localStorage.setItem("static_social_msg", static_social_msg);
                 window.localStorage.setItem("category", "");
+                window.localStorage.setItem("merchant", merchant);
                 fbCleanVariables();
                 noAlcoholCountry();
                 $.ajax({
@@ -2539,7 +2540,6 @@ function completeRedemption() {
                     }),
                     success: function (data) {
                         var getData = JSON.parse(data);
-alert(data);
                         if (getData.statuscode === "000") {
                             //  firsttime = "1";  
                             googleapikey = getData.googleapikey;
@@ -2571,13 +2571,13 @@ alert(data);
                         }
                     },
                     error: function (errormsg) {
-                        navigator.notification.alert("Platform Error 2. [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
+                        navigator.notification.alert("rrrrrrPlatform Error 2. [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
                         }, "SNTTA Travel", "Dismiss")
                         hideSpin(); //hide loading popup
                     }
                 });
                 navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-                   
+
                     lat = position.coords.latitude;
                     lon = position.coords.longitude;
                     propertygeo = [];
@@ -2589,15 +2589,14 @@ alert(data);
                         url: gurl + "/outletlist.aspx",
                         contentType: "application/json; charset=utf-8",
                         data: JSON.stringify({
-                            merchantcode: window.localStorage.getItem("merchant"), category: "", brandcode: "", mdevice: window.localStorage.getItem("mdevicestat"), outletcode: "", preflocation: window.localStorage.getItem("distance"), prefcuisine: window.localStorage.getItem("cuisine"), prefcelebration: "", prefrestaurant: window.localStorage.getItem("restaurant"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"), customer: ""
+                            merchantcode: merchant, category: "", brandcode: "", mdevice: window.localStorage.getItem("mdevicestat"), outletcode: "", preflocation: window.localStorage.getItem("distance"), prefcuisine: window.localStorage.getItem("cuisine"), prefcelebration: "", prefrestaurant: window.localStorage.getItem("restaurant"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"), customer: ""
 
                         }), success: function (data) {
-                            alert(data);
                             var getData = JSON.parse(data);
                             var i = 0;
                             if (getData.statuscode === "000") {
                                 if (getData.outletlist.length > 0) {
-                                    while (i <= getData.outletlist.length -1 ) {
+                                    while (i <= getData.outletlist.length - 1) {
 
                                         window.geofence.addOrUpdate({
                                             id: getData.outletlist[i].outletcode,
@@ -2618,10 +2617,10 @@ alert(data);
                                         })
 
                                         window.localStorage.setItem("isfenceset", "1");
-i++;
+                                        i++;
                                         hideSpin(); //hide loading popup
                                     }
-                                    } else {
+                                } else {
                                     navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
                                     }, "SNTTA Travel", "Dismiss")
                                     hideSpin(); //hide loading popup
@@ -2640,10 +2639,10 @@ i++;
 
 
                     window.geofence.onTransitionReceived = function (geofences) {
-	                    geofences.forEach(function (geo) {
-                                console.log('Geofence transition detected', geo);
-	                });
-};
+                        geofences.forEach(function (geo) {
+                            console.log('Geofence transition detected', geo);
+                        });
+                    };
 
                 }
                     , function onErrorShowMap(error) {
@@ -2784,11 +2783,48 @@ i++;
                 }
             }
 
-
-
+            document.getElementById("owtraveldate").valueAsDate = new Date();//today;
+            document.getElementById("rettraveldate").valueAsDate = new Date();// today;
+            document.getElementById("retreturndate").valueAsDate = new Date();//today;
             hideSpin();
             return;
         },
+
+        searchFlight: function () {
+            alert("here");
+            alert($("#journeytab").data("kendoMobileButtonGroup").current().index());
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         loginInit
         : function () {

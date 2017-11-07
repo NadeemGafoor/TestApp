@@ -1,38 +1,195 @@
 <!--Explore View-->
-<div data-role="view" data-title="" data-layout="main-layout" id="home-view" data-model="preLogin" data-show="preLogin.varInit" data-hide="preLogin.destroyhome" data-reload="true" data-after-show="disableBackButton" data-before-hide="enableBackButton">
+<div data-role="view" data-title="" data-layout="main-layout" id="home-view" data-model="preLogin" data-show="preLogin.varInit" data-init="initPLOfferGroup"
+    data-hide="preLogin.destroyhome" data-reload="true" data-after-show="disableBackButton" data-before-hide="enableBackButton">
     <div>
         <div data-role="navbar" style="background-color:transparent !important">
-            <a  data-role="button" data-align="left" data-rel="drawer"  data-click-on="down" href="#appdrawerN">
-                <i class="fa fa-reorder fa-lg" style="color:#fff"></i>
-            </a>
-            <span data-role="view-title"></span>
-            <a  data-role="button" data-align="right" href="views/login.html" data-transition="slide">
-                <i class="fa fa-sign-in fa-lg" style="color:#fff;padding-right:30px"></i>
-            </a>
-             <a  data-role="button" data-align="right" href="views/enrol.html" data-transition="slide">
-                <i class="fa fa-user-plus fa-lg" style="color:#fff;padding-right:30px" ></i>
-            </a>
-
+            <a data-role="button" data-align="left" data-rel="drawer" data-click-on="down" href="#appdrawerN"> <i class="fa fa-reorder fa-lg" style="color:#fff"></i> </a> <span data-role="view-title"></span>
+            <a data-role="button"
+                data-align="right" href="views/login.html" data-transition="slide"> <i class="fa fa-sign-in fa-lg" style="color:#fff;padding-right:30px"></i> </a>
+            <a data-role="button" data-align="right"
+                href="views/enrol.html" data-transition="slide"> <i class="fa fa-user-plus fa-lg" style="color:#fff;padding-right:30px"></i> </a>
         </div>
     </div>
-    
-        <div data-role="footer">
+    <ul data-role="buttongroup" data-index="0" id="journeytab" class="button-group">
+        <li> Oneway </li>
+        <li> Return </li>
+    </ul>
+    <ul data-role="listview" class="centerform" id="onewayjourney">
+        <li> <label class="km-required km-label-above">Travelling From
+                    <input id="owfrom" placeholder="Enter Origin City" type="text" />
+                </label> </li>
+        <li> <label class="km-label-above">Travelling To
+                    <input id="owto" placeholder="Enter Destination city" type="text" />
+                </label> </li>
+        <li> <label class="km-label-above">Date of Travel
+                    <input id="owtraveldate" placeholder="Select Date" type="date" />
+                </label> </li>
+        <li> <label class="km-label-above">Cabin Class
+                <select id="owcabinclass" style="width:95% !important;padding-left:5px !important">
+                    <option value="Economy" selected="selected" >Economy</option>
+                    <option value="Business"  >Business</option>
+                    <option value="First" >First</option>
+                </select>
+                </label> </li>
+        <li>
+            <fieldset>
+<label class="km-inline-field km-label-above" style="width: 33%;text-align:center !important">
+                            Adult(s)
+                            <select id="owadult">
+                                <option value="0">0</option>
+                                <option value="1" selected="selected">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                      </label> <label class="km-inline-field km-label-above" style="width: 32%;text-align:left !important">
+                            Children
+                            <select id="owchild">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1" >1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                      </label> <label class="km-inline-field km-label-above" style="width: 32%;text-align:left !important">
+                            Infant(s)
+                            <select id="owinfant">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                      </label> </fieldset>
+        </li>
+        <li> <label class="km-required km-label-above">Promotion Code
+                    <input id="owpromotion" placeholder="Enter Promotion Code" type="text" />
+                </label> </li>
+                <li>&nbsp;</li>
+                
+
+    </ul>
+
+<ul data-role="listview" class="centerform" id="returnjourney" style="display:none">
+        <li> <label class="km-required km-label-above">Travelling From
+                    <input id="retfrom" placeholder="Enter Origin City" type="text" />
+                </label> </li>
+        <li> <label class="km-label-above">Travelling To
+                    <input id="retto" placeholder="Enter Destination city" type="text" />
+                </label> </li>
+        <li> <label class="km-label-above">Date of Travel
+                    <input id="rettraveldate" placeholder="Select Date" type="date" />
+                </label> </li>
+                  <li> <label class="km-label-above">Date of Return
+                    <input id="retreturndate" placeholder="Select Date" type="date" />
+                </label> </li>
+        <li> <label class="km-label-above">Cabin Class
+                <select id="retcabinclass" style="width:95% !important;padding-left:5px !important">
+                    <option value="Economy" selected="selected" >Economy</option>
+                    <option value="Business"  >Business</option>
+                    <option value="First" >First</option>
+                </select>
+                </label> </li>
+        <li>
+            <fieldset>
+               <label class="km-inline-field km-label-above" style="width: 33%;text-align:center !important">
+                            Adult(s)
+                            <select id="retadult">
+                                <option value="0">0</option>
+                                <option value="1" selected="selected">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                      </label> <label class="km-inline-field km-label-above" style="width: 32%;text-align:left !important">
+                            Children
+                            <select id="retchild">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1" >1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                      </label> <label class="km-inline-field km-label-above" style="width: 32%;text-align:left !important">
+                            Infant(s)
+                            <select id="retinfant">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                      </label> </fieldset>
+        </li>
+        <li> <label class="km-required km-label-above">Promotion Code
+                    <input id="retpromotion" placeholder="Enter Promotion Code" type="text" />
+                </label> </li>
+                <li>&nbsp;</li>
+    </ul>
+
+              <div data-role="footer">
                    <div class="button-frame-inline-home">
-                   <a data-role="button"   data-click="loadFlight" style="background-color:#283880;width:100%">Search Flight</a>
+                   <a data-role="button"   data-bind="click:searchFilter" style="background-color:#283880;width:100%">Search Flight</a>
                 </div>
             </div>
 </div>
 
 <style scoped>
-    
-    #home-view .button-discover
+    #home-view .km-label-above,.km-inline-field
     {
-        background-color: #000;
-        color: #fff;
-        font-size:125%;
+        color:#fff;
+        font-size:1em;
+        margin-bottom:10px;
+
     }
-        
-         
-   
-</style>
     
+   #home-view input , select
+    {
+        background-color:#fff !important;
+        color:#283880;
+        font-size:1em;
+        width:95%;
+        padding:5px;
+        height:40px !important;
+    }
+
+    #home-view select{
+        text-align:center !important;
+        padding-left:48% !important;
+    }
+    
+</style>
+
+
+<script>
+    function initPLOfferGroup() {
+        var listviews = this.element.find("ul.km-listview");
+
+        $("#journeytab").kendoMobileButtonGroup({
+                                                    select: function (e) {
+                                                        listviews.hide()
+                                                            .eq(e.index)
+                                                            .show();
+                                                    },
+                                                    index: 0
+                                                });
+    }  
+</script>

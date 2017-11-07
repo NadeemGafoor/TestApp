@@ -101,7 +101,7 @@ a
 
  #home-view .km-content, #pl-explore-view .km-content
 {
-    background: url(../images/home_bg.png) no-repeat center center;
+     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/home_bg.png) no-repeat center center;
     background-size: cover;
     -webkit-background-size: cover;
 }
@@ -130,7 +130,7 @@ background-color:#fff;
 #pl-liesurelistb-theme .km-content
 
 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/liesure_bg.png) no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/liesure_bg.png) no-repeat center center;
     background-size: cover;
     -webkit-background-size: cover;
 }
@@ -2934,3 +2934,11 @@ tile-frame-inner
 
 .picx {width:180px}
     
+
+    .centerform li{
+        position:relative;        
+        float:none;    
+        width:100%;
+        background-color:tranparent !important;   
+        height:88px;     
+    }
