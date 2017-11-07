@@ -102,14 +102,7 @@ function loadRewards() {
     }), 500);
 }
 
-function searchFlight() {
-    alert($("#journeytab").data("kendoMobileButtonGroup").current().index());
-    if ($("#journeytab").data("kendoMobileButtonGroup").current().index() == 0) {
-        preLogin.searchFlightOneWay();
-    } else {
-        preLogin.searchFlightReturn();
-    }
-}
+
 function loadLogin() {
     $("body").data("kendoMobilePane").navigate("views/login.html");
 }
@@ -1009,6 +1002,8 @@ function completeRedemption() {
         window.localStorage.setItem("distance", "");
     }
 
+
+
     window.preLogin = kendo.observable({
         pin1: "",
         pin2: "",
@@ -1042,16 +1037,75 @@ function completeRedemption() {
         checkcuisine: false,
         checkcelebration: false,
         checklifestyle: false,
+        owfrom: "",
+        owto: "",
+        owtraveldate: "",
+        owpromotion: "",
 
-        searchFlightOneWay: function () {
-            alert("oneway");
+
+
+
+        searchFlight: function () {
+alert("fefefef");
+            if ($("#journeytab").data("kendoMobileButtonGroup").current().index() == 0) {
+                preLogin.searchFlightOneWay();
+            } else {
+                preLogin.searchFlightReturn();
+            }
             return;
         },
 
+        searchFlightOneWay: function () {
+            today = new Date();
+            if (!this.owfrom) {
+                navigator.notification.alert("Please Select Origin City", function () {
+                }, "SNTTA Travel", "Dismiss");
+                return;
+            }
+            if (!this.owto) {
+                navigator.notification.alert("Please Select Destination City", function () {
+                }, "SNTTA Travel", "Dismiss");
+                return;
+            }
 
-        searchFlightreturn: function () {
+            if (this.owto == this.owform) {
+                navigator.notification.alert("Origin and Destination City Cannot be Same", function () {
+                }, "SNTTA Travel", "Dismiss");
+                return;
+            }
+            if (!this.owtraveldate) {
+                navigator.notification.alert("Please Select Valid Departure Date", function () {
+                }, "SNTTA Travel", "Dismiss");
+                return;
+            }
+
+            if (document.getElementById("owcabinclass").value == "") {
+                navigator.notification.alert("Please Select Cabin Class", function () {
+                }, "SNTTA Travel", "Dismiss");
+                return;
+            }
+            if (document.getElementById("adult").value == "0" && document.getElementById("child").value == "0" && document.getElementById("infant").value == "0") {
+                navigator.notification.alert("Please Select Passenger", function () {
+                }, "SNTTA Travel", "Dismiss");
+                return;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        },
+
+        searchFlightReturn: function () {
             alert("return");
-            return;
         },
 
         clearListFilter: function () {
@@ -2802,6 +2856,11 @@ function completeRedemption() {
                 }
             }
 
+
+     //   preLogin.set("owfrom", "");
+     //   prelogin.set("owto","");
+   //     preLogin.set("owtraveldate","");
+    //    preLogin.set("owpromotion","");
             document.getElementById("owtraveldate").valueAsDate = new Date();//today;
             document.getElementById("rettraveldate").valueAsDate = new Date();// today;
             document.getElementById("retreturndate").valueAsDate = new Date();//today;
