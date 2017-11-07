@@ -1701,7 +1701,7 @@ function completeRedemption() {
 
         benefitdetail
         : function (e) {
-            benefitcode = "1000";
+            benefitcode = "1003";
             showSpin(); //show loading popup
 
             $.ajax({
@@ -2539,7 +2539,7 @@ function completeRedemption() {
                     }),
                     success: function (data) {
                         var getData = JSON.parse(data);
-
+alert(data);
                         if (getData.statuscode === "000") {
                             //  firsttime = "1";  
                             googleapikey = getData.googleapikey;
@@ -5912,7 +5912,7 @@ i++;
                     window.localStorage.setItem("self-outletname", getData.outletname);
                     postLogin.set("depin1", "");
 
-                    if (window.localStorage.getItem("segmentcode") === "1000") {
+                    if (window.localStorage.getItem("segmentcode") === "1003") {
                         $("body").data("kendoMobilePane").navigate("views/pl-confirmDiscount.html");
                     } else {
                         $("body").data("kendoMobilePane").navigate("views/pl-confirmDiscountBlack.html");
@@ -5957,7 +5957,7 @@ i++;
                     window.localStorage.setItem("self-outletname", getData.outletname);
                     postLogin.set("depin1", "");
                     showsummary = "";
-                    if (window.localStorage.getItem("segmentcode") === "1000") {
+                    if (window.localStorage.getItem("segmentcode") === "1003") {
                         $("body").data("kendoMobilePane").navigate("views/pl-confirmvoucher.html");
                     } else {
                         $("body").data("kendoMobilePane").navigate("views/pl-confirmvoucherblack.html");
@@ -6000,7 +6000,7 @@ i++;
                     window.localStorage.setItem("self-outletname", getData.outletname);
                     postLogin.set("depin1", "");
                     showsummary = "";
-                    if (window.localStorage.getItem("segmentcode") === "1000") {
+                    if (window.localStorage.getItem("segmentcode") === "1003") {
                         $("body").data("kendoMobilePane").navigate("views/pl-confirmvoucher.html");
                     } else {
                         $("body").data("kendoMobilePane").navigate("views/pl-confirmvoucherblack.html");
@@ -6651,7 +6651,7 @@ i++;
             url: gurl + "/firsttime.aspx",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({
-                merchantcode: window.localStorage.getItem("merchant"), firstname: window.localStorage.getItem("mfirstname"), lastname: window.localStorage.getItem("mlastname"), mobile: window.localStorage.getItem("mobilelogin"), emailid: window.localStorage.getItem("memailid"), emirate: emirate, gender: gender, siriusmember: "", mdevice: mdevicestat, segment: "1000", fbuserid: fbuserid, fbaccesstoken: fbaccesstoken, mypin: m
+                merchantcode: window.localStorage.getItem("merchant"), firstname: window.localStorage.getItem("mfirstname"), lastname: window.localStorage.getItem("mlastname"), mobile: window.localStorage.getItem("mobilelogin"), emailid: window.localStorage.getItem("memailid"), emirate: emirate, gender: gender, siriusmember: "", mdevice: mdevicestat, segment: "1003", fbuserid: fbuserid, fbaccesstoken: fbaccesstoken, mypin: m
             }),
             success: function (data) {
                 var getData = JSON.parse(data);
@@ -7616,7 +7616,7 @@ i++;
     }
 
     function changeCard() {
-        if (window.localStorage.getItem("segmentcode") === "1000") {
+        if (window.localStorage.getItem("segmentcode") === "1003") {
             elems = document.getElementsByClassName('cardhead');
             for (i = 0; i < elems.length; i++) {
                 elems[i].style.backgroundColor = '#fff';
