@@ -102,6 +102,14 @@ function loadRewards() {
     }), 500);
 }
 
+function searchFlight() {
+    alert($("#journeytab").data("kendoMobileButtonGroup").current().index());
+    if ($("#journeytab").data("kendoMobileButtonGroup").current().index() == 0) {
+        preLogin.searchFlightOneWay();
+    } else {
+        preLogin.searchFlightReturn();
+    }
+}
 function loadLogin() {
     $("body").data("kendoMobilePane").navigate("views/login.html");
 }
@@ -1034,6 +1042,17 @@ function completeRedemption() {
         checkcuisine: false,
         checkcelebration: false,
         checklifestyle: false,
+
+        searchFlightOneWay: function () {
+            alert("oneway");
+            return;
+        },
+
+
+        searchFlightreturn: function () {
+            alert("return");
+            return;
+        },
 
         clearListFilter: function () {
             document.getElementById("olocation").checked = false;
@@ -2790,10 +2809,7 @@ function completeRedemption() {
             return;
         },
 
-        searchFlight: function () {
-            alert("here");
-            alert($("#journeytab").data("kendoMobileButtonGroup").current().index());
-        },
+
 
 
 

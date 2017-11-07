@@ -1,11 +1,3 @@
-@font-face { font-family: 'Gotham-Bold'; src: url('../styles/fonts/Gotham-Bold.otf')  format('opentype'); } /* Safari, Android, iOS */
-@font-face { font-family: 'Gotham-BoldItalic'; src: url('../styles/fonts/Gotham_Medium.ttf')  format('opentype'); } /* Safari, Android, iOS */
-@font-face { font-family: 'Gotham-Book'; src: url('../styles/fonts/Gotham-Book.otf')  format('opentype'); } /* Safari, Android, iOS */
-@font-face { font-family: 'Gotham-BookItalic'; src: url('../styles/fonts/Gotham-BookItalic.otf')  format('opentype'); } /* Safari, Android, iOS */
-@font-face { font-family: 'Gotham-Light'; src: url('../styles/fonts/Gotham-Light.ttf')  format('truetype'); } /* Safari, Android, iOS */
-@font-face { font-family: 'Gotham-LightItalic'; src: url('../styles/fonts/Gotham-Book.otf')  format('opentype'); } /* Safari, Android, iOS */
-@font-face { font-family: 'Didot'; src: url('../styles/fonts/Didot.ttc')  format('truetype'); } /* Safari, Android, iOS */
-@font-face { font-family: 'Georgia'; src: url('../styles/fonts/Georgia.ttf')  format('truetype'); } /* Safari, Android, iOS */
 
 .km-ios7 .km-list>li:last-child{
   box-shadow:none;
@@ -80,7 +72,7 @@ a
     color: #fff;
     height: 3em;
     line-height: 3em;
-    font-family: Gotham-Book;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .km-header
@@ -101,7 +93,7 @@ a
 
  #home-view .km-content, #pl-explore-view .km-content
 {
-     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/home_bg.png) no-repeat center center;
+     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/home_bg.png) no-repeat center center;
     background-size: cover;
     -webkit-background-size: cover;
 }
@@ -307,7 +299,7 @@ background-color:#fff;
 
 *
 {
-    font-family: "Gotham-Book";
+    font-family: Arial, Helvetica, sans-serif;
     font-size:98%;
 }
 
@@ -1538,7 +1530,7 @@ li
     text-align: center;
     display: block;
     margin: auto;
-    font-family: 'Georgia';
+    font-family: Arial, Helvetica, sans-serif;
     font-style: italic;
     font-weight: bold;
     color: #253874;
@@ -2825,7 +2817,7 @@ tile-frame-inner
 .home-page-logo-text-holder
 {
     margin:5px auto;
-    font-family:'Gotham-Light' !important;
+    font-family: Arial, Helvetica, sans-serif !important;
     font-size:2.5em;
     font-weight:600;
     text-align:center;
