@@ -1,55 +1,17 @@
 <!--Explore View-->
 <div data-role="view" data-title="" data-layout="pl-main-layout" id="pl-explore-view" data-model="postLogin" data-hide="postLogin.homeViewDestroy">
-    <header data-role="header">
-      <div data-role="navbar">
+      <div data-role="navbar" style="background-color:transparent !important">
                     <a  data-role="button" data-align="left" data-rel="drawer"  data-click-on="down" href="#appdrawer">
             <i class="fa fa-reorder fa-lg cwhite"></i>
         </a>
         <span class="cwhite"></span>
     </div>
 
-    </header>
-    <div class="homeexp-pos" id="explist">
-
-        <div class="localcls" style="background-color:#fff">
-            <a data-role="button" href="views/pl-explorelist.html"  data-transition="slide:up">
-                <div class="picthalf1" style="width:45%">
-                    <div class="toptext" >Explore</div>
-                    <div class="bottomtext">
-                        Dine, relax, entertain… <br>Find what you love!
-                    </div>
+    
+          <div data-role="footer">
+                   <div class="button-frame-inline-home">
+                   <a data-role="button"   data-click="loadFlight" style="background-color:#283880;width:100%">Search Flight</a>
                 </div>
-                <div class="picthalf1 pic1 picx">&nbsp;</div>
-            </a>
-        </div>
-        <div class="localcls" style="background-color:#cfcfcf">
-            <a data-role="button" href="views/pl-offerlist.html"  data-transition="slide:up">
-                <div class="picthalf1 pic2" style="width:50%">&nbsp;</div>
-                <div class="picthalf1" style="width:50%">
-                    <div class="toptext">Offers</div>
-                    <div class="bottomtext">Choose from seasonal promotions and add them to your Rewards!</div>
-                </div>
-            </a>
-        </div>
-        <div class="localcls" style="background-color:#fff">
-
-            <a  data-role="button" href="views/pl-homeplus.html" data-transition="slide:up">
-                <div class="picthalf1" style="width:50%">
-                    <div class="toptext">My Rewards</div>
-                    <div class="bottomtext">Redeem your ready-to-use welcome vouchers and saved offers</div>
-                </div>
-                <div class="picthalf1 pic3"  style="width:50%">&nbsp;</div>
-            </a>
-        </div>
-        <div class="localcls" style="background-color:#cfcfcf">
-            <a  data-role="button" href="views/pl-discountpinmember.html" data-transition="slide:up">
-                <div class="picthalf1 pic4" style="width:60%">&nbsp;</div>
-                <div class="picthalf1" style="width:40%">
-                    <div class="toptext">Apply Discount</div>
-                    <div class="bottomtext">Make the most of your exclusive member benefits</div>
-                </div>
-            </a>
-        </div>
-    </div>
+            </div>
 </div>
 
