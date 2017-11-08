@@ -1126,7 +1126,7 @@ function completeRedemption() {
                 success: function (data) {
                     var getData = JSON.parse(data);
                     if (getData.statuscode === "000") {
-                                            alert(data);
+                                           // alert(data);
                         $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
                     } else {
                         navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
