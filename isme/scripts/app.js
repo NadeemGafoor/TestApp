@@ -1,4 +1,3 @@
-// This is your Telerik Backend Services API key.
 var bsApiKey = '5jta3h50ywmcayk1';
  
 
@@ -60,10 +59,10 @@ setTimeout(function() {
         currentDevice = el.push.currentDevice(false);
     }, false);
 
-    document.addEventListener('deviceready', function () {
+document.addEventListener('deviceready', function () {
     // window.geofence is now available
     window.geofence.initialize().then(function () {
-        console.log("Geofence Successful initialization");
+        console.log("Successful initialization");
     }, function (error) {
         console.log("Error", error);
     });

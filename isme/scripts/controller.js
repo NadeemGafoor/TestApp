@@ -1067,7 +1067,6 @@ function completeRedemption() {
                 }, "SNTTA Travel", "Dismiss");
                 return;
             }
-
             if (this.owto == this.owfrom) {
                 navigator.notification.alert("Origin and Destination City Cannot be Same", function () {
                 }, "SNTTA Travel", "Dismiss");
@@ -2740,8 +2739,8 @@ function completeRedemption() {
                 window.localStorage.setItem("static_social_msg", static_social_msg);
                 window.localStorage.setItem("category", "");
                 window.localStorage.setItem("merchant", merchant);
-                fbCleanVariables();
-                noAlcoholCountry();
+              //  fbCleanVariables();
+//noAlcoholCountry();
                 $.ajax({
                     type: "POST",
                     cache: false,
@@ -2846,17 +2845,17 @@ function completeRedemption() {
                             }
                         },
                         error: function (error) {
-                            navigator.notification.alert("Due to a system error, the property details cannot be displayed. [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
+                            navigator.notification.alert("Due to a system error, the property details cannot be displayed.  Please check your network connection and try again.", function () {
                             }, "SNTTA Travel", "Dismiss")
                         }
                     });
 
 
-                    window.geofence.onTransitionReceived = function (geofences) {
-                        geofences.forEach(function (geo) {
-                            console.log('Geofence transition detected', geo);
-                        });
-                    };
+//window.geofence.onTransitionReceived = function (geofences) {
+  //                      geofences.forEach(function (geo) {
+    //                        console.log('Geofence transition detected', geo);
+      //                  });
+        //            };
 
                 }
                     , function onErrorShowMap(error) {
