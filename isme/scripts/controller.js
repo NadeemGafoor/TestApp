@@ -1094,7 +1094,7 @@ function completeRedemption() {
             minfant = document.getElementById("owinfant").value;
 
 
-           
+
 
             var today = this.owtraveldate;
             var dd = today.getDate();
@@ -1110,17 +1110,17 @@ function completeRedemption() {
             mdate = today;
 
 
-            window.localStorage.setItem("origin",this.owfrom.toUpperCase());
-            wndow.localstorage.setItem("destination",this.owto.toUpperCase());
-            window.localStorage.setItem("traveldate",dd + "-" + moment().month(Number(mm)).format('MMMM'));
-            window.localStorage.setItem("returndate","");
-            window.localStorage.setItem("cabinclass",mcabinclass);
-            window.localStorage.setItem("adult",madult);
-            window.localStorage.setItem("child",mchild);
-            window.localStorage.setItem("infant",minfant);
-            window.localStorage.setItem("journeyheader",this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway"); 
-            window.localStorage.setItem("journeysubheader",Number(madult)+Number(mchild)+Number(minfant) + " " + window.localStorage.getItem("traveldate") + " " + window.localStorage.getItem("returndate"));
-            window.localStorage.setItem("passenger",Number(madult)+Number(mchild)+Number(minfant));
+            window.localStorage.setItem("origin", this.owfrom.toUpperCase());
+            wndow.localstorage.setItem("destination", this.owto.toUpperCase());
+            window.localStorage.setItem("traveldate", dd + "-" + moment().month(Number(mm)).format('MMMM'));
+            window.localStorage.setItem("returndate", "");
+            window.localStorage.setItem("cabinclass", mcabinclass);
+            window.localStorage.setItem("adult", madult);
+            window.localStorage.setItem("child", mchild);
+            window.localStorage.setItem("infant", minfant);
+            window.localStorage.setItem("journeyheader", this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway");
+            window.localStorage.setItem("journeysubheader", Number(madult) + Number(mchild) + Number(minfant) + " <i class='fa fa-user'></i> " + window.localStorage.getItem("traveldate") + " " + window.localStorage.getItem("returndate"));
+            window.localStorage.setItem("passenger", Number(madult) + Number(mchild) + Number(minfant));
 
             // alert(mcabinclass);
             // alert(madult);
@@ -1146,7 +1146,7 @@ function completeRedemption() {
                     var getData = JSON.parse(data);
 
                     if (getData.statuscode === "000") {
-                         window.localStorage.setItem("traceid",getData.traceid);
+                        window.localStorage.setItem("traceid", getData.traceid);
                         $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
                     } else {
                         navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
@@ -1221,7 +1221,7 @@ function completeRedemption() {
             }
             var today = yyyy + '-' + mm + '-' + dd;
             mdate = today;
-            window.localStorage.setItem("traveldate",dd + "-" + moment().month(Number(mm)).format('MMMM'));
+            window.localStorage.setItem("traveldate", dd + "-" + moment().month(Number(mm)).format('MMMM'));
             var today = this.retreturndate;
             var dd = today.getDate();
             var mm = today.getMonth() + 1; //January is 0!
@@ -1234,16 +1234,16 @@ function completeRedemption() {
             }
             var today = yyyy + '-' + mm + '-' + dd;
             mdate1 = today;
-            window.localStorage.setItem("returndate",dd + "-" + moment().month(Number(mm)).format('MMMM'));
-            window.localStorage.setItem("origin",this.owfrom.toUpperCase());
-            wndow.localstorage.setItem("destination",this.owto.toUpperCase());
-            window.localStorage.setItem("cabinclass",mcabinclass);
-            window.localStorage.setItem("adult",madult);
-            window.localStorage.setItem("child",mchild);
-            window.localStorage.setItem("infant",minfant);
-            window.localStorage.setItem("journeyheader",this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway"); 
-            window.localStorage.setItem("journeysubheader",Number(madult)+Number(mchild)+Number(minfant) + " " + window.localStorage.getItem("traveldate"));
-            window.localStorage.setItem("passenger",Number(madult)+Number(mchild)+Number(minfant));
+            window.localStorage.setItem("returndate", dd + "-" + moment().month(Number(mm)).format('MMMM'));
+            window.localStorage.setItem("origin", this.owfrom.toUpperCase());
+            wndow.localstorage.setItem("destination", this.owto.toUpperCase());
+            window.localStorage.setItem("cabinclass", mcabinclass);
+            window.localStorage.setItem("adult", madult);
+            window.localStorage.setItem("child", mchild);
+            window.localStorage.setItem("infant", minfant);
+            window.localStorage.setItem("journeyheader", this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway");
+            window.localStorage.setItem("journeysubheader", Number(madult) + Number(mchild) + Number(minfant) + " " + window.localStorage.getItem("traveldate"));
+            window.localStorage.setItem("passenger", Number(madult) + Number(mchild) + Number(minfant));
             showSpin();
             $.ajax({
                 type: "POST",
@@ -1257,8 +1257,8 @@ function completeRedemption() {
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
-     if (getData.statuscode === "000") {
-                            window.localStorage.setItem("traceid",getData.traceid);
+                    if (getData.statuscode === "000") {
+                        window.localStorage.setItem("traceid", getData.traceid);
                         $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
                     } else {
                         navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
@@ -1340,6 +1340,9 @@ function completeRedemption() {
         },
         destroyexplorelist: function () {
             $("#explorelist-view").remove();
+        },
+        destroysearchoneway: function () {
+            $("#searchoneway-view").remove();
         },
         confirmenrollment: function () {
             $("#enrolmentpage-view").remove();
@@ -2310,6 +2313,86 @@ function completeRedemption() {
             });
         },
 
+        searchResultOneWay: function (e) {
+            showSpin();
+            $.ajax({
+                type: "POST",
+                cache: false,
+                async: true,
+                timeout: 200000,
+                url: gurl + "/searchFlightC.aspx",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({
+                    merchantcode: window.localStorage.getItem("merchant"), traceid: window.localStorage.getItem("merchant"), deviceinfo: window.localStorage.getItem("mdevicestat")
+                }),
+                success: function (data) {
+                    var getData = JSON.parse(data);
+                    if (getData.statuscode === "000") {
+                        $("#leisure-list").kendoMobileListView({
+                            dataSource: kendo.data.DataSource.create({ data: getData.flightfarelistfilter }),
+                            template: $("#templatesearchoneway").html(),
+                            filterable: {
+                                autoFilter: true,
+                                placeholder: "Search By Price",
+                                field: "totalprice",
+                                operator: "contains",
+                                serverPaging: true,
+                                serverSorting: true,
+                                pageSize: 10,
+                                endlessScroll: true
+                            }
+                        });
+
+                    } else {
+                        navigator.notification.alert("Unable to fetch the available flights for the selected Itinerary", function () {
+                        }, "SNTTA Travel", "Dismiss")
+                        hideSpin(); //hide loading popup
+                    }
+                }
+                ,
+                error: function (errormsg) {
+                    navigator.notification.alert("Due to a system error, Unable to fetch the available flights for the selected Itinerary. [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
+                    }, "SNTTA Travel", "Dismiss")
+                    hideSpin(); //hide loading popup
+                }
+            });
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         showPropertyItem
         : function (e) {
             showSpin();
@@ -2947,25 +3030,25 @@ function completeRedemption() {
                 }
             } else {
                 if (window.localStorage.getItem("isfenceset") === "0") {
-//                    startMonitor();
+                    //                    startMonitor();
                     window.localStorage.setItem("isfenceset", "1");
                 }
             }
 
-            window.localStorage.setItem("origin","");
-            wndow.localstorage.setItem("destination","");
-            window.localStorage.setItem("traveldate","");
-            window.localStorage.setItem("returndate","");
-            window.localStorage.setItem("cabinclass","");
-            window.localStorage.setItem("adult","0");
-            window.localStorage.setItem("child","0");
-            window.localStorage.setItem("infant","0");
-            window.localStorage.setItem("journeyheader","");
-            window.localStorage.setItem("journeysubheader","");
-            window.localStorage.setItem("passenger","0");
-            window.localStorage.setItem("traceid","0");
+            window.localStorage.setItem("origin", "");
+            wndow.localstorage.setItem("destination", "");
+            window.localStorage.setItem("traveldate", "");
+            window.localStorage.setItem("returndate", "");
+            window.localStorage.setItem("cabinclass", "");
+            window.localStorage.setItem("adult", "0");
+            window.localStorage.setItem("child", "0");
+            window.localStorage.setItem("infant", "0");
+            window.localStorage.setItem("journeyheader", "");
+            window.localStorage.setItem("journeysubheader", "");
+            window.localStorage.setItem("passenger", "0");
+            window.localStorage.setItem("traceid", "0");
 
-//alert("end");
+            //alert("end");
             //   preLogin.set("owfrom", "");
             //   prelogin.set("owto","");
             //     preLogin.set("owtraveldate","");

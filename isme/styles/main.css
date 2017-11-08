@@ -2934,3 +2934,63 @@ tile-frame-inner
         background-color:tranparent !important;   
         height:88px;     
     }
+
+    .single-flight-outer{
+    width:100%;
+    position:relative;
+    height:70px;
+    border:none;
+    }
+
+    .flight-logo{
+    width:20%;
+    position:relative;
+    height:70px;
+    border:none;
+    }
+
+    .flight-main-holder{
+    width:80%;
+    position:relative;
+    height:70px;
+    border:none;
+    }
+
+ .flight-lines{
+    width:100%;
+    position:relative;
+    height:20px;
+    line-height:20px;
+    border:none;
+    }
+    
+    .flight-linel{
+    width:100%;
+    position:relative;
+    height:30px;
+    line-height:30px;
+    border:none;
+    }
+
+.flight-sub-lines{
+    width:33%;
+    position:relative;
+    float:left;
+    height:20px;
+    line-height:20px;
+    border:none;
+    text-align:center;
+    font-size:8px;
+    color:#283880;
+    }
+
+.flight-sub-linel{
+    width:50%;
+    position:relative;
+    height:30px;
+    line-height:30px;
+    border:none;
+    text-align:center;
+    font-size:12px;
+    color:#fff000;
+    }

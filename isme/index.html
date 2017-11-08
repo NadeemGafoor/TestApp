@@ -53,10 +53,9 @@
         <div class="li-div"> <i class="fa fa-phone"></i> <a href="views/customerservice.html" data-transition="slide">
                     &nbsp;&nbsp;Contact SNTTA Travel
                 </a> </div>
-                        <div class="li-div"> <i class="fa fa-question"></i> <a href="views/faq.html" data-transition="slide">
+        <div class="li-div"> <i class="fa fa-question"></i> <a href="views/faq.html" data-transition="slide">
                     &nbsp;&nbsp;F A Q
                 </a> </div>
-
         <footer data-role="footer" style="background-color:#253874;border-top:0px;">
             <div class="li-div li-footer-div">
                 <a href="views/enrol.html" data-transition="slide:left">
@@ -303,8 +302,7 @@
                 <a data-click="closeModalViewLogin" data-role="button" data-align="right">
                 <i class="fa fa-times-circle fa-lg" style="color:#fff"></i> </a>
             </div>
-        </div>
-        <pre class="fulljustify" style="padding-left:5px;padding-right:5px">
+        </div> <pre class="fulljustify" style="padding-left:5px;padding-right:5px">
 This Web site is owned by Sharjah National Travel And Tourist Agency (SNTTA/sntta.com) Please review these Terms of Use carefully before using this Web site. Your use of this Web site indicates your agreement to be bound by these Terms of Use.
 
 Disclaimer
@@ -341,9 +339,7 @@ These Terms and Conditions constitutes the entire agreement between you and SNTT
 
 Any failure of SNTTA to assert any rights it may have under these Terms and Conditions does not constitute a waiver of our right to assert the same or any other right at any other time or against any other person or entity.
 
-</pre>        
-</div>
-
+</pre> </div>
     <div data-role="modalview" id="modalviewdataprotection" style="height:100%" data-title="Data Protection Policy">
         <div data-role="header">
             <div data-role="navbar" style="background-color:#253874"> <span data-role="view-title"></span>
@@ -414,37 +410,31 @@ You may opt out of receiving any marketing material from us at any time by infor
                 </pre> </div>
     </script>
     <script type="text/x-kendo-template" id="outletTemplate">
-               <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}"  >
-        <div class="outer-frame">
-            <div class="image-frame-list small-image-height">
-                <img src="${imageurl}" style="height:100%;width:100%"/>
+        <a data-transition="slide:up" href="views/outletdetail.html?od=${outletcode}">
+            <div class="outer-frame">
+                <div class="image-frame-list small-image-height"> <img src="${imageurl}" style="height:100%;width:100%" /> </div>
+                <div class="inner-frame-1">${outletname}</div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-2">Mobile ${mobile}</div>
+                <div class="inner-frame-2">Email ${email}</div>
+                <div class="inner-frame-3">Distance ${outletdistance} Km</div>
             </div>
-            <div class="inner-frame-1">${outletname}</div>
-            <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-2">Mobile ${mobile}</div>
-            <div class="inner-frame-2">Email ${email}</div>
-            <div class="inner-frame-3">Distance  ${outletdistance} Km</div>
-       </div>
-    </a>
-
+        </a>
     </script>
     <script type="text/x-kendo-template" id="outletTemplate-b">
         <div class="button-frame-inline height-80 button-frame-inline-long"> <a href="views/outletdetail.html?od=${outletcode}" data-transition="slide:up" id="mobile-button1" data-role="button">${outletname}</a>            </div>
     </script>
     <script type="text/x-kendo-template" id="pl-outletTemplate">
-        <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}" >
-        <div class="outer-frame">
-            <div class="image-frame-list small-image-height">
-                <img src="${imageurl}" style="height:100%;width:100%"/>
+        <a data-transition="slide:up" href="views/outletdetail.html?od=${outletcode}">
+            <div class="outer-frame">
+                <div class="image-frame-list small-image-height"> <img src="${imageurl}" style="height:100%;width:100%" /> </div>
+                <div class="inner-frame-1">${outletname}</div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-2">Mobile:${mobile}</div>
+                <div class="inner-frame-2">Email:${email}</div>
+                <div class="inner-frame-3">Distance ${outletdistance} Km</div>
             </div>
-            <div class="inner-frame-1">${outletname}</div>
-            <div class="inner-frame-1">&nbsp;</div>            
-            <div class="inner-frame-2">Mobile:${mobile}</div>
-            <div class="inner-frame-2">Email:${email}</div>
-            <div class="inner-frame-3">Distance  ${outletdistance} Km</div>
-       </div>
-    </a>
-
+        </a>
     </script>
     <script type="text/x-kendo-template" id="pl-outletTemplate-b">
         <div class="button-frame-inline height-80 button-frame-inline-long"> <a href="views/pl-outletdetail.html?od=${outletcode}" data-transition="slide:up" id="mobile-button1" data-role="button">${outletname}</a>            </div>
@@ -462,122 +452,107 @@ You may opt out of receiving any marketing material from us at any time by infor
         <div class="button-frame-inline height-80 button-frame-inline-long"> <a href="views/pl-outletdetail.html?od=${outletcode}" data-transition="slide:up" id="mobile-button1" data-role="button">${outletname}</a>            </div>
     </script>
     <script type="text/x-kendo-template" id="outletOfferTemplate">
-        <a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}"     style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important" >
-                <div class="outer-frame" style="background-color:white">
-            <div class="image-frame-list small-image-height">
-                <img src="${imageurls}" style="height:100%;width:100%"/>
+        <a data-transition="slide:up" href="views/offerdetail.html?cpn=${itemcode}" style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important">
+            <div class="outer-frame" style="background-color:white">
+                <div class="image-frame-list small-image-height"> <img src="${imageurls}" style="height:100%;width:100%" /> </div>
+                <div class="inner-frame-1">${itemname} </div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
             </div>
-            <div class="inner-frame-1">${itemname} </div>
-            <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
-        </div>
-    </a></script>
+        </a>
+    </script>
     <script type="text/x-kendo-template" id="pl-outletOfferTemplate">
-     <a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}"     style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important">
-                <div class="outer-frame" style="background-color:white">
-            <div class="image-frame-list small-image-height">
-                <img src="${imageurls}" style="height:100%;width:100%"/>
+        <a data-transition="slide:up" href="views/offerdetail.html?cpn=${itemcode}" style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important">
+            <div class="outer-frame" style="background-color:white">
+                <div class="image-frame-list small-image-height"> <img src="${imageurls}" style="height:100%;width:100%" /> </div>
+                <div class="inner-frame-1">${itemname} </div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
             </div>
-            <div class="inner-frame-1">${itemname} </div>
-            <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
-        </div>
-    </a> </script>
+        </a>
+    </script>
     <script type="text/x-kendo-template" id="offerListTemplate">
-<a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}"       style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important" >
-                <div class="outer-frame" style="background-color:white">
-            <div class="image-frame-list small-image-height">
-                <img src="${imageurls}" style="height:100%;width:100%"/>
+        <a data-transition="slide:up" href="views/offerdetail.html?cpn=${itemcode}" style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important">
+            <div class="outer-frame" style="background-color:white">
+                <div class="image-frame-list small-image-height"> <img src="${imageurls}" style="height:100%;width:100%" /> </div>
+                <div class="inner-frame-1">${itemname} </div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
             </div>
-            <div class="inner-frame-1">${itemname} </div>
-            <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
-        </div>
-    </a></script>
+        </a>
+    </script>
     <script type="text/x-kendo-template" id="MyVoucherOfferOutletTemplate">
-              <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}" >
-        <div class="outer-frame">
-            <div class="image-frame-list small-image-height">
-                <img src="${imageurl}" style="height:100%;width:100%"/>
+        <a data-transition="slide:up" href="views/outletdetail.html?od=${outletcode}">
+            <div class="outer-frame">
+                <div class="image-frame-list small-image-height"> <img src="${imageurl}" style="height:100%;width:100%" /> </div>
+                <div class="inner-frame-1">${outletname}</div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-2">Mobile:${mobile}</div>
+                <div class="inner-frame-2">Email:${email}</div>
+                <div class="inner-frame-3">Distance ${outletdistance} Km</div>
             </div>
-            <div class="inner-frame-1">${outletname}</div>
-                        <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-2">Mobile:${mobile}</div>
-            <div class="inner-frame-2">Email:${email}</div>
-            <div class="inner-frame-3">Distance  ${outletdistance} Km</div>
-       </div>
-    </a>
-
+        </a>
     </script>
     <script type="text/x-kendo-template" id="offerOutletTemplate">
-       <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}"  >
-        <div class="outer-frame">
-            <div class="image-frame-list small-image-height">
-                <img src="${imageurl}" style="height:100%;width:100%"/>
+        <a data-transition="slide:up" href="views/outletdetail.html?od=${outletcode}">
+            <div class="outer-frame">
+                <div class="image-frame-list small-image-height"> <img src="${imageurl}" style="height:100%;width:100%" /> </div>
+                <div class="inner-frame-1">${outletname}</div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-2">Mobile:${mobile}</div>
+                <div class="inner-frame-2">Email:${email}</div>
+                <div class="inner-frame-3">Distance ${outletdistance} Km</div>
             </div>
-            <div class="inner-frame-1">${outletname}</div>
-                        <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-2">Mobile:${mobile}</div>
-            <div class="inner-frame-2">Email:${email}</div>
-            <div class="inner-frame-3">Distance  ${outletdistance} Km</div>
-       </div>
-    </a>
+        </a>
     </script>
     <script type="text/x-kendo-template" id="pl-offerListTemplate">
-<a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}"    style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important">
-                <div class="outer-frame" style="background-color:white">
-            <div class="image-frame-list small-image-height">
-                <img src="${imageurls}" style="height:100%;width:100%"/>
+        <a data-transition="slide:up" href="views/offerdetail.html?cpn=${itemcode}" style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important">
+            <div class="outer-frame" style="background-color:white">
+                <div class="image-frame-list small-image-height"> <img src="${imageurls}" style="height:100%;width:100%" /> </div>
+                <div class="inner-frame-1">${itemname} </div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
             </div>
-            <div class="inner-frame-1">${itemname} </div>
-            <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
-        </div>
-    </a> </script>
+        </a>
+    </script>
     <script type="text/x-kendo-template" id="plofferOutletTemplate">
-             <a data-transition="slide:up"   href="views/outletdetail.html?od=${outletcode}"  >
-        <div class="outer-frame">
-            <div class="image-frame-list small-image-height">
-                <img src="${imageurl}" style="height:100%;width:100%"/>
+        <a data-transition="slide:up" href="views/outletdetail.html?od=${outletcode}">
+            <div class="outer-frame">
+                <div class="image-frame-list small-image-height"> <img src="${imageurl}" style="height:100%;width:100%" /> </div>
+                <div class="inner-frame-1">${outletname}</div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-2">Mobile:${mobile}</div>
+                <div class="inner-frame-2">Email:${email}</div>
+                <div class="inner-frame-3">Distance ${outletdistance} Km</div>
             </div>
-            <div class="inner-frame-1">${outletname}</div>
-                        <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-2">Mobile:${mobile}</div>
-            <div class="inner-frame-2">Email:${email}</div>
-            <div class="inner-frame-3">Distance  ${outletdistance} Km</div>
-       </div>
-    </a>
-
+        </a>
     </script>
     <script type="text/x-kendo-template" id="mywallet-voucherlist-Template-outlet">
-      <a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}"      style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important" >
-        <div class="outer-frame" style="background-color:white">
-            <div class="image-frame-list small-image-height">
-                <img src="${imageurls}" style="height:100%;width:100%"/>
+        <a data-transition="slide:up" href="views/offerdetail.html?cpn=${itemcode}" style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important">
+            <div class="outer-frame" style="background-color:white">
+                <div class="image-frame-list small-image-height"> <img src="${imageurls}" style="height:100%;width:100%" /> </div>
+                <div class="inner-frame-1">${itemname} </div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
             </div>
-            <div class="inner-frame-1">${itemname} </div>
-            <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
-        </div>
-    </a>
-        </script>
+        </a>
+    </script>
     <script type="text/x-kendo-template" id="mywallet-voucherlist-Template">
-    <a data-transition="slide:up"   href="views/offerdetail.html?cpn=${itemcode}"       style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important" >
-                <div class="outer-frame" style="background-color:white">
-            <div class="image-frame-list small-image-height">
-                <img src="${imageurls}" style="height:100%;width:100%"/>
+        <a data-transition="slide:up" href="views/offerdetail.html?cpn=${itemcode}" style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important">
+            <div class="outer-frame" style="background-color:white">
+                <div class="image-frame-list small-image-height"> <img src="${imageurls}" style="height:100%;width:100%" /> </div>
+                <div class="inner-frame-1">${itemname} </div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-1">&nbsp;</div>
+                <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
             </div>
-            <div class="inner-frame-1">${itemname} </div>
-            <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-1">&nbsp;</div>
-            <div class="inner-frame-3">Expiry ${couponexpirydate}</div>
-        </div>
-    </a> </script>
+        </a>
+    </script>
     <script type="text/x-kendo-template" id="pl-historyListTemplate">
         <div class="msg-outer-frame-a">
             <div class="msg-date-frame-line">${transactiontype} - ${transactiondate}</div>
@@ -596,6 +571,29 @@ You may opt out of receiving any marketing material from us at any time by infor
                 <div class="border-bot"></div>
             </div>
         </a>
+    </script>
+    <script type="text/x-kendo-template" id="templatesearchoneway">
+        <div class="single-flight-outer">
+            <div class="flight-logo"></div>
+            <div class="flight-main-holder">
+                <div class="flight-lines">
+                    <div class="flight-sub-lines">${departuretime}</div>
+                    <div class="flight-sub-lines"><i class="fa fa-arrow-circle-right fa-lg" style="color:#283880"></i></div>
+                    <div class="flight-sub-lines">${arrivaltime}</div>
+                </div>
+                <div class="flight-lines">
+                    <div class="flight-sub-lines">${origin}</div>
+                    <div class="flight-sub-lines">${numberstops} stop ${journeytime}</div>
+                    <div class="flight-sub-lines">${destination}</div>
+                </div>
+                <div class="flight-linel">
+                    <div class="flight-sub-linel">${totalprice}</div>
+                    <div class="flight-sub-linel">
+                        <div class="button-frame-login"> <a data-role="button" href="views/searchFlightDetail.html" data-transition="slide" style="background-color:#283880">Select</a>                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </script>
 </body>
 
@@ -649,8 +647,6 @@ You may opt out of receiving any marketing material from us at any time by infor
         font-size: .9em;
         height: 98%;
     }
-
-
     
     #appdrawerN .km-drawer .km-pane,
     #appdrawer .km-drawer .km-pane {
@@ -764,11 +760,11 @@ You may opt out of receiving any marketing material from us at any time by infor
     #pl-customerservice-theme .km-button.km-state-active {
         background-color: rgba(0, 0, 0, 0.7) !important;
     }
-
-    a:active{
-        background-color:transparent !important;
+    
+    a:active {
+        background-color: transparent !important;
     }
-
+    
     .km-button a:active {
         background-color: transparent !important;
     }

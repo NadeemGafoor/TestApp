@@ -1,9 +1,21 @@
-<!DOCTYPE html>
+<!--Search Result Oneway-->
+<div id="searchoneway-view" data-reload="true"
+     data-role="view"
+     data-title="Offers" data-layout="pre-layout"  data-model="preLogin" data-show="preLogin.searchResultOneWay" data-hide="preLogin.destroysearchoneway" data-after-show="disableBackButton" data-before-hide="enableBackButton">
+    <div data-role="header">
+        <div data-role="navbar">
+             <a  data-role="backbutton" data-align="left" style="margin-top:.3em;color:#fff"></a>
+            <span data-role="view-title"></span>
+            <a  data-role="button" data-align="right">
+                <i class="fa fa-filter fa-lg" style="color:#fff"></i>
+            </a>
+        
+        </div>
+    </div>
 
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-    </body>
-</html>
+ <ul data-role="listview"  id="oneway-list-view" >
+       
+   
+    </ul>
+</div>
+
