@@ -1125,9 +1125,9 @@ function completeRedemption() {
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
-                    alert("gggggg");
+                    alert(data);
                     if (getData.statuscode === "000") {
-                        $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
+                       // $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
                         hideSpin();
                     } else {
                         navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
@@ -1254,9 +1254,6 @@ today = yyyy + '-' + mm + '-' + dd;
             today = yyyy + '-' + mm + '-' + dd;
             mdate1 = today;
 
-alert(mdate);
-alert(mdate1);
-
             showSpin();
             $.ajax({
                 type: "POST",
@@ -1266,13 +1263,14 @@ alert(mdate1);
                 url: gurl + "/searchFlightB.aspx",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
-                    merchantcode: merchant, retfrom: this.retfrom, owto: this.retto, rettraveldate: mdate, retreturndate:mdate1,retclass: mcabinclass, retadult: madult, retchild: mchild, retinfant: minfant, deviceinfo: mdevicestat
+                    merchantcode: merchant, retfrom: this.retfrom, retto: this.retto, rettraveldate: mdate, retreturndate:mdate1,retclass: mcabinclass, retadult: madult, retchild: mchild, retinfant: minfant, deviceinfo: mdevicestat
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
 alert(data);
                     if (getData.statuscode === "000") {
-                        $("body").data("kendoMobilePane").navigate("views/searchResultReturn.html");
+                        //$("body").data("kendoMobilePane").navigate("views/searchResultReturn.html");
+                        hideSpin();
                     } else {
                         navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
                         }, "SNTTA Travel", "Dismiss")
