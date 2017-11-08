@@ -1093,6 +1093,9 @@ function completeRedemption() {
             mchild = document.getElementById("owchild").value;
             minfant = document.getElementById("owinfant").value;
 
+
+           
+
             var today = this.owtraveldate;
             var dd = today.getDate();
             var mm = today.getMonth() + 1; //January is 0!
@@ -1105,6 +1108,20 @@ function completeRedemption() {
             }
             var today = yyyy + '-' + mm + '-' + dd;
             mdate = today;
+
+
+            window.localStorage.setItem("origin",this.owfrom.toUpperCase());
+            wndow.localstorage.setItem("destination",this.owto.toUpperCase());
+            window.localStorage.setItem("traveldate",dd + "-" + moment().month(Number(mm)).format('MMMM'));
+            window.localStorage.setItem("returndate","");
+            window.localStorage.setItem("cabinclass",mcabinclass);
+            window.localStorage.setItem("adult",madult);
+            window.localStorage.setItem("child",mchild);
+            window.localStorage.setItem("infant",minfant);
+            window.localStorage.setItem("journeyheader",this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway"); 
+            window.localStorage.setItem("journeysubheader",Number(madult)+Number(mchild)+Number(minfant) + " " + window.localStorage.getItem("traveldate") + " " + window.localStorage.getItem("returndate"));
+            window.localStorage.setItem("passenger",Number(madult)+Number(mchild)+Number(minfant));
+
             // alert(mcabinclass);
             // alert(madult);
             // alert(mchild);
@@ -1129,7 +1146,7 @@ function completeRedemption() {
                     var getData = JSON.parse(data);
 
                     if (getData.statuscode === "000") {
-                        // alert(data);
+                         window.localStorage.setItem("traceid",getData.traceid);
                         $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
                     } else {
                         navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
@@ -1204,7 +1221,7 @@ function completeRedemption() {
             }
             var today = yyyy + '-' + mm + '-' + dd;
             mdate = today;
-
+            window.localStorage.setItem("traveldate",dd + "-" + moment().month(Number(mm)).format('MMMM'));
             var today = this.retreturndate;
             var dd = today.getDate();
             var mm = today.getMonth() + 1; //January is 0!
@@ -1217,10 +1234,16 @@ function completeRedemption() {
             }
             var today = yyyy + '-' + mm + '-' + dd;
             mdate1 = today;
-
-
-
-
+            window.localStorage.setItem("returndate",dd + "-" + moment().month(Number(mm)).format('MMMM'));
+            window.localStorage.setItem("origin",this.owfrom.toUpperCase());
+            wndow.localstorage.setItem("destination",this.owto.toUpperCase());
+            window.localStorage.setItem("cabinclass",mcabinclass);
+            window.localStorage.setItem("adult",madult);
+            window.localStorage.setItem("child",mchild);
+            window.localStorage.setItem("infant",minfant);
+            window.localStorage.setItem("journeyheader",this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway"); 
+            window.localStorage.setItem("journeysubheader",Number(madult)+Number(mchild)+Number(minfant) + " " + window.localStorage.getItem("traveldate"));
+            window.localStorage.setItem("passenger",Number(madult)+Number(mchild)+Number(minfant));
             showSpin();
             $.ajax({
                 type: "POST",
@@ -1235,7 +1258,7 @@ function completeRedemption() {
                 success: function (data) {
                     var getData = JSON.parse(data);
      if (getData.statuscode === "000") {
-                        // alert(data);
+                            window.localStorage.setItem("traceid",getData.traceid);
                         $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
                     } else {
                         navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
@@ -2928,6 +2951,19 @@ function completeRedemption() {
                     window.localStorage.setItem("isfenceset", "1");
                 }
             }
+
+            window.localStorage.setItem("origin","");
+            wndow.localstorage.setItem("destination","");
+            window.localStorage.setItem("traveldate","");
+            window.localStorage.setItem("returndate","");
+            window.localStorage.setItem("cabinclass","");
+            window.localStorage.setItem("adult","0");
+            window.localStorage.setItem("child","0");
+            window.localStorage.setItem("infant","0");
+            window.localStorage.setItem("journeyheader","");
+            window.localStorage.setItem("journeysubheader","");
+            window.localStorage.setItem("passenger","0");
+            window.localStorage.setItem("traceid","0");
 
 //alert("end");
             //   preLogin.set("owfrom", "");
