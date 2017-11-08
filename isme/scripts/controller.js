@@ -1117,22 +1117,17 @@ function completeRedemption() {
                 type: "POST",
                 cache: false,
                 async: true,
-                timeout: 20000,
+                timeout: 2000000,
                 url: gurl + "/searchFlightA.aspx",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
                     merchantcode: merchant, ofrom: this.owfrom, oto: this.owto, otraveldate: mdate, owclass: mcabinclass, owadult: madult, owchild: mchild, owinfant: minfant, deviceinfo: mdevicestat
                 }),
                 success: function (data) {
-                    var getData = JSON.parse(data);
-                    if (getData.statuscode === "000") {
-                                           // alert(data);
-                        $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
-                    } else {
-                        navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
-                        }, "SNTTA Travel", "Dismiss")
-                        hideSpin(); //hide loading popup
-                    }
+
+                    alert("Here");
+                    //var getData = JSON.parse(data);
+
                 },
                 error: function (error) {
                     navigator.notification.alert("Due to a system error, the search could not be executed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
@@ -1222,23 +1217,16 @@ function completeRedemption() {
                 type: "POST",
                 cache: false,
                 async: true,
-                timeout: 20000,
+                timeout: 2000000,
                 url: gurl + "/searchFlightB.aspx",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
-                    merchantcode: merchant, retfrom: this.retfrom, owto: this.retto, rtraveldate:mdate,rreturndate:mdate1, retclass: mcabinclass, retadult: madult, retchild: mchild, retinfant: minfant, deviceinfo: mdevicestat
+                    merchantcode: merchant, retfrom: this.retfrom, retto: this.retto, rtraveldate:mdate,rreturndate:mdate1, retclass: mcabinclass, retadult: madult, retchild: mchild, retinfant: minfant, deviceinfo: mdevicestat
                 }),
                 success: function (data) {
-                    var getData = JSON.parse(data);
+//var getData = JSON.parse(data);
 
-                    if (getData.statuscode === "000") {
-                        alert("Return Success");
-                        $("body").data("kendoMobilePane").navigate("views/searchResultReturn.html");
-                    } else {
-                        navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
-                        }, "SNTTA Travel", "Dismiss")
-                        hideSpin(); //hide loading popup
-                    }
+                  alert(data);
                 },
                 error: function (error) {
                     navigator.notification.alert("Due to a system error, the search could not be executed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
@@ -2739,7 +2727,7 @@ function completeRedemption() {
                 window.localStorage.setItem("static_social_msg", static_social_msg);
                 window.localStorage.setItem("category", "");
                 window.localStorage.setItem("merchant", merchant);
-              //  fbCleanVariables();
+                fbCleanVariables();
 //noAlcoholCountry();
                 $.ajax({
                     type: "POST",
@@ -2790,7 +2778,7 @@ function completeRedemption() {
                     }
                 });
        
-
+alert("after firsttime");
                 if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                     customer = window.localStorage.getItem("customer");
                     customername = window.localStorage.getItem("customername");
@@ -2862,6 +2850,8 @@ function completeRedemption() {
                     homecountryname = "";
                     residentcityname = "";
                 }
+
+                alert("before push");
                 var pushSettings = {
                     iOS: {
                         badge: "true",
@@ -2924,7 +2914,7 @@ function completeRedemption() {
                     window.localStorage.setItem("isfenceset", "1");
                 }
             }
-
+alert("end");
 
             //   preLogin.set("owfrom", "");
             //   prelogin.set("owto","");
@@ -2936,39 +2926,6 @@ function completeRedemption() {
             hideSpin();
             return;
         },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         loginInit
         : function () {
