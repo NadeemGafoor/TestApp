@@ -1104,7 +1104,7 @@ function completeRedemption() {
             if (mm < 10) {
                 mm = '0' + mm;
             }
-            var today = yyyy + '-' + mm + '-' + dd;
+            today = yyyy + '-' + mm + '-' + dd;
             mdate = today;
             // alert(mcabinclass);
             // alert(madult);
@@ -1112,7 +1112,6 @@ function completeRedemption() {
             // alert(minfant);
             // alert(this.owfrom);
             // alert(this.owto);
-            alert(mdate);
             showSpin();
             $.ajax({
                 type: "POST",
@@ -1126,9 +1125,10 @@ function completeRedemption() {
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
-                    alert(data);
+                    alert("gggggg");
                     if (getData.statuscode === "000") {
                         $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
+                        hideSpin();
                     } else {
                         navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
                         }, "SNTTA Travel", "Dismiss")
@@ -1224,7 +1224,38 @@ function completeRedemption() {
             mcabinclass = document.getElementById("retcabinclass").value;
             madult = document.getElementById("retadult").value;
             mchild = document.getElementById("retchild").value;
-            minfiant = document.getElementById("retinfant").value;
+            minfant = document.getElementById("retinfant").value;
+
+ 
+
+            var today = this.rettraveldate;
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+today = yyyy + '-' + mm + '-' + dd;
+            mdate = today;
+
+  var today = this.retreturndate;
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+            today = yyyy + '-' + mm + '-' + dd;
+            mdate1 = today;
+
+alert(mdate);
+alert(mdate1);
 
             showSpin();
             $.ajax({
@@ -1235,11 +1266,11 @@ function completeRedemption() {
                 url: gurl + "/searchFlightB.aspx",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
-                    merchantcode: merchant, retfrom: this.retfrom, owto: this.retto, rettraveldate: this.retreturndate, retclass: mcabinclass, retadult: madult, retchild: mchild, retinfant: minfant, deviceinfo: mdevicestat
+                    merchantcode: merchant, retfrom: this.retfrom, owto: this.retto, rettraveldate: mdate, retreturndate:mdate1,retclass: mcabinclass, retadult: madult, retchild: mchild, retinfant: minfant, deviceinfo: mdevicestat
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
-
+alert(data);
                     if (getData.statuscode === "000") {
                         $("body").data("kendoMobilePane").navigate("views/searchResultReturn.html");
                     } else {
