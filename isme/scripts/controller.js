@@ -1110,8 +1110,8 @@ function completeRedemption() {
             // alert(madult);
             // alert(mchild);
             // alert(minfant);
-             alert(this.owfrom);
-             alert(this.owto);
+//alert(this.owfrom);
+           //  alert(this.owto);
             showSpin();
             $.ajax({
                 type: "POST",
@@ -1126,7 +1126,7 @@ function completeRedemption() {
                 success: function (data) {
                    // var getData = JSON.parse(data);
                     alert(data);
-              
+hideSpin();
                 },
                 error: function (error) {
                     navigator.notification.alert("Due to a system error, the search could not be executed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
