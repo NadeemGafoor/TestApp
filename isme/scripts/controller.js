@@ -1041,10 +1041,11 @@ function completeRedemption() {
         owto: "",
         owtraveldate: "",
         owpromotion: "",
-
-
-
-
+        retfrom: "",
+        retto: "",
+        rettraveldate: "",
+        retreturndate: "",
+        retpromotion: "",
         searchFlight: function () {
             if ($("#journeytab").data("kendoMobileButtonGroup").current().index() == 0) {
                 preLogin.searchFlightOneWay();
@@ -1083,16 +1084,35 @@ function completeRedemption() {
                 }, "SNTTA Travel", "Dismiss");
                 return;
             }
-            if (document.getElementById("adult").value == "0" && document.getElementById("child").value == "0" && document.getElementById("infant").value == "0") {
+            if (document.getElementById("owadult").value == "0" && document.getElementById("owchild").value == "0" && document.getElementById("owinfant").value == "0") {
                 navigator.notification.alert("Please Select Passenger", function () {
                 }, "SNTTA Travel", "Dismiss");
                 return;
             }
             mcabinclass = document.getElementById("owcabinclass").value;
-            madult = document.getElementById("adult").value;
-            mchild = document.getElementById("child").value;
-            minfiant = document.getElementById("infant").value;
+            madult = document.getElementById("owadult").value;
+            mchild = document.getElementById("owchild").value;
+            minfant = document.getElementById("owinfant").value;
 
+            var today = this.owtraveldate;
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+            var today = yyyy + '-' + mm + '-' + dd;
+            mdate = today;
+            // alert(mcabinclass);
+            // alert(madult);
+            // alert(mchild);
+            // alert(minfant);
+            // alert(this.owfrom);
+            // alert(this.owto);
+            alert(mdate);
             showSpin();
             $.ajax({
                 type: "POST",
@@ -1102,11 +1122,11 @@ function completeRedemption() {
                 url: gurl + "/searchFlightA.aspx",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
-                    merchantcode: merchant, owfrom: this.owfrom, owto: this.owto, owtraveldate: this.owtraveldate, owclass: mcabinclass, owadult: madult, owchild: mchild, owinfant: minfant, mdevice: mdevicestat
+                    merchantcode: merchant, owfrom: this.owfrom, owto: this.owto, owtraveldate: mdate, owclass: mcabinclass, owadult: madult, owchild: mchild, owinfant: minfant, deviceinfo: mdevicestat
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
-
+                    alert(data);
                     if (getData.statuscode === "000") {
                         $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
                     } else {
@@ -1122,7 +1142,7 @@ function completeRedemption() {
                 }
             });
 
-
+            return;
 
 
 
@@ -1161,7 +1181,113 @@ function completeRedemption() {
         },
 
         searchFlightReturn: function () {
-            alert("return");
+            today = new Date();
+            if (!this.retfrom) {
+                navigator.notification.alert("Please Select Origin City", function () {
+                }, "SNTTA Travel", "Dismiss");
+                return;
+            }
+            if (!this.retto) {
+                navigator.notification.alert("Please Select Destination City", function () {
+                }, "SNTTA Travel", "Dismiss");
+                return;
+            }
+
+            if (this.retto == this.retform) {
+                navigator.notification.alert("Origin and Destination City Cannot be Same", function () {
+                }, "SNTTA Travel", "Dismiss");
+                return;
+            }
+            if (!this.rettraveldate) {
+                navigator.notification.alert("Please Select Valid Departure Date", function () {
+                }, "SNTTA Travel", "Dismiss");
+                return;
+            }
+
+            if (!this.retreturndate) {
+                navigator.notification.alert("Please Select Valid Return Date", function () {
+                }, "SNTTA Travel", "Dismiss");
+                return;
+            }
+
+
+            if (document.getElementById("retcabinclass").value == "") {
+                navigator.notification.alert("Please Select Cabin Class", function () {
+                }, "SNTTA Travel", "Dismiss");
+                return;
+            }
+            if (document.getElementById("retadult").value == "0" && document.getElementById("retchild").value == "0" && document.getElementById("retinfant").value == "0") {
+                navigator.notification.alert("Please Select Passenger", function () {
+                }, "SNTTA Travel", "Dismiss");
+                return;
+            }
+            mcabinclass = document.getElementById("retcabinclass").value;
+            madult = document.getElementById("retadult").value;
+            mchild = document.getElementById("retchild").value;
+            minfiant = document.getElementById("retinfant").value;
+
+            showSpin();
+            $.ajax({
+                type: "POST",
+                cache: false,
+                async: true,
+                timeout: 20000,
+                url: gurl + "/searchFlightB.aspx",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({
+                    merchantcode: merchant, retfrom: this.retfrom, owto: this.retto, rettraveldate: this.retreturndate, retclass: mcabinclass, retadult: madult, retchild: mchild, retinfant: minfant, deviceinfo: mdevicestat
+                }),
+                success: function (data) {
+                    var getData = JSON.parse(data);
+
+                    if (getData.statuscode === "000") {
+                        $("body").data("kendoMobilePane").navigate("views/searchResultReturn.html");
+                    } else {
+                        navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
+                        }, "SNTTA Travel", "Dismiss")
+                        hideSpin(); //hide loading popup
+                    }
+                },
+                error: function (error) {
+                    navigator.notification.alert("Due to a system error, the search could not be executed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
+                    }, "SNTTA Travel", "Dismiss")
+                    hideSpin(); //hide loading popup                                          
+                }
+            });
+
+            return;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         },
 
         clearListFilter: function () {
