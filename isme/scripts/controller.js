@@ -1056,6 +1056,7 @@ function completeRedemption() {
         },
 
         searchFlightOneWay: function () {
+
             today = new Date();
             if (!this.owfrom) {
                 navigator.notification.alert("Please Select Origin City", function () {
@@ -1110,17 +1111,17 @@ function completeRedemption() {
             mdate = today;
 
 
-            window.localStorage.setItem("origin", this.owfrom.toUpperCase());
-            window.localStorage.setItem("destination", this.owto.toUpperCase());
-            window.localStorage.setItem("traveldate", dd + "-" + moment().month(Number(mm)).format('MMMM'));
-            window.localStorage.setItem("returndate", "");
-            window.localStorage.setItem("cabinclass", mcabinclass);
-            window.localStorage.setItem("adult", madult);
-            window.localStorage.setItem("child", mchild);
-            window.localStorage.setItem("infant", minfant);
-            window.localStorage.setItem("journeyheader", this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway");
-            window.localStorage.setItem("journeysubheader", Number(madult) + Number(mchild) + Number(minfant) + " <i class='fa fa-user'></i> " + window.localStorage.getItem("traveldate") + " " + window.localStorage.getItem("returndate"));
-            window.localStorage.setItem("passenger", Number(madult) + Number(mchild) + Number(minfant));
+            //window.localStorage.setItem("origin", this.owfrom.toUpperCase());
+//            window.localStorage.setItem("destination", this.owto.toUpperCase());
+//            window.localStorage.setItem("traveldate", dd + "-" + moment().month(Number(mm)).format('MMMM'));
+//            window.localStorage.setItem("returndate", "");
+//            window.localStorage.setItem("cabinclass", mcabinclass);
+//            window.localStorage.setItem("adult", madult);
+//            window.localStorage.setItem("child", mchild);
+//            window.localStorage.setItem("infant", minfant);
+//            window.localStorage.setItem("journeyheader", this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway");
+//            window.localStorage.setItem("journeysubheader", Number(madult) + Number(mchild) + Number(minfant) + " <i class='fa fa-user'></i> " + window.localStorage.getItem("traveldate") + " " + window.localStorage.getItem("returndate"));
+//            window.localStorage.setItem("passenger", Number(madult) + Number(mchild) + Number(minfant));
 
             // alert(mcabinclass);
             // alert(madult);
@@ -2314,6 +2315,7 @@ function completeRedemption() {
         },
 
         searchResultOneWay: function (e) {
+            alert(window.localStorage.getItem("traceid"));
             showSpin();
             $.ajax({
                 type: "POST",
@@ -2323,12 +2325,14 @@ function completeRedemption() {
                 url: gurl + "/searchFlightC.aspx",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
-                    merchantcode: window.localStorage.getItem("merchant"), traceid: window.localStorage.getItem("merchant"), deviceinfo: window.localStorage.getItem("mdevicestat")
+                    merchantcode: window.localStorage.getItem("merchant"), traceid: window.localStorage.getItem("traceid"), deviceinfo: window.localStorage.getItem("mdevicestat")
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
-                    if (getData.statuscode === "000") {
-                        $("#leisure-list").kendoMobileListView({
+                    alert(getData.flightfarelistfilter.length);
+                    alert(getData.statuscode);
+                    if (getData.statuscode == "000") {
+                        $("#oneway-list-view").kendoMobileListView({
                             dataSource: kendo.data.DataSource.create({ data: getData.flightfarelistfilter }),
                             template: $("#templatesearchoneway").html(),
                             filterable: {

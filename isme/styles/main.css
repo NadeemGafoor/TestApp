@@ -2940,6 +2940,7 @@ tile-frame-inner
     position:relative;
     height:70px;
     border:none;
+    background-color:#fff;
     }
 
     .flight-logo{
@@ -2947,6 +2948,7 @@ tile-frame-inner
     position:relative;
     height:70px;
     border:none;
+    background-color:#fff;
     }
 
     .flight-main-holder{
@@ -2954,6 +2956,7 @@ tile-frame-inner
     position:relative;
     height:70px;
     border:none;
+    background-color:#fff;
     }
 
  .flight-lines{
@@ -2962,6 +2965,7 @@ tile-frame-inner
     height:20px;
     line-height:20px;
     border:none;
+    background-color:#fff;
     }
     
     .flight-linel{
@@ -2970,6 +2974,7 @@ tile-frame-inner
     height:30px;
     line-height:30px;
     border:none;
+    background-color:#fff;
     }
 
 .flight-sub-lines{
@@ -2979,6 +2984,7 @@ tile-frame-inner
     height:20px;
     line-height:20px;
     border:none;
+    background-color:#fff;
     text-align:center;
     font-size:8px;
     color:#283880;
@@ -2993,4 +2999,5 @@ tile-frame-inner
     text-align:center;
     font-size:12px;
     color:#fff000;
+    background-color:#fff;
     }

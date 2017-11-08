@@ -574,7 +574,7 @@ You may opt out of receiving any marketing material from us at any time by infor
     </script>
     <script type="text/x-kendo-template" id="templatesearchoneway">
         <div class="single-flight-outer">
-            <div class="flight-logo">${flightlogo}</div>
+            <div class="flight-logo"><img src="${flightlogo}"/></div>
             <div class="flight-main-holder">
                 <div class="flight-lines">
                     <div class="flight-sub-lines">${departuretime}</div>
@@ -583,17 +583,18 @@ You may opt out of receiving any marketing material from us at any time by infor
                 </div>
                 <div class="flight-lines">
                     <div class="flight-sub-lines">${origin}</div>
-                    <div class="flight-sub-lines">${numberstops} stop ${journeytime}</div>
+                    <div class="flight-sub-lines">${numberofstops} stop ${journeytime}</div>
                     <div class="flight-sub-lines">${destination}</div>
                 </div>
                 <div class="flight-linel">
                     <div class="flight-sub-linel">${totalprice}</div>
                     <div class="flight-sub-linel">
-                        <div class="button-frame-login"> <a data-role="button" href="views/searchFlightDetail.html" data-transition="slide" style="background-color:#283880;height:25px;width:80%;display:block">Select</a>                            </div>
+                        <div class="button-frame-login"> <a data-role="button" href="views/searchFlightDetail.html?p=${pricekey}&l=${flightleg}&o={flightoption}" data-transition="slide" style="background-color:#283880;height:25px;width:80%;display:block">Select</a>                            </div>
                     </div>
                 </div>
             </div>
         </div>
+        <hr/>
     </script>
 </body>
 
