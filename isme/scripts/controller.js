@@ -1125,8 +1125,17 @@ function completeRedemption() {
                 }),
                 success: function (data) {
 
-                    alert("Here");
-                    //var getData = JSON.parse(data);
+
+                    var getData = JSON.parse(data);
+
+                    if (getData.statuscode === "000") {
+                        // alert(data);
+                        $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
+                    } else {
+                        navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
+                        }, "SNTTA Travel", "Dismiss")
+                        hideSpin(); //hide loading popup
+                    }
 
                 },
                 error: function (error) {
@@ -1196,7 +1205,7 @@ function completeRedemption() {
             var today = yyyy + '-' + mm + '-' + dd;
             mdate = today;
 
-                        var today = this.retreturndate;
+            var today = this.retreturndate;
             var dd = today.getDate();
             var mm = today.getMonth() + 1; //January is 0!
             var yyyy = today.getFullYear();
@@ -1221,12 +1230,18 @@ function completeRedemption() {
                 url: gurl + "/searchFlightB.aspx",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
-                    merchantcode: merchant, retfrom: this.retfrom, retto: this.retto, rtraveldate:mdate,rreturndate:mdate1, retclass: mcabinclass, retadult: madult, retchild: mchild, retinfant: minfant, deviceinfo: mdevicestat
+                    merchantcode: merchant, retfrom: this.retfrom, retto: this.retto, rtraveldate: mdate, rreturndate: mdate1, retclass: mcabinclass, retadult: madult, retchild: mchild, retinfant: minfant, deviceinfo: mdevicestat
                 }),
                 success: function (data) {
-//var getData = JSON.parse(data);
-
-                  alert(data);
+                    var getData = JSON.parse(data);
+     if (getData.statuscode === "000") {
+                        // alert(data);
+                        $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
+                    } else {
+                        navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
+                        }, "SNTTA Travel", "Dismiss")
+                        hideSpin(); //hide loading popup
+                    }
                 },
                 error: function (error) {
                     navigator.notification.alert("Due to a system error, the search could not be executed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
@@ -2728,7 +2743,7 @@ function completeRedemption() {
                 window.localStorage.setItem("category", "");
                 window.localStorage.setItem("merchant", merchant);
                 fbCleanVariables();
-//noAlcoholCountry();
+                noAlcoholCountry();
                 $.ajax({
                     type: "POST",
                     cache: false,
@@ -2777,8 +2792,8 @@ function completeRedemption() {
                         hideSpin(); //hide loading popup
                     }
                 });
-       
-alert("after firsttime");
+
+
                 if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                     customer = window.localStorage.getItem("customer");
                     customername = window.localStorage.getItem("customername");
@@ -2851,7 +2866,6 @@ alert("after firsttime");
                     residentcityname = "";
                 }
 
-                alert("before push");
                 var pushSettings = {
                     iOS: {
                         badge: "true",
@@ -2914,8 +2928,6 @@ alert("after firsttime");
                     window.localStorage.setItem("isfenceset", "1");
                 }
             }
-alert("end");
-
             //   preLogin.set("owfrom", "");
             //   prelogin.set("owto","");
             //     preLogin.set("owtraveldate","");
