@@ -1108,10 +1108,10 @@ function completeRedemption() {
             }
             var today = yyyy + '-' + mm + '-' + dd;
             mdate = today;
-alert("1");
+
 
             window.localStorage.setItem("origin", this.owfrom.toUpperCase());
-            window.localstorage.setItem("destination", this.owto.toUpperCase());
+            window.localStorage.setItem("destination", this.owto.toUpperCase());
             window.localStorage.setItem("traveldate", dd + "-" + moment().month(Number(mm)).format('MMMM'));
             window.localStorage.setItem("returndate", "");
             window.localStorage.setItem("cabinclass", mcabinclass);
@@ -1121,7 +1121,7 @@ alert("1");
             window.localStorage.setItem("journeyheader", this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway");
             window.localStorage.setItem("journeysubheader", Number(madult) + Number(mchild) + Number(minfant) + " <i class='fa fa-user'></i> " + window.localStorage.getItem("traveldate") + " " + window.localStorage.getItem("returndate"));
             window.localStorage.setItem("passenger", Number(madult) + Number(mchild) + Number(minfant));
-alert(2);
+
             // alert(mcabinclass);
             // alert(madult);
             // alert(mchild);
@@ -1236,7 +1236,7 @@ alert(2);
             mdate1 = today;
             window.localStorage.setItem("returndate", dd + "-" + moment().month(Number(mm)).format('MMMM'));
             window.localStorage.setItem("origin", this.owfrom.toUpperCase());
-            window.localstorage.setItem("destination", this.owto.toUpperCase());
+            window.localStorage.setItem("destination", this.owto.toUpperCase());
             window.localStorage.setItem("cabinclass", mcabinclass);
             window.localStorage.setItem("adult", madult);
             window.localStorage.setItem("child", mchild);
@@ -2999,7 +2999,21 @@ alert(2);
                     window.localStorage.setItem("isfenceset", "1");
                 }
             }
-    
+
+            window.localStorage.setItem("origin", "");
+            window.localStorage.setItem("destination", "");
+            window.localStorage.setItem("traveldate", "");
+            window.localStorage.setItem("returndate", "");
+            window.localStorage.setItem("cabinclass", "");
+            window.localStorage.setItem("adult", "0");
+            window.localStorage.setItem("child", "0");
+            window.localStorage.setItem("infant", "0");
+            window.localStorage.setItem("journeyheader", "");
+            window.localStorage.setItem("journeysubheader", "");
+            window.localStorage.setItem("passenger", "0");
+            window.localStorage.setItem("traceid", "");
+
+
             //   preLogin.set("owfrom", "");
             //   prelogin.set("owto","");
             //     preLogin.set("owtraveldate","");
