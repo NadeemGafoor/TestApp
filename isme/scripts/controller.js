@@ -2356,42 +2356,7 @@ function completeRedemption() {
                     hideSpin(); //hide loading popup
                 }
             });
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        },
 
         showPropertyItem
         : function (e) {
