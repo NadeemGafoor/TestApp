@@ -1046,7 +1046,6 @@ function completeRedemption() {
 
 
         searchFlight: function () {
-alert("fefefef");
             if ($("#journeytab").data("kendoMobileButtonGroup").current().index() == 0) {
                 preLogin.searchFlightOneWay();
             } else {
@@ -1089,6 +1088,63 @@ alert("fefefef");
                 }, "SNTTA Travel", "Dismiss");
                 return;
             }
+            mcabinclass = document.getElementById("owcabinclass").value;
+            madult = document.getElementById("adult").value;
+            mchild = document.getElementById("child").value;
+            minfiant = document.getElementById("infant").value;
+
+            showSpin();
+            $.ajax({
+                type: "POST",
+                cache: false,
+                async: true,
+                timeout: 20000,
+                url: gurl + "/searchFlightA.aspx",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({
+                    merchantcode: merchant, owfrom: this.owfrom, owto: this.owto, owtraveldate: this.owtraveldate, owclass: mcabinclass, owadult: madult, owchild: mchild, owinfant: minfant, mdevice: mdevicestat
+                }),
+                success: function (data) {
+                    var getData = JSON.parse(data);
+
+                    if (getData.statuscode === "000") {
+                        $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
+                    } else {
+                        navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
+                        }, "SNTTA Travel", "Dismiss")
+                        hideSpin(); //hide loading popup
+                    }
+                },
+                error: function (error) {
+                    navigator.notification.alert("Due to a system error, the search could not be executed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
+                    }, "SNTTA Travel", "Dismiss")
+                    hideSpin(); //hide loading popup                                          
+                }
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2857,10 +2913,10 @@ alert("fefefef");
             }
 
 
-     //   preLogin.set("owfrom", "");
-     //   prelogin.set("owto","");
-   //     preLogin.set("owtraveldate","");
-    //    preLogin.set("owpromotion","");
+            //   preLogin.set("owfrom", "");
+            //   prelogin.set("owto","");
+            //     preLogin.set("owtraveldate","");
+            //    preLogin.set("owpromotion","");
             document.getElementById("owtraveldate").valueAsDate = new Date();//today;
             document.getElementById("rettraveldate").valueAsDate = new Date();// today;
             document.getElementById("retreturndate").valueAsDate = new Date();//today;
