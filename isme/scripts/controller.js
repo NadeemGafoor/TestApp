@@ -2924,10 +2924,12 @@ function completeRedemption() {
                 }
             } else {
                 if (window.localStorage.getItem("isfenceset") === "0") {
-                    startMonitor();
+//                    startMonitor();
                     window.localStorage.setItem("isfenceset", "1");
                 }
             }
+
+            alert("end");
             //   preLogin.set("owfrom", "");
             //   prelogin.set("owto","");
             //     preLogin.set("owtraveldate","");

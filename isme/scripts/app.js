@@ -36,7 +36,7 @@ setTimeout(function() {
         // hide the splash screen as soon as the app is ready. otherwise
         // Cordova will wait 5 very long seconds to do it for you.
         //hideNav();      
-      //  hideNav();        
+        hideNav();        
        
         // Initialize the Backend Services SDK
    
@@ -63,6 +63,6 @@ setTimeout(function() {
     function hideNav() {
         setTimeout(function() {
             navigator.splashscreen.hide();  
-        }, 2000);  //hide Loading Popup
+        }, 1000);  //hide Loading Popup
     }
 }());
