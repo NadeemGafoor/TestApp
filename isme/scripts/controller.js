@@ -1110,8 +1110,8 @@ function completeRedemption() {
             // alert(madult);
             // alert(mchild);
             // alert(minfant);
-            // alert(this.owfrom);
-            // alert(this.owto);
+             alert(this.owfrom);
+             alert(this.owto);
             showSpin();
             $.ajax({
                 type: "POST",
@@ -1124,16 +1124,9 @@ function completeRedemption() {
                     merchantcode: merchant, owfrom: this.owfrom, owto: this.owto, owtraveldate: mdate, owclass: mcabinclass, owadult: madult, owchild: mchild, owinfant: minfant, deviceinfo: mdevicestat
                 }),
                 success: function (data) {
-                    var getData = JSON.parse(data);
+                   // var getData = JSON.parse(data);
                     alert(data);
-                    if (getData.statuscode === "000") {
-                       // $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
-                        hideSpin();
-                    } else {
-                        navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
-                        }, "SNTTA Travel", "Dismiss")
-                        hideSpin(); //hide loading popup
-                    }
+              
                 },
                 error: function (error) {
                     navigator.notification.alert("Due to a system error, the search could not be executed  [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
@@ -1142,7 +1135,7 @@ function completeRedemption() {
                 }
             });
 
-            return;
+            
 
 
 
@@ -1284,8 +1277,7 @@ alert(data);
                 }
             });
 
-            return;
-
+            
 
 
 
