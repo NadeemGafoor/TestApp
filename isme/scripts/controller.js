@@ -2784,83 +2784,12 @@ function completeRedemption() {
                         }
                     },
                     error: function (errormsg) {
-                        navigator.notification.alert("rrrrrrPlatform Error 2. [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
+                        navigator.notification.alert("Platform Error 2. [" + errormsg.statusText + "]  Please check your network connection and try again.", function () {
                         }, "SNTTA Travel", "Dismiss")
                         hideSpin(); //hide loading popup
                     }
                 });
-                navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-
-                    lat = position.coords.latitude;
-                    lon = position.coords.longitude;
-                    propertygeo = [];
-                    $.ajax({
-                        type: "POST",
-                        cache: false,
-                        async: true,
-                        timeout: 20000,
-                        url: gurl + "/outletlist.aspx",
-                        contentType: "application/json; charset=utf-8",
-                        data: JSON.stringify({
-                            merchantcode: merchant, category: "", brandcode: "", mdevice: window.localStorage.getItem("mdevicestat"), outletcode: "", preflocation: window.localStorage.getItem("distance"), prefcuisine: window.localStorage.getItem("cuisine"), prefcelebration: "", prefrestaurant: window.localStorage.getItem("restaurant"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"), customer: ""
-
-                        }), success: function (data) {
-                            var getData = JSON.parse(data);
-                            var i = 0;
-                            if (getData.statuscode === "000") {
-                                if (getData.outletlist.length > 0) {
-                                    while (i <= getData.outletlist.length - 1) {
-
-                                        window.geofence.addOrUpdate({
-                                            id: getData.outletlist[i].outletcode,
-                                            latitude: Number(getData.outletlist[i].lat),
-                                            longitude: Number(getData.outletlist[i].lon),
-                                            radius: Number(getData.outletlist[i].radius),
-                                            transitionType: TransitionType.ENTER,
-                                            notification: {
-                                                id: Number(i),
-                                                title: getData.outletlist[i].outletname,
-                                                text: getData.outletlist[i].smessage,
-                                                openAppOnClick: true
-                                            }
-                                        }).then(function () {
-                                            console.log(getData.outletlist[i].outletcode + 'Geofence successfully added');
-                                        }, function (reason) {
-                                            console.log(getData.outletlist[i].outletcode + 'Adding geofence failed', reason);
-                                        })
-
-                                        window.localStorage.setItem("isfenceset", "1");
-                                        i++;
-                                        hideSpin(); //hide loading popup
-                                    }
-                                } else {
-                                    navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
-                                    }, "SNTTA Travel", "Dismiss")
-                                    hideSpin(); //hide loading popup
-                                }
-                            } else {
-                                navigator.notification.alert("Due to a system error, the property details cannot be displayed. " + getData.statusdesc, function () {
-                                }, "SNTTA Travel", "Dismiss")
-                                hideSpin(); //hide loading popup
-                            }
-                        },
-                        error: function (error) {
-                            navigator.notification.alert("Due to a system error, the property details cannot be displayed.  Please check your network connection and try again.", function () {
-                            }, "SNTTA Travel", "Dismiss")
-                        }
-                    });
-
-
-//window.geofence.onTransitionReceived = function (geofences) {
-  //                      geofences.forEach(function (geo) {
-    //                        console.log('Geofence transition detected', geo);
-      //                  });
-        //            };
-
-                }
-                    , function onErrorShowMap(error) {
-                        gpsError();
-                    }, positionOption);
+       
 
                 if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                     customer = window.localStorage.getItem("customer");

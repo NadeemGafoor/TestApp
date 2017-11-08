@@ -59,15 +59,7 @@ setTimeout(function() {
         currentDevice = el.push.currentDevice(false);
     }, false);
 
-document.addEventListener('deviceready', function () {
-    // window.geofence is now available
-    window.geofence.initialize().then(function () {
-        console.log("Successful initialization");
-    }, function (error) {
-        console.log("Error", error);
-    });
-}, false);
-        
+
     function hideNav() {
         setTimeout(function() {
             navigator.splashscreen.hide();  
