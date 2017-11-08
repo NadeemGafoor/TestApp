@@ -84,7 +84,7 @@ a
     background-color:#253874;
 }
 
-#benefit-theme .km-content, #customerservice-theme .km-content, #offerdetail-theme .km-content,  #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content, #pl-benefit-theme .km-content, #mymessagelist-theme .km-content, #messageitem-theme .km-content, #pl-setting-theme .km-content, #device-theme .km-content, #sms-theme .km-content,#sms-theme1 .km-content,
+#benefit-theme .km-content, #customerservice-theme .km-content, #offerdetail-theme .km-content,  #pl-branddetail-theme .km-content, #pl-myprofile-view .km-content, #pl-benefit-theme .km-content, #mymessagelist-theme .km-content, #messageitem-theme .km-content, #pl-setting-theme .km-content, #device-theme .km-content, #sms-theme .km-content,#sms-theme1 .km-content,#searchoneway-view .km-content,
 #history-theme .km-content, #historyitem-theme .km-content, #modalviewhistoryfilter .km-content, #myfavorite-view .km-content, #pl-confirmpage-view .km-content, #pl-customerservice-theme .km-content, #pl-confirmredemption-view .km-content, #modalviewfaq .km-content,#branddetail-theme .km-content, #aboutisme-theme .km-content, #pl-aboutisme-theme .km-content, #pl-termsconditions-theme .km-content,#pl-voucheredeem-view .km-content,#pl-home-view .km-content,#tcisme-theme .km-content,#pl-howitworks .km-content,
 #faq-theme .km-content,#pl-faq-theme .km-content,#modalviewdataprotection .km-content, #enrol-theme .km-content, #login-theme .km-content, #resetpassword-theme .km-content,#token-theme .km-content,#pin-theme .km-content, #enrolmentpage-view .km-content
 {
@@ -2940,41 +2940,45 @@ tile-frame-inner
     position:relative;
     height:70px;
     border:none;
-    background-color:#fff;
+    background-color:transparent !important;
     }
 
     .flight-logo{
-    width:20%;
+    width:10%;
     position:relative;
+    float:left;
     height:70px;
     border:none;
-    background-color:#fff;
+    background-color:transparent !important;
     }
 
     .flight-main-holder{
-    width:80%;
+    width:90%;
     position:relative;
+    float:left;
     height:70px;
     border:none;
-    background-color:#fff;
+    background-color:transparent !important;
     }
 
  .flight-lines{
+     top:0px;
     width:100%;
     position:relative;
-    height:20px;
-    line-height:20px;
+    float:none;
+    height:30px;
+    line-height:30px;
     border:none;
-    background-color:#fff;
+    background-color:#ccc !important;
     }
     
     .flight-linel{
     width:100%;
     position:relative;
-    height:30px;
-    line-height:30px;
+    height:40px;
+    line-height:40px;
     border:none;
-    background-color:#fff;
+    background-color:#999999 !important;
     }
 
 .flight-sub-lines{
@@ -2984,9 +2988,9 @@ tile-frame-inner
     height:20px;
     line-height:20px;
     border:none;
-    background-color:#fff;
+        background-color:#ccc !important;
     text-align:center;
-    font-size:8px;
+    font-size:10px;
     color:#283880;
     }
 
@@ -2999,5 +3003,5 @@ tile-frame-inner
     text-align:center;
     font-size:12px;
     color:#fff000;
-    background-color:#fff;
+        background-color:#999999 !important;
     }

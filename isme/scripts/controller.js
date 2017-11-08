@@ -1112,16 +1112,16 @@ function completeRedemption() {
 
 
             //window.localStorage.setItem("origin", this.owfrom.toUpperCase());
-//            window.localStorage.setItem("destination", this.owto.toUpperCase());
-//            window.localStorage.setItem("traveldate", dd + "-" + moment().month(Number(mm)).format('MMMM'));
-//            window.localStorage.setItem("returndate", "");
-//            window.localStorage.setItem("cabinclass", mcabinclass);
-//            window.localStorage.setItem("adult", madult);
-//            window.localStorage.setItem("child", mchild);
-//            window.localStorage.setItem("infant", minfant);
-//            window.localStorage.setItem("journeyheader", this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway");
-//            window.localStorage.setItem("journeysubheader", Number(madult) + Number(mchild) + Number(minfant) + " <i class='fa fa-user'></i> " + window.localStorage.getItem("traveldate") + " " + window.localStorage.getItem("returndate"));
-//            window.localStorage.setItem("passenger", Number(madult) + Number(mchild) + Number(minfant));
+            //            window.localStorage.setItem("destination", this.owto.toUpperCase());
+            //            window.localStorage.setItem("traveldate", dd + "-" + moment().month(Number(mm)).format('MMMM'));
+            //            window.localStorage.setItem("returndate", "");
+            //            window.localStorage.setItem("cabinclass", mcabinclass);
+            //            window.localStorage.setItem("adult", madult);
+            //            window.localStorage.setItem("child", mchild);
+            //            window.localStorage.setItem("infant", minfant);
+            //            window.localStorage.setItem("journeyheader", this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway");
+            //            window.localStorage.setItem("journeysubheader", Number(madult) + Number(mchild) + Number(minfant) + " <i class='fa fa-user'></i> " + window.localStorage.getItem("traveldate") + " " + window.localStorage.getItem("returndate"));
+            //            window.localStorage.setItem("passenger", Number(madult) + Number(mchild) + Number(minfant));
 
             // alert(mcabinclass);
             // alert(madult);
@@ -2272,7 +2272,6 @@ function completeRedemption() {
                     if (getData.statuscode === "000") {
                         if (window.localStorage.getItem("outlet") === "") {
                             $("#leisure-list-b").kendoMobileListView({
-
                                 dataSource: kendo.data.DataSource.create({ data: getData.outletlist }),
                                 template: $("#leisureTemplate-b").html(),
                                 filterable: {
@@ -2315,7 +2314,7 @@ function completeRedemption() {
         },
 
         searchResultOneWay: function (e) {
-            alert(window.localStorage.getItem("traceid"));
+            //  alert(window.localStorage.getItem("traceid"));
             showSpin();
             $.ajax({
                 type: "POST",
@@ -2329,8 +2328,8 @@ function completeRedemption() {
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
-                    alert(getData.flightfarelistfilter.length);
-                    alert(getData.statuscode);
+                    //   alert(getData.flightfarelistfilter.length);
+                   //alert(data);
                     if (getData.statuscode == "000") {
                         $("#oneway-list-view").kendoMobileListView({
                             dataSource: kendo.data.DataSource.create({ data: getData.flightfarelistfilter }),
