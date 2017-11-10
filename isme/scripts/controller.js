@@ -1048,7 +1048,7 @@ function completeRedemption() {
         retpromotion: "",
         searchFlight: function () {
             if ($("#journeytab").data("kendoMobileButtonGroup").current().index() == 0) {
-               //  $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
+                //  $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
                 preLogin.searchFlightOneWay();
             } else {
                 preLogin.searchFlightReturn();
@@ -2330,12 +2330,15 @@ function completeRedemption() {
                 success: function (data) {
                     var getData = JSON.parse(data);
                     if (getData.statuscode == "000") {
-
-                    
+                        if (getData.flightfarelistfilter.length > 0) {
                             $("#oneway-list-view").kendoMobileListView({
-                            dataSource: kendo.data.DataSource.create({ data: getData.flightfarelistfilter }),
-                            template: $("#searchonewaytemplate").html()
-                        });
+                                dataSource: kendo.data.DataSource.create({ data: getData.flightfarelistfilte }),
+                                template: $("#searchonewaytemplate").html()
+                            });
+                        } else {
+                            navigator.notification.alert("No flights found for the selected Itinerary", function () {
+                            }, "SNTTA Travel", "Dismiss")
+                        }
                     } else {
                         navigator.notification.alert("Unable to fetch the available flights for the selected Itinerary", function () {
                         }, "SNTTA Travel", "Dismiss")
@@ -2821,7 +2824,7 @@ function completeRedemption() {
                     }),
                     success: function (data) {
                         var getData = JSON.parse(data);
-                      //  alert(data);
+                        //  alert(data);
                         if (getData.statuscode === "000") {
                             //  firsttime = "1";  
                             googleapikey = getData.googleapikey;
@@ -3910,14 +3913,14 @@ function completeRedemption() {
                     }),
                     success: function (data) {
                         var getData = JSON.parse(data);
-            //            alert(getData.rewardpointbalance);
+                        //            alert(getData.rewardpointbalance);
                         if (getData.statuscode == "000") {
                             //document.getElementById("home-page").style.display = "block";
                             window.localStorage.setItem("spend", getData.spenda);
                             window.localStorage.setItem("maxspend", getData.maxspend);
                             window.localStorage.setItem("spendmb", getData.rewardpointbalance);
                             window.localStorage.setItem("spendn", getData.spendbalanceN);
-                       //     spendBar();
+                            //     spendBar();
                             hideSpin(); //hide loading popup
                         } else {
                             navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function () {
@@ -3932,8 +3935,8 @@ function completeRedemption() {
                     }
                 });
             }
-hideSpin();
-         //   spendBar();
+            hideSpin();
+            //   spendBar();
         },
 
 
