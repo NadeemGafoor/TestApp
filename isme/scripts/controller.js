@@ -5969,11 +5969,11 @@ function completeRedemption() {
 
                             if (getData.statuscode === "000") {
                                 window.localStorage.setItem("fbLoginModeEnabled", "Y");
-                                navigator.notification.alert("The Facebook account on this device is successfully linked to your isme membership.", function () {
+                                navigator.notification.alert("The Facebook account on this device is successfully linked to your SNTTA Travel membership.", function () {
                                 }, "SNTTA Travel", "Dismiss");
                                 hideSpin();
                             } else {
-                                navigator.notification.alert("The Facebook account in this device is already linked to another isme membership.", function () {
+                                navigator.notification.alert("The Facebook account in this device is already linked to another SNTTA Travel membership.", function () {
                                 }, "SNTTA Travel", "Dismiss");
                                 hideSpin();
                             }
