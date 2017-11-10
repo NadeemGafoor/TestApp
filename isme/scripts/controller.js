@@ -2316,7 +2316,7 @@ function completeRedemption() {
         },
 
         searchResultOneWay: function () {
-             alert("here1111111");   
+  
              showSpin();
             //  alert(window.localStorage.getItem("traceid"));
             $.ajax({
@@ -2331,6 +2331,7 @@ function completeRedemption() {
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
+                    alert(data);
                     if (getData.statuscode == "000") {
                         if (getData.flightfarelistfilter.length > 0) {
                             $("#onewaylistview").kendoMobileListView({
@@ -2343,7 +2344,7 @@ function completeRedemption() {
                                     operator: "contains",
                                     serverPaging: true,
                                     serverSorting: true,
-                                    pageSize: 40,
+                                    pageSize: 10,
                                     endlessScroll: true
                                  }
                             });                         
