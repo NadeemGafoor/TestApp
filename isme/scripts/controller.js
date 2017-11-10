@@ -3073,7 +3073,7 @@ function completeRedemption() {
 	                            }, "SNTTA Travel", "Dismiss")
 	                        }
 	                    });
-	
+                 });
 
 
 

@@ -62,9 +62,9 @@ setTimeout(function() {
 document.addEventListener('deviceready', function () {
     // window.geofence is now available
     window.geofence.initialize().then(function () {
-        console.log("Successful initialization");
+        alert("Successful initialization");
     }, function (error) {
-        console.log("Error", error);
+        alert("Error", error);
     });
 }, false);
 
