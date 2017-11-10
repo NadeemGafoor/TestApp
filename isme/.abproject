@@ -59,6 +59,7 @@
     "cordova-plugin-device",
     "cordova-plugin-dialogs",
     "cordova-plugin-file",
+    "cordova-plugin-geofence@0.6.1",
     "cordova-plugin-geolocation",
     "cordova-plugin-inappbrowser",
     "cordova-plugin-network-information",
