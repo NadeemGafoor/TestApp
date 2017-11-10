@@ -2331,7 +2331,7 @@ function completeRedemption() {
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
-                    alert(data);
+                    //alert(data);
                     if (getData.statuscode == "000") {
                         if (getData.flightfarelistfilter.length > 0) {
                             $("#onewaylistview").kendoMobileListView({
