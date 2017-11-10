@@ -3195,6 +3195,7 @@ function completeRedemption() {
                     var getData = JSON.parse(data);
 
                     if (getData.statuscode == "000") { //Login Successful
+
                         customer = getData.customerid;
                         customername = getData.customername;
                         fullname = getData.fullname;
@@ -3910,14 +3911,14 @@ function completeRedemption() {
                     }),
                     success: function (data) {
                         var getData = JSON.parse(data);
-                        alert(getData.rewardpointbalance);
+            //            alert(getData.rewardpointbalance);
                         if (getData.statuscode == "000") {
                             //document.getElementById("home-page").style.display = "block";
                             window.localStorage.setItem("spend", getData.spenda);
                             window.localStorage.setItem("maxspend", getData.maxspend);
                             window.localStorage.setItem("spendmb", getData.rewardpointbalance);
                             window.localStorage.setItem("spendn", getData.spendbalanceN);
-                            spendBar();
+                       //     spendBar();
                             hideSpin(); //hide loading popup
                         } else {
                             navigator.notification.alert("Due to a system error, your Rewards cannot be displayed. Please restart the app and try accessing it again.  " + getData.statusdesc, function () {
@@ -6930,6 +6931,7 @@ hideSpin();
                 var getData = JSON.parse(data);
 
                 if (getData.statuscode == "000") { //Login Successful
+
                     customer = getData.customerid;
                     customername = getData.customername;
                     fullname = getData.fullname;
