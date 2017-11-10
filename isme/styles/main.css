@@ -2936,12 +2936,10 @@ tile-frame-inner
     }
 
     .single-flight-outer{
-        margin-top:0px;
+    margin-top:0px;
     width:100%;
     position:relative;
-    height:100px;
-    border:1px solid #000;
-    background-color:#000 !important;
+    height:150px;
     }
 
     .flight-logo{
@@ -2949,17 +2947,17 @@ tile-frame-inner
     position:relative;
     float:left;
     height:100%;
-    border:1px solid #000;
-    background-color:#fff000 !important;
+    margin-top:25px;
+    display:block;
     }
 
     .flight-main-holder{
+        padding:10px;
     width:90%;
     position:relative;
     float:left;
     height:100%;
     border:none;
-    background-color:#fff000 !important;
     }
 
  .flight-lines{
@@ -2967,31 +2965,27 @@ margin-top:0px;
     width:100%;
     position:relative;
     float:left;
-    height:30px;
-    line-height:30px;
-    border:none;
-    background-color:transparent !important;
+    height:40px;
+    line-height:40px;
     }
     
     .flight-linel{
     width:100%;
     position:relative;
-        float:left;
-    height:40px;
-    line-height:40px;
+    float:left;
+    height:70px;
+    line-height:70px;
     border:none;
-    background-color:#999999 !important;
     }
 
 .flight-sub-lines{
     width:33%;
     position:relative;
     float:left;
-    height:100%;
-    line-height:100%;
-    border:none;
+    height:40px;
+    line-height:20px;
     text-align:center;
-    font-size:10px;
+    font-size:14px;
     color:#283880;
     z-index:90000;
     }
@@ -2999,11 +2993,12 @@ margin-top:0px;
 .flight-sub-linel{
     width:50%;
     position:relative;
-  height:100%;
-    line-height:100%;
+    float:left;
+    height:70px;
+    line-height:20px;
     border:none;
     text-align:center;
-    font-size:12px;
+    font-size:20px;
+    font-weight:bold;
     color:#fff000;
-        background-color:#999999 !important;
     }

@@ -1048,7 +1048,8 @@ function completeRedemption() {
         retpromotion: "",
         searchFlight: function () {
             if ($("#journeytab").data("kendoMobileButtonGroup").current().index() == 0) {
-                preLogin.searchFlightOneWay();
+                 $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
+               // preLogin.searchFlightOneWay();
             } else {
                 preLogin.searchFlightReturn();
             }
