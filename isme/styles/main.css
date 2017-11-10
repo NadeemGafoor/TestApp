@@ -2965,24 +2965,22 @@ margin-top:0px;
     width:100%;
     position:relative;
     float:left;
-    height:40px;
-    line-height:40px;
+    height:30px;
     }
     
     .flight-linel{
     width:100%;
     position:relative;
     float:left;
-    height:70px;
-    line-height:70px;
-    border:none;
+    height:90px;
+     border:none;
     }
 
 .flight-sub-lines{
     width:33%;
     position:relative;
     float:left;
-    height:40px;
+    height:30px;
     line-height:20px;
     text-align:center;
     font-size:14px;
@@ -2991,11 +2989,13 @@ margin-top:0px;
     }
 
 .flight-sub-linel{
+
     width:50%;
     position:relative;
     float:left;
-    height:70px;
-    line-height:20px;
+   
+    height:90px;
+    line-height:40px;
     border:none;
     text-align:center;
     font-size:20px;
