@@ -2740,6 +2740,7 @@ function completeRedemption() {
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
+                    //alert(data);
                     if (getData.statuscode == "000") {
                         //fill the outlet template
                         if (getData.offeroutletlist.length > 0) {
