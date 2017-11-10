@@ -759,9 +759,9 @@ function completeRedemption() {
 
     //var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
 
-    var gurl = "http://inc38.ddns.net:8089/HaalMeerMobile"
-    var gurl = "http://haalmeer.ddns.net:8089/HaalMeerMobile";
-    var merchant = "JUMEI02000";
+    var gurl = "http://inc38.ddns.net:8095/HaalMeerMobile"
+ //   var gurl = "http://haalmeer.ddns.net:8089/HaalMeerMobile";
+    var merchant = "SNTTA02001";
     var customer = "9999999999";
     var customername = "Guest";
     var formattedmobile = "";
@@ -1988,7 +1988,7 @@ function completeRedemption() {
 
         benefitdetail1
         : function (e) {
-            benefitcode = "1001";
+            benefitcode = "1003";
             showSpin(); //show loading popup
 
             $.ajax({
@@ -3065,7 +3065,6 @@ function completeRedemption() {
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
                     merchantcode: window.localStorage.getItem("merchant"), firstname: window.localStorage.getItem("mfirstname"), lastname: window.localStorage.getItem("mlastname"), mobile: window.localStorage.getItem("mobilelogin"), emailid: window.localStorage.getItem("memailid"), mdevice: mdevicestat
-                    // merchantcode :"JUMEI02000",firstname:"",lastname:"",mobile:window.localStorage.getItem("mobilelogin"),emailid:"",mdevice:mdevicestat
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
@@ -3113,7 +3112,7 @@ function completeRedemption() {
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
                     merchantcode: window.localStorage.getItem("merchant"), firstname: window.localStorage.getItem("mfirstname"), lastname: window.localStorage.getItem("mlastname"), mobile: window.localStorage.getItem("mobilelogin"), emailid: window.localStorage.getItem("memailid"), mdevice: mdevicestat
-                    // merchantcode :"JUMEI02000",firstname:"",lastname:"",mobile:window.localStorage.getItem("mobilelogin"),emailid:"",mdevice:mdevicestat
+
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
@@ -3911,6 +3910,7 @@ function completeRedemption() {
                     }),
                     success: function (data) {
                         var getData = JSON.parse(data);
+                        alert(getData.rewardpointbalance);
                         if (getData.statuscode == "000") {
                             //document.getElementById("home-page").style.display = "block";
                             window.localStorage.setItem("spend", getData.spenda);
@@ -3932,8 +3932,8 @@ function completeRedemption() {
                     }
                 });
             }
-
-            spendBar();
+hideSpin();
+         //   spendBar();
         },
 
 

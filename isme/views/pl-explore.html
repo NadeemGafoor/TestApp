@@ -1,17 +1,197 @@
 <!--Explore View-->
-<div data-role="view" data-title="" data-layout="pl-main-layout" id="pl-explore-view" data-model="postLogin" data-hide="postLogin.homeViewDestroy">
+<div data-role="view" data-title="" data-layout="pl-main-layout-m" id="pl-explore-view" data-model="postLogin" data-hide="postLogin.homeViewDestroy" data-init="plinitPLOfferGroup" data-show="postLogin.getSummary">
       <div data-role="navbar" style="background-color:transparent !important">
                     <a  data-role="button" data-align="left" data-rel="drawer"  data-click-on="down" href="#appdrawer">
             <i class="fa fa-reorder fa-lg cwhite"></i>
         </a>
         <span class="cwhite"></span>
     </div>
+ <ul data-role="buttongroup" data-index="0" id="pljourneytab" class="button-group" >
+        <li> Oneway </li>
+        <li> Return </li>
+    </ul>
+    <ul data-role="listview" class="centerform" id="plonewayjourney">
+        <li> <label class="km-required km-label-above">Travelling From
+                    <input id="plowfrom" placeholder="Enter Origin City" type="text" data-bind="value:plowfrom"/>
+                </label> </li>
+        <li> <label class="km-label-above">Travelling To
+                    <input id="plowto" placeholder="Enter Destination city" type="text" data-bind="value:plowto"/>
+                </label> </li>
+        <li> <label class="km-label-above">Date of Travel
+                    <input id="plowtraveldate" placeholder="Select Date" type="date" data-bind="value:plowtraveldate" />
+                </label> </li>
+        <li> <label class="km-label-above">Cabin Class
+                <select id="plowcabinclass" style="width:95% !important;padding-left:5px !important">
+                    <option value="Economy" selected="selected" >Economy</option>
+                    <option value="Business"  >Business</option>
+                    <option value="First" >First</option>
+                </select>
+                </label> </li>
+        <li>
+            <fieldset>
+<label class="km-inline-field km-label-above" style="width: 33%;text-align:center !important">
+                            Adult(s)
+                            <select id="plowadult">
+                                <option value="0">0</option>
+                                <option value="1" selected="selected">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                      </label> <label class="km-inline-field km-label-above" style="width: 32%;text-align:left !important">
+                            Children
+                            <select id="plowchild">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1" >1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                      </label> <label class="km-inline-field km-label-above" style="width: 32%;text-align:left !important">
+                            Infant(s)
+                            <select id="plowinfant">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                      </label> </fieldset>
+        </li>
+        <li> <label class="km-required km-label-above">Promotion Code
+                    <input id="plowpromotion" placeholder="Enter Promotion Code" type="text" data-bind="value:owpromotion"/>
+                </label> </li>
+                <li>&nbsp;</li>
 
-    
-          <div data-role="footer">
-                   <div class="button-frame-inline-home">
-                   <a data-role="button"   data-click="loadFlight" style="background-color:#283880;width:100%">Search Flight</a>
+
+    </ul>
+
+<ul data-role="listview" class="centerform" id="plreturnjourney" style="display:none">
+        <li> <label class="km-required km-label-above">Travelling From
+                    <input id="plretfrom" placeholder="Enter Origin City" type="text" data-bind="value:plretfrom"/>
+                </label> </li>
+        <li> <label class="km-label-above">Travelling To
+                    <input id="plretto" placeholder="Enter Destination city" type="text" data-bind="value:plretto"/>
+                </label> </li>
+        <li> <label class="km-label-above">Date of Travel
+                    <input id="plrettraveldate" placeholder="Select Date" type="date" data-bind="value:plrettraveldate"/>
+                </label> </li>
+                  <li> <label class="km-label-above">Date of Return
+                    <input id="plretreturndate" placeholder="Select Date" type="date" data-bind="value:plretreturndate"/>
+                </label> </li>
+        <li> <label class="km-label-above">Cabin Class
+                <select id="plretcabinclass" style="width:95% !important;padding-left:5px !important">
+                    <option value="Economy" selected="selected" >Economy</option>
+                    <option value="Business"  >Business</option>
+                    <option value="First" >First</option>
+                </select>
+                </label> </li>
+        <li>
+            <fieldset>
+               <label class="km-inline-field km-label-above" style="width: 33%;text-align:center !important">
+                            Adult(s)
+                            <select id="plretadult">
+                                <option value="0">0</option>
+                                <option value="1" selected="selected">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                      </label> <label class="km-inline-field km-label-above" style="width: 32%;text-align:left !important">
+                            Children
+                            <select id="plretchild">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1" >1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                      </label> <label class="km-inline-field km-label-above" style="width: 32%;text-align:left !important">
+                            Infant(s)
+                            <select id="plretinfant">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                      </label> </fieldset>
+        </li>
+        <li> <label class="km-required km-label-above">Promotion Code
+                    <input id="plretpromotion" placeholder="Enter Promotion Code" type="text" data-bind="value:plretpromotion"/>
+                </label> </li>
+                <li>&nbsp;</li>
+    </ul>
+
+              <div data-role="footer">
+               <div class="button-frame-inline-home" id="plsearchflight">
+                   <a data-role="button"   data-bind="click:plsearchFlight" id="plsearchflightbutton" style="background-color:#283880;width:100%">Search Flight</a>
                 </div>
+        <footer data-role="footer" style="background:#253874 !important;border-top:1px solid #fff;font-size:95%" data-model="postLogin">
+            <div data-role="tabstrip" style="background-color:#253874 !important"> <a class="fa" href="views/pl-explore.html" data-icon="customhome" data-role="button">Home</a> <a class="fa" href="views/pl-offerlist.html"
+                    data-icon="customtag" data-role="button">Offers</a> <a class="fa" href="views/pl-homeplus.html" data-icon="customreward"
+                    data-role="button">My Rewards</a> <a class="fa" href="views/pl-outletlist.html" data-icon="customexp" data-role="button">Explore</a>                <a class="fa" href="views/pl-discountpinmember.html" data-icon="customdis" data-role="button">Discount</a>                </div>
+        </footer>
             </div>
+</div>
+
+<style scoped>
+    #pl-explore-view .km-label-above,.km-inline-field
+    {
+        color:#fff;
+        font-size:1em;
+        margin-bottom:10px;
+
+    }
+    
+   #pl-explore-view input , select
+    {
+        background-color:#fff !important;
+        color:#283880;
+        font-size:1em;
+        width:95%;
+        padding:5px;
+        height:40px !important;
+    }
+
+    #pl-explore-view select{
+        text-align:center !important;
+        padding-left:48% !important;
+    }
+    
+</style>
+
+<script>
+    function plinitPLOfferGroup() {
+        var listviews = this.element.find("ul.km-listview");
+
+        $("#pljourneytab").kendoMobileButtonGroup({
+                                                    select: function (e) {
+                                                        listviews.hide()
+                                                            .eq(e.index)
+                                                            .show();
+                                                    },
+                                                    index: 0
+                                                });
+    }  
+</script>
 </div>
 
