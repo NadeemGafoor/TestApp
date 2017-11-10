@@ -2316,8 +2316,8 @@ function completeRedemption() {
         },
 
         searchResultOneWay: function () {
-  
-             showSpin();
+
+            showSpin();
             //  alert(window.localStorage.getItem("traceid"));
             $.ajax({
                 type: "POST",
@@ -2337,7 +2337,7 @@ function completeRedemption() {
                             $("#onewaylistview").kendoMobileListView({
                                 dataSource: kendo.data.DataSource.create({ data: getData.flightfarelistfilter }),
                                 template: $("#searchonewaytemplate").html(),
-                                 filterable: {
+                                filterable: {
                                     autoFilter: true,
                                     placeholder: "Search By Price",
                                     field: "totalprice",
@@ -2346,13 +2346,13 @@ function completeRedemption() {
                                     serverSorting: true,
                                     pageSize: 10,
                                     endlessScroll: true
-                                 }
-                            });                         
-                             hideSpin(); //hide loading popup
+                                }
+                            });
+                            hideSpin(); //hide loading popup
                         } else {
                             navigator.notification.alert("No flights found for the selected Itinerary", function () {
                             }, "SNTTA Travel", "Dismiss")
-                             hideSpin(); //hide loading popup
+                            hideSpin(); //hide loading popup
                         }
                     } else {
                         navigator.notification.alert("Unable to fetch the available flights for the selected Itinerary", function () {
@@ -2878,6 +2878,113 @@ function completeRedemption() {
                 });
 
 
+
+                navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+                    lat = position.coords.latitude;
+                    lon = position.coords.longitude;
+                    window.localStorage.setItem("latl", lat);
+                    window.localStorage.setItem("lonl", lon);
+                    propertygeo = [];
+                    $.ajax({
+                        type: "POST",
+                        cache: false,
+                        async: true,
+                        timeout: 20000,
+                        url: gurl + "/outletlist.aspx",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify({
+                            merchantcode: merchant, category: "", brandcode: "", mdevice: window.localStorage.getItem("mdevicestat"), outletcode: "", preflocation: window.localStorage.getItem("distance"), prefcuisine: window.localStorage.getItem("cuisine"), prefcelebration: "", prefrestaurant: window.localStorage.getItem("restaurant"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"), customer: ""
+
+                        }), success: function (data) {
+                            var getData = JSON.parse(data);
+                            //alert(data);
+                            var i = 0;
+                            if (getData.statuscode === "000") {
+                                //     alert(getData.statuscode);
+                                if (getData.outletlist.length > 0) {
+                                    //         alert(getData.outletlist.length);
+                                    while (i <= getData.outletlist.length - 1) {
+                                        //alert("Adding GEofence location");
+                                        window.geofence.addOrUpdate({
+                                            id: getData.outletlist[i].outletcode,
+                                            latitude: Number(getData.outletlist[i].lat),
+                                            longitude: Number(getData.outletlist[i].lon),
+                                            radius: Number(getData.outletlist[i].radius),
+                                            transitionType: TransitionType.ENTER,
+                                            notification: {
+                                                id: Number(i),
+                                                title: getData.outletlist[i].outletname,
+                                                text: getData.outletlist[i].smessage,
+                                                openAppOnClick: true
+                                            }
+                                        }).then(function () {
+                                            console.log(getData.outletlist[i].outletcode + 'Geofence successfully added');
+                                        }, function (reason) {
+                                            console.log(getData.outletlist[i].outletcode + 'Adding geofence failed', reason);
+                                        })
+
+                                        window.localStorage.setItem("isfenceset", "1");
+                                        i++;
+                                        hideSpin(); //hide loading popup
+                                    }
+                                } else {
+                                    navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
+                                    }, "SNTTA Travel", "Dismiss")
+                                    hideSpin(); //hide loading popup
+                                }
+                            } else {
+                                navigator.notification.alert("Due to a system error, the property details cannot be displayed. " + getData.statusdesc, function () {
+                                }, "SNTTA Travel", "Dismiss")
+                                hideSpin(); //hide loading popup
+                            }
+                        },
+                        error: function (error) {
+                            navigator.notification.alert("Due to a system error, the property details cannot be displayed.  Please check your network connection and try again.", function () {
+                            }, "SNTTA Travel", "Dismiss")
+                        }
+                    });
+
+
+                    window.geofence.onTransitionReceived = function (geofences) {
+                        geofences.forEach(function (geo) {
+                            processRegionMonitorCallback(geo);
+                        });
+                    }
+                        , function onErrorShowMap(error) {
+                            gpsError();
+                        }, positionOption);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                     customer = window.localStorage.getItem("customer");
                     customername = window.localStorage.getItem("customername");
@@ -3008,90 +3115,12 @@ function completeRedemption() {
                 }
             } else {
                 if (window.localStorage.getItem("isfenceset") === "0") {
-                    //                    startMonitor();
+                    startMonitor();
                     window.localStorage.setItem("isfenceset", "1");
                 }
             }
 
-                 navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
 
-	                    lat = position.coords.latitude;
-	                    lon = position.coords.longitude;
-                        window.localStorage.setItem("latl",lat);
-                        window.localStorage.setItem("lonl",lon);
-	                    propertygeo = [];
-	                    $.ajax({
-	                        type: "POST",
-	                        cache: false,
-	                        async: true,
-	                        timeout: 20000,
-	                        url: gurl + "/outletlist.aspx",
-	                        contentType: "application/json; charset=utf-8",
-	                        data: JSON.stringify({
-	                            merchantcode: merchant, category: "", brandcode: "", mdevice: window.localStorage.getItem("mdevicestat"), outletcode: "", preflocation: window.localStorage.getItem("distance"), prefcuisine: window.localStorage.getItem("cuisine"), prefcelebration: "", prefrestaurant: window.localStorage.getItem("restaurant"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"), customer: ""
-	
-	                        }), success: function (data) {
-	                            var getData = JSON.parse(data);
-//alert(data);
-	                            var i = 0;
-	                            if (getData.statuscode === "000") {
-                               //     alert(getData.statuscode);
-	                                if (getData.outletlist.length > 0) {
-                               //         alert(getData.outletlist.length);
-	                                    while (i <= getData.outletlist.length - 1) {
-	//alert("Adding GEofence location");
-	                                        window.geofence.addOrUpdate({
-	                                            id: getData.outletlist[i].outletcode,
-	                                            latitude: Number(getData.outletlist[i].lat),
-	                                            longitude: Number(getData.outletlist[i].lon),
-	                                            radius: Number(getData.outletlist[i].radius),
-	                                            transitionType: TransitionType.ENTER,
-	                                            notification: {
-	                                                id: Number(i),
-	                                                title: getData.outletlist[i].outletname,
-	                                                text: getData.outletlist[i].smessage,
-	                                                openAppOnClick: true
-	                                            }
-	                                        }).then(function () {
-	                                         console.log(getData.outletlist[i].outletcode + 'Geofence successfully added');
-	                                        }, function (reason) {
-	                                        console.log(getData.outletlist[i].outletcode + 'Adding geofence failed', reason);
-	                                        })
-	
-	                                        window.localStorage.setItem("isfenceset", "1");
-	                                        i++;
-	                                        hideSpin(); //hide loading popup
-	                                    }
-	                                } else {
-	                                    navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
-	                                    }, "SNTTA Travel", "Dismiss")
-	                                    hideSpin(); //hide loading popup
-	                                }
-	                            } else {
-	                                navigator.notification.alert("Due to a system error, the property details cannot be displayed. " + getData.statusdesc, function () {
-	                                }, "SNTTA Travel", "Dismiss")
-	                                hideSpin(); //hide loading popup
-	                            }
-	                        },
-	                        error: function (error) {
-	                            navigator.notification.alert("Due to a system error, the property details cannot be displayed.  Please check your network connection and try again.", function () {
-	                            }, "SNTTA Travel", "Dismiss")
-	                        }
-	                    });
-
-
-window.geofence.onTransitionReceived = function (geofences) {
-    geofences.forEach(function (geo) {
-        processRegionMonitorCallback(geo);
-    });
-};
-
-
-
-
-
-
-                 });
 
 
 
@@ -6765,58 +6794,80 @@ window.geofence.onTransitionReceived = function (geofences) {
     function startMonitor() {
         navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
             lat = position.coords.latitude;
-            lon = position.coords.longitude
+            lon = position.coords.longitude;
+            window.localStorage.setItem("latl", lat);
+            window.localStorage.setItem("lonl", lon);
+            propertygeo = [];
             $.ajax({
                 type: "POST",
                 cache: false,
                 async: true,
                 timeout: 20000,
-                url: gurl + "/propertyList.aspx",
+                url: gurl + "/outletlist.aspx",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
-                    merchantcode: merchant, mdevice: window.localStorage.getItem("mdevicestat"), brandcode: window.localStorage.getItem("brand")
-                }),
-                success: function (data) {
+                    merchantcode: merchant, category: "", brandcode: "", mdevice: window.localStorage.getItem("mdevicestat"), outletcode: "", preflocation: window.localStorage.getItem("distance"), prefcuisine: window.localStorage.getItem("cuisine"), prefcelebration: "", prefrestaurant: window.localStorage.getItem("restaurant"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"), customer: ""
+
+                }), success: function (data) {
                     var getData = JSON.parse(data);
+                    //alert(data);
                     var i = 0;
                     if (getData.statuscode === "000") {
-                        if (getData.propertylist.length > 0) {
-                            //Start Monitor
-                            while (i <= getData.propertylist.length - 1) {
-                                //Stop Monitor
-                                var params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon];
-                                window.plugins.DGGeofencing.stopMonitoringRegion(params,
-                                    function (result) {
-                                        // not used.
-                                    }, function (error) {
-                                        // not used
-                                    });
+                        //     alert(getData.statuscode);
+                        if (getData.outletlist.length > 0) {
+                            //         alert(getData.outletlist.length);
+                            while (i <= getData.outletlist.length - 1) {
+                                //alert("Adding GEofence location");
+                                window.geofence.addOrUpdate({
+                                    id: getData.outletlist[i].outletcode,
+                                    latitude: Number(getData.outletlist[i].lat),
+                                    longitude: Number(getData.outletlist[i].lon),
+                                    radius: Number(getData.outletlist[i].radius),
+                                    transitionType: TransitionType.ENTER,
+                                    notification: {
+                                        id: Number(i),
+                                        title: getData.outletlist[i].outletname,
+                                        text: getData.outletlist[i].smessage,
+                                        openAppOnClick: true
+                                    }
+                                }).then(function () {
+                                    console.log(getData.outletlist[i].outletcode + 'Geofence successfully added');
+                                }, function (reason) {
+                                    console.log(getData.outletlist[i].outletcode + 'Adding geofence failed', reason);
+                                })
 
-                                params = [getData.propertylist[i].brandcode, getData.propertylist[i].lat, getData.propertylist[i].lon, getData.propertylist[i].radius, "3"];
-                                window.plugins.DGGeofencing.startMonitoringRegion(params, function (result) {
-                                }, function (error) {
-                                });
+                                window.localStorage.setItem("isfenceset", "1");
                                 i++;
+                                hideSpin(); //hide loading popup
                             }
-
-                            hideSpin(); //hide loading popup
                         } else {
-                            navigator.notification.alert("There are no Property for the selected Program!", function () {
+                            navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
                             }, "SNTTA Travel", "Dismiss")
                             hideSpin(); //hide loading popup
                         }
                     } else {
-                        navigator.notification.alert("Cannot get Property List " + getData.statusdesc, function () {
+                        navigator.notification.alert("Due to a system error, the property details cannot be displayed. " + getData.statusdesc, function () {
                         }, "SNTTA Travel", "Dismiss")
                         hideSpin(); //hide loading popup
                     }
                 },
                 error: function (error) {
+                    navigator.notification.alert("Due to a system error, the property details cannot be displayed.  Please check your network connection and try again.", function () {
+                    }, "SNTTA Travel", "Dismiss")
                 }
             });
+
+
+            window.geofence.onTransitionReceived = function (geofences) {
+                geofences.forEach(function (geo) {
+                    processRegionMonitorCallback(geo);
+                });
+            }
         }
-            , function onErrorShowMap(error) {
-            }, positionOption);
+                , function onErrorShowMap(error) {
+                    gpsError();
+                }, positionOption);
+
         hideSpin();
     }
 
