@@ -2330,21 +2330,12 @@ function completeRedemption() {
                 success: function (data) {
                     var getData = JSON.parse(data);
                     //   alert(getData.flightfarelistfilter.length);
-                   alert(data);
+                //   alert(data);
                     if (getData.statuscode == "000") {
-                        $("#oneway-list-view").kendoMobileListView({
+                        alert(data);
+                                                $("#oneway-list-view").kendoMobileListView({
                             dataSource: kendo.data.DataSource.create({ data: getData.flightfarelistfilter }),
-                            template: $("#templatesearchoneway").html(),
-                            filterable: {
-                                autoFilter: true,
-                                placeholder: "Search By Price",
-                                field: "totalprice",
-                                operator: "contains",
-                                serverPaging: true,
-                                serverSorting: true,
-                                pageSize: 10,
-                                endlessScroll: true
-                            }
+                            template: $("#searchonewaytemplate").html()
                         });
 
                     } else {
