@@ -572,8 +572,14 @@ You may opt out of receiving any marketing material from us at any time by infor
             </div>
         </a>
     </script>
-    <script type="text/x-kendo-template" id="searchonewaytemplate"> <img src="${flightlogo}" style="height:auto;width:auto "><br/><br/>${carriername}
-        <hr/> </script>
+    <script type="text/x-kendo-template" id="searchonewaytemplate">
+
+     <div class="msg-outer-frame-a">
+            <div class="msg-date-frame-line"><img src="${flightlogo}" style="height:auto;width:auto "><br/><br/>${carriername}</div>
+            <div class="msg-narration-frame"> ${departuretime} <i class="fa fa-arrow-circle-right fa-lg " style="color:#283880 "></i> ${arrivaltime} </div>
+            <div class="border-bot"></div>
+        </div>   
+    </script>
 </body>
 
 </html>

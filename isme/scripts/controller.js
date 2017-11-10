@@ -759,7 +759,7 @@ function completeRedemption() {
 
     //var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
 
-    //var gurl = "https://ismemobileapp.jumeirah.com";
+    var gurl = "http://inc38.ddns.net:8089/HaalMeerMobile"
     var gurl = "http://haalmeer.ddns.net:8089/HaalMeerMobile";
     var merchant = "JUMEI02000";
     var customer = "9999999999";
@@ -2332,7 +2332,7 @@ function completeRedemption() {
                     //   alert(getData.flightfarelistfilter.length);
                 //   alert(data);
                     if (getData.statuscode == "000") {
-                        alert(data);
+                     //   alert(data);
                                                 $("#oneway-list-view").kendoMobileListView({
                             dataSource: kendo.data.DataSource.create({ data: getData.flightfarelistfilter }),
                             template: $("#searchonewaytemplate").html()
@@ -2822,6 +2822,7 @@ function completeRedemption() {
                     }),
                     success: function (data) {
                         var getData = JSON.parse(data);
+                      //  alert(data);
                         if (getData.statuscode === "000") {
                             //  firsttime = "1";  
                             googleapikey = getData.googleapikey;
@@ -3914,7 +3915,7 @@ function completeRedemption() {
                             //document.getElementById("home-page").style.display = "block";
                             window.localStorage.setItem("spend", getData.spenda);
                             window.localStorage.setItem("maxspend", getData.maxspend);
-                            window.localStorage.setItem("spendmb", getData.spendbalance);
+                            window.localStorage.setItem("spendmb", getData.rewardpointbalance);
                             window.localStorage.setItem("spendn", getData.spendbalanceN);
                             spendBar();
                             hideSpin(); //hide loading popup
