@@ -1,5 +1,5 @@
 <!--Search Result Oneway-->
-<div id="searchoneway-view" data-reload="true" data-role="view" data-title="" data-layout="pre-layout" data-model="preLogin"
+<div id="searchoneway-view" data-role="view" data-title="" data-layout="pre-layout" data-model="preLogin"
     data-init="preLogin.searchResultOneWay" data-hide="preLogin.destroysearchoneway" data-after-show="disableBackButton" data-before-hide="enableBackButton">
     <div data-role="header">
         <div data-role="navbar">
@@ -19,7 +19,11 @@
         </div>
     </div>
 
- <ul  id="oneway-list-view " >
+ <ul  id="onewaylistview " >
       
     </ul>
 </div>
+
+<script type="text/x-kendo-template " id="searchonewaytemplate">
+    ${departuretime}${arrivaltime} 
+    </script>

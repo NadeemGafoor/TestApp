@@ -1261,6 +1261,7 @@ function completeRedemption() {
                     var getData = JSON.parse(data);
                     if (getData.statuscode === "000") {
                         window.localStorage.setItem("traceid", getData.traceid);
+                        hideSpin();
                         $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
                     } else {
                         navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
@@ -2314,14 +2315,15 @@ function completeRedemption() {
             });
         },
 
-        searchResultOneWay: function (e) {
+        searchResultOneWay: function () {
+             alert("here1111111");   
+             showSpin();
             //  alert(window.localStorage.getItem("traceid"));
-            showSpin();
             $.ajax({
                 type: "POST",
                 cache: false,
                 async: true,
-                timeout: 200000,
+                timeout: 20000,
                 url: gurl + "/searchFlightC.aspx",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
@@ -2331,13 +2333,25 @@ function completeRedemption() {
                     var getData = JSON.parse(data);
                     if (getData.statuscode == "000") {
                         if (getData.flightfarelistfilter.length > 0) {
-                            $("#oneway-list-view").kendoMobileListView({
-                                dataSource: kendo.data.DataSource.create({ data: getData.flightfarelistfilte }),
-                                template: $("#searchonewaytemplate").html()
-                            });
+                            $("#onewaylistview").kendoMobileListView({
+                                dataSource: kendo.data.DataSource.create({ data: getData.flightfarelistfilter }),
+                                template: $("#searchonewaytemplate").html(),
+                                 filterable: {
+                                    autoFilter: true,
+                                    placeholder: "Search By Price",
+                                    field: "totalprice",
+                                    operator: "contains",
+                                    serverPaging: true,
+                                    serverSorting: true,
+                                    pageSize: 40,
+                                    endlessScroll: true
+                                 }
+                            });                         
+                             hideSpin(); //hide loading popup
                         } else {
                             navigator.notification.alert("No flights found for the selected Itinerary", function () {
                             }, "SNTTA Travel", "Dismiss")
+                             hideSpin(); //hide loading popup
                         }
                     } else {
                         navigator.notification.alert("Unable to fetch the available flights for the selected Itinerary", function () {
