@@ -2950,6 +2950,7 @@ function completeRedemption() {
                             processRegionMonitorCallback(geo);
                         });
                     }
+                }
                         , function onErrorShowMap(error) {
                             gpsError();
                         }, positionOption);
