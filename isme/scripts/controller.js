@@ -760,7 +760,7 @@ function completeRedemption() {
     //var gurl = "https://stg-isme.jumeirah.com/ismemobileportal";
 
     var gurl = "http://inc38.ddns.net:8095/HaalMeerMobile"
- //   var gurl = "http://haalmeer.ddns.net:8089/HaalMeerMobile";
+    //var gurl = "http://haalmeer.ddns.net:8089/HaalMeerMobile";
     var merchant = "SNTTA02001";
     var customer = "9999999999";
     var customername = "Guest";
@@ -2329,15 +2329,13 @@ function completeRedemption() {
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
-                    //   alert(getData.flightfarelistfilter.length);
-                //   alert(data);
                     if (getData.statuscode == "000") {
-                     //   alert(data);
-                                                $("#oneway-list-view").kendoMobileListView({
+
+                    
+                            $("#oneway-list-view").kendoMobileListView({
                             dataSource: kendo.data.DataSource.create({ data: getData.flightfarelistfilter }),
                             template: $("#searchonewaytemplate").html()
                         });
-
                     } else {
                         navigator.notification.alert("Unable to fetch the available flights for the selected Itinerary", function () {
                         }, "SNTTA Travel", "Dismiss")
