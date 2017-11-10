@@ -3014,7 +3014,7 @@ function completeRedemption() {
             }
 
                  navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-	                        
+
 	                    lat = position.coords.latitude;
 	                    lon = position.coords.longitude;
                         window.localStorage.setItem("latl",lat);
