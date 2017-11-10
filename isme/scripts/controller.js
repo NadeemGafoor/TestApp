@@ -3014,7 +3014,7 @@ function completeRedemption() {
             }
 
                  navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-	
+	                        
 	                    lat = position.coords.latitude;
 	                    lon = position.coords.longitude;
 	                    propertygeo = [];
@@ -3030,11 +3030,14 @@ function completeRedemption() {
 	
 	                        }), success: function (data) {
 	                            var getData = JSON.parse(data);
+//alert(data);
 	                            var i = 0;
 	                            if (getData.statuscode === "000") {
+                               //     alert(getData.statuscode);
 	                                if (getData.outletlist.length > 0) {
+                               //         alert(getData.outletlist.length);
 	                                    while (i <= getData.outletlist.length - 1) {
-	
+	//alert("Adding GEofence location");
 	                                        window.geofence.addOrUpdate({
 	                                            id: getData.outletlist[i].outletcode,
 	                                            latitude: Number(getData.outletlist[i].lat),
@@ -3048,9 +3051,9 @@ function completeRedemption() {
 	                                                openAppOnClick: true
 	                                            }
 	                                        }).then(function () {
-	                                            console.log(getData.outletlist[i].outletcode + 'Geofence successfully added');
+	                                         console.log(getData.outletlist[i].outletcode + 'Geofence successfully added');
 	                                        }, function (reason) {
-	                                            console.log(getData.outletlist[i].outletcode + 'Adding geofence failed', reason);
+	                                        console.log(getData.outletlist[i].outletcode + 'Adding geofence failed', reason);
 	                                        })
 	
 	                                        window.localStorage.setItem("isfenceset", "1");
