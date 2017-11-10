@@ -3017,6 +3017,8 @@ function completeRedemption() {
 	                        
 	                    lat = position.coords.latitude;
 	                    lon = position.coords.longitude;
+                        window.localStorage.setItem("latl",lat);
+                        window.localStorage.setItem("lonl",lon);
 	                    propertygeo = [];
 	                    $.ajax({
 	                        type: "POST",
@@ -3076,6 +3078,19 @@ function completeRedemption() {
 	                            }, "SNTTA Travel", "Dismiss")
 	                        }
 	                    });
+
+
+window.geofence.onTransitionReceived = function (geofences) {
+    geofences.forEach(function (geo) {
+        processRegionMonitorCallback(geo);
+    });
+};
+
+
+
+
+
+
                  });
 
 
