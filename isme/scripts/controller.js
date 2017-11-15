@@ -121,7 +121,7 @@ function faceBookClick() {
 
 function twitterClick() {
     var m = window.localStorage.getItem("social_shortmsg");
-    window.plugins.socialsharing.shareViaTwitter("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my SNTTA Travel Mobile App! Join the fun and download now " + window.localStorage.getItem("appad_location"), ["https://haalmeer.ddns.net:8089/HaalMeerMobile//images/large_logo_placeholder.png"], null, function () {
+    window.plugins.socialsharing.shareViaTwitter("I’m looking at " + window.localStorage.getItem("social_email_message") + " on my SNTTA Travel Mobile App! Join the fun and download now " + window.localStorage.getItem("appad_location"), ["http://inc38.ddns.net:8095/HaalMeerMobile/images/large_logo_placeholder.png"], null, function () {
     }, function (errormsg) {
         navigator.notification.alert("Unable to complete the Twitter request due to the request cancelled by user or Twitter is not installed. Please check and re-try.", function () {
         }, "SNTTA Travel", "Dismiss");
@@ -817,15 +817,11 @@ function completeRedemption() {
     var fullname = "";
     var appad_location = "www.haalmeer.com";
     var appad_location_short = "www.haalmeer.com";
-    //var share_image = "https://ismemobileapp.jumeirah.com/images/large_logo_placeholder.png";
-    //var flag_image = "https://ismemobileapp.jumeirah.com/flagimages/";
-
+ 
     var share_image = "http://inc38.ddns.net:8095/HaalMeerMobile/images/large_logo_placeholder.png";
     var flag_image = "http://inc38.ddns.net:8095/HaalMeerMobile/flagimages/";
 
-    //var share_image = "https://stg-isme.jumeirah.com/ismemobileportal/images/large_logo_placeholder.png";
-    //var flag_image = "https://stg-isme.jumeirah.com/ismemobileportal/flagimages/";
-
+ 
     var short_msg = "SNTTA Travel";
     var static_social_msg = "Make the most of your Travel experiences with SNTTA Travel App. Be more than a guest. Be different. Download the App now at https://www.haalmeer.com";
     var offertelephone = "80076882";
