@@ -52,6 +52,8 @@
     "ID_RESOLUTION_HD720P"
   ],
   "CorePlugins": [
+    "com.estimote.sdk@1.1.1",
+    "com.oauthio.plugins.oauthio@0.2.6",
     "com.phonegap.plugins.PushPlugin@3.3.0",
     "com.telerik.plugins.nativepagetransitions@0.6.5",
     "cordova-plugin-camera",
