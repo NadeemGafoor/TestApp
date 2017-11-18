@@ -2930,38 +2930,31 @@ tile-frame-inner
         position:relative;        
         float:none;    
         width:100%;
-        background-color:tranparent !important;   
+        background-color:transparent !important;   
         height:88px;     
     }
 
     .single-flight-outer{
-    margin-top:0px;
     width:100%;
     position:relative;
+    float:left;
     height:150px;
     }
 
     .flight-logo{
     width:10%;
-    position:relative;
-    float:left;
     height:150px;
-    margin-top:25px;
-    display:block;
+    color:#b6b2b4;
     }
 
     .flight-main-holder{
-        padding:10px;
     width:90%;
-    position:relative;
-    float:left;
     height:150px;
     border:none;
     }
 
  .flight-lines{
-margin-top:0px;
-    width:100%;
+    width:90%;
     position:relative;
     float:left;
     height:30px;
@@ -2983,7 +2976,7 @@ margin-top:0px;
     line-height:20px;
     text-align:center;
     font-size:14px;
-    color:#283880;
+    color:#b6b2b4;
     z-index:90000;
     }
 

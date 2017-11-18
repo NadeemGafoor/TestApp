@@ -2331,8 +2331,8 @@ function completeRedemption() {
                     if (getData.statuscode == "000") {
                         if (getData.flightfarelistfilter.length > 0) {
                             $("#onewaylistview").kendoMobileListView({
-                                dataSource: kendo.data.DataSource.create({ data: getData.flightfarelistfilter }),
-                                template: $("#searchonewaytemplate").html(),
+                                dataSource: kendo.data.DataSource.create({ data: getData.flightfarelistfilter}),
+                                template: $("#tmpsearchoneway").html(),
                                 filterable: {
                                     autoFilter: true,
                                     placeholder: "Search By Price",
