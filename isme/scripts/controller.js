@@ -880,6 +880,73 @@ function completeRedemption() {
         document.getElementById("property-detail-div").style.display = "none";
     }
 
+
+
+
+    // Define the callback function
+    function onBeaconsReceived(result) {
+        alert(result);
+        if (result.beacons && result.beacons.length > 0) {
+                $.ajax({
+                    type: "POST",
+                    cache: false,
+                    async: true,
+                    timeout: 20000,
+                    url: gurl + "/outletlist.aspx",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                        merchantcode: merchant, category: "", brandcode: "", mdevice: window.localStorage.getItem("mdevicestat"), outletcode: "", preflocation: window.localStorage.getItem("distance"), prefcuisine: window.localStorage.getItem("cuisine"), prefcelebration: "", prefrestaurant: window.localStorage.getItem("restaurant"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"), customer: ""
+
+                    }), success: function (data) {
+                        var getData = JSON.parse(data);
+                        //alert(data);
+                        var i = 0;
+                        if (getData.statuscode === "000") {
+                            //     alert(getData.statuscode);
+                            if (getData.outletlist.length > 0) {
+                                //         alert(getData.outletlist.length);
+                                while (i <= getData.outletlist.length - 1) {
+                                    for (var m = 0; i < result.beacons.length; i++) {
+                                        var beacon = result.beacons[m];
+                                        if (beacon.major == getData.outletlist[i].beaconmajor && beacon.mninor == getData.outletlist[i].beaconminor) {
+                                          //  cordova.plugins.notification.local.schedule({
+                                           //     title: getData.outletlist[i].outletname,
+                                            //    text: getData.outletlist[i].messagenotification,
+                                             //   foreground: true
+                                           // });
+                                               window.plugin.notification.local.add({
+                                                     title:   getData.outletlist[i].outletname,
+                                                      message:getData.outletlist[i].messagenotification
+                                                });
+                                            
+                                        }
+                                }
+                                  
+                                }
+
+
+                            } else {
+                                navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
+                                }, "SNTTA Travel", "Dismiss")
+                                hideSpin(); //hide loading popup
+                            }
+                        } else {
+                            navigator.notification.alert("Due to a system error, the property details cannot be displayed. " + getData.statusdesc, function () {
+                            }, "SNTTA Travel", "Dismiss")
+                            hideSpin(); //hide loading popup
+                        }
+                    },
+                    error: function (error) {
+                        navigator.notification.alert("Due to a system error, the property details cannot be displayed.  Please check your network connection and try again.", function () {
+                        }, "SNTTA Travel", "Dismiss")
+                    }
+                });     
+        }
+    }
+
+
+
+
     function getFBUserExists() {
         $.ajax({
             type: "POST",
@@ -2923,6 +2990,8 @@ function completeRedemption() {
                                         i++;
                                         hideSpin(); //hide loading popup
                                     }
+
+
                                 } else {
                                     navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
                                     }, "SNTTA Travel", "Dismiss")
@@ -2941,6 +3010,10 @@ function completeRedemption() {
                     });
 
 
+
+                  
+
+
                     window.geofence.onTransitionReceived = function (geofences) {
                         geofences.forEach(function (geo) {
                             processRegionMonitorCallback(geo);
@@ -2951,13 +3024,15 @@ function completeRedemption() {
                             gpsError();
                         }, positionOption);
 
+ 
 
 
 
+window.estimote.startRanging("Telerik");
 
 
 
-
+alert("raning");
 
 
 
