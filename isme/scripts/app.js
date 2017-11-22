@@ -68,7 +68,7 @@ document.addEventListener('deviceready', function () {
     });
 }, false);
 
-document.addEventListener('beaconsReceived', onBeaconsReceived, false);
+
 
     function hideNav() {
         setTimeout(function() {
