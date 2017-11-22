@@ -885,8 +885,9 @@ function completeRedemption() {
 
     // Define the callback function
     function onBeaconsReceived(result) {
-        alert(result);
-        if (result.beacons && result.beacons.length > 0) {
+        alert(result.beacons);
+        if (result.beacons && result.beacons.length > 0 &&  window.localStorage.getItem("beacondone")=="") {
+            alert(result.beacons.length);
                 $.ajax({
                     type: "POST",
                     cache: false,
@@ -921,7 +922,7 @@ function completeRedemption() {
                                             
                                         }
                                 }
-                                  
+                                 i++;
                                 }
 
 
@@ -942,6 +943,8 @@ function completeRedemption() {
                     }
                 });     
         }
+        window.localStorage.setItem("beacondone","1");
+        hideSpin();
     }
 
 
@@ -2888,6 +2891,7 @@ function completeRedemption() {
                 window.localStorage.setItem("static_social_msg", static_social_msg);
                 window.localStorage.setItem("category", "");
                 window.localStorage.setItem("merchant", merchant);
+                window.localStorage.setItem("beacondone","");
                 fbCleanVariables();
                 noAlcoholCountry();
                 $.ajax({
@@ -3032,7 +3036,7 @@ window.estimote.startRanging("Telerik");
 
 
 
-alert("raning");
+
 
 
 
