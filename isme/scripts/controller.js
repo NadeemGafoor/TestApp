@@ -3027,7 +3027,7 @@ function completeRedemption() {
  
 
 
-
+document.addEventListener('beaconsReceived', onBeaconsReceived, false);
 window.estimote.startRanging("Telerik");
 
 
