@@ -888,7 +888,7 @@ function completeRedemption() {
         if (result.beacons.length > 0 && window.localStorage.getItem("beacondone") == "") {
             for (var m = 0; m < result.beacons.length; m++) {
                 var beacon = result.beacons[m];
-            //    alert("Length" + result.beacons.length + "BeaconMajor:" + beacon.major +  " BeaconMinor:" + beacon.minor );
+                alert("Length" + result.beacons.length + "BeaconMajor:" + beacon.major +  " BeaconMinor:" + beacon.minor );
 
 window.plugin.notification.local.add({
     id:         "121211212",  // A unique id of the notifiction
