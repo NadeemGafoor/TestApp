@@ -888,12 +888,15 @@ function completeRedemption() {
         if (result.beacons.length > 0 && window.localStorage.getItem("beacondone") == "") {
             for (var m = 0; m < result.beacons.length; m++) {
                 var beacon = result.beacons[m];
-                alert("Length" + result.beacons.length + "BeaconMajor:" + beacon.major +  " BeaconMinor:" + beacon.minor );
+            //    alert("Length" + result.beacons.length + "BeaconMajor:" + beacon.major +  " BeaconMinor:" + beacon.minor );
 
-                window.plugin.notification.local.add({
-                    title: "GeoFence",
-                    message:"Length" + result.beacons.length + "BeaconMajor:" + beacon.major +  " BeaconMinor:" + beacon.minor
-                });
+                   cordova.plugins.notification.local.schedule({
+    title: 'My first notification',
+    text: 'Thats pretty easy...',
+    foreground: true
+});
+
+
                 }
             }
             window.localStorage.setItem("beacondone", "1");
