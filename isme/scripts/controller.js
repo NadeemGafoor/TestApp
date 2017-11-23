@@ -890,10 +890,11 @@ function completeRedemption() {
                 var beacon = result.beacons[m];
             //    alert("Length" + result.beacons.length + "BeaconMajor:" + beacon.major +  " BeaconMinor:" + beacon.minor );
 
-                   cordova.plugins.notification.local.schedule({
-    title: 'My first notification',
-    text: 'Thats pretty easy...',
-    foreground: true
+window.plugin.notification.local.add({
+    id:         "121211212",  // A unique id of the notifiction
+    message:    "Length" + result.beacons.length + "BeaconMajor:" + beacon.major +  " BeaconMinor:" + beacon.minor,  // The message that is displayed
+    title:      "Hello",  // The title of the message
+    autoCancel: true // Setting this flag and the notification is automatically canceled when the user clicks it
 });
 
 
