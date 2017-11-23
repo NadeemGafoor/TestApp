@@ -890,11 +890,10 @@ function completeRedemption() {
                 var beacon = result.beacons[m];
                 alert("Length" + result.beacons.length + "BeaconMajor:" + beacon.major +  " BeaconMinor:" + beacon.minor );
 
-                  cordova.plugins.notification.local.schedule({
-    title: 'My first notification',
-    text: 'Thats pretty easy...',
-    foreground: true
-});
+                window.plugin.notification.local.add({
+                    title: "GeoFence",
+                    message:"Length" + result.beacons.length + "BeaconMajor:" + beacon.major +  " BeaconMinor:" + beacon.minor
+                });
                 }
             }
             window.localStorage.setItem("beacondone", "1");
