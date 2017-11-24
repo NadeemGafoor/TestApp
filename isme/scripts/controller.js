@@ -2807,7 +2807,7 @@ function completeRedemption() {
             clearAllVariables();
 
             if (firsttime === "") { //Register Access and device in the platform
-                window.estimote.startRanging("Telerik");
+//window.estimote.startRanging("Telerik");
                 mdevice = device.model;
                 muuid = device.uuid;
                 mversion = device.version;
@@ -2833,7 +2833,6 @@ function completeRedemption() {
                 window.localStorage.setItem("merchant", merchant);
                 fbCleanVariables();
                 noAlcoholCountry();
-                alert("1234567890");
                 $.ajax({
                     type: "POST",
                     cache: false,
@@ -2928,34 +2927,31 @@ function completeRedemption() {
                             var getData = JSON.parse(data);
                             var i = 0;
                             if (getData.statuscode === "000") {
-                                alert(getData.outletlist.length);
                                 if (getData.outletlist.length > 0) {
-                                    while (i <= getData.outletlist.length - 1) {
+                                      while (i <= getData.outletlist.length - 1) {
+                                        //alert("Adding GEofence location");
+                                        window.geofence.addOrUpdate({
+                                            id: getData.outletlist[i].outletcode,
+                                            latitude: Number(getData.outletlist[i].lat),
+                                            longitude: Number(getData.outletlist[i].lon),
+                                            radius: Number(getData.outletlist[i].radius),
+                                            transitionType: TransitionType.ENTER,
+                                            notification: {
+                                                id: Number(i),
+                                                title: getData.outletlist[i].outletname,
+                                                text: getData.outletlist[i].smessage,
+                                                openAppOnClick: true
+                                            }
+                                        }).then(function () {
+                                            console.log(getData.outletlist[i].outletcode + 'Geofence successfully added');
+                                        }, function (reason) {
+                                            console.log(getData.outletlist[i].outletcode + 'Adding geofence failed', reason);
+                                        })
 
-                                        //Stop Geo Fence Monitor
-                                        propertygeo[i] = getData.outletlist[i].msgtitle + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
-                                        //alert(propertygeo[i]);
-                                        params = [getData.outletlist[i].outletcode, getData.outletlist[i].lat, getData.outletlist[i].lon];
-                                        window.plugins.DGGeofencing.stopMonitoringRegion(params, function (result) {
-                                        }, function (error) {
-                                            m = JSON.stringify(error);
-                                            m = JSON.parse(m);
-                                            showTop(m.message);
-                                        });
-
-                                        //Start Geofence Monitoring
-                                        params = [getData.outletlist[i].outletcode, getData.outletlist[i].lat, getData.outletlist[i].lon, parseInt(getData.outletlist[i].radius)];
-                                        //alert(getData.propertylist[i].brandcode + " " + getData.propertylist[i].lat +  " " +  getData.propertylist[i].lon + " " +   getData.propertylist[i].radius);
-                                        window.plugins.DGGeofencing.startMonitoringRegion(params, function (result) {
-                                        }, function (error) {
-                                            m = JSON.stringify(error);
-                                            m = JSON.parse(m);
-                                            showTop(m.message);
-                                        });
-
+                                        window.localStorage.setItem("isfenceset", "1");
                                         i++;
+                                        hideSpin(); //hide loading popup
                                     }
-
                                     i = 0;
 
                                     while (i <= getData.outletlist.length - 1) {
@@ -2996,6 +2992,21 @@ function completeRedemption() {
             }, "SNTTA Travel", "Dismiss")
         }
     });
+
+
+
+    window.geofence.onTransitionReceived = function (geofences) {
+                        geofences.forEach(function (geo) {
+                            processRegionMonitorCallback(geo);
+                        });
+
+
+
+
+
+
+
+
 }
     , function onErrorShowMap(error) {
         gpsError();
@@ -6789,7 +6800,7 @@ function getFlag(e) {
 }
 
 function processRegionMonitorCallback(mresult) {
-    //    alert(mresult.callbacktype);
+     showTop(mresult.callbacktype);
     if (mresult.callbacktype === "enter" || mresult.callbacktype === "exit") {
         cordova.plugins.notification.local.schedule({
             title: "GeoFence",
