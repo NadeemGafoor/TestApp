@@ -2893,6 +2893,7 @@ function completeRedemption() {
                     fdidEntera(pluginResult);
                 };
 
+  
                 delegate.didRangeBeaconsInRegion = function (pluginResult) {
                     fdidEntera(pluginResult);
                 };
@@ -2971,6 +2972,10 @@ function completeRedemption() {
                                                 .done();
                                         }
 
+                                        cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion)
+	.fail()
+	.done();
+
                                         i++;
                                     }     
                                     hideSpin();                          
@@ -2996,6 +3001,7 @@ function completeRedemption() {
 
 
     window.geofence.onTransitionReceived = function (geofences) {
+        showTop("Monitoring Geofence Called");
                         geofences.forEach(function (geo) {
                             processRegionMonitorCallback(geo);
                         });
