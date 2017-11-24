@@ -833,7 +833,7 @@ function completeRedemption() {
     var emailsubjectoffer = "Check this offer on SNTTA Travel!";
 
 
-                document.addEventListener('beaconsReceived', onBeaconsReceived, false);
+//document.addEventListener('beaconsReceived', onBeaconsReceived, false);
 
     function doOneBackPre() {
         $(".sharehead").slideUp("slow");
@@ -6815,11 +6815,13 @@ function completeRedemption() {
     }
 
     function processRegionMonitorCallback(mresult) {
+    //    alert(mresult.callbacktype);
         if (mresult.callbacktype === "enter" || mresult.callbacktype === "exit") {
-            window.plugin.notification.local.add({
-                title: "GeoFence",
-                message: mresult.regionId + " " + mresult.callbacktype
-            });
+                   cordova.plugins.notification.local.schedule({
+                                                title:"GeoFence",
+                                                text: mresult.regionId + " " + mresult.callbacktype,
+                                                foreground: true
+                                           });
             $.ajax({
                 type: "POST",
                 cache: false,
