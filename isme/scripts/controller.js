@@ -2883,7 +2883,7 @@ function completeRedemption() {
                     }
                 });
 
-
+alert("Here");
                                                     var delegate = new cordova.plugins.locationManager.Delegate();
 
                                                    delegate.didDetermineStateForRegion = function (pluginResult) {
