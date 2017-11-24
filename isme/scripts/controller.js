@@ -832,6 +832,9 @@ function completeRedemption() {
     var emailsubject = "Let's meet here!";
     var emailsubjectoffer = "Check this offer on SNTTA Travel!";
 
+
+                document.addEventListener('beaconsReceived', onBeaconsReceived, false);
+
     function doOneBackPre() {
         $(".sharehead").slideUp("slow");
 
@@ -885,18 +888,60 @@ function completeRedemption() {
 
     // Define the callback function
     function onBeaconsReceived(result) {
-        if (result.beacons.length > 0 && window.localStorage.getItem("beacondone") == "") {
-            for (var m = 0; m < result.beacons.length; m++) {
-                var beacon = result.beacons[m];
-           //     alert("Length" + result.beacons.length + "BeaconMajor:" + beacon.major + " BeaconMinor:" + beacon.minor);
-         cordova.plugins.notification.local.schedule({
-    title: 'My first notification',
-    text: 'Thats pretty easy...',
-    foreground: true
-});
-            }
+    //    alert("Here");
+        if (result.beacons.length > 0 ) {
+
+           $.ajax({
+                type: "POST",
+                cache: false,
+                async: true,
+                timeout: 20000,
+                url: gurl + "/outletlist.aspx",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({
+                    merchantcode: merchant, category: "", brandcode: "", mdevice: window.localStorage.getItem("mdevicestat"), outletcode: "", preflocation: window.localStorage.getItem("distance"), prefcuisine: window.localStorage.getItem("cuisine"), prefcelebration: "", prefrestaurant: window.localStorage.getItem("restaurant"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"), customer: ""
+
+                }), success: function (data) {
+                    var getData = JSON.parse(data);
+                    var i = 0;
+                    if (getData.statuscode === "000") {
+                        if (getData.outletlist.length > 0) {
+                            while (i <= getData.outletlist.length - 1) {
+                     
+                         if(getData.outletlist[i].beaconmajor!=""){
+                                     //   alert(getData.outletlist[i].beaconmajor);
+                                for (var m = 0; m < result.beacons.length; m++) {
+                                    var beacon = result.beacons[m];
+                                    if (beacon.major == getData.outletlist[i].beaconmajor && beacon.minor == getData.outletlist[i].beaconminor && (beacon.distance > 0 && beacon.distance <= .5)) {
+                                        //navigator.notification.alert(beacon.distance + " " + getData.outletlist[i].messagenotification, function () {}, getData.outletlist[i].outletname, "OK")
+                                          cordova.plugins.notification.local.schedule({
+                                                title: getData.outletlist[i].outletname,
+                                                text: getData.outletlist[i].messagenotification,
+                                                foreground: true
+                                           });
+                                    }
+                                }
+                         }
+                                i++;
+                            
+                            }
+                        } else {
+                            navigator.notification.alert("Due to a system error, beacons location cannot process. Please close the app and log in again. ", function () {
+                            }, "SNTTA Travel", "Dismiss")
+                            hideSpin(); //hide loading popup
+                        }
+                    } else {
+                        navigator.notification.alert("Due to a system error,  beacons location cannot process. " + getData.statusdesc, function () {
+                        }, "SNTTA Travel", "Dismiss")
+                        hideSpin(); //hide loading popup
+                    }
+                },
+                error: function (error) {
+                    navigator.notification.alert("Due to a system error,  beacons location cannot process.  Please check your network connection and try again.", function () {
+                    }, "SNTTA Travel", "Dismiss")
+                }
+            });
         }
-        window.localStorage.setItem("beacondone", "1");
         hideSpin();
     }
 
@@ -2821,6 +2866,7 @@ function completeRedemption() {
             clearAllVariables();
 
             if (firsttime === "") { //Register Access and device in the platform
+                            window.estimote.startRanging("Telerik");
                 mdevice = device.model;
                 muuid = device.uuid;
                 mversion = device.version;
@@ -2844,7 +2890,6 @@ function completeRedemption() {
                 window.localStorage.setItem("static_social_msg", static_social_msg);
                 window.localStorage.setItem("category", "");
                 window.localStorage.setItem("merchant", merchant);
-                window.localStorage.setItem("beacondone", "");
                 fbCleanVariables();
                 noAlcoholCountry();
                 $.ajax({
@@ -2983,9 +3028,6 @@ function completeRedemption() {
 
 
 
-
-                document.addEventListener('beaconsReceived', onBeaconsReceived, false);
-                window.estimote.startRanging("Telerik");
 
 
 
