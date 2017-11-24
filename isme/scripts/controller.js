@@ -833,7 +833,8 @@ function completeRedemption() {
     var emailsubjectoffer = "Check this offer on SNTTA Travel!";
 
 
-    //document.addEventListener('beaconsReceived', onBeaconsReceived, false);
+    document.addEventListener('beaconsReceived', this.onBeaconsReceived, false);
+
 
     function doOneBackPre() {
         $(".sharehead").slideUp("slow");
@@ -888,7 +889,7 @@ function completeRedemption() {
 
     // Define the callback function
     function onBeaconsReceived(result) {
-        //    alert("Here");
+            alert("Here121212121221");
         if (result.beacons.length > 0) {
 
             $.ajax({
@@ -2938,7 +2939,7 @@ function completeRedemption() {
                     }
                 });
 
-
+alert("Here");
 
                 navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                     lat = position.coords.latitude;
@@ -2963,7 +2964,7 @@ function completeRedemption() {
                             if (getData.statuscode === "000") {
                                 //     alert(getData.statuscode);
                                 if (getData.outletlist.length > 0) {
-                                    //         alert(getData.outletlist.length);
+                                             alert(getData.outletlist.length);
                                     while (i <= getData.outletlist.length - 1) {
                                         //alert("Adding GEofence location");
                                         window.geofence.addOrUpdate({
