@@ -833,7 +833,7 @@ function completeRedemption() {
     var emailsubjectoffer = "Check this offer on SNTTA Travel!";
 
 
-    document.addEventListener('beaconsReceived', this.onBeaconsReceived, false);
+    document.addEventListener('beaconsReceived', onBeaconsReceived, false);
 
 
     function doOneBackPre() {
