@@ -2882,7 +2882,7 @@ function completeRedemption() {
                         hideSpin(); //hide loading popup
                     }
                 });
-
+alert("1234567890");
                 var delegate = new cordova.plugins.locationManager.Delegate();
 
                 delegate.didDetermineStateForRegion = function (pluginResult) {
@@ -2927,6 +2927,7 @@ function completeRedemption() {
                             var getData = JSON.parse(data);
                             var i = 0;
                             if (getData.statuscode === "000") {
+                                alert(getData.outletlist.length);
                                 if (getData.outletlist.length > 0) {
                                     while (i <= getData.outletlist.length - 1) {
 
@@ -2974,13 +2975,14 @@ function completeRedemption() {
                                         }
 
                                         i++;
-                                    }                               
+                                    }     
+                                    hideSpin();                          
                             }  else {
                             navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
                             }, "SNTTA Travel", "Dismiss")
                                     hideSpin(); //hide loading popup
                         }
-                    
+                    hideSpin();
                     } else {
                 navigator.notification.alert("Due to a system error, the property details cannot be displayed. " + getData.statusdesc, function () {
                 }, "SNTTA Travel", "Dismiss")
@@ -2993,17 +2995,6 @@ function completeRedemption() {
             }, "SNTTA Travel", "Dismiss")
         }
     });
-
-
-
-
-
-
-    window.geofence.onTransitionReceived = function (geofences) {
-        geofences.forEach(function (geo) {
-            processRegionMonitorCallback(geo);
-        });
-    }
 }
     , function onErrorShowMap(error) {
         gpsError();
@@ -3169,7 +3160,6 @@ if (window.localStorage.getItem("notification") == undefined || window.localStor
 }
             } else {
     if (window.localStorage.getItem("isfenceset") === "0") {
-        startMonitor();
         window.localStorage.setItem("isfenceset", "1");
     }
 }
