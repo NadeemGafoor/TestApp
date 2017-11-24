@@ -886,6 +886,61 @@ function completeRedemption() {
 
 
 
+    // Define the callback function
+    function onBeaconsReceived(result) {
+        //    alert("Here");
+        if (result.beacons.length > 0) {
+
+            $.ajax({
+                type: "POST",
+                cache: false,
+                async: true,
+                timeout: 20000,
+                url: gurl + "/outletlist.aspx",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({
+                    merchantcode: merchant, category: "", brandcode: "", mdevice: window.localStorage.getItem("mdevicestat"), outletcode: "", preflocation: window.localStorage.getItem("distance"), prefcuisine: window.localStorage.getItem("cuisine"), prefcelebration: "", prefrestaurant: window.localStorage.getItem("restaurant"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"), customer: ""
+
+                }), success: function (data) {
+                    var getData = JSON.parse(data);
+                    var i = 0;
+                    if (getData.statuscode === "000") {
+                        if (getData.outletlist.length > 0) {
+                            while (i <= getData.outletlist.length - 1) {
+                                alert(getData.outletlist[i].beaconmajor);
+                                for (var m = 0; m < result.beacons.length; m++) {
+                                    var beacon = result.beacons[m];
+                                    if (beacon.major == getData.outletlist[i].beaconmajor && beacon.minor == getData.outletlist[i].beaconminor && (beacon.distance > 0 && beacon.distance <= .5)) {
+                                        //navigator.notification.alert(beacon.distance + " " + getData.outletlist[i].messagenotification, function () {}, getData.outletlist[i].outletname, "OK")
+                                        cordova.plugins.notification.local.schedule({
+                                            title: getData.outletlist[i].outletname,
+                                            text: getData.outletlist[i].messagenotification,
+                                            foreground: true
+                                        });
+                                    }
+                                }
+                                i++;
+                            }
+                        } else {
+                            navigator.notification.alert("Due to a system error, beacons location cannot process. Please close the app and log in again. ", function () {
+                            }, "SNTTA Travel", "Dismiss")
+                            hideSpin(); //hide loading popup
+                        }
+                    } else {
+                        navigator.notification.alert("Due to a system error,  beacons location cannot process. " + getData.statusdesc, function () {
+                        }, "SNTTA Travel", "Dismiss")
+                        hideSpin(); //hide loading popup
+                    }
+                },
+                error: function (error) {
+                    navigator.notification.alert("Due to a system error,  beacons location cannot process.  Please check your network connection and try again.", function () {
+                    }, "SNTTA Travel", "Dismiss")
+                }
+            });
+        }
+        hideSpin();
+    }
+
 
 
 
@@ -2807,7 +2862,7 @@ function completeRedemption() {
             clearAllVariables();
 
             if (firsttime === "") { //Register Access and device in the platform
-                //window.estimote.startRanging("Telerik");
+                window.estimote.startRanging("Telerik");
                 mdevice = device.model;
                 muuid = device.uuid;
                 mversion = device.version;
@@ -2883,29 +2938,6 @@ function completeRedemption() {
                     }
                 });
 
-                var delegate = new cordova.plugins.locationManager.Delegate();
-
-                delegate.didDetermineStateForRegion = function (pluginResult) {
-                    fdidEntera(pluginResult);
-                };
-
-                delegate.didStartMonitoringForRegion = function (pluginResult) {
-                    fdidEntera(pluginResult);
-                };
-
-
-                delegate.didRangeBeaconsInRegion = function (pluginResult) {
-                    fdidEntera(pluginResult);
-                };
-
-                cordova.plugins.locationManager.requestAlwaysAuthorization();
-
-                cordova.plugins.locationManager.setDelegate(delegate);
-
-
-
-
-
 
 
                 navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
@@ -2926,9 +2958,12 @@ function completeRedemption() {
 
                         }), success: function (data) {
                             var getData = JSON.parse(data);
+                            //alert(data);
                             var i = 0;
                             if (getData.statuscode === "000") {
+                                //     alert(getData.statuscode);
                                 if (getData.outletlist.length > 0) {
+                                    //         alert(getData.outletlist.length);
                                     while (i <= getData.outletlist.length - 1) {
                                         //alert("Adding GEofence location");
                                         window.geofence.addOrUpdate({
@@ -2953,44 +2988,18 @@ function completeRedemption() {
                                         i++;
                                         hideSpin(); //hide loading popup
                                     }
-                                    i = 0;
 
-                                    while (i <= getData.outletlist.length - 1) {
-                                        uuid = getData.outletlist[i].beaconuid;
-                                        identifier = getData.outletlist[i].beaconname;
-                                        minor = getData.outletlist[i].beaconminor;
-                                        major = getData.outletlist[i].Beaconmajor;
 
-                                        if (uuid.length > 0 && identifier.length > 0 && minor.length > 0 && major.length > 0) {
-                                            beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
-                                            cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
-                                                .fail()
-                                                .done();
-
-                                            cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-                                                .fail()
-                                                .done();
-                                        }
-
-                                        cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion)
-                                            .fail()
-                                            .done();
-
-                                        i++;
-                                    }
-                                    hideSpin();
                                 } else {
                                     navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
                                     }, "SNTTA Travel", "Dismiss")
                                     hideSpin(); //hide loading popup
                                 }
-                                hideSpin();
                             } else {
                                 navigator.notification.alert("Due to a system error, the property details cannot be displayed. " + getData.statusdesc, function () {
                                 }, "SNTTA Travel", "Dismiss")
                                 hideSpin(); //hide loading popup
                             }
-
                         },
                         error: function (error) {
                             navigator.notification.alert("Due to a system error, the property details cannot be displayed.  Please check your network connection and try again.", function () {
@@ -3001,12 +3010,17 @@ function completeRedemption() {
 
 
 
+
+
                     window.geofence.onTransitionReceived = function (geofences) {
-                        showTop("Monitoring Geofence Called");
                         geofences.forEach(function (geo) {
                             processRegionMonitorCallback(geo);
                         });
                     }
+                }
+                    , function onErrorShowMap(error) {
+                        gpsError();
+                    }, positionOption);
 
 
 
@@ -3014,10 +3028,29 @@ function completeRedemption() {
 
 
 
-                        , function onErrorShowMap(error) {
-                            gpsError();
-                        }, positionOption
-                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 if ((window.localStorage.getItem("password") != undefined) && (window.localStorage.getItem("password") != "")) {
                     customer = window.localStorage.getItem("customer");
@@ -3149,6 +3182,7 @@ function completeRedemption() {
                 }
             } else {
                 if (window.localStorage.getItem("isfenceset") === "0") {
+                    startMonitor();
                     window.localStorage.setItem("isfenceset", "1");
                 }
             }
@@ -3158,7 +3192,7 @@ function completeRedemption() {
 
 
             window.localStorage.setItem("origin", "");
-            window.localStorage.setItem("destination", "");
+            window.localStorage.setItem("destination", "");       
             window.localStorage.setItem("traveldate", "");
             window.localStorage.setItem("returndate", "");
             window.localStorage.setItem("cabinclass", "");
@@ -6777,7 +6811,7 @@ function completeRedemption() {
     }
 
     function processRegionMonitorCallback(mresult) {
-        showTop("Geolocation" + mresult.callbacktype);
+        //    alert(mresult.callbacktype);
         if (mresult.callbacktype === "enter" || mresult.callbacktype === "exit") {
             cordova.plugins.notification.local.schedule({
                 title: "GeoFence",
@@ -6826,18 +6860,91 @@ function completeRedemption() {
             }, positionOption);
     }
 
+    function startMonitor() {
+        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+            lat = position.coords.latitude;
+            lon = position.coords.longitude;
+            window.localStorage.setItem("latl", lat);
+            window.localStorage.setItem("lonl", lon);
+            propertygeo = [];
+            $.ajax({
+                type: "POST",
+                cache: false,
+                async: true,
+                timeout: 20000,
+                url: gurl + "/outletlist.aspx",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({
+                    merchantcode: merchant, category: "", brandcode: "", mdevice: window.localStorage.getItem("mdevicestat"), outletcode: "", preflocation: window.localStorage.getItem("distance"), prefcuisine: window.localStorage.getItem("cuisine"), prefcelebration: "", prefrestaurant: window.localStorage.getItem("restaurant"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"), customer: ""
 
+                }), success: function (data) {
+                    var getData = JSON.parse(data);
+                    //alert(data);
+                    var i = 0;
+                    if (getData.statuscode === "000") {
+                        //     alert(getData.statuscode);
+                        if (getData.outletlist.length > 0) {
+                            //         alert(getData.outletlist.length);
+                            while (i <= getData.outletlist.length - 1) {
+                                //alert("Adding GEofence location");
+                                window.geofence.addOrUpdate({
+                                    id: getData.outletlist[i].outletcode,
+                                    latitude: Number(getData.outletlist[i].lat),
+                                    longitude: Number(getData.outletlist[i].lon),
+                                    radius: Number(getData.outletlist[i].radius),
+                                    transitionType: TransitionType.ENTER,
+                                    notification: {
+                                        id: Number(i),
+                                        title: getData.outletlist[i].outletname,
+                                        text: getData.outletlist[i].smessage,
+                                        openAppOnClick: true
+                                    }
+                                }).then(function () {
+                                    console.log(getData.outletlist[i].outletcode + 'Geofence successfully added');
+                                }, function (reason) {
+                                    console.log(getData.outletlist[i].outletcode + 'Adding geofence failed', reason);
+                                })
+
+                                window.localStorage.setItem("isfenceset", "1");
+                                i++;
+                                hideSpin(); //hide loading popup
+                            }
+                        } else {
+                            navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
+                            }, "SNTTA Travel", "Dismiss")
+                            hideSpin(); //hide loading popup
+                        }
+                    } else {
+                        navigator.notification.alert("Due to a system error, the property details cannot be displayed. " + getData.statusdesc, function () {
+                        }, "SNTTA Travel", "Dismiss")
+                        hideSpin(); //hide loading popup
+                    }
+                },
+                error: function (error) {
+                    navigator.notification.alert("Due to a system error, the property details cannot be displayed.  Please check your network connection and try again.", function () {
+                    }, "SNTTA Travel", "Dismiss")
+                }
+            });
+
+
+            window.geofence.onTransitionReceived = function (geofences) {
+                geofences.forEach(function (geo) {
+                    processRegionMonitorCallback(geo);
+                });
+            }
+        }
+            , function onErrorShowMap(error) {
+                gpsError();
+            }, positionOption);
+
+        hideSpin();
+    }
 
     function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-        showTop("Beacon" + jsonp["state"]);
+
         if (jsonp["state"] === "CLRegionStateInside") {
-            cordova.plugins.notification.local.schedule({
-                title: "Beacon",
-                text: jsonp["region"].identifier + " " + jsonp["state"],
-                foreground: true
-            });
             // window.plugin.notification.local.add({
             //                                         title:   "Beacon",
             //                                          message: jsonp["region"].identifier + " " + jsonp["state"]
