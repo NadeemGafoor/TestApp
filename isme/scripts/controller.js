@@ -6777,7 +6777,7 @@ function completeRedemption() {
     }
 
     function processRegionMonitorCallback(mresult) {
-        showTop(mresult.callbacktype);
+        showTop("Geolocation" + mresult.callbacktype);
         if (mresult.callbacktype === "enter" || mresult.callbacktype === "exit") {
             cordova.plugins.notification.local.schedule({
                 title: "GeoFence",
@@ -6831,7 +6831,7 @@ function completeRedemption() {
     function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-        showTop(jsonp);
+        showTop("Beacon" + jsonp["state"]);
         if (jsonp["state"] === "CLRegionStateInside") {
             cordova.plugins.notification.local.schedule({
                 title: "Beacon",
