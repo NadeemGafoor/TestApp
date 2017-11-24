@@ -2833,6 +2833,7 @@ function completeRedemption() {
                 window.localStorage.setItem("merchant", merchant);
                 fbCleanVariables();
                 noAlcoholCountry();
+                alert("1234567890");
                 $.ajax({
                     type: "POST",
                     cache: false,
@@ -2882,7 +2883,7 @@ function completeRedemption() {
                         hideSpin(); //hide loading popup
                     }
                 });
-alert("1234567890");
+
                 var delegate = new cordova.plugins.locationManager.Delegate();
 
                 delegate.didDetermineStateForRegion = function (pluginResult) {
