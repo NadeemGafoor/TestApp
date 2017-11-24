@@ -886,65 +886,6 @@ function completeRedemption() {
 
 
 
-    // Define the callback function
-    function onBeaconsReceived(result) {
-    //    alert("Here");
-        if (result.beacons.length > 0 ) {
-
-           $.ajax({
-                type: "POST",
-                cache: false,
-                async: true,
-                timeout: 20000,
-                url: gurl + "/outletlist.aspx",
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify({
-                    merchantcode: merchant, category: "", brandcode: "", mdevice: window.localStorage.getItem("mdevicestat"), outletcode: "", preflocation: window.localStorage.getItem("distance"), prefcuisine: window.localStorage.getItem("cuisine"), prefcelebration: "", prefrestaurant: window.localStorage.getItem("restaurant"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"), customer: ""
-
-                }), success: function (data) {
-                    var getData = JSON.parse(data);
-                    var i = 0;
-                    if (getData.statuscode === "000") {
-                        if (getData.outletlist.length > 0) {
-                            while (i <= getData.outletlist.length - 1) {
-                     
-                         if(getData.outletlist[i].beaconmajor!=""){
-                                     //   alert(getData.outletlist[i].beaconmajor);
-                                for (var m = 0; m < result.beacons.length; m++) {
-                                    var beacon = result.beacons[m];
-                                    if (beacon.major == getData.outletlist[i].beaconmajor && beacon.minor == getData.outletlist[i].beaconminor && (beacon.distance > 0 && beacon.distance <= .5)) {
-                                        //navigator.notification.alert(beacon.distance + " " + getData.outletlist[i].messagenotification, function () {}, getData.outletlist[i].outletname, "OK")
-                                          cordova.plugins.notification.local.schedule({
-                                                title: getData.outletlist[i].outletname,
-                                                text: getData.outletlist[i].messagenotification,
-                                                foreground: true
-                                           });
-                                    }
-                                }
-                         }
-                                i++;
-                            
-                            }
-                        } else {
-                            navigator.notification.alert("Due to a system error, beacons location cannot process. Please close the app and log in again. ", function () {
-                            }, "SNTTA Travel", "Dismiss")
-                            hideSpin(); //hide loading popup
-                        }
-                    } else {
-                        navigator.notification.alert("Due to a system error,  beacons location cannot process. " + getData.statusdesc, function () {
-                        }, "SNTTA Travel", "Dismiss")
-                        hideSpin(); //hide loading popup
-                    }
-                },
-                error: function (error) {
-                    navigator.notification.alert("Due to a system error,  beacons location cannot process.  Please check your network connection and try again.", function () {
-                    }, "SNTTA Travel", "Dismiss")
-                }
-            });
-        }
-        hideSpin();
-    }
-
 
 
 
@@ -2866,7 +2807,7 @@ function completeRedemption() {
             clearAllVariables();
 
             if (firsttime === "") { //Register Access and device in the platform
-      //                      window.estimote.startRanging("Telerik");
+                            window.estimote.startRanging("Telerik");
                 mdevice = device.model;
                 muuid = device.uuid;
                 mversion = device.version;
@@ -2943,6 +2884,29 @@ function completeRedemption() {
                 });
 
 
+                                                    var delegate = new cordova.plugins.locationManager.Delegate();
+
+                                                   delegate.didDetermineStateForRegion = function (pluginResult) {
+                                                       fdidEntera(pluginResult);
+                                                   };
+
+                                                   delegate.didStartMonitoringForRegion = function (pluginResult) {
+                                                       fdidEntera(pluginResult);
+                                                   };
+
+                                                   delegate.didRangeBeaconsInRegion = function (pluginResult) {
+                                                       fdidEntera(pluginResult);
+                                                   };
+                                                   
+                                                   cordova.plugins.locationManager.requestAlwaysAuthorization();
+                                                   
+                                                   cordova.plugins.locationManager.setDelegate(delegate);          
+
+
+
+
+
+
 
                 navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                     lat = position.coords.latitude;
@@ -2951,7 +2915,7 @@ function completeRedemption() {
                     window.localStorage.setItem("lonl", lon);
                     propertygeo = [];
                     $.ajax({
-                        type: "POST",
+                        type: "POST",  
                         cache: false,
                         async: true,
                         timeout: 20000,
@@ -2962,31 +2926,93 @@ function completeRedemption() {
 
                         }), success: function (data) {
                             var getData = JSON.parse(data);
-                            //alert(data);
                             var i = 0;
                             if (getData.statuscode === "000") {
-                                //     alert(getData.statuscode);
                                 if (getData.outletlist.length > 0) {
-                                    //         alert(getData.outletlist.length);
                                     while (i <= getData.outletlist.length - 1) {
-                                        //alert("Adding GEofence location");
-                                        window.geofence.addOrUpdate({
-                                            id: getData.outletlist[i].outletcode,
-                                            latitude: Number(getData.outletlist[i].lat),
-                                            longitude: Number(getData.outletlist[i].lon),
-                                            radius: Number(getData.outletlist[i].radius),
-                                            transitionType: TransitionType.ENTER,
-                                            notification: {
-                                                id: Number(i),
-                                                title: getData.outletlist[i].outletname,
-                                                text: getData.outletlist[i].smessage,
-                                                openAppOnClick: true
-                                            }
-                                        }).then(function () {
-                                            console.log(getData.outletlist[i].outletcode + 'Geofence successfully added');
-                                        }, function (reason) {
-                                            console.log(getData.outletlist[i].outletcode + 'Adding geofence failed', reason);
-                                        })
+
+                                                                                  //Stop Geo Fence Monitor
+                                                                                  propertygeo[i] = getData.outletlist[i].msgtitle + "#" + getData.outletlist[i].lat + "#" + getData.outletlist[i].lon;
+                                                                                  //alert(propertygeo[i]);
+                                                                                  params = [getData.outletlist[i].outletcode, getData.outletlist[i].lat, getData.outletlist[i].lon];
+                                                                                  window.plugins.DGGeofencing.stopMonitoringRegion(params, function(result) {
+                                                                                  }, function(error) {
+                                                                                      m = JSON.stringify(error);
+                                                                                      m = JSON.parse(m);
+                                                                                      showTop(m.message);   
+                                                                                  });
+                                                                                  
+                                                                                  //Start Geofence Monitoring
+                                                                                  params = [getData.outletlist[i].outletcode, getData.outletlist[i].lat, getData.outletlist[i].lon,  parseInt(getData.outletlist[i].radius)];
+                                                                                  //alert(getData.propertylist[i].brandcode + " " + getData.propertylist[i].lat +  " " +  getData.propertylist[i].lon + " " +   getData.propertylist[i].radius);
+                                                                                  window.plugins.DGGeofencing.startMonitoringRegion(params, function(result) {
+                                                                                  }, function(error) {
+                                                                                      m = JSON.stringify(error);
+                                                                                      m = JSON.parse(m);
+                                                                                      showTop(m.message);   
+                                                                                  });
+                                                                                                                                                                 
+                                                                                  i++;
+                                                                              }
+                                                                              
+                                                                              i = 0;
+                                                                              
+                                                                              while (i <= getData.outletlist.length - 1) {
+                                                                                  uuid = getData.outletlist[i].beaconuid;
+                                                                                  identifier = getData.outletlist[i].beaconname;
+                                                                                  minor = getData.outletlist[i].beaconminor;
+                                                                                  major = getData.outletlist[i].Beaconmajor;
+                                                                                   
+                                                                                  if (uuid.length > 0 && identifier.length > 0 && minor.length > 0 && major.length > 0) {
+                                                                                      beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
+                                                                                      cordova.plugins.locationManager.stopMonitoringForRegion(beaconRegion)
+                                                                                          .fail()
+                                                                                          .done();
+                                                                                      
+                                                                                      cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
+                                                                                          .fail()
+                                                                                          .done();
+                                                                                  }
+                                                                                  
+                                                                                  i++;
+                                                                              }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                                         window.localStorage.setItem("isfenceset", "1");
                                         i++;
@@ -6864,90 +6890,12 @@ function completeRedemption() {
             }, positionOption);
     }
 
-    function startMonitor() {
-        navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
-            lat = position.coords.latitude;
-            lon = position.coords.longitude;
-            window.localStorage.setItem("latl", lat);
-            window.localStorage.setItem("lonl", lon);
-            propertygeo = [];
-            $.ajax({
-                type: "POST",
-                cache: false,
-                async: true,
-                timeout: 20000,
-                url: gurl + "/outletlist.aspx",
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify({
-                    merchantcode: merchant, category: "", brandcode: "", mdevice: window.localStorage.getItem("mdevicestat"), outletcode: "", preflocation: window.localStorage.getItem("distance"), prefcuisine: window.localStorage.getItem("cuisine"), prefcelebration: "", prefrestaurant: window.localStorage.getItem("restaurant"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"), customer: ""
-
-                }), success: function (data) {
-                    var getData = JSON.parse(data);
-                    //alert(data);
-                    var i = 0;
-                    if (getData.statuscode === "000") {
-                        //     alert(getData.statuscode);
-                        if (getData.outletlist.length > 0) {
-                            //         alert(getData.outletlist.length);
-                            while (i <= getData.outletlist.length - 1) {
-                                //alert("Adding GEofence location");
-                                window.geofence.addOrUpdate({
-                                    id: getData.outletlist[i].outletcode,
-                                    latitude: Number(getData.outletlist[i].lat),
-                                    longitude: Number(getData.outletlist[i].lon),
-                                    radius: Number(getData.outletlist[i].radius),
-                                    transitionType: TransitionType.ENTER,
-                                    notification: {
-                                        id: Number(i),
-                                        title: getData.outletlist[i].outletname,
-                                        text: getData.outletlist[i].smessage,
-                                        openAppOnClick: true
-                                    }
-                                }).then(function () {
-                                    console.log(getData.outletlist[i].outletcode + 'Geofence successfully added');
-                                }, function (reason) {
-                                    console.log(getData.outletlist[i].outletcode + 'Adding geofence failed', reason);
-                                })
-
-                                window.localStorage.setItem("isfenceset", "1");
-                                i++;
-                                hideSpin(); //hide loading popup
-                            }
-                        } else {
-                            navigator.notification.alert("Due to a system error, the property details cannot be displayed. Please close the app and log in again. ", function () {
-                            }, "SNTTA Travel", "Dismiss")
-                            hideSpin(); //hide loading popup
-                        }
-                    } else {
-                        navigator.notification.alert("Due to a system error, the property details cannot be displayed. " + getData.statusdesc, function () {
-                        }, "SNTTA Travel", "Dismiss")
-                        hideSpin(); //hide loading popup
-                    }
-                },
-                error: function (error) {
-                    navigator.notification.alert("Due to a system error, the property details cannot be displayed.  Please check your network connection and try again.", function () {
-                    }, "SNTTA Travel", "Dismiss")
-                }
-            });
-
-
-            window.geofence.onTransitionReceived = function (geofences) {
-                geofences.forEach(function (geo) {
-                    processRegionMonitorCallback(geo);
-                });
-            }
-        }
-            , function onErrorShowMap(error) {
-                gpsError();
-            }, positionOption);
-
-        hideSpin();
-    }
+  
 
     function fdidEntera(data) {
         var json = JSON.stringify(data);
         var jsonp = JSON.parse(json);
-
+alert(data);
         if (jsonp["state"] === "CLRegionStateInside") {
             // window.plugin.notification.local.add({
             //                                         title:   "Beacon",
