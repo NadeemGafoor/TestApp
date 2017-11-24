@@ -889,7 +889,6 @@ function completeRedemption() {
 
     // Define the callback function
     function onBeaconsReceived(result) {
-            alert("Here121212121221");
         if (result.beacons.length > 0) {
 
             $.ajax({
@@ -908,12 +907,11 @@ function completeRedemption() {
                     if (getData.statuscode === "000") {
                         if (getData.outletlist.length > 0) {
                             while (i <= getData.outletlist.length - 1) {
-                                alert(getData.outletlist[i].beaconmajor);
                                 for (var m = 0; m < result.beacons.length; m++) {
                                     var beacon = result.beacons[m];
                                     if (beacon.major == getData.outletlist[i].beaconmajor && beacon.minor == getData.outletlist[i].beaconminor && (beacon.distance > 0 && beacon.distance <= .5)) {
-                                        //navigator.notification.alert(beacon.distance + " " + getData.outletlist[i].messagenotification, function () {}, getData.outletlist[i].outletname, "OK")
-                                        cordova.plugins.notification.local.schedule({
+                                        navigator.notification.alert(beacon.distance + " " + getData.outletlist[i].messagenotification, function () {}, getData.outletlist[i].outletname, "OK")
+                                        cordova.plugins.notification.local.schedul({
                                             title: getData.outletlist[i].outletname,
                                             text: getData.outletlist[i].messagenotification,
                                             foreground: true
