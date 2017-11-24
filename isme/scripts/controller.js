@@ -2939,7 +2939,6 @@ function completeRedemption() {
                     }
                 });
 
-alert("Here");
 
                 navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
                     lat = position.coords.latitude;
@@ -2959,12 +2958,9 @@ alert("Here");
 
                         }), success: function (data) {
                             var getData = JSON.parse(data);
-                            //alert(data);
                             var i = 0;
                             if (getData.statuscode === "000") {
-                                //     alert(getData.statuscode);
                                 if (getData.outletlist.length > 0) {
-                                             alert(getData.outletlist.length);
                                     while (i <= getData.outletlist.length - 1) {
                                         //alert("Adding GEofence location");
                                         window.geofence.addOrUpdate({
