@@ -2953,7 +2953,7 @@ function completeRedemption() {
                                                 latitude: Number(getData.outletlist[i].lat),
                                                 longitude: Number(getData.outletlist[i].lon),
                                                 radius: Number(getData.outletlist[i].radius),
-                                                transitionType: TransitionType.ENTER,
+                                                transitionType: TransitionType.BOTH,
                                                 notification: {
                                                     id: Number(i),
                                                     title: getData.outletlist[i].outletname,
@@ -6792,13 +6792,8 @@ function completeRedemption() {
         }
 
         function processRegionMonitorCallback(mresult) {
-            //    alert(mresult.callbacktype);
-            if (mresult.callbacktype === "enter" || mresult.callbacktype === "exit") {
-                cordova.plugins.notification.local.schedule({
-                    title: "GeoFence",
-                    text: mresult.regionId + " " + mresult.callbacktype,
-                    foreground: true
-                });
+               showTop(mresult);
+            
                 $.ajax({
                     type: "POST",
                     cache: false,
@@ -6807,14 +6802,14 @@ function completeRedemption() {
                     url: gurl + "/trackdevice.aspx",
                     contentType: "application/json; charset=utf-8",
                     data: JSON.stringify({
-                        merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^enter^" + mresult.callbacktype, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: mresult.regionId
+                        merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat") + "^enter^", lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: mresult.regionId
                     }),
                     success: function (data) {
                     },
                     error: function (error) {
                     }
                 });
-            }
+
         }
 
         function showTop(e) {
