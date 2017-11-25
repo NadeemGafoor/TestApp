@@ -902,7 +902,7 @@ function completeRedemption() {
                         url: gurl + "/beaconMessageBroadCast.aspx",
                         contentType: "application/json; charset=utf-8",
                         data: JSON.stringify({
-                            merchantcode: window.localStorage.getItem("merchant"), mdevice: beacon.distance + "^" + window.localStorage.getItem("mdevicestat") + "^" + beacon.name + "^" + beacon.rssi + "^" + beacon.minor + "^" + beacon.major, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: beacon.name
+                            merchantcode: window.localStorage.getItem("merchant"), mdevice: beacon.distance + "^" + window.localStorage.getItem("mdevicestat") + "^" + beacon.name + "^" + beacon.rssi + "^" + beacon.minor + "^" + beacon.major, lat: lat, lon: lon, customer: window.localStorage.getItem("customer"), segment: beacon.name,major:beacon.major,minor:beacon.minor
                         }),
                         success: function (data) {
                             var getData = JSON.parse(data);
@@ -927,7 +927,7 @@ function completeRedemption() {
             hideSpin();
         }
 
-
+    }
 
 
         function getFBUserExists() {
