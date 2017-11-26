@@ -2301,7 +2301,7 @@ tile-frame-inner {
 }
 
 .cblack {
-    color: #253874;
+    color: #283880;
 }
 
 .hanging-icon {
@@ -2456,11 +2456,13 @@ tile-frame-inner {
 .searchbox {
     width: 85%;
     height: 35px;
-    border: none;
     margin-left: 5px;
-    text-align: center;
+    text-align:left;
+    padding-left:10px;
     float: left;
     position: relative;
+    border:solid 1px #ccc;
+    border-radius:5px !important;
 }
 
 .center-line {
@@ -2698,8 +2700,11 @@ border-radius:5px;
 
 .airport-item .km-button{
 color:#283880;
-padding:auto auto auto 5px;
+padding-left: 10px;
+padding-top:15px;
 width:100%;
-height:50px;
+height:40px;
+text-align:left;
+border:none;
 }
 

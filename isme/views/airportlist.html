@@ -1,11 +1,19 @@
 <div data-role="view" data-reload="true" data-title="Airport List" data-layout="pre-layout" id="modalairportlist"  data-model="preLogin" data-show="preLogin.listAirport" data-hide="preLogin.destroyAirportList" data-after-show="disableBackButton" data-before-hide="enableBackButton">
     <div data-role="header">
         <div data-role="navbar">
-            <a  data-role="backbutton" data-align="left" style="color:#fff"></a>
+            <a  data-role="backbutton" data-align="left" style="margin-top:3px;color:#fff"></a>
             <span data-role="view-title"></span>
         </div>
     </div>
- 
+ <div style="height:35px">
+     <form action="javascript:SearchPage();">
+            <input id="input_search_word" type="text" class="searchbox" placeholder="Enter Airport Or City to Search" style="border-radius:5px !important">
+
+          <div class="button-search">
+        <a data-role="button" id="post-search" data-click="SearchPage"><i class="fa fa-search fa-2x cblack"></i></a>
+    </div>
+        </form>     
+    </div>
      <ul data-role="listview" id="airport-list">
 
     </ul>

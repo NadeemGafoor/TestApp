@@ -1,16 +1,8 @@
 var propertygeo = [];
 var airporttype = "";
 function SearchPage() {
-    var sr = document.getElementById("input_search_word").value;
-    window.setTimeout(window.plugins.nativepagetransitions.slide({
-        "duration": 500, // in milliseconds (ms), default 400
-        "slowdownfactor": 3, // overlap views (higher number is more) or no overlap (1), default 4
-        "iosdelay": 100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-        "androiddelay": 150, // same as above but for Android, default 70
-
-        'direction': 'up',
-        'href': '#views/pl-myreward.html?mcategory=&mname=' + sr
-    }), 500);
+   
+    preLogin.listAirport();
 }
 
 function FacebookErr() {
@@ -2112,7 +2104,49 @@ function completeRedemption() {
             });
         },
         listAirport: function () {
-            alert("here");
+            var sr = document.getElementById("input_search_word").value;
+                   navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
+            lat = position.coords.latitude;
+            lon = position.coords.longitude
+            var geocodingAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=" + googleapikey;
+
+            $.getJSON(geocodingAPI, function (json) {
+                if (json.status === "OK") {
+                    //Check result 0
+                    var result = json.results[0];
+                    for (var i = 0, len = result.address_components.length; i < len; i++) {
+                        var ac = result.address_components[i];
+                        if (ac.types.indexOf("locality") >= 0) {
+                            geocity = ac.long_name;
+                        }
+
+                        if (ac.types.indexOf("country") >= 0) {
+                            mcountry = ac.long_name;
+                            window.localStorage.setItem("country", mcountry);
+                        }
+                    }
+                    getFlag(mcountry);
+                } else {
+                    mcountry = country;
+                    window.localStorage.setItem("country", mcountry);
+                    getFlag(mcountry);
+                }
+            });
+        }
+            , function onErrorShowMap(error) { //Location services not enabled on device or error accessing GPS switch to the default saved city/country
+                //  if (err.code == "1") {
+                //      navigator.notification.alert("Your Device has disabled GPS access for the app, please enable the GPS on the Settings. Switching to last Location!");  
+                //  } else if (err.code == "2") {
+                //      navigator.notification.alert("Device is unable to get the GPS position");  
+                //  }
+                lat = window.localStorage.getItem("lat");
+                lon = window.localStorage.getItem("lon");
+                mcountry = country;
+                window.localStorage.setItem("country", mcountry);
+                getFlag(mcountry);
+            }, positionOption);
+    
+            alert(window.localStorage.getItem("country"));
             showSpin();
             $.ajax({
                 type: "POST",
@@ -2122,11 +2156,10 @@ function completeRedemption() {
                 url: gurl + "/airportList.aspx",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
-                    merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl")
+                    merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"),country:window.localStorage.getItem("country"),airportkey:sr
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
-                    alert(getData.statuscode);
                     if (getData.statuscode === "000") {
                         $("#airport-list").kendoMobileListView({
 
@@ -2143,6 +2176,7 @@ function completeRedemption() {
                                 endlessScroll: true
                             }
                         });
+                        hideSpin();
                     } else {
                         navigator.notification.alert("Due to a system error, cannot retrieve Airport List. Please close the app and log in again.  " + getData.statusdesc, function () {
                         }, "SNTTA Travel", "Dismiss")
