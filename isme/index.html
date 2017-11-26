@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 
 <head>
     <title></title>
@@ -111,6 +111,16 @@
             <div class="filler10">&nbsp;</div>
         </footer>
     </div>
+
+    <div data-role="modalview" id="modalairportlist" data-title="" style="height:100%;width:100%" data-model="preLogin" data-show="preLogin.listAirport">
+        <div data-role="header">
+            <div data-role="navbar" style="background-color:#283880"><span>Airport List</span><a data-click="closeAirportList" data-role="button" data-align="right"> <i class="fa fa-times-circle fa-lg" style="color:#fff"></i> </a></div>
+        </div>
+        <ul id="airport-list" data-bind="value:getCelebrationFilter"> </ul>
+    </div>
+
+
+
     <div data-role="modalview" id="modalsavesettings" data-title="" style="height:100%;width:100%" data-model="postLogin"
         data-show="postLogin.saveSettings"> </div>
     <div data-role="modalview" id="modalviewfilter" style="height:50%;width:90%" data-model="preLogin" data-hide="preLogin.destroymodalviewfilter">

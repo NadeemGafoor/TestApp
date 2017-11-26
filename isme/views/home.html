@@ -16,10 +16,10 @@
     </ul>
     <ul data-role="listview" class="centerform" id="onewayjourney">
         <li> <label class="km-required km-label-above">Travelling From
-                    <input id="owfrom" placeholder="Enter Origin City" type="text" data-bind="value:owfrom"/>
+                    <a data-role="button"  data-click="openAirportList('oo')" id="owfrom" style="color:#ccc;width:100%">Origin City</a>
                 </label> </li>
         <li> <label class="km-label-above">Travelling To
-                    <input id="owto" placeholder="Enter Destination city" type="text" data-bind="value:owto"/>
+                    <a data-role="button"  data-click="openAirportList('od')" id="owto" style="color:#ccc;width:100%">Destination City</a>
                 </label> </li>
         <li> <label class="km-label-above">Date of Travel
                     <input id="owtraveldate" placeholder="Select Date" type="date" data-bind="value:owtraveldate" />

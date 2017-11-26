@@ -1,5 +1,5 @@
 var propertygeo = [];
-
+var airporttype = "";
 function SearchPage() {
     var sr = document.getElementById("input_search_word").value;
     window.setTimeout(window.plugins.nativepagetransitions.slide({
@@ -166,6 +166,14 @@ function getLocation6() {
     document.getElementById("map_canvas2").innerHTML = "";
     mapInitializeA();
     //   }
+}
+
+
+function openAirportList(e) {
+    alert(e);
+    airporttype=e;
+    $("#modalairportlist").data("kendoMobileModalView").open();
+
 }
 
 function mapInitialize() {
@@ -1083,8 +1091,8 @@ function completeRedemption() {
             checkcuisine: false,
             checkcelebration: false,
             checklifestyle: false,
-            owfrom: "",
-            owto: "",
+//            owfrom: "",
+//            owto: "",
             owtraveldate: "",
             owpromotion: "",
             retfrom: "",
@@ -1105,17 +1113,17 @@ function completeRedemption() {
             searchFlightOneWay: function () {
 
                 today = new Date();
-                if (!this.owfrom) {
+                if (window.localStorage.getItem("origin")=="") {
                     navigator.notification.alert("Please Select Origin City", function () {
                     }, "SNTTA Travel", "Dismiss");
                     return;
                 }
-                if (!this.owto) {
+                if (window.localStorage.getItem("destination")=="") {
                     navigator.notification.alert("Please Select Destination City", function () {
                     }, "SNTTA Travel", "Dismiss");
                     return;
                 }
-                if (this.owto == this.owfrom) {
+                if (window.localStorage.getItem("destination") == window.localStorage.getItem("origin")) {
                     navigator.notification.alert("Origin and Destination City Cannot be Same", function () {
                     }, "SNTTA Travel", "Dismiss");
                     return;
