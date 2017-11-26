@@ -1158,26 +1158,41 @@ function completeRedemption() {
                 mdate = today;
 
 
-                //window.localStorage.setItem("origin", this.owfrom.toUpperCase());
-                //            window.localStorage.setItem("destination", this.owto.toUpperCase());
-                //            window.localStorage.setItem("traveldate", dd + "-" + moment().month(Number(mm)).format('MMMM'));
-                //            window.localStorage.setItem("returndate", "");
-                //            window.localStorage.setItem("cabinclass", mcabinclass);
-                //            window.localStorage.setItem("adult", madult);
-                //            window.localStorage.setItem("child", mchild);
-                //            window.localStorage.setItem("infant", minfant);
-                //            window.localStorage.setItem("journeyheader", this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway");
-                //            window.localStorage.setItem("journeysubheader", Number(madult) + Number(mchild) + Number(minfant) + " <i class='fa fa-user'></i> " + window.localStorage.getItem("traveldate") + " " + window.localStorage.getItem("returndate"));
-                //            window.localStorage.setItem("passenger", Number(madult) + Number(mchild) + Number(minfant));
+                            window.localStorage.setItem("origin", this.owfrom.toUpperCase());
+                       //     alert(window.localStorage.getItem("origin"));
+                            window.localStorage.setItem("destination", this.owto.toUpperCase());
+                      //      alert(window.localStorage.getItem("destination"));
+                            window.localStorage.setItem("traveldate", today);
+                     //       alert(window.localStorage.getItem("traveldate"));
+                            window.localStorage.setItem("returndate", "");
+                     //       alert(window.localStorage.getItem("returndate"));
+                            window.localStorage.setItem("cabinclass", mcabinclass);
+                     //       alert(window.localStorage.getItem("cabinclass"));
+                            window.localStorage.setItem("adult", madult);
+                      //      alert(window.localStorage.getItem("adult"));
+                            window.localStorage.setItem("child", mchild);
+                       //     alert(window.localStorage.getItem("child"));
+                            window.localStorage.setItem("infant", minfant);
+                        //    alert(window.localStorage.getItem("infant"));
+                            window.localStorage.setItem("journeyheader", this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway");
+                       //     alert(window.localStorage.getItem("journeyheader"));
+                            window.localStorage.setItem("journeysubheader", Number(madult) + Number(mchild) + Number(minfant) + " <i class='fa fa-user'></i> " + window.localStorage.getItem("cabinclass") + " " + window.localStorage.getItem("traveldate"));
+                       //     alert(window.localStorage.getItem("journeysubheader"));
+                            window.localStorage.setItem("passenger", Number(madult) + Number(mchild) + Number(minfant));
+                       //     alert(window.localStorage.getItem("passenger"));
 
-                // alert(mcabinclass);
-                // alert(madult);
-                // alert(mchild);
-                // alert(minfant);
-                // alert(this.owfrom);
-                // alert(this.owto);
-                //alert(mdate);
-                showSpin();
+
+
+
+
+
+
+
+
+
+
+
+               showSpin();
                 $.ajax({
                     type: "POST",
                     cache: false,
@@ -1307,7 +1322,6 @@ function completeRedemption() {
                         var getData = JSON.parse(data);
                         if (getData.statuscode === "000") {
                             window.localStorage.setItem("traceid", getData.traceid);
-                            hideSpin();
                             $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
                         } else {
                             navigator.notification.alert("Unable to find Flights for the selected Itinerary", function () {
@@ -2362,9 +2376,9 @@ function completeRedemption() {
             },
 
             searchResultOneWay: function () {
-
+                document.getElementById("itheader").innerHTML =window.localStorage.getItem("journeyheader");
+                document.getElementById("itsubheader").innerHTML =window.localStorage.getItem("journeysubheader");
                 showSpin();
-                //  alert(window.localStorage.getItem("traceid"));
                 $.ajax({
                     type: "POST",
                     cache: false,
@@ -2394,7 +2408,7 @@ function completeRedemption() {
                                         endlessScroll: true
                                     }
                                 });
-                                hideSpin(); //hide loading popup
+                                //hideSpin(); //hide loading popup
                             } else {
                                 navigator.notification.alert("No flights found for the selected Itinerary", function () {
                                 }, "SNTTA Travel", "Dismiss")
@@ -3185,12 +3199,6 @@ function completeRedemption() {
                 window.localStorage.setItem("journeysubheader", "");
                 window.localStorage.setItem("passenger", "0");
                 window.localStorage.setItem("traceid", "");
-
-
-                //   preLogin.set("owfrom", "");
-                //   prelogin.set("owto","");
-                //     preLogin.set("owtraveldate","");
-                //    preLogin.set("owpromotion","");
                 document.getElementById("owtraveldate").valueAsDate = new Date();//today;
                 document.getElementById("rettraveldate").valueAsDate = new Date();// today;
                 document.getElementById("retreturndate").valueAsDate = new Date();//today;
