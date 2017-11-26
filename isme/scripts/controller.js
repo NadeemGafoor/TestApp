@@ -170,10 +170,9 @@ function getLocation6() {
 
 
 function openAirportList(e) {
-    alert(e);
-    airporttype=e;
+    var data = e.button.data();
+    airporttype=data.id;
     $("#modalairportlist").data("kendoMobileModalView").open();
-
 }
 
 function mapInitialize() {
@@ -322,6 +321,11 @@ function outletMessage() {
 function closeSetPinForEnrollment() {
     $("#modalviewpin").data("kendoMobileModalView").close();
 }
+
+function closeAirportList() {
+    $("#modalairportlist").data("kendoMobileModalView").close();
+}
+
 
 function resetPinForEnrollment() {
     $("#modalviewpin").data("kendoMobileModalView").close();
@@ -2096,7 +2100,51 @@ function completeRedemption() {
                     }
                 });
             },
+listAirport            : function () {
+                alert("here");
+                showSpin();
+                $.ajax({
+                    type: "POST",
+                    cache: false,
+                    async: true,
+                    timeout: 20000,
+                    url: gurl + "/listairport.aspx",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                        merchantcode: window.localStorage.getItem("merchant"),mdevice: window.localStorage.getItem("mdevicestat"),lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl")
+                    }),
+                    success: function (data) {
+                        var getData = JSON.parse(data);
+                        alert(getData.statuscode);
+                        if (getData.statuscode === "000") {
+                                $("#airport-list").kendoMobileListView({
 
+                                    dataSource: kendo.data.DataSource.create({ data: getData.airportlist }),
+                                    template: $("#airportTemplate").html(),
+                                    filterable: {
+                                        autoFilter: true,
+                                        placeholder: "Search By Airport Or City",
+                                        field: "airportname",
+                                        operator: "contains",
+                                        serverPaging: true,
+                                        serverSorting: true,
+                                        pageSize: 50,
+                                        endlessScroll: true
+                                    }
+                                });
+                            }  else {
+                            navigator.notification.alert("Due to a system error, cannot retrieve Airport List. Please close the app and log in again.  " + getData.statusdesc, function () {
+                            }, "SNTTA Travel", "Dismiss")
+                            hideSpin(); //hide loading popup
+                        }
+                    },
+                    error: function (errormsg) {
+                        navigator.notification.alert("Due to a system error, cannot retrieve Airport List. [" + errormsg.statusText + "]  Please check your network connection and try again. ", function () {
+                        }, "SNTTA Travel", "Dismiss")
+                        hideSpin(); //hide loading popup
+                    }
+                });
+            },
             showAllOutlet
             : function (e) {
 

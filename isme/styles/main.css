@@ -88,7 +88,7 @@ a {
     background-color: rgba(255, 255, 255, 1);
 }
 
-#outletlist-theme .km-content, #outletlistb-theme .km-content, #offerdetail-theme .km-content, #pl-outletlist-theme .km-content, #pl-outletlistb-theme .km-content, #pl-offerdetail-theme .km-content, #pl-myvoucherdetail-theme .km-content, #outletdetail-theme .km-content, #pl-outletdetail-theme .km-content {
+#outletlist-theme .km-content, #outletlistb-theme .km-content, #offerdetail-theme .km-content, #pl-outletlist-theme .km-content, #pl-outletlistb-theme .km-content, #pl-offerdetail-theme .km-content, #pl-myvoucherdetail-theme .km-content, #outletdetail-theme .km-content, #pl-outletdetail-theme .km-content,#modalairportlist .km-content {
     background-color: #fff;
 }
 
@@ -2684,3 +2684,22 @@ tile-frame-inner {
     font-weight: bold;
     color: #fff000;
 }
+
+#owfrom,#owto{
+color:#000;
+width:100%;
+background-color:#fff;
+height:40px;
+text-align:left;
+font-size:14px;
+padding-top:10px;
+border-radius:5px;
+}
+
+.airport-item .km-button{
+color:#283880;
+padding:auto auto auto 5px;
+width:100%;
+height:50px;
+}
+

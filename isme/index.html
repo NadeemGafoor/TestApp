@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -34,9 +33,7 @@
                     data-role="button">My Rewards</a> <a class="fa" href="views/pl-outletlist.html" data-icon="customexp" data-role="button">Explore</a>                <a class="fa" href="views/pl-discountpinmember.html" data-icon="customdis" data-role="button">Discount</a>                </div>
         </footer>
     </div>
-    <div data-role="layout" data-id="pl-main-layout-m">
-         
-    </div>
+    <div data-role="layout" data-id="pl-main-layout-m"> </div>
     <div data-role="layout" data-id="main-layout"> </div>
     <!-- application views will be rendered here -->
     <!-- application drawer and contents -->
@@ -111,16 +108,6 @@
             <div class="filler10">&nbsp;</div>
         </footer>
     </div>
-
-    <div data-role="modalview" id="modalairportlist" data-title="" style="height:100%;width:100%" data-model="preLogin" data-show="preLogin.listAirport">
-        <div data-role="header">
-            <div data-role="navbar" style="background-color:#283880"><span>Airport List</span><a data-click="closeAirportList" data-role="button" data-align="right"> <i class="fa fa-times-circle fa-lg" style="color:#fff"></i> </a></div>
-        </div>
-        <ul id="airport-list" data-bind="value:getCelebrationFilter"> </ul>
-    </div>
-
-
-
     <div data-role="modalview" id="modalsavesettings" data-title="" style="height:100%;width:100%" data-model="postLogin"
         data-show="postLogin.saveSettings"> </div>
     <div data-role="modalview" id="modalviewfilter" style="height:50%;width:90%" data-model="preLogin" data-hide="preLogin.destroymodalviewfilter">
@@ -373,6 +360,15 @@ You may opt out of receiving any marketing material from us at any time by infor
     <div data-role="modalview" id="mvwait" style="width: 100%;height:100%;">
         <div class="spin-div"> <i class="fa fa-cog fa-spin fa-3x"></i> </div>
     </div>
+    <div data-role="modalview" id="modalairportlist" data-title="" style="height:100%;width:100%" data-model="preLogin" data-show="preLogin.listAirport">
+        <div data-role="header">
+            <div data-role="navbar" style="background-color:#283880"><span>Airport List</span>
+                <a data-click="closeAirportList" data-role="button" data-align="right" style="margin-top:3px">
+                <i class="fa fa-times-circle fa-lg" style="color:#fff"></i> </a>
+            </div>
+        </div>
+        <ul id="airport-list" data-bind="value:selectAirport"> </ul>
+    </div>
     <div data-role="modalview" id="modalviewfaq" data-title="" style="height:55%;width:90%" data-model="preLogin">
         <div data-role="header">
             <div data-role="navbar" style="background-color:#253874"> <span>FAQ Filter</span> <a data-click="closeFAQView" data-role="button" data-align="right" data-animated="true">
@@ -381,6 +377,10 @@ You may opt out of receiving any marketing material from us at any time by infor
         </div>
         <ul id="FAQ-Filter" data-bind="value:getFAQFilter"> </ul>
     </div>
+    <script type="text/x-kendo-template" id="airportTemplate">
+        <div class="airport-item"> <a data-role="button" data-click="captureCity" data-id="${code}">${desc}</a> </div>
+        </hr>
+    </script>
     <script type="text/x-kendo-template" id="History-Filter-Template"> <label class="k-checkbox-label">
                 ${desc}
                 <input type="checkbox"  id="${code}"  value="${code}" data-bind="text:checkrestaurant" class="k-checkbox center-line"/>
@@ -585,7 +585,6 @@ You may opt out of receiving any marketing material from us at any time by infor
             </div>
         </a>
     </script>
-   
 </body>
 
 </html>
