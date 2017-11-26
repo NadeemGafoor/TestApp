@@ -793,8 +793,7 @@ img
 
     width: 49%;
     position: relative;
-    float: none;
-        display:block;
+    float: left;
 }
 
 .button-frame-inline-round-menu
@@ -802,14 +801,15 @@ img
 
     width: 33%;
     position: relative;
-    float: none;
+    float: left;
     color: #fff;
-    display:block;
+    text-align:center;
 }
 
 .button-frame-inline-round-menu .km-button
 {
-    padding:10px;
+    padding-top: 18px;
+    margin: auto;
     height: 60px;
     line-height: 45px;
     width: 60px;
@@ -824,7 +824,8 @@ img
 
 .button-frame-inline-round .km-button
 {
-padding:10px;
+    padding-top: 15px; 
+    margin: auto;
     height: 60px;
     width: 60px;
     line-height:45px;
