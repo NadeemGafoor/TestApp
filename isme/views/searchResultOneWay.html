@@ -18,11 +18,11 @@
 
  <script type="text/x-kendo-template " id="tmpsearchoneway">
          <div class="single-flight-outer ">
-	<div class="flight-logo " style="text-align:center;display:block "><img src="${flightlogo}" style="height:auto;width:auto "><br/><br/>${carriername}</div>
+	<div class="flight-logo"><img src="${flightlogo}"><br/><br/>${carriername}</div>
 	           <div class="flight-main-holder ">
 	                <div class="flight-lines ">
 	                    <div class="flight-sub-lines ">${departuretime}</div>
-	                    <div class="flight-sub-lines "><i class="fa fa-arrow-circle-right fa-lg " style="color:#283880 "></i></div>
+	                    <div class="flight-sub-lines "><i class="fa fa-arrow-circle-right fa-lg scolor"></i></div>
 	                    <div class="flight-sub-lines ">${arrivaltime}</div>
 	                </div>s="flight-sub-lines ">${origin}</div>
 	                    <div class="flight-sub-lines ">${numberofstops} stop ${journeytime}</div>
@@ -31,10 +31,9 @@
 	                    <div class="flight-sub-lines ">${destination}</div>
 	                </div>
 	                <div class="flight-linel ">
-	                    <div class="flight-sub-linel " style="margin-top:25px ">${totalprice}</div>
-	                    <div class="flight-sub-linel ">
-	                        <div class="button-frame-login "> <a data-role="button " href="views/searchFlightDetail.html?p=${pricekey}&l=${flightleg}&o={flightoption}
-	                " data-transition="slide " style="background-color:#283880;height:30px;width:100%;display:block;border-radius:35px;display:block;line-height:27px;font-size:14px;margin-top:30px ">Select</a></div>
+	                    <div class="flight-sub-linel">${totalprice}</div>
+	                    <div class="flight-sub-linel">
+	                        <div> <a data-role="button " href="views/searchFlightDetail.html?p=${pricekey}&l=${flightleg}&o={flightoption}" data-transition="slide"  class="button-frame-login-lv">Select</a></div>
 	                    </div>
 	                </div>
 	            </div>
