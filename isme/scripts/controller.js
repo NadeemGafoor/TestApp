@@ -1,5 +1,6 @@
 var propertygeo = [];
 var airporttype = "";
+var newsearch="";
 function SearchPage() {
    
     preLogin.listAirport();
@@ -158,6 +159,27 @@ function getLocation6() {
     document.getElementById("map_canvas2").innerHTML = "";
     mapInitializeA();
     //   }
+}
+
+function captureCity(e) {
+   
+    newsearch="1";//Dont clear origin/destination when loading the search page
+    var data = e.button.data();
+    if (airporttype=="oo"){
+       document.getElementById("owfrom").value=data.desc;
+       window.storage.setItem("origin",data.id);
+    }   else  if (airporttype=="od"){
+           document.getElementById("owto").value=data.desc;
+       window.storage.setItem("destination",data.id);
+    }
+  window.setTimeout(window.plugins.nativepagetransitions.slide({
+        "duration": 500, // in milliseconds (ms), default 400
+        "slowdownfactor": 3, // overlap views (higher number is more) or no overlap (1), default 4
+        "iosdelay": 100, // ms to wait for the iOS webview to update before animation kicks in, default 60
+        "androiddelay": 150, // same as above but for Android, default 70
+        'direction': 'slide',
+        'href': '#views/home.html'
+    }), 500);
 }
 
 
@@ -2105,6 +2127,11 @@ function completeRedemption() {
         },
         listAirport: function () {
             var sr = document.getElementById("input_search_word").value;
+
+       //     if (sr.length<3){
+       //          navigator.notification.alert("Please enter atleast 3 character for faster search", function () {
+       //             }, "SNTTA Travel", "Dismiss") 
+       //     }
                    navigator.geolocation.getCurrentPosition(function onSuccessShowMap(position) {
             lat = position.coords.latitude;
             lon = position.coords.longitude
@@ -2145,8 +2172,7 @@ function completeRedemption() {
                 window.localStorage.setItem("country", mcountry);
                 getFlag(mcountry);
             }, positionOption);
-    
-            alert(window.localStorage.getItem("country"));
+   
             showSpin();
             $.ajax({
                 type: "POST",
@@ -2156,7 +2182,7 @@ function completeRedemption() {
                 url: gurl + "/airportList.aspx",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
-                    merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"),country:window.localStorage.getItem("country"),airportkey:sr
+                    merchantcode: window.localStorage.getItem("merchant"), mdevice: window.localStorage.getItem("mdevicestat"), lat: window.localStorage.getItem("latl"), lon: window.localStorage.getItem("lonl"),country:window.localStorage.getItem("country"),search:sr
                 }),
                 success: function (data) {
                     var getData = JSON.parse(data);
@@ -2164,17 +2190,7 @@ function completeRedemption() {
                         $("#airport-list").kendoMobileListView({
 
                             dataSource: kendo.data.DataSource.create({ data: getData.airportlist }),
-                            template: $("#airportTemplate").html(),
-                            filterable: {
-                                autoFilter: true,
-                                placeholder: "Search By Airport Or City",
-                                field: "airportname",
-                                operator: "contains",
-                                serverPaging: true,
-                                serverSorting: true,
-                                pageSize: 50,
-                                endlessScroll: true
-                            }
+                            template: $("#airportTemplate").html()
                         });
                         hideSpin();
                     } else {
@@ -3287,9 +3303,10 @@ function completeRedemption() {
 
 
 
-
+  if (newsearch==""){
             window.localStorage.setItem("origin", "");
             window.localStorage.setItem("destination", "");
+        
             window.localStorage.setItem("traveldate", "");
             window.localStorage.setItem("returndate", "");
             window.localStorage.setItem("cabinclass", "");
@@ -3303,6 +3320,7 @@ function completeRedemption() {
             document.getElementById("owtraveldate").valueAsDate = new Date();//today;
             document.getElementById("rettraveldate").valueAsDate = new Date();// today;
             document.getElementById("retreturndate").valueAsDate = new Date();//today;
+  }
             hideSpin();
             return;
         },

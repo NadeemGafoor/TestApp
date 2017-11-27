@@ -369,8 +369,8 @@ You may opt out of receiving any marketing material from us at any time by infor
         <ul id="FAQ-Filter" data-bind="value:getFAQFilter"> </ul>
     </div>
     <script type="text/x-kendo-template" id="airportTemplate">
-        <div class="airport-item"> <a data-role="button" data-click="captureCity" data-id="${code}">${desc}</a> </div>
-        </hr>
+        <div class="airport-item"> <a data-role="button" data-click="captureCity" data-id="${code}" data-desc="${desc}"  style="background-color:transparent !important;border:none;-webkit-tap-highlight-color:transparent !important">${desc}</a> </div>
+        <hr/>
     </script>
     <script type="text/x-kendo-template" id="History-Filter-Template"> <label class="k-checkbox-label">
                 ${desc}
