@@ -1123,9 +1123,9 @@ function completeRedemption() {
         retreturndate: "",
         retpromotion: "",
         searchFlight: function () {
-         
+            newsearch="";         
             if ($("#journeytab").data("kendoMobileButtonGroup").current().index() == 0) {
-                //  $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
+
                 preLogin.searchFlightOneWay();
             } else {
                 preLogin.searchFlightReturn();
@@ -1191,11 +1191,10 @@ function completeRedemption() {
 
 
             //window.localStorage.setItem("origin", this.owfrom.toUpperCase());
-                alert(window.localStorage.getItem("origin"));
+             //   alert(window.localStorage.getItem("origin"));
             //window.localStorage.setItem("destination", this.owto.toUpperCase());
-            alert(window.localStorage.getItem("destination"));
             window.localStorage.setItem("traveldate", today);
-            //       alert(window.localStorage.getItem("traveldate"));
+            //      alert(window.localStorage.getItem("traveldate"));
             window.localStorage.setItem("returndate", "");
             //       alert(window.localStorage.getItem("returndate"));
             window.localStorage.setItem("cabinclass", mcabinclass);
@@ -3307,9 +3306,10 @@ function completeRedemption() {
             window.localStorage.setItem("origindes","");
             window.localStorage.setItem("destinationdes","");
   }else   if (newsearch=="1") {
-       document.getElementById("owfrom").innerHTML=window.localStorage.getItem("origindes");
-       document.getElementById("owto").innerHTML=window.localStorage.getItem("destinationdes");
-   }        
+       document.getElementById("owfrom").innerHTML=window.localStorage.getItem("origindes") != "" ? window.localStorage.getItem("origindes") : "Origin City";
+       document.getElementById("owto").innerHTML=window.localStorage.getItem("destinationdes") != "" ? window.localStorage.getItem("destinationdes") : "Destination City";
+   }
+
             window.localStorage.setItem("traveldate", "");
             window.localStorage.setItem("returndate", "");
             window.localStorage.setItem("cabinclass", "");
