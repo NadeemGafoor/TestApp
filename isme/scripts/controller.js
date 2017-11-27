@@ -162,24 +162,20 @@ function getLocation6() {
 }
 
 function captureCity(e) {
-   
-    newsearch="1";//Dont clear origin/destination when loading the search page
+ 
     var data = e.button.data();
+    
     if (airporttype=="oo"){
-       document.getElementById("owfrom").value=data.desc;
-       window.storage.setItem("origin",data.id);
-    }   else  if (airporttype=="od"){
-           document.getElementById("owto").value=data.desc;
-       window.storage.setItem("destination",data.id);
+        newsearch="1";//Dont clear origin/destination when loading the search page       
+        window.localStorage.setItem("origin",data.id);
+        window.localStorage.setItem("origindes",data.desc);
+    } else if (airporttype=="od"){
+        newsearch="1";//Dont clear origin/destination when loading the search page
+       window.localStorage.setItem("destination",data.id);
+       window.localStorage.setItem("destinationdes",data.desc);
     }
-  window.setTimeout(window.plugins.nativepagetransitions.slide({
-        "duration": 500, // in milliseconds (ms), default 400
-        "slowdownfactor": 3, // overlap views (higher number is more) or no overlap (1), default 4
-        "iosdelay": 100, // ms to wait for the iOS webview to update before animation kicks in, default 60
-        "androiddelay": 150, // same as above but for Android, default 70
-        'direction': 'slide',
-        'href': '#views/home.html'
-    }), 500);
+        $("body").data("kendoMobilePane").navigate("views/home.html");
+
 }
 
 
@@ -1127,6 +1123,7 @@ function completeRedemption() {
         retreturndate: "",
         retpromotion: "",
         searchFlight: function () {
+         
             if ($("#journeytab").data("kendoMobileButtonGroup").current().index() == 0) {
                 //  $("body").data("kendoMobilePane").navigate("views/searchResultOneWay.html");
                 preLogin.searchFlightOneWay();
@@ -1137,7 +1134,7 @@ function completeRedemption() {
         },
 
         searchFlightOneWay: function () {
-
+   
             today = new Date();
             if (window.localStorage.getItem("origin") == "") {
                 navigator.notification.alert("Please Select Origin City", function () {
@@ -1170,6 +1167,7 @@ function completeRedemption() {
                 }, "SNTTA Travel", "Dismiss");
                 return;
             }
+
             mcabinclass = document.getElementById("owcabinclass").value;
             madult = document.getElementById("owadult").value;
             mchild = document.getElementById("owchild").value;
@@ -1192,10 +1190,10 @@ function completeRedemption() {
             mdate = today;
 
 
-            window.localStorage.setItem("origin", this.owfrom.toUpperCase());
-            //     alert(window.localStorage.getItem("origin"));
-            window.localStorage.setItem("destination", this.owto.toUpperCase());
-            //      alert(window.localStorage.getItem("destination"));
+            //window.localStorage.setItem("origin", this.owfrom.toUpperCase());
+                alert(window.localStorage.getItem("origin"));
+            //window.localStorage.setItem("destination", this.owto.toUpperCase());
+            alert(window.localStorage.getItem("destination"));
             window.localStorage.setItem("traveldate", today);
             //       alert(window.localStorage.getItem("traveldate"));
             window.localStorage.setItem("returndate", "");
@@ -1208,7 +1206,7 @@ function completeRedemption() {
             //     alert(window.localStorage.getItem("child"));
             window.localStorage.setItem("infant", minfant);
             //    alert(window.localStorage.getItem("infant"));
-            window.localStorage.setItem("journeyheader", this.owfrom.toUpperCase() + "-" + this.owto.toUpperCase() + " Oneway");
+            window.localStorage.setItem("journeyheader", window.localStorage.getItem("origin") + "-" + window.localStorage.getItem("destination") + " Oneway");
             //     alert(window.localStorage.getItem("journeyheader"));
             window.localStorage.setItem("journeysubheader", Number(madult) + Number(mchild) + Number(minfant) + " <i class='fa fa-user'></i> " + window.localStorage.getItem("cabinclass") + " " + window.localStorage.getItem("traveldate"));
             //     alert(window.localStorage.getItem("journeysubheader"));
@@ -1235,7 +1233,7 @@ function completeRedemption() {
                 url: gurl + "/searchFlightA.aspx",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({
-                    merchantcode: merchant, ofrom: this.owfrom, oto: this.owto, otraveldate: mdate, owclass: mcabinclass, owadult: madult, owchild: mchild, owinfant: minfant, deviceinfo: mdevicestat
+                    merchantcode: merchant, ofrom: window.localStorage.getItem("origin"), oto: window.localStorage.getItem("destination"), otraveldate: mdate, owclass: mcabinclass, owadult: madult, owchild: mchild, owinfant: minfant, deviceinfo: mdevicestat
                 }),
                 success: function (data) {
 
@@ -3306,7 +3304,12 @@ function completeRedemption() {
   if (newsearch==""){
             window.localStorage.setItem("origin", "");
             window.localStorage.setItem("destination", "");
-        
+            window.localStorage.setItem("origindes","");
+            window.localStorage.setItem("destinationdes","");
+  }else   if (newsearch=="1") {
+       document.getElementById("owfrom").innerHTML=window.localStorage.getItem("origindes");
+       document.getElementById("owto").innerHTML=window.localStorage.getItem("destinationdes");
+   }        
             window.localStorage.setItem("traveldate", "");
             window.localStorage.setItem("returndate", "");
             window.localStorage.setItem("cabinclass", "");
@@ -3320,7 +3323,7 @@ function completeRedemption() {
             document.getElementById("owtraveldate").valueAsDate = new Date();//today;
             document.getElementById("rettraveldate").valueAsDate = new Date();// today;
             document.getElementById("retreturndate").valueAsDate = new Date();//today;
-  }
+
             hideSpin();
             return;
         },
